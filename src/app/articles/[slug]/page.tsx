@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .select('title, excerpt, meta_title, meta_description, featured_image')
     .eq('slug', slug)
     .eq('status', 'published')
-    .single();
+    .maybeSingle();
 
   if (!article) {
     return { title: 'Article Not Found' };
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: article.meta_title || article.title,
-    description: article.meta_description || article.excerpt,
+    description: article.meta_description || article.excerpt || '',
     openGraph: {
       title: article.meta_title || article.title,
       description: article.meta_description || article.excerpt || '',
@@ -66,7 +66,7 @@ export default async function ArticlePage({ params }: Props) {
     )
     .eq('slug', slug)
     .eq('status', 'published')
-    .single();
+    .maybeSingle();
 
   if (!article) {
     notFound();
