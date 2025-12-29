@@ -285,6 +285,8 @@ export default async function ArticlePage({ params }: Props) {
               <span>{article.reading_time} min read</span>
             </>
           )}
+          <span>•</span>
+          <span>By Robin Roy Krigslund-Hansen</span>
         </div>
       </header>
 

@@ -107,6 +107,11 @@ export default function AboutPage() {
               <p className="mt-4 text-gray-700">
                 Robin's work with CBD Knowledge Base reflects his belief that consumers deserve accurate, unbiased information about CBD—free from commercial interests and grounded in the best available scientific evidence.
               </p>
+              <div className="mt-4 rounded-lg border border-gray-200 bg-gray-50 p-4">
+                <p className="text-sm text-gray-700">
+                  <strong>Note:</strong> The opinions expressed in articles on this site are Robin's own and do not represent the views of Formula Swiss AG.
+                </p>
+              </div>
             </div>
           </section>
 
