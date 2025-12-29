@@ -29,17 +29,22 @@ export function LanguageSelector({ currentSlug }: { currentSlug?: string }) {
     setCurrentLanguage(getLanguage(hostname));
 
     const fetchLanguages = async () => {
-      const supabase = createClient();
-      const { data } = await supabase
-        .from('kb_languages')
-        .select('*')
-        .eq('is_active', true)
-        .order('display_order');
+      // TODO: Uncomment after kb_languages table is created
+      // const supabase = createClient();
+      // const { data } = await supabase
+      //   .from('kb_languages')
+      //   .select('*')
+      //   .eq('is_active', true)
+      //   .order('display_order');
 
-      if (data) {
-        setLanguages(data.filter((l: Language) => !l.is_swiss_variant));
-        setSwissLanguages(data.filter((l: Language) => l.is_swiss_variant));
-      }
+      // if (data) {
+      //   setLanguages(data.filter((l: Language) => !l.is_swiss_variant));
+      //   setSwissLanguages(data.filter((l: Language) => l.is_swiss_variant));
+      // }
+
+      // Temporarily set empty arrays until migration is run
+      setLanguages([]);
+      setSwissLanguages([]);
     };
 
     fetchLanguages();
