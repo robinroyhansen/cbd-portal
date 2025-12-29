@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .article-content {
+    @apply prose prose-lg prose-green max-w-none;
+  }
+  
+  .article-content h2 {
+    @apply mt-12 mb-4 text-2xl font-bold text-gray-900;
+  }
+  
+  .article-content h3 {
+    @apply mt-8 mb-3 text-xl font-semibold text-gray-800;
+  }
+  
+  .article-content p {
+    @apply mb-4 leading-relaxed text-gray-700;
+  }
+  
+  .article-content ul, .article-content ol {
+    @apply my-4 pl-6;
+  }
+  
+  .article-content blockquote {
+    @apply border-l-4 border-primary-500 pl-4 italic text-gray-600;
+  }
+  
+  .article-content a {
+    @apply text-primary-600 underline hover:text-primary-800;
+  }
+  
+  .citation {
+    @apply text-sm text-gray-500 bg-gray-50 p-4 rounded-lg border-l-4 border-primary-300;
+  }
+}
