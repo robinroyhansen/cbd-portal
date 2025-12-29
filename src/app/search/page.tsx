@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 // Static article data for search functionality
@@ -87,7 +87,7 @@ const ARTICLES = [
   },
 ];
 
-export default function SearchPage() {
+function SearchContent() {
   const [filteredArticles, setFilteredArticles] = useState(ARTICLES);
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
@@ -212,5 +212,19 @@ export default function SearchPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="flex justify-center py-12">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+        </div>
+      </div>
+    }>
+      <SearchContent />
+    </Suspense>
   );
 }
