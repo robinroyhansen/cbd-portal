@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Inter, Merriweather } from 'next/font/google';
 import './globals.css';
 import Search from './components/Search';
+import { Logo } from '@/components/Logo';
+import { LanguageSelectorWrapper } from '@/components/LanguageSelectorWrapper';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -69,12 +71,10 @@ export default function RootLayout({
       <body className="min-h-screen bg-white font-sans text-gray-900">
         <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
           <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-            <a href="/" className="flex items-center gap-2">
+            <div className="flex items-center gap-2">
               <span className="text-2xl">🌿</span>
-              <span className="text-xl font-bold text-gray-900">
-                CBD Knowledge Base
-              </span>
-            </a>
+              <Logo />
+            </div>
             <div className="flex items-center gap-6">
               <a
                 href="/articles"
@@ -140,9 +140,12 @@ export default function RootLayout({
                 </p>
               </div>
             </div>
-            <div className="mt-8 border-t border-gray-200 pt-8 text-center text-sm text-gray-500">
-              © {new Date().getFullYear()} CBD Knowledge Base. All rights
-              reserved.
+            <div className="mt-8 border-t border-gray-200 pt-8">
+              <LanguageSelectorWrapper />
+              <div className="mt-6 text-center text-sm text-gray-500">
+                © {new Date().getFullYear()} CBD Knowledge Base. All rights
+                reserved.
+              </div>
             </div>
           </div>
         </footer>

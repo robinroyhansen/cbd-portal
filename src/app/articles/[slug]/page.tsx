@@ -1,4 +1,3 @@
-import { createClient } from '@/lib/supabase/server';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -6,9 +5,9 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
-import type { Database } from '@/lib/database.types';
-
-type Article = Database['public']['Tables']['kb_articles']['Row'];
+import { headers } from 'next/headers';
+import { getArticleBySlug, getRelatedArticles } from '@/lib/articles';
+import { getLanguageFromHostname } from '@/lib/language';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -16,16 +15,13 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const supabase = await createClient();
 
-  const { data } = await supabase
-    .from('kb_articles')
-    .select('title, excerpt, meta_title, meta_description, featured_image')
-    .eq('slug', slug)
-    .eq('status', 'published')
-    .maybeSingle();
+  // Get hostname from headers to detect language
+  const headersList = headers();
+  const host = headersList.get('host') || 'localhost';
+  const language = getLanguageFromHostname(host);
 
-  const article = data as Pick<Article, 'title' | 'excerpt' | 'meta_title' | 'meta_description' | 'featured_image'> | null;
+  const { data: article } = await getArticleBySlug(slug, language);
 
   if (!article) {
     return { title: 'Article Not Found' };
@@ -34,16 +30,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const baseUrl = 'https://cbd-portal.vercel.app';
 
   return {
-    title: article.meta_title || article.title,
-    description: article.meta_description || article.excerpt || '',
+    title: (article as any).meta_title || (article as any).title,
+    description: (article as any).meta_description || (article as any).excerpt || '',
     alternates: {
       canonical: `${baseUrl}/articles/${slug}`,
     },
     openGraph: {
-      title: article.meta_title || article.title,
-      description: article.meta_description || article.excerpt || '',
+      title: (article as any).meta_title || (article as any).title,
+      description: (article as any).meta_description || (article as any).excerpt || '',
       type: 'article',
-      images: article.featured_image ? [article.featured_image] : [],
+      images: (article as any).featured_image ? [(article as any).featured_image] : [],
       url: `${baseUrl}/articles/${slug}`,
     },
   };
@@ -87,42 +83,23 @@ function extractFAQs(content: string): Array<{ question: string; answer: string 
 
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
-  const supabase = await createClient();
 
-  const { data } = await supabase
-    .from('kb_articles')
-    .select(
-      `
-      *,
-      category:kb_categories(name, slug),
-      citations:kb_citations(*)
-    `
-    )
-    .eq('slug', slug)
-    .eq('status', 'published')
-    .maybeSingle();
+  // Get hostname from headers to detect language
+  const headersList = headers();
+  const host = headersList.get('host') || 'localhost';
+  const language = getLanguageFromHostname(host);
 
-  const article = data as (Article & {
-    category: { name: string; slug: string } | null;
-    citations: any[];
-  }) | null;
+  const { data } = await getArticleBySlug(slug, language);
+  const article = data as any;
 
   if (!article) {
     notFound();
   }
 
   // Get related articles from same category
-  const { data: relatedData } = article.category_id
-    ? await supabase
-        .from('kb_articles')
-        .select('id, title, slug, excerpt')
-        .eq('status', 'published')
-        .eq('category_id', article.category_id)
-        .neq('id', article.id)
-        .limit(3)
+  const { data: relatedArticles } = article.category_id
+    ? await getRelatedArticles(article.category_id, article.slug, language, 3)
     : { data: null };
-
-  const relatedArticles = relatedData as Pick<Article, 'id' | 'title' | 'slug' | 'excerpt'>[] | null;
 
   // Extract FAQs from content
   const faqs = extractFAQs(article.content);
@@ -396,7 +373,7 @@ export default async function ArticlePage({ params }: Props) {
             Related Articles
           </h2>
           <div className="grid gap-6 sm:grid-cols-3">
-            {relatedArticles.map((related) => (
+            {relatedArticles.map((related: any) => (
               <Link
                 key={related.id}
                 href={`/articles/${related.slug}`}

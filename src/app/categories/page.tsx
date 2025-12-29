@@ -1,9 +1,8 @@
-import { createClient } from '@/lib/supabase/server';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import type { Database } from '@/lib/database.types';
-
-type Category = Database['public']['Tables']['kb_categories']['Row'];
+import { headers } from 'next/headers';
+import { getCategories } from '@/lib/articles';
+import { getLanguageFromHostname } from '@/lib/language';
 
 export const metadata: Metadata = {
   title: 'Browse Topics',
@@ -15,15 +14,12 @@ export const metadata: Metadata = {
 };
 
 export default async function CategoriesPage() {
-  const supabase = await createClient();
+  // Get hostname from headers to detect language
+  const headersList = headers();
+  const host = headersList.get('host') || 'localhost';
+  const language = getLanguageFromHostname(host);
 
-  const { data: categoriesData } = await supabase
-    .from('kb_categories')
-    .select('id, name, slug, description, article_count')
-    .gt('article_count', 0)
-    .order('name');
-
-  const categories = categoriesData as Pick<Category, 'id' | 'name' | 'slug' | 'description' | 'article_count'>[] | null;
+  const { data: categories } = await getCategories(language);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -47,7 +43,7 @@ export default async function CategoriesPage() {
 
       {categories && categories.length > 0 ? (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((category) => (
+          {categories.map((category: any) => (
             <Link
               key={category.id}
               href={`/categories/${category.slug}`}

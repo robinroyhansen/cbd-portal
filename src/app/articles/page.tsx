@@ -1,10 +1,9 @@
-import { createClient } from '@/lib/supabase/server';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import type { Database } from '@/lib/database.types';
+import { headers } from 'next/headers';
+import { getArticles, getCategories } from '@/lib/articles';
+import { getLanguageFromHostname } from '@/lib/language';
 
-type Article = Database['public']['Tables']['kb_articles']['Row'];
-type Category = Database['public']['Tables']['kb_categories']['Row'];
 
 export const metadata: Metadata = {
   title: 'All Articles',
@@ -13,36 +12,14 @@ export const metadata: Metadata = {
 };
 
 export default async function ArticlesPage() {
-  const supabase = await createClient();
+  // Get hostname from headers to detect language
+  const headersList = headers();
+  const host = headersList.get('host') || 'localhost';
+  const language = getLanguageFromHostname(host);
 
-  const { data: articlesData } = await supabase
-    .from('kb_articles')
-    .select(
-      `
-      id,
-      title,
-      slug,
-      excerpt,
-      published_at,
-      reading_time,
-      featured_image,
-      category:kb_categories(name, slug)
-    `
-    )
-    .eq('status', 'published')
-    .order('published_at', { ascending: false });
-
-  const articles = articlesData as (Pick<Article, 'id' | 'title' | 'slug' | 'excerpt' | 'published_at' | 'reading_time' | 'featured_image'> & {
-    category: { name: string; slug: string } | null;
-  })[] | null;
-
-  const { data: categoriesData } = await supabase
-    .from('kb_categories')
-    .select('id, name, slug, article_count')
-    .gt('article_count', 0)
-    .order('name');
-
-  const categories = categoriesData as Pick<Category, 'id' | 'name' | 'slug' | 'article_count'>[] | null;
+  // Fetch articles and categories for the detected language
+  const { data: articles } = await getArticles(language);
+  const { data: categories } = await getCategories(language);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -69,7 +46,7 @@ export default async function ArticlesPage() {
               >
                 All Articles
               </Link>
-              {categories?.map((category) => (
+              {categories?.map((category: any) => (
                 <Link
                   key={category.id}
                   href={`/categories/${category.slug}`}
@@ -89,7 +66,7 @@ export default async function ArticlesPage() {
         <main className="lg:col-span-3">
           {articles && articles.length > 0 ? (
             <div className="grid gap-8 sm:grid-cols-2">
-              {articles.map((article) => (
+              {articles.map((article: any) => (
                 <article
                   key={article.id}
                   className="group overflow-hidden rounded-lg border border-gray-200 bg-white transition hover:border-primary-300 hover:shadow-md"
