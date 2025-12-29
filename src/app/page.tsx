@@ -1,10 +1,14 @@
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
+import type { Database } from '@/lib/database.types';
+
+type Article = Database['public']['Tables']['kb_articles']['Row'];
+type Category = Database['public']['Tables']['kb_categories']['Row'];
 
 export default async function HomePage() {
   const supabase = await createClient();
 
-  const { data: featuredArticles } = await supabase
+  const { data: featuredData } = await supabase
     .from('kb_articles')
     .select('id, title, slug, excerpt, published_at, reading_time, category:kb_categories(name, slug)')
     .eq('status', 'published')
@@ -12,18 +16,28 @@ export default async function HomePage() {
     .order('published_at', { ascending: false })
     .limit(3);
 
-  const { data: latestArticles } = await supabase
+  const featuredArticles = featuredData as (Pick<Article, 'id' | 'title' | 'slug' | 'excerpt' | 'published_at' | 'reading_time'> & {
+    category: { name: string; slug: string } | null;
+  })[] | null;
+
+  const { data: latestData } = await supabase
     .from('kb_articles')
     .select('id, title, slug, excerpt, published_at, reading_time, category:kb_categories(name, slug)')
     .eq('status', 'published')
     .order('published_at', { ascending: false })
     .limit(6);
 
-  const { data: categories } = await supabase
+  const latestArticles = latestData as (Pick<Article, 'id' | 'title' | 'slug' | 'excerpt' | 'published_at' | 'reading_time'> & {
+    category: { name: string; slug: string } | null;
+  })[] | null;
+
+  const { data: categoriesData } = await supabase
     .from('kb_categories')
     .select('id, name, slug, description, article_count')
     .order('article_count', { ascending: false })
     .limit(6);
+
+  const categories = categoriesData as Pick<Category, 'id' | 'name' | 'slug' | 'description' | 'article_count'>[] | null;
 
   return (
     <div>

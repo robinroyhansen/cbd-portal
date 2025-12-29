@@ -43,20 +43,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export async function generateStaticParams() {
-  const supabase = await createClient();
-
-  const { data } = await supabase
-    .from('kb_articles')
-    .select('slug')
-    .eq('status', 'published');
-
-  const articles = data as Pick<Article, 'slug'>[] | null;
-
-  return (articles || []).map((article) => ({
-    slug: article.slug,
-  }));
-}
+// Disabled static generation for now to avoid cookie issues at build time
+// export async function generateStaticParams() {
+//   const supabase = await createClient();
+//
+//   const { data } = await supabase
+//     .from('kb_articles')
+//     .select('slug')
+//     .eq('status', 'published');
+//
+//   const articles = data as Pick<Article, 'slug'>[] | null;
+//
+//   return (articles || []).map((article) => ({
+//     slug: article.slug,
+//   }));
+// }
 
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
@@ -85,13 +86,17 @@ export default async function ArticlePage({ params }: Props) {
   }
 
   // Get related articles from same category
-  const { data: relatedArticles } = await supabase
-    .from('kb_articles')
-    .select('id, title, slug, excerpt')
-    .eq('status', 'published')
-    .eq('category_id', article.category_id)
-    .neq('id', article.id)
-    .limit(3);
+  const { data: relatedData } = article.category_id
+    ? await supabase
+        .from('kb_articles')
+        .select('id, title, slug, excerpt')
+        .eq('status', 'published')
+        .eq('category_id', article.category_id)
+        .neq('id', article.id)
+        .limit(3)
+    : { data: null };
+
+  const relatedArticles = relatedData as Pick<Article, 'id' | 'title' | 'slug' | 'excerpt'>[] | null;
 
   return (
     <article className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
