@@ -6,6 +6,9 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
+import type { Database } from '@/lib/database.types';
+
+type Article = Database['public']['Tables']['kb_articles']['Row'];
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -15,12 +18,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const supabase = await createClient();
 
-  const { data: article } = await supabase
+  const { data } = await supabase
     .from('kb_articles')
     .select('title, excerpt, meta_title, meta_description, featured_image')
     .eq('slug', slug)
     .eq('status', 'published')
     .maybeSingle();
+
+  const article = data as Pick<Article, 'title' | 'excerpt' | 'meta_title' | 'meta_description' | 'featured_image'> | null;
 
   if (!article) {
     return { title: 'Article Not Found' };
@@ -55,7 +60,7 @@ export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
   const supabase = await createClient();
 
-  const { data: article } = await supabase
+  const { data } = await supabase
     .from('kb_articles')
     .select(
       `
@@ -67,6 +72,11 @@ export default async function ArticlePage({ params }: Props) {
     .eq('slug', slug)
     .eq('status', 'published')
     .maybeSingle();
+
+  const article = data as (Article & {
+    category: { name: string; slug: string } | null;
+    citations: any[];
+  }) | null;
 
   if (!article) {
     notFound();
