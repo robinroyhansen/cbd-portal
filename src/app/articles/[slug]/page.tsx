@@ -46,10 +46,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export async function generateStaticParams() {
   const supabase = await createClient();
 
-  const { data: articles } = await supabase
+  const { data } = await supabase
     .from('kb_articles')
     .select('slug')
     .eq('status', 'published');
+
+  const articles = data as Pick<Article, 'slug'>[] | null;
 
   return (articles || []).map((article) => ({
     slug: article.slug,

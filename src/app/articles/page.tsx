@@ -1,6 +1,10 @@
 import { createClient } from '@/lib/supabase/server';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import type { Database } from '@/lib/database.types';
+
+type Article = Database['public']['Tables']['kb_articles']['Row'];
+type Category = Database['public']['Tables']['kb_categories']['Row'];
 
 export const metadata: Metadata = {
   title: 'All Articles',
@@ -11,7 +15,7 @@ export const metadata: Metadata = {
 export default async function ArticlesPage() {
   const supabase = await createClient();
 
-  const { data: articles } = await supabase
+  const { data: articlesData } = await supabase
     .from('kb_articles')
     .select(
       `
@@ -28,11 +32,17 @@ export default async function ArticlesPage() {
     .eq('status', 'published')
     .order('published_at', { ascending: false });
 
-  const { data: categories } = await supabase
+  const articles = articlesData as (Pick<Article, 'id' | 'title' | 'slug' | 'excerpt' | 'published_at' | 'reading_time' | 'featured_image'> & {
+    category: { name: string; slug: string } | null;
+  })[] | null;
+
+  const { data: categoriesData } = await supabase
     .from('kb_categories')
     .select('id, name, slug, article_count')
     .gt('article_count', 0)
     .order('name');
+
+  const categories = categoriesData as Pick<Category, 'id' | 'name' | 'slug' | 'article_count'>[] | null;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
