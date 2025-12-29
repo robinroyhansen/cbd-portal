@@ -31,16 +31,42 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: 'Article Not Found' };
   }
 
+  const baseUrl = 'https://cbd-portal.vercel.app';
+
   return {
     title: article.meta_title || article.title,
     description: article.meta_description || article.excerpt || '',
+    alternates: {
+      canonical: `${baseUrl}/articles/${slug}`,
+    },
     openGraph: {
       title: article.meta_title || article.title,
       description: article.meta_description || article.excerpt || '',
       type: 'article',
       images: article.featured_image ? [article.featured_image] : [],
+      url: `${baseUrl}/articles/${slug}`,
     },
   };
+}
+
+// Helper function to extract FAQ from article content
+function extractFAQs(content: string): Array<{ question: string; answer: string }> | null {
+  const faqMatch = content.match(/## Frequently Asked Questions\n\n([\s\S]*?)(?=\n---|\n\*Written by|$)/);
+  if (!faqMatch) return null;
+
+  const faqSection = faqMatch[1];
+  const faqRegex = /### (.+?)\?\n(.+?)(?=\n###|\n\n###|$)/gs;
+  const faqs: Array<{ question: string; answer: string }> = [];
+
+  let match;
+  while ((match = faqRegex.exec(faqSection)) !== null) {
+    faqs.push({
+      question: match[1].trim() + '?',
+      answer: match[2].trim().replace(/\n/g, ' '),
+    });
+  }
+
+  return faqs.length > 0 ? faqs : null;
 }
 
 // Disabled static generation for now to avoid cookie issues at build time
@@ -98,10 +124,115 @@ export default async function ArticlePage({ params }: Props) {
 
   const relatedArticles = relatedData as Pick<Article, 'id' | 'title' | 'slug' | 'excerpt'>[] | null;
 
+  // Extract FAQs from content
+  const faqs = extractFAQs(article.content);
+
+  // Base URL for schemas
+  const baseUrl = 'https://cbd-portal.vercel.app';
+
+  // Article Schema
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.excerpt || article.meta_description,
+    image: article.featured_image || `${baseUrl}/og-image.png`,
+    datePublished: article.published_at,
+    dateModified: article.updated_at,
+    author: {
+      '@type': 'Person',
+      name: 'Robin Roy Krigslund-Hansen',
+      description: 'CEO & Co-founder of Formula Swiss, working with CBD and cannabis since 2013',
+      url: `${baseUrl}/about`,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'CBD Knowledge Base',
+      url: baseUrl,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}/logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${baseUrl}/articles/${slug}`,
+    },
+    articleBody: article.content,
+    medicalAudience: {
+      '@type': 'MedicalAudience',
+      audienceType: 'Patient',
+    },
+    disclaimer: 'This article is for informational purposes only and does not constitute medical advice. Always consult with a qualified healthcare professional before starting any new supplement regimen, especially if you have existing health conditions or take medications.',
+  };
+
+  // FAQ Schema (if FAQs exist)
+  const faqSchema = faqs ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  } : null;
+
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: baseUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Articles',
+        item: `${baseUrl}/articles`,
+      },
+      ...(article.category ? [{
+        '@type': 'ListItem',
+        position: 3,
+        name: article.category.name,
+        item: `${baseUrl}/categories/${article.category.slug}`,
+      }] : []),
+      {
+        '@type': 'ListItem',
+        position: article.category ? 4 : 3,
+        name: article.title,
+        item: `${baseUrl}/articles/${slug}`,
+      },
+    ],
+  };
+
   return (
-    <article className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-      {/* Breadcrumb */}
-      <nav className="mb-8 text-sm text-gray-500">
+    <>
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
+      <article className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+        {/* Breadcrumb */}
+        <nav className="mb-8 text-sm text-gray-500">
         <Link href="/" className="hover:text-primary-600">
           Home
         </Link>
@@ -261,6 +392,7 @@ export default async function ArticlePage({ params }: Props) {
           </div>
         </section>
       )}
-    </article>
+      </article>
+    </>
   );
 }
