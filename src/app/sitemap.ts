@@ -6,17 +6,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const supabase = await createClient();
 
   // Fetch all published articles
-  const { data: articles } = await supabase
+  const { data } = await supabase
     .from('kb_articles')
     .select('slug, updated_at, published_at')
     .eq('status', 'published')
     .order('published_at', { ascending: false });
 
+  const articles = data as Array<{ slug: string; updated_at: string | null; published_at: string | null }> | null;
+
   // Fetch all categories
-  const { data: categories } = await supabase
+  const { data: categoriesData } = await supabase
     .from('kb_categories')
     .select('slug')
     .gt('article_count', 0);
+
+  const categories = categoriesData as Array<{ slug: string }> | null;
 
   // Static pages
   const staticPages = [
