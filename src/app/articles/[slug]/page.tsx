@@ -357,6 +357,27 @@ export default async function ArticlePage({ params }: Props) {
         </section>
       )}
 
+      {/* Author Box */}
+      <aside className="mt-12 rounded-lg border border-gray-200 bg-gray-50 p-6">
+        <div className="flex items-start gap-4">
+          <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-2xl font-bold text-primary-700">
+            RK
+          </div>
+          <div className="flex-1">
+            <h3 className="text-lg font-semibold text-gray-900">Robin Roy Krigslund-Hansen</h3>
+            <p className="mt-2 text-sm leading-relaxed text-gray-700">
+              Robin Roy Krigslund-Hansen has worked in the CBD and cannabis industry since 2013.
+              Based in Switzerland, he focuses on translating clinical research into accessible
+              information for consumers. His approach prioritises peer-reviewed evidence and
+              regulatory developments across European markets.
+            </p>
+            <p className="mt-3 text-xs italic text-gray-600">
+              The opinions expressed in this article are his own and do not represent the views of Formula Swiss AG.
+            </p>
+          </div>
+        </div>
+      </aside>
+
       {/* Disclaimer */}
       <aside className="mt-12 rounded-lg border border-amber-200 bg-amber-50 p-6">
         <h3 className="font-semibold text-amber-800">Medical Disclaimer</h3>
