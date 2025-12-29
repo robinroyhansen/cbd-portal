@@ -88,10 +88,10 @@ export default function RootLayout({
                 Topics
               </a>
               <a
-                href="/research"
+                href="/about"
                 className="text-gray-600 hover:text-primary-600"
               >
-                Research
+                About
               </a>
             </div>
           </nav>
