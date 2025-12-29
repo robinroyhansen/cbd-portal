@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Merriweather } from 'next/font/google';
 import './globals.css';
+import Search from './components/Search';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -93,6 +94,7 @@ export default function RootLayout({
               >
                 About
               </a>
+              <Search />
             </div>
           </nav>
         </header>
