@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 interface ResearchItem {
   id: string;
@@ -26,6 +27,7 @@ export default function AdminResearchPage() {
   const [scanning, setScanning] = useState(false);
   const [scanResult, setScanResult] = useState<any>(null);
   const [lastError, setLastError] = useState<string | null>(null);
+  const [includeExtended, setIncludeExtended] = useState(false);
 
   const triggerManualScan = async () => {
     setScanning(true);
@@ -39,7 +41,10 @@ export default function AdminResearchPage() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
+        body: JSON.stringify({
+          includeExtendedSources: includeExtended
+        })
       });
 
       console.log('📡 Response status:', response.status);
@@ -65,27 +70,68 @@ export default function AdminResearchPage() {
   return (
     <div className="p-8">
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Research Scanner Debug</h1>
-        <button
-          onClick={triggerManualScan}
-          disabled={scanning}
-          className={`px-6 py-3 rounded-lg transition-colors flex items-center gap-2 text-lg ${
-            scanning
-              ? 'bg-gray-400 text-white cursor-not-allowed'
-              : 'bg-blue-600 text-white hover:bg-blue-700'
-          }`}
-        >
-          {scanning ? (
-            <>
-              <div className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></div>
-              Scanning...
-            </>
-          ) : (
-            <>
-              🔍 Start Manual Scan
-            </>
-          )}
-        </button>
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900">Research Scanner</h1>
+          <p className="text-gray-600 mt-2">Discover new research from authoritative sources</p>
+        </div>
+        <div className="flex items-center gap-4">
+          <Link
+            href="/admin/research/queue"
+            className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+          >
+            📚 View Research Queue
+          </Link>
+          <button
+            onClick={triggerManualScan}
+            disabled={scanning}
+            className={`px-6 py-3 rounded-lg transition-colors flex items-center gap-2 text-lg ${
+              scanning
+                ? 'bg-gray-400 text-white cursor-not-allowed'
+                : 'bg-blue-600 text-white hover:bg-blue-700'
+            }`}
+          >
+            {scanning ? (
+              <>
+                <div className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></div>
+                Scanning...
+              </>
+            ) : (
+              <>
+                🔍 Start Manual Scan
+              </>
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Scan Options */}
+      <div className="mb-6 p-4 bg-gray-50 rounded-lg">
+        <h3 className="text-lg font-semibold text-gray-900 mb-3">Scan Options</h3>
+        <div className="flex items-center gap-6">
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={includeExtended}
+              onChange={(e) => setIncludeExtended(e.target.checked)}
+              disabled={scanning}
+              className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+            />
+            <span className="text-sm font-medium text-gray-700">
+              Include Extended Sources
+            </span>
+          </label>
+          <div className="text-sm text-gray-500">
+            {includeExtended ? (
+              <span className="text-blue-600">
+                ✓ Cochrane, JAMA, Nature, ScienceDirect, BMJ, Springer
+              </span>
+            ) : (
+              <span>
+                Standard: PubMed, ClinicalTrials.gov, PMC
+              </span>
+            )}
+          </div>
+        </div>
       </div>
 
       {/* Scan Results */}

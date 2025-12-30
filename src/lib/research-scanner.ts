@@ -360,7 +360,7 @@ export function calculateRelevance(study: ResearchItem): { score: number; topics
   return { score: Math.max(0, score), topics: [...new Set(topics)] };
 }
 
-export async function runDailyResearchScan() {
+export async function runDailyResearchScan(includeExtendedSources = false) {
   console.log('🔍 Starting daily research scan...');
 
   // Verify environment variables
@@ -405,7 +405,30 @@ export async function runDailyResearchScan() {
 
   console.log(`📊 Results: PubMed: ${pubmed.length}, ClinicalTrials: ${clinical.length}, PMC: ${pmc.length}`);
 
-  const allResults = [...pubmed, ...clinical, ...pmc];
+  let allResults = [...pubmed, ...clinical, ...pmc];
+
+  // Extended sources (optional for more comprehensive scans)
+  if (includeExtendedSources) {
+    try {
+      console.log('🌐 Scanning extended authoritative sources...');
+      const { scanExtendedSources } = await import('./research-scanner-extended');
+      const extendedResults = await scanExtendedSources();
+
+      const allExtended = [
+        ...extendedResults.cochrane,
+        ...extendedResults.jama,
+        ...extendedResults.nature,
+        ...extendedResults.scienceDirect,
+        ...extendedResults.bmj,
+        ...extendedResults.springer
+      ];
+
+      console.log(`📊 Extended Results: ${allExtended.length} papers from premium sources`);
+      allResults = [...allResults, ...allExtended];
+    } catch (error) {
+      console.error('❌ Extended sources scan failed:', error);
+    }
+  }
 
   // Deduplicate by URL
   const uniqueResults = allResults.filter((item, index, self) =>

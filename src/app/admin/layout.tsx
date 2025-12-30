@@ -8,7 +8,8 @@ const navItems = [
   { name: 'Articles', href: '/admin/articles', icon: '📝' },
   { name: 'Categories', href: '/admin/categories', icon: '🏷️' },
   { name: 'Citations', href: '/admin/citations', icon: '📚' },
-  { name: 'Research', href: '/admin/research', icon: '🔬' },
+  { name: 'Research Queue', href: '/admin/research/queue', icon: '🔬' },
+  { name: 'Scanner', href: '/admin/research', icon: '🔍' },
   { name: 'Media Library', href: '/admin/media', icon: '🖼️' },
   { name: 'Languages', href: '/admin/languages', icon: '🌍' },
 ];

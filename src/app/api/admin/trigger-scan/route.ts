@@ -26,8 +26,14 @@ export async function POST(request: Request) {
     console.log('✅ Environment variables verified');
     console.log('🔍 Starting research scan...');
 
+    // Check if extended sources should be included
+    const body = await request.json().catch(() => ({}));
+    const includeExtended = body?.includeExtendedSources === true;
+
+    console.log(`🔍 Starting research scan (extended: ${includeExtended})...`);
+
     const startTime = Date.now();
-    const result = await runDailyResearchScan();
+    const result = await runDailyResearchScan(includeExtended);
     const duration = ((Date.now() - startTime) / 1000).toFixed(2);
 
     console.log(`⏱️ Manual scan completed in ${duration}s`);
