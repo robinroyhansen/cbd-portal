@@ -1,9 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { createClient } from '@/lib/supabase/client';
-import { getLanguage, setLanguagePreference, isSwissDomain } from '@/lib/language';
 
 interface Language {
   code: string;
@@ -12,104 +9,110 @@ interface Language {
   domain: string;
   flag_emoji: string;
   is_swiss_variant: boolean;
-  is_active: boolean;
 }
 
 export function LanguageSelector({ currentSlug }: { currentSlug?: string }) {
-  const [languages, setLanguages] = useState<Language[]>([]);
-  const [swissLanguages, setSwissLanguages] = useState<Language[]>([]);
   const [currentDomain, setCurrentDomain] = useState('');
-  const [currentLanguage, setCurrentLanguage] = useState('en');
+  const [currentSwissLang, setCurrentSwissLang] = useState('de-CH');
   const [isSwiss, setIsSwiss] = useState(false);
 
   useEffect(() => {
     const hostname = window.location.hostname;
     setCurrentDomain(hostname);
-    setIsSwiss(isSwissDomain(hostname));
-    setCurrentLanguage(getLanguage(hostname));
+    setIsSwiss(hostname === 'cbdportal.ch');
 
-    const fetchLanguages = async () => {
-      // TODO: Uncomment after kb_languages table is created
-      // const supabase = createClient();
-      // const { data } = await supabase
-      //   .from('kb_languages')
-      //   .select('*')
-      //   .eq('is_active', true)
-      //   .order('display_order');
-
-      // if (data) {
-      //   setLanguages(data.filter((l: Language) => !l.is_swiss_variant));
-      //   setSwissLanguages(data.filter((l: Language) => l.is_swiss_variant));
-      // }
-
-      // Temporarily set empty arrays until migration is run
-      setLanguages([]);
-      setSwissLanguages([]);
-    };
-
-    fetchLanguages();
+    // Get saved Swiss language preference
+    const savedLang = localStorage.getItem('cbd-swiss-language');
+    if (savedLang) setCurrentSwissLang(savedLang);
   }, []);
 
-  const buildUrl = (domain: string) => {
+  // Hardcoded language list for all domains
+  const languages: Language[] = [
+    { code: 'en-GB', name: 'English', native_name: 'English', domain: 'swissorganic.co.uk', flag_emoji: '🇬🇧', is_swiss_variant: false },
+    { code: 'da', name: 'Danish', native_name: 'Dansk', domain: 'cbd.dk', flag_emoji: '🇩🇰', is_swiss_variant: false },
+    { code: 'sv', name: 'Swedish', native_name: 'Svenska', domain: 'cbd.se', flag_emoji: '🇸🇪', is_swiss_variant: false },
+    { code: 'no', name: 'Norwegian', native_name: 'Norsk', domain: 'cbd.no', flag_emoji: '🇳🇴', is_swiss_variant: false },
+    { code: 'fi', name: 'Finnish', native_name: 'Suomi', domain: 'cbd.fi', flag_emoji: '🇫🇮', is_swiss_variant: false },
+    { code: 'de', name: 'German', native_name: 'Deutsch', domain: 'cbd.de', flag_emoji: '🇩🇪', is_swiss_variant: false },
+    { code: 'it', name: 'Italian', native_name: 'Italiano', domain: 'cbd.it', flag_emoji: '🇮🇹', is_swiss_variant: false },
+    { code: 'pt', name: 'Portuguese', native_name: 'Português', domain: 'cbd.pt', flag_emoji: '🇵🇹', is_swiss_variant: false },
+    { code: 'nl', name: 'Dutch', native_name: 'Nederlands', domain: 'cbdportaal.nl', flag_emoji: '🇳🇱', is_swiss_variant: false },
+    { code: 'fr', name: 'French', native_name: 'Français', domain: 'cbdportail.fr', flag_emoji: '🇫🇷', is_swiss_variant: false },
+    { code: 'ro', name: 'Romanian', native_name: 'Română', domain: 'cbdportal.ro', flag_emoji: '🇷🇴', is_swiss_variant: false },
+    { code: 'es', name: 'Spanish', native_name: 'Español', domain: 'cbdportal.es', flag_emoji: '🇪🇸', is_swiss_variant: false }
+  ];
+
+  const swissLanguages: Language[] = [
+    { code: 'de-CH', name: 'Swiss German', native_name: 'Deutsch', domain: 'cbdportal.ch', flag_emoji: '', is_swiss_variant: true },
+    { code: 'fr-CH', name: 'Swiss French', native_name: 'Français', domain: 'cbdportal.ch', flag_emoji: '', is_swiss_variant: true },
+    { code: 'it-CH', name: 'Swiss Italian', native_name: 'Italiano', domain: 'cbdportal.ch', flag_emoji: '', is_swiss_variant: true }
+  ];
+
+  const handleLanguageClick = (domain: string) => {
+    // Set override cookie so middleware doesn't redirect back
+    document.cookie = 'cbd-language-override=true; max-age=31536000; path=/';
+    localStorage.setItem('cbd-language-override', 'true');
+
     const path = currentSlug ? `/articles/${currentSlug}` : '';
-    return `https://${domain}${path}`;
+    window.location.href = `https://${domain}${path}`;
   };
 
   const handleSwissLanguageChange = (langCode: string) => {
-    setLanguagePreference(langCode);
-    setCurrentLanguage(langCode);
+    localStorage.setItem('cbd-swiss-language', langCode);
+    setCurrentSwissLang(langCode);
     window.location.reload();
   };
 
-  // Don't render if only English is active and we're on English site
-  if (languages.length <= 1 && !isSwiss) {
-    return null;
-  }
+  const isCurrentDomain = (domain: string) => {
+    return currentDomain === domain ||
+           currentDomain === domain.replace('www.', '') ||
+           (currentDomain.includes('vercel.app') && domain === 'swissorganic.co.uk') ||
+           (currentDomain === 'localhost' && domain === 'swissorganic.co.uk');
+  };
 
   return (
-    <div className="space-y-4">
-      {/* Main language selector */}
+    <div className="border-t border-gray-200 pt-6 mt-8">
+      <p className="text-sm text-gray-500 text-center mb-4">Choose your language / Vælg dit sprog / Wählen Sie Ihre Sprache</p>
+
+      {/* Main languages */}
       <div className="flex flex-wrap gap-2 justify-center">
         {languages.map((lang) => (
-          <Link
+          <button
             key={lang.code}
-            href={buildUrl(lang.domain)}
+            onClick={() => handleLanguageClick(lang.domain)}
             className={`px-3 py-1.5 text-sm rounded-md transition-colors ${
-              currentDomain === lang.domain && !isSwiss
-                ? 'bg-green-100 text-green-800 font-medium'
+              isCurrentDomain(lang.domain) && !isSwiss
+                ? 'bg-primary-100 text-primary-800 font-medium'
                 : 'text-gray-600 hover:bg-gray-100'
             }`}
           >
             {lang.flag_emoji} {lang.native_name}
-          </Link>
+          </button>
         ))}
 
-        {/* Switzerland - only show if Swiss languages are active */}
-        {swissLanguages.length > 0 && (
-          <Link
-            href={buildUrl('cbdportal.ch')}
-            className={`px-3 py-1.5 text-sm rounded-md transition-colors ${
-              isSwiss
-                ? 'bg-green-100 text-green-800 font-medium'
-                : 'text-gray-600 hover:bg-gray-100'
-            }`}
-          >
-            🇨🇭 Schweiz / Suisse / Svizzera
-          </Link>
-        )}
+        {/* Switzerland */}
+        <button
+          onClick={() => handleLanguageClick('cbdportal.ch')}
+          className={`px-3 py-1.5 text-sm rounded-md transition-colors ${
+            isSwiss
+              ? 'bg-primary-100 text-primary-800 font-medium'
+              : 'text-gray-600 hover:bg-gray-100'
+          }`}
+        >
+          🇨🇭 Schweiz
+        </button>
       </div>
 
-      {/* Swiss language sub-selector */}
+      {/* Swiss sub-selector */}
       {isSwiss && swissLanguages.length > 0 && (
-        <div className="flex justify-center gap-2 pt-2 border-t border-gray-200">
-          <span className="text-sm text-gray-500 mr-2">Sprache / Langue / Lingua:</span>
+        <div className="flex justify-center gap-2 mt-4 pt-3 border-t border-gray-100">
           {swissLanguages.map((lang) => (
             <button
               key={lang.code}
               onClick={() => handleSwissLanguageChange(lang.code)}
               className={`px-3 py-1 text-sm rounded-md transition-colors ${
-                currentLanguage === lang.code
-                  ? 'bg-red-100 text-red-800 font-medium'
+                currentSwissLang === lang.code
+                  ? 'bg-red-600 text-white font-medium'
                   : 'text-gray-600 hover:bg-gray-100'
               }`}
             >
@@ -118,6 +121,11 @@ export function LanguageSelector({ currentSlug }: { currentSlug?: string }) {
           ))}
         </div>
       )}
+
+      {/* Note about translations */}
+      <p className="text-xs text-gray-400 text-center mt-4">
+        More languages coming soon
+      </p>
     </div>
   );
 }

@@ -284,7 +284,8 @@ export default async function ArticlePage({ params }: Props) {
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw, rehypeSlug]}
         >
-          {article.content}
+          {/* Remove the first H1 from content since we already have an H1 in the template */}
+          {article.content.replace(/^#\s+[^\n]+\n\n?/, '')}
         </ReactMarkdown>
       </div>
 

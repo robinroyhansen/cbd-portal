@@ -129,6 +129,11 @@ export default function RootLayout({
                       About Us
                     </a>
                   </li>
+                  <li>
+                    <a href="/admin" className="hover:text-primary-600">
+                      Admin
+                    </a>
+                  </li>
                 </ul>
               </div>
               <div>
