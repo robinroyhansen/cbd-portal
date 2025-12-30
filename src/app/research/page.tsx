@@ -10,7 +10,7 @@ export const metadata = {
   },
 };
 
-export const revalidate = 3600; // Revalidate every hour
+export const revalidate = 0; // Disable cache to test categorization
 
 // Helper function to categorize research based on content
 function categorizeResearch(research: any[]) {
@@ -219,25 +219,20 @@ export default async function ResearchPage() {
   }
 
   // Categorize all research (adds categories if missing)
-  console.log('Before categorization:', allResearch.length, 'items');
   const categorizedResearch = categorizeResearch(allResearch);
-  console.log('After categorization:', categorizedResearch.length, 'items');
 
   // Separate research by categories
   const cbdResearch = categorizedResearch.filter(r =>
     r.categories?.includes('cbd')
   );
-  console.log('CBD research count:', cbdResearch.length);
 
   const cannabisResearch = categorizedResearch.filter(r =>
     r.categories?.includes('cannabis')
   );
-  console.log('Cannabis research count:', cannabisResearch.length);
 
   const medicalCannabisResearch = categorizedResearch.filter(r =>
     r.categories?.includes('medical-cannabis')
   );
-  console.log('Medical cannabis research count:', medicalCannabisResearch.length);
 
   // Count sources
   const queueCount = categorizedResearch.filter(r => r.source_type === 'research_queue').length;
