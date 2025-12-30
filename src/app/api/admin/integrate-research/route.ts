@@ -1,11 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
 // Map topics to article slugs
 const TOPIC_TO_SLUGS: Record<string, string[]> = {
   'anxiety': ['cbd-and-anxiety', 'cbd-and-stress', 'cbd-and-ptsd'],
@@ -33,6 +28,11 @@ const TOPIC_TO_SLUGS: Record<string, string[]> = {
 
 export async function POST(request: Request) {
   try {
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!
+    );
+
     const { researchId } = await request.json();
 
     // Get the research item
