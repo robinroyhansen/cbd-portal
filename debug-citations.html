@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Citations</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .citation-item { margin-bottom: 16px; padding: 12px; border: 1px solid #ddd; }
+        .citation-title { font-style: italic; margin-bottom: 4px; }
+        .citation-meta { font-size: 12px; color: #666; }
+    </style>
+</head>
+<body>
+    <h1>Citations Debug Test</h1>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const testCitations = [
+            {
+                id: "1",
+                title: "Therapeutic potential of cannabidiol (CBD) in anxiety disorders: A systematic review and meta-analysis",
+                authors: "Han K, Wang JY, Wang PY, Peng YCH",
+                publication: "Psychiatry Research",
+                year: 2024,
+                url: "https://pubmed.ncbi.nlm.nih.gov/38924898/",
+                doi: "10.1016/j.psychres.2024.116049"
+            },
+            {
+                id: "2",
+                title: "Clinical and cognitive improvement following full-spectrum, high-cannabidiol treatment for anxiety",
+                authors: "Dahlgren MK, Sagar KA, et al.",
+                publication: "Communications Medicine",
+                year: 2022,
+                url: "https://www.nature.com/articles/s43856-022-00202-8",
+                doi: "10.1038/s43856-022-00202-8"
+            }
+        ];
+
+        function Citations({ citations }) {
+            if (!citations || citations.length === 0) {
+                return React.createElement('div', null, 'No citations found');
+            }
+
+            return React.createElement('div', null,
+                React.createElement('h2', null, 'References'),
+                React.createElement('ol', null,
+                    citations.map((cite, index) =>
+                        React.createElement('li', { key: cite.id, className: 'citation-item' },
+                            React.createElement('div', { className: 'citation-title' }, cite.title),
+                            React.createElement('div', { className: 'citation-meta' },
+                                `${cite.authors} (${cite.year}). ${cite.publication}. `,
+                                React.createElement('a', { href: cite.url, target: '_blank' }, 'View Study')
+                            )
+                        )
+                    )
+                )
+            );
+        }
+
+        function App() {
+            return React.createElement('div', null,
+                React.createElement('h3', null, 'Test 1: With Citations'),
+                React.createElement(Citations, { citations: testCitations }),
+
+                React.createElement('h3', null, 'Test 2: Empty Citations'),
+                React.createElement(Citations, { citations: [] }),
+
+                React.createElement('h3', null, 'Test 3: No Citations'),
+                React.createElement(Citations, { citations: null })
+            );
+        }
+
+        ReactDOM.render(React.createElement(App), document.getElementById('root'));
+    </script>
+</body>
+</html>

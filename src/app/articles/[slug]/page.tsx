@@ -302,7 +302,6 @@ export default async function ArticlePage({ params }: Props) {
       </div>
 
       {/* Enhanced Citations Component */}
-      {console.log('Citations data:', article.citations)}
       <Citations citations={article.citations || []} />
 
       {/* Enhanced Author Bio Component */}
