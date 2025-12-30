@@ -15,8 +15,8 @@ export const revalidate = 3600; // Revalidate every hour
 // Helper function to categorize research based on content
 function categorizeResearch(research: any[]) {
   return research.map(item => {
-    // Use existing categories if available, otherwise categorize based on content
-    if (item.categories && Array.isArray(item.categories)) {
+    // Use existing categories if available and not empty, otherwise categorize based on content
+    if (item.categories && Array.isArray(item.categories) && item.categories.length > 0) {
       return item;
     }
 
@@ -27,7 +27,9 @@ function categorizeResearch(research: any[]) {
     if (
       text.includes('cannabidiol') ||
       text.includes('cbd') ||
-      text.includes('epidiolex')
+      text.includes('epidiolex') ||
+      text.includes('high-cannabidiol') ||
+      text.includes('full-spectrum')
     ) {
       categories.push('cbd');
     }
