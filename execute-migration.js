@@ -1,0 +1,137 @@
+#!/usr/bin/env node
+
+// Direct Supabase Migration Execution
+const https = require('https');
+
+const SUPABASE_URL = 'https://jgivzyszbpyuvqfmldin.supabase.co';
+
+// Migration SQL
+const migrationSQL = `
+-- Research Scanner Database Migration
+CREATE TABLE IF NOT EXISTS kb_research_queue (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  title TEXT NOT NULL,
+  authors TEXT,
+  publication TEXT,
+  year INT,
+  abstract TEXT,
+  url TEXT NOT NULL UNIQUE,
+  doi TEXT,
+  source_site TEXT,
+  relevance_score INT,
+  relevant_topics TEXT[],
+  search_term_matched TEXT,
+  status VARCHAR(20) DEFAULT 'pending',
+  reviewed_at TIMESTAMPTZ,
+  reviewed_by TEXT,
+  rejection_reason TEXT,
+  discovered_at TIMESTAMPTZ DEFAULT NOW(),
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_research_queue_status ON kb_research_queue(status);
+CREATE INDEX IF NOT EXISTS idx_research_queue_discovered ON kb_research_queue(discovered_at DESC);
+CREATE INDEX IF NOT EXISTS idx_research_queue_score ON kb_research_queue(relevance_score DESC);
+CREATE INDEX IF NOT EXISTS idx_research_queue_topics ON kb_research_queue USING gin(relevant_topics);
+
+ALTER TABLE kb_research_queue ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS "Admin full access" ON kb_research_queue;
+CREATE POLICY "Admin full access" ON kb_research_queue FOR ALL USING (true);
+
+CREATE TABLE IF NOT EXISTS kb_article_research (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  article_id UUID REFERENCES kb_articles(id) ON DELETE CASCADE,
+  research_id UUID REFERENCES kb_research_queue(id) ON DELETE CASCADE,
+  added_at TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE(article_id, research_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_article_research_article ON kb_article_research(article_id);
+CREATE INDEX IF NOT EXISTS idx_article_research_research ON kb_article_research(research_id);
+
+ALTER TABLE kb_article_research ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS "Public read access" ON kb_article_research;
+CREATE POLICY "Public read access" ON kb_article_research FOR SELECT USING (true);
+DROP POLICY IF EXISTS "Admin write access" ON kb_article_research;
+CREATE POLICY "Admin write access" ON kb_article_research FOR INSERT USING (true);
+
+UPDATE kb_languages SET is_active = true WHERE is_active = false;
+`;
+
+console.log('🔧 EXECUTING SUPABASE DATABASE MIGRATION');
+console.log('==========================================');
+console.log('');
+
+// Try to get API key from environment or use a common approach
+let apiKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+// If no API key available, we'll try a different approach
+if (!apiKey) {
+    console.log('📋 MIGRATION SQL READY FOR MANUAL EXECUTION:');
+    console.log('');
+    console.log('Please copy this SQL and execute it in Supabase SQL Editor:');
+    console.log('URL: https://app.supabase.com/project/jgivzyszbpyuvqfmldin/editor');
+    console.log('');
+    console.log(migrationSQL);
+    console.log('');
+    console.log('✅ After running this SQL, the Research Scanner will be fully operational!');
+    return;
+}
+
+// Try to execute via API
+const postData = JSON.stringify({
+    query: migrationSQL
+});
+
+const options = {
+    hostname: 'jgivzyszbpyuvqfmldin.supabase.co',
+    port: 443,
+    path: '/rest/v1/rpc/exec_sql',
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'apikey': apiKey,
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Length': Buffer.byteLength(postData)
+    }
+};
+
+const req = https.request(options, (res) => {
+    let data = '';
+
+    res.on('data', (chunk) => {
+        data += chunk;
+    });
+
+    res.on('end', () => {
+        if (res.statusCode === 200 || res.statusCode === 204) {
+            console.log('✅ Database migration executed successfully!');
+            console.log('🔬 Research Scanner System is now FULLY OPERATIONAL!');
+            console.log('');
+            console.log('🎯 Next steps:');
+            console.log('1. Visit: https://cbd-portal.vercel.app/admin/research');
+            console.log('2. Click "Manual Scan" to test the system');
+            console.log('3. Daily scans will run automatically at 6 AM UTC');
+        } else {
+            console.log(`❌ Migration failed with status: ${res.statusCode}`);
+            console.log(`Response: ${data}`);
+            console.log('');
+            console.log('📋 Please execute manually in Supabase SQL Editor:');
+            console.log('URL: https://app.supabase.com/project/jgivzyszbpyuvqfmldin/editor');
+            console.log('');
+            console.log(migrationSQL);
+        }
+    });
+});
+
+req.on('error', (e) => {
+    console.log(`❌ Request error: ${e.message}`);
+    console.log('');
+    console.log('📋 Please execute manually in Supabase SQL Editor:');
+    console.log('URL: https://app.supabase.com/project/jgivzyszbpyuvqfmldin/editor');
+    console.log('');
+    console.log(migrationSQL);
+});
+
+req.write(postData);
+req.end();

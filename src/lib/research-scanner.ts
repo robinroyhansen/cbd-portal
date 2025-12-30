@@ -361,15 +361,27 @@ export function calculateRelevance(study: ResearchItem): { score: number; topics
 }
 
 export async function runDailyResearchScan() {
+  console.log('🔍 Starting daily research scan...');
+
+  // Verify environment variables
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
+    throw new Error('NEXT_PUBLIC_SUPABASE_URL is not set');
+  }
+  if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    throw new Error('SUPABASE_SERVICE_ROLE_KEY is not set');
+  }
+
+  console.log('✅ Environment variables verified');
+
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_SERVICE_ROLE_KEY!
   );
 
-  console.log('🔍 Starting daily research scan...');
   console.log(`📚 Scanning ${SEARCH_TERMS.length} search terms across multiple sources...`);
 
   // Gather from all sources in parallel for better performance
+  console.log('🌐 Starting external API scans...');
   const [pubmedResults, clinicalTrialsResults, pmcResults] = await Promise.allSettled([
     scanPubMed(),
     scanClinicalTrials(),
@@ -379,6 +391,17 @@ export async function runDailyResearchScan() {
   const pubmed = pubmedResults.status === 'fulfilled' ? pubmedResults.value : [];
   const clinical = clinicalTrialsResults.status === 'fulfilled' ? clinicalTrialsResults.value : [];
   const pmc = pmcResults.status === 'fulfilled' ? pmcResults.value : [];
+
+  // Log any failures
+  if (pubmedResults.status === 'rejected') {
+    console.error('PubMed scan failed:', pubmedResults.reason);
+  }
+  if (clinicalTrialsResults.status === 'rejected') {
+    console.error('ClinicalTrials scan failed:', clinicalTrialsResults.reason);
+  }
+  if (pmcResults.status === 'rejected') {
+    console.error('PMC scan failed:', pmcResults.reason);
+  }
 
   console.log(`📊 Results: PubMed: ${pubmed.length}, ClinicalTrials: ${clinical.length}, PMC: ${pmc.length}`);
 
