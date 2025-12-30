@@ -8,8 +8,15 @@ echo "Since Supabase requires direct SQL execution via their dashboard,"
 echo "this script will copy the migration SQL to your clipboard."
 echo ""
 
-# Path to migration file
-MIGRATION_FILE="supabase/migrations/20251229_add_multi_language_support.sql"
+# Path to migration files
+LANGUAGE_MIGRATION="supabase/migrations/20251229_add_multi_language_support.sql"
+MEDIA_MIGRATION="supabase/migrations/20251229_create_media_table.sql"
+
+# Combine migrations
+MIGRATION_FILE="/tmp/combined_migrations.sql"
+cat "$LANGUAGE_MIGRATION" > "$MIGRATION_FILE"
+echo -e "\n\n-- Media table migration\n" >> "$MIGRATION_FILE"
+cat "$MEDIA_MIGRATION" >> "$MIGRATION_FILE"
 
 # Check if file exists
 if [ ! -f "$MIGRATION_FILE" ]; then
