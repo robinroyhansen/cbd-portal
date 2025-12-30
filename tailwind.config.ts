@@ -6,6 +6,25 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  safelist: [
+    // Dynamic color classes for ResearchTabs component
+    // Green (CBD)
+    'border-green-600', 'text-green-700', 'bg-green-50', 'text-green-600',
+    'bg-green-600', 'hover:bg-green-700', 'bg-green-100', 'text-green-800',
+    'text-green-700',
+
+    // Blue (Cannabis)
+    'border-blue-600', 'text-blue-700', 'bg-blue-50', 'text-blue-600',
+    'bg-blue-600', 'hover:bg-blue-700', 'bg-blue-100', 'text-blue-800',
+
+    // Purple (Medical Cannabis)
+    'border-purple-600', 'text-purple-700', 'bg-purple-50', 'text-purple-600',
+    'bg-purple-600', 'hover:bg-purple-700', 'bg-purple-100', 'text-purple-800',
+
+    // Common hover and active states
+    'border-transparent', 'hover:text-gray-700', 'hover:border-gray-300',
+    'text-gray-400', 'text-gray-500',
+  ],
   theme: {
     extend: {
       colors: {

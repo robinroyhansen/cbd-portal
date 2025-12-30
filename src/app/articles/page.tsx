@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { headers } from 'next/headers';
 import { getArticles, getCategories } from '@/lib/articles';
 import { getLanguageFromHostname } from '@/lib/language';
+import { DateBadge } from '@/components/DateBadge';
 
 
 export const metadata: Metadata = {
@@ -99,22 +100,20 @@ export default async function ArticlesPage() {
                         {article.excerpt}
                       </p>
                     )}
-                    <div className="mt-4 flex items-center gap-4 text-xs text-gray-500">
-                      {article.reading_time && (
-                        <span>{article.reading_time} min read</span>
-                      )}
-                      {article.published_at && (
-                        <span>
-                          {new Date(article.published_at).toLocaleDateString(
-                            'en-GB',
-                            {
-                              day: 'numeric',
-                              month: 'short',
-                              year: 'numeric',
-                            }
-                          )}
-                        </span>
-                      )}
+                    <div className="mt-4 flex items-center justify-between text-xs text-gray-500">
+                      <div className="flex items-center gap-2">
+                        <span>By Robin Roy Krigslund-Hansen</span>
+                        {article.reading_time && (
+                          <>
+                            <span>•</span>
+                            <span>{article.reading_time} min read</span>
+                          </>
+                        )}
+                      </div>
+                      <DateBadge
+                        publishedAt={article.published_at || article.created_at}
+                        updatedAt={article.updated_at}
+                      />
                     </div>
                   </div>
                 </article>

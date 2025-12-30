@@ -134,6 +134,54 @@ function isRelevantToCannabis(study: ResearchItem): boolean {
   return true;
 }
 
+// Category assignment function
+function assignCategories(study: ResearchItem): string[] {
+  const text = `${study.title || ''} ${study.abstract || ''}`.toLowerCase();
+  const categories: string[] = [];
+
+  // CBD category
+  if (
+    text.includes('cannabidiol') ||
+    text.includes('cbd') ||
+    text.includes('epidiolex')
+  ) {
+    categories.push('cbd');
+  }
+
+  // Cannabis category
+  if (
+    text.includes('cannabis') ||
+    text.includes('marijuana') ||
+    text.includes('hemp') ||
+    text.includes('thc') ||
+    text.includes('tetrahydrocannabinol')
+  ) {
+    categories.push('cannabis');
+  }
+
+  // Medical Cannabis category
+  if (
+    text.includes('medical cannabis') ||
+    text.includes('medicinal cannabis') ||
+    text.includes('medical marijuana') ||
+    text.includes('therapeutic') ||
+    text.includes('patient') ||
+    text.includes('treatment') ||
+    text.includes('clinical trial') ||
+    text.includes('randomized') ||
+    text.includes('efficacy')
+  ) {
+    categories.push('medical-cannabis');
+  }
+
+  // Default to CBD if no category matched
+  if (categories.length === 0) {
+    categories.push('cbd');
+  }
+
+  return [...new Set(categories)];
+}
+
 export async function scanPubMed(): Promise<ResearchItem[]> {
   const results: ResearchItem[] = [];
 
@@ -403,6 +451,9 @@ export async function runDailyResearchScan() {
       continue;
     }
 
+    // Assign categories
+    const categories = assignCategories(study);
+
     // Insert
     const { error } = await supabase
       .from('kb_research_queue')
@@ -418,6 +469,7 @@ export async function runDailyResearchScan() {
         search_term_matched: study.search_term_matched,
         relevance_score: score,
         relevant_topics: topics,
+        categories: categories,
         status: 'pending'
       });
 

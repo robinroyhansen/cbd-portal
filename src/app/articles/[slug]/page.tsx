@@ -10,6 +10,7 @@ import { getArticleBySlug, getRelatedArticles } from '@/lib/articles';
 import { getLanguageFromHostname } from '@/lib/language';
 import { AuthorBio, AuthorByline } from '@/components/AuthorBio';
 import { Citations, CitationCount } from '@/components/Citations';
+import { DateDisplay } from '@/components/DateDisplay';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -121,8 +122,13 @@ export default async function ArticlePage({ params }: Props) {
     author: {
       '@type': 'Person',
       name: 'Robin Roy Krigslund-Hansen',
-      description: 'CEO & Co-founder of Formula Swiss, working with CBD and cannabis since 2013',
+      description: 'Independent CBD Researcher & Industry Veteran with over 12 years of hands-on experience in the CBD and cannabis industry. Has developed hundreds of CBD-based products sold to more than 100,000 customers across 60+ countries worldwide.',
       url: `${baseUrl}/about`,
+      location: {
+        '@type': 'Place',
+        name: 'Switzerland'
+      },
+      knowsAbout: ['CBD', 'Cannabis', 'Cannabidiol', 'Hemp', 'Clinical Research', 'Regulatory Affairs']
     },
     publisher: {
       '@type': 'Organization',
@@ -248,32 +254,27 @@ export default async function ArticlePage({ params }: Props) {
         {article.excerpt && (
           <p className="mt-4 text-xl text-gray-600">{article.excerpt}</p>
         )}
-        <div className="mt-6 space-y-3">
+        <div className="mt-6 space-y-4">
           {/* Enhanced Author Byline */}
           <AuthorByline />
 
+          {/* Publication and Update Dates */}
+          <div className="pb-4 border-b border-gray-200">
+            <DateDisplay
+              publishedAt={article.published_at || article.created_at}
+              updatedAt={article.updated_at}
+            />
+            {article.citations && article.citations.length > 0 && (
+              <p className="text-xs text-gray-400 mt-2">
+                This article references {article.citations.length} peer-reviewed {article.citations.length === 1 ? 'study' : 'studies'}
+              </p>
+            )}
+          </div>
+
           {/* Article Metadata */}
           <div className="flex items-center gap-4 text-sm text-gray-500">
-            {article.published_at && (
-              <time dateTime={article.published_at}>
-                {new Date(article.published_at).toLocaleDateString('en-GB', {
-                  day: 'numeric',
-                  month: 'long',
-                  year: 'numeric',
-                })}
-              </time>
-            )}
             {article.reading_time && (
-              <>
-                <span>•</span>
-                <span>{article.reading_time} min read</span>
-              </>
-            )}
-            {article.citations && article.citations.length > 0 && (
-              <>
-                <span>•</span>
-                <CitationCount count={article.citations.length} />
-              </>
+              <span>{article.reading_time} min read</span>
             )}
           </div>
         </div>
@@ -317,6 +318,15 @@ export default async function ArticlePage({ params }: Props) {
           health regimen.
         </p>
       </aside>
+
+      {/* Last Updated Note */}
+      <p className="text-xs text-gray-400 mt-6 text-center">
+        Last reviewed and updated: {new Date(article.updated_at).toLocaleDateString('en-GB', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        })}
+      </p>
 
       {/* Related Articles */}
       {relatedArticles && relatedArticles.length > 0 && (

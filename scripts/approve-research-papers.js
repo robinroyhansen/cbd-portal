@@ -44,6 +44,7 @@ async function approveQualityResearch() {
       console.log(`${index + 1}. Score: ${paper.relevance_score} | ${paper.source_site}`);
       console.log(`   Title: ${paper.title.substring(0, 80)}...`);
       console.log(`   Authors: ${paper.authors || 'N/A'}`);
+      console.log(`   Categories: ${paper.categories ? paper.categories.join(', ') : 'None assigned'}`);
       console.log('');
     });
 
@@ -54,6 +55,19 @@ async function approveQualityResearch() {
     console.log(`🎯 HIGH QUALITY PAPERS (≥60 score): ${highQualityPapers.length}`);
     console.log(`🟡 MEDIUM QUALITY PAPERS (40-59 score): ${mediumQualityPapers.length}`);
     console.log(`🔴 LOW QUALITY PAPERS (<40 score): ${papers.length - highQualityPapers.length - mediumQualityPapers.length}`);
+
+    // Category statistics for pending papers
+    const cbdCount = papers.filter(p => p.categories?.includes('cbd')).length;
+    const cannabisCount = papers.filter(p => p.categories?.includes('cannabis')).length;
+    const medicalCount = papers.filter(p => p.categories?.includes('medical-cannabis')).length;
+    const uncategorized = papers.filter(p => !p.categories || p.categories.length === 0).length;
+
+    console.log('\n📊 CATEGORY BREAKDOWN (Pending Papers):');
+    console.log('-'.repeat(40));
+    console.log(`🟢 CBD: ${cbdCount} papers`);
+    console.log(`🔵 Cannabis: ${cannabisCount} papers`);
+    console.log(`🟣 Medical Cannabis: ${medicalCount} papers`);
+    console.log(`⚪ Uncategorized: ${uncategorized} papers`);
 
     // Approve high quality papers automatically
     const papersToApprove = [...highQualityPapers, ...mediumQualityPapers.slice(0, 5)]; // Top 5 medium quality
@@ -108,7 +122,7 @@ async function approveQualityResearch() {
     // Final verification
     const { data: approvedPapers } = await supabase
       .from('kb_research_queue')
-      .select('id, title, relevance_score, source_site')
+      .select('id, title, relevance_score, source_site, categories')
       .eq('status', 'approved');
 
     console.log('\n📈 FINAL RESULTS:');
@@ -122,6 +136,7 @@ async function approveQualityResearch() {
       approvedPapers.forEach((paper, index) => {
         console.log(`${index + 1}. ${paper.source_site} | Score: ${paper.relevance_score}`);
         console.log(`   ${paper.title}`);
+        console.log(`   Categories: ${paper.categories ? paper.categories.join(', ') : 'None assigned'}`);
         console.log('');
       });
     }
