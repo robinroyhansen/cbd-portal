@@ -12,108 +12,58 @@ interface ResearchItem {
   search_term_matched?: string;
 }
 
-// Comprehensive search terms covering CBD, cannabis, and medical cannabis
+// REQUIRED KEYWORDS - Study MUST contain at least one of these
+const REQUIRED_KEYWORDS = [
+  'cannabidiol',
+  'cbd',
+  'cannabis',
+  'cannabinoid',
+  'cannabinoids',
+  'marijuana',
+  'hemp',
+  'thc',
+  'tetrahydrocannabinol',
+  'endocannabinoid',
+  'phytocannabinoid',
+  'cb1',
+  'cb2',
+  'epidiolex',
+  'sativex',
+  'nabiximols',
+  'dronabinol',
+  'nabilone'
+];
+
+// Search terms - more focused
 const SEARCH_TERMS = [
-  // CBD specific
+  // Primary CBD terms
   'cannabidiol clinical trial',
-  'cannabidiol randomized controlled trial',
-  'cannabidiol therapeutic',
-  'cannabidiol human study',
-  'CBD efficacy',
-  'CBD safety profile',
-  'CBD dose finding',
-  'CBD pharmacokinetics',
+  'cannabidiol therapy',
+  'CBD treatment study',
+  'cannabidiol randomized',
 
-  // Cannabis general
-  'cannabis clinical trial',
-  'cannabis therapeutic',
-  'cannabis medical use',
-  'cannabis randomized trial',
-  'cannabis human study',
-  'cannabis safety',
-
-  // Medical cannabis
-  'medical cannabis clinical trial',
-  'medical cannabis efficacy',
-  'medical cannabis therapy',
-  'medical marijuana clinical',
+  // Cannabis medical
+  'medical cannabis clinical',
+  'cannabis therapy trial',
   'medicinal cannabis study',
-  'medical cannabis patient outcomes',
-  'medical cannabis dosing',
 
-  // Cannabinoids
-  'cannabinoid therapy',
-  'cannabinoid clinical trial',
-  'phytocannabinoid study',
-  'endocannabinoid system therapy',
-  'cannabinoid medicine',
-
-  // Specific conditions + CBD/cannabis
-  'cannabidiol anxiety disorder',
-  'cannabidiol chronic pain',
-  'cannabidiol sleep disorder',
+  // Specific conditions + CBD
+  'cannabidiol anxiety',
+  'cannabidiol pain',
   'cannabidiol epilepsy',
-  'cannabidiol inflammation',
+  'cannabidiol sleep',
   'cannabidiol depression',
+  'cannabidiol inflammation',
+  'cannabidiol addiction',
   'cannabidiol PTSD',
   'cannabidiol arthritis',
   'cannabidiol cancer',
   'cannabidiol neuroprotective',
-  'cannabidiol multiple sclerosis',
-  'cannabidiol Parkinson',
-  'cannabidiol Alzheimer',
-  'cannabidiol fibromyalgia',
-  'cannabidiol migraine',
-  'cannabidiol IBS',
-  'cannabidiol Crohn',
-  'cannabidiol diabetes',
-  'cannabidiol addiction',
-  'cannabidiol ADHD',
 
-  'cannabis pain management',
-  'cannabis anxiety treatment',
-  'cannabis sleep',
-  'cannabis epilepsy',
-  'cannabis chemotherapy',
-  'cannabis palliative care',
-  'cannabis opioid alternative',
-  'cannabis nausea',
-  'cannabis spasticity',
-  'cannabis glaucoma',
-
-  'medical cannabis chronic pain',
-  'medical cannabis cancer pain',
-  'medical cannabis neuropathy',
-  'medical cannabis PTSD veteran',
-  'medical cannabis quality of life',
-
-  // Specific products/formulations
-  'Epidiolex study',
-  'Sativex clinical trial',
-  'nabiximols efficacy',
-  'dronabinol study',
-  'full spectrum cannabis extract',
-  'CBD oil clinical trial',
-  'hemp extract study',
-
-  // Safety and pharmacology
-  'cannabidiol drug interaction',
-  'cannabidiol pharmacokinetics',
-  'cannabis adverse effects clinical',
-  'cannabidiol long term safety',
-  'medical cannabis dosing',
-  'CBD liver safety',
-  'cannabidiol cytochrome',
-
-  // Recent research focuses
-  'cannabidiol COVID',
-  'cannabis neurodegenerative',
-  'CBD aging',
-  'cannabis microbiome',
-  'cannabidiol gut health',
-  'medical cannabis veterans',
-  'CBD sports medicine',
-  'cannabis womens health'
+  // Products
+  'Epidiolex',
+  'Sativex clinical',
+  'nabiximols trial'
 ];
 
 const TOPIC_KEYWORDS: Record<string, string[]> = {
@@ -143,6 +93,46 @@ const TOPIC_KEYWORDS: Record<string, string[]> = {
   'sports': ['sports', 'athletic', 'exercise', 'recovery', 'performance'],
   'womens': ['women', 'menstrual', 'pregnancy', 'menopause', 'gynecological']
 };
+
+// VALIDATION FUNCTION - Must pass to be added
+function isRelevantToCannabis(study: ResearchItem): boolean {
+  const text = `${study.title || ''} ${study.abstract || ''}`.toLowerCase();
+
+  // Must contain at least one required keyword
+  const hasRequiredKeyword = REQUIRED_KEYWORDS.some(keyword =>
+    text.includes(keyword.toLowerCase())
+  );
+
+  if (!hasRequiredKeyword) {
+    console.log(`REJECTED (no cannabis keyword): ${study.title}`);
+    return false;
+  }
+
+  // Reject if it's about cannabis but not therapeutic
+  // (e.g., agricultural studies, policy studies without medical focus)
+  const nonTherapeuticKeywords = [
+    'agricultural',
+    'cultivation only',
+    'fiber production',
+    'textile',
+    'policy analysis',
+    'legal framework',
+    'drug testing',
+    'detection method',
+    'forensic'
+  ];
+
+  const isNonTherapeutic = nonTherapeuticKeywords.some(kw =>
+    text.includes(kw) && !text.includes('therapeutic') && !text.includes('treatment') && !text.includes('patient')
+  );
+
+  if (isNonTherapeutic) {
+    console.log(`REJECTED (non-therapeutic): ${study.title}`);
+    return false;
+  }
+
+  return true;
+}
 
 export async function scanPubMed(): Promise<ResearchItem[]> {
   const results: ResearchItem[] = [];
@@ -360,88 +350,38 @@ export function calculateRelevance(study: ResearchItem): { score: number; topics
   return { score: Math.max(0, score), topics: [...new Set(topics)] };
 }
 
-export async function runDailyResearchScan(includeExtendedSources = false) {
-  console.log('🔍 Starting daily research scan...');
-
-  // Verify environment variables
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
-    throw new Error('NEXT_PUBLIC_SUPABASE_URL is not set');
-  }
-  if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
-    throw new Error('SUPABASE_SERVICE_ROLE_KEY is not set');
-  }
-
-  console.log('✅ Environment variables verified');
-
+// Update the main scan function
+export async function runDailyResearchScan() {
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_SERVICE_ROLE_KEY!
   );
 
-  console.log(`📚 Scanning ${SEARCH_TERMS.length} search terms across multiple sources...`);
+  console.log('Starting daily research scan with STRICT cannabis filtering...');
 
-  // Gather from all sources in parallel for better performance
-  console.log('🌐 Starting external API scans...');
-  const [pubmedResults, clinicalTrialsResults, pmcResults] = await Promise.allSettled([
-    scanPubMed(),
-    scanClinicalTrials(),
-    scanPMC()
-  ]);
+  const pubmedResults = await scanPubMed();
+  const clinicalTrialsResults = await scanClinicalTrials();
 
-  const pubmed = pubmedResults.status === 'fulfilled' ? pubmedResults.value : [];
-  const clinical = clinicalTrialsResults.status === 'fulfilled' ? clinicalTrialsResults.value : [];
-  const pmc = pmcResults.status === 'fulfilled' ? pmcResults.value : [];
+  const allResults = [...pubmedResults, ...clinicalTrialsResults];
 
-  // Log any failures
-  if (pubmedResults.status === 'rejected') {
-    console.error('PubMed scan failed:', pubmedResults.reason);
-  }
-  if (clinicalTrialsResults.status === 'rejected') {
-    console.error('ClinicalTrials scan failed:', clinicalTrialsResults.reason);
-  }
-  if (pmcResults.status === 'rejected') {
-    console.error('PMC scan failed:', pmcResults.reason);
-  }
-
-  console.log(`📊 Results: PubMed: ${pubmed.length}, ClinicalTrials: ${clinical.length}, PMC: ${pmc.length}`);
-
-  let allResults = [...pubmed, ...clinical, ...pmc];
-
-  // Extended sources (optional for more comprehensive scans)
-  if (includeExtendedSources) {
-    try {
-      console.log('🌐 Scanning extended authoritative sources...');
-      const { scanExtendedSources } = await import('./research-scanner-extended');
-      const extendedResults = await scanExtendedSources();
-
-      const allExtended = [
-        ...extendedResults.cochrane,
-        ...extendedResults.jama,
-        ...extendedResults.nature,
-        ...extendedResults.scienceDirect,
-        ...extendedResults.bmj,
-        ...extendedResults.springer
-      ];
-
-      console.log(`📊 Extended Results: ${allExtended.length} papers from premium sources`);
-      allResults = [...allResults, ...allExtended];
-    } catch (error) {
-      console.error('❌ Extended sources scan failed:', error);
-    }
-  }
-
-  // Deduplicate by URL
+  // Deduplicate
   const uniqueResults = allResults.filter((item, index, self) =>
     index === self.findIndex(t => t.url === item.url)
   );
 
-  console.log(`🎯 Total unique results: ${uniqueResults.length}`);
+  console.log(`Found ${uniqueResults.length} unique results, filtering for relevance...`);
 
   let added = 0;
   let skipped = 0;
-  let relevant = 0;
+  let rejected = 0;
 
   for (const study of uniqueResults) {
+    // STRICT VALIDATION - Must be about cannabis/CBD
+    if (!isRelevantToCannabis(study)) {
+      rejected++;
+      continue;
+    }
+
     // Check if already exists
     const { data: existing } = await supabase
       .from('kb_research_queue')
@@ -457,15 +397,13 @@ export async function runDailyResearchScan(includeExtendedSources = false) {
     // Calculate relevance
     const { score, topics } = calculateRelevance(study);
 
-    // Only add if relevant (score >= 15 for human studies)
-    if (score < 15) {
-      skipped++;
+    // Must have reasonable relevance score
+    if (score < 20) {
+      rejected++;
       continue;
     }
 
-    relevant++;
-
-    // Insert into queue
+    // Insert
     const { error } = await supabase
       .from('kb_research_queue')
       .insert({
@@ -483,15 +421,10 @@ export async function runDailyResearchScan(includeExtendedSources = false) {
         status: 'pending'
       });
 
-    if (!error) {
-      added++;
-    } else {
-      console.error('❌ Insert error:', error);
-    }
+    if (!error) added++;
   }
 
-  console.log(`✅ Research scan complete!`);
-  console.log(`📈 Summary: ${added} added, ${skipped} skipped, ${relevant} relevant, ${uniqueResults.length} total`);
+  console.log(`Scan complete. Added: ${added}, Skipped: ${skipped}, Rejected: ${rejected}`);
 
-  return { added, skipped, total: uniqueResults.length, relevant };
+  return { added, skipped, rejected, total: uniqueResults.length };
 }

@@ -89,10 +89,10 @@ export default function RootLayout({
                 Topics
               </a>
               <a
-                href="/about"
+                href="/research"
                 className="text-gray-600 hover:text-primary-600"
               >
-                About
+                Research
               </a>
               <Search />
             </div>
@@ -125,8 +125,8 @@ export default function RootLayout({
                     </a>
                   </li>
                   <li>
-                    <a href="/about" className="hover:text-primary-600">
-                      About Us
+                    <a href="/research" className="hover:text-primary-600">
+                      Research
                     </a>
                   </li>
                   <li>

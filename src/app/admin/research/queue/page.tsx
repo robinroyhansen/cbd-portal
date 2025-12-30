@@ -69,8 +69,33 @@ export default function ResearchQueuePage() {
     }
   };
 
-  const approveResearch = (id: string) => {
-    updateResearchStatus(id, 'approved');
+  const approveResearch = async (id: string) => {
+    // Update status first
+    await updateResearchStatus(id, 'approved');
+
+    // Integrate into articles
+    try {
+      const response = await fetch('/api/admin/integrate-research', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ researchId: id })
+      });
+
+      const result = await response.json();
+
+      if (result.addedTo && result.addedTo.length > 0) {
+        alert(`✅ Approved and added as citation to:\n${result.addedTo.join('\n')}`);
+      } else {
+        alert('✅ Approved (no matching articles found for automatic citation)');
+      }
+
+      // Refresh research list
+      fetchResearch();
+
+    } catch (error) {
+      console.error('Failed to integrate research:', error);
+      alert('✅ Approved, but failed to auto-add citations. Please check manually.');
+    }
   };
 
   const rejectResearch = (id: string) => {

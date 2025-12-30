@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { createClient } from '@/lib/supabase/server';
 
 export const metadata = {
   title: 'CBD Research Database | Evidence-Based Cannabis Studies',
@@ -9,253 +10,104 @@ export const metadata = {
   },
 };
 
-export default function ResearchPage() {
-  // Sample research data for demo (will be replaced with live data once DB queries are working)
-  const sampleResearch = [
-    {
-      id: 1,
-      title: 'Cannabidiol in Anxiety and Sleep: A Large Case Series',
-      authors: 'Shannon S, Lewis N, Lee H, Hughes S',
-      publication: 'The Permanente Journal',
-      year: 2019,
-      url: 'https://pubmed.ncbi.nlm.nih.gov/30624194/',
-      doi: '10.7812/TPP/18-041',
-      source_site: 'PubMed',
-      relevant_topics: ['anxiety', 'sleep'],
-      relevance_score: 92,
-      discovered_at: '2024-01-15T10:30:00Z',
-      abstract: 'This large case series examined the effects of cannabidiol on anxiety and sleep in 72 adults presenting to a psychiatric clinic.'
-    },
-    {
-      id: 2,
-      title: 'Cannabidiol for the treatment of cannabis use disorder: a phase 2a trial',
-      authors: 'Freeman TP, Hindocha C, Baio G, et al.',
-      publication: 'The Lancet Psychiatry',
-      year: 2020,
-      url: 'https://pubmed.ncbi.nlm.nih.gov/33035453/',
-      doi: '10.1016/S2215-0366(20)30290-X',
-      source_site: 'PubMed',
-      relevant_topics: ['addiction', 'clinical trial'],
-      relevance_score: 89,
-      discovered_at: '2024-01-12T14:20:00Z',
-      abstract: 'This randomised, double-blind, placebo-controlled trial investigated cannabidiol as a treatment for cannabis use disorder.'
-    },
-    {
-      id: 3,
-      title: 'Trial of Cannabidiol for Drug-Resistant Seizures in the Dravet Syndrome',
-      authors: 'Devinsky O, Cross JH, Laux L, et al.',
-      publication: 'New England Journal of Medicine',
-      year: 2017,
-      url: 'https://pubmed.ncbi.nlm.nih.gov/28538134/',
-      doi: '10.1056/NEJMoa1611618',
-      source_site: 'PubMed',
-      relevant_topics: ['epilepsy', 'clinical trial'],
-      relevance_score: 95,
-      discovered_at: '2024-01-10T09:15:00Z',
-      abstract: 'This double-blind, placebo-controlled trial evaluated cannabidiol for drug-resistant seizures in patients with Dravet syndrome.'
-    }
-  ];
+export const revalidate = 3600; // Revalidate every hour
 
-  // Define research papers for display
-  const researchPapers = sampleResearch;
+export default async function ResearchPage() {
+  const supabase = createClient();
 
-  // Define available research sources
-  const allSources = ['PubMed', 'ClinicalTrials.gov', 'Nature', 'The Lancet'];
+  // Get ALL approved research
+  const { data: research, error } = await supabase
+    .from('kb_research_queue')
+    .select('*')
+    .eq('status', 'approved')
+    .order('year', { ascending: false })
+    .order('relevance_score', { ascending: false });
 
-  const stats = {
-    total: '3',
-    sources: 1,
-    topics: 5,
-    averageScore: 92
-  };
+  // Get statistics
+  const { count: totalStudies } = await supabase
+    .from('kb_research_queue')
+    .select('*', { count: 'exact', head: true })
+    .eq('status', 'approved');
+
+  // Get unique topics
+  const allTopics = research?.flatMap(r => r.relevant_topics || []) || [];
+  const uniqueTopics = [...new Set(allTopics)];
+
+  // Get unique sources
+  const allSources = research?.map(r => r.source_site) || [];
+  const uniqueSources = [...new Set(allSources)];
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      {/* Header */}
-      <div className="mb-12 text-center">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-          CBD Research Database
-        </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-          Explore our curated collection of peer-reviewed CBD and cannabis research
-          from authoritative sources like PubMed, ClinicalTrials.gov, and leading journals.
-        </p>
-      </div>
+    <div className="max-w-6xl mx-auto px-4 py-12">
+      <h1 className="text-4xl font-bold mb-4">CBD Research Database</h1>
+      <p className="text-xl text-gray-600 mb-8">
+        Peer-reviewed studies on cannabidiol and cannabis from authoritative medical sources
+      </p>
 
-      {/* Statistics */}
-      <div className="mb-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
-        <div className="rounded-lg bg-primary-50 p-4 text-center">
-          <div className="text-2xl font-bold text-primary-600">{stats.total}</div>
-          <div className="text-sm text-gray-600">Research Papers</div>
+      {/* Stats */}
+      <div className="grid grid-cols-3 gap-6 mb-12">
+        <div className="bg-green-50 p-6 rounded-lg text-center">
+          <div className="text-4xl font-bold text-green-700">{totalStudies || 0}</div>
+          <div className="text-gray-600">Research Studies</div>
         </div>
-        <div className="rounded-lg bg-blue-50 p-4 text-center">
-          <div className="text-2xl font-bold text-blue-600">{stats.sources}</div>
-          <div className="text-sm text-gray-600">Data Sources</div>
+        <div className="bg-blue-50 p-6 rounded-lg text-center">
+          <div className="text-4xl font-bold text-blue-700">{uniqueTopics.length}</div>
+          <div className="text-gray-600">Health Topics</div>
         </div>
-        <div className="rounded-lg bg-green-50 p-4 text-center">
-          <div className="text-2xl font-bold text-green-600">{stats.topics}</div>
-          <div className="text-sm text-gray-600">Research Topics</div>
-        </div>
-        <div className="rounded-lg bg-purple-50 p-4 text-center">
-          <div className="text-2xl font-bold text-purple-600">{stats.averageScore}</div>
-          <div className="text-sm text-gray-600">Avg Quality Score</div>
+        <div className="bg-purple-50 p-6 rounded-lg text-center">
+          <div className="text-4xl font-bold text-purple-700">{uniqueSources.length}</div>
+          <div className="text-gray-600">Sources</div>
         </div>
       </div>
 
-      {/* Data Sources */}
-      <div className="mb-8 rounded-lg bg-gray-50 p-6">
-        <h2 className="text-lg font-semibold text-gray-900 mb-3">Research Sources</h2>
+      {/* Topic filters */}
+      <div className="mb-8">
+        <h2 className="text-lg font-semibold mb-3">Filter by Topic</h2>
         <div className="flex flex-wrap gap-2">
-          {allSources.map(source => (
-            <span
-              key={source}
-              className="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-700"
-            >
-              {source}
+          {uniqueTopics.map(topic => (
+            <span key={topic} className="px-3 py-1 bg-gray-100 rounded-full text-sm">
+              {topic}
             </span>
           ))}
         </div>
-        <p className="mt-3 text-sm text-gray-600">
-          All research papers are automatically scanned daily from authoritative medical and scientific databases.
-          Papers undergo quality assessment and relevance scoring before inclusion.
-        </p>
       </div>
 
-      {/* Research Papers */}
-      {researchPapers.length === 0 ? (
-        <div className="rounded-lg border border-gray-200 bg-white p-12 text-center">
-          <h3 className="text-lg font-medium text-gray-900">Research Database Loading</h3>
-          <p className="mt-2 text-gray-600">
-            Our research scanner is currently building the database.
-            New papers are discovered and added daily.
-          </p>
-          <Link
-            href="/articles"
-            className="mt-4 inline-block rounded-lg bg-primary-600 px-4 py-2 text-white hover:bg-primary-700"
-          >
-            Browse Articles
-          </Link>
-        </div>
-      ) : (
-        <div className="space-y-6">
-          {researchPapers.map((paper) => (
-            <article
-              key={paper.id}
-              className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="flex items-start justify-between">
-                <div className="flex-1">
-                  <div className="mb-3 flex items-center gap-3">
-                    <span className="rounded-full bg-primary-100 px-3 py-1 text-sm font-medium text-primary-800">
-                      Quality Score: {paper.relevance_score}%
-                    </span>
-                    <span className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600">
-                      {paper.source_site}
-                    </span>
-                    {paper.year && (
-                      <span className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800">
-                        {paper.year}
-                      </span>
-                    )}
-                  </div>
-
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {paper.title}
-                  </h3>
-
-                  {paper.authors && (
-                    <p className="text-sm text-gray-600 mb-2">
-                      <strong>Authors:</strong> {paper.authors}
-                    </p>
-                  )}
-
-                  {paper.publication && (
-                    <p className="text-sm text-gray-600 mb-2">
-                      <strong>Publication:</strong> {paper.publication}
-                    </p>
-                  )}
-
-                  {paper.abstract && (
-                    <p className="text-sm text-gray-700 line-clamp-3 mb-3">
-                      {paper.abstract}
-                    </p>
-                  )}
-
-                  {paper.relevant_topics && paper.relevant_topics.length > 0 && (
-                    <div className="mb-3 flex flex-wrap gap-2">
-                      {paper.relevant_topics.slice(0, 5).map(topic => (
-                        <span
-                          key={topic}
-                          className="inline-flex items-center rounded-full bg-green-100 px-2 py-1 text-xs text-green-800"
-                        >
-                          {topic}
-                        </span>
-                      ))}
-                      {paper.relevant_topics.length > 5 && (
-                        <span className="text-xs text-gray-500">
-                          +{paper.relevant_topics.length - 5} more
-                        </span>
-                      )}
-                    </div>
-                  )}
-
-                  <div className="flex items-center gap-4 text-xs text-gray-500">
-                    <span>
-                      Discovered: {new Date(paper.discovered_at).toLocaleDateString()}
-                    </span>
-                    {paper.search_term_matched && (
-                      <span>Matched: "{paper.search_term_matched}"</span>
-                    )}
-                    {paper.doi && (
-                      <span>DOI: {paper.doi}</span>
-                    )}
-                  </div>
-
-                </div>
-
-                <div className="ml-6">
-                  <a
-                    href={paper.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700"
-                  >
-                    View Study
-                    <svg className="ml-1 h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </a>
-                </div>
+      {/* Research list */}
+      <div className="space-y-6">
+        {research?.map((item) => (
+          <div key={item.id} className="border rounded-lg p-6 bg-white shadow-sm">
+            <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+            <p className="text-sm text-gray-600 mb-2">
+              {item.authors} • {item.publication} • {item.year}
+            </p>
+            {item.abstract && (
+              <p className="text-gray-700 text-sm mb-3 line-clamp-3">{item.abstract}</p>
+            )}
+            <div className="flex items-center justify-between">
+              <div className="flex gap-2">
+                {item.relevant_topics?.map(topic => (
+                  <span key={topic} className="px-2 py-0.5 bg-green-100 text-green-800 text-xs rounded">
+                    {topic}
+                  </span>
+                ))}
               </div>
-            </article>
-          ))}
-        </div>
-      )}
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green-600 hover:underline text-sm"
+              >
+                View on {item.source_site} →
+              </a>
+            </div>
+          </div>
+        ))}
 
-      {/* Call to Action */}
-      <div className="mt-12 rounded-lg bg-primary-50 p-8 text-center">
-        <h2 className="text-2xl font-bold text-primary-900">
-          Want to explore evidence-based articles?
-        </h2>
-        <p className="mt-2 text-primary-700">
-          Our articles reference this research and more, providing practical insights
-          backed by scientific evidence.
-        </p>
-        <Link
-          href="/articles"
-          className="mt-4 inline-block rounded-lg bg-primary-600 px-6 py-3 font-semibold text-white hover:bg-primary-700"
-        >
-          Browse Articles
-        </Link>
-      </div>
-
-      {/* Disclaimer */}
-      <div className="mt-8 rounded-lg border border-amber-200 bg-amber-50 p-4">
-        <p className="text-sm text-amber-800">
-          <strong>Research Disclaimer:</strong> This research database is automatically curated from
-          scientific sources and provided for informational purposes only. Always consult with
-          healthcare professionals before making medical decisions based on research findings.
-        </p>
+        {(!research || research.length === 0) && (
+          <p className="text-gray-500 text-center py-12">
+            No approved research yet. Check back soon as we review new studies daily.
+          </p>
+        )}
       </div>
     </div>
   );
