@@ -8,6 +8,8 @@ import rehypeSlug from 'rehype-slug';
 import { headers } from 'next/headers';
 import { getArticleBySlug, getRelatedArticles } from '@/lib/articles';
 import { getLanguageFromHostname } from '@/lib/language';
+import { AuthorBio, AuthorByline } from '@/components/AuthorBio';
+import { Citations, CitationCount } from '@/components/Citations';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -246,24 +248,34 @@ export default async function ArticlePage({ params }: Props) {
         {article.excerpt && (
           <p className="mt-4 text-xl text-gray-600">{article.excerpt}</p>
         )}
-        <div className="mt-6 flex items-center gap-4 text-sm text-gray-500">
-          {article.published_at && (
-            <time dateTime={article.published_at}>
-              {new Date(article.published_at).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric',
-              })}
-            </time>
-          )}
-          {article.reading_time && (
-            <>
-              <span>•</span>
-              <span>{article.reading_time} min read</span>
-            </>
-          )}
-          <span>•</span>
-          <span>By Robin Roy Krigslund-Hansen</span>
+        <div className="mt-6 space-y-3">
+          {/* Enhanced Author Byline */}
+          <AuthorByline />
+
+          {/* Article Metadata */}
+          <div className="flex items-center gap-4 text-sm text-gray-500">
+            {article.published_at && (
+              <time dateTime={article.published_at}>
+                {new Date(article.published_at).toLocaleDateString('en-GB', {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric',
+                })}
+              </time>
+            )}
+            {article.reading_time && (
+              <>
+                <span>•</span>
+                <span>{article.reading_time} min read</span>
+              </>
+            )}
+            {article.citations && article.citations.length > 0 && (
+              <>
+                <span>•</span>
+                <CitationCount count={article.citations.length} />
+              </>
+            )}
+          </div>
         </div>
       </header>
 
@@ -289,72 +301,11 @@ export default async function ArticlePage({ params }: Props) {
         </ReactMarkdown>
       </div>
 
-      {/* Citations */}
-      {article.citations && article.citations.length > 0 && (
-        <section className="mt-16 border-t border-gray-200 pt-8">
-          <h2 className="mb-6 text-2xl font-bold text-gray-900">
-            References & Citations
-          </h2>
-          <ol className="space-y-4">
-            {article.citations.map((citation: any, index: number) => (
-              <li key={citation.id} className="citation">
-                <span className="font-medium">[{index + 1}]</span>{' '}
-                {citation.authors && <span>{citation.authors}. </span>}
-                <span className="italic">{citation.title}</span>
-                {citation.publication && <span>. {citation.publication}</span>}
-                {citation.year && <span> ({citation.year})</span>}
-                {citation.doi && (
-                  <span>
-                    . DOI:{' '}
-                    <a
-                      href={`https://doi.org/${citation.doi}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary-600 hover:underline"
-                    >
-                      {citation.doi}
-                    </a>
-                  </span>
-                )}
-                {citation.url && !citation.doi && (
-                  <span>
-                    .{' '}
-                    <a
-                      href={citation.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary-600 hover:underline"
-                    >
-                      View source
-                    </a>
-                  </span>
-                )}
-              </li>
-            ))}
-          </ol>
-        </section>
-      )}
+      {/* Enhanced Citations Component */}
+      <Citations citations={article.citations || []} />
 
-      {/* Author Box */}
-      <aside className="mt-12 rounded-lg border border-gray-200 bg-gray-50 p-6">
-        <div className="flex items-start gap-4">
-          <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-2xl font-bold text-primary-700">
-            RK
-          </div>
-          <div className="flex-1">
-            <h3 className="text-lg font-semibold text-gray-900">Robin Roy Krigslund-Hansen</h3>
-            <p className="mt-2 text-sm leading-relaxed text-gray-700">
-              Robin Roy Krigslund-Hansen has worked in the CBD and cannabis industry since 2013.
-              Based in Switzerland, he focuses on translating clinical research into accessible
-              information for consumers. His approach prioritises peer-reviewed evidence and
-              regulatory developments across European markets.
-            </p>
-            <p className="mt-3 text-xs italic text-gray-600">
-              The opinions expressed in this article are his own and do not represent the views of Formula Swiss AG.
-            </p>
-          </div>
-        </div>
-      </aside>
+      {/* Enhanced Author Bio Component */}
+      <AuthorBio />
 
       {/* Disclaimer */}
       <aside className="mt-12 rounded-lg border border-amber-200 bg-amber-50 p-6">
