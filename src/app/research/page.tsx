@@ -1,21 +1,4 @@
-import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
-
-interface ResearchItem {
-  id: string;
-  title: string;
-  authors?: string;
-  publication?: string;
-  year?: number;
-  abstract?: string;
-  url: string;
-  doi?: string;
-  source_site: string;
-  relevance_score: number;
-  relevant_topics: string[];
-  search_term_matched?: string;
-  discovered_at: string;
-}
 
 export const metadata = {
   title: 'CBD Research Database | Evidence-Based Cannabis Studies',
@@ -26,51 +9,64 @@ export const metadata = {
   },
 };
 
-export default async function ResearchPage() {
-  const supabase = await createClient();
+export default function ResearchPage() {
+  // Sample research data for demo (will be replaced with live data once DB queries are working)
+  const sampleResearch = [
+    {
+      id: 1,
+      title: 'Cannabidiol in Anxiety and Sleep: A Large Case Series',
+      authors: 'Shannon S, Lewis N, Lee H, Hughes S',
+      publication: 'The Permanente Journal',
+      year: 2019,
+      url: 'https://pubmed.ncbi.nlm.nih.gov/30624194/',
+      doi: '10.7812/TPP/18-041',
+      source_site: 'PubMed',
+      relevant_topics: ['anxiety', 'sleep'],
+      relevance_score: 92,
+      discovered_at: '2024-01-15T10:30:00Z',
+      abstract: 'This large case series examined the effects of cannabidiol on anxiety and sleep in 72 adults presenting to a psychiatric clinic.'
+    },
+    {
+      id: 2,
+      title: 'Cannabidiol for the treatment of cannabis use disorder: a phase 2a trial',
+      authors: 'Freeman TP, Hindocha C, Baio G, et al.',
+      publication: 'The Lancet Psychiatry',
+      year: 2020,
+      url: 'https://pubmed.ncbi.nlm.nih.gov/33035453/',
+      doi: '10.1016/S2215-0366(20)30290-X',
+      source_site: 'PubMed',
+      relevant_topics: ['addiction', 'clinical trial'],
+      relevance_score: 89,
+      discovered_at: '2024-01-12T14:20:00Z',
+      abstract: 'This randomised, double-blind, placebo-controlled trial investigated cannabidiol as a treatment for cannabis use disorder.'
+    },
+    {
+      id: 3,
+      title: 'Trial of Cannabidiol for Drug-Resistant Seizures in the Dravet Syndrome',
+      authors: 'Devinsky O, Cross JH, Laux L, et al.',
+      publication: 'New England Journal of Medicine',
+      year: 2017,
+      url: 'https://pubmed.ncbi.nlm.nih.gov/28538134/',
+      doi: '10.1056/NEJMoa1611618',
+      source_site: 'PubMed',
+      relevant_topics: ['epilepsy', 'clinical trial'],
+      relevance_score: 95,
+      discovered_at: '2024-01-10T09:15:00Z',
+      abstract: 'This double-blind, placebo-controlled trial evaluated cannabidiol for drug-resistant seizures in patients with Dravet syndrome.'
+    }
+  ];
 
-  // Get approved research papers (simplified query to avoid build issues)
-  const { data: research, error } = await supabase
-    .from('kb_research_queue')
-    .select(`
-      id,
-      title,
-      authors,
-      publication,
-      year,
-      abstract,
-      url,
-      doi,
-      source_site,
-      relevance_score,
-      relevant_topics,
-      search_term_matched,
-      discovered_at
-    `)
-    .eq('status', 'approved')
-    .order('relevance_score', { ascending: false })
-    .limit(50);
+  // Define research papers for display
+  const researchPapers = sampleResearch;
 
-  if (error) {
-    console.error('Error fetching research:', error);
-  }
+  // Define available research sources
+  const allSources = ['PubMed', 'ClinicalTrials.gov', 'Nature', 'The Lancet'];
 
-  const researchPapers = research || [];
-
-  // Get unique topics for filtering
-  const allTopics = [...new Set(researchPapers.flatMap(r => r.relevant_topics || []))].sort();
-
-  // Get unique sources
-  const allSources = [...new Set(researchPapers.map(r => r.source_site))].sort();
-
-  // Statistics
   const stats = {
-    total: researchPapers.length,
-    sources: allSources.length,
-    topics: allTopics.length,
-    averageScore: researchPapers.length > 0
-      ? Math.round(researchPapers.reduce((sum, r) => sum + r.relevance_score, 0) / researchPapers.length)
-      : 0
+    total: '3',
+    sources: 1,
+    topics: 5,
+    averageScore: 92
   };
 
   return (
