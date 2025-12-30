@@ -15,10 +15,6 @@ interface ResearchItem {
   relevant_topics: string[];
   search_term_matched?: string;
   discovered_at: string;
-  article: {
-    title: string;
-    slug: string;
-  } | null;
 }
 
 export const metadata = {
@@ -33,7 +29,7 @@ export const metadata = {
 export default async function ResearchPage() {
   const supabase = await createClient();
 
-  // Get approved research papers with associated articles
+  // Get approved research papers (simplified query to avoid build issues)
   const { data: research, error } = await supabase
     .from('kb_research_queue')
     .select(`
@@ -49,10 +45,7 @@ export default async function ResearchPage() {
       relevance_score,
       relevant_topics,
       search_term_matched,
-      discovered_at,
-      article:kb_article_research(
-        article:kb_articles(title, slug)
-      )
+      discovered_at
     `)
     .eq('status', 'approved')
     .order('relevance_score', { ascending: false })
@@ -62,10 +55,7 @@ export default async function ResearchPage() {
     console.error('Error fetching research:', error);
   }
 
-  const researchPapers = (research as any[])?.map(item => ({
-    ...item,
-    article: item.article?.[0]?.article || null
-  })) || [];
+  const researchPapers = research || [];
 
   // Get unique topics for filtering
   const allTopics = [...new Set(researchPapers.flatMap(r => r.relevant_topics || []))].sort();
@@ -225,19 +215,6 @@ export default async function ResearchPage() {
                     )}
                   </div>
 
-                  {paper.article && (
-                    <div className="mt-3 p-2 bg-blue-50 rounded border border-blue-200">
-                      <p className="text-sm text-blue-800">
-                        📖 Referenced in:{' '}
-                        <Link
-                          href={`/articles/${paper.article.slug}`}
-                          className="font-medium hover:underline"
-                        >
-                          {paper.article.title}
-                        </Link>
-                      </p>
-                    </div>
-                  )}
                 </div>
 
                 <div className="ml-6">
