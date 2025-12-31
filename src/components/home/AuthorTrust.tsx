@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 
 export async function AuthorTrust() {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const { data: authors } = await supabase
     .from('kb_authors')
