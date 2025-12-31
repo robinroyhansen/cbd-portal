@@ -27,7 +27,7 @@ interface Author {
 }
 
 export default async function AuthorsPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const { data: authors } = await supabase
     .from('kb_authors')

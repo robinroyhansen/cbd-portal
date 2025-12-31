@@ -25,7 +25,7 @@ export default function AdminAuthorsPage() {
   }, []);
 
   const fetchAuthors = async () => {
-    const supabase = createClient();
+    const supabase = await createClient();
     const { data } = await supabase
       .from('kb_authors')
       .select('*')
@@ -36,7 +36,7 @@ export default function AdminAuthorsPage() {
   };
 
   const toggleActive = async (id: string, currentStatus: boolean) => {
-    const supabase = createClient();
+    const supabase = await createClient();
     await supabase
       .from('kb_authors')
       .update({ is_active: !currentStatus })
@@ -45,7 +45,7 @@ export default function AdminAuthorsPage() {
   };
 
   const toggleVerified = async (id: string, currentStatus: boolean) => {
-    const supabase = createClient();
+    const supabase = await createClient();
     await supabase
       .from('kb_authors')
       .update({ is_verified: !currentStatus })

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default async function AboutPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Get stats
   const { count: articleCount } = await supabase
