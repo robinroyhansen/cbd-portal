@@ -55,6 +55,38 @@
   .article-content .glossary-term:hover {
     background-color: #f0fdf4;
   }
+
+  /* Mobile touch improvements */
+  @media (max-width: 768px) {
+    /* Larger touch targets */
+    button, a {
+      min-height: 44px;
+    }
+
+    /* Prevent zoom on input focus (iOS) */
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+
+    /* Hide scrollbar in mobile menu but allow scroll */
+    .mobile-menu-scroll {
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .mobile-menu-scroll::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  /* Prevent text selection during menu interactions */
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 }
 
 @media print {

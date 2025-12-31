@@ -24,20 +24,6 @@ export function middleware(request: NextRequest) {
   const hostname = request.headers.get('host') || '';
   const { pathname } = request.nextUrl;
 
-  // Admin authentication
-  if (pathname.startsWith('/admin')) {
-    if (pathname === '/admin/login') {
-      return NextResponse.next();
-    }
-
-    const adminSession = request.cookies.get('admin-session');
-    if (!adminSession || adminSession.value !== 'authenticated') {
-      return NextResponse.redirect(new URL('/admin/login', request.url));
-    }
-
-    return NextResponse.next();
-  }
-
   // Skip language redirect for API routes, static files
   if (pathname.startsWith('/api') ||
       pathname.startsWith('/_next') ||

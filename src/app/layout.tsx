@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Merriweather } from 'next/font/google';
 import './globals.css';
-import { Header } from '@/components/Header';
+import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { CookieConsent } from '@/components/CookieConsent';
 
@@ -57,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${merriweather.variable}`}>
       <body className="min-h-screen bg-white font-sans text-gray-900 flex flex-col">
-        <Header />
+        <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />
         <CookieConsent />
