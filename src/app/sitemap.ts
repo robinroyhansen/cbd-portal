@@ -17,8 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch all categories
   const { data: categoriesData } = await supabase
     .from('kb_categories')
-    .select('slug')
-    .gt('article_count', 0);
+    .select('slug');
 
   const categories = categoriesData as Array<{ slug: string }> | null;
 
@@ -34,6 +33,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/articles`,
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/categories`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
