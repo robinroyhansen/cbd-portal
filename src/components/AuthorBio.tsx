@@ -8,38 +8,74 @@ interface AuthorBioProps {
 
 export function AuthorBio({ className = '' }: AuthorBioProps) {
   return (
-    <div className={`bg-gray-50 rounded-lg p-6 mt-12 border border-gray-200 ${className}`}>
-      <h3 className="text-lg font-semibold mb-4">About the Author</h3>
+    <div className={`bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 mt-12 border border-blue-100 ${className}`}>
+      <h3 className="text-lg font-semibold mb-4 text-gray-900">About the Author</h3>
       <div className="flex gap-4">
-        <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center shrink-0">
-          <span className="text-green-700 text-2xl">👤</span>
+        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shrink-0">
+          <span className="text-white text-xl font-bold">RK</span>
         </div>
-        <div>
-          <p className="font-semibold text-lg">Robin Roy Krigslund-Hansen</p>
-          <p className="text-sm text-green-700 mb-3">CBD Expert & Industry Veteran</p>
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-1">
+            <p className="font-semibold text-lg text-gray-900">Robin Roy Krigslund-Hansen</p>
+            <span className="text-blue-500" title="Verified CBD Expert">✓</span>
+          </div>
+          <p className="text-sm text-blue-700 mb-3 font-medium">CBD Industry Pioneer & Entrepreneur</p>
 
-          <p className="text-gray-700 text-sm mb-3">
-            Robin brings over 12 years of hands-on experience in the CBD and cannabis industry,
-            having developed hundreds of CBD-based products sold to more than 100,000 customers
-            across 60+ countries worldwide. Based in Switzerland, he focuses on translating
-            complex clinical research into clear, accessible information for consumers. His
-            approach prioritises peer-reviewed scientific evidence and stays current with
-            regulatory developments across European and international markets.
+          <p className="text-gray-700 text-sm mb-3 leading-relaxed">
+            Danish entrepreneur who has been pioneering the European CBD industry since 2013.
+            With over a decade of hands-on experience across product development, GMP manufacturing,
+            and EU regulatory compliance, Robin has developed 300+ CBD products and maintains a
+            perfect third-party lab testing record. He shares evidence-based insights to help
+            consumers make informed decisions.
           </p>
 
+          {/* Trust badges */}
+          <div className="grid grid-cols-2 gap-2 mb-4">
+            <div className="flex items-center gap-1 text-xs text-gray-600">
+              <span className="text-blue-500">🗓️</span>
+              <span>Since 2013</span>
+            </div>
+            <div className="flex items-center gap-1 text-xs text-gray-600">
+              <span className="text-blue-500">🧪</span>
+              <span>300+ Products</span>
+            </div>
+            <div className="flex items-center gap-1 text-xs text-gray-600">
+              <span className="text-blue-500">✅</span>
+              <span>GMP Certified</span>
+            </div>
+            <div className="flex items-center gap-1 text-xs text-gray-600">
+              <span className="text-blue-500">🌍</span>
+              <span>16+ Countries</span>
+            </div>
+          </div>
+
+          {/* Key credentials */}
+          <div className="flex flex-wrap gap-1 mb-4">
+            {[
+              'EIHA Member',
+              'Novel Food Consortium',
+              'University Research Partner',
+              'Zero Failed Lab Tests'
+            ].map((credential, index) => (
+              <span key={index} className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded font-medium">
+                {credential}
+              </span>
+            ))}
+          </div>
+
           <div className="flex items-center gap-3 text-xs text-gray-500 mb-4">
-            <span>🇨🇭 Switzerland</span>
+            <span>🇨🇭 Zug, Switzerland</span>
             <span>•</span>
-            <span>12+ years CBD industry experience</span>
+            <span>12+ years industry experience</span>
             <span>•</span>
-            <span>100,000+ customers served globally</span>
+            <span>100% renewable energy operations</span>
           </div>
 
           <p className="text-xs text-gray-500 italic border-t border-gray-200 pt-3">
             <strong>Disclaimer:</strong> The views and opinions expressed in these articles are
             Robin's personal expert opinions based on his extensive industry experience and
-            independent research. They do not represent the official position of Formula Swiss AG
-            or any other organisation.
+            independent research. They do not represent the official position of any company
+            or organization he has founded or been affiliated with.
           </p>
         </div>
       </div>
@@ -51,13 +87,16 @@ export function AuthorBio({ className = '' }: AuthorBioProps) {
 export function AuthorByline({ date, className = '' }: { date?: string; className?: string }) {
   return (
     <div className={`flex items-center gap-3 text-sm text-gray-600 mb-6 pb-6 border-b border-gray-100 ${className}`}>
-      <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-        <span className="text-green-700">👤</span>
+      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
+        <span className="text-white font-bold text-sm">RK</span>
       </div>
       <div>
-        <p className="font-medium text-gray-900">Robin Roy Krigslund-Hansen</p>
+        <div className="flex items-center gap-2">
+          <p className="font-medium text-gray-900">Robin Roy Krigslund-Hansen</p>
+          <span className="text-blue-500 text-xs" title="Verified CBD Expert">✓</span>
+        </div>
         <p className="text-xs text-gray-500">
-          CBD Expert • 12+ years industry experience
+          CBD Industry Pioneer • 12+ years experience • Since 2013
         </p>
       </div>
       {date && (

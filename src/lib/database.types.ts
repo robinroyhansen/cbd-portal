@@ -9,6 +9,80 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
+      authors: {
+        Row: {
+          id: string;
+          created_at: string;
+          updated_at: string;
+          slug: string;
+          name: string;
+          title: string | null;
+          email: string | null;
+          bio_short: string | null;
+          bio_full: string | null;
+          credentials: string[];
+          expertise_areas: string[];
+          years_experience: number;
+          location: string | null;
+          image_url: string | null;
+          image_alt: string | null;
+          social_links: Json;
+          meta_title: string | null;
+          meta_description: string | null;
+          is_primary: boolean;
+          is_verified: boolean;
+          is_active: boolean;
+          display_order: number;
+        };
+        Insert: {
+          id?: string;
+          created_at?: string;
+          updated_at?: string;
+          slug: string;
+          name: string;
+          title?: string | null;
+          email?: string | null;
+          bio_short?: string | null;
+          bio_full?: string | null;
+          credentials?: string[];
+          expertise_areas?: string[];
+          years_experience?: number;
+          location?: string | null;
+          image_url?: string | null;
+          image_alt?: string | null;
+          social_links?: Json;
+          meta_title?: string | null;
+          meta_description?: string | null;
+          is_primary?: boolean;
+          is_verified?: boolean;
+          is_active?: boolean;
+          display_order?: number;
+        };
+        Update: {
+          id?: string;
+          created_at?: string;
+          updated_at?: string;
+          slug?: string;
+          name?: string;
+          title?: string | null;
+          email?: string | null;
+          bio_short?: string | null;
+          bio_full?: string | null;
+          credentials?: string[];
+          expertise_areas?: string[];
+          years_experience?: number;
+          location?: string | null;
+          image_url?: string | null;
+          image_alt?: string | null;
+          social_links?: Json;
+          meta_title?: string | null;
+          meta_description?: string | null;
+          is_primary?: boolean;
+          is_verified?: boolean;
+          is_active?: boolean;
+          display_order?: number;
+        };
+      };
       kb_articles: {
         Row: {
           id: string;

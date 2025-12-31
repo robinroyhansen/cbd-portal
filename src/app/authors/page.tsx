@@ -53,45 +53,49 @@ export default async function AuthorsPage() {
 
       totalArticles = count || 0;
 
-      // Create Formula Swiss author data until table is created
+      // Create Robin Roy Krigslund-Hansen author data until table is created
       authors = [{
-        id: 'formula-swiss-temp-id',
-        name: 'Formula Swiss',
-        slug: 'formula-swiss',
-        title: 'European CBD Industry Pioneer Since 2013',
+        id: 'robin-temp-id',
+        name: 'Robin Roy Krigslund-Hansen',
+        slug: 'robin-roy-krigslund-hansen',
+        title: 'CBD Industry Pioneer & Entrepreneur',
         credentials: [
-          'Operating in the CBD industry since 2013',
-          'Over €1 million invested in EU regulatory compliance',
-          'Novel Food applications submitted and approved',
-          'Five specialized companies across Europe and UK',
-          'Partnerships with certified testing laboratories',
-          'Direct relationships with organic hemp farmers',
-          'GMP-compliant manufacturing processes',
-          'Medical-grade product development expertise'
+          '12+ years in CBD industry (since 2013)',
+          'Developed 300+ CBD product formulations',
+          'GMP & ISO 22716 certified operations',
+          'EU Novel Food Consortium shareholder',
+          'University research collaborations',
+          'Zero failed third-party lab tests',
+          'Operations in 16+ European countries',
+          '100% renewable energy production',
+          'EIHA member (European Industrial Hemp Association)',
+          'MEDCAN supporter (Swiss Medical Cannabis Association)',
+          'Organic cultivation expertise',
+          'CO2 extraction specialist'
         ],
-        bio_short: 'Formula Swiss is one of Europe\'s most established CBD companies, operating since 2013 when the European CBD market was still in its infancy. What started as a small operation has grown into a group of companies serving consumers, retailers, and medical professionals across Europe and beyond.',
+        bio_short: 'Danish entrepreneur who has been pioneering the European CBD industry since 2013. With over a decade of hands-on experience in product development, manufacturing, and regulatory compliance, he shares evidence-based insights to help consumers make informed decisions.',
         image_url: '',
         years_experience: 12,
         expertise_areas: [
-          'CBD Oils & Tinctures',
-          'CBD Capsules & Edibles',
-          'CBD Topicals & Skincare',
-          'CBD for Pets',
-          'Medical CBD Applications',
-          'European CBD Regulations',
-          'Product Quality & Testing',
-          'Hemp Cultivation & Extraction'
+          'CBD Oils (Full-spectrum & Broad-spectrum)',
+          'CBG & CBN Cannabinoids',
+          'CBD for Pets (Dogs, Cats, Horses)',
+          'CBD Skincare & Cosmetics',
+          'CO2 Extraction Methods',
+          'GMP Manufacturing Standards',
+          'EU Novel Food Regulations',
+          'Third-party Lab Testing',
+          'Organic Hemp Cultivation',
+          'European CBD Market',
+          'Product Quality Control',
+          'Cannabinoid Science'
         ],
         article_count: totalArticles,
         is_verified: true,
         is_primary: true,
-        website_url: 'https://formulaswiss.com',
+        website_url: '',
         companies: [
-          { name: 'Formula Swiss AG', role: 'Swiss flagship company' },
-          { name: 'Formula Swiss Wholesale AG', role: 'B2B division' },
-          { name: 'Formula Swiss UK Ltd.', role: 'UK operations' },
-          { name: 'Formula Swiss Europe Ltd.', role: 'EU distribution' },
-          { name: 'Formula Swiss Medical Ltd.', role: 'Medical division' }
+          { name: 'CBD Industry Pioneer', role: 'Since 2013' }
         ]
       }];
     } else {
@@ -152,14 +156,10 @@ export default async function AuthorsPage() {
                     className="w-20 h-20 rounded-full object-cover"
                   />
                 ) : (
-                  <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">
-                    {author.slug === 'formula-swiss' ? (
-                      <span className="text-2xl text-green-700">🏢</span>
-                    ) : (
-                      <span className="text-3xl text-green-700">
-                        {author.name.split(' ').map(n => n[0]).join('')}
-                      </span>
-                    )}
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
+                    <span className="text-2xl font-bold text-white">
+                      RK
+                    </span>
                   </div>
                 )}
               </div>
@@ -167,27 +167,25 @@ export default async function AuthorsPage() {
               {/* Info */}
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
-                  <h2 className="text-xl font-bold group-hover:text-green-700 transition-colors">
+                  <h2 className="text-xl font-bold group-hover:text-blue-700 transition-colors">
                     {author.name}
                   </h2>
                   {author.is_verified && (
-                    <span className="text-blue-500" title="Verified Expert">✓</span>
+                    <span className="text-blue-500" title="Verified CBD Expert">✓</span>
                   )}
-                  {author.slug === 'formula-swiss' && (
-                    <span className="px-2 py-0.5 bg-green-100 text-green-700 text-xs rounded font-medium">
-                      Since 2013
-                    </span>
-                  )}
+                  <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded font-medium">
+                    Since 2013
+                  </span>
                 </div>
 
-                <p className="text-green-700 font-medium text-sm mb-2">{author.title}</p>
+                <p className="text-blue-700 font-medium text-sm mb-2">{author.title}</p>
 
                 {author.credentials && Array.isArray(author.credentials) && author.credentials.length > 0 && (
                   <div className="text-gray-500 text-sm mb-3">
                     <div className="flex flex-wrap gap-1">
                       {author.credentials.slice(0, 2).map((credential, index) => (
                         <span key={index} className="flex items-center">
-                          <span className="text-green-600 mr-1">✓</span>
+                          <span className="text-blue-600 mr-1">✓</span>
                           <span>{credential}</span>
                           {index < author.credentials.length - 1 && index < 1 && <span className="ml-2">•</span>}
                         </span>

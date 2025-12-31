@@ -9,10 +9,10 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // For fallback case when table doesn't exist
-  if (params.slug === 'formula-swiss') {
+  if (params.slug === 'robin-roy-krigslund-hansen') {
     return {
-      title: 'Formula Swiss - European CBD Industry Pioneer | CBD Portal',
-      description: 'Meet Formula Swiss, Europe\'s most established CBD company operating since 2013. Learn about our group of companies serving consumers, retailers, and medical professionals across Europe.',
+      title: 'Robin Roy Krigslund-Hansen - CBD Industry Expert | CBD Portal',
+      description: 'Meet Robin Roy Krigslund-Hansen, Danish entrepreneur and CBD industry pioneer with 12+ years of hands-on experience in the European CBD market since 2013.',
       alternates: {
         canonical: `/authors/${params.slug}`,
       },
@@ -50,8 +50,8 @@ export default async function AuthorPage({ params }: Props) {
   let author: any = null;
   let articles: any[] = [];
 
-  // Handle fallback for Formula Swiss if table doesn't exist
-  if (params.slug === 'formula-swiss') {
+  // Handle fallback for Robin if table doesn't exist
+  if (params.slug === 'robin-roy-krigslund-hansen') {
     try {
       const { data: authorData } = await supabase
         .from('authors')
@@ -89,90 +89,80 @@ export default async function AuthorPage({ params }: Props) {
       articles = allArticles || [];
 
       author = {
-        id: 'formula-swiss-temp-id',
-        name: 'Formula Swiss',
-        slug: 'formula-swiss',
-        title: 'European CBD Industry Pioneer Since 2013',
+        id: 'robin-temp-id',
+        name: 'Robin Roy Krigslund-Hansen',
+        slug: 'robin-roy-krigslund-hansen',
+        title: 'CBD Industry Pioneer & Entrepreneur',
+        location: 'Zug, Switzerland',
         credentials: [
-          'Operating in the CBD industry since 2013',
-          'Over €1 million invested in EU regulatory compliance',
-          'Novel Food applications submitted and approved',
-          'Five specialized companies across Europe and UK',
-          'Partnerships with certified testing laboratories',
-          'Direct relationships with organic hemp farmers',
-          'GMP-compliant manufacturing processes',
-          'Medical-grade product development expertise'
+          '12+ years in CBD industry (since 2013)',
+          'Developed 300+ CBD product formulations',
+          'GMP & ISO 22716 certified operations',
+          'EU Novel Food Consortium shareholder',
+          'University research collaborations',
+          'Zero failed third-party lab tests',
+          'Operations in 16+ European countries',
+          '100% renewable energy production',
+          'EIHA member (European Industrial Hemp Association)',
+          'MEDCAN supporter (Swiss Medical Cannabis Association)',
+          'Organic cultivation expertise',
+          'CO2 extraction specialist'
         ],
-        bio_short: 'Formula Swiss is one of Europe\'s most established CBD companies, operating since 2013 when the European CBD market was still in its infancy. What started as a small operation has grown into a group of companies serving consumers, retailers, and medical professionals across Europe and beyond.',
-        bio_full: `Formula Swiss is one of Europe's most established CBD companies, operating since 2013 when the European CBD market was still in its infancy. What started as a small operation has grown into a group of companies serving consumers, retailers, and medical professionals across Europe and beyond.
+        bio_short: 'Danish entrepreneur who has been pioneering the European CBD industry since 2013. With over a decade of hands-on experience in product development, manufacturing, and regulatory compliance, he shares evidence-based insights to help consumers make informed decisions.',
+        bio_full: `Robin Roy Krigslund-Hansen is a Danish entrepreneur and CBD industry pioneer who founded his first CBD company in 2013, making him one of the earliest players in the European cannabinoid market.
 
-## The Formula Swiss Group
+Over the past 12 years, Robin has built extensive hands-on experience across every aspect of the CBD industry — from organic hemp cultivation and CO2 extraction to product formulation, GMP manufacturing, and navigating the complex European regulatory landscape.
 
-The Formula Swiss group includes:
+**Product Development & Manufacturing**
+Robin has overseen the development of over 300 different CBD products, including full-spectrum and broad-spectrum CBD oils, CBG oils, CBN oils, CBD skincare, and pet products. He has direct experience with CO2 extraction processes, winterization, and decarboxylation techniques that ensure optimal cannabinoid profiles.
 
-**Formula Swiss AG** – The flagship Swiss company focusing on premium CBD consumer products, manufactured under strict Swiss quality standards.
+**Quality Standards & Certifications**
+Under Robin's leadership, his companies have achieved GMP (Good Manufacturing Practice) and ISO 22716-2007 certifications — the highest standards in the industry. Every production batch undergoes third-party laboratory testing in Switzerland, with a perfect track record of zero failed tests.
 
-**Formula Swiss Wholesale AG** – Dedicated B2B division supplying CBD products to retailers, pharmacies, and white-label partners throughout Europe.
+**Regulatory Expertise**
+Robin has navigated CBD regulations across 16+ European countries and invested significantly in EU Novel Food compliance. He is a shareholder in the EIHA Novel Food Consortium, a €3.5 million initiative to establish comprehensive safety data for CBD products in Europe.
 
-**Formula Swiss UK Ltd.** – UK operations ensuring continued service and compliance following Brexit, with products tailored to British regulations.
+**Scientific Research Collaboration**
+Robin has established research partnerships with the University of Bologna's Department of Veterinary Medical Sciences for CBD studies in animals, and has supported human clinical research including double-blind, placebo-controlled trials in the Netherlands.
 
-**Formula Swiss Europe Ltd.** – European distribution hub managing logistics and compliance across EU member states.
+**Sustainability Commitment**
+Robin's operations use 100% renewable energy (solar and hydro), state-of-the-art LED growing technology, and follow organic cultivation principles without pesticides or artificial fertilizers. Hemp's natural CO2 absorption makes his operations carbon-negative.
 
-**Formula Swiss Medical Ltd.** – Specialized division focused on medical-grade CBD products and collaboration with healthcare professionals.
+**Industry Leadership**
+Robin is an active member of leading industry associations including:
+- European Industrial Hemp Association (EIHA)
+- EIHA Novel Food Consortium (shareholder)
+- Swiss Medical Cannabis Association (MEDCAN)
+- Swiss Hemp Producer Association (IG Hanf)
+- Arge Canna (Austria)
 
-## Industry Leadership
-
-Over more than a decade in the CBD industry, Formula Swiss has invested heavily in regulatory compliance, including over €1 million in Novel Food applications and product registrations across European markets. The company works with certified laboratories for third-party testing and maintains relationships with organic hemp farmers and state-of-the-art extraction facilities.
-
-## Mission
-
-CBD Portal was founded by the Formula Swiss team to provide consumers with honest, evidence-based information about CBD – cutting through marketing hype to deliver research-backed guidance that helps people make informed decisions about CBD products.`,
+Through this portal, Robin shares his decade-plus of practical experience to provide accurate, evidence-based information about CBD products, helping consumers separate fact from marketing hype.`,
         image_url: '',
         years_experience: 12,
         expertise_areas: [
-          'CBD Oils & Tinctures',
-          'CBD Capsules & Edibles',
-          'CBD Topicals & Skincare',
-          'CBD for Pets',
-          'Medical CBD Applications',
-          'European CBD Regulations',
-          'Product Quality & Testing',
-          'Hemp Cultivation & Extraction'
+          'CBD Oils (Full-spectrum & Broad-spectrum)',
+          'CBG & CBN Cannabinoids',
+          'CBD for Pets (Dogs, Cats, Horses)',
+          'CBD Skincare & Cosmetics',
+          'CO2 Extraction Methods',
+          'GMP Manufacturing Standards',
+          'EU Novel Food Regulations',
+          'Third-party Lab Testing',
+          'Organic Hemp Cultivation',
+          'European CBD Market',
+          'Product Quality Control',
+          'Cannabinoid Science'
         ],
         article_count: articles.length,
         is_verified: true,
         is_primary: true,
-        website_url: 'https://formulaswiss.com',
+        website_url: '',
         companies: [
           {
-            name: 'Formula Swiss AG',
-            role: 'Swiss flagship company',
-            location: 'Switzerland',
-            description: 'Premium CBD consumer products manufactured under strict Swiss quality standards'
-          },
-          {
-            name: 'Formula Swiss Wholesale AG',
-            role: 'B2B division',
-            location: 'Switzerland',
-            description: 'Supplying CBD products to retailers, pharmacies, and white-label partners throughout Europe'
-          },
-          {
-            name: 'Formula Swiss UK Ltd.',
-            role: 'UK operations',
-            location: 'United Kingdom',
-            description: 'Ensuring continued service and compliance following Brexit with products tailored to British regulations'
-          },
-          {
-            name: 'Formula Swiss Europe Ltd.',
-            role: 'European distribution',
+            name: 'CBD Industry Pioneer',
+            role: 'Since 2013',
             location: 'Europe',
-            description: 'Managing logistics and compliance across EU member states'
-          },
-          {
-            name: 'Formula Swiss Medical Ltd.',
-            role: 'Medical division',
-            location: 'Europe',
-            description: 'Medical-grade CBD products and collaboration with healthcare professionals'
+            description: 'Founded first CBD company in 2013, building extensive experience across product development, manufacturing, and European regulatory compliance'
           }
         ]
       };
@@ -208,24 +198,58 @@ CBD Portal was founded by the Formula Swiss team to provide consumers with hones
     { name: author.name, url: `/authors/${author.slug}` }
   ];
 
-  // Schema for SEO - Organization for Formula Swiss, Person for others
-  const schema = author.slug === 'formula-swiss' ? {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: author.name || '',
-    description: author.bio_short || '',
-    url: `https://cbd-portal.vercel.app/authors/${author.slug}`,
-    foundingDate: '2013',
-    ...(author.website_url && {
-      sameAs: author.website_url
-    })
-  } : {
+  // Enhanced Person schema for SEO with full E-E-A-T signals
+  const schema = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: author.name || '',
     jobTitle: author.title || '',
     description: author.bio_short || '',
     url: `https://cbd-portal.vercel.app/authors/${author.slug}`,
+    knowsAbout: [
+      'CBD Oil',
+      'Cannabidiol',
+      'Hemp Products',
+      'GMP Manufacturing',
+      'EU Novel Food Regulations',
+      'CO2 Extraction',
+      'CBD for Pets',
+      'CBG Products',
+      'CBN Products',
+      'European CBD Market',
+      'Product Quality Control',
+      'Cannabinoid Science'
+    ],
+    memberOf: [
+      {
+        '@type': 'Organization',
+        'name': 'European Industrial Hemp Association (EIHA)'
+      },
+      {
+        '@type': 'Organization',
+        'name': 'EIHA Novel Food Consortium'
+      },
+      {
+        '@type': 'Organization',
+        'name': 'Swiss Medical Cannabis Association (MEDCAN)'
+      }
+    ],
+    award: [
+      'GMP Certification',
+      'ISO 22716 Certification'
+    ],
+    nationality: 'Danish',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Zug',
+      addressCountry: 'Switzerland'
+    },
+    hasOccupation: {
+      '@type': 'Occupation',
+      name: 'CBD Industry Entrepreneur',
+      occupationalCategory: 'Pharmaceutical and Biotechnology',
+      skills: author.expertise_areas || []
+    },
     ...(author.website_url && {
       sameAs: author.website_url
     })
@@ -245,7 +269,7 @@ CBD Portal was founded by the Formula Swiss team to provide consumers with hones
             {breadcrumbs.map((crumb, index) => (
               <li key={crumb.url} className="flex items-center">
                 {index > 0 && <span className="mx-2">/</span>}
-                <Link href={crumb.url} className="hover:text-green-600">
+                <Link href={crumb.url} className="hover:text-blue-600">
                   {crumb.name}
                 </Link>
               </li>
@@ -264,14 +288,10 @@ CBD Portal was founded by the Formula Swiss team to provide consumers with hones
                 className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover mx-auto md:mx-0"
               />
             ) : (
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-green-100 flex items-center justify-center mx-auto md:mx-0">
-                {author.slug === 'formula-swiss' ? (
-                  <span className="text-5xl text-green-700">🏢</span>
-                ) : (
-                  <span className="text-5xl text-green-700">
-                    {author.name.split(' ').map((n: string) => n[0]).join('')}
-                  </span>
-                )}
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mx-auto md:mx-0">
+                <span className="text-5xl font-bold text-white">
+                  RK
+                </span>
               </div>
             )}
           </div>
@@ -283,14 +303,12 @@ CBD Portal was founded by the Formula Swiss team to provide consumers with hones
               {author.is_verified && (
                 <span className="text-blue-500 text-2xl" title="Verified Expert">✓</span>
               )}
-              {author.slug === 'formula-swiss' && (
-                <span className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full font-medium">
-                  Since 2013
-                </span>
-              )}
+              <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full font-medium">
+                Since 2013
+              </span>
             </div>
 
-            <p className="text-xl text-green-700 font-medium mb-2">{author.title}</p>
+            <p className="text-xl text-blue-700 font-medium mb-2">{author.title}</p>
 
             {author.credentials && (
               <div className="mb-4">
@@ -298,7 +316,7 @@ CBD Portal was founded by the Formula Swiss team to provide consumers with hones
                   <div className="space-y-1">
                     {author.credentials.slice(0, 3).map((credential: string, index: number) => (
                       <div key={index} className="flex items-center justify-center md:justify-start text-sm text-gray-600">
-                        <span className="text-green-600 mr-2">✓</span>
+                        <span className="text-blue-600 mr-2">✓</span>
                         <span>{credential}</span>
                       </div>
                     ))}
@@ -328,9 +346,9 @@ CBD Portal was founded by the Formula Swiss team to provide consumers with hones
 
             {/* Social links */}
             <div className="flex justify-center md:justify-start gap-3">
-              {author.linkedin_url && (
+              {(author.social_links?.linkedin || author.linkedin_url) && (
                 <a
-                  href={author.linkedin_url}
+                  href={author.social_links?.linkedin || author.linkedin_url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700 transition-colors"
@@ -338,9 +356,9 @@ CBD Portal was founded by the Formula Swiss team to provide consumers with hones
                   LinkedIn
                 </a>
               )}
-              {author.twitter_url && (
+              {(author.social_links?.twitter || author.twitter_url) && (
                 <a
-                  href={author.twitter_url}
+                  href={author.social_links?.twitter || author.twitter_url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2 bg-gray-800 text-white rounded-lg text-sm hover:bg-gray-900 transition-colors"
@@ -348,14 +366,44 @@ CBD Portal was founded by the Formula Swiss team to provide consumers with hones
                   Twitter/X
                 </a>
               )}
-              {author.website_url && (
+              {(author.social_links?.website || author.website_url) && (
                 <a
-                  href={author.website_url}
+                  href={author.social_links?.website || author.website_url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm hover:bg-gray-200 transition-colors"
                 >
                   Website
+                </a>
+              )}
+              {author.social_links?.facebook && (
+                <a
+                  href={author.social_links.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-blue-700 text-white rounded-lg text-sm hover:bg-blue-800 transition-colors"
+                >
+                  Facebook
+                </a>
+              )}
+              {author.social_links?.instagram && (
+                <a
+                  href={author.social_links.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-pink-600 text-white rounded-lg text-sm hover:bg-pink-700 transition-colors"
+                >
+                  Instagram
+                </a>
+              )}
+              {author.social_links?.youtube && (
+                <a
+                  href={author.social_links.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-red-600 text-white rounded-lg text-sm hover:bg-red-700 transition-colors"
+                >
+                  YouTube
                 </a>
               )}
             </div>
@@ -368,7 +416,7 @@ CBD Portal was founded by the Formula Swiss team to provide consumers with hones
             <h2 className="text-lg font-semibold text-gray-500 uppercase tracking-wider mb-3">Areas of Expertise</h2>
             <div className="flex flex-wrap gap-2">
               {author.expertise_areas.map((area: string) => (
-                <span key={area} className="px-4 py-2 bg-green-100 text-green-700 rounded-full">
+                <span key={area} className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full">
                   {area}
                 </span>
               ))}
@@ -391,7 +439,7 @@ CBD Portal was founded by the Formula Swiss team to provide consumers with hones
                       </span>
                     )}
                   </div>
-                  <p className="text-green-700 text-sm">{company.role}</p>
+                  <p className="text-blue-700 text-sm">{company.role}</p>
                   {company.description && (
                     <p className="text-gray-500 text-sm mt-1">{company.description}</p>
                   )}
@@ -443,13 +491,13 @@ CBD Portal was founded by the Formula Swiss team to provide consumers with hones
             <ul className="space-y-3">
               {author.publications.map((pub: any, index: number) => (
                 <li key={index} className="flex items-start gap-3">
-                  <span className="text-green-600">→</span>
+                  <span className="text-blue-600">→</span>
                   <div>
                     <a
                       href={pub.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-medium hover:text-green-700"
+                      className="font-medium hover:text-blue-700"
                     >
                       {pub.title}
                     </a>
@@ -474,9 +522,9 @@ CBD Portal was founded by the Formula Swiss team to provide consumers with hones
                 <Link
                   key={article.slug}
                   href={`/articles/${article.slug}`}
-                  className="block p-5 border rounded-lg hover:border-green-300 hover:shadow-md transition-all"
+                  className="block p-5 border rounded-lg hover:border-blue-300 hover:shadow-md transition-all"
                 >
-                  <h3 className="font-semibold text-lg mb-2 hover:text-green-700">{article.title}</h3>
+                  <h3 className="font-semibold text-lg mb-2 hover:text-blue-700">{article.title}</h3>
                   <p className="text-gray-600 text-sm line-clamp-2 mb-2">{article.excerpt}</p>
                   <div className="flex gap-4 text-xs text-gray-400">
                     {article.reading_time && <span>{article.reading_time} min read</span>}
@@ -490,7 +538,7 @@ CBD Portal was founded by the Formula Swiss team to provide consumers with hones
               <div className="text-center mt-6">
                 <Link
                   href={`/articles?author=${author.slug}`}
-                  className="text-green-600 hover:text-green-800 font-medium"
+                  className="text-blue-600 hover:text-blue-800 font-medium"
                 >
                   View all articles by {author.name.split(' ')[0]} →
                 </Link>

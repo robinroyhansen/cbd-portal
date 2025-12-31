@@ -17,6 +17,15 @@ const navItems = [
       { name: 'Create Article', href: '/admin/articles/new', icon: '➕' },
     ]
   },
+  {
+    name: 'Authors',
+    href: '/admin/authors',
+    icon: '👤',
+    subItems: [
+      { name: 'All Authors', href: '/admin/authors', icon: '📋' },
+      { name: 'Create Author', href: '/admin/authors/new', icon: '➕' },
+    ]
+  },
   { name: 'Categories', href: '/admin/categories', icon: '🏷️' },
   { name: 'Citations', href: '/admin/citations', icon: '📚' },
   { name: 'Comments', href: '/admin/comments', icon: '💬' },
@@ -33,7 +42,7 @@ function AdminLayoutInner({
 }) {
   const router = useRouter();
   const pathname = usePathname();
-  const [expandedItems, setExpandedItems] = useState<string[]>(['Articles']);
+  const [expandedItems, setExpandedItems] = useState<string[]>(['Articles', 'Authors']);
 
   const toggleExpanded = (itemName: string) => {
     setExpandedItems(prev =>
