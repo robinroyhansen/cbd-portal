@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { AdminAuthProvider, useAdminAuth } from '@/lib/admin-auth';
+import { AdminProtected } from '@/components/AdminProtected';
 
 const navItems = [
   { name: 'Dashboard', href: '/admin/dashboard', icon: '📊' },
@@ -24,7 +26,7 @@ const navItems = [
   { name: 'Languages', href: '/admin/languages', icon: '🌍' },
 ];
 
-export default function AdminLayout({
+function AdminLayoutInner({
   children,
 }: {
   children: React.ReactNode;
@@ -41,15 +43,11 @@ export default function AdminLayout({
     );
   };
 
-  const handleLogout = async () => {
-    await fetch('/api/admin/logout', { method: 'POST' });
-    router.push('/admin/login');
-  };
+  const { logout } = useAdminAuth();
 
-  // Don't show sidebar on login page
-  if (pathname === '/admin/login') {
-    return children;
-  }
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <div className="min-h-screen flex">
@@ -156,5 +154,21 @@ export default function AdminLayout({
         {children}
       </main>
     </div>
+  );
+}
+
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <AdminAuthProvider>
+      <AdminProtected>
+        <AdminLayoutInner>
+          {children}
+        </AdminLayoutInner>
+      </AdminProtected>
+    </AdminAuthProvider>
   );
 }
