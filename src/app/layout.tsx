@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter, Merriweather } from 'next/font/google';
 import './globals.css';
-import Search from './components/Search';
-import { Logo } from '@/components/Logo';
-import { LanguageSelectorWrapper } from '@/components/LanguageSelectorWrapper';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -68,92 +67,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${merriweather.variable}`}>
-      <body className="min-h-screen bg-white font-sans text-gray-900">
-        <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
-          <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-2">
-              <span className="text-2xl">🌿</span>
-              <Logo />
-            </div>
-            <div className="flex items-center gap-6">
-              <a
-                href="/articles"
-                className="text-gray-600 hover:text-primary-600"
-              >
-                Articles
-              </a>
-              <a
-                href="/categories"
-                className="text-gray-600 hover:text-primary-600"
-              >
-                Topics
-              </a>
-              <a
-                href="/research"
-                className="text-gray-600 hover:text-primary-600"
-              >
-                Research
-              </a>
-              <Search />
-            </div>
-          </nav>
-        </header>
-        <main>{children}</main>
-        <footer className="mt-20 border-t border-gray-100 bg-gray-50">
-          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-            <div className="grid gap-8 md:grid-cols-3">
-              <div>
-                <h3 className="mb-4 text-lg font-semibold">
-                  CBD Knowledge Base
-                </h3>
-                <p className="text-sm text-gray-600">
-                  Evidence-based information about CBD, backed by scientific
-                  research and peer-reviewed studies.
-                </p>
-              </div>
-              <div>
-                <h4 className="mb-4 font-semibold">Quick Links</h4>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li>
-                    <a href="/articles" className="hover:text-primary-600">
-                      All Articles
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/categories" className="hover:text-primary-600">
-                      Browse Topics
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/research" className="hover:text-primary-600">
-                      Research
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/admin" className="hover:text-primary-600">
-                      Admin
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="mb-4 font-semibold">Disclaimer</h4>
-                <p className="text-xs text-gray-500">
-                  The information provided is for educational purposes only and
-                  is not intended as medical advice. Always consult with a
-                  healthcare professional before using CBD products.
-                </p>
-              </div>
-            </div>
-            <div className="mt-8 border-t border-gray-200 pt-8">
-              <LanguageSelectorWrapper />
-              <div className="mt-6 text-center text-sm text-gray-500">
-                © {new Date().getFullYear()} CBD Knowledge Base. All rights
-                reserved.
-              </div>
-            </div>
-          </div>
-        </footer>
+      <body className="min-h-screen bg-white font-sans text-gray-900 flex flex-col">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );
