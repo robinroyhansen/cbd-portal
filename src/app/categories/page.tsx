@@ -16,7 +16,7 @@ interface Category {
 }
 
 export default async function CategoriesPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Get all categories
   const { data: categories } = await supabase
