@@ -15,7 +15,7 @@ interface Author {
   name: string;
   slug: string;
   title: string;
-  credentials: string;
+  credentials: string[];
   bio_short: string;
   image_url: string;
   years_experience: number;
@@ -23,22 +23,88 @@ interface Author {
   article_count: number;
   is_verified: boolean;
   is_primary: boolean;
-  companies: { name: string; role: string }[];
+  website_url?: string;
+  companies?: { name: string; role: string }[];
 }
 
 export default async function AuthorsPage() {
   const supabase = await createClient();
 
-  const { data: authors } = await supabase
-    .from('kb_authors')
-    .select('*')
-    .eq('is_active', true)
-    .order('is_primary', { ascending: false })
-    .order('article_count', { ascending: false });
+  // Get authors from authors table, fallback to mock data if table doesn't exist
+  let authors: Author[] = [];
+  let totalArticles = 0;
+
+  try {
+    const { data: authorsData, error } = await supabase
+      .from('authors')
+      .select('*')
+      .eq('is_active', true)
+      .order('is_primary', { ascending: false })
+      .order('article_count', { ascending: false });
+
+    if (error) {
+      console.log('authors table not found, using fallback data');
+
+      // Get total article count for fallback
+      const { count } = await supabase
+        .from('kb_articles')
+        .select('*', { count: 'exact', head: true })
+        .eq('status', 'published');
+
+      totalArticles = count || 0;
+
+      // Create Formula Swiss author data until table is created
+      authors = [{
+        id: 'formula-swiss-temp-id',
+        name: 'Formula Swiss',
+        slug: 'formula-swiss',
+        title: 'European CBD Industry Pioneer Since 2013',
+        credentials: [
+          'Operating in the CBD industry since 2013',
+          'Over €1 million invested in EU regulatory compliance',
+          'Novel Food applications submitted and approved',
+          'Five specialized companies across Europe and UK',
+          'Partnerships with certified testing laboratories',
+          'Direct relationships with organic hemp farmers',
+          'GMP-compliant manufacturing processes',
+          'Medical-grade product development expertise'
+        ],
+        bio_short: 'Formula Swiss is one of Europe\'s most established CBD companies, operating since 2013 when the European CBD market was still in its infancy. What started as a small operation has grown into a group of companies serving consumers, retailers, and medical professionals across Europe and beyond.',
+        image_url: '',
+        years_experience: 12,
+        expertise_areas: [
+          'CBD Oils & Tinctures',
+          'CBD Capsules & Edibles',
+          'CBD Topicals & Skincare',
+          'CBD for Pets',
+          'Medical CBD Applications',
+          'European CBD Regulations',
+          'Product Quality & Testing',
+          'Hemp Cultivation & Extraction'
+        ],
+        article_count: totalArticles,
+        is_verified: true,
+        is_primary: true,
+        website_url: 'https://formulaswiss.com',
+        companies: [
+          { name: 'Formula Swiss AG', role: 'Swiss flagship company' },
+          { name: 'Formula Swiss Wholesale AG', role: 'B2B division' },
+          { name: 'Formula Swiss UK Ltd.', role: 'UK operations' },
+          { name: 'Formula Swiss Europe Ltd.', role: 'EU distribution' },
+          { name: 'Formula Swiss Medical Ltd.', role: 'Medical division' }
+        ]
+      }];
+    } else {
+      authors = authorsData || [];
+      totalArticles = authors?.reduce((sum, a) => sum + (a.article_count || 0), 0) || 0;
+    }
+  } catch (error) {
+    console.error('Error fetching authors:', error);
+    authors = [];
+  }
 
   // Calculate total stats
   const totalYears = authors?.reduce((sum, a) => sum + (a.years_experience || 0), 0) || 0;
-  const totalArticles = authors?.reduce((sum, a) => sum + (a.article_count || 0), 0) || 0;
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
@@ -87,9 +153,13 @@ export default async function AuthorsPage() {
                   />
                 ) : (
                   <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">
-                    <span className="text-3xl text-green-700">
-                      {author.name.split(' ').map(n => n[0]).join('')}
-                    </span>
+                    {author.slug === 'formula-swiss' ? (
+                      <span className="text-2xl text-green-700">🏢</span>
+                    ) : (
+                      <span className="text-3xl text-green-700">
+                        {author.name.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    )}
                   </div>
                 )}
               </div>
@@ -103,12 +173,32 @@ export default async function AuthorsPage() {
                   {author.is_verified && (
                     <span className="text-blue-500" title="Verified Expert">✓</span>
                   )}
+                  {author.slug === 'formula-swiss' && (
+                    <span className="px-2 py-0.5 bg-green-100 text-green-700 text-xs rounded font-medium">
+                      Since 2013
+                    </span>
+                  )}
                 </div>
 
                 <p className="text-green-700 font-medium text-sm mb-2">{author.title}</p>
 
-                {author.credentials && (
-                  <p className="text-gray-500 text-sm mb-3">{author.credentials}</p>
+                {author.credentials && Array.isArray(author.credentials) && author.credentials.length > 0 && (
+                  <div className="text-gray-500 text-sm mb-3">
+                    <div className="flex flex-wrap gap-1">
+                      {author.credentials.slice(0, 2).map((credential, index) => (
+                        <span key={index} className="flex items-center">
+                          <span className="text-green-600 mr-1">✓</span>
+                          <span>{credential}</span>
+                          {index < author.credentials.length - 1 && index < 1 && <span className="ml-2">•</span>}
+                        </span>
+                      ))}
+                      {author.credentials.length > 2 && (
+                        <span className="text-gray-400">
+                          +{author.credentials.length - 2} more credentials
+                        </span>
+                      )}
+                    </div>
+                  </div>
                 )}
 
                 <p className="text-gray-600 text-sm mb-4 line-clamp-2">{author.bio_short}</p>
