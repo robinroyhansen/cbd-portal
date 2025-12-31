@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { ArticleTypeBadge } from '@/components/ArticleTypeBadge';
+import { ArticleType } from '@/lib/article-templates';
 
 export default function AdminArticlesPage() {
   const [articles, setArticles] = useState<any[]>([]);
@@ -45,13 +47,19 @@ export default function AdminArticlesPage() {
   return (
     <div className="p-8">
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Articles</h1>
-        <Link
-          href="/admin/articles/new"
-          className="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors"
-        >
-          ➕ New Article
-        </Link>
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900">Articles</h1>
+          <p className="text-gray-600 mt-1">Manage your CBD content with structured templates</p>
+        </div>
+        <div className="flex gap-3">
+          <Link
+            href="/admin/articles/new"
+            className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition-colors flex items-center gap-2"
+          >
+            <span>📝</span>
+            <span>Create Article</span>
+          </Link>
+        </div>
       </div>
 
       {/* Loading State */}
@@ -69,6 +77,9 @@ export default function AdminArticlesPage() {
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Title
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Type
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Category
@@ -96,6 +107,9 @@ export default function AdminArticlesPage() {
                       /{article.slug}
                     </div>
                   </div>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <ArticleTypeBadge type={article.article_type as ArticleType || 'standard'} size="sm" />
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className="text-sm text-gray-900">

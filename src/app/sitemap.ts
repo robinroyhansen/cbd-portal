@@ -21,6 +21,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const categories = categoriesData as Array<{ slug: string }> | null;
 
+  // Fetch all glossary terms
+  const { data: glossaryData } = await supabase
+    .from('kb_glossary')
+    .select('slug')
+    .eq('is_active', true);
+
+  const glossaryTerms = glossaryData as Array<{ slug: string }> | null;
+
+  // Fetch all tags with articles
+  const { data: tagsData } = await supabase
+    .from('kb_tags')
+    .select('slug')
+    .gt('article_count', 0);
+
+  const tags = tagsData as Array<{ slug: string }> | null;
+
+  // Fetch all active authors
+  const { data: authorsData } = await supabase
+    .from('kb_authors')
+    .select('slug')
+    .eq('is_active', true);
+
+  const authors = authorsData as Array<{ slug: string }> | null;
+
   // Static pages
   const staticPages = [
     {
@@ -53,6 +77,64 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
+    // E-E-A-T pages
+    {
+      url: `${baseUrl}/authors`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/editorial-policy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
+    },
+    // Legal pages
+    {
+      url: `${baseUrl}/privacy-policy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/terms-of-service`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/medical-disclaimer`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/cookie-policy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.3,
+    },
+    // Glossary page
+    {
+      url: `${baseUrl}/glossary`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
+    // Tags page
+    {
+      url: `${baseUrl}/tags`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.6,
+    },
   ];
 
   // Article pages
@@ -71,5 +153,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...articlePages, ...categoryPages];
+  // Individual glossary terms
+  const glossaryPages = (glossaryTerms || []).map((term) => ({
+    url: `${baseUrl}/glossary/${term.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.5,
+  }));
+
+  // Individual tag pages
+  const tagPages = (tags || []).map((tag) => ({
+    url: `${baseUrl}/tags/${tag.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.5,
+  }));
+
+  // Individual author pages
+  const authorPages = (authors || []).map((author) => ({
+    url: `${baseUrl}/authors/${author.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...articlePages, ...categoryPages, ...glossaryPages, ...tagPages, ...authorPages];
 }

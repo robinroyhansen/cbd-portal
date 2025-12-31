@@ -3,32 +3,22 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
-import dynamic from 'next/dynamic';
-import { Article, Category } from '@/types/database.types';
-
-const MarkdownEditor = dynamic(
-  () => import('@/components/admin/MarkdownEditor'),
-  { ssr: false }
-);
+import { articleTemplates, ArticleType, getTemplate } from '@/lib/article-templates';
+import { TemplatePreview } from '@/components/admin/TemplatePreview';
+import { TemplateEditor } from '@/components/admin/TemplateEditor';
 
 export default function NewArticlePage() {
   const router = useRouter();
   const supabase = createClient();
-
   const [categories, setCategories] = useState<any[]>([]);
+  const [selectedType, setSelectedType] = useState<ArticleType | null>(null);
+  const [step, setStep] = useState<'select' | 'edit'>('select');
+  const [title, setTitle] = useState('');
+  const [slug, setSlug] = useState('');
+  const [categoryId, setCategoryId] = useState('');
+  const [excerpt, setExcerpt] = useState('');
+  const [sectionData, setSectionData] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
-    title: '',
-    slug: '',
-    excerpt: '',
-    content: '',
-    category_id: '',
-    featured_image: '',
-    meta_title: '',
-    meta_description: '',
-    status: 'draft',
-    author: 'Robin Roy Krigslund-Hansen',
-  });
 
   useEffect(() => {
     fetchCategories();
@@ -42,218 +32,249 @@ export default function NewArticlePage() {
     setCategories(data || []);
   };
 
-  const generateSlug = (title: string) => {
-    return title
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/(^-|-$)/g, '');
+  const handleSelectTemplate = (type: ArticleType) => {
+    setSelectedType(type);
+    setStep('edit');
   };
 
-  const calculateReadingTime = (content: string) => {
-    const wordsPerMinute = 200;
-    const wordCount = content.split(/\s+/).length;
-    return Math.max(1, Math.ceil(wordCount / wordsPerMinute));
+  const handleTitleChange = (value: string) => {
+    setTitle(value);
+    setSlug(value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const generateContent = (): string => {
+    if (!selectedType) return '';
+
+    const template = getTemplate(selectedType);
+    let content = '';
+
+    for (const section of template.sections) {
+      if (sectionData[section.id] && sectionData[section.id].trim()) {
+        content += `## ${section.title}\n\n${sectionData[section.id].trim()}\n\n`;
+      }
+    }
+
+    return content.trim();
+  };
+
+  const calculateReadingTime = (content: string): number => {
+    const wordCount = content.split(/\s+/).filter(Boolean).length;
+    return Math.ceil(wordCount / 200) || 1;
+  };
+
+  const generateExcerpt = (): string => {
+    if (excerpt) return excerpt;
+
+    const introContent = sectionData['introduction'] || sectionData['headline-summary'] || Object.values(sectionData)[0] || '';
+    return introContent.substring(0, 200).trim() + (introContent.length > 200 ? '...' : '');
+  };
+
+  const handleSave = async (status: 'draft' | 'published') => {
+    if (!selectedType || !title.trim()) return;
+
     setLoading(true);
 
     try {
-      const { error } = await (supabase as any).from('kb_articles').insert({
-        ...formData,
-        reading_time: calculateReadingTime(formData.content),
-        published_at: formData.status === 'published' ? new Date().toISOString() : null,
-      });
+      const content = generateContent();
+      const finalExcerpt = generateExcerpt();
+      const readingTime = calculateReadingTime(content);
+
+      const articleData = {
+        title: title.trim(),
+        slug: slug.trim(),
+        content,
+        excerpt: finalExcerpt,
+        article_type: selectedType,
+        template_data: sectionData,
+        category_id: categoryId || null,
+        reading_time: readingTime,
+        status,
+        author: 'Robin Roy Krigslund-Hansen',
+        published_at: status === 'published' ? new Date().toISOString() : null,
+        meta_title: title.trim(),
+        meta_description: finalExcerpt
+      };
+
+      const { error } = await supabase
+        .from('kb_articles')
+        .insert(articleData);
 
       if (error) throw error;
 
       router.push('/admin/articles');
     } catch (error) {
       console.error('Error creating article:', error);
-      alert('Error creating article');
+      alert('Error creating article. Please try again.');
     } finally {
       setLoading(false);
     }
   };
 
-  return (
-    <div className="p-8 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold text-gray-900 mb-8">New Article</h1>
+  const validateForm = (): boolean => {
+    if (!title.trim() || !slug.trim()) return false;
 
-      <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Title */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Title
-          </label>
-          <input
-            type="text"
-            required
-            value={formData.title}
-            onChange={(e) => {
-              setFormData({
-                ...formData,
-                title: e.target.value,
-                slug: generateSlug(e.target.value),
-              });
-            }}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-primary-500 focus:border-primary-500"
-          />
+    if (!selectedType) return false;
+
+    const template = getTemplate(selectedType);
+    const requiredSections = template.sections.filter(s => s.required);
+
+    return requiredSections.every(section =>
+      sectionData[section.id] && sectionData[section.id].trim()
+    );
+  };
+
+  const isFormValid = validateForm();
+
+  if (step === 'select') {
+    return (
+      <div className="p-6">
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold mb-2">Create New Article</h1>
+          <p className="text-gray-600">Choose a template to get started with structured content creation</p>
         </div>
 
-        {/* Slug */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Slug
-          </label>
-          <input
-            type="text"
-            required
-            value={formData.slug}
-            onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-primary-500 focus:border-primary-500"
-          />
-        </div>
-
-        {/* Category */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Category
-          </label>
-          <select
-            required
-            value={formData.category_id}
-            onChange={(e) => setFormData({ ...formData, category_id: e.target.value })}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-primary-500 focus:border-primary-500"
-          >
-            <option value="">Select a category</option>
-            {categories.map((category) => (
-              <option key={category.id} value={category.id}>
-                {category.name}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* Excerpt */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Excerpt
-          </label>
-          <textarea
-            rows={3}
-            value={formData.excerpt}
-            onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-primary-500 focus:border-primary-500"
-          />
-        </div>
-
-        {/* Content */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Content
-          </label>
-          <MarkdownEditor
-            value={formData.content}
-            onChange={(value) => setFormData({ ...formData, content: value })}
-          />
-        </div>
-
-        {/* Featured Image */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Featured Image URL
-          </label>
-          <div className="flex gap-2">
-            <input
-              type="url"
-              value={formData.featured_image}
-              onChange={(e) => setFormData({ ...formData, featured_image: e.target.value })}
-              className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {Object.values(articleTemplates).map(template => (
+            <TemplatePreview
+              key={template.type}
+              template={template}
+              onSelect={() => handleSelectTemplate(template.type)}
             />
-            <button
-              type="button"
-              onClick={() => router.push('/admin/media?select=true')}
-              className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200"
-            >
-              Browse Media
-            </button>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  const template = selectedType ? getTemplate(selectedType) : null;
+
+  return (
+    <div className="p-6">
+      <div className="flex items-center gap-4 mb-6">
+        <button
+          onClick={() => setStep('select')}
+          className="text-gray-500 hover:text-gray-700 flex items-center gap-2"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to templates
+        </button>
+        <h1 className="text-2xl font-bold">
+          New {template?.name}
+        </h1>
+      </div>
+
+      <div className="max-w-4xl">
+        {/* Article Details */}
+        <div className="bg-white border rounded-lg p-6 mb-6">
+          <h2 className="text-lg font-semibold mb-4">Article Details</h2>
+          <div className="grid md:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">Title *</label>
+              <input
+                type="text"
+                value={title}
+                onChange={(e) => handleTitleChange(e.target.value)}
+                placeholder="Enter article title..."
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Slug *</label>
+              <input
+                type="text"
+                value={slug}
+                onChange={(e) => setSlug(e.target.value)}
+                placeholder="article-slug"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                required
+              />
+            </div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">Category</label>
+              <select
+                value={categoryId}
+                onChange={(e) => setCategoryId(e.target.value)}
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              >
+                <option value="">Select a category</option>
+                {categories.map((category) => (
+                  <option key={category.id} value={category.id}>
+                    {category.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Custom Excerpt (optional)</label>
+              <input
+                type="text"
+                value={excerpt}
+                onChange={(e) => setExcerpt(e.target.value)}
+                placeholder="Will be auto-generated from content if empty"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              />
+            </div>
           </div>
         </div>
 
-        {/* Meta Title */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Meta Title (SEO)
-          </label>
-          <input
-            type="text"
-            value={formData.meta_title}
-            onChange={(e) => setFormData({ ...formData, meta_title: e.target.value })}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-primary-500 focus:border-primary-500"
-          />
-        </div>
+        {/* Template Editor */}
+        {template && (
+          <div className="bg-white border rounded-lg p-6 mb-6">
+            <h2 className="text-lg font-semibold mb-4">Content Sections</h2>
+            <TemplateEditor
+              template={template}
+              initialData={sectionData}
+              onChange={setSectionData}
+            />
+          </div>
+        )}
 
-        {/* Meta Description */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Meta Description (SEO)
-          </label>
-          <textarea
-            rows={2}
-            value={formData.meta_description}
-            onChange={(e) => setFormData({ ...formData, meta_description: e.target.value })}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-primary-500 focus:border-primary-500"
-          />
-        </div>
-
-        {/* Status */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Status
-          </label>
-          <select
-            value={formData.status}
-            onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-primary-500 focus:border-primary-500"
-          >
-            <option value="draft">Draft</option>
-            <option value="published">Published</option>
-          </select>
-        </div>
-
-        {/* Author */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Author
-          </label>
-          <input
-            type="text"
-            value={formData.author}
-            readOnly
-            className="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg"
-          />
-        </div>
-
-        {/* Submit buttons */}
+        {/* Actions */}
         <div className="flex gap-4">
           <button
-            type="submit"
-            disabled={loading}
-            className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 disabled:opacity-50"
+            onClick={() => handleSave('draft')}
+            disabled={loading || !title.trim() || !slug.trim()}
+            className="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {loading ? 'Creating...' : 'Create Article'}
+            {loading ? 'Saving...' : 'Save as Draft'}
           </button>
           <button
-            type="button"
+            onClick={() => handleSave('published')}
+            disabled={loading || !isFormValid}
+            className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {loading ? 'Publishing...' : 'Publish Article'}
+          </button>
+          <button
+            onClick={() => setStep('select')}
+            disabled={loading}
+            className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50"
+          >
+            Change Template
+          </button>
+          <button
             onClick={() => router.push('/admin/articles')}
-            className="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300"
+            disabled={loading}
+            className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50"
           >
             Cancel
           </button>
         </div>
-      </form>
+
+        {/* Validation Status */}
+        {!isFormValid && title && (
+          <div className="mt-4 p-3 bg-orange-50 border border-orange-200 rounded-lg">
+            <p className="text-sm text-orange-700">
+              Please complete all required sections to publish the article.
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

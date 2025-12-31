@@ -44,6 +44,17 @@
   .citation {
     @apply text-sm text-gray-500 bg-gray-50 p-4 rounded-lg border-l-4 border-primary-300;
   }
+
+  /* Glossary term styling */
+  .article-content .glossary-term {
+    border-bottom: 1px dotted #22c55e;
+    cursor: help;
+    color: #15803d;
+  }
+
+  .article-content .glossary-term:hover {
+    background-color: #f0fdf4;
+  }
 }
 
 @media print {

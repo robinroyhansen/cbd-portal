@@ -3,8 +3,11 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Browse CBD Topics | CBD Portal',
-  description: 'Explore our comprehensive library of CBD articles organized by health conditions, products, science, and guides.'
+  title: 'Browse Categories | CBD Portal',
+  description: 'Explore CBD topics by category.',
+  alternates: {
+    canonical: '/categories',
+  },
 };
 
 interface Category {

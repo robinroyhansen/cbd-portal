@@ -14,13 +14,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const { data: category } = await supabase
     .from('kb_categories')
-    .select('name, description')
+    .select('name, description, slug')
     .eq('slug', slug)
     .single();
 
   return {
-    title: category?.name ? `${category.name} | CBD Portal` : 'Category Not Found',
-    description: category?.description
+    title: `${category?.name || 'Category'} | CBD Portal`,
+    description: category?.description,
+    alternates: {
+      canonical: `/categories/${params.slug}`,
+    },
   };
 }
 

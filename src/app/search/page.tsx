@@ -10,6 +10,10 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const { q } = await searchParams;
   return {
     title: q ? `Search: ${q} | CBD Portal` : 'Search | CBD Portal',
+    description: 'Search CBD Portal articles and resources.',
+    alternates: {
+      canonical: '/search',
+    },
   };
 }
 

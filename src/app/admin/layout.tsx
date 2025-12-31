@@ -1,11 +1,20 @@
 'use client';
 
+import { useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 const navItems = [
   { name: 'Dashboard', href: '/admin/dashboard', icon: '📊' },
-  { name: 'Articles', href: '/admin/articles', icon: '📝' },
+  {
+    name: 'Articles',
+    href: '/admin/articles',
+    icon: '📝',
+    subItems: [
+      { name: 'All Articles', href: '/admin/articles', icon: '📋' },
+      { name: 'Create Article', href: '/admin/articles/new', icon: '➕' },
+    ]
+  },
   { name: 'Categories', href: '/admin/categories', icon: '🏷️' },
   { name: 'Citations', href: '/admin/citations', icon: '📚' },
   { name: 'Comments', href: '/admin/comments', icon: '💬' },
@@ -22,6 +31,15 @@ export default function AdminLayout({
 }) {
   const router = useRouter();
   const pathname = usePathname();
+  const [expandedItems, setExpandedItems] = useState<string[]>(['Articles']);
+
+  const toggleExpanded = (itemName: string) => {
+    setExpandedItems(prev =>
+      prev.includes(itemName)
+        ? prev.filter(name => name !== itemName)
+        : [...prev, itemName]
+    );
+  };
 
   const handleLogout = async () => {
     await fetch('/api/admin/logout', { method: 'POST' });
@@ -43,21 +61,72 @@ export default function AdminLayout({
 
         <nav className="p-4">
           <ul className="space-y-2">
-            {navItems.map((item) => {
+            {navItems.map((item: any) => {
               const isActive = pathname === item.href;
+              const isExpanded = expandedItems.includes(item.name);
+              const hasSubItems = item.subItems && item.subItems.length > 0;
+
               return (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-colors ${
-                      isActive
-                        ? 'bg-primary-600 text-white'
-                        : 'hover:bg-gray-700 text-gray-300'
-                    }`}
-                  >
-                    <span className="text-xl">{item.icon}</span>
-                    <span>{item.name}</span>
-                  </Link>
+                <li key={item.href || item.name}>
+                  {hasSubItems ? (
+                    <>
+                      <button
+                        onClick={() => toggleExpanded(item.name)}
+                        className={`w-full flex items-center justify-between gap-3 px-4 py-2 rounded-lg transition-colors ${
+                          isActive
+                            ? 'bg-primary-600 text-white'
+                            : 'hover:bg-gray-700 text-gray-300'
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span className="text-xl">{item.icon}</span>
+                          <span>{item.name}</span>
+                        </div>
+                        <svg
+                          className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-90' : ''}`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                      {isExpanded && (
+                        <ul className="ml-4 mt-2 space-y-1">
+                          {item.subItems.map((subItem: any) => {
+                            const isSubActive = pathname === subItem.href;
+                            return (
+                              <li key={subItem.href}>
+                                <Link
+                                  href={subItem.href}
+                                  className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-colors ${
+                                    isSubActive
+                                      ? 'bg-primary-500 text-white'
+                                      : 'hover:bg-gray-700 text-gray-300'
+                                  }`}
+                                >
+                                  <span className="text-sm">{subItem.icon}</span>
+                                  <span className="text-sm">{subItem.name}</span>
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      )}
+                    </>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-colors ${
+                        isActive
+                          ? 'bg-primary-600 text-white'
+                          : 'hover:bg-gray-700 text-gray-300'
+                      }`}
+                    >
+                      <span className="text-xl">{item.icon}</span>
+                      <span>{item.name}</span>
+                    </Link>
+                  )}
                 </li>
               );
             })}

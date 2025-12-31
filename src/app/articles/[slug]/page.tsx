@@ -19,6 +19,8 @@ import { ArticleActions } from '@/components/ArticleActions';
 import { RelatedArticles } from '@/components/RelatedArticles';
 import { YouMightAlsoLike } from '@/components/YouMightAlsoLike';
 import { Comments } from '@/components/Comments';
+import { TagList } from '@/components/TagList';
+import { getArticleTags } from '@/lib/tags';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -38,20 +40,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: 'Article Not Found' };
   }
 
-  const baseUrl = 'https://cbd-portal.vercel.app';
-
   return {
-    title: (article as any).meta_title || (article as any).title,
-    description: (article as any).meta_description || (article as any).excerpt || '',
+    title: `${(article as any).title} | CBD Portal`,
+    description: (article as any).excerpt,
     alternates: {
-      canonical: `${baseUrl}/articles/${slug}`,
+      canonical: `/articles/${(article as any).slug}`,
     },
     openGraph: {
-      title: (article as any).meta_title || (article as any).title,
-      description: (article as any).meta_description || (article as any).excerpt || '',
+      title: (article as any).title,
+      description: (article as any).excerpt,
+      url: `https://cbd-portal.vercel.app/articles/${(article as any).slug}`,
       type: 'article',
-      images: (article as any).featured_image ? [(article as any).featured_image] : [],
-      url: `${baseUrl}/articles/${slug}`,
     },
   };
 }
@@ -123,6 +122,9 @@ export default async function ArticlePage({ params }: Props) {
   const { data: relatedArticles } = article.category_id
     ? await getRelatedArticles(article.category_id, article.slug, language, 3)
     : { data: null };
+
+  // Get article tags
+  const tags = await getArticleTags(article.id);
 
   // Extract FAQs from content
   const faqs = extractFAQs(article.content);
@@ -289,6 +291,14 @@ export default async function ArticlePage({ params }: Props) {
               <span>{article.reading_time} min read</span>
             )}
           </div>
+
+          {/* Tags */}
+          {tags.length > 0 && (
+            <div className="pt-4 border-t border-gray-100">
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Topics</h3>
+              <TagList tags={tags} size="md" />
+            </div>
+          )}
         </div>
       </header>
 

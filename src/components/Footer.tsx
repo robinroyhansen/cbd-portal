@@ -35,7 +35,11 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/research" className="hover:text-white">Research Database</Link></li>
               <li><Link href="/articles" className="hover:text-white">All Articles</Link></li>
+              <li><Link href="/authors" className="hover:text-white">Our Authors</Link></li>
+              <li><Link href="/about" className="hover:text-white">About Us</Link></li>
               <li><Link href="/categories" className="hover:text-white">Browse Topics</Link></li>
+              <li><Link href="/tags" className="hover:text-white">Browse Tags</Link></li>
+              <li><Link href="/glossary" className="hover:text-white">Glossary</Link></li>
             </ul>
           </div>
 
@@ -43,6 +47,8 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-white mb-4">Legal</h3>
             <ul className="space-y-2 text-sm">
+              <li><Link href="/editorial-policy" className="hover:text-white">Editorial Policy</Link></li>
+              <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
               <li><Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link></li>
               <li><Link href="/terms-of-service" className="hover:text-white">Terms of Service</Link></li>
               <li><Link href="/medical-disclaimer" className="hover:text-white">Medical Disclaimer</Link></li>

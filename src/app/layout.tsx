@@ -3,6 +3,7 @@ import { Inter, Merriweather } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { CookieConsent } from '@/components/CookieConsent';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -16,36 +17,24 @@ const merriweather = Merriweather({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://cbdknowledgebase.com'),
-  title: {
-    default: 'CBD Knowledge Base | Evidence-Based CBD Information',
-    template: '%s | CBD Knowledge Base',
+  metadataBase: new URL('https://cbd-portal.vercel.app'),
+  title: 'CBD Portal | Evidence-Based CBD Information & Research',
+  description: 'Comprehensive CBD information backed by 76+ peer-reviewed studies. Learn how CBD may help with anxiety, pain, sleep and more. Written by industry experts.',
+  keywords: 'CBD, cannabidiol, CBD oil, CBD research, CBD for anxiety, CBD for pain, CBD for sleep, cannabis research',
+  alternates: {
+    canonical: '/',
   },
-  description:
-    'Your trusted source for evidence-based information about CBD. Explore research-backed articles on CBD benefits, usage, and the latest scientific studies.',
-  keywords: [
-    'CBD',
-    'cannabidiol',
-    'CBD oil',
-    'CBD research',
-    'CBD benefits',
-    'CBD studies',
-    'hemp extract',
-    'wellness',
-  ],
-  authors: [{ name: 'CBD Knowledge Base' }],
   openGraph: {
+    title: 'CBD Portal | Evidence-Based CBD Information',
+    description: 'Comprehensive CBD guides backed by peer-reviewed research',
+    url: 'https://cbd-portal.vercel.app',
+    siteName: 'CBD Portal',
     type: 'website',
-    locale: 'en_GB',
-    siteName: 'CBD Knowledge Base',
-    title: 'CBD Knowledge Base | Evidence-Based CBD Information',
-    description:
-      'Your trusted source for evidence-based information about CBD. Explore research-backed articles.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CBD Knowledge Base',
-    description: 'Evidence-based CBD information and research.',
+    title: 'CBD Portal | Evidence-Based CBD Information',
+    description: 'Comprehensive CBD guides backed by peer-reviewed research',
   },
   robots: {
     index: true,
@@ -71,6 +60,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );
