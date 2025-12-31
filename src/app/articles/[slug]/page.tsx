@@ -11,6 +11,14 @@ import { getLanguageFromHostname } from '@/lib/language';
 import { AuthorBio, AuthorByline } from '@/components/AuthorBio';
 import { Citations, CitationCount } from '@/components/Citations';
 import { DateDisplay } from '@/components/DateDisplay';
+import { ReadingProgress } from '@/components/ReadingProgress';
+import { Breadcrumbs } from '@/components/BreadcrumbSchema';
+import { FAQSchema } from '@/components/FAQSchema';
+import { MedicalDisclaimerSchema } from '@/components/MedicalDisclaimerSchema';
+import { ArticleActions } from '@/components/ArticleActions';
+import { RelatedArticles } from '@/components/RelatedArticles';
+import { YouMightAlsoLike } from '@/components/YouMightAlsoLike';
+import { Comments } from '@/components/Comments';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -50,18 +58,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 // Helper function to extract FAQ from article content
 function extractFAQs(content: string): Array<{ question: string; answer: string }> | null {
-  const faqMatch = content.match(/## Frequently Asked Questions\n\n([\s\S]*?)(?=\n---|\n\*Written by|$)/);
-  if (!faqMatch) return null;
-
-  const faqSection = faqMatch[1];
-  const faqRegex = /### (.+?)\?\n(.+?)(?=\n###|\n\n###|$)/gs;
   const faqs: Array<{ question: string; answer: string }> = [];
 
-  let match;
-  while ((match = faqRegex.exec(faqSection)) !== null) {
+  // Look for FAQ sections with various headings
+  const faqMatch = content.match(/##\s*(?:FAQ|Frequently Asked Questions|Common Questions|Questions & Answers)\s*\n\n([\s\S]*?)(?=\n---|\n\*Written by|\n##[^#]|$)/i);
+  if (faqMatch) {
+    const faqSection = faqMatch[1];
+    const faqRegex = /### (.+?)\?\s*\n(.+?)(?=\n###|\n\n###|$)/gs;
+
+    let match;
+    while ((match = faqRegex.exec(faqSection)) !== null) {
+      faqs.push({
+        question: match[1].trim() + '?',
+        answer: match[2].trim().replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim(),
+      });
+    }
+  }
+
+  // Also look for Q: and A: patterns
+  const qaDirectPattern = /Q:\s*(.+?)\n\s*A:\s*([\s\S]*?)(?=\nQ:|$)/g;
+  let qaMatch;
+  while ((qaMatch = qaDirectPattern.exec(content)) !== null) {
     faqs.push({
-      question: match[1].trim() + '?',
-      answer: match[2].trim().replace(/\n/g, ' '),
+      question: qaMatch[1].trim(),
+      answer: qaMatch[2].trim().replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim()
     });
   }
 
@@ -197,46 +217,35 @@ export default async function ArticlePage({ params }: Props) {
     ],
   };
 
+  // Breadcrumb items
+  const breadcrumbItems = [
+    { name: 'Home', url: 'https://cbd-portal.vercel.app' },
+    { name: 'Articles', url: 'https://cbd-portal.vercel.app/articles' },
+    ...(article.category ? [{
+      name: article.category.name,
+      url: `https://cbd-portal.vercel.app/categories/${article.category.slug}`
+    }] : []),
+    { name: article.title, url: `https://cbd-portal.vercel.app/articles/${slug}` }
+  ];
+
   return (
     <>
+      {/* Schema markup */}
+      <FAQSchema faqs={faqs} />
+      <MedicalDisclaimerSchema articleTitle={article.title} />
+
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
-      {faqSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-      )}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
+
+      {/* Reading progress */}
+      <ReadingProgress />
 
       <article className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
-        <nav className="mb-8 text-sm text-gray-500">
-        <Link href="/" className="hover:text-primary-600">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <Link href="/articles" className="hover:text-primary-600">
-          Articles
-        </Link>
-        {article.category && (
-          <>
-            <span className="mx-2">/</span>
-            <Link
-              href={`/categories/${article.category.slug}`}
-              className="hover:text-primary-600"
-            >
-              {article.category.name}
-            </Link>
-          </>
-        )}
-      </nav>
+        {/* Enhanced Breadcrumbs */}
+        <Breadcrumbs items={breadcrumbItems} />
 
       {/* Header */}
       <header className="mb-12">
@@ -259,16 +268,19 @@ export default async function ArticlePage({ params }: Props) {
           <AuthorByline />
 
           {/* Publication and Update Dates */}
-          <div className="pb-4 border-b border-gray-200">
-            <DateDisplay
-              publishedAt={article.published_at || article.created_at}
-              updatedAt={article.updated_at}
-            />
-            {article.citations && article.citations.length > 0 && (
-              <p className="text-xs text-gray-400 mt-2">
-                This article references {article.citations.length} peer-reviewed {article.citations.length === 1 ? 'study' : 'studies'}
-              </p>
-            )}
+          <div className="flex flex-wrap justify-between items-start gap-4 pb-4 border-b border-gray-200">
+            <div>
+              <DateDisplay
+                publishedAt={article.published_at || article.created_at}
+                updatedAt={article.updated_at}
+              />
+              {article.citations && article.citations.length > 0 && (
+                <p className="text-xs text-gray-400 mt-2">
+                  This article references {article.citations.length} peer-reviewed {article.citations.length === 1 ? 'study' : 'studies'}
+                </p>
+              )}
+            </div>
+            <ArticleActions title={article.title} slug={article.slug} />
           </div>
 
           {/* Article Metadata */}
@@ -305,6 +317,12 @@ export default async function ArticlePage({ params }: Props) {
       {/* Enhanced Citations Component */}
       <Citations citations={article.citations || []} />
 
+      {/* Related articles using topic relationships */}
+      <RelatedArticles currentSlug={article.slug} />
+
+      {/* You might also like */}
+      <YouMightAlsoLike currentSlug={article.slug} categoryId={article.category?.id} />
+
       {/* Enhanced Author Bio Component */}
       <AuthorBio />
 
@@ -328,32 +346,8 @@ export default async function ArticlePage({ params }: Props) {
         })}
       </p>
 
-      {/* Related Articles */}
-      {relatedArticles && relatedArticles.length > 0 && (
-        <section className="mt-16 border-t border-gray-200 pt-8">
-          <h2 className="mb-6 text-2xl font-bold text-gray-900">
-            Related Articles
-          </h2>
-          <div className="grid gap-6 sm:grid-cols-3">
-            {relatedArticles.map((related: any) => (
-              <Link
-                key={related.id}
-                href={`/articles/${related.slug}`}
-                className="group rounded-lg border border-gray-200 p-4 transition hover:border-primary-300"
-              >
-                <h3 className="font-semibold text-gray-900 group-hover:text-primary-600">
-                  {related.title}
-                </h3>
-                {related.excerpt && (
-                  <p className="mt-2 line-clamp-2 text-sm text-gray-600">
-                    {related.excerpt}
-                  </p>
-                )}
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
+      {/* Comments */}
+      <Comments articleId={article.id} />
       </article>
     </>
   );
