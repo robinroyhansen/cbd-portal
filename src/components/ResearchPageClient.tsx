@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import {
   QualityTier,
   StudyType,
@@ -10,9 +10,9 @@ import {
   assessStudyQuality,
   sortStudiesByQuality,
   filterStudiesByQuality
-} from '@/lib/quality-tiers';
-import { QualityBadge, QualityScoreBadge, QualityIndicator } from '@/components/QualityBadge';
-import { StudyTypeBadge, StudyTypeBadgeSimple, EvidenceLevelIndicator, StudyTypeFilter } from '@/components/StudyTypeBadge';
+} from '../lib/quality-tiers';
+import { QualityBadge, QualityScoreBadge, QualityIndicator } from './QualityBadge';
+import { StudyTypeBadge, StudyTypeBadgeSimple, EvidenceLevelIndicator, StudyTypeFilter } from './StudyTypeBadge';
 
 interface ResearchItem {
   id: string;

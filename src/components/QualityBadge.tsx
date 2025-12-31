@@ -1,7 +1,6 @@
 'use client';
 
-import React from 'react';
-import { QualityTier, getQualityTierColor, getQualityTierDescription } from '@/lib/quality-tiers';
+import { QualityTier, getQualityTierColor, getQualityTierDescription } from '../lib/quality-tiers';
 
 interface QualityBadgeProps {
   tier: QualityTier;

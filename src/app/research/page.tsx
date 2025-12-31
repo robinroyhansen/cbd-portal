@@ -1,5 +1,5 @@
-import { createClient } from '@/lib/supabase/server';
-import { ResearchPageClient } from '@/components/ResearchPageClient';
+import { createClient } from '../../lib/supabase/server';
+import { ResearchPageClient } from '../../components/ResearchPageClient';
 
 export const metadata = {
   title: 'CBD Research Database | CBD Portal',

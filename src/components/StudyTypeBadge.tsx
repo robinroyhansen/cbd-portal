@@ -1,7 +1,6 @@
 'use client';
 
-import React from 'react';
-import { StudyType, getStudyTypeColor } from '@/lib/quality-tiers';
+import { StudyType, getStudyTypeColor } from '../lib/quality-tiers';
 
 interface StudyTypeBadgeProps {
   studyType: StudyType;
