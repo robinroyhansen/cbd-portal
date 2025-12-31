@@ -1,6 +1,6 @@
 'use client';
-import { useAdminAuth } from '@/lib/admin-auth';
-import { AdminLogin } from '@/components/AdminLogin';
+import { useAdminAuth } from '../lib/admin-auth';
+import { AdminLogin } from './AdminLogin';
 
 interface AdminProtectedProps {
   children: React.ReactNode;
