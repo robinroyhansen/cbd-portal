@@ -144,7 +144,7 @@ const recentlyUpdated = wasUpdated &&
 ┌─────────────────────────────────────────────────────────────────┐
 │ Article Title                                                   │
 │ Robin Roy Krigslund-Hansen                                      │
-│ Independent CBD Researcher • 12+ years experience              │
+│ CBD Expert • 12+ years experience              │
 │                                                                 │
 │ 📅 Published: 29 December 2025    🔄 Updated: 30 December 2025 │
 │ This article references 7 peer-reviewed studies                │

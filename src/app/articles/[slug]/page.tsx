@@ -142,7 +142,7 @@ export default async function ArticlePage({ params }: Props) {
     author: {
       '@type': 'Person',
       name: 'Robin Roy Krigslund-Hansen',
-      description: 'Independent CBD Researcher & Industry Veteran with over 12 years of hands-on experience in the CBD and cannabis industry. Has developed hundreds of CBD-based products sold to more than 100,000 customers across 60+ countries worldwide.',
+      description: 'CBD Expert & Industry Veteran with over 12 years of hands-on experience in the CBD and cannabis industry. Has developed hundreds of CBD-based products sold to more than 100,000 customers across 60+ countries worldwide.',
       url: `${baseUrl}/about`,
       location: {
         '@type': 'Place',

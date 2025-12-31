@@ -14,7 +14,7 @@ export function MedicalDisclaimerSchema({ articleTitle }: { articleTitle: string
     reviewedBy: {
       '@type': 'Person',
       name: 'Robin Roy Krigslund-Hansen',
-      jobTitle: 'Independent CBD Researcher',
+      jobTitle: 'CBD Expert',
       description: '12+ years CBD industry experience'
     },
     lastReviewed: new Date().toISOString().split('T')[0],

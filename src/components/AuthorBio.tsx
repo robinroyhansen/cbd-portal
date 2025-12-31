@@ -16,7 +16,7 @@ export function AuthorBio({ className = '' }: AuthorBioProps) {
         </div>
         <div>
           <p className="font-semibold text-lg">Robin Roy Krigslund-Hansen</p>
-          <p className="text-sm text-green-700 mb-3">Independent CBD Researcher & Industry Veteran</p>
+          <p className="text-sm text-green-700 mb-3">CBD Expert & Industry Veteran</p>
 
           <p className="text-gray-700 text-sm mb-3">
             Robin brings over 12 years of hands-on experience in the CBD and cannabis industry,
@@ -57,7 +57,7 @@ export function AuthorByline({ date, className = '' }: { date?: string; classNam
       <div>
         <p className="font-medium text-gray-900">Robin Roy Krigslund-Hansen</p>
         <p className="text-xs text-gray-500">
-          Independent CBD Researcher • 12+ years industry experience
+          CBD Expert • 12+ years industry experience
         </p>
       </div>
       {date && (
