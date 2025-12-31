@@ -121,7 +121,7 @@ export function SearchBar() {
             }}
             onFocus={() => setIsOpen(true)}
             placeholder="Search articles..."
-            className="w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            className="w-full sm:w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-base"
           />
           <svg
             className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
@@ -138,7 +138,7 @@ export function SearchBar() {
       {isOpen && (query.length >= 2 || results.length > 0) && (
         <div
           ref={resultsRef}
-          className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50"
+          className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50 max-w-full"
         >
           {loading ? (
             <div className="p-4 text-center text-gray-500">

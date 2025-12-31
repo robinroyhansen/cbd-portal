@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { SearchForm } from '@/components/SearchForm';
 
 interface Props {
   searchParams: Promise<{ q?: string }>;
@@ -59,13 +60,15 @@ export default async function SearchPage({ searchParams }: Props) {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold mb-2">Search Results</h1>
+      <h1 className="text-3xl font-bold mb-8 text-center">Search CBD Portal</h1>
+
+      <SearchForm />
 
       {query ? (
-        <>
-          <p className="text-gray-600 mb-8">
+        <div className="mt-8">
+          <h2 className="text-xl font-semibold mb-4">
             {totalResults} result{totalResults !== 1 ? 's' : ''} for "{query}"
-          </p>
+          </h2>
 
           {/* Categories */}
           {categories.length > 0 && (
@@ -124,12 +127,8 @@ export default async function SearchPage({ searchParams }: Props) {
               </Link>
             </div>
           )}
-        </>
-      ) : (
-        <div className="text-center py-12">
-          <p className="text-gray-500">Enter a search term to find articles</p>
         </div>
-      )}
+      ) : null}
     </div>
   );
 }
