@@ -3,6 +3,19 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET() {
   try {
+    // Check environment variables first
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      return NextResponse.json({
+        error: 'Supabase configuration missing',
+        details: 'Environment variables NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are required',
+        troubleshoot: {
+          step1: 'Check Vercel environment variables dashboard',
+          step2: 'Ensure variables are set for production environment',
+          step3: 'Redeploy after setting variables'
+        }
+      }, { status: 500 });
+    }
+
     const supabase = await createClient();
 
     const { data: authors, error } = await supabase
@@ -25,6 +38,14 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
+    // Check environment variables first
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      return NextResponse.json({
+        error: 'Supabase configuration missing',
+        details: 'Environment variables NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are required'
+      }, { status: 500 });
+    }
+
     const supabase = await createClient();
     const body = await request.json();
 
