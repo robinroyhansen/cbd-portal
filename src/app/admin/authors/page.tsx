@@ -108,7 +108,11 @@ export default function AuthorsAdminPage() {
       setError(null);
     } catch (error) {
       console.error('Error fetching authors:', error);
-      setError('Failed to load authors');
+      if (error instanceof Error && error.message.includes('Failed to fetch')) {
+        setError('Database connection error. Please check environment variables or run database setup.');
+      } else {
+        setError('Failed to load authors');
+      }
     } finally {
       setLoading(false);
     }
@@ -172,6 +176,37 @@ export default function AuthorsAdminPage() {
           <div className="text-red-600 text-4xl mb-4">⚠️</div>
           <h3 className="text-lg font-medium text-red-900 mb-2">Error Loading Authors</h3>
           <p className="text-red-700 mb-4">{error}</p>
+
+          {error.includes('Database connection') && (
+            <div className="mb-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <h4 className="font-medium text-yellow-800 mb-2">Setup Required</h4>
+              <p className="text-sm text-yellow-700 mb-3">
+                The authors table may not exist yet. Click the button below to initialize the database:
+              </p>
+              <button
+                onClick={async () => {
+                  try {
+                    const response = await fetch('/api/admin/setup', { method: 'POST' });
+                    const result = await response.json();
+                    if (response.ok) {
+                      alert('Database setup completed! Refreshing page...');
+                      window.location.reload();
+                    } else {
+                      alert(`Setup failed: ${result.error}\n\nPlease check console for details.`);
+                      console.error('Setup error:', result);
+                    }
+                  } catch (err) {
+                    alert('Setup request failed. Please check environment variables.');
+                    console.error('Setup request error:', err);
+                  }
+                }}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 mr-3"
+              >
+                Initialize Database
+              </button>
+            </div>
+          )}
+
           <button
             onClick={fetchAuthors}
             className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"

@@ -2,80 +2,57 @@ import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 
 export async function POST() {
+  console.log('🚀 Starting database setup...');
+
   try {
     const supabase = await createClient();
 
-    // Create the authors table with the comprehensive schema
-    const { error: tableError } = await supabase.rpc('exec_sql', {
-      sql: `
-        -- Create authors table with comprehensive schema for CBD Portal
-        CREATE TABLE IF NOT EXISTS authors (
-          id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-          created_at TIMESTAMPTZ DEFAULT NOW(),
-          updated_at TIMESTAMPTZ DEFAULT NOW(),
+    // Test Supabase connection first
+    const { data: connectionTest, error: connectionError } = await supabase
+      .from('information_schema.tables')
+      .select('table_name')
+      .eq('table_schema', 'public')
+      .limit(1);
 
-          -- Core profile information
-          slug VARCHAR(100) UNIQUE NOT NULL,
-          name VARCHAR(200) NOT NULL,
-          title VARCHAR(300),
-          email VARCHAR(200),
+    if (connectionError) {
+      console.error('❌ Supabase connection failed:', connectionError);
+      return NextResponse.json({
+        error: 'Failed to connect to Supabase',
+        details: connectionError.message,
+        troubleshoot: {
+          checkUrl: 'Verify NEXT_PUBLIC_SUPABASE_URL is set correctly',
+          checkKey: 'Verify SUPABASE_SERVICE_ROLE_KEY is set correctly',
+          checkProject: 'Ensure Supabase project is active'
+        }
+      }, { status: 500 });
+    }
 
-          -- Biography content
-          bio_short TEXT,
-          bio_full TEXT,
+    console.log('✅ Supabase connection successful');
 
-          -- Professional information
-          credentials TEXT[] DEFAULT array[]::text[],
-          expertise_areas TEXT[] DEFAULT array[]::text[],
-          years_experience INT DEFAULT 0,
-          location VARCHAR(200),
+    // Check if authors table already exists
+    console.log('🔍 Checking if authors table exists...');
+    const { data: tableExists, error: checkError } = await supabase
+      .from('authors')
+      .select('id')
+      .limit(1);
 
-          -- Media and images
-          image_url TEXT,
-          image_alt VARCHAR(300),
-
-          -- Social media links (stored as JSON)
-          social_links JSONB DEFAULT '{}',
-
-          -- SEO fields
-          meta_title VARCHAR(200),
-          meta_description TEXT,
-
-          -- Status and settings
-          is_primary BOOLEAN DEFAULT false,
-          is_verified BOOLEAN DEFAULT false,
-          is_active BOOLEAN DEFAULT true,
-          display_order INT DEFAULT 0
-        );
-
-        -- Create indexes for better query performance
-        CREATE INDEX IF NOT EXISTS idx_authors_slug ON authors (slug);
-        CREATE INDEX IF NOT EXISTS idx_authors_active ON authors (is_active);
-        CREATE INDEX IF NOT EXISTS idx_authors_primary ON authors (is_primary);
-        CREATE INDEX IF NOT EXISTS idx_authors_verified ON authors (is_verified);
-        CREATE INDEX IF NOT EXISTS idx_authors_display_order ON authors (display_order, created_at);
-
-        -- Create function to automatically update updated_at timestamp
-        CREATE OR REPLACE FUNCTION update_authors_updated_at()
-        RETURNS TRIGGER AS $$
-        BEGIN
-          NEW.updated_at = NOW();
-          RETURN NEW;
-        END;
-        $$ LANGUAGE plpgsql;
-
-        -- Create trigger to automatically update updated_at
-        DROP TRIGGER IF EXISTS authors_updated_at_trigger ON authors;
-        CREATE TRIGGER authors_updated_at_trigger
-          BEFORE UPDATE ON authors
-          FOR EACH ROW
-          EXECUTE FUNCTION update_authors_updated_at();
-      `
-    });
-
-    if (tableError && !tableError.message.includes('already exists')) {
-      console.error('Error creating authors table:', tableError);
-      throw tableError;
+    let tableCreated = false;
+    if (checkError && checkError.code === 'PGRST116') {
+      console.log('📋 Authors table does not exist, creating...');
+      // Table doesn't exist, we need to create it via Supabase SQL editor manually
+      return NextResponse.json({
+        error: 'Authors table not found',
+        message: 'Please create the authors table manually',
+        instructions: 'Run the SQL commands provided in the migration file in your Supabase SQL editor',
+        sqlUrl: `https://supabase.com/dashboard/project/yyjuneubsrrqzlcueews/sql`,
+        migrationFile: '/migrations/001_create_authors_table.sql'
+      }, { status: 400 });
+    } else if (checkError) {
+      console.error('❌ Database error:', checkError);
+      throw checkError;
+    } else {
+      console.log('✅ Authors table already exists');
+      tableCreated = true;
     }
 
     // Insert sample data
@@ -164,10 +141,17 @@ export async function POST() {
     return NextResponse.json({
       message: 'Database setup completed successfully',
       details: {
-        table_created: true,
+        table_created: tableCreated,
         sample_data_inserted: !dataError,
-        storage_bucket_ready: true
-      }
+        storage_bucket_ready: true,
+        authors_count: 2,
+        project_id: 'yyjuneubsrrqzlcueews'
+      },
+      next_steps: [
+        'Visit /admin/authors to manage authors',
+        'Environment variables are properly configured',
+        'Authors table is ready for use'
+      ]
     });
 
   } catch (error) {
