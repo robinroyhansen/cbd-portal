@@ -1,0 +1,10 @@
+
+> cbd-knowledge-base@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.21
+  - Environments: .env.local
+
+ ⨯ Conflicting app and page files were found, please remove the conflicting files to continue:
+ ⨯   "pages/api/health.ts" - "app/api/health/route.ts"
+ ⨯   "pages/api/test.ts" - "app/api/test/route.ts"
