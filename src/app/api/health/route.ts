@@ -1,10 +1,10 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  res.status(200).json({
+export async function GET() {
+  return NextResponse.json({
     status: 'ok',
     timestamp: new Date().toISOString(),
-    method: 'pages-router',
+    method: 'app-router',
     env: {
       hasSupabaseUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
       hasAnonKey: !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
@@ -12,3 +12,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     }
   });
 }
+
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
