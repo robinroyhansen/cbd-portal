@@ -162,3 +162,7 @@ export async function POST() {
     }, { status: 500 });
   }
 }
+
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';

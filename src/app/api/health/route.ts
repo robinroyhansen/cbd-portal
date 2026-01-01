@@ -2,13 +2,15 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   return NextResponse.json({
-    message: 'API routes are working!',
+    status: 'ok',
     timestamp: new Date().toISOString(),
-    environment: process.env.NODE_ENV,
-    vercel: process.env.VERCEL_ENV || 'not_vercel'
+    env: {
+      hasSupabaseUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+      hasAnonKey: !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+      hasServiceKey: !!process.env.SUPABASE_SERVICE_ROLE_KEY,
+    }
   });
 }
 
-// Force dynamic rendering
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';

@@ -102,3 +102,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Failed to create author' }, { status: 500 });
   }
 }
+
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
