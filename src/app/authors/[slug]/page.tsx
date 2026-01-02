@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (params.slug === 'robin-roy-krigslund-hansen') {
     return {
       title: 'Robin Roy Krigslund-Hansen - CBD Industry Expert | CBD Portal',
-      description: 'Meet Robin Roy Krigslund-Hansen, Danish entrepreneur and CBD industry pioneer with 12+ years of hands-on experience in the European CBD market since 2013.',
+      description: 'Meet Robin Roy Krigslund-Hansen, Swiss-based entrepreneur and CBD industry pioneer with 12+ years of hands-on experience in the European CBD market since 2013.',
       alternates: {
         canonical: `/authors/${params.slug}`,
       },
@@ -109,8 +109,8 @@ export default async function AuthorPage({ params }: Props) {
           'Organic cultivation expertise',
           'CO2 extraction specialist'
         ],
-        bio_short: 'Danish entrepreneur who has been pioneering the European CBD industry since 2013. With over a decade of hands-on experience in product development, manufacturing, and regulatory compliance, he shares evidence-based insights to help consumers make informed decisions.',
-        bio_full: `Robin Roy Krigslund-Hansen is a Danish entrepreneur and CBD industry pioneer who founded his first CBD company in 2013, making him one of the earliest players in the European cannabinoid market.
+        bio_short: 'Swiss-based entrepreneur who has been pioneering the European CBD industry since 2013. With over a decade of hands-on experience in product development, manufacturing, and regulatory compliance, he shares evidence-based insights to help consumers make informed decisions.',
+        bio_full: `Robin Roy Krigslund-Hansen is a Swiss-based entrepreneur and CBD industry pioneer who founded his first CBD company in 2013, making him one of the earliest players in the European cannabinoid market.
 
 Over the past 12 years, Robin has built extensive hands-on experience across every aspect of the CBD industry — from organic hemp cultivation and CO2 extraction to product formulation, GMP manufacturing, and navigating the complex European regulatory landscape.
 

@@ -22,7 +22,7 @@ export function AuthorBio({ className = '' }: AuthorBioProps) {
           <p className="text-sm text-blue-700 mb-3 font-medium">CBD Industry Pioneer & Entrepreneur</p>
 
           <p className="text-gray-700 text-sm mb-3 leading-relaxed">
-            Danish entrepreneur who has been pioneering the European CBD industry since 2013.
+            Swiss-based entrepreneur who has been pioneering the European CBD industry since 2013.
             With over a decade of hands-on experience across product development, GMP manufacturing,
             and EU regulatory compliance, Robin has developed 300+ CBD products and maintains a
             perfect third-party lab testing record. He shares evidence-based insights to help
