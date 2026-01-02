@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // For fallback case when table doesn't exist
   if (params.slug === 'robin-roy-krigslund-hansen') {
     return {
-      title: 'Robin Roy Krigslund-Hansen - CBD Industry Pioneer & Formula Swiss Co-founder | CBD Portal',
-      description: 'Meet Robin Roy Krigslund-Hansen, Swiss-based entrepreneur and co-founder of Formula Swiss AG. CBD industry pioneer with 12+ years experience, serving 100,000+ customers across 60+ countries.',
+      title: 'Robin Roy Krigslund-Hansen - CBD Products Expert & Formula Swiss Co-founder | CBD Portal',
+      description: 'Meet Robin Roy Krigslund-Hansen, CBD products expert and co-founder of Formula Swiss AG. Academic background with university studies, legal advocate suing MPA Sweden and Kanton Zug, serving 100,000+ customers.',
       alternates: {
         canonical: `/authors/${params.slug}`,
       },
@@ -93,10 +93,14 @@ export default async function AuthorPage({ params }: Props) {
         id: 'robin-temp-id',
         name: 'Robin Roy Krigslund-Hansen',
         slug: 'robin-roy-krigslund-hansen',
-        title: 'CBD Industry Pioneer & Co-founder of Formula Swiss AG',
+        title: 'CBD Products Expert, Industry Pioneer & Co-founder of Formula Swiss AG',
         location: 'Zug, Switzerland',
         credentials: [
           'Co-founder, Formula Swiss AG (2013-present)',
+          'CBD Products Expert & Industry Pioneer',
+          'Extensive academic background (studied at university 4 times)',
+          'Expert on European CBD and cannabis laws',
+          'Legal advocate - sued MPA Sweden, Kanton Zug (Supreme Court case)',
           '12+ years in CBD industry',
           'Developed 300+ CBD product formulations',
           'GMP & ISO 22716 certified operations',
@@ -111,8 +115,14 @@ export default async function AuthorPage({ params }: Props) {
           'Organic cultivation expertise',
           'CO2 extraction specialist'
         ],
-        bio_short: 'Swiss-based entrepreneur and CBD industry pioneer who co-founded Formula Swiss AG in 2013, establishing one of Europe\'s leading CBD companies. With over 12 years of hands-on experience, he has served 100,000+ customers across 60+ countries and developed 300+ CBD product formulations under GMP certification standards.',
-        bio_full: `Robin Roy Krigslund-Hansen is a Swiss-based entrepreneur and CBD industry pioneer who co-founded Formula Swiss AG in 2013, establishing one of Europe's most trusted CBD companies. Operating from Switzerland, Robin has built an extensive track record in the cannabinoid industry spanning over 12 years.
+        bio_short: 'Swiss-based entrepreneur, CBD products expert, and industry pioneer who co-founded Formula Swiss AG in 2013, establishing one of Europe\'s leading CBD companies. With over 12 years of hands-on experience and extensive academic background (studied at university 4 times), he has served 100,000+ customers across 60+ countries and developed 300+ CBD product formulations under GMP certification standards.',
+        bio_full: `Robin Roy Krigslund-Hansen is a Swiss-based entrepreneur, CBD products expert, and CBD industry pioneer who co-founded Formula Swiss AG in 2013, establishing one of Europe's most trusted CBD companies. Operating from Switzerland, Robin has built an extensive track record in the cannabinoid industry spanning over 12 years.
+
+**Academic Background & Expertise**
+Robin holds an extensive academic background, having studied at university 4 times, which provides the scientific foundation for his expertise in CBD products and cannabinoid science. He is recognized as an expert on national and European laws surrounding CBD and cannabis in Europe.
+
+**Legal Advocacy & Regulatory Reform**
+Robin is well-known for his legal advocacy work, including suing the MPA (Medical Products Agency) in Sweden and taking on the Kanton of Zug in Switzerland, with the latter case currently in the Supreme Court. These landmark cases demonstrate his commitment to challenging restrictive cannabis regulations and advancing industry rights across Europe.
 
 **Company Leadership & Achievements**
 As Co-founder of Formula Swiss AG and related entities (Formula Swiss UK Ltd., Formula Swiss Medical Ltd., Formula Swiss Europe Ltd.), Robin has served over 100,000 customers across 60+ countries and developed 300+ different CBD product formulations. He has invested €1+ million in EU product compliance and registrations while maintaining a perfect track record with zero failed third-party lab tests. Under his leadership, the companies have achieved GMP (Good Manufacturing Practice) certification and obtained ISO 22716-2007 certification, representing the highest standards in the industry.
