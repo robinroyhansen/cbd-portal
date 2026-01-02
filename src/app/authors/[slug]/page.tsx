@@ -540,16 +540,6 @@ Through this portal, Robin shares his decade-plus of practical experience to pro
           </section>
         )}
 
-        {/* Disclaimer */}
-        <div className="mt-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="font-semibold mb-2">Author Disclaimer</h3>
-          <p className="text-sm text-gray-600">
-            The views and opinions expressed in {author.name.split(' ')[0]}'s articles are personal expert opinions
-            based on extensive industry experience and independent research. They do not represent the official
-            position of {author.companies?.[0]?.name || 'any affiliated organization'} or any other organization.
-            Always consult with a qualified healthcare professional before making decisions about CBD use.
-          </p>
-        </div>
       </div>
     </>
   );
