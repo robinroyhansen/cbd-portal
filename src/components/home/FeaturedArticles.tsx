@@ -5,14 +5,13 @@ export async function FeaturedArticles() {
   const supabase = await createClient();
 
   const { data: articles } = await supabase
-    .from('kb_articles')
+    .from('articles')
     .select(`
-      slug, title, excerpt, reading_time, updated_at,
-      category:kb_categories(name, slug)
+      slug, title, meta_description, read_time, updated_at,
+      category:categories(name, slug)
     `)
-    .eq('status', 'published')
-    .eq('language', 'en')
-    .order('published_at', { ascending: false })
+    .eq('published', true)
+    .order('published_date', { ascending: false })
     .limit(6);
 
   if (!articles || articles.length === 0) return null;
@@ -51,9 +50,9 @@ export async function FeaturedArticles() {
                 <h3 className="text-2xl font-bold text-gray-900 group-hover:text-green-700 mb-4">
                   {featured.title}
                 </h3>
-                <p className="text-gray-600 mb-6 flex-1">{featured.excerpt}</p>
+                <p className="text-gray-600 mb-6 flex-1">{featured.meta_description}</p>
                 <div className="flex items-center gap-4 text-sm text-gray-400">
-                  {featured.reading_time && <span>{featured.reading_time} min read</span>}
+                  {featured.read_time && <span>{featured.read_time}</span>}
                   <span>•</span>
                   <span>{new Date(featured.updated_at).toLocaleDateString('en-GB', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
                 </div>
@@ -76,9 +75,9 @@ export async function FeaturedArticles() {
               <h3 className="font-semibold text-gray-900 group-hover:text-green-700 mb-2 line-clamp-2">
                 {article.title}
               </h3>
-              <p className="text-sm text-gray-500 line-clamp-2 mb-3">{article.excerpt}</p>
+              <p className="text-sm text-gray-500 line-clamp-2 mb-3">{article.meta_description}</p>
               <div className="text-xs text-gray-400">
-                {article.reading_time && `${article.reading_time} min read`}
+                {article.read_time && article.read_time}
               </div>
             </Link>
           ))}
