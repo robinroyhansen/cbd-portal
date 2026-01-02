@@ -260,7 +260,6 @@ export default function AnimalDosageCalculator() {
   });
 
   const [recommendation, setRecommendation] = useState<AnimalDosageRecommendation | null>(null);
-  const [showDisclaimer, setShowDisclaimer] = useState(true);
 
   const handleCalculate = () => {
     const result = calculateAnimalDosage(inputs);
@@ -276,48 +275,6 @@ export default function AnimalDosageCalculator() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Veterinary Disclaimer Modal */}
-      {showDisclaimer && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-xl max-w-2xl w-full p-6">
-            <div className="flex items-center mb-4">
-              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                <span className="text-2xl">🐾</span>
-              </div>
-              <h2 className="text-2xl font-bold text-gray-900">Important Veterinary Disclaimer</h2>
-            </div>
-            <div className="prose prose-sm mb-6">
-              <p className="text-gray-700 leading-relaxed">
-                <strong>This calculator is for educational purposes only and does not constitute veterinary advice.</strong>
-                Animals metabolize CBD very differently than humans and require species-specific dosing and monitoring.
-              </p>
-              <p className="text-gray-700 leading-relaxed mt-3">
-                <strong>Always consult with a veterinarian</strong> before giving CBD to your pet, especially if your animal has
-                health conditions, takes medications, is pregnant/nursing, or has shown adverse reactions to supplements.
-              </p>
-              <p className="text-gray-700 leading-relaxed mt-3">
-                Animals cannot report side effects. Close monitoring for changes in behavior, appetite, energy, and coordination
-                is essential. Never use human CBD products for animals as they may contain harmful ingredients.
-              </p>
-            </div>
-            <div className="flex gap-4">
-              <button
-                onClick={() => setShowDisclaimer(false)}
-                className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-              >
-                I Understand - Continue to Calculator
-              </button>
-              <Link
-                href="/tools"
-                className="flex-1 bg-gray-200 text-gray-800 py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors font-medium text-center"
-              >
-                Back to Tools
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">

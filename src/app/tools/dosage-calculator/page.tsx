@@ -182,7 +182,6 @@ export default function DosageCalculator() {
   });
 
   const [recommendation, setRecommendation] = useState<DosageRecommendation | null>(null);
-  const [showDisclaimer, setShowDisclaimer] = useState(true);
 
   const handleCalculate = () => {
     const result = calculateDosage(inputs);
@@ -198,49 +197,6 @@ export default function DosageCalculator() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Medical Disclaimer Modal */}
-      {showDisclaimer && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-xl max-w-2xl w-full p-6">
-            <div className="flex items-center mb-4">
-              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                <span className="text-2xl">⚠️</span>
-              </div>
-              <h2 className="text-2xl font-bold text-gray-900">Important Medical Disclaimer</h2>
-            </div>
-            <div className="prose prose-sm mb-6">
-              <p className="text-gray-700 leading-relaxed">
-                <strong>This calculator is for educational purposes only and does not constitute medical advice.</strong>
-                CBD dosing is highly individual and depends on many factors including body chemistry, medical conditions,
-                medications, and product quality.
-              </p>
-              <p className="text-gray-700 leading-relaxed mt-3">
-                <strong>Always consult with a healthcare provider</strong> before starting CBD, especially if you have medical
-                conditions, take medications, are pregnant or nursing, or are treating serious health conditions.
-              </p>
-              <p className="text-gray-700 leading-relaxed mt-3">
-                The recommendations provided are general guidelines based on published research and should be adjusted
-                based on individual response and professional medical guidance.
-              </p>
-            </div>
-            <div className="flex gap-4">
-              <button
-                onClick={() => setShowDisclaimer(false)}
-                className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-              >
-                I Understand - Continue to Calculator
-              </button>
-              <Link
-                href="/"
-                className="flex-1 bg-gray-200 text-gray-800 py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors font-medium text-center"
-              >
-                Return to Home
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
