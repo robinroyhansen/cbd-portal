@@ -128,9 +128,6 @@ Robin holds an extensive academic background, having studied at university 4 tim
 
 Robin is well-known for his groundbreaking legal advocacy work, including suing the MPA (Medical Products Agency) in Sweden and taking on the Kanton of Zug in Switzerland, with the latter case currently in the Supreme Court. These landmark cases demonstrate his commitment to challenging restrictive cannabis regulations and advancing industry rights across Europe.
 
-**Product Development & Manufacturing**
-Robin has developed over 300 different CBD products, including full-spectrum and broad-spectrum CBD oils, CBG oils, CBN oils, CBD skincare, and pet products.
-
 **Scientific Research Collaboration**
 Robin has established research partnerships with the University of Bologna's Department of Veterinary Medical Sciences for CBD studies in animals, and has supported human clinical research including double-blind, placebo-controlled trials in the Netherlands. As a significant sponsor of CBD research for animals in Europe, Robin and Formula Swiss have contributed to advancing veterinary cannabinoid science.
 
