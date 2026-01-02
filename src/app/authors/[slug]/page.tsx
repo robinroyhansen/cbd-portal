@@ -470,8 +470,8 @@ Through this portal, Robin shares his decade-plus of practical experience to pro
                   );
                 }
 
-                // Handle bold text with **text**
-                const parts = paragraph.split(/(\*\*.*?\*\*)/);
+                // Handle bold text with **text** and HTML links
+                const parts = paragraph.split(/(\*\*.*?\*\*|<a[^>]*>.*?<\/a>)/);
                 return (
                   <p key={index} className="mb-4">
                     {parts.map((part, partIndex) => {
@@ -482,6 +482,34 @@ Through this portal, Robin shares his decade-plus of practical experience to pro
                           </strong>
                         );
                       }
+
+                      // Handle HTML links
+                      const linkMatch = part.match(/<a([^>]*)>(.*?)<\/a>/);
+                      if (linkMatch) {
+                        const [, attributes, linkText] = linkMatch;
+                        const hrefMatch = attributes.match(/href="([^"]*)"/);
+                        const targetMatch = attributes.match(/target="([^"]*)"/);
+                        const relMatch = attributes.match(/rel="([^"]*)"/);
+                        const classMatch = attributes.match(/class="([^"]*)"/);
+
+                        const href = hrefMatch ? hrefMatch[1] : '#';
+                        const target = targetMatch ? targetMatch[1] : undefined;
+                        const rel = relMatch ? relMatch[1] : undefined;
+                        const linkClasses = classMatch ? classMatch[1] : 'text-blue-600 hover:text-blue-800 underline';
+
+                        return (
+                          <a
+                            key={partIndex}
+                            href={href}
+                            target={target}
+                            rel={rel}
+                            className={linkClasses}
+                          >
+                            {linkText}
+                          </a>
+                        );
+                      }
+
                       return part;
                     })}
                   </p>
