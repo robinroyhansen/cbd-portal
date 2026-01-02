@@ -248,8 +248,8 @@ const getSpeciesSpecificInfo = (species: string, age: string, weightKg: number):
 export default function AnimalDosageCalculator() {
   const [inputs, setInputs] = useState<AnimalCalculatorInputs>({
     species: 'dog',
-    bodyWeight: 25,
-    weightUnit: 'lbs',
+    bodyWeight: 10,
+    weightUnit: 'kg',
     age: 'adult',
     condition: 'general',
     productType: 'oil',
@@ -357,8 +357,8 @@ export default function AnimalDosageCalculator() {
                   onChange={(e) => handleInputChange('weightUnit', e.target.value as 'kg' | 'lbs')}
                   className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 >
-                  <option value="lbs">lbs</option>
                   <option value="kg">kg</option>
+                  <option value="lbs">lbs</option>
                 </select>
               </div>
             </div>
