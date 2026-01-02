@@ -131,7 +131,7 @@ Robin is well-known for his groundbreaking legal advocacy work, including suing 
 **Scientific Research Collaboration**
 Robin has established research partnerships with the University of Bologna's Department of Veterinary Medical Sciences for CBD studies in animals, and has supported human clinical research including double-blind, placebo-controlled trials in the Netherlands. As a significant sponsor of CBD research for animals in Europe, Robin and Formula Swiss have contributed to advancing veterinary cannabinoid science.
 
-Beyond research funding, Robin has authored hundreds of expert articles about CBD and cannabis, sharing evidence-based insights with both consumers and industry professionals. His expertise is regularly sought by major media channels for interviews and commentary on CBD industry developments and regulatory matters.
+Beyond research funding, Robin has authored hundreds of expert articles about CBD and cannabis, sharing evidence-based insights with both consumers and industry professionals. His expertise is regularly sought by major media channels for interviews and <a href="https://www.aljazeera.com/news/2024/5/8/pakistan-bets-on-a-cannabis-high-as-its-economy-struggles" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">commentary</a> on CBD industry developments and regulatory matters.
 
 **Regulatory Expertise**
 Robin has navigated CBD regulations across 16+ European countries and invested significantly in EU Novel Food compliance. He is a shareholder in the EIHA Novel Food Consortium, a €3.5 million initiative to establish comprehensive safety data for CBD products in Europe. His expertise extends to being a recognized authority on national and European cannabis laws.
