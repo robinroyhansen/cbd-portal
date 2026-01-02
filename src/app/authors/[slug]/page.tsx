@@ -115,13 +115,7 @@ export default async function AuthorPage({ params }: Props) {
         bio_full: `Robin Roy Krigslund-Hansen is a Swiss-based entrepreneur and CBD industry pioneer who co-founded Formula Swiss AG in 2013, establishing one of Europe's most trusted CBD companies. Operating from Switzerland, Robin has built an extensive track record in the cannabinoid industry spanning over 12 years.
 
 **Company Leadership & Achievements**
-As Co-founder of Formula Swiss AG and related entities (Formula Swiss UK Ltd., Formula Swiss Medical Ltd., Formula Swiss Europe Ltd.), Robin has:
-• Served 100,000+ customers across 60+ countries
-• Developed 300+ different CBD product formulations
-• Invested €1+ million in EU product compliance and registrations
-• Maintained perfect track record: Zero failed third-party lab tests
-• Achieved GMP (Good Manufacturing Practice) certification
-• Obtained ISO 22716-2007 certification (highest cosmetic standards)
+As Co-founder of Formula Swiss AG and related entities (Formula Swiss UK Ltd., Formula Swiss Medical Ltd., Formula Swiss Europe Ltd.), Robin has served over 100,000 customers across 60+ countries and developed 300+ different CBD product formulations. He has invested €1+ million in EU product compliance and registrations while maintaining a perfect track record with zero failed third-party lab tests. Under his leadership, the companies have achieved GMP (Good Manufacturing Practice) certification and obtained ISO 22716-2007 certification, representing the highest standards in the industry.
 
 **Product Development & Manufacturing**
 Robin has overseen the development of over 300 different CBD products, including full-spectrum and broad-spectrum CBD oils, CBG oils, CBN oils, CBD skincare, and pet products. He has direct experience with CO2 extraction processes, winterization, and decarboxylation techniques that ensure optimal cannabinoid profiles.
