@@ -239,7 +239,7 @@ Through this portal, Robin shares his decade-plus of practical experience to pro
       'GMP Certification',
       'ISO 22716 Certification'
     ],
-    nationality: 'Danish',
+    nationality: 'Swiss',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Zug',
