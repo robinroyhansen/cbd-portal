@@ -6,10 +6,10 @@ export async function GET() {
     const supabase = await createClient();
 
     const { data: articles, error } = await supabase
-      .from('kb_articles')
+      .from('articles')
       .select('*')
-      .eq('status', 'published')
-      .order('published_at', { ascending: false });
+      .eq('published', true)
+      .order('published_date', { ascending: false });
 
     if (error) {
       console.error('Supabase error:', error);
