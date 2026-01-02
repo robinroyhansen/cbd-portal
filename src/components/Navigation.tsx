@@ -211,7 +211,7 @@ export function Navigation() {
 
       {/* Mobile Menu Slide-out */}
       <div
-        className={`fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white z-50 transform transition-transform duration-300 ease-in-out md:hidden overflow-y-auto mobile-menu-scroll flex flex-col
+        className={`fixed top-0 right-0 h-screen w-[85%] max-w-sm bg-white z-50 transform transition-transform duration-300 ease-in-out md:hidden flex flex-col
           ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
         `}
       >
@@ -243,7 +243,7 @@ export function Navigation() {
         </div>
 
         {/* Mobile Navigation Links */}
-        <nav className="p-4 pb-8 flex-1">
+        <nav className="p-4 pb-20 flex-1 overflow-y-auto">
           {NAV_ITEMS.map((item) => (
             <div key={item.label} className="mb-2">
               {item.children ? (
@@ -271,7 +271,7 @@ export function Navigation() {
                   {/* Mobile Dropdown Content */}
                   <div
                     className={`overflow-hidden transition-all duration-300 ease-in-out
-                      ${openDropdown === item.label ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'}
+                      ${openDropdown === item.label ? 'max-h-[1200px] opacity-100' : 'max-h-0 opacity-0'}
                     `}
                   >
                     <div className="pl-4 py-2 space-y-1">
@@ -279,7 +279,7 @@ export function Navigation() {
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                          className="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors min-h-[60px] flex flex-col justify-center"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           <div className="font-medium">{child.label}</div>
@@ -311,7 +311,7 @@ export function Navigation() {
         </nav>
 
         {/* Mobile Menu Footer */}
-        <div className="border-t bg-gray-50 p-4">
+        <div className="border-t bg-gray-50 p-4 flex-shrink-0">
           <div className="grid grid-cols-2 gap-2 text-sm">
             <Link
               href="/about"
