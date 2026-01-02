@@ -73,7 +73,7 @@ export default async function AuthorsPage() {
           'Organic cultivation expertise',
           'CO2 extraction specialist'
         ],
-        bio_short: 'Swiss-based entrepreneur, CBD products expert, and industry pioneer who co-founded Formula Swiss AG in 2013, establishing one of Europe\'s leading CBD companies. With over 12 years of hands-on experience and extensive academic background (studied at university 4 times), he has served 100,000+ customers across 60+ countries and developed 300+ CBD product formulations under GMP certification standards.',
+        bio_short: 'Swiss entrepreneur, CBD products expert, and industry pioneer who co-founded Formula Swiss AG in 2013, establishing one of Europe\'s leading CBD companies. With over 12 years of hands-on experience and extensive academic background (studied at university 4 times), he has served 100,000+ customers across 60+ countries and developed 300+ CBD product formulations under GMP certification standards.',
         image_url: '',
         years_experience: 12,
         expertise_areas: [
