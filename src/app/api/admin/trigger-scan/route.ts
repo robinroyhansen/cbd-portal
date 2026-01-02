@@ -26,14 +26,17 @@ export async function POST(request: Request) {
     console.log('✅ Environment variables verified');
     console.log('🔍 Starting research scan...');
 
-    // Check if extended sources should be included
+    // Extract scan parameters
     const body = await request.json().catch(() => ({}));
     const includeExtended = body?.includeExtendedSources === true;
+    const scanDepth = body?.scanDepth || 'standard';
+    const customKeywords = body?.customKeywords || [];
+    const selectedSources = body?.selectedSources || ['pubmed', 'clinicaltrials', 'pmc'];
 
-    console.log(`🔍 Starting research scan (extended: ${includeExtended})...`);
+    console.log(`🔍 Starting research scan (extended: ${includeExtended}, depth: ${scanDepth})...`);
 
     const startTime = Date.now();
-    const result = await runDailyResearchScan(includeExtended);
+    const result = await runDailyResearchScan(includeExtended, scanDepth, customKeywords, selectedSources);
     const duration = ((Date.now() - startTime) / 1000).toFixed(2);
 
     console.log(`⏱️ Manual scan completed in ${duration}s`);

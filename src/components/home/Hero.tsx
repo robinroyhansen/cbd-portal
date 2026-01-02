@@ -23,6 +23,13 @@ export function Hero() {
                 Explore Health Topics
               </Link>
               <Link
+                href="/tools/dosage-calculator"
+                className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center gap-2"
+              >
+                <span>💊</span>
+                Calculate My Dose
+              </Link>
+              <Link
                 href="/research"
                 className="px-6 py-3 border-2 border-green-600 text-green-600 rounded-lg font-semibold hover:bg-green-50 transition-colors"
               >

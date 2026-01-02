@@ -5,28 +5,42 @@ export default async function AdminDashboardPage() {
 
   // Get article statistics
   const { data: articles } = await supabase
-    .from('kb_articles')
-    .select('status, category_id');
+    .from('articles')
+    .select('published, category_id');
 
   const { data: categories } = await supabase
-    .from('kb_categories')
-    .select('id, name, article_count');
+    .from('categories')
+    .select('id, name');
 
+  // Try to get media and citations, but handle gracefully if tables don't exist
   const { data: media } = await supabase
-    .from('kb_media')
-    .select('id');
+    .from('media')
+    .select('id')
+    .then(res => res)
+    .catch(() => ({ data: null }));
 
   const { data: citations } = await supabase
-    .from('kb_citations')
-    .select('id');
+    .from('citations')
+    .select('id')
+    .then(res => res)
+    .catch(() => ({ data: null }));
 
   // Calculate stats
   const totalArticles = articles?.length || 0;
-  const publishedArticles = articles?.filter(a => a.status === 'published').length || 0;
-  const draftArticles = articles?.filter(a => a.status === 'draft').length || 0;
+  const publishedArticles = articles?.filter(a => a.published === true).length || 0;
+  const draftArticles = articles?.filter(a => a.published === false).length || 0;
   const totalCategories = categories?.length || 0;
   const totalMedia = media?.length || 0;
   const totalCitations = citations?.length || 0;
+
+  // Calculate article counts per category
+  const categoriesWithCounts = categories?.map(category => {
+    const articleCount = articles?.filter(a => a.category_id === category.id).length || 0;
+    return {
+      ...category,
+      article_count: articleCount
+    };
+  }) || [];
 
   return (
     <div className="p-8">
@@ -99,7 +113,7 @@ export default async function AdminDashboardPage() {
       <div className="bg-white rounded-lg shadow p-6">
         <h2 className="text-xl font-bold text-gray-900 mb-4">Articles by Category</h2>
         <div className="space-y-3">
-          {categories?.map((category) => (
+          {categoriesWithCounts?.map((category) => (
             <div key={category.id} className="flex justify-between items-center">
               <span className="text-gray-700">{category.name}</span>
               <span className="bg-gray-100 text-gray-900 px-3 py-1 rounded-full text-sm">

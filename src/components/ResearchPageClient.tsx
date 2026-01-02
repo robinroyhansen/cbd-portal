@@ -35,10 +35,12 @@ interface ResearchPageClientProps {
 
 type SortOption = 'quality' | 'year' | 'title' | 'relevance';
 type ViewMode = 'cards' | 'table';
+type StudyCategory = 'all' | 'cbd' | 'cannabinoids' | 'cannabis' | 'medical-cannabis';
 
 export function ResearchPageClient({ initialResearch }: ResearchPageClientProps) {
   // State management
   const [searchQuery, setSearchQuery] = useState('');
+  const [activeCategory, setActiveCategory] = useState<StudyCategory>('all');
   const [selectedQualityTiers, setSelectedQualityTiers] = useState<QualityTier[]>([]);
   const [selectedStudyTypes, setSelectedStudyTypes] = useState<StudyType[]>([]);
   const [yearRange, setYearRange] = useState<{ min: number; max: number }>({ min: 0, max: new Date().getFullYear() });
@@ -90,6 +92,66 @@ export function ResearchPageClient({ initialResearch }: ResearchPageClientProps)
     return stats;
   }, [studiesWithQuality]);
 
+  // Categorize studies by content type
+  const categorizeStudy = (study: any): StudyCategory[] => {
+    const searchContent = [
+      study.title,
+      study.authors,
+      study.publication,
+      study.abstract,
+      Array.isArray(study.relevant_topics) ? study.relevant_topics.join(' ') : study.relevant_topics || ''
+    ].join(' ').toLowerCase();
+
+    const categories: StudyCategory[] = [];
+
+    // Check for specific CBD terms
+    if (searchContent.match(/\b(cbd|cannabidiol)\b/)) {
+      categories.push('cbd');
+    }
+
+    // Check for cannabinoids (but not CBD specifically)
+    if (searchContent.match(/\b(cannabinoids?|thc|cbg|cbn|cbc|cannabichromene|cannabigerol|cannabinol|tetrahydrocannabinol)\b/) && !categories.includes('cbd')) {
+      categories.push('cannabinoids');
+    }
+
+    // Check for medical cannabis
+    if (searchContent.match(/\b(medical cannabis|medical marijuana|medicinal cannabis|medicinal marijuana|cannabis therapy|cannabis treatment|pharmaceutical cannabis)\b/)) {
+      categories.push('medical-cannabis');
+    }
+
+    // Check for general cannabis (but not if already categorized as medical or CBD)
+    if (searchContent.match(/\b(cannabis|marijuana|hemp)\b/) && !categories.includes('medical-cannabis') && !categories.includes('cbd')) {
+      categories.push('cannabis');
+    }
+
+    // If no specific category found but contains any cannabis-related terms, default to cannabis
+    if (categories.length === 0 && searchContent.match(/\b(cannabis|marijuana|hemp|cannabinoids?|cbd|thc)\b/)) {
+      categories.push('cannabis');
+    }
+
+    return categories;
+  };
+
+  // Category statistics
+  const categoryStats = useMemo(() => {
+    const stats = {
+      all: studiesWithQuality.length,
+      cbd: 0,
+      cannabinoids: 0,
+      cannabis: 0,
+      'medical-cannabis': 0
+    };
+
+    studiesWithQuality.forEach(study => {
+      const categories = categorizeStudy(study);
+      categories.forEach(category => {
+        stats[category]++;
+      });
+    });
+
+    return stats;
+  }, [studiesWithQuality]);
+
   // Available study types and quality tiers
   const availableStudyTypes = useMemo(() => {
     return [...new Set(studiesWithQuality.map(s => s.studyType))];
@@ -102,6 +164,14 @@ export function ResearchPageClient({ initialResearch }: ResearchPageClientProps)
   // Filtered and sorted studies
   const filteredStudies = useMemo(() => {
     let filtered = studiesWithQuality;
+
+    // Category filter
+    if (activeCategory !== 'all') {
+      filtered = filtered.filter(study => {
+        const categories = categorizeStudy(study);
+        return categories.includes(activeCategory);
+      });
+    }
 
     // Search filter
     if (searchQuery) {
@@ -154,7 +224,7 @@ export function ResearchPageClient({ initialResearch }: ResearchPageClientProps)
     }
 
     return filtered;
-  }, [studiesWithQuality, searchQuery, selectedQualityTiers, selectedStudyTypes, yearRange, sortBy, showHumanStudiesOnly]);
+  }, [studiesWithQuality, activeCategory, searchQuery, selectedQualityTiers, selectedStudyTypes, yearRange, sortBy, showHumanStudiesOnly]);
 
   // Pagination
   const totalPages = Math.ceil(filteredStudies.length / itemsPerPage);
@@ -184,6 +254,7 @@ export function ResearchPageClient({ initialResearch }: ResearchPageClientProps)
 
   const clearAllFilters = () => {
     setSearchQuery('');
+    setActiveCategory('all');
     setSelectedQualityTiers([]);
     setSelectedStudyTypes([]);
     setYearRange({ min: 0, max: new Date().getFullYear() });
@@ -221,6 +292,62 @@ export function ResearchPageClient({ initialResearch }: ResearchPageClientProps)
           </strong>
           • Human Studies: <strong>{studiesWithQuality.filter(s => s.studyType !== StudyType.ANIMAL_STUDY && s.studyType !== StudyType.IN_VITRO_STUDY).length} ({Math.round((studiesWithQuality.filter(s => s.studyType !== StudyType.ANIMAL_STUDY && s.studyType !== StudyType.IN_VITRO_STUDY).length / studiesWithQuality.length) * 100)}%)</strong>
         </div>
+      </div>
+
+      {/* Category Tabs */}
+      <div className="bg-white rounded-lg border border-gray-200 p-6">
+        <h2 className="text-xl font-semibold mb-4">Study Categories</h2>
+
+        <div className="flex flex-wrap gap-2 mb-4">
+          {[
+            { id: 'all', label: 'All Studies', icon: '📚', description: 'Complete research database' },
+            { id: 'cbd', label: 'CBD Studies', icon: '🌿', description: 'Cannabidiol-specific research' },
+            { id: 'cannabinoids', label: 'Cannabinoids', icon: '🧬', description: 'THC, CBG, CBN & other cannabinoids' },
+            { id: 'medical-cannabis', label: 'Medical Cannabis', icon: '🏥', description: 'Therapeutic cannabis applications' },
+            { id: 'cannabis', label: 'Cannabis Research', icon: '🌱', description: 'General cannabis & hemp studies' }
+          ].map((category) => (
+            <button
+              key={category.id}
+              onClick={() => {
+                setActiveCategory(category.id as StudyCategory);
+                setCurrentPage(1);
+              }}
+              className={`flex items-center gap-2 px-4 py-3 rounded-lg border-2 transition-all text-left ${
+                activeCategory === category.id
+                  ? 'border-blue-500 bg-blue-50 text-blue-700'
+                  : 'border-gray-200 hover:border-gray-300 text-gray-700'
+              }`}
+            >
+              <span className="text-xl">{category.icon}</span>
+              <div>
+                <div className="font-medium">{category.label}</div>
+                <div className="text-xs opacity-75">{category.description}</div>
+                <div className="text-sm font-bold mt-1">
+                  {categoryStats[category.id as keyof typeof categoryStats]} studies
+                </div>
+              </div>
+            </button>
+          ))}
+        </div>
+
+        {activeCategory !== 'all' && (
+          <div className="text-sm text-blue-600 bg-blue-50 p-3 rounded border border-blue-200">
+            <strong>Filtered by:</strong> {
+              {
+                'cbd': 'CBD (Cannabidiol) - Studies specifically focused on cannabidiol research',
+                'cannabinoids': 'Cannabinoids - Research on THC, CBG, CBN, CBC and other cannabis compounds',
+                'medical-cannabis': 'Medical Cannabis - Therapeutic and pharmaceutical applications of cannabis',
+                'cannabis': 'Cannabis - General cannabis and hemp research studies'
+              }[activeCategory]
+            }
+            <button
+              onClick={() => setActiveCategory('all')}
+              className="ml-2 text-blue-700 hover:text-blue-800 underline"
+            >
+              Show all studies
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Advanced Filters */}

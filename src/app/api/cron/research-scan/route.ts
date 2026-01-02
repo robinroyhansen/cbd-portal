@@ -15,7 +15,8 @@ export async function GET(request: Request) {
 
   try {
     const startTime = Date.now();
-    const result = await runDailyResearchScan();
+    // Use default parameters for daily automated scan
+    const result = await runDailyResearchScan(false, 'standard', [], ['pubmed', 'clinicaltrials', 'pmc']);
     const duration = ((Date.now() - startTime) / 1000).toFixed(2);
 
     console.log(`⏱️ Scan completed in ${duration}s`);

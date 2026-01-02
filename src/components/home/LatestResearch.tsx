@@ -1,22 +1,48 @@
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
+import researchStudiesData from '@/data/comprehensive-research-studies.json';
 
 export async function LatestResearch() {
   const supabase = await createClient();
 
-  // Get latest approved research
-  const { data: research } = await supabase
-    .from('kb_research_queue')
-    .select('id, title, authors, publication, year, url, relevant_topics')
-    .eq('status', 'approved')
-    .order('year', { ascending: false })
-    .limit(4);
+  let research: any[] = [];
+  let count = 0;
 
-  // Get total count
-  const { count } = await supabase
-    .from('kb_research_queue')
-    .select('*', { count: 'exact', head: true })
-    .eq('status', 'approved');
+  try {
+    // Try to get research from database first
+    const { data: dbResearch, count: dbCount } = await supabase
+      .from('research_queue')
+      .select('id, title, authors, publication, year, url, relevant_topics', { count: 'exact' })
+      .eq('status', 'approved')
+      .order('year', { ascending: false })
+      .limit(4);
+
+    if (dbResearch && dbResearch.length > 0) {
+      research = dbResearch;
+      count = dbCount || 0;
+    } else {
+      throw new Error('No database research found');
+    }
+  } catch (error) {
+    console.log('Using static research data for homepage');
+
+    // Use static research data
+    const staticResearch = researchStudiesData as any[];
+    research = staticResearch
+      .sort((a, b) => (b.year || 0) - (a.year || 0))
+      .slice(0, 4)
+      .map((study, index) => ({
+        id: `study-${index + 1}`,
+        title: study.title,
+        authors: study.authors,
+        publication: study.publication,
+        year: study.year,
+        url: study.url,
+        relevant_topics: study.relevant_topics || []
+      }));
+
+    count = staticResearch.length;
+  }
 
   return (
     <section className="py-16 bg-white">

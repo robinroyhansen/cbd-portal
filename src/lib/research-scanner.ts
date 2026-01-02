@@ -182,15 +182,20 @@ function assignCategories(study: ResearchItem): string[] {
   return [...new Set(categories)];
 }
 
-export async function scanPubMed(): Promise<ResearchItem[]> {
+export async function scanPubMed(scanDepth: string = 'standard', customKeywords: string[] = []): Promise<ResearchItem[]> {
   const results: ResearchItem[] = [];
+  const dateFilter = getDateRangeFilter(scanDepth);
+  const resultLimit = getResultLimit(scanDepth);
 
-  for (const term of SEARCH_TERMS) {
+  // Use custom keywords if provided, otherwise use default search terms
+  const searchTerms = customKeywords.length > 0 ? customKeywords : SEARCH_TERMS;
+
+  for (const term of searchTerms) {
     try {
       const searchParams = new URLSearchParams({
         db: 'pubmed',
-        term: `${term} AND ("last 30 days"[PDat])`,
-        retmax: '10',
+        term: `${term} ${dateFilter}`,
+        retmax: String(Math.min(resultLimit, 100)), // PubMed API limit
         retmode: 'json',
         sort: 'date'
       });
@@ -242,9 +247,13 @@ export async function scanPubMed(): Promise<ResearchItem[]> {
   return results;
 }
 
-export async function scanClinicalTrials(): Promise<ResearchItem[]> {
+export async function scanClinicalTrials(scanDepth: string = 'standard', customKeywords: string[] = []): Promise<ResearchItem[]> {
   const results: ResearchItem[] = [];
-  const searchTerms = ['cannabidiol', 'CBD', 'cannabis', 'medical cannabis', 'medical marijuana', 'cannabinoid'];
+  const resultLimit = Math.min(getResultLimit(scanDepth), 100); // ClinicalTrials.gov API limit
+
+  // Use custom keywords if provided, otherwise use default search terms
+  const defaultTerms = ['cannabidiol', 'CBD', 'cannabis', 'medical cannabis', 'medical marijuana', 'cannabinoid'];
+  const searchTerms = customKeywords.length > 0 ? customKeywords : defaultTerms;
 
   for (const term of searchTerms) {
     try {
@@ -253,7 +262,7 @@ export async function scanClinicalTrials(): Promise<ResearchItem[]> {
           'query.term': term,
           'filter.overallStatus': 'COMPLETED',
           'sort': 'LastUpdatePostDate:desc',
-          'pageSize': '15'
+          'pageSize': String(Math.min(resultLimit, 100))
         })
       );
 
@@ -287,22 +296,27 @@ export async function scanClinicalTrials(): Promise<ResearchItem[]> {
   return results;
 }
 
-export async function scanPMC(): Promise<ResearchItem[]> {
+export async function scanPMC(scanDepth: string = 'standard', customKeywords: string[] = []): Promise<ResearchItem[]> {
   const results: ResearchItem[] = [];
-  const keyTerms = [
+  const dateFilter = getDateRangeFilter(scanDepth);
+  const resultLimit = getResultLimit(scanDepth);
+
+  // Use custom keywords if provided, otherwise use default search terms
+  const defaultTerms = [
     'cannabidiol clinical',
     'medical cannabis trial',
     'cannabis therapeutic efficacy',
     'CBD randomized trial',
     'cannabinoid therapy'
   ];
+  const searchTerms = customKeywords.length > 0 ? customKeywords : defaultTerms;
 
-  for (const term of keyTerms) {
+  for (const term of searchTerms) {
     try {
       const searchParams = new URLSearchParams({
         db: 'pmc',
-        term: `${term} AND ("last 30 days"[PDat])`,
-        retmax: '10',
+        term: `${term} ${dateFilter}`,
+        retmax: String(Math.min(resultLimit, 100)), // PMC API limit
         retmode: 'json'
       });
 
@@ -398,19 +412,91 @@ export function calculateRelevance(study: ResearchItem): { score: number; topics
   return { score: Math.max(0, score), topics: [...new Set(topics)] };
 }
 
+// Helper function to get date range filter based on scan depth
+function getDateRangeFilter(scanDepth: string): string {
+  const now = new Date();
+  let startDate: Date;
+
+  switch (scanDepth) {
+    case 'quick':
+      startDate = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000); // 30 days
+      break;
+    case 'standard':
+      startDate = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000); // 90 days
+      break;
+    case 'deep':
+      startDate = new Date(now.getTime() - 180 * 24 * 60 * 60 * 1000); // 6 months
+      break;
+    case '1year':
+      startDate = new Date(now.getTime() - 365 * 24 * 60 * 60 * 1000); // 1 year
+      break;
+    case '2years':
+      startDate = new Date(now.getTime() - 2 * 365 * 24 * 60 * 60 * 1000); // 2 years
+      break;
+    case '5years':
+      startDate = new Date(now.getTime() - 5 * 365 * 24 * 60 * 60 * 1000); // 5 years
+      break;
+    case 'comprehensive':
+      return ''; // No date filter - search all time
+    default:
+      startDate = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000); // default to 90 days
+  }
+
+  const year = startDate.getFullYear();
+  const month = String(startDate.getMonth() + 1).padStart(2, '0');
+  const day = String(startDate.getDate()).padStart(2, '0');
+
+  return `AND ("${year}/${month}/${day}"[PDat] : "3000"[PDat])`;
+}
+
+// Helper function to get result limit based on scan depth
+function getResultLimit(scanDepth: string): number {
+  switch (scanDepth) {
+    case 'quick': return 10;
+    case 'standard': return 20;
+    case 'deep': return 50;
+    case '1year': return 100;
+    case '2years': return 200;
+    case '5years': return 500;
+    case 'comprehensive': return 1000;
+    default: return 20;
+  }
+}
+
 // Update the main scan function
-export async function runDailyResearchScan() {
+export async function runDailyResearchScan(
+  includeExtended = false,
+  scanDepth: 'quick' | 'standard' | 'deep' | '1year' | '2years' | '5years' | 'comprehensive' = 'standard',
+  customKeywords: string[] = [],
+  selectedSources: string[] = ['pubmed', 'clinicaltrials', 'pmc']
+) {
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_SERVICE_ROLE_KEY!
   );
 
-  console.log('Starting daily research scan with STRICT cannabis filtering...');
+  console.log(`Starting research scan with STRICT cannabis filtering (depth: ${scanDepth}, sources: ${selectedSources.join(', ')})...`);
 
-  const pubmedResults = await scanPubMed();
-  const clinicalTrialsResults = await scanClinicalTrials();
+  let allResults: ResearchItem[] = [];
 
-  const allResults = [...pubmedResults, ...clinicalTrialsResults];
+  // Scan selected sources based on user selection
+  if (selectedSources.includes('pubmed')) {
+    console.log('📚 Scanning PubMed...');
+    const pubmedResults = await scanPubMed(scanDepth, customKeywords);
+    allResults.push(...pubmedResults);
+  }
+
+  if (selectedSources.includes('clinicaltrials')) {
+    console.log('🧪 Scanning ClinicalTrials.gov...');
+    const clinicalTrialsResults = await scanClinicalTrials(scanDepth, customKeywords);
+    allResults.push(...clinicalTrialsResults);
+  }
+
+  if (selectedSources.includes('pmc')) {
+    console.log('📖 Scanning PMC...');
+    const pmcResults = await scanPMC(scanDepth, customKeywords);
+    allResults.push(...pmcResults);
+  }
 
   // Deduplicate
   const uniqueResults = allResults.filter((item, index, self) =>
@@ -432,7 +518,7 @@ export async function runDailyResearchScan() {
 
     // Check if already exists
     const { data: existing } = await supabase
-      .from('kb_research_queue')
+      .from('research_queue')
       .select('id')
       .eq('url', study.url)
       .single();
@@ -456,7 +542,7 @@ export async function runDailyResearchScan() {
 
     // Insert
     const { error } = await supabase
-      .from('kb_research_queue')
+      .from('research_queue')
       .insert({
         title: study.title,
         authors: study.authors,
