@@ -77,14 +77,28 @@ export default async function AuthorsPage() {
         image_url: '',
         years_experience: 12,
         expertise_areas: [
+          // Products & Manufacturing
           'CBD Oils (Full-spectrum & Broad-spectrum)',
           'CBG & CBN Cannabinoids',
           'CBD for Pets (Dogs, Cats, Horses)',
           'CBD Skincare & Cosmetics',
           'CO2 Extraction Methods',
           'GMP Manufacturing Standards',
+
+          // Legal & Regulatory
+          'European Cannabis Law',
+          'Legal Advocacy & Regulatory Reform',
           'EU Novel Food Regulations',
           'Third-party Lab Testing',
+
+          // Business & Research
+          'Formula Swiss Operations',
+          'CBD Industry Leadership',
+          'Academic Research & Science',
+          'International Market Expansion',
+
+          // Specialized Areas
+          'CBD Products Expertise',
           'Organic Hemp Cultivation',
           'European CBD Market',
           'Product Quality Control',

@@ -118,48 +118,57 @@ export default async function AuthorPage({ params }: Props) {
         bio_short: 'Swiss entrepreneur, CBD products expert, and industry pioneer who co-founded Formula Swiss AG in 2013, establishing one of Europe\'s leading CBD companies. With over 12 years of hands-on experience and extensive academic background (studied at university 4 times), he has served 100,000+ customers across 60+ countries and developed 300+ CBD product formulations under GMP certification standards.',
         bio_full: `Robin Roy Krigslund-Hansen is a Swiss entrepreneur, CBD products expert, and CBD industry pioneer who co-founded Formula Swiss AG in 2013, establishing one of Europe's most trusted CBD companies. Robin has built an extensive track record in the cannabinoid industry spanning over 12 years.
 
-**Academic Background & Expertise**
+**Company Leadership & Achievements**
+As Co-founder of Formula Swiss AG and an extensive network of related international entities including Formula Swiss UK Ltd., Formula Swiss Medical Ltd., Formula Swiss Europe Ltd., Formula Swiss Portugal Ltd., and Zonaverde SRL, Robin has built a comprehensive European CBD business ecosystem. Through these strategically positioned companies across multiple jurisdictions, Robin has served over 100,000 customers across 60+ countries and developed 300+ different CBD product formulations.
+
+Robin has invested €1+ million in EU product compliance and registrations while maintaining a perfect track record with zero failed third-party lab tests. Under his leadership, the companies have achieved GMP (Good Manufacturing Practice) certification and obtained ISO 22716-2007 certification, representing the highest standards in the industry. Every production batch undergoes third-party laboratory testing in Switzerland, ensuring consistent quality and safety.
+
+**Academic Background & Legal Expertise**
 Robin holds an extensive academic background, having studied at university 4 times, which provides the scientific foundation for his expertise in CBD products and cannabinoid science. He is recognized as an expert on national and European laws surrounding CBD and cannabis in Europe.
 
-**Legal Advocacy & Regulatory Reform**
-Robin is well-known for his legal advocacy work, including suing the MPA (Medical Products Agency) in Sweden and taking on the Kanton of Zug in Switzerland, with the latter case currently in the Supreme Court. These landmark cases demonstrate his commitment to challenging restrictive cannabis regulations and advancing industry rights across Europe.
-
-**Company Leadership & Achievements**
-As Co-founder of Formula Swiss AG and an extensive network of related international entities including Formula Swiss UK Ltd., Formula Swiss Medical Ltd., Formula Swiss Europe Ltd., Formula Swiss Portugal Ltd., and Zonaverde SRL, Robin has built a comprehensive European CBD business ecosystem. Through these strategically positioned companies across multiple jurisdictions, Robin has served over 100,000 customers across 60+ countries and developed 300+ different CBD product formulations. He has invested €1+ million in EU product compliance and registrations while maintaining a perfect track record with zero failed third-party lab tests. Under his leadership, the companies have achieved GMP (Good Manufacturing Practice) certification and obtained ISO 22716-2007 certification, representing the highest standards in the industry.
+Robin is well-known for his groundbreaking legal advocacy work, including suing the MPA (Medical Products Agency) in Sweden and taking on the Kanton of Zug in Switzerland, with the latter case currently in the Supreme Court. These landmark cases demonstrate his commitment to challenging restrictive cannabis regulations and advancing industry rights across Europe.
 
 **Product Development & Manufacturing**
 Robin has developed over 300 different CBD products, including full-spectrum and broad-spectrum CBD oils, CBG oils, CBN oils, CBD skincare, and pet products.
 
-**Quality Standards & Certifications**
-Under Robin's leadership, his companies have achieved GMP (Good Manufacturing Practice) and ISO 22716-2007 certifications — the highest standards in the industry. Every production batch undergoes third-party laboratory testing in Switzerland, with a perfect track record of zero failed tests.
+**Scientific Research Collaboration**
+Robin has established research partnerships with the University of Bologna's Department of Veterinary Medical Sciences for CBD studies in animals, and has supported human clinical research including double-blind, placebo-controlled trials in the Netherlands. As a significant sponsor of CBD research for animals in Europe, Robin and Formula Swiss have contributed to advancing veterinary cannabinoid science.
+
+Beyond research funding, Robin has authored hundreds of expert articles about CBD and cannabis, sharing evidence-based insights with both consumers and industry professionals. His expertise is regularly sought by major media channels for interviews and commentary on CBD industry developments and regulatory matters.
 
 **Regulatory Expertise**
-Robin has navigated CBD regulations across 16+ European countries and invested significantly in EU Novel Food compliance. He is a shareholder in the EIHA Novel Food Consortium, a €3.5 million initiative to establish comprehensive safety data for CBD products in Europe.
-
-**Scientific Research Collaboration**
-Robin has established research partnerships with the University of Bologna's Department of Veterinary Medical Sciences for CBD studies in animals, and has supported human clinical research including double-blind, placebo-controlled trials in the Netherlands. As a significant sponsor of CBD research for animals in Europe, Robin and Formula Swiss have contributed to advancing veterinary cannabinoid science. Beyond research funding, Robin has authored hundreds of expert articles about CBD and cannabis, sharing evidence-based insights with both consumers and industry professionals. His expertise is regularly sought by major media channels for interviews and commentary on CBD industry developments and regulatory matters.
-
+Robin has navigated CBD regulations across 16+ European countries and invested significantly in EU Novel Food compliance. He is a shareholder in the EIHA Novel Food Consortium, a €3.5 million initiative to establish comprehensive safety data for CBD products in Europe. His expertise extends to being a recognized authority on national and European cannabis laws.
 
 **Industry Leadership**
-Robin is an active member of leading industry associations including:
-- European Industrial Hemp Association (EIHA)
-- EIHA Novel Food Consortium (shareholder)
-- Swiss Medical Cannabis Association (MEDCAN)
-- Swiss Hemp Producer Association (IG Hanf)
-- Arge Canna (Austria)
+Robin is an active member of leading industry associations including the European Industrial Hemp Association (EIHA), where he serves as a shareholder in the EIHA Novel Food Consortium. He maintains memberships with the Swiss Medical Cannabis Association (MEDCAN), Swiss Hemp Producer Association (IG Hanf), and Arge Canna (Austria). Through these affiliations, Robin actively contributes to shaping industry standards and advancing CBD research initiatives across Europe.
 
+**Independent Research & Education**
 Through this portal, Robin shares his decade-plus of practical experience to provide accurate, evidence-based information about CBD products, helping consumers separate fact from marketing hype.`,
         image_url: '',
         years_experience: 12,
         expertise_areas: [
+          // Products & Manufacturing
           'CBD Oils (Full-spectrum & Broad-spectrum)',
           'CBG & CBN Cannabinoids',
           'CBD for Pets (Dogs, Cats, Horses)',
           'CBD Skincare & Cosmetics',
           'CO2 Extraction Methods',
           'GMP Manufacturing Standards',
+
+          // Legal & Regulatory
+          'European Cannabis Law',
+          'Legal Advocacy & Regulatory Reform',
           'EU Novel Food Regulations',
           'Third-party Lab Testing',
+
+          // Business & Research
+          'Formula Swiss Operations',
+          'CBD Industry Leadership',
+          'Academic Research & Science',
+          'International Market Expansion',
+
+          // Specialized Areas
+          'CBD Products Expertise',
           'Organic Hemp Cultivation',
           'European CBD Market',
           'Product Quality Control',
@@ -549,6 +558,182 @@ Through this portal, Robin shares his decade-plus of practical experience to pro
         )}
 
       </div>
+
+      {/* Comprehensive Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@graph': [
+              {
+                '@type': 'Person',
+                '@id': `https://cbd-portal.vercel.app/authors/robin-roy-krigslund-hansen`,
+                name: 'Robin Roy Krigslund-Hansen',
+                alternateName: ['Robin Krigslund-Hansen', 'Robin Roy Krigslund Hansen'],
+                jobTitle: 'CBD Products Expert, Industry Pioneer & Co-founder of Formula Swiss AG',
+                description: author.bio_short,
+                image: author.image_url || 'https://cbd-portal.vercel.app/images/robin-author.jpg',
+                url: `https://cbd-portal.vercel.app/authors/robin-roy-krigslund-hansen`,
+                sameAs: [
+                  'https://formulaswiss.com',
+                  'https://linkedin.com/in/robinroykh'
+                ],
+                nationality: 'Swiss',
+                address: {
+                  '@type': 'PostalAddress',
+                  addressLocality: 'Zug',
+                  addressCountry: 'Switzerland'
+                },
+                educationalCredential: [
+                  {
+                    '@type': 'EducationalOccupationalCredential',
+                    name: 'University Studies',
+                    description: 'Extensive academic background with university studies completed 4 times',
+                    credentialCategory: 'degree'
+                  }
+                ],
+                hasOccupation: [
+                  {
+                    '@type': 'Occupation',
+                    name: 'CBD Products Expert',
+                    occupationLocation: {
+                      '@type': 'Country',
+                      name: 'Switzerland'
+                    }
+                  },
+                  {
+                    '@type': 'Occupation',
+                    name: 'Legal Advocate',
+                    description: 'Cannabis law reform advocate with cases against MPA Sweden and Kanton of Zug'
+                  },
+                  {
+                    '@type': 'Occupation',
+                    name: 'Industry Pioneer',
+                    description: '12+ years in CBD industry since 2013'
+                  }
+                ],
+                founder: [
+                  {
+                    '@type': 'Organization',
+                    name: 'Formula Swiss AG',
+                    foundingDate: '2013',
+                    description: 'Leading European CBD company',
+                    address: {
+                      '@type': 'PostalAddress',
+                      addressCountry: 'Switzerland'
+                    }
+                  }
+                ],
+                memberOf: [
+                  {
+                    '@type': 'Organization',
+                    name: 'European Industrial Hemp Association',
+                    alternateName: 'EIHA'
+                  },
+                  {
+                    '@type': 'Organization',
+                    name: 'EIHA Novel Food Consortium',
+                    description: 'Shareholder in €3.5 million CBD safety research initiative'
+                  },
+                  {
+                    '@type': 'Organization',
+                    name: 'Swiss Medical Cannabis Association',
+                    alternateName: 'MEDCAN'
+                  },
+                  {
+                    '@type': 'Organization',
+                    name: 'Swiss Hemp Producer Association',
+                    alternateName: 'IG Hanf'
+                  },
+                  {
+                    '@type': 'Organization',
+                    name: 'Arge Canna Austria'
+                  }
+                ],
+                award: [
+                  'Perfect third-party lab testing record (zero failed tests)',
+                  'GMP (Good Manufacturing Practice) certification',
+                  'ISO 22716-2007 certification',
+                  'Served 100,000+ customers across 60+ countries',
+                  '300+ CBD product formulations developed'
+                ],
+                knowsAbout: [
+                  'CBD Products',
+                  'European Cannabis Law',
+                  'Legal Advocacy',
+                  'Regulatory Reform',
+                  'Cannabinoid Science',
+                  'GMP Manufacturing',
+                  'EU Novel Food Regulations',
+                  'CO2 Extraction',
+                  'Third-party Lab Testing',
+                  'Hemp Cultivation',
+                  'Product Development'
+                ],
+                publishingPrinciples: {
+                  '@type': 'CreativeWork',
+                  name: 'Evidence-based CBD Education',
+                  description: 'Hundreds of expert articles about CBD and cannabis, sharing evidence-based insights with consumers and industry professionals'
+                }
+              },
+              {
+                '@type': 'Organization',
+                '@id': 'https://formulaswiss.com',
+                name: 'Formula Swiss AG',
+                foundingDate: '2013',
+                founder: {
+                  '@type': 'Person',
+                  '@id': `https://cbd-portal.vercel.app/authors/robin-roy-krigslund-hansen`
+                },
+                address: {
+                  '@type': 'PostalAddress',
+                  addressCountry: 'Switzerland'
+                },
+                description: 'Leading European CBD company with GMP certification and operations across 16+ European countries',
+                parentOrganization: [
+                  {
+                    '@type': 'Organization',
+                    name: 'Formula Swiss UK Ltd.',
+                    foundingDate: '2013',
+                    address: {
+                      '@type': 'PostalAddress',
+                      addressCountry: 'United Kingdom'
+                    }
+                  },
+                  {
+                    '@type': 'Organization',
+                    name: 'Formula Swiss Medical Ltd.',
+                    foundingDate: '2013',
+                    description: 'Medical-grade CBD research and development'
+                  },
+                  {
+                    '@type': 'Organization',
+                    name: 'Formula Swiss Europe Ltd.',
+                    foundingDate: '2013',
+                    description: 'European CBD distribution network'
+                  },
+                  {
+                    '@type': 'Organization',
+                    name: 'Formula Swiss Portugal Ltd.',
+                    foundingDate: '2013',
+                    address: {
+                      '@type': 'PostalAddress',
+                      addressCountry: 'Portugal'
+                    }
+                  },
+                  {
+                    '@type': 'Organization',
+                    name: 'Zonaverde SRL',
+                    foundingDate: '2013',
+                    description: 'European CBD business operations'
+                  }
+                ]
+              }
+            ]
+          })
+        }}
+      />
     </>
   );
 }
