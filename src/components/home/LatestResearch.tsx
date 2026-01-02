@@ -11,7 +11,7 @@ export async function LatestResearch() {
   try {
     // Try to get research from database first
     const { data: dbResearch, count: dbCount } = await supabase
-      .from('research_queue')
+      .from('kb_research_queue')
       .select('id, title, authors, publication, year, url, relevant_topics', { count: 'exact' })
       .eq('status', 'approved')
       .order('year', { ascending: false })
