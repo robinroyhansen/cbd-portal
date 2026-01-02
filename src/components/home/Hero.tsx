@@ -12,8 +12,8 @@ export function Hero() {
               <br />You Can Trust
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              Comprehensive guides written by industry experts and backed by peer-reviewed research.
-              Understand how CBD may help with anxiety, pain, sleep, and more.
+              The world's largest CBD information resource featuring the latest research, comprehensive guides,
+              expert articles, product reviews, and evidence-based insights to help you understand CBD's potential.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
