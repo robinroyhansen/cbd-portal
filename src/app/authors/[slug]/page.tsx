@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // For fallback case when table doesn't exist
   if (params.slug === 'robin-roy-krigslund-hansen') {
     return {
-      title: 'Robin Roy Krigslund-Hansen - CBD Industry Expert | CBD Portal',
-      description: 'Meet Robin Roy Krigslund-Hansen, Swiss-based entrepreneur and CBD industry pioneer with 12+ years of hands-on experience in the European CBD market since 2013.',
+      title: 'Robin Roy Krigslund-Hansen - CBD Industry Pioneer & Formula Swiss Co-founder | CBD Portal',
+      description: 'Meet Robin Roy Krigslund-Hansen, Swiss-based entrepreneur and co-founder of Formula Swiss AG. CBD industry pioneer with 12+ years experience, serving 100,000+ customers across 60+ countries.',
       alternates: {
         canonical: `/authors/${params.slug}`,
       },
@@ -93,15 +93,17 @@ export default async function AuthorPage({ params }: Props) {
         id: 'robin-temp-id',
         name: 'Robin Roy Krigslund-Hansen',
         slug: 'robin-roy-krigslund-hansen',
-        title: 'CBD Industry Pioneer & Entrepreneur',
+        title: 'CBD Industry Pioneer & Co-founder of Formula Swiss AG',
         location: 'Zug, Switzerland',
         credentials: [
-          '12+ years in CBD industry (since 2013)',
+          'Co-founder, Formula Swiss AG (2013-present)',
+          '12+ years in CBD industry',
           'Developed 300+ CBD product formulations',
           'GMP & ISO 22716 certified operations',
           'EU Novel Food Consortium shareholder',
           'University research collaborations',
           'Zero failed third-party lab tests',
+          'Served 100,000+ customers across 60+ countries',
           'Operations in 16+ European countries',
           '100% renewable energy production',
           'EIHA member (European Industrial Hemp Association)',
@@ -109,10 +111,17 @@ export default async function AuthorPage({ params }: Props) {
           'Organic cultivation expertise',
           'CO2 extraction specialist'
         ],
-        bio_short: 'Swiss-based entrepreneur who has been pioneering the European CBD industry since 2013. With over a decade of hands-on experience in product development, manufacturing, and regulatory compliance, he shares evidence-based insights to help consumers make informed decisions.',
-        bio_full: `Robin Roy Krigslund-Hansen is a Swiss-based entrepreneur and CBD industry pioneer who founded his first CBD company in 2013, making him one of the earliest players in the European cannabinoid market.
+        bio_short: 'Swiss-based entrepreneur and CBD industry pioneer who co-founded Formula Swiss AG in 2013, establishing one of Europe\'s leading CBD companies. With over 12 years of hands-on experience, he has served 100,000+ customers across 60+ countries and developed 300+ CBD product formulations under GMP certification standards.',
+        bio_full: `Robin Roy Krigslund-Hansen is a Swiss-based entrepreneur and CBD industry pioneer who co-founded Formula Swiss AG in 2013, establishing one of Europe's most trusted CBD companies. Operating from Switzerland, Robin has built an extensive track record in the cannabinoid industry spanning over 12 years.
 
-Over the past 12 years, Robin has built extensive hands-on experience across every aspect of the CBD industry — from organic hemp cultivation and CO2 extraction to product formulation, GMP manufacturing, and navigating the complex European regulatory landscape.
+**Company Leadership & Achievements**
+As Co-founder of Formula Swiss AG and related entities (Formula Swiss UK Ltd., Formula Swiss Medical Ltd., Formula Swiss Europe Ltd.), Robin has:
+• Served 100,000+ customers across 60+ countries
+• Developed 300+ different CBD product formulations
+• Invested €1+ million in EU product compliance and registrations
+• Maintained perfect track record: Zero failed third-party lab tests
+• Achieved GMP (Good Manufacturing Practice) certification
+• Obtained ISO 22716-2007 certification (highest cosmetic standards)
 
 **Product Development & Manufacturing**
 Robin has overseen the development of over 300 different CBD products, including full-spectrum and broad-spectrum CBD oils, CBG oils, CBN oils, CBD skincare, and pet products. He has direct experience with CO2 extraction processes, winterization, and decarboxylation techniques that ensure optimal cannabinoid profiles.

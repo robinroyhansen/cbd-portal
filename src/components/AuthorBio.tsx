@@ -19,13 +19,13 @@ export function AuthorBio({ className = '' }: AuthorBioProps) {
             <p className="font-semibold text-lg text-gray-900">Robin Roy Krigslund-Hansen</p>
             <span className="text-blue-500" title="Verified CBD Expert">✓</span>
           </div>
-          <p className="text-sm text-blue-700 mb-3 font-medium">CBD Industry Pioneer & Entrepreneur</p>
+          <p className="text-sm text-blue-700 mb-3 font-medium">CBD Industry Pioneer & Co-founder of Formula Swiss AG</p>
 
           <p className="text-gray-700 text-sm mb-3 leading-relaxed">
-            Swiss-based entrepreneur who has been pioneering the European CBD industry since 2013.
-            With over a decade of hands-on experience across product development, GMP manufacturing,
-            and EU regulatory compliance, Robin has developed 300+ CBD products and maintains a
-            perfect third-party lab testing record. He shares evidence-based insights to help
+            Swiss-based entrepreneur and CBD industry pioneer who co-founded Formula Swiss AG in 2013.
+            With over 12 years of hands-on experience, he has served 100,000+ customers across 60+ countries
+            and developed 300+ CBD product formulations under GMP certification standards. Robin maintains a
+            perfect third-party lab testing record and shares evidence-based insights to help
             consumers make informed decisions.
           </p>
 
