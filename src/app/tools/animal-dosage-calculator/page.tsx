@@ -368,7 +368,7 @@ export default function AnimalDosageCalculator() {
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Age Category *
               </label>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
                   { value: 'puppy_kitten', label: 'Young', desc: 'Puppy/Kitten/Foal' },
                   { value: 'adult', label: 'Adult', desc: 'Mature animal' },
@@ -383,13 +383,13 @@ export default function AnimalDosageCalculator() {
                       onChange={(e) => handleInputChange('age', e.target.value)}
                       className="sr-only"
                     />
-                    <div className={`p-3 border rounded-lg text-center transition-colors ${
+                    <div className={`p-4 border rounded-lg text-center transition-colors min-h-[70px] flex flex-col justify-center ${
                       inputs.age === option.value
                         ? 'border-blue-500 bg-blue-50 text-blue-700'
                         : 'border-gray-300 hover:border-gray-400'
                     }`}>
-                      <div className="font-medium text-sm">{option.label}</div>
-                      <div className="text-xs text-gray-500">{option.desc}</div>
+                      <div className="font-medium text-sm mb-1">{option.label}</div>
+                      <div className="text-xs text-gray-500 leading-tight">{option.desc}</div>
                     </div>
                   </label>
                 ))}
