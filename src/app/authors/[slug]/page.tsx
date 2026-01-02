@@ -137,7 +137,7 @@ Under Robin's leadership, his companies have achieved GMP (Good Manufacturing Pr
 Robin has navigated CBD regulations across 16+ European countries and invested significantly in EU Novel Food compliance. He is a shareholder in the EIHA Novel Food Consortium, a €3.5 million initiative to establish comprehensive safety data for CBD products in Europe.
 
 **Scientific Research Collaboration**
-Robin has established research partnerships with the University of Bologna's Department of Veterinary Medical Sciences for CBD studies in animals, and has supported human clinical research including double-blind, placebo-controlled trials in the Netherlands.
+Robin has established research partnerships with the University of Bologna's Department of Veterinary Medical Sciences for CBD studies in animals, and has supported human clinical research including double-blind, placebo-controlled trials in the Netherlands. As a significant sponsor of CBD research for animals in Europe, Robin and Formula Swiss have contributed to advancing veterinary cannabinoid science. Beyond research funding, Robin has authored hundreds of expert articles about CBD and cannabis, sharing evidence-based insights with both consumers and industry professionals. His expertise is regularly sought by major media channels for interviews and commentary on CBD industry developments and regulatory matters.
 
 **Sustainability Commitment**
 Robin's operations use 100% renewable energy (solar and hydro), state-of-the-art LED growing technology, and follow organic cultivation principles without pesticides or artificial fertilizers. Hemp's natural CO2 absorption makes his operations carbon-negative.
