@@ -46,6 +46,7 @@ interface ResearchItem {
   publication: string;
   year: number;
   abstract?: string;
+  plain_summary?: string;
   url: string;
   doi?: string;
   source_site?: string;
@@ -88,6 +89,7 @@ export default async function ConditionResearchPage({ params }: PageProps) {
       publication: item.publication || 'Unknown Publication',
       year: item.year || new Date().getFullYear(),
       abstract: item.abstract,
+      plain_summary: item.plain_summary,
       url: item.url,
       doi: item.doi,
       source_site: item.source_site || 'Research Database',

@@ -37,6 +37,9 @@ export default function ResearchQueuePage() {
   const [yearFilter, setYearFilter] = useState<string>('');
   const [bulkSelected, setBulkSelected] = useState<string[]>([]);
   const [newItemIds, setNewItemIds] = useState<Set<string>>(new Set());
+  const [summaryStats, setSummaryStats] = useState<{ missing: number; total: number } | null>(null);
+  const [generatingSummaries, setGeneratingSummaries] = useState(false);
+  const [summaryProgress, setSummaryProgress] = useState<string>('');
   const supabase = createClient();
 
   // Fetch research with useCallback for stability
@@ -139,6 +142,17 @@ export default function ResearchQueuePage() {
     // Update status first
     await updateResearchStatus(id, 'approved');
 
+    // Generate plain language summary (silent)
+    try {
+      await fetch('/api/admin/generate-summary', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ studyId: id })
+      });
+    } catch (error) {
+      console.error('Failed to generate summary:', error);
+    }
+
     // Integrate into articles (silent)
     try {
       await fetch('/api/admin/integrate-research', {
@@ -154,6 +168,72 @@ export default function ResearchQueuePage() {
   const rejectResearch = (id: string) => {
     updateResearchStatus(id, 'rejected');
   };
+
+  // Fetch summary statistics
+  const fetchSummaryStats = async () => {
+    try {
+      const response = await fetch('/api/admin/generate-summary');
+      if (response.ok) {
+        const data = await response.json();
+        setSummaryStats({ missing: data.missing, total: data.total });
+      }
+    } catch (error) {
+      console.error('Failed to fetch summary stats:', error);
+    }
+  };
+
+  // Generate missing summaries in batches
+  const generateMissingSummaries = async () => {
+    if (generatingSummaries) return;
+
+    setGeneratingSummaries(true);
+    setSummaryProgress('Starting...');
+
+    try {
+      let totalProcessed = 0;
+      let hasMore = true;
+
+      while (hasMore) {
+        const response = await fetch('/api/admin/generate-summary', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ limit: 5 })
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to generate summaries');
+        }
+
+        const data = await response.json();
+        totalProcessed += data.succeeded;
+
+        setSummaryProgress(`Generated ${totalProcessed} summaries... (${data.remaining} remaining)`);
+
+        hasMore = data.remaining > 0 && data.succeeded > 0;
+
+        // Small delay between batches
+        if (hasMore) {
+          await new Promise(resolve => setTimeout(resolve, 500));
+        }
+      }
+
+      setSummaryProgress(`Complete! Generated ${totalProcessed} summaries.`);
+      await fetchSummaryStats();
+
+    } catch (error) {
+      console.error('Failed to generate summaries:', error);
+      setSummaryProgress('Error generating summaries');
+    } finally {
+      setGeneratingSummaries(false);
+      // Clear progress after 5 seconds
+      setTimeout(() => setSummaryProgress(''), 5000);
+    }
+  };
+
+  // Fetch summary stats on mount
+  useEffect(() => {
+    fetchSummaryStats();
+  }, []);
 
   // Enhanced filtering and search
   const allTopics = [...new Set(research.flatMap(r => r.relevant_topics || []))].sort();
@@ -282,7 +362,34 @@ export default function ResearchQueuePage() {
           <h1 className="text-3xl font-bold text-gray-900">Research Queue</h1>
           <p className="text-gray-600 mt-2">Review and manage discovered research papers</p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 items-center">
+          {/* Summary Generation Button */}
+          {summaryStats && summaryStats.missing > 0 && (
+            <button
+              onClick={generateMissingSummaries}
+              disabled={generatingSummaries}
+              className={`px-4 py-2 rounded-lg transition-colors flex items-center gap-2 ${
+                generatingSummaries
+                  ? 'bg-purple-400 text-white cursor-wait'
+                  : 'bg-purple-600 text-white hover:bg-purple-700'
+              }`}
+              title={`${summaryStats.missing} studies need summaries`}
+            >
+              {generatingSummaries ? (
+                <>
+                  <span className="animate-spin">⏳</span>
+                  Generating...
+                </>
+              ) : (
+                <>
+                  ✨ Generate Summaries ({summaryStats.missing})
+                </>
+              )}
+            </button>
+          )}
+          {summaryProgress && (
+            <span className="text-sm text-purple-600 font-medium">{summaryProgress}</span>
+          )}
           <Link
             href="/admin/research"
             className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"

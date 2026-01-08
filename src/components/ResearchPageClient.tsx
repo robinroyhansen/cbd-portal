@@ -26,6 +26,7 @@ interface ResearchItem {
   publication: string;
   year: number;
   abstract?: string;
+  plain_summary?: string;
   url: string;
   doi?: string;
   source_site?: string;
@@ -1633,11 +1634,30 @@ function ResearchCard({ study }: { study: any }) {
 
         {expanded && (
           <div id={`details-${study.id}`} className="mt-3 space-y-3">
+            {/* Plain Language Summary (AI-generated) */}
+            {study.plain_summary && (
+              <div className="bg-blue-50 border border-blue-100 rounded-lg p-3">
+                <h4 className="text-xs font-semibold text-blue-800 mb-1 flex items-center gap-1">
+                  <span>✨</span> Plain Language Summary
+                </h4>
+                <p className="text-sm text-blue-900 leading-relaxed">{study.plain_summary}</p>
+              </div>
+            )}
+
             {/* Full Abstract */}
             {study.abstract && (
               <div>
-                <h4 className="text-xs font-semibold text-gray-700 mb-1">Abstract</h4>
-                <p className="text-xs text-gray-600 leading-relaxed">{study.abstract}</p>
+                <h4 className="text-xs font-semibold text-gray-700 mb-1">
+                  {study.plain_summary ? 'Original Abstract' : 'Abstract'}
+                </h4>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  {study.plain_summary
+                    ? study.abstract
+                    : study.abstract.length > 500
+                      ? study.abstract.slice(0, 500) + '...'
+                      : study.abstract
+                  }
+                </p>
               </div>
             )}
 
