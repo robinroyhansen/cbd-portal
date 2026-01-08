@@ -33,16 +33,26 @@ const SOURCE_NAMES: Record<string, string> = {
   pubmed: 'PubMed',
   pmc: 'PMC',
   clinicaltrials: 'ClinicalTrials.gov',
-  cochrane: 'Cochrane',
-  nature: 'Nature',
-  science: 'Science',
-  jama: 'JAMA',
-  bmj: 'BMJ',
-  sciencedirect: 'ScienceDirect',
-  springer: 'Springer',
-  wiley: 'Wiley',
-  arxiv: 'arXiv'
+  europepmc: 'Europe PMC',
+  biorxiv: 'bioRxiv/medRxiv',
+  cochrane: 'Cochrane Library',
+  who_ictrp: 'WHO ICTRP',
+  doaj: 'DOAJ',
+  scholar: 'Google Scholar'
 };
+
+// Format elapsed time
+function formatElapsedTime(startedAt: string | null): string {
+  if (!startedAt) return '0s';
+  const start = new Date(startedAt).getTime();
+  const now = Date.now();
+  const seconds = Math.floor((now - start) / 1000);
+
+  if (seconds < 60) return `${seconds}s`;
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${minutes}m ${remainingSeconds}s`;
+}
 
 export default function AdminResearchPage() {
   const [activeJob, setActiveJob] = useState<ScanJob | null>(null);
@@ -51,7 +61,9 @@ export default function AdminResearchPage() {
   const [customKeywords, setCustomKeywords] = useState<string>(`cannabidiol, CBD, cannabis, medical cannabis, medicinal cannabis, medical marijuana, cannabinoids, THC, tetrahydrocannabinol, CBG, cannabigerol, CBN, cannabinol, CBC, cannabichromene, hemp oil, cannabis therapy, cannabis treatment, cannabinoid therapy, endocannabinoid system, cannabis pharmacology, phytocannabinoids, cannabis medicine, therapeutic cannabis, pharmaceutical cannabis, cannabis clinical trial, cannabidiol oil, CBD oil, cannabis extract, cannabis research, marijuana medicine, cannabis therapeutics, cannabinoid receptors, CB1 receptor, CB2 receptor, cannabis safety, cannabis efficacy, cannabis dosing, cannabis pharmacokinetics, hemp-derived CBD, full spectrum CBD, broad spectrum CBD, CBD isolate, cannabis terpenes, entourage effect, cannabis pain management, cannabis anxiety, cannabis epilepsy, cannabis inflammation, cannabis neuroprotection, cannabis oncology, cannabis addiction, cannabis withdrawal, cannabis tolerance`);
   const [scanDepth, setScanDepth] = useState<string>('standard');
   const [starting, setStarting] = useState(false);
+  const [stopping, setStopping] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [elapsedTime, setElapsedTime] = useState<string>('0s');
 
   const supabase = createClient();
 
@@ -105,6 +117,19 @@ export default function AdminResearchPage() {
 
     return () => clearInterval(interval);
   }, [activeJob?.id, activeJob?.status, checkActiveScan, fetchJobStatus]);
+
+  // Update elapsed time every second when scanning
+  useEffect(() => {
+    if (!activeJob || !['pending', 'running'].includes(activeJob.status)) {
+      return;
+    }
+
+    const interval = setInterval(() => {
+      setElapsedTime(formatElapsedTime(activeJob.started_at));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [activeJob?.id, activeJob?.status, activeJob?.started_at]);
 
   // Subscribe to new research items in real-time
   useEffect(() => {
@@ -183,22 +208,46 @@ export default function AdminResearchPage() {
     }
   };
 
-  // Cancel active scan
-  const cancelScan = async () => {
+  // Stop/Cancel active scan
+  const stopScan = async () => {
     if (!activeJob) return;
 
+    setStopping(true);
     try {
-      await fetch(`/api/admin/scan/${activeJob.id}`, { method: 'DELETE' });
-      checkActiveScan();
+      const response = await fetch(`/api/admin/scan/${activeJob.id}`, { method: 'DELETE' });
+      const data = await response.json();
+
+      if (data.success) {
+        // Poll to get updated status
+        await fetchJobStatus(activeJob.id);
+      }
     } catch (err) {
-      console.error('Failed to cancel scan:', err);
+      console.error('Failed to stop scan:', err);
+    } finally {
+      setStopping(false);
     }
   };
 
   const isScanning = activeJob && ['pending', 'running'].includes(activeJob.status);
-  const progressPercent = activeJob
+  const progressPercent = activeJob && activeJob.sources_total.length > 0
     ? Math.round((activeJob.sources_completed.length / activeJob.sources_total.length) * 100)
     : 0;
+
+  // Source definitions with availability
+  const availableSources = [
+    { id: 'pubmed', name: 'PubMed', desc: '33M+ biomedical literature', available: true },
+    { id: 'pmc', name: 'PMC', desc: 'Full-text research articles', available: true },
+    { id: 'clinicaltrials', name: 'ClinicalTrials.gov', desc: 'Clinical trial database', available: true },
+    { id: 'europepmc', name: 'Europe PMC', desc: 'European biomedical literature', available: true },
+    { id: 'biorxiv', name: 'bioRxiv/medRxiv', desc: 'Preprints (not peer-reviewed)', available: true }
+  ];
+
+  const comingSoonSources = [
+    { id: 'cochrane', name: 'Cochrane Library', desc: 'Systematic reviews' },
+    { id: 'who_ictrp', name: 'WHO ICTRP', desc: 'International clinical trials' },
+    { id: 'doaj', name: 'DOAJ', desc: 'Open access journals' },
+    { id: 'scholar', name: 'Google Scholar', desc: 'Requires scraping (limited)' }
+  ];
 
   return (
     <div className="p-8">
@@ -224,7 +273,7 @@ export default function AdminResearchPage() {
           'bg-blue-50 border-blue-300'
         }`}>
           <div className="flex justify-between items-start mb-4">
-            <div>
+            <div className="flex-1">
               <h3 className="text-lg font-semibold flex items-center gap-2">
                 {isScanning && (
                   <div className="animate-spin h-5 w-5 border-2 border-blue-600 border-t-transparent rounded-full"></div>
@@ -232,21 +281,46 @@ export default function AdminResearchPage() {
                 {activeJob.status === 'completed' && <span className="text-green-600">Scan Complete</span>}
                 {activeJob.status === 'failed' && <span className="text-red-600">Scan Failed</span>}
                 {activeJob.status === 'cancelled' && <span className="text-gray-600">Scan Cancelled</span>}
-                {activeJob.status === 'running' && <span className="text-blue-600">Scanning in Progress</span>}
+                {activeJob.status === 'running' && (
+                  <span className="text-blue-600">
+                    Scanning {activeJob.current_source ? SOURCE_NAMES[activeJob.current_source] || activeJob.current_source : ''}...
+                  </span>
+                )}
                 {activeJob.status === 'pending' && <span className="text-yellow-600">Starting Scan...</span>}
               </h3>
-              {activeJob.current_source && (
-                <p className="text-sm text-gray-600 mt-1">
-                  Currently scanning: <strong>{SOURCE_NAMES[activeJob.current_source] || activeJob.current_source}</strong>
+
+              {/* Progress details */}
+              <div className="mt-2 text-sm text-gray-600 space-y-1">
+                <p>
+                  <strong>Source:</strong> {activeJob.sources_completed.length + 1} of {activeJob.sources_total.length}
+                  {activeJob.current_source && ` (${SOURCE_NAMES[activeJob.current_source] || activeJob.current_source})`}
                 </p>
-              )}
+                <p>
+                  <strong>Elapsed:</strong> {elapsedTime}
+                </p>
+              </div>
             </div>
+
+            {/* Stop Button */}
             {isScanning && (
               <button
-                onClick={cancelScan}
-                className="px-3 py-1 text-sm bg-red-100 text-red-700 rounded hover:bg-red-200"
+                onClick={stopScan}
+                disabled={stopping}
+                className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50 flex items-center gap-2"
               >
-                Cancel
+                {stopping ? (
+                  <>
+                    <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
+                    Stopping...
+                  </>
+                ) : (
+                  <>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <rect x="6" y="6" width="12" height="12" strokeWidth="2" />
+                    </svg>
+                    Stop Scan
+                  </>
+                )}
               </button>
             )}
           </div>
@@ -257,11 +331,12 @@ export default function AdminResearchPage() {
               <span>Progress: {activeJob.sources_completed.length} / {activeJob.sources_total.length} sources</span>
               <span>{progressPercent}%</span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-3">
+            <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
               <div
                 className={`h-3 rounded-full transition-all duration-500 ${
                   activeJob.status === 'completed' ? 'bg-green-500' :
                   activeJob.status === 'failed' ? 'bg-red-500' :
+                  activeJob.status === 'cancelled' ? 'bg-gray-500' :
                   'bg-blue-500'
                 }`}
                 style={{ width: `${progressPercent}%` }}
@@ -269,24 +344,31 @@ export default function AdminResearchPage() {
             </div>
           </div>
 
-          {/* Source Status */}
+          {/* Source Status Pills */}
           <div className="flex flex-wrap gap-2 mb-4">
-            {activeJob.sources_total.map(source => {
+            {activeJob.sources_total.map((source, index) => {
               const isCompleted = activeJob.sources_completed.includes(source);
               const isCurrent = activeJob.current_source === source;
+              const sourceIndex = activeJob.sources_total.indexOf(source) + 1;
 
               return (
                 <span
                   key={source}
-                  className={`px-2 py-1 text-xs rounded-full flex items-center gap-1 ${
+                  className={`px-3 py-1 text-xs rounded-full flex items-center gap-1.5 font-medium ${
                     isCompleted ? 'bg-green-100 text-green-800' :
-                    isCurrent ? 'bg-blue-100 text-blue-800 animate-pulse' :
-                    'bg-gray-100 text-gray-600'
+                    isCurrent ? 'bg-blue-100 text-blue-800' :
+                    'bg-gray-100 text-gray-500'
                   }`}
                 >
-                  {isCompleted && <span>done</span>}
-                  {isCurrent && <span className="animate-spin h-3 w-3 border border-blue-600 border-t-transparent rounded-full"></span>}
-                  {SOURCE_NAMES[source] || source}
+                  {isCompleted && (
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  )}
+                  {isCurrent && (
+                    <span className="animate-spin h-3 w-3 border border-blue-600 border-t-transparent rounded-full"></span>
+                  )}
+                  {sourceIndex}. {SOURCE_NAMES[source] || source}
                 </span>
               );
             })}
@@ -294,19 +376,19 @@ export default function AdminResearchPage() {
 
           {/* Stats */}
           <div className="grid grid-cols-4 gap-4 text-center">
-            <div className="bg-white rounded p-3">
+            <div className="bg-white rounded p-3 shadow-sm">
               <div className="text-2xl font-bold text-blue-600">{activeJob.items_found}</div>
               <div className="text-xs text-gray-500">Found</div>
             </div>
-            <div className="bg-white rounded p-3">
+            <div className="bg-white rounded p-3 shadow-sm">
               <div className="text-2xl font-bold text-green-600">{activeJob.items_added}</div>
               <div className="text-xs text-gray-500">Added</div>
             </div>
-            <div className="bg-white rounded p-3">
+            <div className="bg-white rounded p-3 shadow-sm">
               <div className="text-2xl font-bold text-yellow-600">{activeJob.items_skipped}</div>
               <div className="text-xs text-gray-500">Duplicates</div>
             </div>
-            <div className="bg-white rounded p-3">
+            <div className="bg-white rounded p-3 shadow-sm">
               <div className="text-2xl font-bold text-red-600">{activeJob.items_rejected}</div>
               <div className="text-xs text-gray-500">Filtered</div>
             </div>
@@ -364,15 +446,11 @@ export default function AdminResearchPage() {
         {/* Source Selection */}
         <div className="p-6 bg-white rounded-lg shadow border">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Research Sources</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {/* Primary Sources */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Available Sources */}
             <div className="space-y-2">
-              <h4 className="font-medium text-gray-800 text-sm uppercase tracking-wide">Primary Medical</h4>
-              {[
-                { id: 'pubmed', name: 'PubMed', desc: '33M+ biomedical literature' },
-                { id: 'pmc', name: 'PMC', desc: 'Full-text research articles' },
-                { id: 'clinicaltrials', name: 'ClinicalTrials.gov', desc: 'Clinical trial database' }
-              ].map((source) => (
+              <h4 className="font-medium text-gray-800 text-sm uppercase tracking-wide">Available Sources</h4>
+              {availableSources.map((source) => (
                 <label key={source.id} className="flex items-start gap-2 cursor-pointer p-2 rounded hover:bg-gray-50">
                   <input
                     type="checkbox"
@@ -395,31 +473,20 @@ export default function AdminResearchPage() {
               ))}
             </div>
 
-            {/* Academic Journals */}
+            {/* Coming Soon Sources */}
             <div className="space-y-2">
-              <h4 className="font-medium text-gray-800 text-sm uppercase tracking-wide">Academic Journals</h4>
-              {[
-                { id: 'nature', name: 'Nature', desc: 'High-impact research' },
-                { id: 'science', name: 'Science', desc: 'Peer-reviewed research' },
-                { id: 'jama', name: 'JAMA', desc: 'Medical association journal' }
-              ].map((source) => (
-                <label key={source.id} className="flex items-start gap-2 cursor-pointer p-2 rounded hover:bg-gray-50 opacity-50">
+              <h4 className="font-medium text-gray-800 text-sm uppercase tracking-wide">Coming Soon</h4>
+              {comingSoonSources.map((source) => (
+                <label key={source.id} className="flex items-start gap-2 p-2 rounded opacity-50 cursor-not-allowed">
                   <input
                     type="checkbox"
-                    checked={selectedSources.includes(source.id)}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setSelectedSources([...selectedSources, source.id]);
-                      } else {
-                        setSelectedSources(selectedSources.filter(s => s !== source.id));
-                      }
-                    }}
+                    checked={false}
                     disabled={true}
                     className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-0.5"
                   />
                   <div>
                     <span className="text-sm font-medium text-gray-700">{source.name}</span>
-                    <p className="text-xs text-gray-500">{source.desc} (Coming soon)</p>
+                    <p className="text-xs text-gray-500">{source.desc}</p>
                   </div>
                 </label>
               ))}
@@ -447,32 +514,35 @@ export default function AdminResearchPage() {
                 {scanDepth === '1year' && 'Extended, ~15-25 min'}
                 {scanDepth === '2years' && 'Historical, ~25-40 min'}
               </p>
-            </div>
-          </div>
 
-          {/* Quick Actions */}
-          <div className="mt-4 pt-4 border-t flex gap-2 flex-wrap">
-            <button
-              onClick={() => setSelectedSources(['pubmed', 'pmc', 'clinicaltrials'])}
-              disabled={isScanning}
-              className="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded hover:bg-blue-200 disabled:opacity-50"
-            >
-              Standard Medical
-            </button>
-            <button
-              onClick={() => setSelectedSources(['pubmed'])}
-              disabled={isScanning}
-              className="px-3 py-1 text-sm bg-green-100 text-green-700 rounded hover:bg-green-200 disabled:opacity-50"
-            >
-              PubMed Only
-            </button>
-            <button
-              onClick={() => setSelectedSources([])}
-              disabled={isScanning}
-              className="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded hover:bg-gray-200 disabled:opacity-50"
-            >
-              Clear
-            </button>
+              {/* Quick Source Presets */}
+              <div className="mt-4 pt-4 border-t space-y-2">
+                <h4 className="font-medium text-gray-800 text-sm uppercase tracking-wide">Quick Select</h4>
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    onClick={() => setSelectedSources(['pubmed', 'pmc', 'clinicaltrials'])}
+                    disabled={isScanning}
+                    className="px-3 py-1 text-xs bg-blue-100 text-blue-700 rounded hover:bg-blue-200 disabled:opacity-50"
+                  >
+                    Core Medical
+                  </button>
+                  <button
+                    onClick={() => setSelectedSources(['pubmed', 'pmc', 'clinicaltrials', 'europepmc', 'biorxiv'])}
+                    disabled={isScanning}
+                    className="px-3 py-1 text-xs bg-purple-100 text-purple-700 rounded hover:bg-purple-200 disabled:opacity-50"
+                  >
+                    All Available
+                  </button>
+                  <button
+                    onClick={() => setSelectedSources([])}
+                    disabled={isScanning}
+                    className="px-3 py-1 text-xs bg-gray-100 text-gray-700 rounded hover:bg-gray-200 disabled:opacity-50"
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -519,15 +589,16 @@ export default function AdminResearchPage() {
             ) : selectedSources.length === 0 ? (
               'Select Sources to Scan'
             ) : (
-              `Start Scan (${selectedSources.length} sources)`
+              `Start Scan (${selectedSources.length} source${selectedSources.length > 1 ? 's' : ''})`
             )}
           </button>
         </div>
 
         {/* Info Box */}
         <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg text-sm text-blue-800">
-          <strong>Background Scanning:</strong> Scans run server-side and continue even if you navigate away.
-          Return to this page anytime to see progress. New research items appear in real-time as they&apos;re discovered.
+          <strong>How it works:</strong> The scanner queries public research APIs (PubMed, ClinicalTrials.gov, etc.)
+          for cannabis/CBD related studies. Results are filtered for relevance and added to your review queue.
+          You can stop the scan at any time - results found so far will be saved.
         </div>
       </div>
 

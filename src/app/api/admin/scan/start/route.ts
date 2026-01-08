@@ -27,27 +27,34 @@ export async function POST(request: Request) {
     const scanDepth = body?.scanDepth || 'standard';
     const customKeywords = body?.customKeywords || [];
 
-    console.log(`Creating new scan job (depth: ${scanDepth}, sources: ${selectedSources.join(', ')})`);
+    console.log(`[ScanAPI] Creating new scan job (depth: ${scanDepth}, sources: ${selectedSources.join(', ')})`);
 
     // Create the job
     const jobId = await createScanJob(supabase, selectedSources, scanDepth, customKeywords);
 
-    console.log(`Scan job created: ${jobId}`);
+    console.log(`[ScanAPI] Scan job created: ${jobId}`);
+    console.log(`[ScanAPI] Starting background scan...`);
 
-    // Start the background scan (fire and forget)
-    // This runs asynchronously - the response returns immediately
-    runBackgroundScan(jobId).catch(err => {
-      console.error(`Background scan failed for job ${jobId}:`, err);
-    });
+    // Run the scan and wait for it to complete
+    // We must await this because Vercel serverless functions terminate after response
+    // The client polls for status updates so this works even though it blocks
+    try {
+      await runBackgroundScan(jobId);
+      console.log(`[ScanAPI] Background scan completed for job ${jobId}`);
+    } catch (scanError) {
+      console.error(`[ScanAPI] Background scan failed for job ${jobId}:`, scanError);
+      // Error is already recorded in the job status by runBackgroundScan
+    }
 
+    // Return success - client will poll for final status
     return NextResponse.json({
       success: true,
       jobId,
-      message: 'Scan started in background'
+      message: 'Scan completed'
     });
 
   } catch (error) {
-    console.error('Failed to start scan:', error);
+    console.error('[ScanAPI] Failed to start scan:', error);
     return NextResponse.json({
       error: 'Failed to start scan',
       message: error instanceof Error ? error.message : 'Unknown error'

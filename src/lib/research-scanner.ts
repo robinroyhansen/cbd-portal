@@ -500,6 +500,147 @@ export async function scanPMC(scanDepth: string = 'standard', customKeywords: st
   return results;
 }
 
+// Europe PMC Scanner
+export async function scanEuropePMC(scanDepth: string = 'standard', customKeywords: string[] = []): Promise<ResearchItem[]> {
+  const results: ResearchItem[] = [];
+  const resultLimit = getResultLimit(scanDepth);
+
+  const defaultTerms = ['cannabidiol', 'CBD therapy', 'medical cannabis', 'cannabis clinical trial'];
+  const searchTerms = customKeywords.length > 0 ? customKeywords.slice(0, 5) : defaultTerms;
+
+  console.log(`[EuropePMC] Starting scan with ${searchTerms.length} search terms`);
+
+  for (const term of searchTerms) {
+    try {
+      const url = `https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=${encodeURIComponent(term)}&format=json&pageSize=${Math.min(resultLimit, 25)}&sort=DATE_CREATED desc`;
+
+      console.log(`[EuropePMC] Searching: "${term}"`);
+
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        console.error(`[EuropePMC] API error: ${response.status} ${response.statusText}`);
+        continue;
+      }
+
+      const data = await response.json();
+      const articles = data.resultList?.result || [];
+      console.log(`[EuropePMC] Found ${articles.length} results for "${term}"`);
+
+      for (const article of articles) {
+        if (article.title) {
+          results.push({
+            title: article.title,
+            authors: article.authorString,
+            publication: article.journalTitle || 'Europe PMC',
+            year: parseInt(article.pubYear) || new Date().getFullYear(),
+            abstract: article.abstractText,
+            url: article.doi ? `https://doi.org/${article.doi}` : `https://europepmc.org/article/${article.source}/${article.id}`,
+            doi: article.doi,
+            source_site: 'Europe PMC',
+            search_term_matched: term
+          });
+        }
+      }
+
+      await new Promise(resolve => setTimeout(resolve, 300));
+
+    } catch (error) {
+      console.error(`[EuropePMC] Error scanning for "${term}":`, error instanceof Error ? error.message : error);
+    }
+  }
+
+  console.log(`[EuropePMC] Scan complete. Total results: ${results.length}`);
+  return results;
+}
+
+// bioRxiv/medRxiv Preprint Scanner
+export async function scanBioRxiv(scanDepth: string = 'standard', customKeywords: string[] = []): Promise<ResearchItem[]> {
+  const results: ResearchItem[] = [];
+
+  // bioRxiv API uses date ranges
+  const now = new Date();
+  let startDate: Date;
+
+  switch (scanDepth) {
+    case 'quick':
+      startDate = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+      break;
+    case 'standard':
+      startDate = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000);
+      break;
+    default:
+      startDate = new Date(now.getTime() - 180 * 24 * 60 * 60 * 1000);
+  }
+
+  const startStr = startDate.toISOString().split('T')[0];
+  const endStr = now.toISOString().split('T')[0];
+
+  console.log(`[bioRxiv] Starting scan from ${startStr} to ${endStr}`);
+
+  // Search both bioRxiv and medRxiv
+  for (const server of ['biorxiv', 'medrxiv']) {
+    try {
+      // bioRxiv API: search for cannabis/CBD related preprints
+      const url = `https://api.biorxiv.org/details/${server}/${startStr}/${endStr}/0/50`;
+
+      console.log(`[bioRxiv] Fetching from ${server}...`);
+
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        console.error(`[bioRxiv] ${server} API error: ${response.status}`);
+        continue;
+      }
+
+      const data = await response.json();
+      const articles = data.collection || [];
+
+      // Filter for cannabis/CBD related
+      const cannabisKeywords = ['cannabis', 'cannabidiol', 'cbd', 'cannabinoid', 'thc', 'marijuana', 'hemp'];
+      const filtered = articles.filter((article: any) => {
+        const text = `${article.title || ''} ${article.abstract || ''}`.toLowerCase();
+        return cannabisKeywords.some(kw => text.includes(kw));
+      });
+
+      console.log(`[bioRxiv] Found ${filtered.length} cannabis-related preprints in ${server}`);
+
+      for (const article of filtered) {
+        results.push({
+          title: article.title,
+          authors: article.authors,
+          publication: server === 'medrxiv' ? 'medRxiv' : 'bioRxiv',
+          year: new Date(article.date).getFullYear(),
+          abstract: article.abstract,
+          url: `https://doi.org/${article.doi}`,
+          doi: article.doi,
+          source_site: server === 'medrxiv' ? 'medRxiv' : 'bioRxiv',
+          search_term_matched: 'preprint search'
+        });
+      }
+
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+    } catch (error) {
+      console.error(`[bioRxiv] Error scanning ${server}:`, error instanceof Error ? error.message : error);
+    }
+  }
+
+  console.log(`[bioRxiv] Scan complete. Total results: ${results.length}`);
+  return results;
+}
+
+// Check if a scan job has been cancelled
+async function isJobCancelled(supabase: SupabaseClient, jobId: string): Promise<boolean> {
+  const { data } = await supabase
+    .from('kb_scan_jobs')
+    .select('status')
+    .eq('id', jobId)
+    .single();
+
+  return data?.status === 'cancelled';
+}
+
 export function calculateRelevance(study: ResearchItem): { score: number; topics: string[] } {
   const text = `${study.title || ''} ${study.abstract || ''}`.toLowerCase();
   const topics: string[] = [];
@@ -796,6 +937,17 @@ export async function runBackgroundScan(jobId: string): Promise<void> {
 
     // Process each source
     for (const source of sources) {
+      // Check if job was cancelled before starting this source
+      if (await isJobCancelled(supabase, jobId)) {
+        console.log(`[Job ${jobId}] Scan cancelled by user`);
+        await updateScanJobProgress(supabase, jobId, {
+          status: 'cancelled',
+          completed_at: new Date().toISOString(),
+          current_source: null
+        });
+        return;
+      }
+
       // Update current source
       await updateScanJobProgress(supabase, jobId, {
         current_source: source
@@ -816,9 +968,14 @@ export async function runBackgroundScan(jobId: string): Promise<void> {
           case 'pmc':
             results = await scanPMC(scanDepth, customKeywords);
             break;
-          // Add more sources here as needed
+          case 'europepmc':
+            results = await scanEuropePMC(scanDepth, customKeywords);
+            break;
+          case 'biorxiv':
+            results = await scanBioRxiv(scanDepth, customKeywords);
+            break;
           default:
-            console.log(`[Job ${jobId}] Unknown source: ${source}`);
+            console.log(`[Job ${jobId}] Unknown source: ${source}, skipping`);
         }
       } catch (error) {
         console.error(`[Job ${jobId}] Error scanning ${source}:`, error);
