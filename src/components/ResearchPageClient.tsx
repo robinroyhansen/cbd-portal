@@ -180,9 +180,12 @@ function saveFilters(filters: SavedFilters) {
 
 function extractSampleSize(text: string): number | null {
   const patterns = [
-    /(\d+)\s*(participant|patient|subject|individual|adult|child|volunteer)/gi,
-    /n\s*=\s*(\d+)/gi,
-    /sample\s*(?:size|of)\s*(\d+)/gi
+    /\bn\s*=\s*(\d+)/gi,
+    /\bN\s*=\s*(\d+)/gi,
+    /(\d+)\s*(?:participant|patient|subject|individual|adult|child|volunteer|people|person|case|sample)s?\b/gi,
+    /(?:enrolled|recruited|included|randomized|studied)\s+(\d+)/gi,
+    /(?:total of|sample of|population of)\s+(\d+)/gi,
+    /(\d+)\s+(?:were|was)\s+(?:enrolled|recruited|included|randomized)/gi,
   ];
 
   let maxSize = 0;
@@ -190,12 +193,128 @@ function extractSampleSize(text: string): number | null {
     const matches = text.matchAll(pattern);
     for (const match of matches) {
       const num = parseInt(match[1]);
-      if (num > maxSize && num < 100000) maxSize = num;
+      if (num > maxSize && num < 50000 && num >= 5) maxSize = num;
     }
   }
 
   return maxSize > 0 ? maxSize : null;
 }
+
+// Extract study status from text
+function extractStudyStatus(text: string, url: string): 'completed' | 'ongoing' | 'recruiting' | null {
+  const lowerText = text.toLowerCase();
+  const lowerUrl = url?.toLowerCase() || '';
+
+  // Check URL first for clinical trials
+  if (lowerUrl.includes('clinicaltrials.gov')) {
+    if (lowerText.includes('recruiting') && !lowerText.includes('not recruiting')) {
+      return 'recruiting';
+    }
+    if (lowerText.includes('active') || lowerText.includes('enrolling')) {
+      return 'ongoing';
+    }
+  }
+
+  // Check text content
+  if (lowerText.includes('completed study') || lowerText.includes('study was completed') ||
+      lowerText.includes('trial completed') || lowerText.includes('results show') ||
+      lowerText.includes('we found') || lowerText.includes('our results') ||
+      lowerText.includes('in conclusion') || lowerText.includes('data suggest')) {
+    return 'completed';
+  }
+
+  if (lowerText.includes('currently recruiting') || lowerText.includes('now recruiting') ||
+      lowerText.includes('seeking participants')) {
+    return 'recruiting';
+  }
+
+  if (lowerText.includes('ongoing') || lowerText.includes('in progress') ||
+      lowerText.includes('currently underway')) {
+    return 'ongoing';
+  }
+
+  // Default to completed for published studies
+  return 'completed';
+}
+
+// Extract treatment/intervention from abstract
+function extractTreatment(text: string): string | null {
+  const lowerText = text.toLowerCase();
+
+  // CBD-specific patterns
+  const cbdPatterns = [
+    /(?:oral|sublingual|topical)?\s*(?:cbd|cannabidiol)\s*(?:\d+\s*mg)?/gi,
+    /(?:epidiolex|sativex|nabiximols)/gi,
+    /cbd\s*(?:oil|extract|isolate|tincture|capsule)/gi,
+    /(?:full|broad)[- ]spectrum\s*(?:cbd|hemp|cannabis)/gi,
+  ];
+
+  for (const pattern of cbdPatterns) {
+    const match = text.match(pattern);
+    if (match) {
+      // Clean up and capitalize
+      let treatment = match[0].trim();
+      // Standardize common terms
+      if (treatment.toLowerCase().includes('epidiolex')) return 'Epidiolex (CBD)';
+      if (treatment.toLowerCase().includes('sativex')) return 'Sativex (THC:CBD)';
+      if (treatment.toLowerCase().includes('nabiximols')) return 'Nabiximols';
+      // Return cleaned treatment
+      return treatment.charAt(0).toUpperCase() + treatment.slice(1).toLowerCase();
+    }
+  }
+
+  // Dose patterns
+  const dosePattern = /(\d+)\s*(?:mg|milligram)s?\s*(?:of\s*)?(?:cbd|cannabidiol)/gi;
+  const doseMatch = text.match(dosePattern);
+  if (doseMatch) {
+    return doseMatch[0].replace(/\s+/g, ' ').trim();
+  }
+
+  // Generic intervention patterns
+  if (lowerText.includes('placebo-controlled') || lowerText.includes('placebo controlled')) {
+    if (lowerText.includes('cbd') || lowerText.includes('cannabidiol')) {
+      return 'CBD vs Placebo';
+    }
+  }
+
+  return null;
+}
+
+// Get primary condition from study
+function getPrimaryCondition(study: any): { key: ConditionKey; data: typeof CONDITIONS[ConditionKey] } | null {
+  const text = `${study.title || ''} ${study.abstract || ''}`.toLowerCase();
+
+  // Priority order for conditions
+  const conditionPriority: ConditionKey[] = [
+    'epilepsy', 'cancer', 'neurological', 'pain', 'anxiety',
+    'sleep', 'depression', 'inflammation', 'addiction', 'skin', 'heart', 'digestive'
+  ];
+
+  for (const key of conditionPriority) {
+    const cond = CONDITIONS[key];
+    if (cond.keywords.some(kw => text.includes(kw.toLowerCase()))) {
+      return { key, data: cond };
+    }
+  }
+
+  return null;
+}
+
+// Condition badge colors (Tailwind classes)
+const CONDITION_COLORS: Record<string, { bg: string; text: string; border: string }> = {
+  anxiety: { bg: 'bg-purple-100', text: 'text-purple-800', border: 'border-purple-200' },
+  pain: { bg: 'bg-red-100', text: 'text-red-800', border: 'border-red-200' },
+  sleep: { bg: 'bg-indigo-100', text: 'text-indigo-800', border: 'border-indigo-200' },
+  epilepsy: { bg: 'bg-yellow-100', text: 'text-yellow-800', border: 'border-yellow-200' },
+  depression: { bg: 'bg-blue-100', text: 'text-blue-800', border: 'border-blue-200' },
+  inflammation: { bg: 'bg-orange-100', text: 'text-orange-800', border: 'border-orange-200' },
+  cancer: { bg: 'bg-pink-100', text: 'text-pink-800', border: 'border-pink-200' },
+  neurological: { bg: 'bg-teal-100', text: 'text-teal-800', border: 'border-teal-200' },
+  addiction: { bg: 'bg-green-100', text: 'text-green-800', border: 'border-green-200' },
+  skin: { bg: 'bg-rose-100', text: 'text-rose-800', border: 'border-rose-200' },
+  heart: { bg: 'bg-red-100', text: 'text-red-800', border: 'border-red-200' },
+  digestive: { bg: 'bg-amber-100', text: 'text-amber-800', border: 'border-amber-200' },
+};
 
 function matchesCondition(study: any, conditionKey: ConditionKey): boolean {
   const condition = CONDITIONS[conditionKey];
@@ -279,6 +398,9 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
       const assessment = assessStudyQuality(study);
       const text = `${study.title || ''} ${study.abstract || ''}`;
       const sampleSize = extractSampleSize(text);
+      const treatment = extractTreatment(text);
+      const studyStatus = extractStudyStatus(text, study.url);
+      const primaryCondition = getPrimaryCondition(study);
 
       return {
         ...study,
@@ -286,7 +408,10 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
         qualityScore: assessment.score,
         studyType: assessment.studyType,
         assessment: assessment,
-        sampleSize
+        sampleSize,
+        treatment,
+        studyStatus,
+        primaryCondition
       };
     });
   }, [initialResearch]);
@@ -860,7 +985,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
 
       {/* Research Results */}
       {viewMode === 'cards' && (
-        <div className="grid gap-6" role="list" aria-label="Research studies">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4" role="list" aria-label="Research studies">
           {paginatedStudies.map((study) => (
             <ResearchCard key={study.id} study={study} />
           ))}
@@ -978,30 +1103,11 @@ function Breadcrumbs({ condition }: { condition?: string }) {
 }
 
 // ============================================================================
-// RESEARCH CARD COMPONENT
+// RESEARCH CARD COMPONENT - Compact Design
 // ============================================================================
 
 function ResearchCard({ study }: { study: any }) {
   const [expanded, setExpanded] = useState(false);
-
-  const formatTopics = (topics: string[] | string | undefined) => {
-    if (!topics) return [];
-    if (typeof topics === 'string') {
-      try {
-        return JSON.parse(topics);
-      } catch {
-        return [topics];
-      }
-    }
-    return topics;
-  };
-
-  const topics = formatTopics(study.relevant_topics);
-
-  // Find matching conditions for related links
-  const matchingConditions = (Object.entries(CONDITIONS) as [ConditionKey, typeof CONDITIONS[ConditionKey]][])
-    .filter(([key]) => matchesCondition(study, key))
-    .slice(0, 3);
 
   // Study type icon mapping
   const studyTypeIcon = {
@@ -1022,124 +1128,161 @@ function ResearchCard({ study }: { study: any }) {
     [StudyType.UNKNOWN]: '📄'
   }[study.studyType] || '📄';
 
+  // Status badge config
+  const statusConfig = {
+    completed: { label: 'Completed', bg: 'bg-green-100', text: 'text-green-700', icon: '✓' },
+    ongoing: { label: 'Ongoing', bg: 'bg-blue-100', text: 'text-blue-700', icon: '⏳' },
+    recruiting: { label: 'Recruiting', bg: 'bg-amber-100', text: 'text-amber-700', icon: '📢' }
+  };
+
+  const conditionColors = study.primaryCondition
+    ? CONDITION_COLORS[study.primaryCondition.key] || { bg: 'bg-gray-100', text: 'text-gray-700', border: 'border-gray-200' }
+    : null;
+
   return (
     <article
-      className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow"
+      className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
       itemScope
       itemType="https://schema.org/ScholarlyArticle"
       role="listitem"
     >
-      {/* Schema.org hidden metadata */}
+      {/* Hidden Schema.org metadata */}
       <meta itemProp="datePublished" content={study.year?.toString()} />
       {study.doi && <meta itemProp="identifier" content={study.doi} />}
+      {study.abstract && <meta itemProp="abstract" content={study.abstract} />}
 
-      <div className="flex justify-between items-start gap-4 mb-4">
-        <div className="flex-1">
-          <div className="flex items-start gap-2 mb-2">
-            <span className="text-xl" aria-hidden="true" title={study.studyType}>{studyTypeIcon}</span>
-            <h3 className="font-semibold text-lg leading-tight" itemProp="name">{study.title}</h3>
-          </div>
-          <p className="text-sm text-gray-600 mb-3">
-            <span itemProp="author">{study.authors}</span> • <span itemProp="isPartOf">{study.publication}</span> • <time itemProp="datePublished">{study.year}</time>
-            {study.sampleSize && (
-              <span className="ml-2 px-2 py-0.5 bg-green-100 text-green-800 text-xs rounded" title="Sample size">
-                n={study.sampleSize}
-              </span>
-            )}
+      {/* Row 1: Title and Quality Score */}
+      <div className="flex items-start gap-3 mb-3">
+        <span className="text-lg shrink-0" aria-hidden="true" title={study.studyType}>{studyTypeIcon}</span>
+        <div className="flex-1 min-w-0">
+          <h3 className="font-semibold text-sm leading-snug line-clamp-2" itemProp="name">
+            {study.title}
+          </h3>
+          <p className="text-xs text-gray-500 mt-1 truncate">
+            {study.authors?.split(',').slice(0, 2).join(', ')}{study.authors?.split(',').length > 2 ? ' et al.' : ''} • {study.year}
           </p>
         </div>
-
-        <div className="flex flex-col items-end gap-2 shrink-0">
-          <QualityScoreBadge tier={study.qualityTier} score={study.qualityScore} size="md" />
-          <StudyTypeBadge studyType={study.studyType} size="sm" />
-          <EvidenceLevelIndicator studyType={study.studyType} />
+        <div className="shrink-0 text-right">
+          <div className="text-lg font-bold text-gray-900">{study.qualityScore}</div>
+          <div className="text-xs text-gray-500">score</div>
         </div>
       </div>
 
-      {study.abstract && (
-        <div className="mb-4">
-          <p
-            className={`text-sm text-gray-700 ${expanded ? '' : 'line-clamp-3'}`}
-            itemProp="abstract"
-          >
-            {study.abstract}
-          </p>
-          {study.abstract.length > 200 && (
-            <button
-              onClick={() => setExpanded(!expanded)}
-              className="text-sm text-blue-600 hover:text-blue-700 mt-1 font-medium focus:outline-none focus:underline"
-              aria-expanded={expanded}
-            >
-              {expanded ? '← Show less' : 'Read full abstract →'}
-            </button>
-          )}
+      {/* Row 2: Key Info Badges */}
+      <div className="flex flex-wrap items-center gap-2 mb-3">
+        {/* Primary Condition Badge */}
+        {study.primaryCondition && conditionColors && (
+          <span className={`inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium ${conditionColors.bg} ${conditionColors.text} border ${conditionColors.border}`}>
+            <span aria-hidden="true">{study.primaryCondition.data.icon}</span>
+            {study.primaryCondition.data.label}
+          </span>
+        )}
+
+        {/* Sample Size Badge */}
+        {study.sampleSize && (
+          <span className="inline-flex items-center px-2 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded text-xs font-medium">
+            👥 n={study.sampleSize.toLocaleString()}
+          </span>
+        )}
+
+        {/* Study Status Badge */}
+        {study.studyStatus && statusConfig[study.studyStatus] && (
+          <span className={`inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium ${statusConfig[study.studyStatus].bg} ${statusConfig[study.studyStatus].text}`}>
+            <span aria-hidden="true">{statusConfig[study.studyStatus].icon}</span>
+            {statusConfig[study.studyStatus].label}
+          </span>
+        )}
+
+        {/* Study Type Badge */}
+        <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">
+          {study.studyType}
+        </span>
+      </div>
+
+      {/* Row 3: Treatment/Intervention */}
+      {study.treatment && (
+        <div className="mb-3">
+          <span className="text-xs text-gray-500">Treatment: </span>
+          <span className="text-xs font-medium text-gray-800">{study.treatment}</span>
         </div>
       )}
 
-      {/* Topics */}
-      {topics.length > 0 && (
-        <div className="flex flex-wrap gap-1 mb-4">
-          {topics.slice(0, 6).map((topic: string, index: number) => (
-            <span
-              key={index}
-              className="px-2 py-0.5 bg-gray-100 text-gray-700 text-xs rounded"
-            >
-              {topic}
-            </span>
-          ))}
-          {topics.length > 6 && (
-            <span className="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded">
-              +{topics.length - 6} more
-            </span>
-          )}
-        </div>
-      )}
-
-      {/* Quality insights */}
-      {study.assessment.strengths.length > 0 && (
-        <details className="mb-4 text-sm">
-          <summary className="cursor-pointer text-green-700 font-medium focus:outline-none focus:ring-2 focus:ring-green-500 rounded">
-            Study Strengths ({study.assessment.strengths.length})
-          </summary>
-          <ul className="text-green-600 text-xs space-y-0.5 ml-4 mt-1">
-            {study.assessment.strengths.map((strength: string, index: number) => (
-              <li key={index}>• {strength}</li>
-            ))}
-          </ul>
-        </details>
-      )}
-
-      {/* Related condition pages */}
-      {matchingConditions.length > 0 && (
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="text-xs text-gray-500">Related:</span>
-          {matchingConditions.map(([key, cond]) => (
-            <Link
-              key={key}
-              href={`/research/${key}`}
-              className="text-xs text-blue-600 hover:text-blue-700 hover:underline"
-            >
-              {cond.icon} {cond.label}
-            </Link>
-          ))}
-        </div>
-      )}
-
-      <div className="flex justify-between items-center text-xs text-gray-400 pt-4 border-t">
-        <div className="flex items-center gap-4">
-          <span>Source: {study.source_site}</span>
-          {study.doi && <span>DOI: {study.doi}</span>}
-        </div>
-
-        <a
-          href={study.url}
-          itemProp="url"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors text-sm focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+      {/* Row 4: Expandable Details */}
+      <div className="border-t pt-3 mt-2">
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="w-full flex items-center justify-between text-sm text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1"
+          aria-expanded={expanded}
+          aria-controls={`details-${study.id}`}
         >
-          View Study →
-        </a>
+          <span className="font-medium">{expanded ? 'Hide Details' : 'View Details'}</span>
+          <svg
+            className={`w-4 h-4 transition-transform ${expanded ? 'rotate-180' : ''}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+
+        {expanded && (
+          <div id={`details-${study.id}`} className="mt-3 space-y-3">
+            {/* Full Abstract */}
+            {study.abstract && (
+              <div>
+                <h4 className="text-xs font-semibold text-gray-700 mb-1">Abstract</h4>
+                <p className="text-xs text-gray-600 leading-relaxed">{study.abstract}</p>
+              </div>
+            )}
+
+            {/* Study Strengths */}
+            {study.assessment?.strengths?.length > 0 && (
+              <div>
+                <h4 className="text-xs font-semibold text-green-700 mb-1">Study Strengths</h4>
+                <ul className="text-xs text-green-600 space-y-0.5">
+                  {study.assessment.strengths.map((strength: string, index: number) => (
+                    <li key={index}>✓ {strength}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Study Limitations */}
+            {study.assessment?.limitations?.length > 0 && (
+              <div>
+                <h4 className="text-xs font-semibold text-orange-700 mb-1">Limitations</h4>
+                <ul className="text-xs text-orange-600 space-y-0.5">
+                  {study.assessment.limitations.map((limitation: string, index: number) => (
+                    <li key={index}>• {limitation}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Metadata */}
+            <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-400 pt-2 border-t">
+              <span>Source: {study.source_site}</span>
+              {study.doi && <span>DOI: {study.doi}</span>}
+              <span>Publication: {study.publication}</span>
+            </div>
+
+            {/* View Full Study Button */}
+            <a
+              href={study.url}
+              itemProp="url"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            >
+              View Full Study
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        )}
       </div>
     </article>
   );
