@@ -1,15 +1,23 @@
 import { createClient } from '../../lib/supabase/server';
-import { ResearchPageClient } from '../../components/ResearchPageClient';
+import { ResearchPageClient, CONDITIONS, ConditionKey } from '../../components/ResearchPageClient';
+import Link from 'next/link';
 
 export const metadata = {
-  title: 'CBD Research Database | CBD Portal',
-  description: 'Browse peer-reviewed CBD research studies with advanced quality assessment and filtering.',
+  title: 'CBD Research Database | Evidence-Based Studies | CBD Portal',
+  description: 'Browse 200+ peer-reviewed CBD and cannabis research studies. Filter by condition (anxiety, pain, sleep, epilepsy), study type, and quality score. Features schema.org structured data.',
   alternates: {
     canonical: '/research',
   },
+  keywords: ['CBD research', 'cannabidiol studies', 'medical cannabis research', 'CBD clinical trials', 'cannabis science'],
   openGraph: {
-    title: 'Research Database | CBD & Cannabis Studies',
-    description: 'Explore our comprehensive database of peer-reviewed CBD and cannabis research from PubMed, ClinicalTrials.gov, and other authoritative sources. Features advanced quality assessment and evidence-based classification.',
+    title: 'CBD Research Database | Peer-Reviewed Studies',
+    description: 'Explore our comprehensive database of peer-reviewed CBD and cannabis research from PubMed, ClinicalTrials.gov, and other authoritative sources. Filter by condition, study type, and quality assessment.',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CBD Research Database',
+    description: 'Browse peer-reviewed CBD research studies with advanced quality assessment and filtering.',
   },
 };
 
@@ -84,7 +92,7 @@ export default async function ResearchPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
       {/* Page Header */}
-      <div className="text-center mb-12">
+      <header className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-4">CBD Research Database</h1>
         <p className="text-xl text-gray-600 mb-4">
           Evidence-based research with advanced quality assessment and classification
@@ -92,10 +100,10 @@ export default async function ResearchPage() {
         <p className="text-sm text-gray-500">
           {stats.total} peer-reviewed studies from PubMed, PMC, ClinicalTrials.gov, and authoritative medical journals
         </p>
-      </div>
+      </header>
 
       {/* Quick Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
         <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg text-center border border-blue-200">
           <div className="text-2xl font-bold text-blue-700">{stats.total}</div>
           <div className="text-xs text-blue-600">Total Studies</div>
@@ -103,10 +111,6 @@ export default async function ResearchPage() {
         <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg text-center border border-green-200">
           <div className="text-2xl font-bold text-green-700">{stats.fromQueue}</div>
           <div className="text-xs text-green-600">Curated Research</div>
-        </div>
-        <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg text-center border border-purple-200">
-          <div className="text-2xl font-bold text-purple-700">{stats.fromCitations}</div>
-          <div className="text-xs text-purple-600">Article Citations</div>
         </div>
         <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg text-center border border-orange-200">
           <div className="text-2xl font-bold text-orange-700">{stats.recentStudies}</div>
@@ -118,8 +122,51 @@ export default async function ResearchPage() {
         </div>
       </div>
 
+      {/* Condition Quick Links */}
+      <nav aria-label="Research by condition" className="mb-10">
+        <h2 className="text-sm font-semibold text-gray-700 mb-3 text-center">Browse by Condition</h2>
+        <div className="flex flex-wrap justify-center gap-2">
+          {(Object.entries(CONDITIONS) as [ConditionKey, typeof CONDITIONS[ConditionKey]][]).slice(0, 8).map(([key, cond]) => (
+            <Link
+              key={key}
+              href={`/research/${key}`}
+              className="inline-flex items-center gap-1.5 px-3 py-2 bg-white border border-gray-200 rounded-lg text-sm hover:border-blue-300 hover:bg-blue-50 transition-colors"
+            >
+              <span aria-hidden="true">{cond.icon}</span>
+              <span>{cond.label}</span>
+            </Link>
+          ))}
+        </div>
+      </nav>
+
       {/* Research Interface */}
       <ResearchPageClient initialResearch={allResearch} />
+
+      {/* Schema.org JSON-LD for the main page */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            '@id': 'https://cbdportal.com/research',
+            name: 'CBD Research Database',
+            description: 'Comprehensive database of peer-reviewed CBD and cannabis research studies',
+            isPartOf: {
+              '@type': 'WebSite',
+              name: 'CBD Portal',
+              url: 'https://cbdportal.com'
+            },
+            mainEntity: {
+              '@type': 'Dataset',
+              name: 'CBD Research Studies Database',
+              description: 'Collection of peer-reviewed CBD and cannabis research from PubMed, PMC, ClinicalTrials.gov',
+              size: `${stats.total} studies`,
+              variableMeasured: ['Study Quality Score', 'Study Type', 'Publication Year', 'Medical Condition']
+            }
+          })
+        }}
+      />
     </div>
   );
 }
