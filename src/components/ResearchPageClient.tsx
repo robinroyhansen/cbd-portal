@@ -44,93 +44,297 @@ type ViewMode = 'cards' | 'table' | 'timeline';
 type StudyCategory = 'all' | 'cbd' | 'cannabinoids' | 'cannabis' | 'medical-cannabis';
 
 // ============================================================================
-// CONDITION/TOPIC DEFINITIONS
+// CONDITION/TOPIC DEFINITIONS - Organized by Category
 // ============================================================================
 
+// Condition category groupings for UI organization
+export const CONDITION_CATEGORIES = {
+  'Neurological & Mental Health': ['anxiety', 'depression', 'ptsd', 'sleep', 'epilepsy', 'parkinsons', 'alzheimers', 'autism', 'adhd', 'schizophrenia', 'addiction', 'tourettes'],
+  'Pain & Inflammation': ['chronic_pain', 'neuropathic_pain', 'arthritis', 'fibromyalgia', 'ms', 'inflammation', 'migraines'],
+  'Gastrointestinal': ['crohns', 'ibs', 'nausea'],
+  'Cancer': ['cancer', 'chemo_side_effects'],
+  'Skin': ['acne', 'psoriasis', 'eczema'],
+  'Cardiovascular': ['heart', 'blood_pressure'],
+  'Other': ['diabetes', 'obesity', 'athletic', 'veterinary']
+} as const;
+
 export const CONDITIONS = {
+  // === NEUROLOGICAL & MENTAL HEALTH ===
   anxiety: {
-    label: 'Anxiety & Stress',
-    keywords: ['anxiety', 'anxiolytic', 'gad', 'social anxiety', 'panic', 'stress', 'ptsd', 'trauma'],
-    icon: '🧠',
+    label: 'Anxiety',
+    keywords: ['anxiety', 'anxiolytic', 'gad', 'generalized anxiety', 'social anxiety', 'panic disorder', 'panic attack', 'anxious'],
+    icon: '😰',
     color: 'purple',
-    description: 'Research on CBD for anxiety disorders, stress relief, and PTSD'
+    category: 'Neurological & Mental Health',
+    description: 'Research on CBD for anxiety disorders and stress relief'
   },
-  pain: {
-    label: 'Pain Management',
-    keywords: ['pain', 'analgesic', 'neuropathic', 'chronic pain', 'fibromyalgia', 'arthritis', 'inflammation'],
-    icon: '💪',
-    color: 'red',
-    description: 'Studies on CBD for chronic pain, neuropathy, and inflammatory conditions'
+  depression: {
+    label: 'Depression',
+    keywords: ['depression', 'depressive', 'antidepressant', 'mdd', 'major depressive', 'mood disorder', 'dysthymia'],
+    icon: '😔',
+    color: 'blue',
+    category: 'Neurological & Mental Health',
+    description: 'Research on CBD for depression and mood disorders'
+  },
+  ptsd: {
+    label: 'PTSD',
+    keywords: ['ptsd', 'post-traumatic', 'posttraumatic', 'trauma', 'traumatic stress', 'combat veteran', 'flashback'],
+    icon: '🎖️',
+    color: 'slate',
+    category: 'Neurological & Mental Health',
+    description: 'Studies on CBD for PTSD and trauma-related disorders'
   },
   sleep: {
     label: 'Sleep & Insomnia',
-    keywords: ['sleep', 'insomnia', 'circadian', 'sedative', 'sleep quality', 'sleep disorder'],
+    keywords: ['sleep', 'insomnia', 'circadian', 'sedative', 'sleep quality', 'sleep disorder', 'somnolence', 'sleep latency', 'rem sleep'],
     icon: '😴',
     color: 'indigo',
-    description: 'Research on CBD effects on sleep quality and insomnia treatment'
+    category: 'Neurological & Mental Health',
+    description: 'Research on CBD effects on sleep quality and insomnia'
   },
   epilepsy: {
     label: 'Epilepsy & Seizures',
-    keywords: ['epilepsy', 'seizure', 'dravet', 'lennox-gastaut', 'anticonvulsant', 'epidiolex'],
+    keywords: ['epilepsy', 'seizure', 'dravet', 'lennox-gastaut', 'anticonvulsant', 'epidiolex', 'convulsion', 'ictal', 'intractable epilepsy'],
     icon: '⚡',
     color: 'yellow',
+    category: 'Neurological & Mental Health',
     description: 'Clinical studies on CBD for epilepsy and seizure disorders'
   },
-  depression: {
-    label: 'Depression & Mood',
-    keywords: ['depression', 'antidepressant', 'mood', 'bipolar', 'mdd'],
-    icon: '🌤️',
-    color: 'blue',
-    description: 'Research on CBD for depression and mood disorders'
-  },
-  inflammation: {
-    label: 'Inflammation & Immune',
-    keywords: ['inflammation', 'anti-inflammatory', 'cytokine', 'immune', 'autoimmune', 'tnf'],
-    icon: '🔥',
-    color: 'orange',
-    description: 'Studies on CBD anti-inflammatory and immunomodulatory effects'
-  },
-  cancer: {
-    label: 'Cancer & Oncology',
-    keywords: ['cancer', 'tumor', 'oncology', 'chemotherapy', 'palliative', 'antiemetic', 'nausea'],
-    icon: '🎗️',
-    color: 'pink',
-    description: 'Research on CBD in cancer treatment and symptom management'
-  },
-  neurological: {
-    label: 'Neurological Disorders',
-    keywords: ['parkinson', 'alzheimer', 'multiple sclerosis', 'neuroprotective', 'neurodegeneration', 'huntington', 'als'],
-    icon: '🧬',
+  parkinsons: {
+    label: "Parkinson's",
+    keywords: ['parkinson', 'parkinsonian', 'dopamine', 'tremor', 'bradykinesia', 'dyskinesia', 'lewy body'],
+    icon: '🧠',
     color: 'teal',
-    description: 'Studies on CBD for neurodegenerative diseases'
+    category: 'Neurological & Mental Health',
+    description: "Research on CBD for Parkinson's disease symptoms"
+  },
+  alzheimers: {
+    label: "Alzheimer's & Dementia",
+    keywords: ['alzheimer', 'dementia', 'cognitive decline', 'memory loss', 'amyloid', 'tau protein', 'neurodegeneration', 'cognitive impairment'],
+    icon: '🧓',
+    color: 'gray',
+    category: 'Neurological & Mental Health',
+    description: "Studies on CBD for Alzheimer's and dementia"
+  },
+  autism: {
+    label: 'Autism & ASD',
+    keywords: ['autism', 'asd', 'autistic', 'asperger', 'spectrum disorder', 'developmental disorder', 'neurodevelopmental'],
+    icon: '🧩',
+    color: 'cyan',
+    category: 'Neurological & Mental Health',
+    description: 'Research on CBD for autism spectrum disorders'
+  },
+  adhd: {
+    label: 'ADHD',
+    keywords: ['adhd', 'attention deficit', 'hyperactivity', 'add', 'inattention', 'impulsivity', 'executive function'],
+    icon: '🎯',
+    color: 'orange',
+    category: 'Neurological & Mental Health',
+    description: 'Studies on CBD for ADHD and attention disorders'
+  },
+  schizophrenia: {
+    label: 'Schizophrenia',
+    keywords: ['schizophrenia', 'psychosis', 'psychotic', 'antipsychotic', 'hallucination', 'delusion', 'negative symptoms'],
+    icon: '🌀',
+    color: 'violet',
+    category: 'Neurological & Mental Health',
+    description: 'Research on CBD antipsychotic effects'
   },
   addiction: {
-    label: 'Addiction & Substance Use',
-    keywords: ['addiction', 'substance use', 'opioid', 'withdrawal', 'dependence', 'alcohol'],
+    label: 'Addiction',
+    keywords: ['addiction', 'substance abuse', 'substance use', 'opioid', 'withdrawal', 'dependence', 'alcohol use', 'drug abuse', 'cocaine', 'heroin', 'relapse'],
     icon: '🔄',
     color: 'green',
+    category: 'Neurological & Mental Health',
     description: 'Research on CBD for addiction treatment and withdrawal'
   },
-  skin: {
-    label: 'Skin Conditions',
-    keywords: ['eczema', 'psoriasis', 'dermatitis', 'skin', 'topical', 'acne'],
-    icon: '🧴',
-    color: 'rose',
-    description: 'Studies on CBD for dermatological conditions'
+  tourettes: {
+    label: "Tourette's",
+    keywords: ['tourette', 'tic disorder', 'tics', 'motor tic', 'vocal tic', 'coprolalia'],
+    icon: '💬',
+    color: 'lime',
+    category: 'Neurological & Mental Health',
+    description: "Studies on CBD for Tourette's syndrome"
   },
-  heart: {
-    label: 'Cardiovascular Health',
-    keywords: ['cardiovascular', 'heart', 'blood pressure', 'hypertension', 'cardiac'],
-    icon: '❤️',
+
+  // === PAIN & INFLAMMATION ===
+  chronic_pain: {
+    label: 'Chronic Pain',
+    keywords: ['chronic pain', 'persistent pain', 'long-term pain', 'pain management', 'analgesic', 'pain relief', 'opioid-sparing'],
+    icon: '💪',
     color: 'red',
-    description: 'Research on CBD cardiovascular effects'
+    category: 'Pain & Inflammation',
+    description: 'Studies on CBD for chronic pain management'
   },
-  digestive: {
-    label: 'Digestive Health',
-    keywords: ['ibs', 'irritable bowel', 'crohn', 'ibd', 'colitis', 'gut', 'digestive'],
+  neuropathic_pain: {
+    label: 'Neuropathic Pain',
+    keywords: ['neuropathic', 'neuropathy', 'nerve pain', 'peripheral neuropathy', 'diabetic neuropathy', 'neuralgia', 'allodynia'],
+    icon: '⚡',
+    color: 'amber',
+    category: 'Pain & Inflammation',
+    description: 'Research on CBD for nerve-related pain'
+  },
+  arthritis: {
+    label: 'Arthritis',
+    keywords: ['arthritis', 'osteoarthritis', 'rheumatoid', 'joint pain', 'joint inflammation', 'synovitis', 'articular'],
+    icon: '🦴',
+    color: 'stone',
+    category: 'Pain & Inflammation',
+    description: 'Studies on CBD for arthritis and joint conditions'
+  },
+  fibromyalgia: {
+    label: 'Fibromyalgia',
+    keywords: ['fibromyalgia', 'fibro', 'widespread pain', 'tender points', 'central sensitization'],
+    icon: '🌡️',
+    color: 'fuchsia',
+    category: 'Pain & Inflammation',
+    description: 'Research on CBD for fibromyalgia'
+  },
+  ms: {
+    label: 'Multiple Sclerosis',
+    keywords: ['multiple sclerosis', 'ms ', 'demyelinating', 'spasticity', 'sativex', 'nabiximols', 'relapsing-remitting'],
+    icon: '🧬',
+    color: 'orange',
+    category: 'Pain & Inflammation',
+    description: 'Studies on CBD for MS symptoms and spasticity'
+  },
+  inflammation: {
+    label: 'Inflammation',
+    keywords: ['inflammation', 'inflammatory', 'anti-inflammatory', 'cytokine', 'tnf-alpha', 'interleukin', 'nf-kb', 'cox-2', 'prostaglandin'],
+    icon: '🔥',
+    color: 'orange',
+    category: 'Pain & Inflammation',
+    description: 'Research on CBD anti-inflammatory effects'
+  },
+  migraines: {
+    label: 'Migraines & Headaches',
+    keywords: ['migraine', 'headache', 'cephalalgia', 'cluster headache', 'tension headache', 'aura'],
+    icon: '🤕',
+    color: 'red',
+    category: 'Pain & Inflammation',
+    description: 'Studies on CBD for migraines and headaches'
+  },
+
+  // === GASTROINTESTINAL ===
+  crohns: {
+    label: "Crohn's Disease",
+    keywords: ['crohn', 'inflammatory bowel', 'ibd', 'intestinal inflammation', 'colitis', 'ulcerative colitis'],
     icon: '🫃',
     color: 'amber',
-    description: 'Studies on CBD for GI disorders'
+    category: 'Gastrointestinal',
+    description: "Research on CBD for Crohn's and IBD"
+  },
+  ibs: {
+    label: 'IBS',
+    keywords: ['ibs', 'irritable bowel', 'functional gastrointestinal', 'abdominal pain', 'bowel dysfunction'],
+    icon: '🌀',
+    color: 'yellow',
+    category: 'Gastrointestinal',
+    description: 'Studies on CBD for irritable bowel syndrome'
+  },
+  nausea: {
+    label: 'Nausea & Vomiting',
+    keywords: ['nausea', 'vomiting', 'emesis', 'antiemetic', 'chemotherapy-induced nausea', 'cinv', 'morning sickness'],
+    icon: '🤢',
+    color: 'green',
+    category: 'Gastrointestinal',
+    description: 'Research on CBD antiemetic effects'
+  },
+
+  // === CANCER ===
+  cancer: {
+    label: 'Cancer',
+    keywords: ['cancer', 'tumor', 'tumour', 'oncology', 'carcinoma', 'malignant', 'metastasis', 'apoptosis', 'antitumor'],
+    icon: '🎗️',
+    color: 'pink',
+    category: 'Cancer',
+    description: 'Research on CBD in cancer treatment'
+  },
+  chemo_side_effects: {
+    label: 'Chemotherapy Side Effects',
+    keywords: ['chemotherapy', 'chemo-induced', 'chemotherapy-induced', 'palliative', 'cancer pain', 'cachexia', 'wasting syndrome'],
+    icon: '💊',
+    color: 'rose',
+    category: 'Cancer',
+    description: 'Studies on CBD for chemotherapy side effects'
+  },
+
+  // === SKIN ===
+  acne: {
+    label: 'Acne',
+    keywords: ['acne', 'sebaceous', 'sebum', 'comedone', 'pimple', 'sebocyte'],
+    icon: '✨',
+    color: 'sky',
+    category: 'Skin',
+    description: 'Research on CBD for acne treatment'
+  },
+  psoriasis: {
+    label: 'Psoriasis',
+    keywords: ['psoriasis', 'psoriatic', 'plaque psoriasis', 'scalp psoriasis', 'keratinocyte'],
+    icon: '🧴',
+    color: 'rose',
+    category: 'Skin',
+    description: 'Studies on CBD for psoriasis'
+  },
+  eczema: {
+    label: 'Eczema & Dermatitis',
+    keywords: ['eczema', 'dermatitis', 'atopic', 'pruritus', 'itching', 'skin inflammation', 'topical'],
+    icon: '🩹',
+    color: 'pink',
+    category: 'Skin',
+    description: 'Research on CBD for eczema and skin conditions'
+  },
+
+  // === CARDIOVASCULAR ===
+  heart: {
+    label: 'Heart Health',
+    keywords: ['cardiovascular', 'cardiac', 'heart disease', 'cardioprotective', 'myocardial', 'arrhythmia', 'heart failure'],
+    icon: '❤️',
+    color: 'red',
+    category: 'Cardiovascular',
+    description: 'Research on CBD cardiovascular effects'
+  },
+  blood_pressure: {
+    label: 'Blood Pressure',
+    keywords: ['blood pressure', 'hypertension', 'hypotension', 'vascular', 'vasorelaxation', 'vasodilation', 'arterial'],
+    icon: '🩺',
+    color: 'red',
+    category: 'Cardiovascular',
+    description: 'Studies on CBD blood pressure effects'
+  },
+
+  // === OTHER ===
+  diabetes: {
+    label: 'Diabetes',
+    keywords: ['diabetes', 'diabetic', 'glucose', 'insulin', 'glycemic', 'blood sugar', 'metabolic syndrome', 'type 2 diabetes'],
+    icon: '🩸',
+    color: 'blue',
+    category: 'Other',
+    description: 'Research on CBD for diabetes management'
+  },
+  obesity: {
+    label: 'Obesity & Weight',
+    keywords: ['obesity', 'weight loss', 'appetite', 'metabolic', 'bmi', 'adipose', 'fat tissue', 'overweight'],
+    icon: '⚖️',
+    color: 'emerald',
+    category: 'Other',
+    description: 'Studies on CBD and weight management'
+  },
+  athletic: {
+    label: 'Athletic Performance',
+    keywords: ['athletic', 'sport', 'exercise', 'recovery', 'muscle', 'performance', 'endurance', 'wada', 'athlete'],
+    icon: '🏃',
+    color: 'green',
+    category: 'Other',
+    description: 'Research on CBD for athletic performance and recovery'
+  },
+  veterinary: {
+    label: 'Veterinary & Pets',
+    keywords: ['veterinary', 'canine', 'feline', 'dog', 'cat', 'pet', 'animal', 'equine', 'horse'],
+    icon: '🐕',
+    color: 'amber',
+    category: 'Other',
+    description: 'Studies on CBD for pets and animals'
   }
 } as const;
 
@@ -178,26 +382,143 @@ function saveFilters(filters: SavedFilters) {
 // UTILITY FUNCTIONS
 // ============================================================================
 
-function extractSampleSize(text: string): number | null {
-  const patterns = [
+type SubjectType = 'humans' | 'patients' | 'mice' | 'rats' | 'animals' | 'cells' | 'dogs' | 'cats' | 'unknown';
+
+interface SampleInfo {
+  size: number;
+  subjectType: SubjectType;
+  label: string; // e.g., "225 patients", "60 mice", "In vitro"
+}
+
+function extractSampleInfo(text: string, studyType?: string): SampleInfo | null {
+  const lowerText = text.toLowerCase();
+
+  // Check for in vitro / cell studies first
+  if (lowerText.includes('in vitro') || lowerText.includes('cell line') || lowerText.includes('cell culture') ||
+      lowerText.includes('cultured cells') || lowerText.includes('hela cells') || lowerText.includes('cell viability')) {
+    return { size: 0, subjectType: 'cells', label: 'In vitro' };
+  }
+
+  // Subject type detection patterns
+  const subjectPatterns: { type: SubjectType; patterns: RegExp[]; label: string }[] = [
+    {
+      type: 'patients',
+      patterns: [
+        /(\d+)\s*(?:patient|patients)/gi,
+        /(?:patient|patients)\s*(?:\()?n\s*=\s*(\d+)/gi,
+      ],
+      label: 'patients'
+    },
+    {
+      type: 'humans',
+      patterns: [
+        /(\d+)\s*(?:participant|participants|subject|subjects|volunteer|volunteers|adult|adults|individual|individuals|people|person|persons)/gi,
+        /(\d+)\s*(?:healthy|human)\s+(?:volunteer|subject|participant|adult)/gi,
+        /(?:enrolled|recruited|randomized|included)\s+(\d+)\s*(?:participant|subject|patient|adult|individual|volunteer)/gi,
+        /(?:participant|subject|volunteer|adult|individual)s?\s*(?:\()?n\s*=\s*(\d+)/gi,
+      ],
+      label: 'humans'
+    },
+    {
+      type: 'mice',
+      patterns: [
+        /(\d+)\s*(?:mice|mouse)/gi,
+        /(?:mice|mouse)\s*(?:\()?n\s*=\s*(\d+)/gi,
+        /(\d+)\s*(?:c57bl|balb\/c|cd-1|nude mice|transgenic mice)/gi,
+      ],
+      label: 'mice'
+    },
+    {
+      type: 'rats',
+      patterns: [
+        /(\d+)\s*(?:rats?|wistar|sprague[- ]dawley)/gi,
+        /(?:rat|rats)\s*(?:\()?n\s*=\s*(\d+)/gi,
+      ],
+      label: 'rats'
+    },
+    {
+      type: 'dogs',
+      patterns: [
+        /(\d+)\s*(?:dogs?|canines?|beagles?)/gi,
+        /(?:dog|dogs|canine)\s*(?:\()?n\s*=\s*(\d+)/gi,
+      ],
+      label: 'dogs'
+    },
+    {
+      type: 'cats',
+      patterns: [
+        /(\d+)\s*(?:cats?|felines?)/gi,
+        /(?:cat|cats|feline)\s*(?:\()?n\s*=\s*(\d+)/gi,
+      ],
+      label: 'cats'
+    },
+    {
+      type: 'animals',
+      patterns: [
+        /(\d+)\s*(?:animal|animals|rabbits?|guinea pigs?|primates?|monkeys?|pigs?|piglets?)/gi,
+        /(?:animal|rabbit|guinea pig)\s*(?:\()?n\s*=\s*(\d+)/gi,
+      ],
+      label: 'animals'
+    },
+  ];
+
+  // Try to match subject-specific patterns first
+  for (const { type, patterns, label } of subjectPatterns) {
+    for (const pattern of patterns) {
+      pattern.lastIndex = 0; // Reset regex
+      const matches = [...text.matchAll(pattern)];
+      for (const match of matches) {
+        const num = parseInt(match[1] || match[2]);
+        if (num >= 5 && num < 50000) {
+          return { size: num, subjectType: type, label: `${num} ${label}` };
+        }
+      }
+    }
+  }
+
+  // Fallback: generic n= patterns
+  const genericPatterns = [
     /\bn\s*=\s*(\d+)/gi,
     /\bN\s*=\s*(\d+)/gi,
-    /(\d+)\s*(?:participant|patient|subject|individual|adult|child|volunteer|people|person|case|sample)s?\b/gi,
-    /(?:enrolled|recruited|included|randomized|studied)\s+(\d+)/gi,
     /(?:total of|sample of|population of)\s+(\d+)/gi,
     /(\d+)\s+(?:were|was)\s+(?:enrolled|recruited|included|randomized)/gi,
   ];
 
   let maxSize = 0;
-  for (const pattern of patterns) {
-    const matches = text.matchAll(pattern);
+  for (const pattern of genericPatterns) {
+    pattern.lastIndex = 0;
+    const matches = [...text.matchAll(pattern)];
     for (const match of matches) {
       const num = parseInt(match[1]);
       if (num > maxSize && num < 50000 && num >= 5) maxSize = num;
     }
   }
 
-  return maxSize > 0 ? maxSize : null;
+  if (maxSize > 0) {
+    // Try to infer subject type from context
+    if (lowerText.includes('mice') || lowerText.includes('mouse') || lowerText.includes('murine')) {
+      return { size: maxSize, subjectType: 'mice', label: `${maxSize} mice` };
+    }
+    if (lowerText.includes('rats') || lowerText.includes('rat ') || lowerText.includes('wistar') || lowerText.includes('sprague')) {
+      return { size: maxSize, subjectType: 'rats', label: `${maxSize} rats` };
+    }
+    if (lowerText.includes('dog') || lowerText.includes('canine')) {
+      return { size: maxSize, subjectType: 'dogs', label: `${maxSize} dogs` };
+    }
+    if (lowerText.includes('cat') || lowerText.includes('feline')) {
+      return { size: maxSize, subjectType: 'cats', label: `${maxSize} cats` };
+    }
+    if (lowerText.includes('animal') || lowerText.includes('preclinical')) {
+      return { size: maxSize, subjectType: 'animals', label: `${maxSize} animals` };
+    }
+    // Default to humans for clinical studies
+    if (lowerText.includes('patient') || lowerText.includes('clinical') || lowerText.includes('trial')) {
+      return { size: maxSize, subjectType: 'patients', label: `${maxSize} patients` };
+    }
+    return { size: maxSize, subjectType: 'humans', label: `${maxSize} subjects` };
+  }
+
+  return null;
 }
 
 // Extract study status from text
@@ -284,15 +605,33 @@ function extractTreatment(text: string): string | null {
 function getPrimaryCondition(study: any): { key: ConditionKey; data: typeof CONDITIONS[ConditionKey] } | null {
   const text = `${study.title || ''} ${study.abstract || ''}`.toLowerCase();
 
-  // Priority order for conditions
+  // Priority order for conditions (most specific/clinical first)
   const conditionPriority: ConditionKey[] = [
-    'epilepsy', 'cancer', 'neurological', 'pain', 'anxiety',
-    'sleep', 'depression', 'inflammation', 'addiction', 'skin', 'heart', 'digestive'
+    // High-priority clinical conditions (FDA-approved uses first)
+    'epilepsy', 'cancer', 'chemo_side_effects',
+    // Neurological conditions
+    'parkinsons', 'alzheimers', 'ms', 'schizophrenia', 'autism', 'tourettes',
+    // Mental health
+    'anxiety', 'ptsd', 'depression', 'adhd', 'addiction',
+    // Pain conditions
+    'chronic_pain', 'neuropathic_pain', 'fibromyalgia', 'arthritis', 'migraines',
+    // Sleep
+    'sleep',
+    // Gastrointestinal
+    'crohns', 'ibs', 'nausea',
+    // Skin
+    'psoriasis', 'eczema', 'acne',
+    // Cardiovascular
+    'heart', 'blood_pressure',
+    // Other
+    'diabetes', 'obesity', 'athletic', 'veterinary',
+    // General (last resort)
+    'inflammation'
   ];
 
   for (const key of conditionPriority) {
     const cond = CONDITIONS[key];
-    if (cond.keywords.some(kw => text.includes(kw.toLowerCase()))) {
+    if (cond && cond.keywords.some(kw => text.includes(kw.toLowerCase()))) {
       return { key, data: cond };
     }
   }
@@ -302,18 +641,46 @@ function getPrimaryCondition(study: any): { key: ConditionKey; data: typeof COND
 
 // Condition badge colors (Tailwind classes)
 const CONDITION_COLORS: Record<string, { bg: string; text: string; border: string }> = {
+  // Neurological & Mental Health
   anxiety: { bg: 'bg-purple-100', text: 'text-purple-800', border: 'border-purple-200' },
-  pain: { bg: 'bg-red-100', text: 'text-red-800', border: 'border-red-200' },
+  depression: { bg: 'bg-blue-100', text: 'text-blue-800', border: 'border-blue-200' },
+  ptsd: { bg: 'bg-slate-100', text: 'text-slate-800', border: 'border-slate-200' },
   sleep: { bg: 'bg-indigo-100', text: 'text-indigo-800', border: 'border-indigo-200' },
   epilepsy: { bg: 'bg-yellow-100', text: 'text-yellow-800', border: 'border-yellow-200' },
-  depression: { bg: 'bg-blue-100', text: 'text-blue-800', border: 'border-blue-200' },
-  inflammation: { bg: 'bg-orange-100', text: 'text-orange-800', border: 'border-orange-200' },
-  cancer: { bg: 'bg-pink-100', text: 'text-pink-800', border: 'border-pink-200' },
-  neurological: { bg: 'bg-teal-100', text: 'text-teal-800', border: 'border-teal-200' },
+  parkinsons: { bg: 'bg-teal-100', text: 'text-teal-800', border: 'border-teal-200' },
+  alzheimers: { bg: 'bg-gray-100', text: 'text-gray-800', border: 'border-gray-200' },
+  autism: { bg: 'bg-cyan-100', text: 'text-cyan-800', border: 'border-cyan-200' },
+  adhd: { bg: 'bg-orange-100', text: 'text-orange-800', border: 'border-orange-200' },
+  schizophrenia: { bg: 'bg-violet-100', text: 'text-violet-800', border: 'border-violet-200' },
   addiction: { bg: 'bg-green-100', text: 'text-green-800', border: 'border-green-200' },
-  skin: { bg: 'bg-rose-100', text: 'text-rose-800', border: 'border-rose-200' },
+  tourettes: { bg: 'bg-lime-100', text: 'text-lime-800', border: 'border-lime-200' },
+  // Pain & Inflammation
+  chronic_pain: { bg: 'bg-red-100', text: 'text-red-800', border: 'border-red-200' },
+  neuropathic_pain: { bg: 'bg-amber-100', text: 'text-amber-800', border: 'border-amber-200' },
+  arthritis: { bg: 'bg-stone-100', text: 'text-stone-800', border: 'border-stone-200' },
+  fibromyalgia: { bg: 'bg-fuchsia-100', text: 'text-fuchsia-800', border: 'border-fuchsia-200' },
+  ms: { bg: 'bg-orange-100', text: 'text-orange-800', border: 'border-orange-200' },
+  inflammation: { bg: 'bg-orange-100', text: 'text-orange-800', border: 'border-orange-200' },
+  migraines: { bg: 'bg-red-100', text: 'text-red-800', border: 'border-red-200' },
+  // Gastrointestinal
+  crohns: { bg: 'bg-amber-100', text: 'text-amber-800', border: 'border-amber-200' },
+  ibs: { bg: 'bg-yellow-100', text: 'text-yellow-800', border: 'border-yellow-200' },
+  nausea: { bg: 'bg-green-100', text: 'text-green-800', border: 'border-green-200' },
+  // Cancer
+  cancer: { bg: 'bg-pink-100', text: 'text-pink-800', border: 'border-pink-200' },
+  chemo_side_effects: { bg: 'bg-rose-100', text: 'text-rose-800', border: 'border-rose-200' },
+  // Skin
+  acne: { bg: 'bg-sky-100', text: 'text-sky-800', border: 'border-sky-200' },
+  psoriasis: { bg: 'bg-rose-100', text: 'text-rose-800', border: 'border-rose-200' },
+  eczema: { bg: 'bg-pink-100', text: 'text-pink-800', border: 'border-pink-200' },
+  // Cardiovascular
   heart: { bg: 'bg-red-100', text: 'text-red-800', border: 'border-red-200' },
-  digestive: { bg: 'bg-amber-100', text: 'text-amber-800', border: 'border-amber-200' },
+  blood_pressure: { bg: 'bg-red-100', text: 'text-red-800', border: 'border-red-200' },
+  // Other
+  diabetes: { bg: 'bg-blue-100', text: 'text-blue-800', border: 'border-blue-200' },
+  obesity: { bg: 'bg-emerald-100', text: 'text-emerald-800', border: 'border-emerald-200' },
+  athletic: { bg: 'bg-green-100', text: 'text-green-800', border: 'border-green-200' },
+  veterinary: { bg: 'bg-amber-100', text: 'text-amber-800', border: 'border-amber-200' },
 };
 
 function matchesCondition(study: any, conditionKey: ConditionKey): boolean {
@@ -355,7 +722,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
   const [viewMode, setViewMode] = useState<ViewMode>('cards');
   const [showHumanStudiesOnly, setShowHumanStudiesOnly] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [filtersExpanded, setFiltersExpanded] = useState(false);
+  const [filtersExpanded, setFiltersExpanded] = useState(true);
   const itemsPerPage = 20;
 
   // Load saved filters on mount
@@ -397,7 +764,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
     return initialResearch.map(study => {
       const assessment = assessStudyQuality(study);
       const text = `${study.title || ''} ${study.abstract || ''}`;
-      const sampleSize = extractSampleSize(text);
+      const sampleInfo = extractSampleInfo(text, assessment.studyType);
       const treatment = extractTreatment(text);
       const studyStatus = extractStudyStatus(text, study.url);
       const primaryCondition = getPrimaryCondition(study);
@@ -408,7 +775,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
         qualityScore: assessment.score,
         studyType: assessment.studyType,
         assessment: assessment,
-        sampleSize,
+        sampleInfo,
         treatment,
         studyStatus,
         primaryCondition
@@ -735,32 +1102,57 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
         </div>
       </div>
 
-      {/* Condition Quick Filters */}
+      {/* Condition Quick Filters - Grouped by Category */}
       <div className="bg-white rounded-lg border border-gray-200 p-4">
-        <h2 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-          <span>Filter by Condition</span>
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
+            <span>Filter by Condition</span>
+            {selectedConditions.length > 0 && (
+              <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded-full">
+                {selectedConditions.length} selected
+              </span>
+            )}
+          </h2>
           {selectedConditions.length > 0 && (
-            <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded-full">
-              {selectedConditions.length} selected
-            </span>
-          )}
-        </h2>
-        <div className="flex flex-wrap gap-2" role="group" aria-label="Condition filters">
-          {(Object.entries(CONDITIONS) as [ConditionKey, typeof CONDITIONS[ConditionKey]][]).map(([key, cond]) => (
             <button
-              key={key}
-              onClick={() => toggleCondition(key)}
-              aria-pressed={selectedConditions.includes(key)}
-              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
-                selectedConditions.includes(key)
-                  ? `bg-${cond.color}-100 text-${cond.color}-800 ring-2 ring-${cond.color}-500`
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
+              onClick={() => setSelectedConditions([])}
+              className="text-xs text-gray-500 hover:text-gray-700"
             >
-              <span aria-hidden="true">{cond.icon}</span>
-              <span>{cond.label}</span>
-              <span className="text-xs opacity-75">({conditionStats[key]})</span>
+              Clear conditions
             </button>
+          )}
+        </div>
+
+        <div className="space-y-4" role="group" aria-label="Condition filters by category">
+          {(Object.entries(CONDITION_CATEGORIES) as [string, readonly ConditionKey[]][]).map(([category, conditionKeys]) => (
+            <div key={category}>
+              <h3 className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">{category}</h3>
+              <div className="flex flex-wrap gap-1.5">
+                {conditionKeys.map((key) => {
+                  const cond = CONDITIONS[key];
+                  const colors = CONDITION_COLORS[key] || { bg: 'bg-gray-100', text: 'text-gray-700', border: 'border-gray-200' };
+                  const isSelected = selectedConditions.includes(key);
+                  const count = conditionStats[key] || 0;
+
+                  return (
+                    <button
+                      key={key}
+                      onClick={() => toggleCondition(key)}
+                      aria-pressed={isSelected}
+                      className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium transition-all ${
+                        isSelected
+                          ? `${colors.bg} ${colors.text} ring-2 ring-offset-1 ring-blue-500`
+                          : 'bg-gray-50 text-gray-600 hover:bg-gray-100 border border-gray-200'
+                      }`}
+                    >
+                      <span aria-hidden="true">{cond.icon}</span>
+                      <span>{cond.label}</span>
+                      {count > 0 && <span className="opacity-60">({count})</span>}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -793,56 +1185,55 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
         </button>
 
         {filtersExpanded && (
-          <div id="advanced-filters" className="p-4 border-t border-gray-200 space-y-6">
-            {/* Year Range Slider */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Publication Year: {yearRange.min} - {yearRange.max}
-              </label>
-              <div className="flex items-center gap-4">
-                <input
-                  type="range"
-                  min={dataYearRange.min}
-                  max={dataYearRange.max}
+          <div id="advanced-filters" className="p-4 border-t border-gray-200 space-y-4">
+            {/* Compact Range Filters Row */}
+            <div className="flex flex-wrap gap-4">
+              {/* Year Range - Compact Selects */}
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-medium text-gray-700">Year:</span>
+                <select
                   value={yearRange.min}
                   onChange={(e) => setYearRange(prev => ({ ...prev, min: parseInt(e.target.value) }))}
-                  className="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                  aria-label="Minimum year"
-                />
-                <input
-                  type="range"
-                  min={dataYearRange.min}
-                  max={dataYearRange.max}
+                  className="px-2 py-1 text-sm border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
+                  aria-label="From year"
+                >
+                  {Array.from({ length: dataYearRange.max - dataYearRange.min + 1 }, (_, i) => dataYearRange.min + i).map(year => (
+                    <option key={year} value={year}>{year}</option>
+                  ))}
+                </select>
+                <span className="text-gray-400">–</span>
+                <select
                   value={yearRange.max}
                   onChange={(e) => setYearRange(prev => ({ ...prev, max: parseInt(e.target.value) }))}
-                  className="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                  aria-label="Maximum year"
-                />
+                  className="px-2 py-1 text-sm border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
+                  aria-label="To year"
+                >
+                  {Array.from({ length: dataYearRange.max - dataYearRange.min + 1 }, (_, i) => dataYearRange.min + i).map(year => (
+                    <option key={year} value={year}>{year}</option>
+                  ))}
+                </select>
               </div>
-            </div>
 
-            {/* Quality Score Range */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Quality Score: {qualityRange.min} - {qualityRange.max}
-              </label>
-              <div className="flex items-center gap-4">
+              {/* Quality Score - Compact Inputs */}
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-medium text-gray-700">Quality:</span>
                 <input
-                  type="range"
+                  type="number"
                   min={0}
                   max={100}
                   value={qualityRange.min}
-                  onChange={(e) => setQualityRange(prev => ({ ...prev, min: parseInt(e.target.value) }))}
-                  className="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  onChange={(e) => setQualityRange(prev => ({ ...prev, min: Math.max(0, Math.min(100, parseInt(e.target.value) || 0)) }))}
+                  className="w-14 px-2 py-1 text-sm border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
                   aria-label="Minimum quality score"
                 />
+                <span className="text-gray-400">–</span>
                 <input
-                  type="range"
+                  type="number"
                   min={0}
                   max={100}
                   value={qualityRange.max}
-                  onChange={(e) => setQualityRange(prev => ({ ...prev, max: parseInt(e.target.value) }))}
-                  className="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  onChange={(e) => setQualityRange(prev => ({ ...prev, max: Math.max(0, Math.min(100, parseInt(e.target.value) || 100)) }))}
+                  className="w-14 px-2 py-1 text-sm border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
                   aria-label="Maximum quality score"
                 />
               </div>
@@ -1178,10 +1569,23 @@ function ResearchCard({ study }: { study: any }) {
           </span>
         )}
 
-        {/* Sample Size Badge */}
-        {study.sampleSize && (
-          <span className="inline-flex items-center px-2 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded text-xs font-medium">
-            👥 n={study.sampleSize.toLocaleString()}
+        {/* Sample Size Badge with Subject Type */}
+        {study.sampleInfo && (
+          <span className={`inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium ${
+            study.sampleInfo.subjectType === 'cells' ? 'bg-purple-50 text-purple-700 border border-purple-200' :
+            study.sampleInfo.subjectType === 'mice' || study.sampleInfo.subjectType === 'rats' || study.sampleInfo.subjectType === 'animals' ? 'bg-amber-50 text-amber-700 border border-amber-200' :
+            study.sampleInfo.subjectType === 'dogs' || study.sampleInfo.subjectType === 'cats' ? 'bg-orange-50 text-orange-700 border border-orange-200' :
+            'bg-emerald-50 text-emerald-700 border border-emerald-200'
+          }`}>
+            <span aria-hidden="true">
+              {study.sampleInfo.subjectType === 'cells' ? '🧫' :
+               study.sampleInfo.subjectType === 'mice' ? '🐁' :
+               study.sampleInfo.subjectType === 'rats' ? '🐀' :
+               study.sampleInfo.subjectType === 'dogs' ? '🐕' :
+               study.sampleInfo.subjectType === 'cats' ? '🐈' :
+               study.sampleInfo.subjectType === 'animals' ? '🐾' : '👥'}
+            </span>
+            {study.sampleInfo.label}
           </span>
         )}
 
@@ -1325,7 +1729,7 @@ function ResearchTable({ studies }: { studies: any[] }) {
                 </td>
                 <td className="px-4 py-3 text-sm">{study.year}</td>
                 <td className="px-4 py-3 text-sm">
-                  {study.sampleSize ? `n=${study.sampleSize}` : '-'}
+                  {study.sampleInfo ? study.sampleInfo.label : '-'}
                 </td>
                 <td className="px-4 py-3">
                   <a

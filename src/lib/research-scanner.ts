@@ -193,30 +193,59 @@ const SEARCH_TERMS = [
 ];
 
 const TOPIC_KEYWORDS: Record<string, string[]> = {
-  'anxiety': ['anxiety', 'anxiolytic', 'GAD', 'social anxiety', 'panic disorder', 'generalized anxiety', 'anxiety disorder'],
-  'sleep': ['sleep', 'insomnia', 'circadian', 'sedative', 'sleep quality', 'sleep disorder', 'sleep disturbance'],
-  'pain': ['pain', 'analgesic', 'neuropathic', 'chronic pain', 'fibromyalgia', 'pain management', 'pain relief', 'nociceptive'],
-  'epilepsy': ['epilepsy', 'seizure', 'Dravet', 'Lennox-Gastaut', 'anticonvulsant', 'Epidiolex', 'refractory epilepsy'],
-  'depression': ['depression', 'antidepressant', 'mood disorder', 'MDD', 'major depressive', 'bipolar', 'mood'],
-  'inflammation': ['inflammation', 'anti-inflammatory', 'cytokine', 'immune', 'inflammatory', 'TNF', 'IL-6'],
-  'arthritis': ['arthritis', 'rheumatoid', 'osteoarthritis', 'joint pain', 'joint inflammation', 'RA'],
-  'ptsd': ['PTSD', 'trauma', 'post-traumatic', 'veteran', 'traumatic stress', 'stress disorder'],
+  // === NEUROLOGICAL & MENTAL HEALTH ===
+  'anxiety': ['anxiety', 'anxiolytic', 'GAD', 'social anxiety', 'panic disorder', 'generalized anxiety', 'anxiety disorder', 'panic attack', 'anxious'],
+  'depression': ['depression', 'antidepressant', 'mood disorder', 'MDD', 'major depressive', 'dysthymia', 'depressive'],
+  'ptsd': ['PTSD', 'trauma', 'post-traumatic', 'posttraumatic', 'veteran', 'traumatic stress', 'stress disorder', 'flashback', 'combat'],
+  'sleep': ['sleep', 'insomnia', 'circadian', 'sedative', 'sleep quality', 'sleep disorder', 'sleep disturbance', 'somnolence', 'sleep latency', 'REM sleep'],
+  'epilepsy': ['epilepsy', 'seizure', 'Dravet', 'Lennox-Gastaut', 'anticonvulsant', 'Epidiolex', 'refractory epilepsy', 'convulsion', 'ictal', 'intractable epilepsy'],
+  'parkinsons': ['Parkinson', 'parkinsonian', 'dopamine', 'tremor', 'bradykinesia', 'dyskinesia', 'Lewy body'],
+  'alzheimers': ['Alzheimer', 'dementia', 'cognitive decline', 'memory loss', 'amyloid', 'tau protein', 'neurodegeneration', 'cognitive impairment'],
+  'autism': ['autism', 'ASD', 'autistic', 'Asperger', 'spectrum disorder', 'developmental disorder', 'neurodevelopmental'],
+  'adhd': ['ADHD', 'attention deficit', 'hyperactivity', 'ADD', 'inattention', 'impulsivity', 'executive function'],
+  'schizophrenia': ['schizophrenia', 'psychosis', 'psychotic', 'antipsychotic', 'hallucination', 'delusion', 'negative symptoms'],
+  'addiction': ['addiction', 'substance use', 'opioid', 'withdrawal', 'dependence', 'substance abuse', 'alcohol use', 'drug abuse', 'cocaine', 'heroin', 'relapse', 'addiction recovery'],
+  'tourettes': ['Tourette', 'tic disorder', 'tics', 'motor tic', 'vocal tic', 'coprolalia'],
+
+  // === PAIN & INFLAMMATION ===
+  'chronic_pain': ['chronic pain', 'persistent pain', 'long-term pain', 'pain management', 'analgesic', 'pain relief', 'opioid-sparing'],
+  'neuropathic_pain': ['neuropathic', 'neuropathy', 'nerve pain', 'peripheral neuropathy', 'diabetic neuropathy', 'neuralgia', 'allodynia'],
+  'arthritis': ['arthritis', 'rheumatoid', 'osteoarthritis', 'joint pain', 'joint inflammation', 'RA', 'synovitis', 'articular'],
+  'fibromyalgia': ['fibromyalgia', 'fibro', 'widespread pain', 'tender points', 'central sensitization'],
+  'ms': ['multiple sclerosis', 'MS ', 'demyelinating', 'spasticity', 'Sativex', 'nabiximols', 'relapsing-remitting'],
+  'inflammation': ['inflammation', 'anti-inflammatory', 'cytokine', 'TNF-alpha', 'interleukin', 'NF-kB', 'COX-2', 'prostaglandin', 'inflammatory'],
+  'migraines': ['migraine', 'headache', 'cephalalgia', 'cluster headache', 'tension headache', 'aura'],
+
+  // === GASTROINTESTINAL ===
+  'crohns': ['Crohn', 'IBD', 'inflammatory bowel', 'colitis', 'ulcerative colitis', 'intestinal inflammation'],
+  'ibs': ['IBS', 'irritable bowel', 'functional gastrointestinal', 'abdominal pain', 'bowel dysfunction'],
+  'nausea': ['nausea', 'vomiting', 'emesis', 'antiemetic', 'chemotherapy-induced nausea', 'CINV', 'morning sickness'],
+
+  // === CANCER ===
+  'cancer': ['cancer', 'tumor', 'tumour', 'oncology', 'carcinoma', 'malignant', 'metastasis', 'apoptosis', 'antitumor'],
+  'chemo_side_effects': ['chemotherapy', 'chemo-induced', 'chemotherapy-induced', 'palliative', 'cancer pain', 'cachexia', 'wasting syndrome'],
+
+  // === SKIN ===
+  'acne': ['acne', 'sebaceous', 'sebum', 'comedone', 'pimple', 'sebocyte'],
+  'psoriasis': ['psoriasis', 'psoriatic', 'plaque psoriasis', 'scalp psoriasis', 'keratinocyte'],
+  'eczema': ['eczema', 'dermatitis', 'atopic', 'pruritus', 'itching', 'skin inflammation', 'topical'],
+
+  // === CARDIOVASCULAR ===
+  'heart': ['cardiovascular', 'cardiac', 'heart disease', 'cardioprotective', 'myocardial', 'arrhythmia', 'heart failure'],
+  'blood_pressure': ['blood pressure', 'hypertension', 'hypotension', 'vascular', 'vasorelaxation', 'vasodilation', 'arterial'],
+
+  // === OTHER ===
+  'diabetes': ['diabetes', 'diabetic', 'glucose', 'insulin', 'glycemic', 'blood sugar', 'metabolic syndrome', 'type 2 diabetes'],
+  'obesity': ['obesity', 'weight loss', 'appetite', 'metabolic', 'BMI', 'adipose', 'fat tissue', 'overweight'],
+  'athletic': ['athletic', 'sport', 'exercise', 'recovery', 'muscle', 'performance', 'endurance', 'WADA', 'athlete'],
+  'veterinary': ['veterinary', 'canine', 'feline', 'dog', 'cat', 'pet', 'animal', 'equine', 'horse'],
+
+  // Legacy compatibility (kept for backwards compatibility with existing data)
   'stress': ['stress', 'cortisol', 'HPA axis', 'stress response', 'stress relief', 'chronic stress'],
-  'cancer': ['cancer', 'tumor', 'oncology', 'chemotherapy', 'palliative', 'cancer pain', 'nausea', 'tumor'],
-  'neurological': ['Parkinson', 'Alzheimer', 'multiple sclerosis', 'neuroprotective', 'neurodegeneration', 'MS', 'ALS', 'Huntington'],
-  'addiction': ['addiction', 'substance use', 'opioid', 'withdrawal', 'dependence', 'substance abuse', 'addiction recovery'],
-  'adhd': ['ADHD', 'attention deficit', 'hyperactivity', 'attention disorder'],
-  'ibs': ['IBS', 'irritable bowel', 'digestive', 'gastrointestinal', 'gut', 'bowel syndrome'],
-  'crohns': ['Crohn', 'IBD', 'inflammatory bowel', 'colitis', 'ulcerative colitis'],
-  'diabetes': ['diabetes', 'glucose', 'insulin', 'metabolic', 'blood sugar', 'diabetic'],
-  'migraine': ['migraine', 'headache', 'cluster headache', 'chronic headache'],
+  'neurological': ['neuroprotective', 'neurodegeneration', 'ALS', 'Huntington'],
   'glaucoma': ['glaucoma', 'intraocular pressure', 'eye pressure', 'ocular'],
-  'skin': ['eczema', 'psoriasis', 'dermatitis', 'skin condition', 'topical', 'atopic dermatitis'],
-  'heart': ['cardiovascular', 'heart', 'blood pressure', 'hypertension', 'cardiac', 'arrhythmia'],
-  'nausea': ['nausea', 'vomiting', 'antiemetic', 'chemotherapy-induced', 'CINV'],
   'covid': ['COVID', 'coronavirus', 'SARS-CoV-2', 'pandemic', 'viral infection'],
   'aging': ['aging', 'elderly', 'geriatric', 'age-related', 'longevity'],
-  'sports': ['sports', 'athletic', 'exercise', 'recovery', 'performance'],
   'womens': ['women', 'menstrual', 'pregnancy', 'menopause', 'gynecological']
 };
 
