@@ -674,6 +674,207 @@ export async function scanBioRxiv(scanDepth: string = 'standard', customKeywords
   return results;
 }
 
+// Semantic Scholar Scanner
+export async function scanSemanticScholar(scanDepth: string = 'standard', customKeywords: string[] = []): Promise<ResearchItem[]> {
+  const results: ResearchItem[] = [];
+  const resultLimit = getResultLimit(scanDepth);
+
+  const defaultTerms = ['cannabidiol', 'CBD therapy', 'medical cannabis clinical trial'];
+  const searchTerms = customKeywords.length > 0 ? customKeywords.slice(0, 3) : defaultTerms;
+
+  console.log(`[SemanticScholar] Starting scan with ${searchTerms.length} search terms`);
+
+  for (const term of searchTerms) {
+    try {
+      const url = `https://api.semanticscholar.org/graph/v1/paper/search?query=${encodeURIComponent(term)}&limit=${Math.min(resultLimit, 50)}&fields=title,authors,year,abstract,externalIds,url,venue`;
+
+      console.log(`[SemanticScholar] Searching: "${term}"`);
+
+      const response = await fetch(url, {
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        console.error(`[SemanticScholar] API error: ${response.status} ${response.statusText}`);
+        continue;
+      }
+
+      const data = await response.json();
+      const papers = data.data || [];
+      console.log(`[SemanticScholar] Found ${papers.length} results for "${term}"`);
+
+      for (const paper of papers) {
+        if (paper.title) {
+          const doi = paper.externalIds?.DOI;
+          const pmid = paper.externalIds?.PubMed;
+          results.push({
+            title: paper.title,
+            authors: paper.authors?.map((a: any) => a.name).join(', '),
+            publication: paper.venue || 'Semantic Scholar',
+            year: paper.year || new Date().getFullYear(),
+            abstract: paper.abstract,
+            url: doi ? `https://doi.org/${doi}` : (pmid ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/` : paper.url),
+            doi: doi,
+            source_site: 'Semantic Scholar',
+            search_term_matched: term
+          });
+        }
+      }
+
+      // Semantic Scholar rate limit: 100 requests per 5 minutes
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+    } catch (error) {
+      console.error(`[SemanticScholar] Error scanning for "${term}":`, error instanceof Error ? error.message : error);
+    }
+  }
+
+  console.log(`[SemanticScholar] Scan complete. Total results: ${results.length}`);
+  return results;
+}
+
+// CrossRef Scanner (DOI metadata)
+export async function scanCrossRef(scanDepth: string = 'standard', customKeywords: string[] = []): Promise<ResearchItem[]> {
+  const results: ResearchItem[] = [];
+  const resultLimit = getResultLimit(scanDepth);
+
+  const defaultTerms = ['cannabidiol', 'medical cannabis', 'CBD clinical'];
+  const searchTerms = customKeywords.length > 0 ? customKeywords.slice(0, 3) : defaultTerms;
+
+  console.log(`[CrossRef] Starting scan with ${searchTerms.length} search terms`);
+
+  for (const term of searchTerms) {
+    try {
+      const url = `https://api.crossref.org/works?query=${encodeURIComponent(term)}&rows=${Math.min(resultLimit, 50)}&sort=published&order=desc&filter=type:journal-article`;
+
+      console.log(`[CrossRef] Searching: "${term}"`);
+
+      const response = await fetch(url, {
+        headers: {
+          'User-Agent': 'CBD-Portal/1.0 (https://cbdportal.com; mailto:contact@cbdportal.com)'
+        }
+      });
+
+      if (!response.ok) {
+        console.error(`[CrossRef] API error: ${response.status} ${response.statusText}`);
+        continue;
+      }
+
+      const data = await response.json();
+      const works = data.message?.items || [];
+      console.log(`[CrossRef] Found ${works.length} results for "${term}"`);
+
+      for (const work of works) {
+        if (work.title?.[0]) {
+          const year = work.published?.['date-parts']?.[0]?.[0] ||
+                       work['published-print']?.['date-parts']?.[0]?.[0] ||
+                       work['published-online']?.['date-parts']?.[0]?.[0] ||
+                       new Date().getFullYear();
+
+          results.push({
+            title: work.title[0],
+            authors: work.author?.map((a: any) => `${a.given || ''} ${a.family || ''}`.trim()).join(', '),
+            publication: work['container-title']?.[0] || 'CrossRef',
+            year: year,
+            abstract: work.abstract?.replace(/<[^>]*>/g, ''), // Strip HTML tags
+            url: work.URL || `https://doi.org/${work.DOI}`,
+            doi: work.DOI,
+            source_site: 'CrossRef',
+            search_term_matched: term
+          });
+        }
+      }
+
+      // CrossRef polite rate limit
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+    } catch (error) {
+      console.error(`[CrossRef] Error scanning for "${term}":`, error instanceof Error ? error.message : error);
+    }
+  }
+
+  console.log(`[CrossRef] Scan complete. Total results: ${results.length}`);
+  return results;
+}
+
+// OpenAlex Scanner (open research database)
+export async function scanOpenAlex(scanDepth: string = 'standard', customKeywords: string[] = []): Promise<ResearchItem[]> {
+  const results: ResearchItem[] = [];
+  const resultLimit = getResultLimit(scanDepth);
+
+  const defaultTerms = ['cannabidiol', 'medical cannabis', 'CBD treatment'];
+  const searchTerms = customKeywords.length > 0 ? customKeywords.slice(0, 3) : defaultTerms;
+
+  console.log(`[OpenAlex] Starting scan with ${searchTerms.length} search terms`);
+
+  for (const term of searchTerms) {
+    try {
+      const url = `https://api.openalex.org/works?search=${encodeURIComponent(term)}&per-page=${Math.min(resultLimit, 50)}&sort=publication_date:desc&filter=type:article`;
+
+      console.log(`[OpenAlex] Searching: "${term}"`);
+
+      const response = await fetch(url, {
+        headers: {
+          'Accept': 'application/json',
+          'User-Agent': 'CBD-Portal/1.0 (mailto:contact@cbdportal.com)'
+        }
+      });
+
+      if (!response.ok) {
+        console.error(`[OpenAlex] API error: ${response.status} ${response.statusText}`);
+        continue;
+      }
+
+      const data = await response.json();
+      const works = data.results || [];
+      console.log(`[OpenAlex] Found ${works.length} results for "${term}"`);
+
+      for (const work of works) {
+        if (work.title) {
+          const doi = work.doi?.replace('https://doi.org/', '');
+          results.push({
+            title: work.title,
+            authors: work.authorships?.map((a: any) => a.author?.display_name).filter(Boolean).join(', '),
+            publication: work.primary_location?.source?.display_name || 'OpenAlex',
+            year: work.publication_year || new Date().getFullYear(),
+            abstract: work.abstract_inverted_index ? reconstructAbstract(work.abstract_inverted_index) : undefined,
+            url: work.doi || work.id,
+            doi: doi,
+            source_site: 'OpenAlex',
+            search_term_matched: term
+          });
+        }
+      }
+
+      // OpenAlex rate limit: 100K requests/day, 10 requests/second
+      await new Promise(resolve => setTimeout(resolve, 200));
+
+    } catch (error) {
+      console.error(`[OpenAlex] Error scanning for "${term}":`, error instanceof Error ? error.message : error);
+    }
+  }
+
+  console.log(`[OpenAlex] Scan complete. Total results: ${results.length}`);
+  return results;
+}
+
+// Helper to reconstruct abstract from OpenAlex inverted index format
+function reconstructAbstract(invertedIndex: Record<string, number[]>): string {
+  if (!invertedIndex) return '';
+
+  const words: [string, number][] = [];
+  for (const [word, positions] of Object.entries(invertedIndex)) {
+    for (const pos of positions) {
+      words.push([word, pos]);
+    }
+  }
+
+  words.sort((a, b) => a[1] - b[1]);
+  return words.map(w => w[0]).join(' ');
+}
+
 // Check if a scan job has been cancelled
 async function isJobCancelled(supabase: SupabaseClient, jobId: string): Promise<boolean> {
   const { data } = await supabase
@@ -892,7 +1093,7 @@ async function saveSourceResults(
   supabase: SupabaseClient,
   results: ResearchItem[],
   jobId?: string
-): Promise<{ added: number; skipped: number; rejected: number }> {
+): Promise<{ added: number; skipped: number; rejected: number; cancelled: boolean }> {
   let added = 0;
   let skipped = 0;
   let rejected = 0;
@@ -900,6 +1101,14 @@ async function saveSourceResults(
   console.log(`[SaveResults] Processing ${results.length} results...`);
 
   for (const study of results) {
+    // Check for cancellation every 10 items to allow quick stop
+    if (jobId && (added + skipped + rejected) % 10 === 0) {
+      if (await isJobCancelled(supabase, jobId)) {
+        console.log(`[SaveResults] Scan cancelled, stopping early`);
+        return { added, skipped, rejected, cancelled: true };
+      }
+    }
+
     const titleShort = study.title?.substring(0, 50) || 'Untitled';
 
     // STRICT VALIDATION - Must be about cannabis/CBD
@@ -908,15 +1117,17 @@ async function saveSourceResults(
       continue;
     }
 
-    // DEDUPLICATION CHECK 1: Exact URL match
+    // DEDUPLICATION CHECK 1: Exact URL match (including approved/rejected)
     const { data: urlMatch } = await supabase
       .from('kb_research_queue')
-      .select('id, title')
+      .select('id, title, status')
       .eq('url', study.url)
       .single();
 
     if (urlMatch) {
-      console.log(`[Duplicate] URL match: "${titleShort}..." already exists`);
+      const statusNote = urlMatch.status === 'approved' ? ' (already approved)' :
+                        urlMatch.status === 'rejected' ? ' (already rejected)' : '';
+      console.log(`[Duplicate] URL match: "${titleShort}..."${statusNote}`);
       skipped++;
       continue;
     }
@@ -925,27 +1136,29 @@ async function saveSourceResults(
     if (study.doi && study.doi.trim()) {
       const { data: doiMatch } = await supabase
         .from('kb_research_queue')
-        .select('id, title')
+        .select('id, title, status')
         .eq('doi', study.doi)
         .single();
 
       if (doiMatch) {
-        console.log(`[Duplicate] DOI match: "${titleShort}..." (DOI: ${study.doi}) matches existing "${doiMatch.title?.substring(0, 40)}..."`);
+        const statusNote = doiMatch.status === 'approved' ? ' (already approved)' :
+                          doiMatch.status === 'rejected' ? ' (already rejected)' : '';
+        console.log(`[Duplicate] DOI match: "${titleShort}..." (DOI: ${study.doi})${statusNote}`);
         skipped++;
         continue;
       }
     }
 
-    // DEDUPLICATION CHECK 3: Similar title match (90%+ similarity)
+    // DEDUPLICATION CHECK 3: Similar title match (90%+ similarity) - check approved/rejected too
     if (study.title && study.title.length > 20) {
       const normalizedNewTitle = normalizeTitle(study.title);
 
-      // Query potential matches (same year if available, or recent items)
+      // Query ALL items (including approved/rejected) for title comparison
       const { data: potentialMatches } = await supabase
         .from('kb_research_queue')
-        .select('id, title, year')
+        .select('id, title, year, status')
         .order('discovered_at', { ascending: false })
-        .limit(500);  // Check against recent entries
+        .limit(500);
 
       if (potentialMatches) {
         let foundSimilar = false;
@@ -956,7 +1169,9 @@ async function saveSourceResults(
           const similarity = titleSimilarity(normalizedNewTitle, normalizedExisting);
 
           if (similarity >= 90) {
-            console.log(`[Duplicate] Title ${similarity}% similar: "${titleShort}..." matches existing "${existing.title?.substring(0, 40)}..."`);
+            const statusNote = existing.status === 'approved' ? ' (already approved)' :
+                              existing.status === 'rejected' ? ' (already rejected)' : '';
+            console.log(`[Duplicate] Title ${similarity}% similar: "${titleShort}..."${statusNote}`);
             skipped++;
             foundSimilar = true;
             break;
@@ -1008,7 +1223,7 @@ async function saveSourceResults(
   }
 
   console.log(`[SaveResults] Batch complete: added=${added}, skipped=${skipped} (duplicates), rejected=${rejected} (not relevant)`);
-  return { added, skipped, rejected };
+  return { added, skipped, rejected, cancelled: false };
 }
 
 // Run scan with job tracking (background-compatible)
@@ -1040,18 +1255,15 @@ export async function runBackgroundScan(jobId: string): Promise<void> {
     let totalRejected = 0;
     let totalFound = 0;
     const completedSources: string[] = [];
+    let wasCancelled = false;
 
     // Process each source
     for (const source of sources) {
       // Check if job was cancelled before starting this source
       if (await isJobCancelled(supabase, jobId)) {
         console.log(`[Job ${jobId}] Scan cancelled by user`);
-        await updateScanJobProgress(supabase, jobId, {
-          status: 'cancelled',
-          completed_at: new Date().toISOString(),
-          current_source: null
-        });
-        return;
+        wasCancelled = true;
+        break;
       }
 
       // Update current source
@@ -1080,11 +1292,27 @@ export async function runBackgroundScan(jobId: string): Promise<void> {
           case 'biorxiv':
             results = await scanBioRxiv(scanDepth, customKeywords);
             break;
+          case 'semanticscholar':
+            results = await scanSemanticScholar(scanDepth, customKeywords);
+            break;
+          case 'crossref':
+            results = await scanCrossRef(scanDepth, customKeywords);
+            break;
+          case 'openalex':
+            results = await scanOpenAlex(scanDepth, customKeywords);
+            break;
           default:
             console.log(`[Job ${jobId}] Unknown source: ${source}, skipping`);
         }
       } catch (error) {
         console.error(`[Job ${jobId}] Error scanning ${source}:`, error);
+      }
+
+      // Check cancellation after source scan (before processing results)
+      if (await isJobCancelled(supabase, jobId)) {
+        console.log(`[Job ${jobId}] Scan cancelled after ${source} fetch`);
+        wasCancelled = true;
+        break;
       }
 
       // Deduplicate results from this source
@@ -1094,11 +1322,26 @@ export async function runBackgroundScan(jobId: string): Promise<void> {
 
       totalFound += uniqueResults.length;
 
-      // Save results incrementally
-      const { added, skipped, rejected } = await saveSourceResults(supabase, uniqueResults, jobId);
+      // Save results incrementally (also checks for cancellation during save)
+      const { added, skipped, rejected, cancelled } = await saveSourceResults(supabase, uniqueResults, jobId);
       totalAdded += added;
       totalSkipped += skipped;
       totalRejected += rejected;
+
+      if (cancelled) {
+        console.log(`[Job ${jobId}] Scan cancelled during ${source} save`);
+        wasCancelled = true;
+        // Still mark this source as completed since we saved partial results
+        completedSources.push(source);
+        await updateScanJobProgress(supabase, jobId, {
+          sources_completed: completedSources,
+          items_found: totalFound,
+          items_added: totalAdded,
+          items_skipped: totalSkipped,
+          items_rejected: totalRejected
+        });
+        break;
+      }
 
       // Mark source as completed
       completedSources.push(source);
@@ -1116,13 +1359,21 @@ export async function runBackgroundScan(jobId: string): Promise<void> {
       console.log(`[Job ${jobId}] ${source} complete. Found: ${uniqueResults.length}, Added: ${added}`);
     }
 
-    // Mark job as completed
-    await updateScanJobProgress(supabase, jobId, {
-      status: 'completed',
-      completed_at: new Date().toISOString()
-    });
-
-    console.log(`[Job ${jobId}] Scan complete. Total added: ${totalAdded}, skipped: ${totalSkipped}, rejected: ${totalRejected}`);
+    // Mark job as completed or cancelled
+    if (wasCancelled) {
+      await updateScanJobProgress(supabase, jobId, {
+        status: 'cancelled',
+        completed_at: new Date().toISOString(),
+        current_source: null
+      });
+      console.log(`[Job ${jobId}] Scan cancelled. Total added before stop: ${totalAdded}`);
+    } else {
+      await updateScanJobProgress(supabase, jobId, {
+        status: 'completed',
+        completed_at: new Date().toISOString()
+      });
+      console.log(`[Job ${jobId}] Scan complete. Total added: ${totalAdded}, skipped: ${totalSkipped}, rejected: ${totalRejected}`);
+    }
 
   } catch (error) {
     console.error(`[Job ${jobId}] Scan failed:`, error);

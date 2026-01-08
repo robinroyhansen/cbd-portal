@@ -35,6 +35,9 @@ const SOURCE_NAMES: Record<string, string> = {
   clinicaltrials: 'ClinicalTrials.gov',
   europepmc: 'Europe PMC',
   biorxiv: 'bioRxiv/medRxiv',
+  semanticscholar: 'Semantic Scholar',
+  crossref: 'CrossRef',
+  openalex: 'OpenAlex',
   cochrane: 'Cochrane Library',
   who_ictrp: 'WHO ICTRP',
   doaj: 'DOAJ',
@@ -272,14 +275,15 @@ export default function AdminResearchPage() {
     { id: 'pmc', name: 'PMC', desc: 'Full-text research articles', available: true },
     { id: 'clinicaltrials', name: 'ClinicalTrials.gov', desc: 'Clinical trial database', available: true },
     { id: 'europepmc', name: 'Europe PMC', desc: 'European biomedical literature', available: true },
-    { id: 'biorxiv', name: 'bioRxiv/medRxiv', desc: 'Preprints (not peer-reviewed)', available: true }
+    { id: 'biorxiv', name: 'bioRxiv/medRxiv', desc: 'Preprints (not peer-reviewed)', available: true },
+    { id: 'semanticscholar', name: 'Semantic Scholar', desc: 'AI-powered citation network', available: true },
+    { id: 'crossref', name: 'CrossRef', desc: 'DOI metadata & citations', available: true },
+    { id: 'openalex', name: 'OpenAlex', desc: 'Open research database', available: true }
   ];
 
   const comingSoonSources = [
     { id: 'cochrane', name: 'Cochrane Library', desc: 'Systematic reviews' },
-    { id: 'who_ictrp', name: 'WHO ICTRP', desc: 'International clinical trials' },
-    { id: 'doaj', name: 'DOAJ', desc: 'Open access journals' },
-    { id: 'scholar', name: 'Google Scholar', desc: 'Requires scraping (limited)' }
+    { id: 'who_ictrp', name: 'WHO ICTRP', desc: 'International clinical trials' }
   ];
 
   return (
@@ -573,7 +577,7 @@ export default function AdminResearchPage() {
                     Core Medical
                   </button>
                   <button
-                    onClick={() => setSelectedSources(['pubmed', 'pmc', 'clinicaltrials', 'europepmc', 'biorxiv'])}
+                    onClick={() => setSelectedSources(['pubmed', 'pmc', 'clinicaltrials', 'europepmc', 'biorxiv', 'semanticscholar', 'crossref', 'openalex'])}
                     disabled={isScanning}
                     className="px-3 py-1 text-xs bg-purple-100 text-purple-700 rounded hover:bg-purple-200 disabled:opacity-50"
                   >
