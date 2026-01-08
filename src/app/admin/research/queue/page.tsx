@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import Link from 'next/link';
 
@@ -36,13 +36,11 @@ export default function ResearchQueuePage() {
   const [minRelevanceScore, setMinRelevanceScore] = useState<number>(0);
   const [yearFilter, setYearFilter] = useState<string>('');
   const [bulkSelected, setBulkSelected] = useState<string[]>([]);
+  const [newItemIds, setNewItemIds] = useState<Set<string>>(new Set());
   const supabase = createClient();
 
-  useEffect(() => {
-    fetchResearch();
-  }, []);
-
-  const fetchResearch = async () => {
+  // Fetch research with useCallback for stability
+  const fetchResearch = useCallback(async () => {
     setLoading(true);
     const { data, error } = await supabase
       .from('kb_research_queue')
@@ -55,7 +53,69 @@ export default function ResearchQueuePage() {
       console.error('Error fetching research:', error);
     }
     setLoading(false);
-  };
+  }, [supabase]);
+
+  // Initial fetch and real-time subscription
+  useEffect(() => {
+    fetchResearch();
+
+    // Subscribe to new research items
+    const channel = supabase
+      .channel('queue_changes')
+      .on(
+        'postgres_changes',
+        {
+          event: 'INSERT',
+          schema: 'public',
+          table: 'kb_research_queue'
+        },
+        (payload) => {
+          const newItem = payload.new as ResearchItem;
+          setResearch(prev => [newItem, ...prev]);
+          // Mark as new for highlight animation
+          setNewItemIds(prev => new Set([...prev, newItem.id]));
+          // Remove highlight after 5 seconds
+          setTimeout(() => {
+            setNewItemIds(prev => {
+              const updated = new Set(prev);
+              updated.delete(newItem.id);
+              return updated;
+            });
+          }, 5000);
+        }
+      )
+      .on(
+        'postgres_changes',
+        {
+          event: 'UPDATE',
+          schema: 'public',
+          table: 'kb_research_queue'
+        },
+        (payload) => {
+          const updatedItem = payload.new as ResearchItem;
+          setResearch(prev =>
+            prev.map(item => item.id === updatedItem.id ? updatedItem : item)
+          );
+        }
+      )
+      .on(
+        'postgres_changes',
+        {
+          event: 'DELETE',
+          schema: 'public',
+          table: 'kb_research_queue'
+        },
+        (payload) => {
+          const deletedId = payload.old.id;
+          setResearch(prev => prev.filter(item => item.id !== deletedId));
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [supabase, fetchResearch]);
 
   const updateResearchStatus = async (id: string, status: 'approved' | 'rejected', rejectionReason?: string) => {
     const { error } = await supabase
@@ -494,7 +554,9 @@ export default function ResearchQueuePage() {
           {filteredResearch.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-lg shadow p-6 hover:shadow-md transition-shadow"
+              className={`bg-white rounded-lg shadow p-6 hover:shadow-md transition-all ${
+                newItemIds.has(item.id) ? 'ring-2 ring-green-400 animate-pulse-once' : ''
+              }`}
             >
               <div className="flex justify-between items-start mb-4">
                 <div className="flex gap-3 flex-1">
@@ -510,6 +572,11 @@ export default function ResearchQueuePage() {
                   )}
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
+                    {newItemIds.has(item.id) && (
+                      <span className="px-2 py-1 text-xs font-bold bg-green-500 text-white rounded-full animate-bounce">
+                        NEW
+                      </span>
+                    )}
                     <span className={`px-2 py-1 text-xs font-medium rounded-full border ${getPriorityColor(item.relevance_score)}`}>
                       Score: {item.relevance_score}
                     </span>
@@ -623,6 +690,16 @@ export default function ResearchQueuePage() {
       )}
 
       {/* Pagination would go here for large datasets */}
+
+      <style jsx>{`
+        @keyframes pulse-once {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.7; }
+        }
+        .animate-pulse-once {
+          animation: pulse-once 1s ease-in-out 3;
+        }
+      `}</style>
     </div>
   );
 }

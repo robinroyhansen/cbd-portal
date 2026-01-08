@@ -1,77 +1,204 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
+import { createClient } from '@/lib/supabase/client';
 import Link from 'next/link';
 
-interface ResearchItem {
+interface ScanJob {
+  id: string;
+  status: 'pending' | 'running' | 'completed' | 'failed' | 'cancelled';
+  current_source: string | null;
+  sources_completed: string[];
+  sources_total: string[];
+  items_found: number;
+  items_added: number;
+  items_skipped: number;
+  items_rejected: number;
+  scan_depth: string;
+  error_message: string | null;
+  started_at: string | null;
+  completed_at: string | null;
+  created_at: string;
+}
+
+interface RecentResearchItem {
   id: string;
   title: string;
-  authors?: string;
-  publication?: string;
-  year?: number;
-  abstract?: string;
-  url: string;
-  doi?: string;
   source_site: string;
   relevance_score: number;
-  relevant_topics: string[];
-  search_term_matched?: string;
-  status: 'pending' | 'approved' | 'rejected';
-  reviewed_at?: string;
-  reviewed_by?: string;
-  rejection_reason?: string;
   discovered_at: string;
 }
 
+const SOURCE_NAMES: Record<string, string> = {
+  pubmed: 'PubMed',
+  pmc: 'PMC',
+  clinicaltrials: 'ClinicalTrials.gov',
+  cochrane: 'Cochrane',
+  nature: 'Nature',
+  science: 'Science',
+  jama: 'JAMA',
+  bmj: 'BMJ',
+  sciencedirect: 'ScienceDirect',
+  springer: 'Springer',
+  wiley: 'Wiley',
+  arxiv: 'arXiv'
+};
+
 export default function AdminResearchPage() {
-  const [scanning, setScanning] = useState(false);
-  const [scanResult, setScanResult] = useState<any>(null);
-  const [lastError, setLastError] = useState<string | null>(null);
-  const [includeExtended, setIncludeExtended] = useState(false);
+  const [activeJob, setActiveJob] = useState<ScanJob | null>(null);
+  const [recentItems, setRecentItems] = useState<RecentResearchItem[]>([]);
   const [selectedSources, setSelectedSources] = useState<string[]>(['pubmed', 'clinicaltrials', 'pmc']);
   const [customKeywords, setCustomKeywords] = useState<string>(`cannabidiol, CBD, cannabis, medical cannabis, medicinal cannabis, medical marijuana, cannabinoids, THC, tetrahydrocannabinol, CBG, cannabigerol, CBN, cannabinol, CBC, cannabichromene, hemp oil, cannabis therapy, cannabis treatment, cannabinoid therapy, endocannabinoid system, cannabis pharmacology, phytocannabinoids, cannabis medicine, therapeutic cannabis, pharmaceutical cannabis, cannabis clinical trial, cannabidiol oil, CBD oil, cannabis extract, cannabis research, marijuana medicine, cannabis therapeutics, cannabinoid receptors, CB1 receptor, CB2 receptor, cannabis safety, cannabis efficacy, cannabis dosing, cannabis pharmacokinetics, hemp-derived CBD, full spectrum CBD, broad spectrum CBD, CBD isolate, cannabis terpenes, entourage effect, cannabis pain management, cannabis anxiety, cannabis epilepsy, cannabis inflammation, cannabis neuroprotection, cannabis oncology, cannabis addiction, cannabis withdrawal, cannabis tolerance`);
-  const [scanDepth, setScanDepth] = useState<'quick' | 'standard' | 'deep' | '1year' | '2years' | '5years' | 'comprehensive'>('standard');
+  const [scanDepth, setScanDepth] = useState<string>('standard');
+  const [starting, setStarting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const triggerManualScan = async () => {
-    setScanning(true);
-    setScanResult(null);
-    setLastError(null);
+  const supabase = createClient();
+
+  // Check for active scan on mount and poll for updates
+  const checkActiveScan = useCallback(async () => {
+    try {
+      const response = await fetch('/api/admin/scan/active');
+      const data = await response.json();
+
+      if (data.active && data.job) {
+        setActiveJob(data.job);
+      } else {
+        setActiveJob(null);
+      }
+    } catch (err) {
+      console.error('Failed to check active scan:', err);
+    }
+  }, []);
+
+  // Fetch job status
+  const fetchJobStatus = useCallback(async (jobId: string) => {
+    try {
+      const response = await fetch(`/api/admin/scan/${jobId}`);
+      const data = await response.json();
+
+      if (data.job) {
+        setActiveJob(data.job);
+
+        // If job is done, clear after a delay
+        if (['completed', 'failed', 'cancelled'].includes(data.job.status)) {
+          setTimeout(() => {
+            checkActiveScan();
+          }, 5000);
+        }
+      }
+    } catch (err) {
+      console.error('Failed to fetch job status:', err);
+    }
+  }, [checkActiveScan]);
+
+  // Initial load and polling
+  useEffect(() => {
+    checkActiveScan();
+
+    // Poll for updates every 2 seconds when there's an active job
+    const interval = setInterval(() => {
+      if (activeJob && ['pending', 'running'].includes(activeJob.status)) {
+        fetchJobStatus(activeJob.id);
+      }
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [activeJob?.id, activeJob?.status, checkActiveScan, fetchJobStatus]);
+
+  // Subscribe to new research items in real-time
+  useEffect(() => {
+    // Fetch recent items on mount
+    const fetchRecentItems = async () => {
+      const { data } = await supabase
+        .from('kb_research_queue')
+        .select('id, title, source_site, relevance_score, discovered_at')
+        .order('discovered_at', { ascending: false })
+        .limit(10);
+
+      if (data) {
+        setRecentItems(data);
+      }
+    };
+
+    fetchRecentItems();
+
+    // Subscribe to new items
+    const channel = supabase
+      .channel('research_queue_changes')
+      .on(
+        'postgres_changes',
+        {
+          event: 'INSERT',
+          schema: 'public',
+          table: 'kb_research_queue'
+        },
+        (payload) => {
+          const newItem = payload.new as RecentResearchItem;
+          setRecentItems(prev => [newItem, ...prev].slice(0, 10));
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [supabase]);
+
+  // Start a new scan
+  const startScan = async () => {
+    if (selectedSources.length === 0) return;
+
+    setStarting(true);
+    setError(null);
 
     try {
-      console.log('🚀 Starting manual scan...');
-
-      const response = await fetch('/api/admin/trigger-scan', {
+      const response = await fetch('/api/admin/scan/start', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          includeExtendedSources: includeExtended,
-          selectedSources: selectedSources,
-          customKeywords: customKeywords.split(',').map(k => k.trim()).filter(k => k.length > 0),
-          scanDepth: scanDepth
+          selectedSources,
+          scanDepth,
+          customKeywords: customKeywords.split(',').map(k => k.trim()).filter(k => k.length > 0)
         })
       });
 
-      console.log('📡 Response status:', response.status);
+      const data = await response.json();
 
-      const result = await response.json();
-      console.log('📊 Response data:', result);
-
-      setScanResult(result);
-
-      if (!result.success && result.error) {
-        setLastError(result.message || result.error);
+      if (data.error) {
+        if (data.jobId) {
+          // There's already an active scan
+          await fetchJobStatus(data.jobId);
+        } else {
+          setError(data.message || data.error);
+        }
+      } else if (data.jobId) {
+        // Poll for the new job
+        await fetchJobStatus(data.jobId);
       }
-    } catch (error) {
-      console.error('💥 Scan request failed:', error);
-      const errorMessage = error instanceof Error ? error.message : 'Network error';
-      setScanResult({ error: 'Request failed', message: errorMessage });
-      setLastError(errorMessage);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to start scan');
     } finally {
-      setScanning(false);
+      setStarting(false);
     }
   };
+
+  // Cancel active scan
+  const cancelScan = async () => {
+    if (!activeJob) return;
+
+    try {
+      await fetch(`/api/admin/scan/${activeJob.id}`, { method: 'DELETE' });
+      checkActiveScan();
+    } catch (err) {
+      console.error('Failed to cancel scan:', err);
+    }
+  };
+
+  const isScanning = activeJob && ['pending', 'running'].includes(activeJob.status);
+  const progressPercent = activeJob
+    ? Math.round((activeJob.sources_completed.length / activeJob.sources_total.length) * 100)
+    : 0;
 
   return (
     <div className="p-8">
@@ -80,56 +207,171 @@ export default function AdminResearchPage() {
           <h1 className="text-3xl font-bold text-gray-900">Research Scanner</h1>
           <p className="text-gray-600 mt-2">Discover new research from authoritative sources</p>
         </div>
-        <div className="flex items-center gap-4">
-          <Link
-            href="/admin/research/queue"
-            className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
-          >
-            📚 View Research Queue
-          </Link>
-          <button
-            onClick={triggerManualScan}
-            disabled={scanning || selectedSources.length === 0}
-            className={`px-6 py-3 rounded-lg transition-colors flex items-center gap-2 text-lg ${
-              scanning
-                ? 'bg-gray-400 text-white cursor-not-allowed'
-                : selectedSources.length === 0
-                ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                : 'bg-blue-600 text-white hover:bg-blue-700'
-            }`}
-          >
-            {scanning ? (
-              <>
-                <div className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></div>
-                Scanning {selectedSources.length} sources...
-              </>
-            ) : selectedSources.length === 0 ? (
-              <>
-                ❌ Select sources to scan
-              </>
-            ) : (
-              <>
-                🔍 Start Scan ({selectedSources.length} sources)
-              </>
-            )}
-          </button>
-        </div>
+        <Link
+          href="/admin/research/queue"
+          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+        >
+          View Research Queue
+        </Link>
       </div>
 
-      {/* Enhanced Scan Options */}
-      <div className="mb-6 space-y-6">
+      {/* Active Scan Progress */}
+      {activeJob && (
+        <div className={`mb-6 p-6 rounded-lg border-2 ${
+          activeJob.status === 'completed' ? 'bg-green-50 border-green-300' :
+          activeJob.status === 'failed' ? 'bg-red-50 border-red-300' :
+          activeJob.status === 'cancelled' ? 'bg-gray-50 border-gray-300' :
+          'bg-blue-50 border-blue-300'
+        }`}>
+          <div className="flex justify-between items-start mb-4">
+            <div>
+              <h3 className="text-lg font-semibold flex items-center gap-2">
+                {isScanning && (
+                  <div className="animate-spin h-5 w-5 border-2 border-blue-600 border-t-transparent rounded-full"></div>
+                )}
+                {activeJob.status === 'completed' && <span className="text-green-600">Scan Complete</span>}
+                {activeJob.status === 'failed' && <span className="text-red-600">Scan Failed</span>}
+                {activeJob.status === 'cancelled' && <span className="text-gray-600">Scan Cancelled</span>}
+                {activeJob.status === 'running' && <span className="text-blue-600">Scanning in Progress</span>}
+                {activeJob.status === 'pending' && <span className="text-yellow-600">Starting Scan...</span>}
+              </h3>
+              {activeJob.current_source && (
+                <p className="text-sm text-gray-600 mt-1">
+                  Currently scanning: <strong>{SOURCE_NAMES[activeJob.current_source] || activeJob.current_source}</strong>
+                </p>
+              )}
+            </div>
+            {isScanning && (
+              <button
+                onClick={cancelScan}
+                className="px-3 py-1 text-sm bg-red-100 text-red-700 rounded hover:bg-red-200"
+              >
+                Cancel
+              </button>
+            )}
+          </div>
+
+          {/* Progress Bar */}
+          <div className="mb-4">
+            <div className="flex justify-between text-sm text-gray-600 mb-1">
+              <span>Progress: {activeJob.sources_completed.length} / {activeJob.sources_total.length} sources</span>
+              <span>{progressPercent}%</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-3">
+              <div
+                className={`h-3 rounded-full transition-all duration-500 ${
+                  activeJob.status === 'completed' ? 'bg-green-500' :
+                  activeJob.status === 'failed' ? 'bg-red-500' :
+                  'bg-blue-500'
+                }`}
+                style={{ width: `${progressPercent}%` }}
+              ></div>
+            </div>
+          </div>
+
+          {/* Source Status */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            {activeJob.sources_total.map(source => {
+              const isCompleted = activeJob.sources_completed.includes(source);
+              const isCurrent = activeJob.current_source === source;
+
+              return (
+                <span
+                  key={source}
+                  className={`px-2 py-1 text-xs rounded-full flex items-center gap-1 ${
+                    isCompleted ? 'bg-green-100 text-green-800' :
+                    isCurrent ? 'bg-blue-100 text-blue-800 animate-pulse' :
+                    'bg-gray-100 text-gray-600'
+                  }`}
+                >
+                  {isCompleted && <span>done</span>}
+                  {isCurrent && <span className="animate-spin h-3 w-3 border border-blue-600 border-t-transparent rounded-full"></span>}
+                  {SOURCE_NAMES[source] || source}
+                </span>
+              );
+            })}
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-4 gap-4 text-center">
+            <div className="bg-white rounded p-3">
+              <div className="text-2xl font-bold text-blue-600">{activeJob.items_found}</div>
+              <div className="text-xs text-gray-500">Found</div>
+            </div>
+            <div className="bg-white rounded p-3">
+              <div className="text-2xl font-bold text-green-600">{activeJob.items_added}</div>
+              <div className="text-xs text-gray-500">Added</div>
+            </div>
+            <div className="bg-white rounded p-3">
+              <div className="text-2xl font-bold text-yellow-600">{activeJob.items_skipped}</div>
+              <div className="text-xs text-gray-500">Duplicates</div>
+            </div>
+            <div className="bg-white rounded p-3">
+              <div className="text-2xl font-bold text-red-600">{activeJob.items_rejected}</div>
+              <div className="text-xs text-gray-500">Filtered</div>
+            </div>
+          </div>
+
+          {activeJob.error_message && (
+            <div className="mt-4 p-3 bg-red-100 border border-red-200 rounded text-red-800 text-sm">
+              <strong>Error:</strong> {activeJob.error_message}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Real-time Feed */}
+      {(isScanning || recentItems.length > 0) && (
+        <div className="mb-6 p-4 bg-white rounded-lg shadow border">
+          <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+            {isScanning && <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+            </span>}
+            Recently Discovered Research
+          </h3>
+          <div className="space-y-2 max-h-64 overflow-y-auto">
+            {recentItems.map(item => (
+              <div
+                key={item.id}
+                className="flex items-center justify-between p-2 bg-gray-50 rounded text-sm animate-fadeIn"
+              >
+                <div className="flex-1 truncate pr-4">
+                  <span className="font-medium">{item.title}</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs text-gray-500 shrink-0">
+                  <span className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded">{item.source_site}</span>
+                  <span className="px-2 py-0.5 bg-purple-100 text-purple-700 rounded">Score: {item.relevance_score}</span>
+                </div>
+              </div>
+            ))}
+            {recentItems.length === 0 && (
+              <p className="text-gray-500 text-sm">No recent research items. Start a scan to discover new papers.</p>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Error Display */}
+      {error && (
+        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
+          <strong>Error:</strong> {error}
+        </div>
+      )}
+
+      {/* Scan Configuration */}
+      <div className="space-y-6">
         {/* Source Selection */}
         <div className="p-6 bg-white rounded-lg shadow border">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">🔍 Research Sources</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Research Sources</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Primary Sources */}
             <div className="space-y-2">
               <h4 className="font-medium text-gray-800 text-sm uppercase tracking-wide">Primary Medical</h4>
               {[
                 { id: 'pubmed', name: 'PubMed', desc: '33M+ biomedical literature' },
                 { id: 'pmc', name: 'PMC', desc: 'Full-text research articles' },
-                { id: 'clinicaltrials', name: 'ClinicalTrials.gov', desc: 'Clinical trial database' },
-                { id: 'cochrane', name: 'Cochrane', desc: 'Systematic reviews' }
+                { id: 'clinicaltrials', name: 'ClinicalTrials.gov', desc: 'Clinical trial database' }
               ].map((source) => (
                 <label key={source.id} className="flex items-start gap-2 cursor-pointer p-2 rounded hover:bg-gray-50">
                   <input
@@ -142,7 +384,7 @@ export default function AdminResearchPage() {
                         setSelectedSources(selectedSources.filter(s => s !== source.id));
                       }
                     }}
-                    disabled={scanning}
+                    disabled={isScanning}
                     className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-0.5"
                   />
                   <div>
@@ -159,10 +401,9 @@ export default function AdminResearchPage() {
               {[
                 { id: 'nature', name: 'Nature', desc: 'High-impact research' },
                 { id: 'science', name: 'Science', desc: 'Peer-reviewed research' },
-                { id: 'jama', name: 'JAMA', desc: 'Medical association journal' },
-                { id: 'bmj', name: 'BMJ', desc: 'British Medical Journal' }
+                { id: 'jama', name: 'JAMA', desc: 'Medical association journal' }
               ].map((source) => (
-                <label key={source.id} className="flex items-start gap-2 cursor-pointer p-2 rounded hover:bg-gray-50">
+                <label key={source.id} className="flex items-start gap-2 cursor-pointer p-2 rounded hover:bg-gray-50 opacity-50">
                   <input
                     type="checkbox"
                     checked={selectedSources.includes(source.id)}
@@ -173,298 +414,132 @@ export default function AdminResearchPage() {
                         setSelectedSources(selectedSources.filter(s => s !== source.id));
                       }
                     }}
-                    disabled={scanning}
+                    disabled={true}
                     className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-0.5"
                   />
                   <div>
                     <span className="text-sm font-medium text-gray-700">{source.name}</span>
-                    <p className="text-xs text-gray-500">{source.desc}</p>
+                    <p className="text-xs text-gray-500">{source.desc} (Coming soon)</p>
                   </div>
                 </label>
               ))}
-            </div>
-
-            {/* Specialized Databases */}
-            <div className="space-y-2">
-              <h4 className="font-medium text-gray-800 text-sm uppercase tracking-wide">Specialized</h4>
-              {[
-                { id: 'sciencedirect', name: 'ScienceDirect', desc: 'Elsevier database' },
-                { id: 'springer', name: 'Springer', desc: 'Academic publisher' },
-                { id: 'wiley', name: 'Wiley', desc: 'Scientific publications' },
-                { id: 'arxiv', name: 'arXiv', desc: 'Preprint repository' }
-              ].map((source) => (
-                <label key={source.id} className="flex items-start gap-2 cursor-pointer p-2 rounded hover:bg-gray-50">
-                  <input
-                    type="checkbox"
-                    checked={selectedSources.includes(source.id)}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setSelectedSources([...selectedSources, source.id]);
-                      } else {
-                        setSelectedSources(selectedSources.filter(s => s !== source.id));
-                      }
-                    }}
-                    disabled={scanning}
-                    className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-0.5"
-                  />
-                  <div>
-                    <span className="text-sm font-medium text-gray-700">{source.name}</span>
-                    <p className="text-xs text-gray-500">{source.desc}</p>
-                  </div>
-                </label>
-              ))}
-            </div>
-          </div>
-
-          {/* Quick Source Presets */}
-          <div className="mt-4 pt-4 border-t border-gray-200">
-            <h4 className="font-medium text-gray-800 text-sm mb-3">Quick Actions:</h4>
-
-            {/* Select/Deselect All Row */}
-            <div className="flex gap-2 mb-3 pb-3 border-b border-gray-100">
-              <button
-                onClick={() => setSelectedSources(['pubmed', 'pmc', 'clinicaltrials', 'cochrane', 'nature', 'science', 'jama', 'bmj', 'sciencedirect', 'springer', 'wiley', 'arxiv'])}
-                disabled={scanning}
-                className="px-4 py-2 text-sm bg-emerald-100 text-emerald-700 rounded-lg hover:bg-emerald-200 disabled:opacity-50 font-medium border border-emerald-300"
-              >
-                ✅ Select All Sources (12)
-              </button>
-              <button
-                onClick={() => setSelectedSources([])}
-                disabled={scanning}
-                className="px-4 py-2 text-sm bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-50 font-medium border border-gray-300"
-              >
-                ❌ Deselect All
-              </button>
-              <div className="flex items-center text-sm text-gray-600 ml-2">
-                <span className="font-medium">{selectedSources.length}</span>
-                <span className="ml-1">of 12 sources selected</span>
-              </div>
-            </div>
-
-            {/* Preset Combinations */}
-            <h5 className="font-medium text-gray-700 text-xs mb-2 uppercase tracking-wide">Preset Combinations:</h5>
-            <div className="flex gap-2 flex-wrap">
-              <button
-                onClick={() => setSelectedSources(['pubmed', 'pmc', 'clinicaltrials'])}
-                disabled={scanning}
-                className="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded hover:bg-blue-200 disabled:opacity-50"
-              >
-                📚 Standard Medical
-              </button>
-              <button
-                onClick={() => setSelectedSources(['pubmed', 'pmc', 'cochrane', 'jama', 'bmj'])}
-                disabled={scanning}
-                className="px-3 py-1 text-sm bg-green-100 text-green-700 rounded hover:bg-green-200 disabled:opacity-50"
-              >
-                🎯 High Impact
-              </button>
-              <button
-                onClick={() => setSelectedSources(['pubmed', 'pmc', 'nature', 'science', 'springer', 'wiley'])}
-                disabled={scanning}
-                className="px-3 py-1 text-sm bg-purple-100 text-purple-700 rounded hover:bg-purple-200 disabled:opacity-50"
-              >
-                🔬 Research Intensive
-              </button>
-              <button
-                onClick={() => setSelectedSources(['pubmed', 'pmc', 'clinicaltrials', 'nature', 'science', 'jama', 'bmj', 'springer', 'wiley', 'sciencedirect'])}
-                disabled={scanning}
-                className="px-3 py-1 text-sm bg-orange-100 text-orange-700 rounded hover:bg-orange-200 disabled:opacity-50"
-              >
-                🌍 Comprehensive
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Search Configuration */}
-        <div className="p-6 bg-white rounded-lg shadow border">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">⚙️ Search Configuration</h3>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Custom Keywords */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Custom Keywords (optional)
-              </label>
-              <textarea
-                value={customKeywords}
-                onChange={(e) => setCustomKeywords(e.target.value)}
-                disabled={scanning}
-                placeholder="Add additional keywords or modify the default list..."
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
-                rows={4}
-              />
-              <p className="text-xs text-gray-500 mt-1">
-                <strong>Pre-loaded with 50+ CBD/cannabis keywords.</strong> Separate terms with commas. Modify as needed for targeted research discovery.
-              </p>
-              <div className="mt-2 flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => setCustomKeywords('')}
-                  disabled={scanning}
-                  className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded hover:bg-gray-200 disabled:opacity-50"
-                >
-                  🗑️ Clear All
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setCustomKeywords(`cannabidiol, CBD, cannabis, medical cannabis, medicinal cannabis, medical marijuana, cannabinoids, THC, tetrahydrocannabinol, CBG, cannabigerol, CBN, cannabinol, CBC, cannabichromene, hemp oil, cannabis therapy, cannabis treatment, cannabinoid therapy, endocannabinoid system, cannabis pharmacology, phytocannabinoids, cannabis medicine, therapeutic cannabis, pharmaceutical cannabis, cannabis clinical trial, cannabidiol oil, CBD oil, cannabis extract, cannabis research, marijuana medicine, cannabis therapeutics, cannabinoid receptors, CB1 receptor, CB2 receptor, cannabis safety, cannabis efficacy, cannabis dosing, cannabis pharmacokinetics, hemp-derived CBD, full spectrum CBD, broad spectrum CBD, CBD isolate, cannabis terpenes, entourage effect, cannabis pain management, cannabis anxiety, cannabis epilepsy, cannabis inflammation, cannabis neuroprotection, cannabis oncology, cannabis addiction, cannabis withdrawal, cannabis tolerance`)}
-                  disabled={scanning}
-                  className="px-2 py-1 text-xs bg-blue-100 text-blue-600 rounded hover:bg-blue-200 disabled:opacity-50"
-                >
-                  🔄 Restore Defaults
-                </button>
-              </div>
             </div>
 
             {/* Scan Depth */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Scan Depth
-              </label>
+              <h4 className="font-medium text-gray-800 text-sm uppercase tracking-wide mb-2">Scan Depth</h4>
               <select
                 value={scanDepth}
-                onChange={(e) => setScanDepth(e.target.value as 'quick' | 'standard' | 'deep' | '1year' | '2years' | '5years' | 'comprehensive')}
-                disabled={scanning}
+                onChange={(e) => setScanDepth(e.target.value)}
+                disabled={isScanning}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               >
-                <option value="quick">🚀 Quick (Last 30 days, top results)</option>
-                <option value="standard">⚖️ Standard (Last 90 days, balanced)</option>
-                <option value="deep">🔍 Deep (Last 6 months, comprehensive)</option>
-                <option value="1year">📅 Extended (Last 1 year, thorough)</option>
-                <option value="2years">📈 Historical (Last 2 years, detailed)</option>
-                <option value="5years">🗂️ Archive (Last 5 years, extensive)</option>
-                <option value="comprehensive">🌐 Comprehensive (All available data)</option>
+                <option value="quick">Quick (Last 30 days)</option>
+                <option value="standard">Standard (Last 90 days)</option>
+                <option value="deep">Deep (Last 6 months)</option>
+                <option value="1year">Extended (Last 1 year)</option>
+                <option value="2years">Historical (Last 2 years)</option>
               </select>
-              <div className="text-xs text-gray-500 mt-1">
-                {scanDepth === 'quick' && '~1-2 minutes, 20-50 results'}
-                {scanDepth === 'standard' && '~3-5 minutes, 50-150 results'}
-                {scanDepth === 'deep' && '~8-15 minutes, 100-500 results'}
-                {scanDepth === '1year' && '~15-25 minutes, 200-800 results'}
-                {scanDepth === '2years' && '~25-40 minutes, 400-1,500 results'}
-                {scanDepth === '5years' && '~40-60 minutes, 1,000-5,000 results'}
-                {scanDepth === 'comprehensive' && '~60-90 minutes, 2,000-10,000+ results'}
-              </div>
+              <p className="text-xs text-gray-500 mt-2">
+                {scanDepth === 'quick' && 'Fast scan, ~1-2 min'}
+                {scanDepth === 'standard' && 'Balanced, ~3-5 min'}
+                {scanDepth === 'deep' && 'Thorough, ~8-15 min'}
+                {scanDepth === '1year' && 'Extended, ~15-25 min'}
+                {scanDepth === '2years' && 'Historical, ~25-40 min'}
+              </p>
             </div>
           </div>
+
+          {/* Quick Actions */}
+          <div className="mt-4 pt-4 border-t flex gap-2 flex-wrap">
+            <button
+              onClick={() => setSelectedSources(['pubmed', 'pmc', 'clinicaltrials'])}
+              disabled={isScanning}
+              className="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded hover:bg-blue-200 disabled:opacity-50"
+            >
+              Standard Medical
+            </button>
+            <button
+              onClick={() => setSelectedSources(['pubmed'])}
+              disabled={isScanning}
+              className="px-3 py-1 text-sm bg-green-100 text-green-700 rounded hover:bg-green-200 disabled:opacity-50"
+            >
+              PubMed Only
+            </button>
+            <button
+              onClick={() => setSelectedSources([])}
+              disabled={isScanning}
+              className="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded hover:bg-gray-200 disabled:opacity-50"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+
+        {/* Custom Keywords (Collapsible) */}
+        <details className="p-6 bg-white rounded-lg shadow border">
+          <summary className="text-lg font-semibold text-gray-900 cursor-pointer">
+            Advanced: Custom Keywords
+          </summary>
+          <div className="mt-4">
+            <textarea
+              value={customKeywords}
+              onChange={(e) => setCustomKeywords(e.target.value)}
+              disabled={isScanning}
+              placeholder="Enter comma-separated keywords..."
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+              rows={4}
+            />
+            <p className="text-xs text-gray-500 mt-1">
+              Pre-loaded with 50+ CBD/cannabis keywords. Separate terms with commas.
+            </p>
+          </div>
+        </details>
+
+        {/* Start Button */}
+        <div className="flex justify-center">
+          <button
+            onClick={startScan}
+            disabled={isScanning || starting || selectedSources.length === 0}
+            className={`px-8 py-4 rounded-lg text-lg font-semibold transition-all ${
+              isScanning || starting
+                ? 'bg-gray-400 text-white cursor-not-allowed'
+                : selectedSources.length === 0
+                ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl'
+            }`}
+          >
+            {starting ? (
+              <span className="flex items-center gap-2">
+                <div className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></div>
+                Starting...
+              </span>
+            ) : isScanning ? (
+              'Scan in Progress...'
+            ) : selectedSources.length === 0 ? (
+              'Select Sources to Scan'
+            ) : (
+              `Start Scan (${selectedSources.length} sources)`
+            )}
+          </button>
+        </div>
+
+        {/* Info Box */}
+        <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg text-sm text-blue-800">
+          <strong>Background Scanning:</strong> Scans run server-side and continue even if you navigate away.
+          Return to this page anytime to see progress. New research items appear in real-time as they&apos;re discovered.
         </div>
       </div>
 
-      {/* Scan Results */}
-      {scanResult && (
-        <div className={`mb-8 p-6 rounded-lg border-2 ${
-          scanResult.success
-            ? 'bg-green-50 border-green-200 text-green-800'
-            : 'bg-red-50 border-red-200 text-red-800'
-        }`}>
-          <h3 className="text-lg font-semibold mb-3">
-            {scanResult.success ? '✅ Scan Results' : '❌ Scan Failed'}
-          </h3>
-
-          {scanResult.success ? (
-            <div className="space-y-2">
-              <p><strong>Duration:</strong> {scanResult.duration}</p>
-              <p><strong>Added:</strong> {scanResult.added}</p>
-              <p><strong>Skipped:</strong> {scanResult.skipped}</p>
-              <p><strong>Total:</strong> {scanResult.total}</p>
-              <p><strong>Relevant:</strong> {scanResult.relevant}</p>
-            </div>
-          ) : (
-            <div className="space-y-2">
-              <p><strong>Error:</strong> {scanResult.error}</p>
-              <p><strong>Message:</strong> {scanResult.message}</p>
-              {scanResult.details && (
-                <div className="mt-4">
-                  <p><strong>Details:</strong></p>
-                  <pre className="bg-red-100 p-3 rounded text-sm overflow-auto max-h-40">
-                    {JSON.stringify(scanResult.details, null, 2)}
-                  </pre>
-                </div>
-              )}
-            </div>
-          )}
-
-          <div className="mt-4 text-sm opacity-75">
-            Timestamp: {scanResult.timestamp}
-          </div>
-        </div>
-      )}
-
-      {/* Error Display */}
-      {lastError && (
-        <div className="mb-8 p-4 bg-orange-50 border-orange-200 border rounded-lg">
-          <h3 className="text-orange-800 font-semibold">Last Error:</h3>
-          <p className="text-orange-700">{lastError}</p>
-        </div>
-      )}
-
-      {/* Enhanced Information */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-        <h2 className="text-xl font-semibold text-blue-900 mb-4">🎯 Enhanced Research Scanner</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="space-y-3 text-blue-800">
-            <h3 className="font-semibold">📚 Available Sources</h3>
-            <div className="text-sm space-y-1">
-              <p>• <strong>Primary:</strong> PubMed (33M+ articles), PMC, ClinicalTrials.gov, Cochrane</p>
-              <p>• <strong>Academic:</strong> Nature, Science, JAMA, BMJ</p>
-              <p>• <strong>Publishers:</strong> ScienceDirect, Springer, Wiley</p>
-              <p>• <strong>Preprints:</strong> arXiv for cutting-edge research</p>
-            </div>
-          </div>
-
-          <div className="space-y-3 text-blue-800">
-            <h3 className="font-semibold">⚡ Performance Estimates</h3>
-            <div className="text-sm space-y-1">
-              <p>• <strong>Quick scan:</strong> 1-2 min, 20-50 results</p>
-              <p>• <strong>Standard scan:</strong> 3-5 min, 50-150 results</p>
-              <p>• <strong>Deep scan:</strong> 8-15 min, 100-500 results</p>
-              <p>• <strong>Custom keywords:</strong> Targeted results</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div className="p-4 bg-white rounded border">
-            <h4 className="font-semibold text-gray-900 mb-2">🔍 Search Intelligence</h4>
-            <ul className="text-sm text-gray-600 space-y-1">
-              <li>• 100+ default CBD/cannabis keywords</li>
-              <li>• Relevance scoring with AI filtering</li>
-              <li>• Duplicate detection across sources</li>
-              <li>• Publication date prioritization</li>
-            </ul>
-          </div>
-
-          <div className="p-4 bg-white rounded border">
-            <h4 className="font-semibold text-gray-900 mb-2">📊 Quality Metrics</h4>
-            <ul className="text-sm text-gray-600 space-y-1">
-              <li>• Impact factor consideration</li>
-              <li>• Peer-review status validation</li>
-              <li>• Citation count analysis</li>
-              <li>• Research methodology scoring</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-4 p-3 bg-white rounded border">
-          <p className="text-sm text-gray-600">
-            <strong>Debug mode:</strong> Detailed scan progress, source responses, and error logs are shown above.
-            Check the browser console (F12) for additional technical information.
-          </p>
-        </div>
-      </div>
-
-      {/* Console Output Instructions */}
-      <div className="mt-6 p-4 bg-gray-50 border rounded-lg">
-        <h3 className="font-semibold text-gray-900 mb-2">Debugging Steps:</h3>
-        <ol className="list-decimal list-inside space-y-1 text-gray-700">
-          <li>Open Browser Developer Tools (F12)</li>
-          <li>Go to Console tab</li>
-          <li>Click "Start Manual Scan"</li>
-          <li>Watch for console messages and errors</li>
-          <li>Check Network tab for failed requests</li>
-        </ol>
-      </div>
+      <style jsx>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out;
+        }
+      `}</style>
     </div>
   );
 }

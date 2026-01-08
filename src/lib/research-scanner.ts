@@ -1,4 +1,4 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
 interface ResearchItem {
   title: string;
@@ -10,6 +10,88 @@ interface ResearchItem {
   doi?: string;
   source_site: string;
   search_term_matched?: string;
+}
+
+export interface ScanJob {
+  id: string;
+  status: 'pending' | 'running' | 'completed' | 'failed' | 'cancelled';
+  current_source: string | null;
+  sources_completed: string[];
+  sources_total: string[];
+  items_found: number;
+  items_added: number;
+  items_skipped: number;
+  items_rejected: number;
+  scan_depth: string;
+  custom_keywords: string[] | null;
+  error_message: string | null;
+  started_at: string | null;
+  completed_at: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+// Create a new scan job
+export async function createScanJob(
+  supabase: SupabaseClient,
+  sources: string[],
+  scanDepth: string,
+  customKeywords: string[]
+): Promise<string> {
+  const { data, error } = await supabase
+    .from('kb_scan_jobs')
+    .insert({
+      status: 'pending',
+      sources_total: sources,
+      sources_completed: [],
+      scan_depth: scanDepth,
+      custom_keywords: customKeywords.length > 0 ? customKeywords : null
+    })
+    .select('id')
+    .single();
+
+  if (error) throw new Error(`Failed to create scan job: ${error.message}`);
+  return data.id;
+}
+
+// Update scan job progress
+export async function updateScanJobProgress(
+  supabase: SupabaseClient,
+  jobId: string,
+  updates: Partial<ScanJob>
+): Promise<void> {
+  const { error } = await supabase
+    .from('kb_scan_jobs')
+    .update({ ...updates, updated_at: new Date().toISOString() })
+    .eq('id', jobId);
+
+  if (error) console.error('Failed to update scan job:', error);
+}
+
+// Get scan job status
+export async function getScanJob(supabase: SupabaseClient, jobId: string): Promise<ScanJob | null> {
+  const { data, error } = await supabase
+    .from('kb_scan_jobs')
+    .select('*')
+    .eq('id', jobId)
+    .single();
+
+  if (error) return null;
+  return data;
+}
+
+// Get active scan job (if any)
+export async function getActiveScanJob(supabase: SupabaseClient): Promise<ScanJob | null> {
+  const { data, error } = await supabase
+    .from('kb_scan_jobs')
+    .select('*')
+    .in('status', ['pending', 'running'])
+    .order('created_at', { ascending: false })
+    .limit(1)
+    .single();
+
+  if (error) return null;
+  return data;
 }
 
 // REQUIRED KEYWORDS - Study MUST contain at least one of these
@@ -190,6 +272,8 @@ export async function scanPubMed(scanDepth: string = 'standard', customKeywords:
   // Use custom keywords if provided, otherwise use default search terms
   const searchTerms = customKeywords.length > 0 ? customKeywords : SEARCH_TERMS;
 
+  console.log(`[PubMed] Starting scan with ${searchTerms.length} search terms, depth: ${scanDepth}`);
+
   for (const term of searchTerms) {
     try {
       const searchParams = new URLSearchParams({
@@ -200,13 +284,21 @@ export async function scanPubMed(scanDepth: string = 'standard', customKeywords:
         sort: 'date'
       });
 
-      const searchResponse = await fetch(
-        `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?${searchParams}`
-      );
+      const searchUrl = `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?${searchParams}`;
+      console.log(`[PubMed] Searching: "${term}"`);
+
+      const searchResponse = await fetch(searchUrl);
+
+      if (!searchResponse.ok) {
+        console.error(`[PubMed] Search API error: ${searchResponse.status} ${searchResponse.statusText}`);
+        continue;
+      }
+
       const searchData = await searchResponse.json();
 
       if (searchData.esearchresult?.idlist?.length > 0) {
         const ids = searchData.esearchresult.idlist.join(',');
+        console.log(`[PubMed] Found ${searchData.esearchresult.idlist.length} results for "${term}"`);
 
         const summaryParams = new URLSearchParams({
           db: 'pubmed',
@@ -217,13 +309,19 @@ export async function scanPubMed(scanDepth: string = 'standard', customKeywords:
         const summaryResponse = await fetch(
           `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?${summaryParams}`
         );
+
+        if (!summaryResponse.ok) {
+          console.error(`[PubMed] Summary API error: ${summaryResponse.status} ${summaryResponse.statusText}`);
+          continue;
+        }
+
         const summaryData = await summaryResponse.json();
 
         for (const id of searchData.esearchresult.idlist) {
           const article = summaryData.result?.[id];
-          if (article) {
+          if (article && article.title) {
             results.push({
-              title: article.title || 'No title available',
+              title: article.title,
               authors: article.authors?.map((a: any) => a.name).join(', '),
               publication: article.source,
               year: parseInt(article.pubdate?.split(' ')[0]) || new Date().getFullYear(),
@@ -234,16 +332,19 @@ export async function scanPubMed(scanDepth: string = 'standard', customKeywords:
             });
           }
         }
+      } else {
+        console.log(`[PubMed] No results for "${term}"`);
       }
 
-      // Rate limiting - be nice to NCBI
+      // Rate limiting - be nice to NCBI (required: max 3 requests/second without API key)
       await new Promise(resolve => setTimeout(resolve, 400));
 
     } catch (error) {
-      console.error(`Error scanning PubMed for "${term}":`, error);
+      console.error(`[PubMed] Error scanning for "${term}":`, error instanceof Error ? error.message : error);
     }
   }
 
+  console.log(`[PubMed] Scan complete. Total results: ${results.length}`);
   return results;
 }
 
@@ -255,31 +356,43 @@ export async function scanClinicalTrials(scanDepth: string = 'standard', customK
   const defaultTerms = ['cannabidiol', 'CBD', 'cannabis', 'medical cannabis', 'medical marijuana', 'cannabinoid'];
   const searchTerms = customKeywords.length > 0 ? customKeywords : defaultTerms;
 
+  console.log(`[ClinicalTrials] Starting scan with ${searchTerms.length} search terms`);
+
   for (const term of searchTerms) {
     try {
-      const response = await fetch(
-        'https://clinicaltrials.gov/api/v2/studies?' + new URLSearchParams({
-          'query.term': term,
-          'filter.overallStatus': 'COMPLETED',
-          'sort': 'LastUpdatePostDate:desc',
-          'pageSize': String(Math.min(resultLimit, 100))
-        })
-      );
+      const url = 'https://clinicaltrials.gov/api/v2/studies?' + new URLSearchParams({
+        'query.term': term,
+        'filter.overallStatus': 'COMPLETED',
+        'sort': 'LastUpdatePostDate:desc',
+        'pageSize': String(Math.min(resultLimit, 100))
+      });
+
+      console.log(`[ClinicalTrials] Searching: "${term}"`);
+
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        console.error(`[ClinicalTrials] API error: ${response.status} ${response.statusText}`);
+        continue;
+      }
 
       const data = await response.json();
+      const studyCount = data.studies?.length || 0;
+      console.log(`[ClinicalTrials] Found ${studyCount} studies for "${term}"`);
 
       for (const study of data.studies || []) {
         const protocol = study.protocolSection;
         const title = protocol?.identificationModule?.officialTitle || protocol?.identificationModule?.briefTitle;
 
         if (title) {
+          const nctId = protocol?.identificationModule?.nctId;
           results.push({
             title,
             authors: protocol?.contactsLocationsModule?.overallOfficials?.map((o: any) => o.name).join(', '),
             publication: 'ClinicalTrials.gov',
-            year: new Date(protocol?.statusModule?.lastUpdatePostDateStruct?.date).getFullYear(),
+            year: new Date(protocol?.statusModule?.lastUpdatePostDateStruct?.date).getFullYear() || new Date().getFullYear(),
             abstract: protocol?.descriptionModule?.briefSummary,
-            url: `https://clinicaltrials.gov/study/${protocol?.identificationModule?.nctId}`,
+            url: `https://clinicaltrials.gov/study/${nctId}`,
             source_site: 'ClinicalTrials.gov',
             search_term_matched: term
           });
@@ -289,10 +402,11 @@ export async function scanClinicalTrials(scanDepth: string = 'standard', customK
       await new Promise(resolve => setTimeout(resolve, 300));
 
     } catch (error) {
-      console.error(`Error scanning ClinicalTrials.gov for "${term}":`, error);
+      console.error(`[ClinicalTrials] Error scanning for "${term}":`, error instanceof Error ? error.message : error);
     }
   }
 
+  console.log(`[ClinicalTrials] Scan complete. Total results: ${results.length}`);
   return results;
 }
 
@@ -311,6 +425,8 @@ export async function scanPMC(scanDepth: string = 'standard', customKeywords: st
   ];
   const searchTerms = customKeywords.length > 0 ? customKeywords : defaultTerms;
 
+  console.log(`[PMC] Starting scan with ${searchTerms.length} search terms, depth: ${scanDepth}`);
+
   for (const term of searchTerms) {
     try {
       const searchParams = new URLSearchParams({
@@ -320,13 +436,22 @@ export async function scanPMC(scanDepth: string = 'standard', customKeywords: st
         retmode: 'json'
       });
 
+      console.log(`[PMC] Searching: "${term}"`);
+
       const searchResponse = await fetch(
         `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?${searchParams}`
       );
+
+      if (!searchResponse.ok) {
+        console.error(`[PMC] Search API error: ${searchResponse.status} ${searchResponse.statusText}`);
+        continue;
+      }
+
       const searchData = await searchResponse.json();
 
       if (searchData.esearchresult?.idlist?.length > 0) {
         const ids = searchData.esearchresult.idlist.join(',');
+        console.log(`[PMC] Found ${searchData.esearchresult.idlist.length} results for "${term}"`);
 
         const summaryParams = new URLSearchParams({
           db: 'pmc',
@@ -337,13 +462,19 @@ export async function scanPMC(scanDepth: string = 'standard', customKeywords: st
         const summaryResponse = await fetch(
           `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?${summaryParams}`
         );
+
+        if (!summaryResponse.ok) {
+          console.error(`[PMC] Summary API error: ${summaryResponse.status} ${summaryResponse.statusText}`);
+          continue;
+        }
+
         const summaryData = await summaryResponse.json();
 
         for (const id of searchData.esearchresult.idlist) {
           const article = summaryData.result?.[id];
-          if (article) {
+          if (article && article.title) {
             results.push({
-              title: article.title || `PMC Article ${id}`,
+              title: article.title,
               authors: article.authors?.map((a: any) => a.name).join(', '),
               publication: article.source || 'PMC',
               year: parseInt(article.pubdate?.split(' ')[0]) || new Date().getFullYear(),
@@ -353,15 +484,19 @@ export async function scanPMC(scanDepth: string = 'standard', customKeywords: st
             });
           }
         }
+      } else {
+        console.log(`[PMC] No results for "${term}"`);
       }
 
+      // Rate limiting - be nice to NCBI
       await new Promise(resolve => setTimeout(resolve, 400));
 
     } catch (error) {
-      console.error(`Error scanning PMC for "${term}":`, error);
+      console.error(`[PMC] Error scanning for "${term}":`, error instanceof Error ? error.message : error);
     }
   }
 
+  console.log(`[PMC] Scan complete. Total results: ${results.length}`);
   return results;
 }
 
@@ -518,7 +653,7 @@ export async function runDailyResearchScan(
 
     // Check if already exists
     const { data: existing } = await supabase
-      .from('research_queue')
+      .from('kb_research_queue')
       .select('id')
       .eq('url', study.url)
       .single();
@@ -537,12 +672,9 @@ export async function runDailyResearchScan(
       continue;
     }
 
-    // Assign categories
-    const categories = assignCategories(study);
-
     // Insert
     const { error } = await supabase
-      .from('research_queue')
+      .from('kb_research_queue')
       .insert({
         title: study.title,
         authors: study.authors,
@@ -555,14 +687,186 @@ export async function runDailyResearchScan(
         search_term_matched: study.search_term_matched,
         relevance_score: score,
         relevant_topics: topics,
-        categories: categories,
+        status: 'pending'
+      });
+
+    if (error) {
+      console.error(`[Scanner] Failed to insert study: ${error.message}`);
+    } else {
+      added++;
+    }
+  }
+
+  console.log(`[Scanner] Scan complete. Added: ${added}, Skipped: ${skipped}, Rejected: ${rejected}`);
+
+  return { added, skipped, rejected, total: uniqueResults.length };
+}
+
+// Save results from a single source to the database incrementally
+async function saveSourceResults(
+  supabase: SupabaseClient,
+  results: ResearchItem[],
+  jobId?: string
+): Promise<{ added: number; skipped: number; rejected: number }> {
+  let added = 0;
+  let skipped = 0;
+  let rejected = 0;
+
+  for (const study of results) {
+    // STRICT VALIDATION - Must be about cannabis/CBD
+    if (!isRelevantToCannabis(study)) {
+      rejected++;
+      continue;
+    }
+
+    // Check if already exists
+    const { data: existing } = await supabase
+      .from('kb_research_queue')
+      .select('id')
+      .eq('url', study.url)
+      .single();
+
+    if (existing) {
+      skipped++;
+      continue;
+    }
+
+    // Calculate relevance
+    const { score, topics } = calculateRelevance(study);
+
+    // Must have reasonable relevance score
+    if (score < 20) {
+      rejected++;
+      continue;
+    }
+
+    // Insert
+    const { error } = await supabase
+      .from('kb_research_queue')
+      .insert({
+        title: study.title,
+        authors: study.authors,
+        publication: study.publication,
+        year: study.year,
+        abstract: study.abstract,
+        url: study.url,
+        doi: study.doi,
+        source_site: study.source_site,
+        search_term_matched: study.search_term_matched,
+        relevance_score: score,
+        relevant_topics: topics,
         status: 'pending'
       });
 
     if (!error) added++;
   }
 
-  console.log(`Scan complete. Added: ${added}, Skipped: ${skipped}, Rejected: ${rejected}`);
+  return { added, skipped, rejected };
+}
 
-  return { added, skipped, rejected, total: uniqueResults.length };
+// Run scan with job tracking (background-compatible)
+export async function runBackgroundScan(jobId: string): Promise<void> {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+
+  try {
+    // Get the job details
+    const job = await getScanJob(supabase, jobId);
+    if (!job) throw new Error('Job not found');
+
+    const sources = job.sources_total;
+    const scanDepth = job.scan_depth;
+    const customKeywords = job.custom_keywords || [];
+
+    // Mark job as running
+    await updateScanJobProgress(supabase, jobId, {
+      status: 'running',
+      started_at: new Date().toISOString()
+    });
+
+    console.log(`[Job ${jobId}] Starting background scan (depth: ${scanDepth}, sources: ${sources.join(', ')})...`);
+
+    let totalAdded = 0;
+    let totalSkipped = 0;
+    let totalRejected = 0;
+    let totalFound = 0;
+    const completedSources: string[] = [];
+
+    // Process each source
+    for (const source of sources) {
+      // Update current source
+      await updateScanJobProgress(supabase, jobId, {
+        current_source: source
+      });
+
+      console.log(`[Job ${jobId}] Scanning ${source}...`);
+
+      let results: ResearchItem[] = [];
+
+      try {
+        switch (source) {
+          case 'pubmed':
+            results = await scanPubMed(scanDepth, customKeywords);
+            break;
+          case 'clinicaltrials':
+            results = await scanClinicalTrials(scanDepth, customKeywords);
+            break;
+          case 'pmc':
+            results = await scanPMC(scanDepth, customKeywords);
+            break;
+          // Add more sources here as needed
+          default:
+            console.log(`[Job ${jobId}] Unknown source: ${source}`);
+        }
+      } catch (error) {
+        console.error(`[Job ${jobId}] Error scanning ${source}:`, error);
+      }
+
+      // Deduplicate results from this source
+      const uniqueResults = results.filter((item, index, self) =>
+        index === self.findIndex(t => t.url === item.url)
+      );
+
+      totalFound += uniqueResults.length;
+
+      // Save results incrementally
+      const { added, skipped, rejected } = await saveSourceResults(supabase, uniqueResults, jobId);
+      totalAdded += added;
+      totalSkipped += skipped;
+      totalRejected += rejected;
+
+      // Mark source as completed
+      completedSources.push(source);
+
+      // Update job progress
+      await updateScanJobProgress(supabase, jobId, {
+        sources_completed: completedSources,
+        items_found: totalFound,
+        items_added: totalAdded,
+        items_skipped: totalSkipped,
+        items_rejected: totalRejected,
+        current_source: null
+      });
+
+      console.log(`[Job ${jobId}] ${source} complete. Found: ${uniqueResults.length}, Added: ${added}`);
+    }
+
+    // Mark job as completed
+    await updateScanJobProgress(supabase, jobId, {
+      status: 'completed',
+      completed_at: new Date().toISOString()
+    });
+
+    console.log(`[Job ${jobId}] Scan complete. Total added: ${totalAdded}, skipped: ${totalSkipped}, rejected: ${totalRejected}`);
+
+  } catch (error) {
+    console.error(`[Job ${jobId}] Scan failed:`, error);
+    await updateScanJobProgress(supabase, jobId, {
+      status: 'failed',
+      error_message: error instanceof Error ? error.message : 'Unknown error',
+      completed_at: new Date().toISOString()
+    });
+  }
 }
