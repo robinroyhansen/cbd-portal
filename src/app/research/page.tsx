@@ -1,7 +1,5 @@
 import { createClient } from '../../lib/supabase/server';
 import { ResearchPageClient } from '../../components/ResearchPageClient';
-import researchStudiesData from '../../data/comprehensive-research-studies.json';
-import citationsData from '../../data/citations.json';
 
 export const metadata = {
   title: 'CBD Research Database | CBD Portal',
@@ -38,201 +36,40 @@ export default async function ResearchPage() {
   let allResearch: ResearchItem[] = [];
 
   try {
-    // Try to fetch from database first, fallback to static data
-    const [researchResult, citationsResult] = await Promise.all([
-      supabase
-        .from('research_queue')
-        .select('*')
-        .eq('status', 'approved')
-        .order('year', { ascending: false })
-        .then(r => ({ ...r, fromDB: true }))
-        .catch(e => ({ data: null, error: e, fromDB: false })),
-      supabase
-        .from('citations')
-        .select('*')
-        .order('year', { ascending: false })
-        .then(r => ({ ...r, fromDB: true }))
-        .catch(e => ({ data: null, error: e, fromDB: false }))
-    ]);
+    // Query approved research from kb_research_queue
+    const { data: researchData, error: researchError } = await supabase
+      .from('kb_research_queue')
+      .select('*')
+      .eq('status', 'approved')
+      .order('year', { ascending: false });
 
-    let useStaticData = false;
-
-    if (researchResult.error || citationsResult.error) {
-      console.log('Using static research data (database tables not available)');
-      useStaticData = true;
+    if (researchError) {
+      console.error('Error fetching research:', researchError);
+      throw researchError;
     }
 
-    if (useStaticData) {
-      // Use static research data with proper IDs and formatting
-      const researchItems = (researchStudiesData as any[]).map((study, index) => ({
-        id: `study-${index + 1}`,
-        title: study.title,
-        authors: study.authors,
-        publication: study.publication,
-        year: study.year,
-        abstract: study.abstract,
-        url: study.url,
-        doi: study.doi,
-        source_site: study.source_site || 'PubMed',
-        source_type: 'research_queue' as const,
-        relevant_topics: study.relevant_topics || [],
-        relevance_score: study.relevance_score || 85
-      }));
+    // Map database results to ResearchItem format
+    allResearch = (researchData || []).map((item: any) => ({
+      id: item.id,
+      title: item.title || 'Untitled Study',
+      authors: item.authors || 'Unknown Authors',
+      publication: item.publication || 'Unknown Publication',
+      year: item.year || new Date().getFullYear(),
+      abstract: item.abstract,
+      url: item.url,
+      doi: item.doi,
+      source_site: item.source_site || 'Research Database',
+      source_type: 'research_queue' as const,
+      relevant_topics: item.relevant_topics || [],
+      relevance_score: item.relevance_score || 50
+    }));
 
-      // Add citations data as well
-      const citationItems = (citationsData as any[]).map((citation, index) => ({
-        id: `citation-${index + 1}`,
-        title: citation.title,
-        authors: citation.authors,
-        publication: citation.publication,
-        year: citation.year,
-        abstract: undefined, // Citations typically don't have abstracts
-        url: citation.url,
-        doi: citation.doi,
-        source_site: citation.url?.includes('pubmed') ? 'PubMed' :
-                    citation.url?.includes('pmc') ? 'PMC' :
-                    citation.url?.includes('clinicaltrials') ? 'ClinicalTrials.gov' :
-                    citation.url?.includes('thelancet') ? 'The Lancet' :
-                    citation.url?.includes('nature') ? 'Nature' :
-                    'Journal',
-        source_type: 'citation' as const,
-        relevant_topics: []
-      }));
-
-      // Combine and deduplicate by URL
-      const seenUrls = new Set<string>();
-      allResearch = [];
-
-      for (const item of researchItems) {
-        if (item.url && !seenUrls.has(item.url)) {
-          seenUrls.add(item.url);
-          allResearch.push(item);
-        }
-      }
-
-      for (const item of citationItems) {
-        if (item.url && !seenUrls.has(item.url)) {
-          seenUrls.add(item.url);
-          allResearch.push(item);
-        }
-      }
-
-      // Sort by year descending
-      allResearch.sort((a, b) => (b.year || 0) - (a.year || 0));
-
-    } else {
-      // Database is available, use original logic
-      const normalizedResearch: ResearchItem[] = (researchResult.data || []).map((item: any) => ({
-        id: item.id,
-        title: item.title || 'Untitled Study',
-        authors: item.authors || 'Unknown Authors',
-        publication: item.publication || 'Unknown Publication',
-        year: item.year || new Date().getFullYear(),
-        abstract: item.abstract,
-        url: item.url,
-        doi: item.doi,
-        source_site: item.source_site,
-        source_type: 'research_queue' as const,
-        relevant_topics: item.relevant_topics,
-        relevance_score: item.relevance_score
-      }));
-
-      const normalizedCitations: ResearchItem[] = (citationsResult.data || []).map((item: any) => ({
-        id: `citation-${item.id}`,
-        title: item.title || 'Untitled Study',
-        authors: item.authors || 'Unknown Authors',
-        publication: item.publication || 'Unknown Publication',
-        year: item.year || new Date().getFullYear(),
-        abstract: undefined,
-        url: item.url,
-        doi: item.doi,
-        source_site: item.url?.includes('pubmed') ? 'PubMed' :
-                    item.url?.includes('pmc') ? 'PMC' :
-                    item.url?.includes('clinicaltrials') ? 'ClinicalTrials.gov' :
-                    item.url?.includes('thelancet') ? 'The Lancet' :
-                    item.url?.includes('nature') ? 'Nature' :
-                    'Journal',
-        source_type: 'citation' as const,
-        relevant_topics: []
-      }));
-
-      // Combine and deduplicate
-      const seenUrls = new Set<string>();
-
-      for (const item of normalizedResearch) {
-        if (item.url && !seenUrls.has(item.url)) {
-          seenUrls.add(item.url);
-          allResearch.push(item);
-        }
-      }
-
-      for (const item of normalizedCitations) {
-        if (item.url && !seenUrls.has(item.url)) {
-          seenUrls.add(item.url);
-          allResearch.push(item);
-        }
-      }
-
-      allResearch.sort((a, b) => (b.year || 0) - (a.year || 0));
-    }
+    console.log(`[Research Page] Loaded ${allResearch.length} approved studies from database`);
 
   } catch (error) {
-    console.error('Research page error, using static data:', error);
-
-    // Fallback to static data (both research and citations)
-    const researchItems = (researchStudiesData as any[]).map((study, index) => ({
-      id: `study-${index + 1}`,
-      title: study.title,
-      authors: study.authors,
-      publication: study.publication,
-      year: study.year,
-      abstract: study.abstract,
-      url: study.url,
-      doi: study.doi,
-      source_site: study.source_site || 'PubMed',
-      source_type: 'research_queue' as const,
-      relevant_topics: study.relevant_topics || [],
-      relevance_score: study.relevance_score || 85
-    }));
-
-    const citationItems = (citationsData as any[]).map((citation, index) => ({
-      id: `citation-${index + 1}`,
-      title: citation.title,
-      authors: citation.authors,
-      publication: citation.publication,
-      year: citation.year,
-      abstract: undefined,
-      url: citation.url,
-      doi: citation.doi,
-      source_site: citation.url?.includes('pubmed') ? 'PubMed' :
-                  citation.url?.includes('pmc') ? 'PMC' :
-                  citation.url?.includes('clinicaltrials') ? 'ClinicalTrials.gov' :
-                  citation.url?.includes('thelancet') ? 'The Lancet' :
-                  citation.url?.includes('nature') ? 'Nature' :
-                  'Journal',
-      source_type: 'citation' as const,
-      relevant_topics: []
-    }));
-
-    // Combine and deduplicate
-    const seenUrls = new Set<string>();
+    console.error('Research page error:', error);
+    // Return empty array on error - no static fallback
     allResearch = [];
-
-    for (const item of researchItems) {
-      if (item.url && !seenUrls.has(item.url)) {
-        seenUrls.add(item.url);
-        allResearch.push(item);
-      }
-    }
-
-    for (const item of citationItems) {
-      if (item.url && !seenUrls.has(item.url)) {
-        seenUrls.add(item.url);
-        allResearch.push(item);
-      }
-    }
-
-    allResearch.sort((a, b) => (b.year || 0) - (a.year || 0));
   }
 
   // Calculate database statistics
