@@ -143,7 +143,7 @@ export const CONDITIONS = {
   },
   addiction: {
     label: 'Addiction',
-    keywords: ['addiction', 'substance abuse', 'substance use', 'opioid', 'withdrawal', 'dependence', 'alcohol use', 'drug abuse', 'cocaine', 'heroin', 'relapse'],
+    keywords: ['addiction', 'substance abuse', 'substance use disorder', 'cannabis use disorder', 'cud', 'opioid use', 'withdrawal symptoms', 'dependence', 'alcohol use disorder', 'drug abuse', 'cocaine', 'heroin', 'relapse prevention', 'discontinuing cannabis', 'quit cannabis', 'cannabis withdrawal'],
     icon: '🔄',
     color: 'green',
     category: 'Neurological & Mental Health',
@@ -193,7 +193,7 @@ export const CONDITIONS = {
   },
   ms: {
     label: 'Multiple Sclerosis',
-    keywords: ['multiple sclerosis', 'ms ', 'demyelinating', 'spasticity', 'sativex', 'nabiximols', 'relapsing-remitting'],
+    keywords: ['multiple sclerosis', 'demyelinating', 'demyelination', 'spasticity', 'sativex', 'nabiximols', 'relapsing-remitting', 'rrms', 'ppms', 'spms'],
     icon: '🧬',
     color: 'orange',
     category: 'Pain & Inflammation',
@@ -383,7 +383,7 @@ function saveFilters(filters: SavedFilters) {
 // UTILITY FUNCTIONS
 // ============================================================================
 
-type SubjectType = 'humans' | 'patients' | 'mice' | 'rats' | 'animals' | 'cells' | 'dogs' | 'cats' | 'unknown';
+type SubjectType = 'humans' | 'mice' | 'rats' | 'animals' | 'cells' | 'dogs' | 'cats' | 'unknown';
 
 interface SampleInfo {
   size: number;
@@ -400,19 +400,13 @@ function extractSampleInfo(text: string, studyType?: string): SampleInfo | null 
     return { size: 0, subjectType: 'cells', label: 'In vitro' };
   }
 
-  // Subject type detection patterns
+  // Subject type detection patterns - all human studies use "humans" for consistency
   const subjectPatterns: { type: SubjectType; patterns: RegExp[]; label: string }[] = [
-    {
-      type: 'patients',
-      patterns: [
-        /(\d+)\s*(?:patient|patients)/gi,
-        /(?:patient|patients)\s*(?:\()?n\s*=\s*(\d+)/gi,
-      ],
-      label: 'patients'
-    },
     {
       type: 'humans',
       patterns: [
+        /(\d+)\s*(?:patient|patients)/gi,
+        /(?:patient|patients)\s*(?:\()?n\s*=\s*(\d+)/gi,
         /(\d+)\s*(?:participant|participants|subject|subjects|volunteer|volunteers|adult|adults|individual|individuals|people|person|persons)/gi,
         /(\d+)\s*(?:healthy|human)\s+(?:volunteer|subject|participant|adult)/gi,
         /(?:enrolled|recruited|randomized|included)\s+(\d+)\s*(?:participant|subject|patient|adult|individual|volunteer)/gi,
@@ -513,10 +507,11 @@ function extractSampleInfo(text: string, studyType?: string): SampleInfo | null 
       return { size: maxSize, subjectType: 'animals', label: `${maxSize} animals` };
     }
     // Default to humans for clinical studies
-    if (lowerText.includes('patient') || lowerText.includes('clinical') || lowerText.includes('trial')) {
-      return { size: maxSize, subjectType: 'patients', label: `${maxSize} patients` };
+    if (lowerText.includes('patient') || lowerText.includes('clinical') || lowerText.includes('trial') ||
+        lowerText.includes('participant') || lowerText.includes('subject')) {
+      return { size: maxSize, subjectType: 'humans', label: `${maxSize} humans` };
     }
-    return { size: maxSize, subjectType: 'humans', label: `${maxSize} subjects` };
+    return { size: maxSize, subjectType: 'humans', label: `${maxSize} humans` };
   }
 
   return null;
@@ -563,25 +558,45 @@ function extractStudyStatus(text: string, url: string): 'completed' | 'ongoing' 
 function extractTreatment(text: string): string | null {
   const lowerText = text.toLowerCase();
 
+  // Helper to normalize CBD terminology
+  const normalizeCBD = (str: string): string => {
+    return str
+      // Normalize cannabidiol to CBD
+      .replace(/cannabidiol/gi, 'CBD')
+      // Ensure CBD is always uppercase
+      .replace(/\bcbd\b/gi, 'CBD')
+      // Fix common patterns
+      .replace(/CBD\s+oil/gi, 'CBD Oil')
+      .replace(/CBD\s+extract/gi, 'CBD Extract')
+      .replace(/CBD\s+isolate/gi, 'CBD Isolate')
+      .replace(/CBD\s+tincture/gi, 'CBD Tincture')
+      .replace(/CBD\s+capsule/gi, 'CBD Capsule')
+      .replace(/oral\s+CBD/gi, 'Oral CBD')
+      .replace(/sublingual\s+CBD/gi, 'Sublingual CBD')
+      .replace(/topical\s+CBD/gi, 'Topical CBD')
+      .replace(/full[- ]spectrum/gi, 'Full-Spectrum')
+      .replace(/broad[- ]spectrum/gi, 'Broad-Spectrum')
+      .trim();
+  };
+
   // CBD-specific patterns
   const cbdPatterns = [
     /(?:oral|sublingual|topical)?\s*(?:cbd|cannabidiol)\s*(?:\d+\s*mg)?/gi,
     /(?:epidiolex|sativex|nabiximols)/gi,
-    /cbd\s*(?:oil|extract|isolate|tincture|capsule)/gi,
+    /(?:cbd|cannabidiol)\s*(?:oil|extract|isolate|tincture|capsule)/gi,
     /(?:full|broad)[- ]spectrum\s*(?:cbd|hemp|cannabis)/gi,
   ];
 
   for (const pattern of cbdPatterns) {
     const match = text.match(pattern);
     if (match) {
-      // Clean up and capitalize
       let treatment = match[0].trim();
-      // Standardize common terms
+      // Standardize branded products
       if (treatment.toLowerCase().includes('epidiolex')) return 'Epidiolex (CBD)';
       if (treatment.toLowerCase().includes('sativex')) return 'Sativex (THC:CBD)';
-      if (treatment.toLowerCase().includes('nabiximols')) return 'Nabiximols';
-      // Return cleaned treatment
-      return treatment.charAt(0).toUpperCase() + treatment.slice(1).toLowerCase();
+      if (treatment.toLowerCase().includes('nabiximols')) return 'Nabiximols (THC:CBD)';
+      // Normalize and return
+      return normalizeCBD(treatment);
     }
   }
 
@@ -589,7 +604,7 @@ function extractTreatment(text: string): string | null {
   const dosePattern = /(\d+)\s*(?:mg|milligram)s?\s*(?:of\s*)?(?:cbd|cannabidiol)/gi;
   const doseMatch = text.match(dosePattern);
   if (doseMatch) {
-    return doseMatch[0].replace(/\s+/g, ' ').trim();
+    return normalizeCBD(doseMatch[0].replace(/\s+/g, ' ').trim());
   }
 
   // Generic intervention patterns
@@ -610,10 +625,12 @@ function getPrimaryCondition(study: any): { key: ConditionKey; data: typeof COND
   const conditionPriority: ConditionKey[] = [
     // High-priority clinical conditions (FDA-approved uses first)
     'epilepsy', 'cancer', 'chemo_side_effects',
+    // Addiction should be checked early (before MS due to spasticity overlap)
+    'addiction',
     // Neurological conditions
     'parkinsons', 'alzheimers', 'ms', 'schizophrenia', 'autism', 'tourettes',
     // Mental health
-    'anxiety', 'ptsd', 'depression', 'adhd', 'addiction',
+    'anxiety', 'ptsd', 'depression', 'adhd',
     // Pain conditions
     'chronic_pain', 'neuropathic_pain', 'fibromyalgia', 'arthritis', 'migraines',
     // Sleep
