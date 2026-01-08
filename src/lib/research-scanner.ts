@@ -12,6 +12,50 @@ interface ResearchItem {
   search_term_matched?: string;
 }
 
+// Calculate Levenshtein distance between two strings
+function levenshteinDistance(str1: string, str2: string): number {
+  const m = str1.length;
+  const n = str2.length;
+  const dp: number[][] = Array(m + 1).fill(null).map(() => Array(n + 1).fill(0));
+
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      if (str1[i - 1] === str2[j - 1]) {
+        dp[i][j] = dp[i - 1][j - 1];
+      } else {
+        dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+      }
+    }
+  }
+  return dp[m][n];
+}
+
+// Calculate title similarity (0-100%)
+function titleSimilarity(title1: string, title2: string): number {
+  const t1 = title1.toLowerCase().trim();
+  const t2 = title2.toLowerCase().trim();
+
+  if (t1 === t2) return 100;
+
+  const maxLen = Math.max(t1.length, t2.length);
+  if (maxLen === 0) return 100;
+
+  const distance = levenshteinDistance(t1, t2);
+  return Math.round((1 - distance / maxLen) * 100);
+}
+
+// Normalize title for comparison (remove punctuation, extra spaces, etc.)
+function normalizeTitle(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^\w\s]/g, ' ')  // Remove punctuation
+    .replace(/\s+/g, ' ')      // Normalize whitespace
+    .trim();
+}
+
 export interface ScanJob {
   id: string;
   status: 'pending' | 'running' | 'completed' | 'failed' | 'cancelled';
@@ -856,22 +900,70 @@ async function saveSourceResults(
   console.log(`[SaveResults] Processing ${results.length} results...`);
 
   for (const study of results) {
+    const titleShort = study.title?.substring(0, 50) || 'Untitled';
+
     // STRICT VALIDATION - Must be about cannabis/CBD
     if (!isRelevantToCannabis(study)) {
       rejected++;
       continue;
     }
 
-    // Check if already exists
-    const { data: existing } = await supabase
+    // DEDUPLICATION CHECK 1: Exact URL match
+    const { data: urlMatch } = await supabase
       .from('kb_research_queue')
-      .select('id')
+      .select('id, title')
       .eq('url', study.url)
       .single();
 
-    if (existing) {
+    if (urlMatch) {
+      console.log(`[Duplicate] URL match: "${titleShort}..." already exists`);
       skipped++;
       continue;
+    }
+
+    // DEDUPLICATION CHECK 2: Exact DOI match (if DOI exists)
+    if (study.doi && study.doi.trim()) {
+      const { data: doiMatch } = await supabase
+        .from('kb_research_queue')
+        .select('id, title')
+        .eq('doi', study.doi)
+        .single();
+
+      if (doiMatch) {
+        console.log(`[Duplicate] DOI match: "${titleShort}..." (DOI: ${study.doi}) matches existing "${doiMatch.title?.substring(0, 40)}..."`);
+        skipped++;
+        continue;
+      }
+    }
+
+    // DEDUPLICATION CHECK 3: Similar title match (90%+ similarity)
+    if (study.title && study.title.length > 20) {
+      const normalizedNewTitle = normalizeTitle(study.title);
+
+      // Query potential matches (same year if available, or recent items)
+      const { data: potentialMatches } = await supabase
+        .from('kb_research_queue')
+        .select('id, title, year')
+        .order('discovered_at', { ascending: false })
+        .limit(500);  // Check against recent entries
+
+      if (potentialMatches) {
+        let foundSimilar = false;
+        for (const existing of potentialMatches) {
+          if (!existing.title) continue;
+
+          const normalizedExisting = normalizeTitle(existing.title);
+          const similarity = titleSimilarity(normalizedNewTitle, normalizedExisting);
+
+          if (similarity >= 90) {
+            console.log(`[Duplicate] Title ${similarity}% similar: "${titleShort}..." matches existing "${existing.title?.substring(0, 40)}..."`);
+            skipped++;
+            foundSimilar = true;
+            break;
+          }
+        }
+        if (foundSimilar) continue;
+      }
     }
 
     // Calculate relevance
@@ -902,14 +994,20 @@ async function saveSourceResults(
       });
 
     if (error) {
-      console.error(`[SaveResults] Failed to insert "${study.title?.substring(0, 50)}...":`, error.message, error.code);
+      // Check if it's a duplicate constraint violation
+      if (error.code === '23505') {
+        console.log(`[Duplicate] DB constraint: "${titleShort}..." already exists (${error.message})`);
+        skipped++;
+      } else {
+        console.error(`[SaveResults] Failed to insert "${titleShort}...":`, error.message, error.code);
+      }
     } else {
       added++;
       console.log(`[SaveResults] Added: "${study.title?.substring(0, 60)}..." (score: ${score})`);
     }
   }
 
-  console.log(`[SaveResults] Batch complete: added=${added}, skipped=${skipped}, rejected=${rejected}`);
+  console.log(`[SaveResults] Batch complete: added=${added}, skipped=${skipped} (duplicates), rejected=${rejected} (not relevant)`);
   return { added, skipped, rejected };
 }
 
