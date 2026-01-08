@@ -75,11 +75,15 @@ export default function AdminResearchPage() {
 
       if (data.active && data.job) {
         setActiveJob(data.job);
+        setStarting(false); // Reset starting state if we have an active job
       } else {
         setActiveJob(null);
+        setStarting(false); // Reset starting state if no active job
       }
     } catch (err) {
       console.error('Failed to check active scan:', err);
+      setActiveJob(null);
+      setStarting(false);
     }
   }, []);
 
@@ -89,18 +93,33 @@ export default function AdminResearchPage() {
       const response = await fetch(`/api/admin/scan/${jobId}`);
       const data = await response.json();
 
+      if (response.status === 404 || data.error === 'Job not found') {
+        // Job was deleted from database - reset state
+        console.log('Job not found, resetting state');
+        setActiveJob(null);
+        setStarting(false);
+        return;
+      }
+
       if (data.job) {
         setActiveJob(data.job);
 
         // If job is done, clear after a delay
         if (['completed', 'failed', 'cancelled'].includes(data.job.status)) {
+          setStarting(false);
           setTimeout(() => {
             checkActiveScan();
           }, 5000);
         }
+      } else {
+        // No job in response - reset
+        setActiveJob(null);
+        setStarting(false);
       }
     } catch (err) {
       console.error('Failed to fetch job status:', err);
+      // On error, check for active scans to reset state
+      checkActiveScan();
     }
   }, [checkActiveScan]);
 
@@ -109,14 +128,18 @@ export default function AdminResearchPage() {
     checkActiveScan();
 
     // Poll for updates every 2 seconds when there's an active job
+    // Also periodically re-check for active scans to catch deleted jobs
     const interval = setInterval(() => {
       if (activeJob && ['pending', 'running'].includes(activeJob.status)) {
         fetchJobStatus(activeJob.id);
+      } else if (starting) {
+        // If we're in starting state but no active job, check again
+        checkActiveScan();
       }
     }, 2000);
 
     return () => clearInterval(interval);
-  }, [activeJob?.id, activeJob?.status, checkActiveScan, fetchJobStatus]);
+  }, [activeJob?.id, activeJob?.status, starting, checkActiveScan, fetchJobStatus]);
 
   // Update elapsed time every second when scanning
   useEffect(() => {
@@ -226,6 +249,16 @@ export default function AdminResearchPage() {
     } finally {
       setStopping(false);
     }
+  };
+
+  // Force reset UI state (for stuck states)
+  const forceReset = () => {
+    setActiveJob(null);
+    setStarting(false);
+    setStopping(false);
+    setError(null);
+    setElapsedTime('0s');
+    checkActiveScan();
   };
 
   const isScanning = activeJob && ['pending', 'running'].includes(activeJob.status);
@@ -438,6 +471,19 @@ export default function AdminResearchPage() {
       {error && (
         <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
           <strong>Error:</strong> {error}
+        </div>
+      )}
+
+      {/* Stuck State Warning */}
+      {(starting && !activeJob) && (
+        <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-yellow-800 flex justify-between items-center">
+          <span>UI appears stuck. If this persists, try resetting.</span>
+          <button
+            onClick={forceReset}
+            className="px-3 py-1 bg-yellow-200 hover:bg-yellow-300 rounded text-sm font-medium"
+          >
+            Reset UI
+          </button>
         </div>
       )}
 
