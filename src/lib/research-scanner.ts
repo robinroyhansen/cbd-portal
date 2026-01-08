@@ -853,6 +853,8 @@ async function saveSourceResults(
   let skipped = 0;
   let rejected = 0;
 
+  console.log(`[SaveResults] Processing ${results.length} results...`);
+
   for (const study of results) {
     // STRICT VALIDATION - Must be about cannabis/CBD
     if (!isRelevantToCannabis(study)) {
@@ -899,9 +901,15 @@ async function saveSourceResults(
         status: 'pending'
       });
 
-    if (!error) added++;
+    if (error) {
+      console.error(`[SaveResults] Failed to insert "${study.title?.substring(0, 50)}...":`, error.message, error.code);
+    } else {
+      added++;
+      console.log(`[SaveResults] Added: "${study.title?.substring(0, 60)}..." (score: ${score})`);
+    }
   }
 
+  console.log(`[SaveResults] Batch complete: added=${added}, skipped=${skipped}, rejected=${rejected}`);
   return { added, skipped, rejected };
 }
 
