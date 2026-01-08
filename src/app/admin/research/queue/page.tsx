@@ -45,7 +45,7 @@ export default function ResearchQueuePage() {
   const fetchResearch = async () => {
     setLoading(true);
     const { data, error } = await supabase
-      .from('research_queue')
+      .from('kb_research_queue')
       .select('*')
       .order('discovered_at', { ascending: false });
 
@@ -59,7 +59,7 @@ export default function ResearchQueuePage() {
 
   const updateResearchStatus = async (id: string, status: 'approved' | 'rejected', rejectionReason?: string) => {
     const { error } = await supabase
-      .from('research_queue')
+      .from('kb_research_queue')
       .update({
         status,
         reviewed_at: new Date().toISOString(),
