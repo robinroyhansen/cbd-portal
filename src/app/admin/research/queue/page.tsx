@@ -165,10 +165,7 @@ export default function ResearchQueuePage() {
   };
 
   const rejectResearch = (id: string) => {
-    const reason = prompt('Reason for rejection (optional):');
-    if (reason !== null) { // User didn't cancel
-      updateResearchStatus(id, 'rejected', reason || undefined);
-    }
+    updateResearchStatus(id, 'rejected');
   };
 
   // Enhanced filtering and search
@@ -243,9 +240,6 @@ export default function ResearchQueuePage() {
   const handleBulkApprove = async () => {
     if (bulkSelected.length === 0) return;
 
-    const confirmMsg = `Approve ${bulkSelected.length} research items?`;
-    if (!confirm(confirmMsg)) return;
-
     for (const id of bulkSelected) {
       await approveResearch(id);
     }
@@ -255,11 +249,8 @@ export default function ResearchQueuePage() {
   const handleBulkReject = async () => {
     if (bulkSelected.length === 0) return;
 
-    const reason = prompt(`Rejection reason for ${bulkSelected.length} items:`);
-    if (reason === null) return;
-
     for (const id of bulkSelected) {
-      await updateResearchStatus(id, 'rejected', reason || undefined);
+      await updateResearchStatus(id, 'rejected');
     }
     setBulkSelected([]);
   };
