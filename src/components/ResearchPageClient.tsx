@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import { useRouter, useSearchParams } from 'next/navigation';
 import {
   QualityTier,
   StudyType,
@@ -662,6 +663,202 @@ function getPrimaryCondition(study: any): { key: ConditionKey; data: typeof COND
   return null;
 }
 
+// Study outcome detection from abstract text
+type StudyOutcome = 'positive' | 'mixed' | 'negative' | 'ongoing' | null;
+
+function extractStudyOutcome(text: string, status?: string): StudyOutcome {
+  if (!text) return null;
+  const lowerText = text.toLowerCase();
+
+  // Check for ongoing/recruiting status first
+  if (status === 'recruiting' || status === 'ongoing' ||
+      lowerText.includes('recruiting') || lowerText.includes('in progress') ||
+      lowerText.includes('ongoing') || lowerText.includes('currently enrolling')) {
+    return 'ongoing';
+  }
+
+  // Positive indicators
+  const positivePatterns = [
+    'significant improvement', 'significantly improved', 'significantly reduced',
+    'effective', 'efficacious', 'beneficial effect', 'positive effect',
+    'demonstrated efficacy', 'showed efficacy', 'therapeutic effect',
+    'well tolerated', 'safe and effective', 'promising results',
+    'statistically significant', 'clinically significant',
+  ];
+
+  // Negative indicators
+  const negativePatterns = [
+    'no significant', 'not significant', 'no effect', 'ineffective',
+    'no improvement', 'no difference', 'failed to demonstrate',
+    'did not improve', 'no therapeutic', 'no benefit',
+  ];
+
+  // Mixed indicators
+  const mixedPatterns = [
+    'mixed results', 'partial improvement', 'some improvement',
+    'modest effect', 'marginal', 'inconclusive', 'variable response',
+    'limited effect', 'weak effect', 'some patients',
+  ];
+
+  const hasPositive = positivePatterns.some(p => lowerText.includes(p));
+  const hasNegative = negativePatterns.some(p => lowerText.includes(p));
+  const hasMixed = mixedPatterns.some(p => lowerText.includes(p));
+
+  if (hasMixed) return 'mixed';
+  if (hasPositive && hasNegative) return 'mixed';
+  if (hasPositive) return 'positive';
+  if (hasNegative) return 'negative';
+
+  return null;
+}
+
+// Circular quality score indicator component
+function CircularQualityScore({ score, size = 48 }: { score: number; size?: number }) {
+  const radius = (size - 8) / 2;
+  const circumference = 2 * Math.PI * radius;
+  const progress = (score / 100) * circumference;
+
+  // Color based on score
+  const getColor = (s: number) => {
+    if (s >= 70) return { stroke: '#22c55e', bg: '#dcfce7', text: '#166534' }; // green
+    if (s >= 40) return { stroke: '#eab308', bg: '#fef9c3', text: '#854d0e' }; // yellow
+    return { stroke: '#ef4444', bg: '#fee2e2', text: '#991b1b' }; // red
+  };
+
+  const colors = getColor(score);
+
+  return (
+    <div className="relative" style={{ width: size, height: size }}>
+      <svg className="transform -rotate-90" width={size} height={size}>
+        {/* Background circle */}
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          fill={colors.bg}
+          stroke="#e5e7eb"
+          strokeWidth="3"
+        />
+        {/* Progress circle */}
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          fill="none"
+          stroke={colors.stroke}
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeDasharray={circumference}
+          strokeDashoffset={circumference - progress}
+          className="transition-all duration-300"
+        />
+      </svg>
+      <div
+        className="absolute inset-0 flex items-center justify-center font-bold text-sm"
+        style={{ color: colors.text }}
+      >
+        {score}
+      </div>
+    </div>
+  );
+}
+
+// Source logo/icon component
+function SourceIcon({ source }: { source: string }) {
+  const lowerSource = source?.toLowerCase() || '';
+
+  if (lowerSource.includes('clinicaltrials')) {
+    return (
+      <span className="inline-flex items-center gap-1 text-xs text-blue-600" title="ClinicalTrials.gov">
+        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+        </svg>
+        <span>ClinicalTrials.gov</span>
+      </span>
+    );
+  }
+
+  if (lowerSource.includes('pubmed') || lowerSource.includes('pmc') || lowerSource.includes('ncbi')) {
+    return (
+      <span className="inline-flex items-center gap-1 text-xs text-green-600" title="PubMed">
+        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+        </svg>
+        <span>PubMed</span>
+      </span>
+    );
+  }
+
+  // Default source display
+  return (
+    <span className="text-xs text-gray-500">{source}</span>
+  );
+}
+
+// Study outcome badge component
+function OutcomeBadge({ outcome }: { outcome: StudyOutcome }) {
+  if (!outcome) return null;
+
+  const config = {
+    positive: { icon: '✅', label: 'Positive results', className: 'bg-green-50 text-green-700 border-green-200' },
+    mixed: { icon: '⚠️', label: 'Mixed results', className: 'bg-yellow-50 text-yellow-700 border-yellow-200' },
+    negative: { icon: '❌', label: 'No effect', className: 'bg-red-50 text-red-700 border-red-200' },
+    ongoing: { icon: '⏳', label: 'Ongoing', className: 'bg-blue-50 text-blue-700 border-blue-200' },
+  }[outcome];
+
+  return (
+    <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium border ${config.className}`}>
+      <span>{config.icon}</span>
+      <span>{config.label}</span>
+    </span>
+  );
+}
+
+// Top conditions summary component
+function TopConditionsSummary({
+  conditionStats,
+  onConditionClick,
+  selectedConditions
+}: {
+  conditionStats: Record<ConditionKey, number>;
+  onConditionClick: (condition: ConditionKey) => void;
+  selectedConditions: ConditionKey[];
+}) {
+  // Get top 6 conditions by count
+  const topConditions = Object.entries(conditionStats)
+    .filter(([_, count]) => count > 0)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 6) as [ConditionKey, number][];
+
+  if (topConditions.length === 0) return null;
+
+  return (
+    <div className="flex flex-wrap items-center gap-2 text-sm">
+      <span className="text-gray-500 font-medium">Most researched:</span>
+      {topConditions.map(([key, count], index) => {
+        const condition = CONDITIONS[key];
+        const isSelected = selectedConditions.includes(key);
+        return (
+          <button
+            key={key}
+            onClick={() => onConditionClick(key)}
+            className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs transition-colors ${
+              isSelected
+                ? 'bg-blue-600 text-white'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
+            title={`Filter by ${condition.label}`}
+          >
+            <span aria-hidden="true">{condition.icon}</span>
+            <span>{condition.label}</span>
+            <span className={`ml-1 ${isSelected ? 'text-blue-200' : 'text-gray-400'}`}>({count})</span>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
 // Condition badge colors (Tailwind classes)
 const CONDITION_COLORS: Record<string, { bg: string; text: string; border: string }> = {
   // Neurological & Mental Health
@@ -720,6 +917,8 @@ function matchesCondition(study: any, conditionKey: ConditionKey): boolean {
 // ============================================================================
 
 export function ResearchPageClient({ initialResearch, condition }: ResearchPageClientProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const currentYear = new Date().getFullYear();
 
   // Calculate year range from data
@@ -745,24 +944,100 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
   const [viewMode, setViewMode] = useState<ViewMode>('cards');
   const [showHumanStudiesOnly, setShowHumanStudiesOnly] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [urlInitialized, setUrlInitialized] = useState(false);
   const itemsPerPage = 20;
 
-  // Load saved filters on mount
+  // Load filters from URL on mount
   useEffect(() => {
-    const saved = loadSavedFilters();
-    if (saved && !condition) {
-      if (saved.searchQuery) setSearchQuery(saved.searchQuery);
-      if (saved.activeCategory) setActiveCategory(saved.activeCategory);
-      if (saved.selectedQualityTiers) setSelectedQualityTiers(saved.selectedQualityTiers);
-      if (saved.selectedStudyTypes) setSelectedStudyTypes(saved.selectedStudyTypes);
-      if (saved.selectedConditions) setSelectedConditions(saved.selectedConditions);
-      if (saved.yearRange) setYearRange(saved.yearRange);
-      if (saved.qualityRange) setQualityRange(saved.qualityRange);
-      if (saved.showHumanStudiesOnly !== undefined) setShowHumanStudiesOnly(saved.showHumanStudiesOnly);
-      if (saved.sortBy) setSortBy(saved.sortBy);
-      if (saved.viewMode) setViewMode(saved.viewMode);
+    if (urlInitialized || condition) return;
+
+    const urlCategory = searchParams.get('category') as StudyCategory;
+    const urlCondition = searchParams.get('condition');
+    const urlQuality = searchParams.get('quality');
+    const urlYear = searchParams.get('year');
+    const urlSearch = searchParams.get('q');
+
+    let hasUrlFilters = false;
+
+    if (urlCategory && ['all', 'cbd', 'cannabinoids', 'cannabis', 'medical-cannabis'].includes(urlCategory)) {
+      setActiveCategory(urlCategory);
+      hasUrlFilters = true;
     }
-  }, [condition]);
+    if (urlCondition && urlCondition in CONDITIONS) {
+      setSelectedConditions([urlCondition as ConditionKey]);
+      hasUrlFilters = true;
+    }
+    if (urlQuality) {
+      const minQuality = parseInt(urlQuality);
+      if (!isNaN(minQuality)) {
+        setQualityRange({ min: minQuality, max: 100 });
+        hasUrlFilters = true;
+      }
+    }
+    if (urlYear) {
+      const minYear = parseInt(urlYear);
+      if (!isNaN(minYear)) {
+        setYearRange({ min: minYear, max: dataYearRange.max });
+        hasUrlFilters = true;
+      }
+    }
+    if (urlSearch) {
+      setSearchQuery(urlSearch);
+      hasUrlFilters = true;
+    }
+
+    // Handle type=rct parameter
+    const urlType = searchParams.get('type');
+    if (urlType === 'rct') {
+      setSelectedStudyTypes([StudyType.RANDOMIZED_CONTROLLED_TRIAL]);
+      hasUrlFilters = true;
+    }
+
+    // Handle human=1 parameter
+    const urlHuman = searchParams.get('human');
+    if (urlHuman === '1') {
+      setShowHumanStudiesOnly(true);
+      hasUrlFilters = true;
+    }
+
+    // Only load from localStorage if no URL params
+    if (!hasUrlFilters) {
+      const saved = loadSavedFilters();
+      if (saved) {
+        if (saved.searchQuery) setSearchQuery(saved.searchQuery);
+        if (saved.activeCategory) setActiveCategory(saved.activeCategory);
+        if (saved.selectedQualityTiers) setSelectedQualityTiers(saved.selectedQualityTiers);
+        if (saved.selectedStudyTypes) setSelectedStudyTypes(saved.selectedStudyTypes);
+        if (saved.selectedConditions) setSelectedConditions(saved.selectedConditions);
+        if (saved.yearRange) setYearRange(saved.yearRange);
+        if (saved.qualityRange) setQualityRange(saved.qualityRange);
+        if (saved.showHumanStudiesOnly !== undefined) setShowHumanStudiesOnly(saved.showHumanStudiesOnly);
+        if (saved.sortBy) setSortBy(saved.sortBy);
+        if (saved.viewMode) setViewMode(saved.viewMode);
+      }
+    }
+
+    setUrlInitialized(true);
+  }, [searchParams, condition, urlInitialized, dataYearRange.max]);
+
+  // Update URL when filters change
+  useEffect(() => {
+    if (!urlInitialized || condition) return;
+
+    const params = new URLSearchParams();
+    if (activeCategory !== 'all') params.set('category', activeCategory);
+    if (selectedConditions.length === 1) params.set('condition', selectedConditions[0]);
+    if (qualityRange.min > 0) params.set('quality', qualityRange.min.toString());
+    if (yearRange.min > dataYearRange.min) params.set('year', yearRange.min.toString());
+    if (searchQuery) params.set('q', searchQuery);
+    if (selectedStudyTypes.length === 1 && selectedStudyTypes[0] === StudyType.RANDOMIZED_CONTROLLED_TRIAL) {
+      params.set('type', 'rct');
+    }
+    if (showHumanStudiesOnly) params.set('human', '1');
+
+    const newUrl = params.toString() ? `/research?${params.toString()}` : '/research';
+    window.history.replaceState({}, '', newUrl);
+  }, [activeCategory, selectedConditions, qualityRange, yearRange, searchQuery, urlInitialized, condition, dataYearRange.min, selectedStudyTypes, showHumanStudiesOnly]);
 
   // Save filters when they change
   useEffect(() => {
@@ -790,6 +1065,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
       const treatment = extractTreatment(text);
       const studyStatus = extractStudyStatus(text, study.url);
       const primaryCondition = getPrimaryCondition(study);
+      const outcome = extractStudyOutcome(text, studyStatus || undefined);
 
       return {
         ...study,
@@ -800,7 +1076,8 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
         sampleInfo,
         treatment,
         studyStatus,
-        primaryCondition
+        primaryCondition,
+        outcome
       };
     });
   }, [initialResearch]);
@@ -1357,11 +1634,34 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
             </div>
           </div>
 
+          {/* Top Conditions Quick Filter */}
+          <div className="bg-white rounded-lg border border-gray-200 p-3">
+            <TopConditionsSummary
+              conditionStats={conditionStats}
+              selectedConditions={selectedConditions}
+              onConditionClick={(condKey) => {
+                if (selectedConditions.includes(condKey)) {
+                  setSelectedConditions(selectedConditions.filter(c => c !== condKey));
+                } else {
+                  setSelectedConditions([condKey]);
+                }
+                setCurrentPage(1);
+              }}
+            />
+          </div>
+
           {/* Research Results */}
           {viewMode === 'cards' && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4" role="list" aria-label="Research studies">
               {paginatedStudies.map((study) => (
-                <ResearchCard key={study.id} study={study} />
+                <ResearchCard
+                  key={study.id}
+                  study={study}
+                  onConditionClick={(condKey) => {
+                    setSelectedConditions([condKey]);
+                    setCurrentPage(1);
+                  }}
+                />
               ))}
             </div>
           )}
@@ -1816,7 +2116,7 @@ function Breadcrumbs({ condition }: { condition?: string }) {
 // RESEARCH CARD COMPONENT - Compact Design
 // ============================================================================
 
-function ResearchCard({ study }: { study: any }) {
+function ResearchCard({ study, onConditionClick }: { study: any; onConditionClick?: (condition: ConditionKey) => void }) {
   const [expanded, setExpanded] = useState(false);
 
   // Study type icon mapping
@@ -1872,20 +2172,23 @@ function ResearchCard({ study }: { study: any }) {
             {study.authors?.split(',').slice(0, 2).join(', ')}{study.authors?.split(',').length > 2 ? ' et al.' : ''} • {study.year}
           </p>
         </div>
-        <div className="shrink-0 text-right">
-          <div className="text-lg font-bold text-gray-900">{study.qualityScore}</div>
-          <div className="text-xs text-gray-500">score</div>
+        <div className="shrink-0" title={`Quality Score: ${study.qualityScore}/100`}>
+          <CircularQualityScore score={study.qualityScore} size={44} />
         </div>
       </div>
 
       {/* Row 2: Key Info Badges */}
       <div className="flex flex-wrap items-center gap-2 mb-3">
-        {/* Primary Condition Badge */}
+        {/* Primary Condition Badge - Clickable */}
         {study.primaryCondition && conditionColors && (
-          <span className={`inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium ${conditionColors.bg} ${conditionColors.text} border ${conditionColors.border}`}>
+          <button
+            onClick={() => onConditionClick?.(study.primaryCondition.key)}
+            className={`inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium ${conditionColors.bg} ${conditionColors.text} border ${conditionColors.border} hover:opacity-80 transition-opacity cursor-pointer`}
+            title={`Filter by ${study.primaryCondition.data.label}`}
+          >
             <span aria-hidden="true">{study.primaryCondition.data.icon}</span>
             {study.primaryCondition.data.label}
-          </span>
+          </button>
         )}
 
         {/* Sample Size Badge with Subject Type */}
@@ -1920,6 +2223,9 @@ function ResearchCard({ study }: { study: any }) {
         <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">
           {study.studyType}
         </span>
+
+        {/* Outcome Badge */}
+        {study.outcome && <OutcomeBadge outcome={study.outcome} />}
       </div>
 
       {/* Row 3: Treatment/Intervention */}
@@ -2004,8 +2310,8 @@ function ResearchCard({ study }: { study: any }) {
             )}
 
             {/* Metadata */}
-            <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-400 pt-2 border-t">
-              <span>Source: {study.source_site}</span>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-400 pt-2 border-t">
+              <SourceIcon source={study.source_site} />
               {study.doi && <span>DOI: {study.doi}</span>}
               <span>Publication: {study.publication}</span>
             </div>
