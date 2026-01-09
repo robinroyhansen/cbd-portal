@@ -40,13 +40,22 @@ export async function GET(request: NextRequest) {
     }
 
     // Transform to include review status
-    const brandsWithReviewStatus = (brands || []).map(brand => ({
-      ...brand,
-      has_review: brand.kb_brand_reviews && brand.kb_brand_reviews.length > 0,
-      review_score: brand.kb_brand_reviews?.[0]?.overall_score,
-      review_published: brand.kb_brand_reviews?.[0]?.is_published,
-      review_id: brand.kb_brand_reviews?.[0]?.id
-    }));
+    // Note: kb_brand_reviews can be an array or single object depending on Supabase's inference
+    const brandsWithReviewStatus = (brands || []).map(brand => {
+      const reviews = brand.kb_brand_reviews;
+      // Handle both array and object cases
+      const review = Array.isArray(reviews)
+        ? reviews[0]
+        : reviews; // Single object (one-to-one relationship)
+
+      return {
+        ...brand,
+        has_review: !!review,
+        review_score: review?.overall_score ?? null,
+        review_published: review?.is_published ?? false,
+        review_id: review?.id ?? null
+      };
+    });
 
     // Get counts
     const { data: allBrands } = await supabase
