@@ -344,6 +344,94 @@ export const CONDITIONS = {
 export type ConditionKey = keyof typeof CONDITIONS;
 
 // ============================================================================
+// CANNABINOID DEFINITIONS
+// ============================================================================
+
+export const CANNABINOIDS = {
+  CBD: {
+    label: 'CBD',
+    fullName: 'Cannabidiol',
+    patterns: ['cannabidiol', 'cbd'],
+    color: 'green'
+  },
+  THC: {
+    label: 'THC',
+    fullName: 'Tetrahydrocannabinol',
+    patterns: ['tetrahydrocannabinol', 'thc', 'Δ9-thc', 'delta-9-thc', 'delta-9 thc', 'Δ-9-thc'],
+    color: 'purple'
+  },
+  CBG: {
+    label: 'CBG',
+    fullName: 'Cannabigerol',
+    patterns: ['cannabigerol', 'cbg'],
+    color: 'blue'
+  },
+  CBN: {
+    label: 'CBN',
+    fullName: 'Cannabinol',
+    patterns: ['cannabinol', 'cbn'],
+    color: 'amber'
+  },
+  CBC: {
+    label: 'CBC',
+    fullName: 'Cannabichromene',
+    patterns: ['cannabichromene', 'cbc'],
+    color: 'cyan'
+  },
+  THCV: {
+    label: 'THCV',
+    fullName: 'Tetrahydrocannabivarin',
+    patterns: ['tetrahydrocannabivarin', 'thcv'],
+    color: 'orange'
+  },
+  CBDV: {
+    label: 'CBDV',
+    fullName: 'Cannabidivarin',
+    patterns: ['cannabidivarin', 'cbdv'],
+    color: 'teal'
+  },
+  'Delta-8': {
+    label: 'Delta-8 THC',
+    fullName: 'Delta-8-Tetrahydrocannabinol',
+    patterns: ['delta-8-thc', 'delta-8 thc', 'Δ8-thc', 'Δ-8-thc', 'delta-8-tetrahydrocannabinol'],
+    color: 'pink'
+  },
+  THCA: {
+    label: 'THCA',
+    fullName: 'Tetrahydrocannabinolic acid',
+    patterns: ['tetrahydrocannabinolic acid', 'thca'],
+    color: 'indigo'
+  },
+  CBDA: {
+    label: 'CBDA',
+    fullName: 'Cannabidiolic acid',
+    patterns: ['cannabidiolic acid', 'cbda'],
+    color: 'lime'
+  }
+} as const;
+
+export type CannabinoidKey = keyof typeof CANNABINOIDS;
+
+// Detect cannabinoids from title and abstract
+export function detectCannabinoids(title: string, abstract?: string): CannabinoidKey[] {
+  const text = `${title || ''} ${abstract || ''}`.toLowerCase();
+  const detected: CannabinoidKey[] = [];
+
+  for (const [key, cannabinoid] of Object.entries(CANNABINOIDS)) {
+    for (const pattern of cannabinoid.patterns) {
+      // Use word boundary check
+      const regex = new RegExp(`\\b${pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+      if (regex.test(text)) {
+        detected.push(key as CannabinoidKey);
+        break;
+      }
+    }
+  }
+
+  return detected;
+}
+
+// ============================================================================
 // FILTER PERSISTENCE
 // ============================================================================
 
@@ -355,6 +443,7 @@ interface SavedFilters {
   selectedQualityTiers: QualityTier[];
   selectedStudyTypes: StudyType[];
   selectedConditions: ConditionKey[];
+  selectedCannabinoids: CannabinoidKey[];
   yearRange: { min: number; max: number };
   qualityRange: { min: number; max: number };
   subjectType: SubjectType;
@@ -938,6 +1027,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
   const [selectedConditions, setSelectedConditions] = useState<ConditionKey[]>(
     condition && condition in CONDITIONS ? [condition as ConditionKey] : []
   );
+  const [selectedCannabinoids, setSelectedCannabinoids] = useState<CannabinoidKey[]>([]);
   const [yearRange, setYearRange] = useState<{ min: number; max: number }>(dataYearRange);
   const [qualityRange, setQualityRange] = useState<{ min: number; max: number }>({ min: 0, max: 100 });
   const [sortBy, setSortBy] = useState<SortOption>('quality');
@@ -960,9 +1050,10 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
     const urlType = searchParams.get('type');
     const urlSubject = searchParams.get('subject');
     const urlHuman = searchParams.get('human');
+    const urlCannabinoids = searchParams.get('cannabinoids');
 
     // Check if we have any URL params
-    const hasUrlFilters = !!(urlCategory || urlCondition || urlQuality || urlYear || urlSearch || urlType || urlSubject || urlHuman);
+    const hasUrlFilters = !!(urlCategory || urlCondition || urlQuality || urlYear || urlSearch || urlType || urlSubject || urlHuman || urlCannabinoids);
 
     if (hasUrlFilters) {
       // Apply URL params - reset to defaults first for clean state
@@ -972,6 +1063,14 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
       setYearRange(urlYear ? { min: parseInt(urlYear) || dataYearRange.min, max: dataYearRange.max } : dataYearRange);
       setSearchQuery(urlSearch || '');
       setSelectedStudyTypes(urlType === 'rct' ? [StudyType.RANDOMIZED_CONTROLLED_TRIAL] : []);
+
+      // Handle cannabinoids from URL
+      if (urlCannabinoids) {
+        const cannabinoidKeys = urlCannabinoids.split(',').filter(c => c in CANNABINOIDS) as CannabinoidKey[];
+        setSelectedCannabinoids(cannabinoidKeys);
+      } else {
+        setSelectedCannabinoids([]);
+      }
 
       // Handle subject type
       if (urlSubject === 'human' || urlSubject === 'animal') {
@@ -992,6 +1091,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
         if (saved.selectedQualityTiers) setSelectedQualityTiers(saved.selectedQualityTiers);
         if (saved.selectedStudyTypes) setSelectedStudyTypes(saved.selectedStudyTypes);
         if (saved.selectedConditions) setSelectedConditions(saved.selectedConditions);
+        if (saved.selectedCannabinoids) setSelectedCannabinoids(saved.selectedCannabinoids);
         if (saved.yearRange) setYearRange(saved.yearRange);
         if (saved.qualityRange) setQualityRange(saved.qualityRange);
         if (saved.subjectType) setSubjectType(saved.subjectType);
@@ -1017,10 +1117,11 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
       params.set('type', 'rct');
     }
     if (subjectType !== 'all') params.set('subject', subjectType);
+    if (selectedCannabinoids.length > 0) params.set('cannabinoids', selectedCannabinoids.join(','));
 
     const newUrl = params.toString() ? `/research?${params.toString()}` : '/research';
     window.history.replaceState({}, '', newUrl);
-  }, [activeCategory, selectedConditions, qualityRange, yearRange, searchQuery, urlInitialized, condition, dataYearRange.min, selectedStudyTypes, subjectType]);
+  }, [activeCategory, selectedConditions, qualityRange, yearRange, searchQuery, urlInitialized, condition, dataYearRange.min, selectedStudyTypes, subjectType, selectedCannabinoids]);
 
   // Save filters when they change
   useEffect(() => {
@@ -1030,6 +1131,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
       selectedQualityTiers,
       selectedStudyTypes,
       selectedConditions,
+      selectedCannabinoids,
       yearRange,
       qualityRange,
       subjectType,
@@ -1037,7 +1139,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
       viewMode
     };
     saveFilters(filters);
-  }, [searchQuery, activeCategory, selectedQualityTiers, selectedStudyTypes, selectedConditions, yearRange, qualityRange, subjectType, sortBy, viewMode]);
+  }, [searchQuery, activeCategory, selectedQualityTiers, selectedStudyTypes, selectedConditions, selectedCannabinoids, yearRange, qualityRange, subjectType, sortBy, viewMode]);
 
   // Calculate quality metrics for all studies
   const studiesWithQuality = useMemo(() => {
@@ -1049,6 +1151,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
       const studyStatus = extractStudyStatus(text, study.url);
       const primaryCondition = getPrimaryCondition(study);
       const outcome = extractStudyOutcome(text, studyStatus || undefined);
+      const cannabinoids = detectCannabinoids(study.title, study.abstract);
 
       return {
         ...study,
@@ -1060,7 +1163,8 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
         treatment,
         studyStatus,
         primaryCondition,
-        outcome
+        outcome,
+        cannabinoids
       };
     });
   }, [initialResearch]);
@@ -1099,6 +1203,19 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
 
     for (const key of Object.keys(CONDITIONS) as ConditionKey[]) {
       stats[key] = studiesWithQuality.filter(s => matchesCondition(s, key)).length;
+    }
+
+    return stats;
+  }, [studiesWithQuality]);
+
+  // Cannabinoid statistics - counts based on filtered studies (respects other filters)
+  const cannabinoidStats = useMemo(() => {
+    const stats: Record<CannabinoidKey, number> = {} as Record<CannabinoidKey, number>;
+
+    for (const key of Object.keys(CANNABINOIDS) as CannabinoidKey[]) {
+      stats[key] = studiesWithQuality.filter(s =>
+        s.cannabinoids && s.cannabinoids.includes(key)
+      ).length;
     }
 
     return stats;
@@ -1222,6 +1339,13 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
       filtered = filtered.filter(study => selectedStudyTypes.includes(study.studyType));
     }
 
+    // Cannabinoid filter (OR logic - show studies with ANY selected cannabinoid)
+    if (selectedCannabinoids.length > 0) {
+      filtered = filtered.filter(study =>
+        study.cannabinoids && study.cannabinoids.some((c: CannabinoidKey) => selectedCannabinoids.includes(c))
+      );
+    }
+
     // Year range filter
     filtered = filtered.filter(study =>
       study.year >= yearRange.min && study.year <= yearRange.max
@@ -1262,7 +1386,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
     }
 
     return filtered;
-  }, [studiesWithQuality, activeCategory, selectedConditions, searchQuery, selectedQualityTiers, selectedStudyTypes, yearRange, qualityRange, sortBy, subjectType]);
+  }, [studiesWithQuality, activeCategory, selectedConditions, selectedCannabinoids, searchQuery, selectedQualityTiers, selectedStudyTypes, yearRange, qualityRange, sortBy, subjectType]);
 
   // Pagination
   const totalPages = Math.ceil(filteredStudies.length / itemsPerPage);
@@ -1277,6 +1401,15 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
       prev.includes(tier)
         ? prev.filter(t => t !== tier)
         : [...prev, tier]
+    );
+    setCurrentPage(1);
+  };
+
+  const toggleCannabinoid = (cannabinoid: CannabinoidKey) => {
+    setSelectedCannabinoids(prev =>
+      prev.includes(cannabinoid)
+        ? prev.filter(c => c !== cannabinoid)
+        : [...prev, cannabinoid]
     );
     setCurrentPage(1);
   };
@@ -1305,6 +1438,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
     setSelectedQualityTiers([]);
     setSelectedStudyTypes([]);
     setSelectedConditions([]);
+    setSelectedCannabinoids([]);
     setYearRange(dataYearRange);
     setQualityRange({ min: 0, max: 100 });
     setSubjectType('all');
@@ -1317,6 +1451,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
     selectedQualityTiers.length,
     selectedStudyTypes.length,
     selectedConditions.length,
+    selectedCannabinoids.length,
     (yearRange.min !== dataYearRange.min || yearRange.max !== dataYearRange.max) ? 1 : 0,
     (qualityRange.min !== 0 || qualityRange.max !== 100) ? 1 : 0,
     subjectType !== 'all' ? 1 : 0
@@ -1478,6 +1613,9 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
                 availableStudyTypes={availableStudyTypes}
                 subjectType={subjectType}
                 setSubjectType={setSubjectType}
+                selectedCannabinoids={selectedCannabinoids}
+                toggleCannabinoid={toggleCannabinoid}
+                cannabinoidStats={cannabinoidStats}
                 clearAllFilters={clearAllFilters}
                 setCurrentPage={setCurrentPage}
               />
@@ -1526,6 +1664,9 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
               availableStudyTypes={availableStudyTypes}
               subjectType={subjectType}
               setSubjectType={setSubjectType}
+              selectedCannabinoids={selectedCannabinoids}
+              toggleCannabinoid={toggleCannabinoid}
+              cannabinoidStats={cannabinoidStats}
               clearAllFilters={clearAllFilters}
               setCurrentPage={setCurrentPage}
             />
@@ -1923,6 +2064,9 @@ interface FilterSidebarContentProps {
   availableStudyTypes: StudyType[];
   subjectType: SubjectType;
   setSubjectType: (type: SubjectType) => void;
+  selectedCannabinoids: CannabinoidKey[];
+  toggleCannabinoid: (cannabinoid: CannabinoidKey) => void;
+  cannabinoidStats: Record<CannabinoidKey, number>;
   clearAllFilters: () => void;
   setCurrentPage: (page: number) => void;
 }
@@ -1947,6 +2091,9 @@ function FilterSidebarContent({
   availableStudyTypes,
   subjectType,
   setSubjectType,
+  selectedCannabinoids,
+  toggleCannabinoid,
+  cannabinoidStats,
   clearAllFilters,
   setCurrentPage,
 }: FilterSidebarContentProps) {
@@ -2177,6 +2324,43 @@ function FilterSidebarContent({
                     <span className="text-xs text-gray-700 truncate">{type}</span>
                   </label>
                 ))}
+              </div>
+            </div>
+            {/* Cannabinoids */}
+            <div>
+              <label className="text-xs text-gray-600 mb-1 block">Cannabinoids</label>
+              <div className="max-h-48 overflow-y-auto space-y-1">
+                {(Object.keys(CANNABINOIDS) as CannabinoidKey[]).map((key) => {
+                  const cannabinoid = CANNABINOIDS[key];
+                  const count = cannabinoidStats[key] || 0;
+                  const isSelected = selectedCannabinoids.includes(key);
+                  return (
+                    <label
+                      key={key}
+                      className={`flex items-center justify-between gap-2 cursor-pointer p-1.5 rounded transition-all ${
+                        isSelected ? 'bg-green-50' : 'hover:bg-gray-50'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="checkbox"
+                          checked={isSelected}
+                          onChange={() => toggleCannabinoid(key)}
+                          className="w-3.5 h-3.5 text-green-600 border-gray-300 rounded focus:ring-green-500"
+                        />
+                        <span className={`text-xs ${isSelected ? 'text-green-700 font-medium' : 'text-gray-700'}`}>
+                          {cannabinoid.label}
+                        </span>
+                        <span className="text-[10px] text-gray-400">
+                          ({cannabinoid.fullName})
+                        </span>
+                      </div>
+                      <span className={`text-xs ${count > 0 ? 'text-gray-500' : 'text-gray-300'}`}>
+                        {count}
+                      </span>
+                    </label>
+                  );
+                })}
               </div>
             </div>
           </div>
