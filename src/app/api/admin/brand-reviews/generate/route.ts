@@ -463,6 +463,9 @@ Return ONLY valid JSON in this exact format:
         };
       });
 
+      // Calculate overall score
+      const overallScore = validatedScores.reduce((sum, s) => sum + s.score, 0);
+
       // Generate full_review from sections for backward compatibility
       const fullReview = (criteria as Criterion[]).map(c => {
         const score = validatedScores.find(s => s.criterion_id === c.id);
@@ -472,17 +475,25 @@ Return ONLY valid JSON in this exact format:
         return `## ${c.name} — ${totalScore}/${c.max_points}\n\n${sectionText}`;
       }).join('\n\n');
 
+      // Auto-generate SEO meta fields
+      const currentYear = new Date().getFullYear();
+      const metaTitle = `${brand.name} Review ${currentYear} - Score ${overallScore}/100`;
+      const metaDescription = `Independent ${brand.name} review with ${overallScore}/100 score. We analyze quality, testing, transparency, pricing and more. See full breakdown.`;
+
       return NextResponse.json({
         success: true,
         warning: !websiteAccessible ? 'Website was difficult to access. Scores may be conservative.' : undefined,
         data: {
           ...generated,
           scores: validatedScores,
+          overall_score: overallScore,
           section_content: generated.section_content || {},
           full_review: fullReview, // Auto-generated from sections
           trustpilot_score: trustpilotData?.score || null,
           trustpilot_count: trustpilotData?.count || null,
-          certifications: detectedCertifications
+          certifications: detectedCertifications,
+          meta_title: metaTitle,
+          meta_description: metaDescription
         }
       });
     } catch (parseError) {

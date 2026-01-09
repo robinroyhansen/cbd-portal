@@ -1269,38 +1269,6 @@ export default function BrandReviewEditorPage() {
             </div>
           </div>
 
-          {/* Internal: Sources Researched */}
-          <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <h2 className="text-xl font-semibold mb-2">Sources Researched</h2>
-            <p className="text-sm text-gray-500 mb-4">Internal only - these URLs are not displayed publicly</p>
-
-            {formData.sources_researched.map((source, i) => (
-              <div key={i} className="flex gap-2 mb-2">
-                <input
-                  type="url"
-                  value={source}
-                  onChange={(e) => handleArrayFieldChange('sources_researched', i, e.target.value)}
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  placeholder="https://..."
-                />
-                {formData.sources_researched.length > 1 && (
-                  <button
-                    onClick={() => removeArrayField('sources_researched', i)}
-                    className="px-3 py-2 text-red-600 hover:bg-red-50 rounded-lg"
-                  >
-                    Remove
-                  </button>
-                )}
-              </div>
-            ))}
-            <button
-              onClick={() => addArrayField('sources_researched')}
-              className="text-sm text-green-600 hover:text-green-700"
-            >
-              + Add Source
-            </button>
-          </div>
-
           {/* Actions */}
           <div className="bg-white rounded-xl border border-gray-200 p-6">
             <div className="flex items-center justify-between">
