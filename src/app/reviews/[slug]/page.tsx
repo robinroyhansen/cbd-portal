@@ -49,17 +49,22 @@ interface Review {
   id: string;
   overall_score: number;
   summary: string | null;
+  about_content: string | null;
   full_review: string | null;
   section_content: Record<string, string> | null;
   pros: string[];
   cons: string[];
+  best_for: string[];
+  not_ideal_for: string[];
   verdict: string | null;
+  recommendation_status: string | null;
   meta_title: string | null;
   meta_description: string | null;
   published_at: string | null;
   last_reviewed_at: string | null;
   trustpilot_score: number | null;
   trustpilot_count: number | null;
+  trustpilot_url: string | null;
   google_score: number | null;
   google_count: number | null;
   kb_authors: Author | null;
@@ -91,14 +96,19 @@ function getScoreBadgeColor(score: number): string {
 }
 
 const CERTIFICATION_LABELS: Record<string, { name: string; icon: string }> = {
+  // Universal certifications
   'gmp': { name: 'GMP Certified', icon: '🏭' },
-  'usda_organic': { name: 'USDA Organic', icon: '🌿' },
-  'us_hemp_authority': { name: 'US Hemp Authority', icon: '✓' },
   'third_party_tested': { name: 'Third-Party Tested', icon: '🔬' },
+  'iso_certified': { name: 'ISO Certified', icon: '📜' },
   'non_gmo': { name: 'Non-GMO', icon: '🌱' },
   'vegan': { name: 'Vegan', icon: '🌿' },
   'cruelty_free': { name: 'Cruelty-Free', icon: '🐰' },
-  'iso_certified': { name: 'ISO Certified', icon: '📜' },
+  // US-specific
+  'usda_organic': { name: 'USDA Organic', icon: '🌿' },
+  'us_hemp_authority': { name: 'US Hemp Authority', icon: '✓' },
+  // EU/UK-specific
+  'eu_organic': { name: 'EU Organic', icon: '🌿' },
+  'novel_food': { name: 'Novel Food', icon: '🇪🇺' },
 };
 
 // Strip markdown tables from section content (stars are now displayed via React components)
@@ -215,17 +225,22 @@ export default async function BrandReviewPage({ params }: Props) {
       id,
       overall_score,
       summary,
+      about_content,
       full_review,
       section_content,
       pros,
       cons,
+      best_for,
+      not_ideal_for,
       verdict,
+      recommendation_status,
       meta_title,
       meta_description,
       published_at,
       last_reviewed_at,
       trustpilot_score,
       trustpilot_count,
+      trustpilot_url,
       google_score,
       google_count,
       kb_authors (
@@ -382,20 +397,37 @@ export default async function BrandReviewPage({ params }: Props) {
                 )}
               </div>
 
-              {/* Score Badge */}
-              <div className="flex items-center gap-4">
+              {/* Score Badge with Stars */}
+              <div className="flex flex-wrap items-center gap-4">
                 <div className={`inline-flex items-center px-6 py-3 rounded-xl border-2 ${getScoreBadgeColor(review.overall_score)}`}>
                   <span className="text-4xl font-bold">{review.overall_score}</span>
                   <span className="text-lg ml-1">/100</span>
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-900">{getScoreLabel(review.overall_score)}</div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-semibold text-gray-900">{getScoreLabel(review.overall_score)}</span>
+                    <OverallStarRating score={review.overall_score} />
+                  </div>
                   {review.last_reviewed_at && (
                     <div className="text-sm text-gray-500">
                       Last reviewed {formatDate(review.last_reviewed_at)}
                     </div>
                   )}
                 </div>
+
+                {/* Trustpilot Badge */}
+                {review.trustpilot_score && (
+                  <a
+                    href={review.trustpilot_url || `https://www.trustpilot.com/review/${brand.website_url ? new URL(brand.website_url).hostname.replace('www.', '') : ''}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#00B67A] text-white rounded-lg hover:bg-[#00a06b] transition-colors"
+                    title="View on Trustpilot"
+                  >
+                    <span className="text-lg font-bold">★ {review.trustpilot_score}</span>
+                    <span className="text-sm opacity-90">Trustpilot</span>
+                  </a>
+                )}
               </div>
 
               {/* Trust Badges */}
@@ -433,6 +465,53 @@ export default async function BrandReviewPage({ params }: Props) {
             </div>
           )}
 
+          {/* About the Brand */}
+          {review.about_content && (
+            <div className="bg-white rounded-xl border border-gray-200 p-8">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">About {brand.name}</h2>
+              <p className="text-gray-700 leading-relaxed">{review.about_content}</p>
+            </div>
+          )}
+
+          {/* Best For / Not Ideal For */}
+          {((review.best_for && review.best_for.length > 0) || (review.not_ideal_for && review.not_ideal_for.length > 0)) && (
+            <div className="grid md:grid-cols-2 gap-6">
+              {review.best_for && review.best_for.length > 0 && (
+                <div className="bg-blue-50 rounded-xl border border-blue-200 p-6">
+                  <h2 className="text-lg font-bold text-blue-800 mb-4 flex items-center gap-2">
+                    <span className="text-xl">👍</span>
+                    Best For
+                  </h2>
+                  <ul className="space-y-3">
+                    {review.best_for.map((item: string, i: number) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="text-blue-600 mt-0.5">•</span>
+                        <span className="text-blue-900">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {review.not_ideal_for && review.not_ideal_for.length > 0 && (
+                <div className="bg-amber-50 rounded-xl border border-amber-200 p-6">
+                  <h2 className="text-lg font-bold text-amber-800 mb-4 flex items-center gap-2">
+                    <span className="text-xl">👎</span>
+                    Not Ideal For
+                  </h2>
+                  <ul className="space-y-3">
+                    {review.not_ideal_for.map((item: string, i: number) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="text-amber-600 mt-0.5">•</span>
+                        <span className="text-amber-900">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Third-Party Reviews */}
           {(review.trustpilot_score || review.google_score) && (
             <div className="bg-white rounded-xl border border-gray-200 p-8">
@@ -440,12 +519,20 @@ export default async function BrandReviewPage({ params }: Props) {
               <p className="text-sm text-gray-500 mb-4">What customers are saying on third-party review platforms</p>
               <div className="grid sm:grid-cols-2 gap-6">
                 {review.trustpilot_score && (
-                  <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                  <a
+                    href={review.trustpilot_url || `https://www.trustpilot.com/review/${brand.website_url ? new URL(brand.website_url).hostname.replace('www.', '') : ''}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors group"
+                  >
                     <div className="flex-shrink-0 w-12 h-12 bg-[#00B67A] rounded-lg flex items-center justify-center">
                       <span className="text-white text-xl font-bold">★</span>
                     </div>
-                    <div>
-                      <div className="text-sm text-gray-500">Trustpilot</div>
+                    <div className="flex-1">
+                      <div className="text-sm text-gray-500 flex items-center gap-1">
+                        Trustpilot
+                        <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
+                      </div>
                       <div className="flex items-baseline gap-2">
                         <span className="text-2xl font-bold text-gray-900">{review.trustpilot_score}</span>
                         <span className="text-gray-500">/5</span>
@@ -456,7 +543,7 @@ export default async function BrandReviewPage({ params }: Props) {
                         </div>
                       )}
                     </div>
-                  </div>
+                  </a>
                 )}
                 {review.google_score && (
                   <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
@@ -499,13 +586,13 @@ export default async function BrandReviewPage({ params }: Props) {
               {review.pros?.length > 0 && (
                 <div className="bg-green-50 rounded-xl border border-green-200 p-6">
                   <h2 className="text-lg font-bold text-green-800 mb-4 flex items-center gap-2">
-                    <span className="text-green-600 text-xl">+</span>
+                    <span className="text-xl">✅</span>
                     Pros
                   </h2>
                   <ul className="space-y-3">
-                    {review.pros.map((pro, i) => (
+                    {review.pros.map((pro: string, i: number) => (
                       <li key={i} className="flex items-start gap-3">
-                        <span className="text-green-600 mt-0.5">✓</span>
+                        <span className="text-green-600 mt-0.5 text-lg">✅</span>
                         <span className="text-green-900">{pro}</span>
                       </li>
                     ))}
@@ -516,13 +603,13 @@ export default async function BrandReviewPage({ params }: Props) {
               {review.cons?.length > 0 && (
                 <div className="bg-red-50 rounded-xl border border-red-200 p-6">
                   <h2 className="text-lg font-bold text-red-800 mb-4 flex items-center gap-2">
-                    <span className="text-red-600 text-xl">-</span>
+                    <span className="text-xl">❌</span>
                     Cons
                   </h2>
                   <ul className="space-y-3">
-                    {review.cons.map((con, i) => (
+                    {review.cons.map((con: string, i: number) => (
                       <li key={i} className="flex items-start gap-3">
-                        <span className="text-red-600 mt-0.5">✗</span>
+                        <span className="text-red-600 mt-0.5 text-lg">❌</span>
                         <span className="text-red-900">{con}</span>
                       </li>
                     ))}
@@ -572,7 +659,7 @@ export default async function BrandReviewPage({ params }: Props) {
                 {(() => {
                   // Split markdown by ## headers
                   const sections = review.full_review.split(/(?=^## )/m).filter(Boolean);
-                  return sections.map((section, idx) => {
+                  return sections.map((section: string, idx: number) => {
                     // Extract header name (e.g., "Quality & Testing" from "## Quality & Testing — 8/20")
                     const headerMatch = section.match(/^## ([^—\n]+)/);
                     const headerName = headerMatch?.[1]?.trim();

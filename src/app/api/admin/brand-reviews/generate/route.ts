@@ -16,10 +16,14 @@ interface GeneratedScore {
 interface GeneratedReview {
   scores: GeneratedScore[];
   summary: string;
+  about_content: string; // Factual intro about the brand
   section_content: Record<string, string>; // { criterion_id: "section text..." }
   pros: string[];
   cons: string[];
+  best_for: string[]; // User types this brand is good for
+  not_ideal_for: string[]; // User types this brand is not good for
   verdict: string;
+  recommendation_status: 'recommended' | 'cautiously_recommended' | 'not_recommended';
   trustpilot_score?: number;
   trustpilot_count?: number;
   google_score?: number;
@@ -27,16 +31,21 @@ interface GeneratedReview {
   certifications?: string[];
 }
 
-// Available certifications
+// Available certifications - International list
 const CERTIFICATIONS = [
-  { id: 'gmp', name: 'GMP Certified', keywords: ['gmp', 'good manufacturing practice'] },
-  { id: 'usda_organic', name: 'USDA Organic', keywords: ['usda organic', 'certified organic'] },
-  { id: 'us_hemp_authority', name: 'US Hemp Authority', keywords: ['us hemp authority', 'u.s. hemp authority'] },
-  { id: 'third_party_tested', name: 'Third-Party Tested', keywords: ['third party tested', 'third-party tested', 'independent lab', 'coa', 'certificate of analysis'] },
-  { id: 'non_gmo', name: 'Non-GMO', keywords: ['non-gmo', 'non gmo', 'no gmo'] },
-  { id: 'vegan', name: 'Vegan', keywords: ['vegan', 'plant-based'] },
-  { id: 'cruelty_free', name: 'Cruelty-Free', keywords: ['cruelty free', 'cruelty-free', 'not tested on animals'] },
-  { id: 'iso_certified', name: 'ISO Certified', keywords: ['iso certified', 'iso 9001', 'iso certification'] },
+  // Universal certifications
+  { id: 'third_party_tested', name: 'Third-Party Tested', keywords: ['third party tested', 'third-party tested', 'independent lab', 'coa', 'certificate of analysis', 'lab tested'], market: 'all' },
+  { id: 'gmp', name: 'GMP Certified', keywords: ['gmp', 'good manufacturing practice', 'cgmp', 'eu gmp'], market: 'all' },
+  { id: 'iso_certified', name: 'ISO Certified', keywords: ['iso certified', 'iso 9001', 'iso 17025', 'iso certification'], market: 'all' },
+  { id: 'non_gmo', name: 'Non-GMO', keywords: ['non-gmo', 'non gmo', 'no gmo', 'gmo free'], market: 'all' },
+  { id: 'vegan', name: 'Vegan', keywords: ['vegan', 'plant-based', 'plant based'], market: 'all' },
+  { id: 'cruelty_free', name: 'Cruelty-Free', keywords: ['cruelty free', 'cruelty-free', 'not tested on animals'], market: 'all' },
+  // US-specific
+  { id: 'usda_organic', name: 'USDA Organic', keywords: ['usda organic'], market: 'US' },
+  { id: 'us_hemp_authority', name: 'US Hemp Authority', keywords: ['us hemp authority', 'u.s. hemp authority'], market: 'US' },
+  // EU/UK-specific
+  { id: 'eu_organic', name: 'EU Organic', keywords: ['eu organic', 'organic certified eu', 'bio', 'ecocert'], market: 'EU' },
+  { id: 'novel_food', name: 'Novel Food Authorized', keywords: ['novel food', 'novel food authorized', 'fsa validated', 'fsa approved'], market: 'EU' },
 ];
 
 // Browser-like headers to avoid being blocked
@@ -55,12 +64,12 @@ const ALT_HEADERS = {
   'Accept-Language': 'en-US,en;q=0.9',
 };
 
-// Fetch Trustpilot data
-async function fetchTrustpilotData(brandName: string, websiteDomain: string): Promise<{ score: number; count: number } | null> {
+// Fetch Trustpilot data (works globally)
+async function fetchTrustpilotData(brandName: string, websiteDomain: string): Promise<{ score: number; count: number; url: string } | null> {
   try {
     // Try to fetch Trustpilot page
-    const searchUrl = `https://www.trustpilot.com/review/${websiteDomain}`;
-    const response = await fetch(searchUrl, {
+    const trustpilotUrl = `https://www.trustpilot.com/review/${websiteDomain}`;
+    const response = await fetch(trustpilotUrl, {
       headers: BROWSER_HEADERS,
       signal: AbortSignal.timeout(10000),
     });
@@ -82,7 +91,8 @@ async function fetchTrustpilotData(brandName: string, websiteDomain: string): Pr
     if (scoreMatch && countMatch) {
       return {
         score: parseFloat(scoreMatch[1]),
-        count: parseInt(countMatch[1].replace(/,/g, ''), 10)
+        count: parseInt(countMatch[1].replace(/,/g, ''), 10),
+        url: trustpilotUrl
       };
     }
     return null;
@@ -105,44 +115,49 @@ function detectCertifications(websiteContent: string): string[] {
   return detected;
 }
 
-const SYSTEM_PROMPT = `You are a CBD industry expert who has personally tested hundreds of CBD products. Write like a real human reviewer - confident, opinionated, and specific.
+const SYSTEM_PROMPT = `You are a CBD industry expert who has reviewed hundreds of CBD brands globally. Write like a real human reviewer - confident, opinionated, and specific.
+
+INTERNATIONAL AWARENESS:
+- Brands operate in different markets: US, EU, UK, Canada, Australia
+- Use appropriate currency ($/€/£) based on brand's market
+- Reference relevant regulations: Novel Food (EU/UK), FDA (US)
+- Certifications vary by market: USDA Organic (US), EU Organic (EU), etc.
+- Compare prices relative to that market, not globally
 
 CRITICAL WRITING RULES - NEVER DO THESE:
-- NEVER say "I couldn't access" or "I couldn't verify" - you HAVE researched this brand
-- NEVER mention "content provided" or "available content" or "based on the information"
+- NEVER say "I couldn't access" or "I couldn't verify"
+- NEVER mention "content provided" or "available content"
 - NEVER use "based on my analysis" or "upon review" or "it's worth noting"
 - NEVER start sentences with "However," "Additionally," "Furthermore," "Moreover,"
 - NEVER use hedging: "appears to", "seems to", "may be", "could be"
 - NEVER overuse hyphens or em-dashes
-- NEVER write generic filler like "in today's CBD market" or "as a consumer"
 
 WRITE LIKE A HUMAN:
 - Use contractions: "don't", "isn't", "they've", "I'd", "won't"
-- Be specific with numbers: "$0.08 per mg", "47 products", "founded in 2016"
-- Mix sentence lengths. Short sentences punch. Longer ones explain the nuance and give context.
-- Have opinions: "This is one of the better testing pages I've seen" or "Frankly, this isn't good enough"
+- Be specific: "€0.06 per mg", "47 products", "founded in 2016"
+- Mix sentence lengths. Short sentences punch.
+- Have opinions: "This is one of the better testing pages I've seen"
 - Be conversational: "Look," "Here's the thing," "Bottom line:"
-- Reference specific things you saw: product names, page sections, lab names
+- Reference specific things: product names, lab names, prices
 
-GOOD EXAMPLES:
-"Their lab reports come from ProVerde Labs and they're easy to find - just click the COA link on any product page. I checked three different products and each had current, batch-specific results."
+ABOUT CONTENT:
+Write a factual 2-3 sentence intro about the brand. Include: when founded, where based, what they're known for. No opinions, just facts.
 
-"Pricing sits at $0.07 per mg for their 1000mg tincture. That's competitive, especially with free shipping over $75."
+BEST FOR / NOT IDEAL FOR:
+Be specific about user types:
+- Best for: "Budget-conscious first-time users", "Athletes seeking recovery products"
+- Not ideal for: "Those wanting THC-free options only", "People needing high-potency products"
 
-"The site's a bit cluttered, but the product pages have everything you need: dosing info, ingredients, and lab results all in one place."
+VERDICT:
+Write 150+ words. Be definitive. Give a clear recommendation with specific reasons.
 
-BAD EXAMPLES (never write like this):
-"Based on the available information, the brand appears to demonstrate adequate commitment to quality."
-"I couldn't access their website to verify these claims, which is concerning."
-"Additionally, it's worth noting that their pricing seems competitive in the current market."
-
-SCORING:
-- Score based on what you found during research
-- Be specific about WHY you gave each score
-- Reference actual things: lab names, certifications, specific products, prices
+RECOMMENDATION STATUS:
+- "recommended": Score 60+, no major concerns
+- "cautiously_recommended": Score 40-59 or has some concerns
+- "not_recommended": Score <40 or serious issues
 
 SECTION CONTENT:
-Write 2-3 paragraphs per category. No markdown formatting, no tables, no headers, no score breakdowns - just prose.
+Write 2-3 paragraphs per category. No markdown formatting, no tables, no headers - just prose.
 
 Return valid JSON only, no markdown code blocks.`;
 
@@ -377,6 +392,7 @@ Return ONLY valid JSON in this exact format:
     ${scoresStructure}
   ],
   "summary": "<2-3 sentence overview for listing pages - personal voice>",
+  "about_content": "<2-3 factual sentences about the brand: when founded, where based, what they're known for>",
   "section_content": {
     "<criterion_id_1>": "<2-3 paragraphs explaining this category's scores>",
     "<criterion_id_2>": "<2-3 paragraphs explaining this category's scores>",
@@ -384,7 +400,10 @@ Return ONLY valid JSON in this exact format:
   },
   "pros": ["<specific pro 1>", "<specific pro 2>", "<specific pro 3>", ...],
   "cons": ["<specific con 1>", "<specific con 2>", ...],
-  "verdict": "<final recommendation in personal voice, 2-3 sentences>"
+  "best_for": ["<specific user type 1>", "<specific user type 2>", ...],
+  "not_ideal_for": ["<specific user type 1>", "<specific user type 2>", ...],
+  "verdict": "<final recommendation in personal voice, 150+ words>",
+  "recommendation_status": "<recommended | cautiously_recommended | not_recommended>"
 }`;
 
     // Call Claude API
@@ -489,8 +508,13 @@ Return ONLY valid JSON in this exact format:
           overall_score: overallScore,
           section_content: generated.section_content || {},
           full_review: fullReview, // Auto-generated from sections
+          about_content: generated.about_content || null,
+          best_for: generated.best_for || [],
+          not_ideal_for: generated.not_ideal_for || [],
+          recommendation_status: generated.recommendation_status || 'recommended',
           trustpilot_score: trustpilotData?.score || null,
           trustpilot_count: trustpilotData?.count || null,
+          trustpilot_url: trustpilotData?.url || null,
           certifications: detectedCertifications,
           meta_title: metaTitle,
           meta_description: metaDescription
