@@ -39,6 +39,7 @@ const staticNavItems: NavItem[] = [
       { name: 'Citations', href: '/admin/citations', icon: '📚' },
     ]
   },
+  { name: 'Glossary', href: '/admin/glossary', icon: '📖' },
   { name: 'Media Library', href: '/admin/media', icon: '🖼️' },
   { name: 'Languages', href: '/admin/languages', icon: '🌍' },
 ];
