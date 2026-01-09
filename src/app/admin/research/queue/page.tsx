@@ -37,7 +37,19 @@ export default function ResearchQueuePage() {
   const [yearFilter, setYearFilter] = useState<string>('');
   const [bulkSelected, setBulkSelected] = useState<string[]>([]);
   const [newItemIds, setNewItemIds] = useState<Set<string>>(new Set());
+  const [rejectingId, setRejectingId] = useState<string | null>(null);
+  const [selectedReason, setSelectedReason] = useState<string>('');
   const supabase = createClient();
+
+  const REJECTION_REASONS = [
+    'Not relevant',
+    'Duplicate',
+    'Low quality',
+    'Not CBD/cannabis related',
+    'Non-therapeutic focus',
+    'Insufficient data',
+    'Other'
+  ];
 
   // Fetch research with useCallback for stability
   const fetchResearch = useCallback(async () => {
@@ -163,7 +175,21 @@ export default function ResearchQueuePage() {
   };
 
   const rejectResearch = (id: string) => {
-    updateResearchStatus(id, 'rejected');
+    setRejectingId(id);
+    setSelectedReason('');
+  };
+
+  const confirmReject = () => {
+    if (rejectingId) {
+      updateResearchStatus(rejectingId, 'rejected', selectedReason || undefined);
+      setRejectingId(null);
+      setSelectedReason('');
+    }
+  };
+
+  const cancelReject = () => {
+    setRejectingId(null);
+    setSelectedReason('');
   };
 
   // Enhanced filtering and search
@@ -244,13 +270,21 @@ export default function ResearchQueuePage() {
     setBulkSelected([]);
   };
 
+  const [bulkRejectReason, setBulkRejectReason] = useState<string>('');
+  const [showBulkRejectModal, setShowBulkRejectModal] = useState(false);
+
   const handleBulkReject = async () => {
     if (bulkSelected.length === 0) return;
+    setShowBulkRejectModal(true);
+  };
 
+  const confirmBulkReject = async () => {
     for (const id of bulkSelected) {
-      await updateResearchStatus(id, 'rejected');
+      await updateResearchStatus(id, 'rejected', bulkRejectReason || undefined);
     }
     setBulkSelected([]);
+    setShowBulkRejectModal(false);
+    setBulkRejectReason('');
   };
 
   const toggleBulkSelect = (id: string) => {
@@ -294,6 +328,12 @@ export default function ResearchQueuePage() {
           <p className="text-gray-600 mt-2">Review and manage discovered research papers</p>
         </div>
         <div className="flex gap-4">
+          <Link
+            href="/admin/research/rejected"
+            className="bg-red-100 text-red-700 px-4 py-2 rounded-lg hover:bg-red-200 transition-colors"
+          >
+            🚫 Rejected ({research.filter(r => r.status === 'rejected').length})
+          </Link>
           <Link
             href="/admin/research"
             className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
@@ -679,6 +719,83 @@ export default function ResearchQueuePage() {
       )}
 
       {/* Pagination would go here for large datasets */}
+
+      {/* Single Rejection Modal */}
+      {rejectingId && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-xl p-6 max-w-md w-full mx-4">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Reject Study</h3>
+            <p className="text-sm text-gray-600 mb-4">
+              Select a reason for rejecting this study (optional):
+            </p>
+            <select
+              value={selectedReason}
+              onChange={(e) => setSelectedReason(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 mb-4"
+            >
+              <option value="">No reason specified</option>
+              {REJECTION_REASONS.map(reason => (
+                <option key={reason} value={reason}>{reason}</option>
+              ))}
+            </select>
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={cancelReject}
+                className="px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmReject}
+                className="px-4 py-2 text-white bg-red-600 rounded-lg hover:bg-red-700"
+              >
+                Reject
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Bulk Rejection Modal */}
+      {showBulkRejectModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-xl p-6 max-w-md w-full mx-4">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              Reject {bulkSelected.length} Studies
+            </h3>
+            <p className="text-sm text-gray-600 mb-4">
+              Select a reason for rejecting these studies (optional):
+            </p>
+            <select
+              value={bulkRejectReason}
+              onChange={(e) => setBulkRejectReason(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 mb-4"
+            >
+              <option value="">No reason specified</option>
+              {REJECTION_REASONS.map(reason => (
+                <option key={reason} value={reason}>{reason}</option>
+              ))}
+            </select>
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={() => {
+                  setShowBulkRejectModal(false);
+                  setBulkRejectReason('');
+                }}
+                className="px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmBulkReject}
+                className="px-4 py-2 text-white bg-red-600 rounded-lg hover:bg-red-700"
+              >
+                Reject {bulkSelected.length} Studies
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <style jsx>{`
         @keyframes pulse-once {
