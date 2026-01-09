@@ -104,48 +104,30 @@ export default async function ResearchPage() {
     // Ignore errors, lastUpdated will remain null
   }
 
-  // Calculate database statistics
-  // CBD-specific: title/abstract contains "cannabidiol" or "CBD" (not just any cannabis term)
-  const cbdSpecific = allResearch.filter(r => {
-    const text = `${r.title || ''} ${r.abstract || ''}`.toLowerCase();
-    return text.includes('cannabidiol') || /\bcbd\b/.test(text);
-  }).length;
-
-  // Count RCTs (human randomized controlled trials)
-  const rctCount = allResearch.filter(r => {
-    const text = `${r.title || ''} ${r.abstract || ''}`.toLowerCase();
-    return (text.includes('randomized') || text.includes('randomised')) &&
-           text.includes('controlled') &&
-           text.includes('trial') &&
-           !text.includes('mice') && !text.includes('rats') && !text.includes('animal');
-  }).length;
-
-  // Count condition-specific studies
-  const anxietyCount = allResearch.filter(r => {
-    const text = `${r.title || ''} ${r.abstract || ''}`.toLowerCase();
-    return text.includes('anxiety') || text.includes('anxiolytic') || text.includes('anxious');
-  }).length;
-
-  const painCount = allResearch.filter(r => {
-    const text = `${r.title || ''} ${r.abstract || ''}`.toLowerCase();
-    return text.includes('pain') || text.includes('analgesic') || text.includes('nociceptive');
-  }).length;
-
-  const epilepsyCount = allResearch.filter(r => {
-    const text = `${r.title || ''} ${r.abstract || ''}`.toLowerCase();
-    return text.includes('epilepsy') || text.includes('seizure') || text.includes('dravet') || text.includes('lennox');
-  }).length;
-
-  const stats = {
-    total: allResearch.length,
-    cbdSpecific,
-    recentStudies: allResearch.filter(r => (r.year || 0) >= 2020).length,
-    highQuality: allResearch.filter(r => (r.relevance_score || 0) >= 80).length,
-    rctCount,
-    anxietyCount,
-    painCount,
-    epilepsyCount
+  // Calculate category statistics (matching ResearchPageClient categorization)
+  const categoryStats = {
+    all: allResearch.length,
+    cbd: 0,
+    cannabinoids: 0,
+    'medical-cannabis': 0,
+    cannabis: 0
   };
+
+  allResearch.forEach(r => {
+    const text = `${r.title || ''} ${r.authors || ''} ${r.publication || ''} ${r.abstract || ''}`.toLowerCase();
+
+    if (/\b(cbd|cannabidiol)\b/.test(text)) {
+      categoryStats.cbd++;
+    } else if (/\b(cannabinoids?|thc|cbg|cbn|cbc|cannabichromene|cannabigerol|cannabinol|tetrahydrocannabinol)\b/.test(text)) {
+      categoryStats.cannabinoids++;
+    }
+
+    if (/\b(medical cannabis|medical marijuana|medicinal cannabis|medicinal marijuana|cannabis therapy|cannabis treatment|pharmaceutical cannabis)\b/.test(text)) {
+      categoryStats['medical-cannabis']++;
+    } else if (/\b(cannabis|marijuana|hemp)\b/.test(text) && !/\b(cbd|cannabidiol)\b/.test(text)) {
+      categoryStats.cannabis++;
+    }
+  });
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
@@ -156,7 +138,7 @@ export default async function ResearchPage() {
           Evidence-based research with advanced quality assessment and classification
         </p>
         <p className="text-sm text-gray-500">
-          {stats.total} peer-reviewed studies from PubMed, PMC, ClinicalTrials.gov, and authoritative medical journals
+          {categoryStats.all} peer-reviewed studies from PubMed, PMC, ClinicalTrials.gov, and authoritative medical journals
         </p>
         {lastUpdated && (
           <p className="text-xs text-gray-400 mt-2">
@@ -165,63 +147,42 @@ export default async function ResearchPage() {
         )}
       </header>
 
-      {/* Quick Stats - Clickable Filters */}
-      <div className="grid grid-cols-4 md:grid-cols-8 gap-2 mb-8">
+      {/* Study Categories - Clickable Filters */}
+      <div className="grid grid-cols-5 gap-3 mb-8">
         <Link
           href="/research"
-          className="bg-gradient-to-br from-blue-50 to-blue-100 px-2 py-3 rounded-lg text-center border border-blue-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
+          className="bg-gradient-to-br from-blue-50 to-blue-100 px-3 py-4 rounded-lg text-center border border-blue-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
         >
-          <div className="text-lg font-bold text-blue-700">{stats.total}</div>
-          <div className="text-[10px] text-blue-600 leading-tight">All Studies</div>
+          <div className="text-2xl font-bold text-blue-700">{categoryStats.all}</div>
+          <div className="text-xs text-blue-600 font-medium">All Studies</div>
         </Link>
         <Link
           href="/research?category=cbd"
-          className="bg-gradient-to-br from-green-50 to-green-100 px-2 py-3 rounded-lg text-center border border-green-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
+          className="bg-gradient-to-br from-green-50 to-green-100 px-3 py-4 rounded-lg text-center border border-green-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
         >
-          <div className="text-lg font-bold text-green-700">{stats.cbdSpecific}</div>
-          <div className="text-[10px] text-green-600 leading-tight">CBD-Specific</div>
+          <div className="text-2xl font-bold text-green-700">{categoryStats.cbd}</div>
+          <div className="text-xs text-green-600 font-medium">CBD</div>
         </Link>
         <Link
-          href="/research?year=2020"
-          className="bg-gradient-to-br from-orange-50 to-orange-100 px-2 py-3 rounded-lg text-center border border-orange-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
+          href="/research?category=cannabinoids"
+          className="bg-gradient-to-br from-purple-50 to-purple-100 px-3 py-4 rounded-lg text-center border border-purple-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
         >
-          <div className="text-lg font-bold text-orange-700">{stats.recentStudies}</div>
-          <div className="text-[10px] text-orange-600 leading-tight">Since 2020</div>
+          <div className="text-2xl font-bold text-purple-700">{categoryStats.cannabinoids}</div>
+          <div className="text-xs text-purple-600 font-medium">Cannabinoids</div>
         </Link>
         <Link
-          href="/research?quality=70"
-          className="bg-gradient-to-br from-purple-50 to-purple-100 px-2 py-3 rounded-lg text-center border border-purple-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
+          href="/research?category=medical-cannabis"
+          className="bg-gradient-to-br from-teal-50 to-teal-100 px-3 py-4 rounded-lg text-center border border-teal-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
         >
-          <div className="text-lg font-bold text-purple-700">{stats.highQuality}</div>
-          <div className="text-[10px] text-purple-600 leading-tight">High Quality</div>
+          <div className="text-2xl font-bold text-teal-700">{categoryStats['medical-cannabis']}</div>
+          <div className="text-xs text-teal-600 font-medium">Medical Cannabis</div>
         </Link>
         <Link
-          href="/research?type=rct&subject=human"
-          className="bg-gradient-to-br from-teal-50 to-teal-100 px-2 py-3 rounded-lg text-center border border-teal-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
+          href="/research?category=cannabis"
+          className="bg-gradient-to-br from-emerald-50 to-emerald-100 px-3 py-4 rounded-lg text-center border border-emerald-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
         >
-          <div className="text-lg font-bold text-teal-700">{stats.rctCount}</div>
-          <div className="text-[10px] text-teal-600 leading-tight">Human RCTs</div>
-        </Link>
-        <Link
-          href="/research?condition=anxiety"
-          className="bg-gradient-to-br from-indigo-50 to-indigo-100 px-2 py-3 rounded-lg text-center border border-indigo-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
-        >
-          <div className="text-lg font-bold text-indigo-700">{stats.anxietyCount}</div>
-          <div className="text-[10px] text-indigo-600 leading-tight">Anxiety</div>
-        </Link>
-        <Link
-          href="/research?condition=chronic_pain"
-          className="bg-gradient-to-br from-red-50 to-red-100 px-2 py-3 rounded-lg text-center border border-red-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
-        >
-          <div className="text-lg font-bold text-red-700">{stats.painCount}</div>
-          <div className="text-[10px] text-red-600 leading-tight">Pain</div>
-        </Link>
-        <Link
-          href="/research?condition=epilepsy"
-          className="bg-gradient-to-br from-amber-50 to-amber-100 px-2 py-3 rounded-lg text-center border border-amber-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
-        >
-          <div className="text-lg font-bold text-amber-700">{stats.epilepsyCount}</div>
-          <div className="text-[10px] text-amber-600 leading-tight">Epilepsy</div>
+          <div className="text-2xl font-bold text-emerald-700">{categoryStats.cannabis}</div>
+          <div className="text-xs text-emerald-600 font-medium">Cannabis Research</div>
         </Link>
       </div>
 
@@ -247,7 +208,7 @@ export default async function ResearchPage() {
               '@type': 'Dataset',
               name: 'CBD Research Studies Database',
               description: 'Collection of peer-reviewed CBD and cannabis research from PubMed, PMC, ClinicalTrials.gov',
-              size: `${stats.total} studies`,
+              size: `${categoryStats.all} studies`,
               variableMeasured: ['Study Quality Score', 'Study Type', 'Publication Year', 'Medical Condition']
             }
           })

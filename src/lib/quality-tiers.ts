@@ -187,55 +187,71 @@ export function detectStudyType(study: ResearchStudy): StudyType {
 // ============================================================================
 
 /**
- * Advanced quality scoring algorithm that evaluates multiple factors
+ * Quality scoring algorithm - totals exactly 100 points maximum
+ *
+ * STUDY DESIGN:  50 points max
+ * METHODOLOGY:   25 points max
+ * SAMPLE SIZE:   15 points max
+ * RELEVANCE:     10 points max
+ * ─────────────────────────────
+ * TOTAL:        100 points max
  */
 export function calculateQualityScore(study: ResearchStudy): number {
   let score = 0;
-  const factors: string[] = [];
 
   const studyType = detectStudyType(study);
   const text = `${study.title || ''} ${study.abstract || ''}`.toLowerCase();
-  const publication = study.publication?.toLowerCase() || '';
 
-  // ========== STUDY TYPE BASE SCORE (0-40 points) ==========
+  // ========== STUDY DESIGN (0-50 points) ==========
   const studyTypeScores = {
-    [StudyType.META_ANALYSIS]: 40,
-    [StudyType.SYSTEMATIC_REVIEW]: 38,
-    [StudyType.RANDOMIZED_CONTROLLED_TRIAL]: 35,
-    [StudyType.CONTROLLED_TRIAL]: 25,
-    [StudyType.COHORT_STUDY]: 20,
-    [StudyType.CASE_CONTROL_STUDY]: 18,
+    [StudyType.META_ANALYSIS]: 50,
+    [StudyType.SYSTEMATIC_REVIEW]: 45,
+    [StudyType.RANDOMIZED_CONTROLLED_TRIAL]: 40,
+    [StudyType.CONTROLLED_TRIAL]: 30,
+    [StudyType.COHORT_STUDY]: 25,
+    [StudyType.CASE_CONTROL_STUDY]: 20,
+    [StudyType.PILOT_STUDY]: 18,
     [StudyType.CROSS_SECTIONAL_STUDY]: 15,
     [StudyType.CASE_SERIES]: 12,
-    [StudyType.CASE_REPORT]: 8,
     [StudyType.REVIEW_ARTICLE]: 10,
-    [StudyType.PILOT_STUDY]: 15,
+    [StudyType.CASE_REPORT]: 8,
     [StudyType.SURVEY_STUDY]: 12,
-    [StudyType.ANIMAL_STUDY]: 5,
-    [StudyType.IN_VITRO_STUDY]: 3,
+    [StudyType.ANIMAL_STUDY]: 6,
+    [StudyType.IN_VITRO_STUDY]: 4,
     [StudyType.UNKNOWN]: 10
   };
 
   score += studyTypeScores[studyType];
-  factors.push(`Study type: ${studyType} (+${studyTypeScores[studyType]} points)`);
 
-  // ========== SAMPLE SIZE AND RIGOR (0-25 points) ==========
+  // ========== METHODOLOGY (0-25 points) ==========
 
-  // Large scale indicators
-  if (text.includes('multicenter') || text.includes('multi-center') ||
-      text.includes('multisite') || text.includes('multi-site')) {
-    score += 8;
-    factors.push('Multicenter study (+8 points)');
+  // Double-blind: +10
+  if (text.includes('double-blind') || text.includes('double blind') || text.includes('doubleblind')) {
+    score += 10;
   }
 
-  // Sample size indicators (extract numbers) - includes future tense for clinical trials
+  // Placebo-controlled: +8
+  if (text.includes('placebo-controlled') || text.includes('placebo controlled') ||
+      text.includes('placebo group') || text.includes('versus placebo')) {
+    score += 8;
+  }
+
+  // Multicenter: +7
+  if (text.includes('multicenter') || text.includes('multi-center') ||
+      text.includes('multisite') || text.includes('multi-site') ||
+      text.includes('multicentre') || text.includes('multi-centre')) {
+    score += 7;
+  }
+
+  // ========== SAMPLE SIZE (0-15 points) ==========
   const samplePatterns = [
-    /(\d+)\s*(?:participant|patient|subject|individual|volunteer|adult)s?/gi,
+    /(\d+)\s*(?:participant|patient|subject|individual|volunteer|adult|child|children)s?/gi,
     /n\s*=\s*(\d+)/gi,
     /(?:will|to)\s+(?:enroll|recruit|include)\s+(?:up\s+to\s+)?(\d+)/gi,
-    /(?:up\s+to|approximately|about)\s+(\d+)\s*(?:participant|patient|subject)/gi,
-    /sample\s+size\s+(?:of\s+)?(\d+)/gi,
-    /enroll(?:ment|ing)?\s+(?:of\s+)?(?:up\s+to\s+)?(\d+)/gi,
+    /(?:up\s+to|approximately|about|total of)\s+(\d+)\s*(?:participant|patient|subject)/gi,
+    /sample\s+(?:size\s+)?(?:of\s+)?(\d+)/gi,
+    /enroll(?:ed|ment|ing)?\s+(?:of\s+)?(?:up\s+to\s+)?(\d+)/gi,
+    /(\d+)\s+(?:were\s+)?(?:enrolled|recruited|included|randomized|randomised)/gi,
   ];
 
   let maxSample = 0;
@@ -249,83 +265,28 @@ export function calculateQualityScore(study: ResearchStudy): number {
     }
   }
 
-  if (maxSample > 0) {
-
-    if (maxSample >= 500) {
-      score += 15;
-      factors.push(`Large sample size (${maxSample}+) (+15 points)`);
-    } else if (maxSample >= 100) {
-      score += 10;
-      factors.push(`Good sample size (${maxSample}) (+10 points)`);
-    } else if (maxSample >= 30) {
-      score += 5;
-      factors.push(`Adequate sample size (${maxSample}) (+5 points)`);
-    }
-  }
-
-  // Blinding and controls
-  if (text.includes('double-blind') || text.includes('double blind')) {
-    score += 8;
-    factors.push('Double-blind design (+8 points)');
-  } else if (text.includes('single-blind') || text.includes('blind')) {
-    score += 4;
-    factors.push('Blinded design (+4 points)');
-  }
-
-  if (text.includes('placebo-controlled') || text.includes('placebo controlled')) {
-    score += 6;
-    factors.push('Placebo-controlled (+6 points)');
-  }
-
-  // ========== PUBLICATION QUALITY (0-20 points) ==========
-
-  // High-impact journals
-  const highImpactJournals = [
-    'nature', 'science', 'cell', 'lancet', 'new england journal',
-    'jama', 'bmj', 'plos medicine', 'brain', 'neurology',
-    'pain', 'clinical pharmacology', 'british journal',
-    'american journal', 'journal of clinical', 'cochrane'
-  ];
-
-  if (highImpactJournals.some(journal => publication.includes(journal))) {
+  if (maxSample >= 500) {
     score += 15;
-    factors.push('High-impact journal (+15 points)');
-  } else if (publication.includes('journal') || publication.includes('review')) {
+  } else if (maxSample >= 100) {
+    score += 12;
+  } else if (maxSample >= 50) {
     score += 8;
-    factors.push('Peer-reviewed journal (+8 points)');
-  }
-
-  // Publication year (recent studies are more relevant)
-  if (study.year && study.year >= 2020) {
+  } else if (maxSample >= 20) {
     score += 5;
-    factors.push('Recent publication (2020+) (+5 points)');
-  } else if (study.year && study.year >= 2015) {
+  }
+
+  // ========== RELEVANCE (0-10 points) ==========
+
+  // Human study: +7
+  if (text.includes('human') || text.includes('patient') || text.includes('participant') ||
+      text.includes('volunteer') || text.includes('subject') || text.includes('adult') ||
+      text.includes('child') || text.includes('men') || text.includes('women')) {
+    score += 7;
+  }
+
+  // CBD-specific: +3
+  if (text.includes('cannabidiol') || /\bcbd\b/.test(text)) {
     score += 3;
-    factors.push('Recent publication (2015+) (+3 points)');
-  }
-
-  // ========== CBD SPECIFICITY AND RELEVANCE (0-15 points) ==========
-
-  // CBD-specific focus
-  if (text.includes('cannabidiol') || text.includes('cbd')) {
-    score += 8;
-    factors.push('CBD-specific study (+8 points)');
-  } else if (text.includes('cannabis') || text.includes('cannabinoid')) {
-    score += 5;
-    factors.push('Cannabis/cannabinoid focus (+5 points)');
-  }
-
-  // Clinical relevance
-  const clinicalTerms = ['efficacy', 'effectiveness', 'therapeutic', 'treatment', 'clinical trial'];
-  if (clinicalTerms.some(term => text.includes(term))) {
-    score += 4;
-    factors.push('Clinical relevance (+4 points)');
-  }
-
-  // Human studies bonus
-  if (text.includes('human') || text.includes('patient') || text.includes('participant')) {
-    score += 3;
-    factors.push('Human study (+3 points)');
   }
 
   // Ensure score is within bounds

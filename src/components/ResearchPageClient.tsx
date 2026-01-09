@@ -1744,9 +1744,184 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
               </button>
             </nav>
           )}
+
+          {/* Informational Footer Section */}
+          <ResearchInfoFooter />
         </main>
       </div>
     </div>
+  );
+}
+
+// ============================================================================
+// RESEARCH INFO FOOTER COMPONENT
+// ============================================================================
+
+function ResearchInfoFooter() {
+  const [openSection, setOpenSection] = useState<string | null>(null);
+
+  const toggleSection = (section: string) => {
+    setOpenSection(openSection === section ? null : section);
+  };
+
+  return (
+    <section className="mt-12 bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+      <h2 className="sr-only">Research Database Information</h2>
+
+      {/* Understanding Quality Scores */}
+      <div className="border-b border-gray-200">
+        <button
+          onClick={() => toggleSection('quality')}
+          className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-100 transition-colors"
+        >
+          <h3 className="text-sm font-semibold text-gray-800">Understanding Quality Scores</h3>
+          <svg
+            className={`w-5 h-5 text-gray-500 transition-transform ${openSection === 'quality' ? 'rotate-180' : ''}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        {openSection === 'quality' && (
+          <div className="px-6 pb-6 space-y-4 text-sm text-gray-600">
+            <p className="text-gray-700">
+              Each study is scored on a 100-point scale based on four key factors:
+            </p>
+
+            <div className="space-y-3">
+              <div>
+                <h4 className="font-semibold text-gray-800">Study Design (up to 50 points)</h4>
+                <p>
+                  The foundation of the score. Meta-analyses and systematic reviews score highest (45-50),
+                  followed by randomized controlled trials (40), controlled trials (30), and cohort studies (25).
+                  Animal and in-vitro studies score lower as they're less applicable to human use.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-gray-800">Methodology (up to 25 points)</h4>
+                <p>Bonus points for rigorous study design:</p>
+                <ul className="list-disc list-inside ml-2 mt-1 space-y-0.5">
+                  <li>Double-blind design: +10</li>
+                  <li>Placebo-controlled: +8</li>
+                  <li>Multicenter study: +7</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-gray-800">Sample Size (up to 15 points)</h4>
+                <p>Larger studies provide more reliable results:</p>
+                <ul className="list-disc list-inside ml-2 mt-1 space-y-0.5">
+                  <li>500+ participants: +15</li>
+                  <li>100-499 participants: +12</li>
+                  <li>50-99 participants: +8</li>
+                  <li>20-49 participants: +5</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-gray-800">Relevance (up to 10 points)</h4>
+                <ul className="list-disc list-inside ml-2 mt-1 space-y-0.5">
+                  <li>Human study: +7</li>
+                  <li>CBD-specific research: +3</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="pt-2 border-t border-gray-200">
+              <p className="text-xs text-gray-500">
+                <strong>Score ranges:</strong> Gold Standard (90-100) • High Quality (70-89) • Moderate (50-69) • Limited (30-49) • Preclinical (0-29)
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* About This Database */}
+      <div className="border-b border-gray-200">
+        <button
+          onClick={() => toggleSection('about')}
+          className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-100 transition-colors"
+        >
+          <h3 className="text-sm font-semibold text-gray-800">About This Database</h3>
+          <svg
+            className={`w-5 h-5 text-gray-500 transition-transform ${openSection === 'about' ? 'rotate-180' : ''}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        {openSection === 'about' && (
+          <div className="px-6 pb-6 text-sm text-gray-600">
+            <ul className="space-y-2">
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 mt-0.5">✓</span>
+                <span>We curate peer-reviewed research from PubMed, PMC, and ClinicalTrials.gov</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 mt-0.5">✓</span>
+                <span>Studies are automatically scored and categorized using our quality assessment algorithm</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 mt-0.5">✓</span>
+                <span>Our team reviews and approves studies for inclusion in the database</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 mt-0.5">✓</span>
+                <span>The database is updated regularly with new research as it becomes available</span>
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
+
+      {/* How to Use This Page */}
+      <div>
+        <button
+          onClick={() => toggleSection('howto')}
+          className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-100 transition-colors"
+        >
+          <h3 className="text-sm font-semibold text-gray-800">How to Use This Page</h3>
+          <svg
+            className={`w-5 h-5 text-gray-500 transition-transform ${openSection === 'howto' ? 'rotate-180' : ''}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        {openSection === 'howto' && (
+          <div className="px-6 pb-6 text-sm text-gray-600">
+            <ul className="space-y-2">
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-medium">1.</span>
+                <span>Use the filters in the sidebar to find studies relevant to your condition of interest</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-medium">2.</span>
+                <span>Click on any study card to expand and view the full abstract and quality assessment</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-medium">3.</span>
+                <span>Higher quality scores indicate more rigorous methodology and stronger evidence</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-medium">4.</span>
+                <span>Click "View Full Study" to read the complete paper at the original source</span>
+              </li>
+            </ul>
+            <p className="mt-4 text-xs text-gray-500">
+              Tip: Use the Subject Type filter to show only human studies, or the quality slider to focus on high-quality evidence.
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
   );
 }
 
@@ -1862,7 +2037,10 @@ function FilterSidebarContent({
           )}
         </div>
         <div className="flex flex-wrap gap-1.5">
-          {(showAllConditions ? Object.keys(CONDITIONS) as ConditionKey[] : TOP_CONDITIONS).map((key) => {
+          {(showAllConditions
+            ? (Object.keys(CONDITIONS) as ConditionKey[]).sort((a, b) => CONDITIONS[a].label.localeCompare(CONDITIONS[b].label))
+            : TOP_CONDITIONS
+          ).map((key) => {
             const cond = CONDITIONS[key];
             const colors = CONDITION_COLORS[key] || { bg: 'bg-gray-100', text: 'text-gray-700' };
             const isSelected = selectedConditions.includes(key);
