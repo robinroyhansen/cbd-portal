@@ -1,0 +1,462 @@
+'use client';
+
+import { useState, useEffect, useCallback } from 'react';
+import Link from 'next/link';
+
+interface Brand {
+  id: string;
+  name: string;
+  slug: string;
+  website_url: string | null;
+  website_domain: string | null;
+  logo_url: string | null;
+  headquarters_country: string | null;
+  founded_year: number | null;
+  short_description: string | null;
+  is_published: boolean;
+  created_at: string;
+  updated_at: string;
+  has_review: boolean;
+  review_score: number | null;
+  review_published: boolean;
+  review_id: string | null;
+}
+
+export default function AdminBrandsPage() {
+  const [brands, setBrands] = useState<Brand[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [publishedFilter, setPublishedFilter] = useState<string>('');
+  const [counts, setCounts] = useState({ total: 0, published: 0, draft: 0 });
+  const [isCreating, setIsCreating] = useState(false);
+  const [isEditing, setIsEditing] = useState<string | null>(null);
+  const [formData, setFormData] = useState<Partial<Brand>>({});
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const fetchBrands = useCallback(async () => {
+    setLoading(true);
+    try {
+      const params = new URLSearchParams();
+      if (publishedFilter) params.set('published', publishedFilter);
+      if (searchQuery) params.set('q', searchQuery);
+
+      const res = await fetch(`/api/admin/brands?${params.toString()}`);
+      const data = await res.json();
+
+      setBrands(data.brands || []);
+      setCounts({
+        total: data.total || 0,
+        published: data.publishedCount || 0,
+        draft: data.draftCount || 0
+      });
+    } catch (err) {
+      console.error('Error fetching brands:', err);
+    } finally {
+      setLoading(false);
+    }
+  }, [publishedFilter, searchQuery]);
+
+  useEffect(() => {
+    fetchBrands();
+  }, [fetchBrands]);
+
+  const handleCreate = () => {
+    setIsCreating(true);
+    setIsEditing(null);
+    setFormData({
+      name: '',
+      website_url: '',
+      website_domain: '',
+      logo_url: '',
+      headquarters_country: '',
+      founded_year: undefined,
+      short_description: '',
+      is_published: false
+    });
+    setError(null);
+  };
+
+  const handleEdit = (brand: Brand) => {
+    setIsEditing(brand.id);
+    setIsCreating(false);
+    setFormData({ ...brand });
+    setError(null);
+  };
+
+  const handleCancel = () => {
+    setIsCreating(false);
+    setIsEditing(null);
+    setFormData({});
+    setError(null);
+  };
+
+  const handleSave = async () => {
+    setError(null);
+    setSaving(true);
+
+    try {
+      const method = isCreating ? 'POST' : 'PATCH';
+      const body = isCreating ? formData : { id: isEditing, ...formData };
+
+      const res = await fetch('/api/admin/brands', {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to save brand');
+      }
+
+      handleCancel();
+      fetchBrands();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to save brand');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleDelete = async (id: string) => {
+    if (!confirm('Delete this brand? This will also delete its review. This cannot be undone.')) return;
+
+    try {
+      const res = await fetch('/api/admin/brands', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ids: [id] })
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to delete brand');
+      }
+
+      fetchBrands();
+    } catch (err) {
+      console.error('Error deleting brand:', err);
+      alert('Failed to delete brand');
+    }
+  };
+
+  const getScoreBadgeColor = (score: number | null) => {
+    if (score === null) return 'bg-gray-100 text-gray-500';
+    if (score >= 80) return 'bg-green-100 text-green-800';
+    if (score >= 60) return 'bg-yellow-100 text-yellow-800';
+    if (score >= 40) return 'bg-orange-100 text-orange-800';
+    return 'bg-red-100 text-red-800';
+  };
+
+  return (
+    <div className="p-8">
+      {/* Header */}
+      <div className="flex justify-between items-center mb-8">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900">Brands</h1>
+          <p className="text-gray-600 mt-2">
+            Manage CBD brands for reviews ({counts.total} brands)
+          </p>
+        </div>
+        <div className="flex gap-4">
+          <Link
+            href="/reviews"
+            target="_blank"
+            className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200"
+          >
+            View Public Page
+          </Link>
+          <button
+            onClick={handleCreate}
+            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+          >
+            + Add Brand
+          </button>
+        </div>
+      </div>
+
+      {/* Search and Filter */}
+      <div className="mb-6 flex gap-4 flex-wrap">
+        <div className="flex-1 min-w-[300px]">
+          <input
+            type="text"
+            placeholder="Search brands..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+          />
+        </div>
+        <select
+          value={publishedFilter}
+          onChange={(e) => setPublishedFilter(e.target.value)}
+          className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+        >
+          <option value="">All Brands ({counts.total})</option>
+          <option value="true">Published ({counts.published})</option>
+          <option value="false">Drafts ({counts.draft})</option>
+        </select>
+      </div>
+
+      {/* Create/Edit Form */}
+      {(isCreating || isEditing) && (
+        <div className="mb-8 bg-white rounded-xl border border-gray-200 p-6">
+          <h2 className="text-xl font-semibold mb-4">
+            {isCreating ? 'Add New Brand' : 'Edit Brand'}
+          </h2>
+
+          {error && (
+            <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
+              {error}
+            </div>
+          )}
+
+          <div className="space-y-4">
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Brand Name <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  value={formData.name || ''}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                  placeholder="e.g., Charlotte's Web"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Headquarters Country
+                </label>
+                <input
+                  type="text"
+                  value={formData.headquarters_country || ''}
+                  onChange={(e) => setFormData({ ...formData, headquarters_country: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                  placeholder="e.g., USA"
+                />
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Website URL
+                  <span className="text-gray-500 font-normal ml-1">(internal use only for AI research)</span>
+                </label>
+                <input
+                  type="url"
+                  value={formData.website_url || ''}
+                  onChange={(e) => setFormData({ ...formData, website_url: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                  placeholder="https://charlottesweb.com"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Website Domain
+                  <span className="text-gray-500 font-normal ml-1">(display text, not a link)</span>
+                </label>
+                <input
+                  type="text"
+                  value={formData.website_domain || ''}
+                  onChange={(e) => setFormData({ ...formData, website_domain: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                  placeholder="charlottesweb.com"
+                />
+                <p className="text-xs text-gray-500 mt-1">Auto-extracted from URL if left blank</p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Logo URL
+                  <span className="text-gray-500 font-normal ml-1">(manual upload)</span>
+                </label>
+                <input
+                  type="url"
+                  value={formData.logo_url || ''}
+                  onChange={(e) => setFormData({ ...formData, logo_url: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                  placeholder="https://example.com/logo.png"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Founded Year
+                </label>
+                <input
+                  type="number"
+                  value={formData.founded_year || ''}
+                  onChange={(e) => setFormData({ ...formData, founded_year: e.target.value ? parseInt(e.target.value) : undefined })}
+                  min={1900}
+                  max={new Date().getFullYear()}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                  placeholder="e.g., 2014"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Short Description
+              </label>
+              <textarea
+                value={formData.short_description || ''}
+                onChange={(e) => setFormData({ ...formData, short_description: e.target.value })}
+                rows={3}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 resize-y"
+                placeholder="Brief description of the brand..."
+              />
+            </div>
+
+            <div className="flex items-center">
+              <input
+                type="checkbox"
+                id="is_published"
+                checked={formData.is_published || false}
+                onChange={(e) => setFormData({ ...formData, is_published: e.target.checked })}
+                className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+              />
+              <label htmlFor="is_published" className="ml-2 text-sm text-gray-700">
+                Published (brand visible on public site)
+              </label>
+            </div>
+
+            <div className="flex justify-end gap-3 pt-4 border-t">
+              <button
+                onClick={handleCancel}
+                className="px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleSave}
+                disabled={saving}
+                className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50"
+              >
+                {saving ? 'Saving...' : isCreating ? 'Create Brand' : 'Save Changes'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Brands List */}
+      {loading ? (
+        <div className="space-y-4">
+          {[1, 2, 3].map(i => (
+            <div key={i} className="bg-white rounded-lg p-4 animate-pulse">
+              <div className="h-6 bg-gray-200 rounded w-1/4 mb-2"></div>
+              <div className="h-4 bg-gray-100 rounded w-3/4"></div>
+            </div>
+          ))}
+        </div>
+      ) : brands.length === 0 ? (
+        <div className="text-center py-16 bg-white rounded-xl">
+          <div className="text-4xl mb-4">🏢</div>
+          <h3 className="text-lg font-medium text-gray-900">No brands yet</h3>
+          <p className="text-gray-600 mt-1">
+            {searchQuery || publishedFilter
+              ? 'No brands match your filters'
+              : 'Get started by adding your first CBD brand'}
+          </p>
+          {!searchQuery && !publishedFilter && (
+            <button
+              onClick={handleCreate}
+              className="mt-4 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+            >
+              Add First Brand
+            </button>
+          )}
+        </div>
+      ) : (
+        <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+          <table className="w-full">
+            <thead className="bg-gray-50 border-b border-gray-200">
+              <tr>
+                <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">Brand</th>
+                <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">Website</th>
+                <th className="text-center px-4 py-3 text-sm font-medium text-gray-600">Score</th>
+                <th className="text-center px-4 py-3 text-sm font-medium text-gray-600">Status</th>
+                <th className="text-right px-4 py-3 text-sm font-medium text-gray-600">Actions</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {brands.map(brand => (
+                <tr key={brand.id} className="hover:bg-gray-50">
+                  <td className="px-4 py-3">
+                    <div className="flex items-center gap-3">
+                      {brand.logo_url ? (
+                        <img
+                          src={brand.logo_url}
+                          alt={brand.name}
+                          className="w-10 h-10 rounded-lg object-contain bg-gray-50"
+                        />
+                      ) : (
+                        <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-400 text-lg font-bold">
+                          {brand.name.charAt(0)}
+                        </div>
+                      )}
+                      <div>
+                        <div className="font-medium text-gray-900">{brand.name}</div>
+                        {brand.headquarters_country && (
+                          <div className="text-xs text-gray-500">{brand.headquarters_country}</div>
+                        )}
+                      </div>
+                    </div>
+                  </td>
+                  <td className="px-4 py-3">
+                    {brand.website_domain && (
+                      <span className="text-sm text-gray-600">{brand.website_domain}</span>
+                    )}
+                  </td>
+                  <td className="px-4 py-3 text-center">
+                    {brand.has_review ? (
+                      <span className={`px-2 py-1 rounded text-sm font-medium ${getScoreBadgeColor(brand.review_score)}`}>
+                        {brand.review_score}/100
+                      </span>
+                    ) : (
+                      <span className="text-sm text-gray-400">No review</span>
+                    )}
+                  </td>
+                  <td className="px-4 py-3 text-center">
+                    <span className={`px-2 py-1 rounded text-xs font-medium ${
+                      brand.is_published
+                        ? 'bg-green-100 text-green-800'
+                        : 'bg-gray-100 text-gray-600'
+                    }`}>
+                      {brand.is_published ? 'Published' : 'Draft'}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3 text-right">
+                    <Link
+                      href={`/admin/brands/${brand.id}`}
+                      className="px-3 py-1 text-sm text-green-600 hover:text-green-800"
+                    >
+                      {brand.has_review ? 'Edit Review' : 'Create Review'}
+                    </Link>
+                    <button
+                      onClick={() => handleEdit(brand)}
+                      className="px-3 py-1 text-sm text-blue-600 hover:text-blue-800"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(brand.id)}
+                      className="px-3 py-1 text-sm text-red-600 hover:text-red-800 ml-2"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+}

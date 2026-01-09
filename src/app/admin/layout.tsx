@@ -39,6 +39,15 @@ const staticNavItems: NavItem[] = [
       { name: 'Citations', href: '/admin/citations', icon: '📚' },
     ]
   },
+  {
+    name: 'Reviews',
+    href: '/admin/brands',
+    icon: '⭐',
+    subItems: [
+      { name: 'Brands', href: '/admin/brands', icon: '🏢' },
+      { name: 'All Reviews', href: '/admin/reviews', icon: '📝' },
+    ]
+  },
   { name: 'Glossary', href: '/admin/glossary', icon: '📖' },
   { name: 'Media Library', href: '/admin/media', icon: '🖼️' },
   { name: 'Languages', href: '/admin/languages', icon: '🌍' },
@@ -51,7 +60,7 @@ function AdminLayoutInner({
 }) {
   const router = useRouter();
   const pathname = usePathname();
-  const [expandedItems, setExpandedItems] = useState<string[]>(['Articles', 'Research']);
+  const [expandedItems, setExpandedItems] = useState<string[]>(['Articles', 'Research', 'Reviews']);
 
   const navItems = staticNavItems;
 

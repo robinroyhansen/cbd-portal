@@ -53,6 +53,11 @@ const NAV_ITEMS: NavItem[] = [
     icon: '🔬'
   },
   {
+    label: 'Reviews',
+    href: '/reviews',
+    icon: '⭐'
+  },
+  {
     label: 'Tools',
     href: '/tools',
     icon: '⚙️',
