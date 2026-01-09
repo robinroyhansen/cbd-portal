@@ -116,12 +116,12 @@ export function CollapsibleScoreBreakdown({ scoreBreakdown }: CollapsibleScoreBr
               }`}
             >
               <div className="px-4 pb-4 pt-2 bg-gray-50 border-t border-gray-100">
-                {/* Sub-scores with star ratings - horizontal layout */}
+                {/* Sub-scores with star ratings - vertical layout */}
                 {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores).length > 0 && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-2 mb-3">
+                  <div className="divide-y divide-gray-100 mb-3">
                     {criterion.subcriteria.map(sub => (
-                      <div key={sub.id} className="flex items-center justify-between gap-2 py-1">
-                        <span className="text-sm text-gray-700 truncate" title={sub.name}>
+                      <div key={sub.id} className="flex items-center justify-between py-2">
+                        <span className="text-sm text-gray-700">
                           {sub.name}
                         </span>
                         <StarRating

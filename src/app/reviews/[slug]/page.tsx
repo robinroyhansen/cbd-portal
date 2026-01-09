@@ -545,18 +545,15 @@ export default async function BrandReviewPage({ params }: Props) {
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">
                         {criterion.name} — {criterion.score}/{criterion.max_points}
                       </h3>
-                      {/* Sub-scores with stars */}
+                      {/* Sub-scores with stars - vertical layout */}
                       {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores || {}).length > 0 && (
-                        <div className="flex flex-wrap gap-x-4 gap-y-1 mb-3 pb-3 border-b border-gray-100">
-                          {criterion.subcriteria.map(sub => {
-                            const subScore = criterion.sub_scores[sub.id] ?? 0;
-                            return (
-                              <span key={sub.id} className="inline-flex items-center gap-1 text-sm text-gray-600">
-                                <span>{sub.name}</span>
-                                <StarRating score={subScore} maxScore={sub.max_points} />
-                              </span>
-                            );
-                          })}
+                        <div className="divide-y divide-gray-100 mb-4 bg-gray-50 rounded-lg px-4">
+                          {criterion.subcriteria.map(sub => (
+                            <div key={sub.id} className="flex items-center justify-between py-2">
+                              <span className="text-sm text-gray-700">{sub.name}</span>
+                              <StarRating score={criterion.sub_scores[sub.id] ?? 0} maxScore={sub.max_points} />
+                            </div>
+                          ))}
                         </div>
                       )}
                       <MarkdownContent className="prose prose-sm max-w-none prose-green prose-p:text-gray-700">
@@ -595,14 +592,14 @@ export default async function BrandReviewPage({ params }: Props) {
                             <h3 className="text-lg font-semibold text-gray-900 mb-2">
                               {criterion.name} — {criterion.score}/{criterion.max_points}
                             </h3>
-                            {/* Sub-scores with stars */}
+                            {/* Sub-scores with stars - vertical layout */}
                             {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores || {}).length > 0 && (
-                              <div className="flex flex-wrap gap-x-4 gap-y-1 mb-3 pb-3 border-b border-gray-100">
+                              <div className="divide-y divide-gray-100 mb-4 bg-gray-50 rounded-lg px-4">
                                 {criterion.subcriteria.map(sub => (
-                                  <span key={sub.id} className="inline-flex items-center gap-1 text-sm text-gray-600">
-                                    <span>{sub.name}</span>
+                                  <div key={sub.id} className="flex items-center justify-between py-2">
+                                    <span className="text-sm text-gray-700">{sub.name}</span>
                                     <StarRating score={criterion.sub_scores[sub.id] ?? 0} maxScore={sub.max_points} />
-                                  </span>
+                                  </div>
                                 ))}
                               </div>
                             )}

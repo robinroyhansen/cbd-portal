@@ -147,7 +147,7 @@ export async function PATCH(request: NextRequest) {
     }
 
     // Only allow updating specific fields (filter out computed/readonly fields)
-    const allowedFields = ['name', 'website_url', 'logo_url', 'headquarters_country', 'founded_year', 'short_description', 'is_published'];
+    const allowedFields = ['name', 'website_url', 'logo_url', 'headquarters_country', 'founded_year', 'short_description', 'is_published', 'certifications'];
     const updates: Record<string, unknown> = {};
 
     for (const field of allowedFields) {
