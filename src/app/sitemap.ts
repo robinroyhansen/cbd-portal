@@ -24,10 +24,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch all glossary terms
   const { data: glossaryData } = await supabase
     .from('kb_glossary')
-    .select('slug')
-    .eq('is_active', true);
+    .select('slug, updated_at');
 
-  const glossaryTerms = glossaryData as Array<{ slug: string }> | null;
+  const glossaryTerms = glossaryData as Array<{ slug: string; updated_at: string | null }> | null;
 
   // Fetch all tags with articles
   const { data: tagsData } = await supabase
@@ -156,9 +155,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Individual glossary terms
   const glossaryPages = (glossaryTerms || []).map((term) => ({
     url: `${baseUrl}/glossary/${term.slug}`,
-    lastModified: new Date(),
+    lastModified: term.updated_at ? new Date(term.updated_at) : new Date(),
     changeFrequency: 'monthly' as const,
-    priority: 0.5,
+    priority: 0.7,
   }));
 
   // Individual tag pages
