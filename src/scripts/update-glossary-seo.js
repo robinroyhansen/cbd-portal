@@ -53,22 +53,32 @@ const advancedTermSlugs = [
 async function updatePronunciations() {
   console.log('=== Updating Pronunciations ===\n');
 
-  // Fetch all terms
-  const response = await fetch(`${SUPABASE_URL}/rest/v1/kb_glossary?select=id,term,slug,pronunciation`, {
+  // Fetch all terms (only existing columns)
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/kb_glossary?select=id,term,slug`, {
     headers: {
       'apikey': SERVICE_ROLE_KEY,
       'Authorization': `Bearer ${SERVICE_ROLE_KEY}`
     }
   });
 
+  if (!response.ok) {
+    console.error('Failed to fetch terms:', await response.text());
+    return;
+  }
+
   const terms = await response.json();
+  if (!Array.isArray(terms)) {
+    console.error('Unexpected response:', terms);
+    return;
+  }
+
   let updated = 0;
 
   for (const term of terms) {
     const termLower = term.term.toLowerCase();
     const pronunciation = pronunciations[termLower];
 
-    if (pronunciation && term.pronunciation !== pronunciation) {
+    if (pronunciation) {
       const updateResponse = await fetch(`${SUPABASE_URL}/rest/v1/kb_glossary?id=eq.${term.id}`, {
         method: 'PATCH',
         headers: {
@@ -178,28 +188,31 @@ async function checkDuplicates() {
 async function printSummary() {
   console.log('=== Final Summary ===\n');
 
-  const response = await fetch(`${SUPABASE_URL}/rest/v1/kb_glossary?select=id,category,is_advanced,pronunciation`, {
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/kb_glossary?select=id,category`, {
     headers: {
       'apikey': SERVICE_ROLE_KEY,
       'Authorization': `Bearer ${SERVICE_ROLE_KEY}`
     }
   });
 
+  if (!response.ok) {
+    console.error('Failed to fetch summary');
+    return;
+  }
+
   const terms = await response.json();
+  if (!Array.isArray(terms)) {
+    console.error('Unexpected response');
+    return;
+  }
 
   const categoryCounts = {};
-  let advancedCount = 0;
-  let withPronunciation = 0;
 
   terms.forEach(t => {
     categoryCounts[t.category] = (categoryCounts[t.category] || 0) + 1;
-    if (t.is_advanced) advancedCount++;
-    if (t.pronunciation) withPronunciation++;
   });
 
   console.log(`Total terms: ${terms.length}`);
-  console.log(`Terms with pronunciation: ${withPronunciation}`);
-  console.log(`Advanced terms: ${advancedCount}`);
   console.log(`\nBy category:`);
   Object.entries(categoryCounts)
     .sort((a, b) => a[0].localeCompare(b[0]))
