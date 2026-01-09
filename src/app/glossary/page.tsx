@@ -59,6 +59,8 @@ export default function GlossaryPage() {
   const [availableLetters, setAvailableLetters] = useState<string[]>([]);
   const [viewMode, setViewMode] = useState<'cards' | 'table'>('cards');
   const [showAdvanced, setShowAdvanced] = useState(false);
+  const [totalAllTerms, setTotalAllTerms] = useState(0);
+  const [advancedCount, setAdvancedCount] = useState(0);
 
   // Autocomplete state
   const [suggestions, setSuggestions] = useState<AutocompleteSuggestion[]>([]);
@@ -73,7 +75,10 @@ export default function GlossaryPage() {
       try {
         const res = await fetch('/api/glossary?all=true');
         const data = await res.json();
-        setAllTermsForSearch(data.terms || []);
+        const allTerms = data.terms || [];
+        setAllTermsForSearch(allTerms);
+        setTotalAllTerms(allTerms.length);
+        setAdvancedCount(allTerms.filter((t: GlossaryTerm) => t.is_advanced).length);
       } catch (err) {
         console.error('Error fetching all terms:', err);
       }
@@ -225,7 +230,10 @@ export default function GlossaryPage() {
         <div className="max-w-6xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-4">CBD & Cannabis Glossary</h1>
           <p className="text-xl text-green-100 mb-6">
-            {totalTerms} terms explained - from cannabinoids to legal terminology
+            {showAdvanced
+              ? `${totalAllTerms} terms explained - from cannabinoids to legal terminology`
+              : `${totalAllTerms - advancedCount} terms explained (${advancedCount} advanced hidden)`
+            }
           </p>
 
           {/* Search Box with Autocomplete */}
@@ -248,11 +256,15 @@ export default function GlossaryPage() {
             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
 
             {/* Autocomplete Dropdown */}
-            {showSuggestions && suggestions.length > 0 && (
+            {searchQuery.length >= 2 && suggestions.length > 0 && showSuggestions && (
               <div
                 ref={suggestionsRef}
-                className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50"
+                className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg shadow-2xl border border-gray-300 overflow-hidden z-[100]"
+                style={{ maxHeight: '400px', overflowY: 'auto' }}
               >
+                <div className="px-3 py-2 bg-gray-50 border-b border-gray-200 text-xs text-gray-500">
+                  {suggestions.length} suggestion{suggestions.length !== 1 ? 's' : ''} found
+                </div>
                 {suggestions.map((suggestion, index) => {
                   const categoryInfo = CATEGORIES.find(c => c.key === suggestion.category);
                   const isSelected = index === selectedSuggestionIndex;
@@ -260,18 +272,21 @@ export default function GlossaryPage() {
                     <Link
                       key={suggestion.slug}
                       href={`/glossary/${suggestion.slug}`}
-                      className={`flex items-center justify-between px-4 py-3 hover:bg-green-50 transition-colors ${
-                        isSelected ? 'bg-green-50' : ''
+                      className={`flex items-center justify-between px-4 py-3 hover:bg-green-50 transition-colors border-b border-gray-100 last:border-b-0 ${
+                        isSelected ? 'bg-green-100' : ''
                       }`}
                       onClick={() => setShowSuggestions(false)}
                     >
                       <div>
                         <div className="font-medium text-gray-900">{suggestion.display_name}</div>
                         {suggestion.matchType === 'synonym' && (
-                          <div className="text-xs text-gray-500">Synonym match</div>
+                          <div className="text-xs text-gray-500">Matched synonym</div>
                         )}
                       </div>
-                      <span className="text-sm text-gray-500">{categoryInfo?.icon}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs text-gray-400">{categoryInfo?.label}</span>
+                        <span className="text-lg">{categoryInfo?.icon}</span>
+                      </div>
                     </Link>
                   );
                 })}
@@ -410,19 +425,18 @@ export default function GlossaryPage() {
               })}
 
               {/* Advanced Toggle */}
-              <button
-                onClick={() => setShowAdvanced(!showAdvanced)}
-                className={`ml-2 px-3 py-2 text-sm font-medium rounded-lg transition-all flex items-center gap-2 ${
-                  showAdvanced
-                    ? 'bg-purple-600 text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                </svg>
-                Advanced
-              </button>
+              <label className="ml-2 px-3 py-2 text-sm font-medium rounded-lg bg-purple-50 border border-purple-200 flex items-center gap-2 cursor-pointer hover:bg-purple-100 transition-colors">
+                <input
+                  type="checkbox"
+                  checked={showAdvanced}
+                  onChange={() => setShowAdvanced(!showAdvanced)}
+                  className="w-4 h-4 rounded border-purple-300 text-purple-600 focus:ring-purple-500"
+                />
+                <span className="text-purple-700">Show advanced terms</span>
+                <span className="text-xs px-1.5 py-0.5 rounded bg-purple-200 text-purple-700">
+                  {advancedCount}
+                </span>
+              </label>
 
               {/* View Toggle - Desktop */}
               <div className="ml-auto flex items-center gap-1 bg-gray-100 rounded-lg p-1">
@@ -457,19 +471,18 @@ export default function GlossaryPage() {
 
             {/* Mobile Advanced Toggle */}
             <div className="md:hidden mt-3">
-              <button
-                onClick={() => setShowAdvanced(!showAdvanced)}
-                className={`w-full px-3 py-2 text-sm font-medium rounded-lg transition-all flex items-center justify-center gap-2 ${
-                  showAdvanced
-                    ? 'bg-purple-600 text-white'
-                    : 'bg-gray-100 text-gray-600'
-                }`}
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                </svg>
-                {showAdvanced ? 'Hide Advanced Terms' : 'Show Advanced Terms'}
-              </button>
+              <label className="w-full px-3 py-2.5 text-sm font-medium rounded-lg bg-purple-50 border border-purple-200 flex items-center justify-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={showAdvanced}
+                  onChange={() => setShowAdvanced(!showAdvanced)}
+                  className="w-4 h-4 rounded border-purple-300 text-purple-600 focus:ring-purple-500"
+                />
+                <span className="text-purple-700">Show advanced terms</span>
+                <span className="text-xs px-1.5 py-0.5 rounded bg-purple-200 text-purple-700">
+                  {advancedCount}
+                </span>
+              </label>
             </div>
           </div>
         </div>

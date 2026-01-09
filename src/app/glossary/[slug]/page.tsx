@@ -283,14 +283,5 @@ export default async function GlossaryTermPage({ params }: Props) {
   );
 }
 
-// Generate static paths for all terms
-export async function generateStaticParams() {
-  const supabase = await createClient();
-  const { data: terms } = await supabase
-    .from('kb_glossary')
-    .select('slug');
-
-  return (terms || []).map(term => ({
-    slug: term.slug,
-  }));
-}
+// Force dynamic rendering for individual term pages
+export const dynamic = 'force-dynamic';
