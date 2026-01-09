@@ -8,6 +8,11 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
 const CATEGORY_INFO: Record<string, { label: string; icon: string; color: string }> = {
   cannabinoids: { label: 'Cannabinoids', icon: '🧬', color: 'green' },
   terpenes: { label: 'Terpenes', icon: '🌿', color: 'emerald' },
@@ -30,6 +35,43 @@ const CATEGORY_COLORS: Record<string, { bg: string; text: string }> = {
   dosing: { bg: 'bg-cyan-100', text: 'text-cyan-700' }
 };
 
+// Cannabinoid slugs that should link to research
+const CANNABINOID_SLUGS = ['cbd', 'thc', 'cbg', 'cbn', 'cbc', 'cbda', 'thca', 'cbdv', 'thcv', 'delta-8-thc'];
+
+function formatMetaDescription(text: string): string {
+  // Target 145-155 characters
+  if (!text) return '';
+
+  // Remove extra whitespace
+  let cleaned = text.replace(/\s+/g, ' ').trim();
+
+  if (cleaned.length >= 145 && cleaned.length <= 155) {
+    return cleaned;
+  }
+
+  if (cleaned.length > 155) {
+    // Truncate at word boundary
+    cleaned = cleaned.substring(0, 152);
+    const lastSpace = cleaned.lastIndexOf(' ');
+    if (lastSpace > 120) {
+      cleaned = cleaned.substring(0, lastSpace);
+    }
+    return cleaned + '...';
+  }
+
+  // If too short, return as-is (better than padding)
+  return cleaned;
+}
+
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const supabase = await createClient();
@@ -47,16 +89,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const displayTitle = term.display_name || term.term;
+  const metaDescription = formatMetaDescription(term.short_definition);
 
   return {
     title: `${displayTitle} - Definition | CBD Portal Glossary`,
-    description: term.short_definition || `Learn what ${term.term} means in the context of CBD and cannabis.`,
+    description: metaDescription,
     alternates: {
       canonical: `/glossary/${slug}`,
     },
     openGraph: {
       title: `${displayTitle} - CBD Glossary Definition`,
-      description: term.short_definition,
+      description: metaDescription,
       type: 'article',
       url: `/glossary/${slug}`,
     },
@@ -67,30 +110,34 @@ export default async function GlossaryTermPage({ params }: Props) {
   const { slug } = await params;
   const supabase = await createClient();
 
+  // Fetch term with author info
   const { data: term } = await supabase
     .from('kb_glossary')
-    .select('*')
+    .select(`
+      *,
+      author:kb_authors(id, name, slug, title, avatar_url)
+    `)
     .eq('slug', slug)
     .single();
 
   if (!term) notFound();
 
   // Get related terms
-  let relatedTerms: { term: string; slug: string; short_definition: string; category: string }[] = [];
+  let relatedTerms: { term: string; display_name: string; slug: string; short_definition: string; category: string }[] = [];
   if (term.related_terms && term.related_terms.length > 0) {
     const { data } = await supabase
       .from('kb_glossary')
-      .select('term, slug, short_definition, category')
+      .select('term, display_name, slug, short_definition, category')
       .in('slug', term.related_terms)
-      .limit(6);
+      .limit(8);
     relatedTerms = data || [];
   }
 
-  // Get more terms from same category (if not enough related)
+  // Get more terms from same category if not enough related
   if (relatedTerms.length < 4) {
     const { data: categoryTerms } = await supabase
       .from('kb_glossary')
-      .select('term, slug, short_definition, category')
+      .select('term, display_name, slug, short_definition, category')
       .eq('category', term.category)
       .neq('slug', slug)
       .limit(6 - relatedTerms.length);
@@ -114,6 +161,20 @@ export default async function GlossaryTermPage({ params }: Props) {
     .or(`content.ilike.%${term.term}%,title.ilike.%${term.term}%`)
     .limit(5);
 
+  // Check for related research
+  let researchCount = 0;
+  const isCannnabinoid = CANNABINOID_SLUGS.includes(slug) || term.category === 'cannabinoids';
+  const isCondition = term.category === 'conditions';
+
+  if (isCannnabinoid || isCondition) {
+    const { count } = await supabase
+      .from('kb_research_queue')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'approved')
+      .or(`title.ilike.%${term.term}%,abstract.ilike.%${term.term}%`);
+    researchCount = count || 0;
+  }
+
   const displayTitle = term.display_name || term.term;
   const categoryInfo = CATEGORY_INFO[term.category] || { label: term.category, icon: '📖', color: 'gray' };
   const categoryColors = CATEGORY_COLORS[term.category] || { bg: 'bg-gray-100', text: 'text-gray-700' };
@@ -124,8 +185,8 @@ export default async function GlossaryTermPage({ params }: Props) {
     { name: displayTitle, url: `https://cbd-portal.vercel.app/glossary/${term.slug}` }
   ];
 
-  // JSON-LD structured data for SEO
-  const schema = {
+  // JSON-LD structured data for SEO - DefinedTerm
+  const definedTermSchema = {
     '@context': 'https://schema.org',
     '@type': 'DefinedTerm',
     '@id': `https://cbd-portal.vercel.app/glossary/${term.slug}`,
@@ -143,15 +204,42 @@ export default async function GlossaryTermPage({ params }: Props) {
     })
   };
 
+  // FAQ Schema if FAQs exist
+  const faqSchema = term.faq && term.faq.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: term.faq.map((faq: FAQ) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer
+      }
+    }))
+  } : null;
+
   // Format definition paragraphs
   const definitionParagraphs = term.definition.split('\n\n').filter((p: string) => p.trim());
+
+  // Research link
+  const researchLink = isCannnabinoid
+    ? `/research?q=${encodeURIComponent(term.term)}`
+    : isCondition
+      ? `/research?condition=${slug}`
+      : null;
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(definedTermSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       <div className="min-h-screen bg-gray-50">
         {/* Header */}
@@ -178,10 +266,42 @@ export default async function GlossaryTermPage({ params }: Props) {
           {/* Title & Pronunciation */}
           <h1 className="text-4xl font-bold text-gray-900 mb-2">{displayTitle}</h1>
           {term.pronunciation && (
-            <p className="text-lg text-gray-500 mb-6 font-mono">
+            <p className="text-lg text-gray-500 mb-4 font-mono">
               /{term.pronunciation}/
             </p>
           )}
+
+          {/* Author & Last Updated Attribution */}
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-500 mb-6">
+            {term.author && (
+              <div className="flex items-center gap-2">
+                {term.author.avatar_url && (
+                  <img
+                    src={term.author.avatar_url}
+                    alt={term.author.name}
+                    className="w-6 h-6 rounded-full"
+                  />
+                )}
+                <span>
+                  Reviewed by{' '}
+                  <Link
+                    href={`/authors/${term.author.slug}`}
+                    className="text-green-600 hover:text-green-700 hover:underline"
+                  >
+                    {term.author.name}
+                  </Link>
+                </span>
+              </div>
+            )}
+            {term.updated_at && (
+              <span className="flex items-center gap-1">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Last updated: {formatDate(term.updated_at)}
+              </span>
+            )}
+          </div>
 
           {/* Short Definition Highlight */}
           <div className="bg-green-50 border-l-4 border-green-500 p-4 mb-8 rounded-r-lg">
@@ -196,6 +316,51 @@ export default async function GlossaryTermPage({ params }: Props) {
               </p>
             ))}
           </div>
+
+          {/* View Research Link */}
+          {researchLink && researchCount > 0 && (
+            <div className="mb-8">
+              <Link
+                href={researchLink}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors font-medium"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                View {researchCount} {researchCount === 1 ? 'study' : 'studies'} →
+              </Link>
+            </div>
+          )}
+
+          {/* FAQ Section */}
+          {term.faq && term.faq.length > 0 && (
+            <section className="mb-10">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+              <div className="space-y-4">
+                {term.faq.map((faq: FAQ, index: number) => (
+                  <details
+                    key={index}
+                    className="group bg-white rounded-lg border border-gray-200 overflow-hidden"
+                  >
+                    <summary className="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50 transition-colors">
+                      <span className="font-medium text-gray-900">{faq.question}</span>
+                      <svg
+                        className="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </summary>
+                    <div className="px-4 pb-4 text-gray-600">
+                      {faq.answer}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Synonyms */}
           {term.synonyms && term.synonyms.length > 0 && (
@@ -230,7 +395,7 @@ export default async function GlossaryTermPage({ params }: Props) {
                     >
                       <div className="flex items-start justify-between gap-2 mb-2">
                         <h3 className="font-semibold text-gray-900 group-hover:text-green-700 transition-colors">
-                          {related.term}
+                          {related.display_name || related.term}
                         </h3>
                         <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${relatedColors.bg} ${relatedColors.text}`}>
                           {relatedInfo.icon}
