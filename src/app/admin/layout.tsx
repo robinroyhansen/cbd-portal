@@ -1,12 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { AdminAuthProvider, useAdminAuth } from '../../lib/admin-auth';
 import { AdminProtected } from '../../components/AdminProtected';
+import { createClient } from '../../lib/supabase/client';
 
-const navItems = [
+interface NavItem {
+  name: string;
+  href: string;
+  icon: string;
+  badge?: number;
+  subItems?: NavItem[];
+}
+
+const staticNavItems: NavItem[] = [
   { name: 'Dashboard', href: '/admin/dashboard', icon: '📊' },
   {
     name: 'Articles',
@@ -30,6 +39,7 @@ const navItems = [
   { name: 'Citations', href: '/admin/citations', icon: '📚' },
   { name: 'Comments', href: '/admin/comments', icon: '💬' },
   { name: 'Research Queue', href: '/admin/research/queue', icon: '🔬' },
+  { name: 'Summaries', href: '/admin/research/summaries', icon: '📝', badge: 0 },
   { name: 'Scanner', href: '/admin/research', icon: '🔍' },
   { name: 'Media Library', href: '/admin/media', icon: '🖼️' },
   { name: 'Languages', href: '/admin/languages', icon: '🌍' },
@@ -43,6 +53,37 @@ function AdminLayoutInner({
   const router = useRouter();
   const pathname = usePathname();
   const [expandedItems, setExpandedItems] = useState<string[]>(['Articles', 'Authors']);
+  const [summariesNeeded, setSummariesNeeded] = useState(0);
+  const supabase = createClient();
+
+  // Fetch count of studies needing summaries
+  useEffect(() => {
+    const fetchSummariesCount = async () => {
+      const { count, error } = await supabase
+        .from('kb_research_queue')
+        .select('*', { count: 'exact', head: true })
+        .eq('status', 'approved')
+        .is('plain_summary', null);
+
+      if (!error && count !== null) {
+        setSummariesNeeded(count);
+      }
+    };
+
+    fetchSummariesCount();
+
+    // Refresh count every 30 seconds
+    const interval = setInterval(fetchSummariesCount, 30000);
+    return () => clearInterval(interval);
+  }, [supabase]);
+
+  // Build nav items with dynamic badge
+  const navItems = staticNavItems.map(item => {
+    if (item.name === 'Summaries') {
+      return { ...item, badge: summariesNeeded };
+    }
+    return item;
+  });
 
   const toggleExpanded = (itemName: string) => {
     setExpandedItems(prev =>
@@ -124,14 +165,21 @@ function AdminLayoutInner({
                   ) : (
                     <Link
                       href={item.href}
-                      className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-colors ${
+                      className={`flex items-center justify-between px-4 py-2 rounded-lg transition-colors ${
                         isActive
                           ? 'bg-primary-600 text-white'
                           : 'hover:bg-gray-700 text-gray-300'
                       }`}
                     >
-                      <span className="text-xl">{item.icon}</span>
-                      <span>{item.name}</span>
+                      <div className="flex items-center gap-3">
+                        <span className="text-xl">{item.icon}</span>
+                        <span>{item.name}</span>
+                      </div>
+                      {item.badge !== undefined && item.badge > 0 && (
+                        <span className="px-2 py-0.5 text-xs font-bold bg-amber-500 text-white rounded-full min-w-[20px] text-center">
+                          {item.badge > 99 ? '99+' : item.badge}
+                        </span>
+                      )}
                     </Link>
                   )}
                 </li>
