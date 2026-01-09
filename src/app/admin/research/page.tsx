@@ -62,7 +62,7 @@ export default function AdminResearchPage() {
   const [recentItems, setRecentItems] = useState<RecentResearchItem[]>([]);
   const [selectedSources, setSelectedSources] = useState<string[]>(['pubmed', 'clinicaltrials', 'pmc']);
   const [customKeywords, setCustomKeywords] = useState<string>(`cannabidiol, CBD, cannabis, medical cannabis, medicinal cannabis, medical marijuana, cannabinoids, THC, tetrahydrocannabinol, CBG, cannabigerol, CBN, cannabinol, CBC, cannabichromene, hemp oil, cannabis therapy, cannabis treatment, cannabinoid therapy, endocannabinoid system, cannabis pharmacology, phytocannabinoids, cannabis medicine, therapeutic cannabis, pharmaceutical cannabis, cannabis clinical trial, cannabidiol oil, CBD oil, cannabis extract, cannabis research, marijuana medicine, cannabis therapeutics, cannabinoid receptors, CB1 receptor, CB2 receptor, cannabis safety, cannabis efficacy, cannabis dosing, cannabis pharmacokinetics, hemp-derived CBD, full spectrum CBD, broad spectrum CBD, CBD isolate, cannabis terpenes, entourage effect, cannabis pain management, cannabis anxiety, cannabis epilepsy, cannabis inflammation, cannabis neuroprotection, cannabis oncology, cannabis addiction, cannabis withdrawal, cannabis tolerance`);
-  const [scanDepth, setScanDepth] = useState<string>('standard');
+  const [scanDepth, setScanDepth] = useState<string>('6months');
   const [starting, setStarting] = useState(false);
   const [stopping, setStopping] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -281,10 +281,6 @@ export default function AdminResearchPage() {
     { id: 'openalex', name: 'OpenAlex', desc: 'Open research database', available: true }
   ];
 
-  const comingSoonSources = [
-    { id: 'cochrane', name: 'Cochrane Library', desc: 'Systematic reviews' },
-    { id: 'who_ictrp', name: 'WHO ICTRP', desc: 'International clinical trials' }
-  ];
 
   return (
     <div className="p-8">
@@ -496,10 +492,10 @@ export default function AdminResearchPage() {
         {/* Source Selection */}
         <div className="p-6 bg-white rounded-lg shadow border">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Research Sources</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Available Sources */}
             <div className="space-y-2">
-              <h4 className="font-medium text-gray-800 text-sm uppercase tracking-wide">Available Sources</h4>
+              <h4 className="font-medium text-gray-800 text-sm uppercase tracking-wide">Select Sources</h4>
               {availableSources.map((source) => (
                 <label key={source.id} className="flex items-start gap-2 cursor-pointer p-2 rounded hover:bg-gray-50">
                   <input
@@ -523,25 +519,6 @@ export default function AdminResearchPage() {
               ))}
             </div>
 
-            {/* Coming Soon Sources */}
-            <div className="space-y-2">
-              <h4 className="font-medium text-gray-800 text-sm uppercase tracking-wide">Coming Soon</h4>
-              {comingSoonSources.map((source) => (
-                <label key={source.id} className="flex items-start gap-2 p-2 rounded opacity-50 cursor-not-allowed">
-                  <input
-                    type="checkbox"
-                    checked={false}
-                    disabled={true}
-                    className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-0.5"
-                  />
-                  <div>
-                    <span className="text-sm font-medium text-gray-700">{source.name}</span>
-                    <p className="text-xs text-gray-500">{source.desc}</p>
-                  </div>
-                </label>
-              ))}
-            </div>
-
             {/* Scan Depth */}
             <div>
               <h4 className="font-medium text-gray-800 text-sm uppercase tracking-wide mb-2">Scan Depth</h4>
@@ -551,18 +528,27 @@ export default function AdminResearchPage() {
                 disabled={isScanning}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               >
-                <option value="quick">Quick (Last 30 days)</option>
-                <option value="standard">Standard (Last 90 days)</option>
-                <option value="deep">Deep (Last 6 months)</option>
-                <option value="1year">Extended (Last 1 year)</option>
-                <option value="2years">Historical (Last 2 years)</option>
+                <optgroup label="Regular Scans (find new studies)">
+                  <option value="6months">Last 6 months (Recommended)</option>
+                  <option value="1year">Last 12 months</option>
+                  <option value="quick">Last 30 days (Quick)</option>
+                </optgroup>
+                <optgroup label="One-Time Scans">
+                  <option value="2years">Last 2 years</option>
+                  <option value="5years">Last 5 years</option>
+                  <option value="historical">Historical (All time, 15-20 years)</option>
+                </optgroup>
               </select>
               <p className="text-xs text-gray-500 mt-2">
-                {scanDepth === 'quick' && 'Fast scan, ~1-2 min'}
-                {scanDepth === 'standard' && 'Balanced, ~3-5 min'}
-                {scanDepth === 'deep' && 'Thorough, ~8-15 min'}
-                {scanDepth === '1year' && 'Extended, ~15-25 min'}
-                {scanDepth === '2years' && 'Historical, ~25-40 min'}
+                {scanDepth === 'quick' && 'Fast scan for recent updates, ~1-2 min'}
+                {scanDepth === '6months' && 'Recommended for regular scans, ~5-10 min'}
+                {scanDepth === '1year' && 'Extended scan, ~10-20 min'}
+                {scanDepth === '2years' && 'One-time deep scan, ~20-30 min'}
+                {scanDepth === '5years' && 'One-time historical scan, ~30-45 min'}
+                {scanDepth === 'historical' && '⚠️ One-time foundation scan (15-20 years). Run once to capture landmark studies. ~1-2 hours'}
+              </p>
+              <p className="text-xs text-blue-600 mt-1">
+                ✓ Automatically skips studies already in database (URL + DOI + title match)
               </p>
 
               {/* Quick Source Presets */}

@@ -10,6 +10,59 @@ interface ResearchItem {
   doi?: string;
   source_site: string;
   search_term_matched?: string;
+  country?: string;
+}
+
+// Country code mapping for common institution patterns
+const COUNTRY_PATTERNS: Record<string, RegExp[]> = {
+  'US': [/united states/i, /\busa\b/i, /\bu\.s\.a?\b/i, /\bamerican\b/i],
+  'UK': [/united kingdom/i, /\buk\b/i, /\bengland\b/i, /\bscotland\b/i, /\bwales\b/i, /\bbritish\b/i],
+  'CA': [/\bcanada\b/i, /\bcanadian\b/i],
+  'AU': [/\baustralia\b/i, /\baustralian\b/i],
+  'DE': [/\bgermany\b/i, /\bgerman\b/i, /deutschland/i],
+  'FR': [/\bfrance\b/i, /\bfrench\b/i],
+  'IT': [/\bitaly\b/i, /\bitalian\b/i],
+  'ES': [/\bspain\b/i, /\bspanish\b/i],
+  'NL': [/netherlands/i, /\bdutch\b/i, /holland/i],
+  'CH': [/switzerland/i, /\bswiss\b/i],
+  'IL': [/\bisrael\b/i, /\bisraeli\b/i],
+  'JP': [/\bjapan\b/i, /\bjapanese\b/i],
+  'CN': [/\bchina\b/i, /\bchinese\b/i],
+  'BR': [/\bbrazil\b/i, /\bbrazilian\b/i],
+  'IN': [/\bindia\b/i, /\bindian\b/i],
+  'KR': [/\bsouth korea\b/i, /\bkorea\b/i, /\bkorean\b/i],
+  'SE': [/\bsweden\b/i, /\bswedish\b/i],
+  'DK': [/\bdenmark\b/i, /\bdanish\b/i],
+  'NO': [/\bnorway\b/i, /\bnorwegian\b/i],
+  'FI': [/\bfinland\b/i, /\bfinnish\b/i],
+  'PL': [/\bpoland\b/i, /\bpolish\b/i],
+  'CZ': [/\bczech\b/i, /czechia/i],
+  'AT': [/\baustria\b/i, /\baustrian\b/i],
+  'BE': [/\bbelgium\b/i, /\bbelgian\b/i],
+  'PT': [/\bportugal\b/i, /\bportuguese\b/i],
+  'IE': [/\bireland\b/i, /\birish\b/i],
+  'NZ': [/new zealand/i, /\bnz\b/i],
+  'MX': [/\bmexico\b/i, /\bmexican\b/i],
+  'AR': [/\bargentina\b/i, /\bargentine\b/i],
+  'CO': [/\bcolombia\b/i, /\bcolombian\b/i],
+  'ZA': [/south africa/i],
+  'TR': [/\bturkey\b/i, /\bturkish\b/i],
+  'RU': [/\brussia\b/i, /\brussian\b/i],
+  'GR': [/\bgreece\b/i, /\bgreek\b/i],
+  'HU': [/\bhungary\b/i, /\bhungarian\b/i],
+  'RO': [/\bromania\b/i, /\bromanian\b/i],
+};
+
+// Extract country from author affiliations
+function extractCountryFromAuthors(authors: string | undefined): string | undefined {
+  if (!authors) return undefined;
+
+  for (const [code, patterns] of Object.entries(COUNTRY_PATTERNS)) {
+    if (patterns.some(p => p.test(authors))) {
+      return code;
+    }
+  }
+  return undefined;
 }
 
 // Calculate Levenshtein distance between two strings
@@ -252,6 +305,7 @@ const TOPIC_KEYWORDS: Record<string, string[]> = {
 // VALIDATION FUNCTION - Must pass to be added
 function isRelevantToCannabis(study: ResearchItem): boolean {
   const text = `${study.title || ''} ${study.abstract || ''}`.toLowerCase();
+  const title = (study.title || '').toLowerCase();
 
   // Must contain at least one required keyword
   const hasRequiredKeyword = REQUIRED_KEYWORDS.some(keyword =>
@@ -259,7 +313,7 @@ function isRelevantToCannabis(study: ResearchItem): boolean {
   );
 
   if (!hasRequiredKeyword) {
-    console.log(`REJECTED (no cannabis keyword): ${study.title}`);
+    console.log(`REJECTED (no cannabis keyword): ${study.title?.substring(0, 50)}`);
     return false;
   }
 
@@ -274,7 +328,14 @@ function isRelevantToCannabis(study: ResearchItem): boolean {
     'legal framework',
     'drug testing',
     'detection method',
-    'forensic'
+    'forensic',
+    'survey of attitudes',
+    'public opinion',
+    'legalization debate',
+    'recreational use patterns',
+    'prevalence of use',
+    'youth cannabis use',
+    'adolescent marijuana use'
   ];
 
   const isNonTherapeutic = nonTherapeuticKeywords.some(kw =>
@@ -282,7 +343,54 @@ function isRelevantToCannabis(study: ResearchItem): boolean {
   );
 
   if (isNonTherapeutic) {
-    console.log(`REJECTED (non-therapeutic): ${study.title}`);
+    console.log(`REJECTED (non-therapeutic): ${study.title?.substring(0, 50)}`);
+    return false;
+  }
+
+  // Quality filters - reject low-quality or non-research content
+  const lowQualityIndicators = [
+    'letter to the editor',
+    'erratum',
+    'corrigendum',
+    'retraction notice',
+    'author correction',
+    'commentary on',
+    'response to',
+    'reply to',
+    'book review'
+  ];
+
+  const isLowQuality = lowQualityIndicators.some(indicator =>
+    title.includes(indicator)
+  );
+
+  if (isLowQuality) {
+    console.log(`REJECTED (low quality): ${study.title?.substring(0, 50)}`);
+    return false;
+  }
+
+  // Reject studies that are primarily about cannabis harms without therapeutic focus
+  const harmsOnlyKeywords = [
+    'cannabis-induced psychosis',
+    'marijuana-related emergency',
+    'cannabis use disorder prevalence',
+    'driving under influence',
+    'impaired driving',
+    'drugged driving'
+  ];
+
+  const isHarmsOnly = harmsOnlyKeywords.some(kw =>
+    text.includes(kw)
+  ) && !text.includes('treatment') && !text.includes('therapy') && !text.includes('intervention');
+
+  if (isHarmsOnly) {
+    console.log(`REJECTED (harms only, no treatment): ${study.title?.substring(0, 50)}`);
+    return false;
+  }
+
+  // Reject very short titles (likely incomplete data)
+  if ((study.title?.length || 0) < 20) {
+    console.log(`REJECTED (title too short): ${study.title}`);
     return false;
   }
 
@@ -459,6 +567,24 @@ export async function scanClinicalTrials(scanDepth: string = 'standard', customK
 
         if (title) {
           const nctId = protocol?.identificationModule?.nctId;
+
+          // Extract country from ClinicalTrials.gov location data
+          let country: string | undefined;
+          const locations = protocol?.contactsLocationsModule?.locations;
+          if (locations && locations.length > 0) {
+            // Use the first location's country
+            country = locations[0]?.country;
+            // Convert to ISO code if it's a full name
+            if (country) {
+              for (const [code, patterns] of Object.entries(COUNTRY_PATTERNS)) {
+                if (patterns.some(p => p.test(country!))) {
+                  country = code;
+                  break;
+                }
+              }
+            }
+          }
+
           results.push({
             title,
             authors: protocol?.contactsLocationsModule?.overallOfficials?.map((o: any) => o.name).join(', '),
@@ -467,7 +593,8 @@ export async function scanClinicalTrials(scanDepth: string = 'standard', customK
             abstract: protocol?.descriptionModule?.briefSummary,
             url: `https://clinicaltrials.gov/study/${nctId}`,
             source_site: 'ClinicalTrials.gov',
-            search_term_matched: term
+            search_term_matched: term,
+            country
           });
         }
       }
@@ -971,11 +1098,12 @@ function getDateRangeFilter(scanDepth: string): string {
     case 'quick':
       startDate = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000); // 30 days
       break;
-    case 'standard':
-      startDate = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000); // 90 days
-      break;
-    case 'deep':
+    case '6months':
       startDate = new Date(now.getTime() - 180 * 24 * 60 * 60 * 1000); // 6 months
+      break;
+    case 'standard':
+    case 'deep':
+      startDate = new Date(now.getTime() - 180 * 24 * 60 * 60 * 1000); // 6 months (legacy)
       break;
     case '1year':
       startDate = new Date(now.getTime() - 365 * 24 * 60 * 60 * 1000); // 1 year
@@ -986,10 +1114,13 @@ function getDateRangeFilter(scanDepth: string): string {
     case '5years':
       startDate = new Date(now.getTime() - 5 * 365 * 24 * 60 * 60 * 1000); // 5 years
       break;
+    case 'historical':
     case 'comprehensive':
-      return ''; // No date filter - search all time
+      // Historical: go back 20 years to capture landmark studies
+      startDate = new Date(now.getTime() - 20 * 365 * 24 * 60 * 60 * 1000);
+      break;
     default:
-      startDate = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000); // default to 90 days
+      startDate = new Date(now.getTime() - 180 * 24 * 60 * 60 * 1000); // default to 6 months
   }
 
   const year = startDate.getFullYear();
@@ -1002,14 +1133,16 @@ function getDateRangeFilter(scanDepth: string): string {
 // Helper function to get result limit based on scan depth
 function getResultLimit(scanDepth: string): number {
   switch (scanDepth) {
-    case 'quick': return 10;
-    case 'standard': return 20;
+    case 'quick': return 20;
+    case '6months': return 50;
+    case 'standard': return 50;
     case 'deep': return 50;
     case '1year': return 100;
     case '2years': return 200;
     case '5years': return 500;
+    case 'historical':
     case 'comprehensive': return 1000;
-    default: return 20;
+    default: return 50;
   }
 }
 
@@ -1219,6 +1352,9 @@ async function saveSourceResults(
       continue;
     }
 
+    // Try to extract country from authors if not already set
+    const country = study.country || extractCountryFromAuthors(study.authors);
+
     // Insert
     const { error } = await supabase
       .from('kb_research_queue')
@@ -1234,6 +1370,7 @@ async function saveSourceResults(
         search_term_matched: study.search_term_matched,
         relevance_score: score,
         relevant_topics: topics,
+        country: country,
         status: 'pending'
       });
 
@@ -1247,7 +1384,7 @@ async function saveSourceResults(
       }
     } else {
       added++;
-      console.log(`[SaveResults] Added: "${study.title?.substring(0, 60)}..." (score: ${score})`);
+      console.log(`[SaveResults] Added: "${study.title?.substring(0, 60)}..." (score: ${score}${country ? `, country: ${country}` : ''})`);
     }
   }
 
