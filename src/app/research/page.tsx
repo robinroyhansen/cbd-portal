@@ -83,10 +83,15 @@ export default async function ResearchPage() {
   }
 
   // Calculate database statistics
+  // CBD-specific: title/abstract contains "cannabidiol" or "CBD" (not just any cannabis term)
+  const cbdSpecific = allResearch.filter(r => {
+    const text = `${r.title || ''} ${r.abstract || ''}`.toLowerCase();
+    return text.includes('cannabidiol') || /\bcbd\b/.test(text);
+  }).length;
+
   const stats = {
     total: allResearch.length,
-    fromQueue: allResearch.filter(r => r.source_type === 'research_queue').length,
-    fromCitations: allResearch.filter(r => r.source_type === 'citation').length,
+    cbdSpecific,
     recentStudies: allResearch.filter(r => (r.year || 0) >= 2020).length,
     highRelevance: allResearch.filter(r => (r.relevance_score || 0) >= 80).length
   };
@@ -111,16 +116,16 @@ export default async function ResearchPage() {
           <div className="text-xs text-blue-600">Total Studies</div>
         </div>
         <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg text-center border border-green-200">
-          <div className="text-2xl font-bold text-green-700">{stats.fromQueue}</div>
-          <div className="text-xs text-green-600">Curated Research</div>
+          <div className="text-2xl font-bold text-green-700">{stats.cbdSpecific}</div>
+          <div className="text-xs text-green-600">CBD-Specific</div>
         </div>
         <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg text-center border border-orange-200">
           <div className="text-2xl font-bold text-orange-700">{stats.recentStudies}</div>
           <div className="text-xs text-orange-600">Since 2020</div>
         </div>
-        <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-4 rounded-lg text-center border border-yellow-200">
-          <div className="text-2xl font-bold text-yellow-700">{stats.highRelevance}</div>
-          <div className="text-xs text-yellow-600">High Quality</div>
+        <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg text-center border border-purple-200">
+          <div className="text-2xl font-bold text-purple-700">{stats.highRelevance}</div>
+          <div className="text-xs text-purple-600">High Quality</div>
         </div>
       </div>
 

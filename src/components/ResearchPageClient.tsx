@@ -193,7 +193,7 @@ export const CONDITIONS = {
   },
   ms: {
     label: 'Multiple Sclerosis',
-    keywords: ['multiple sclerosis', 'demyelinating', 'demyelination', 'spasticity', 'sativex', 'nabiximols', 'relapsing-remitting', 'rrms', 'ppms', 'spms'],
+    keywords: ['multiple sclerosis', 'sativex', 'nabiximols', 'relapsing-remitting ms', 'rrms', 'ppms', 'spms', 'ms spasticity', 'ms patients'],
     icon: '🧬',
     color: 'orange',
     category: 'Pain & Inflammation',
