@@ -57,6 +57,7 @@ export default function GlossaryPage() {
   const [expandedTermData, setExpandedTermData] = useState<GlossaryTerm | null>(null);
   const [categoryCounts, setCategoryCounts] = useState<Record<string, number>>({});
   const [availableLetters, setAvailableLetters] = useState<string[]>([]);
+  const [viewMode, setViewMode] = useState<'cards' | 'table'>('cards');
 
   const fetchTerms = useCallback(async () => {
     setLoading(true);
@@ -181,7 +182,7 @@ export default function GlossaryPage() {
             })}
           </div>
 
-          {/* Category Tabs */}
+          {/* Category Tabs and View Toggle */}
           <div className="py-2 flex items-center gap-2 overflow-x-auto border-t border-gray-100">
             <button
               onClick={() => setSelectedCategory(null)}
@@ -211,6 +212,36 @@ export default function GlossaryPage() {
                 </button>
               );
             })}
+
+            {/* View Toggle */}
+            <div className="ml-auto flex items-center gap-1 bg-gray-100 rounded-lg p-1">
+              <button
+                onClick={() => setViewMode('cards')}
+                className={`p-1.5 rounded ${
+                  viewMode === 'cards'
+                    ? 'bg-white shadow text-gray-900'
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+                title="Card view"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                </svg>
+              </button>
+              <button
+                onClick={() => setViewMode('table')}
+                className={`p-1.5 rounded ${
+                  viewMode === 'table'
+                    ? 'bg-white shadow text-gray-900'
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+                title="Table view"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -247,7 +278,80 @@ export default function GlossaryPage() {
               </button>
             )}
           </div>
+        ) : viewMode === 'table' ? (
+          // Table View
+          <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <table className="w-full">
+              <thead className="bg-gray-50 border-b border-gray-200">
+                <tr>
+                  <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">Term</th>
+                  <th className="text-left px-4 py-3 text-sm font-medium text-gray-600 hidden md:table-cell">Category</th>
+                  <th className="text-left px-4 py-3 text-sm font-medium text-gray-600 hidden lg:table-cell">Definition</th>
+                  <th className="text-left px-4 py-3 text-sm font-medium text-gray-600 hidden sm:table-cell">Difficulty</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {terms.map(term => {
+                  const categoryColors = CATEGORY_COLORS[term.category] || CATEGORY_COLORS.cannabinoids;
+                  const difficultyColors = DIFFICULTY_COLORS[term.difficulty as keyof typeof DIFFICULTY_COLORS] || DIFFICULTY_COLORS.beginner;
+                  const categoryInfo = CATEGORIES.find(c => c.key === term.category);
+                  const isExpanded = expandedTerm === term.id;
+
+                  return (
+                    <tr
+                      key={term.id}
+                      className={`hover:bg-gray-50 cursor-pointer ${isExpanded ? 'bg-green-50' : ''}`}
+                      onClick={() => handleTermClick(term)}
+                    >
+                      <td className="px-4 py-3">
+                        <div className="font-medium text-gray-900">{term.term}</div>
+                        {term.synonyms && term.synonyms.length > 0 && (
+                          <div className="text-xs text-gray-500 mt-0.5">
+                            Also: {term.synonyms.slice(0, 2).join(', ')}
+                            {term.synonyms.length > 2 && '...'}
+                          </div>
+                        )}
+                        {/* Mobile category badge */}
+                        <div className="md:hidden mt-1">
+                          <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${categoryColors.bg} ${categoryColors.text}`}>
+                            {categoryInfo?.icon} {categoryInfo?.label}
+                          </span>
+                        </div>
+                        {/* Expanded content for table view */}
+                        {isExpanded && expandedTermData && (
+                          <div className="mt-3 pt-3 border-t border-gray-200" onClick={e => e.stopPropagation()}>
+                            <div className="text-sm text-gray-700 whitespace-pre-wrap mb-3">
+                              {expandedTermData.definition}
+                            </div>
+                            {expandedTermData.synonyms && expandedTermData.synonyms.length > 0 && (
+                              <div className="text-xs text-gray-500">
+                                <span className="font-medium">Also known as:</span> {expandedTermData.synonyms.join(', ')}
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </td>
+                      <td className="px-4 py-3 hidden md:table-cell">
+                        <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${categoryColors.bg} ${categoryColors.text}`}>
+                          {categoryInfo?.icon} {categoryInfo?.label}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 hidden lg:table-cell">
+                        <p className="text-sm text-gray-600 line-clamp-2">{term.short_definition}</p>
+                      </td>
+                      <td className="px-4 py-3 hidden sm:table-cell">
+                        <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${difficultyColors.bg} ${difficultyColors.text}`}>
+                          {term.difficulty}
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         ) : (
+          // Card View
           <div className="space-y-8">
             {selectedLetter || searchQuery ? (
               // Show flat list when filtering
