@@ -1,11 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { AdminAuthProvider, useAdminAuth } from '../../lib/admin-auth';
 import { AdminProtected } from '../../components/AdminProtected';
-import { createClient } from '../../lib/supabase/client';
 
 interface NavItem {
   name: string;
@@ -28,19 +27,16 @@ const staticNavItems: NavItem[] = [
     ]
   },
   {
-    name: 'Authors',
-    href: '/admin/authors',
-    icon: '👤',
+    name: 'Research',
+    href: '/admin/research',
+    icon: '🔬',
     subItems: [
-      { name: 'All Authors', href: '/admin/authors', icon: '📋' },
-      { name: 'Create Author', href: '/admin/authors/new', icon: '➕' },
+      { name: 'Scanner', href: '/admin/research', icon: '🔍' },
+      { name: 'Queue', href: '/admin/research/queue', icon: '📋' },
+      { name: 'Citations', href: '/admin/citations', icon: '📚' },
     ]
   },
-  { name: 'Citations', href: '/admin/citations', icon: '📚' },
-  { name: 'Comments', href: '/admin/comments', icon: '💬' },
-  { name: 'Research Queue', href: '/admin/research/queue', icon: '🔬' },
-  { name: 'Summaries', href: '/admin/research/summaries', icon: '📝', badge: 0 },
-  { name: 'Scanner', href: '/admin/research', icon: '🔍' },
+  { name: 'Authors', href: '/admin/authors', icon: '👤' },
   { name: 'Media Library', href: '/admin/media', icon: '🖼️' },
   { name: 'Languages', href: '/admin/languages', icon: '🌍' },
 ];
@@ -52,38 +48,9 @@ function AdminLayoutInner({
 }) {
   const router = useRouter();
   const pathname = usePathname();
-  const [expandedItems, setExpandedItems] = useState<string[]>(['Articles', 'Authors']);
-  const [summariesNeeded, setSummariesNeeded] = useState(0);
-  const supabase = createClient();
+  const [expandedItems, setExpandedItems] = useState<string[]>(['Articles', 'Research']);
 
-  // Fetch count of studies needing summaries
-  useEffect(() => {
-    const fetchSummariesCount = async () => {
-      const { count, error } = await supabase
-        .from('kb_research_queue')
-        .select('*', { count: 'exact', head: true })
-        .eq('status', 'approved')
-        .is('plain_summary', null);
-
-      if (!error && count !== null) {
-        setSummariesNeeded(count);
-      }
-    };
-
-    fetchSummariesCount();
-
-    // Refresh count every 30 seconds
-    const interval = setInterval(fetchSummariesCount, 30000);
-    return () => clearInterval(interval);
-  }, [supabase]);
-
-  // Build nav items with dynamic badge
-  const navItems = staticNavItems.map(item => {
-    if (item.name === 'Summaries') {
-      return { ...item, badge: summariesNeeded };
-    }
-    return item;
-  });
+  const navItems = staticNavItems;
 
   const toggleExpanded = (itemName: string) => {
     setExpandedItems(prev =>
