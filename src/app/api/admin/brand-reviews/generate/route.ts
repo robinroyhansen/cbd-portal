@@ -47,7 +47,15 @@ SCORING GUIDELINES:
 - If you can't find something, say so: "I couldn't find any lab reports on their site"
 
 SECTION CONTENT:
-For each scoring category, write 2-3 paragraphs of review text in first person. Do NOT include markdown headings or tables in the section text - just the prose explanation. The headings and sub-scores will be added automatically by the system.
+For each scoring category, write 2-3 paragraphs of review text in first person.
+
+CRITICAL: Do NOT include any of these in section text:
+- NO markdown tables (no "| Column |" format)
+- NO sub-score listings or breakdowns
+- NO headings (no "##" or "###")
+- NO score summaries like "Lab Testing: 4/5"
+
+ONLY write flowing prose paragraphs explaining your findings and opinions. The sub-scores will be displayed visually as star ratings by the system.
 
 Example section_content for "quality_testing":
 "I was pleasantly surprised by how easy it was to find CBDistillery's lab reports. They've got batch-specific COAs from ProVerde Labs right on each product page - no hunting required. That's exactly what I want to see.

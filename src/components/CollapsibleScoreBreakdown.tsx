@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { StarRating } from './StarRating';
 
 interface SubCriterion {
   id: string;
@@ -115,15 +116,18 @@ export function CollapsibleScoreBreakdown({ scoreBreakdown }: CollapsibleScoreBr
               }`}
             >
               <div className="px-4 pb-4 pt-2 bg-gray-50 border-t border-gray-100">
-                {/* Sub-scores grid */}
+                {/* Sub-scores with star ratings - horizontal layout */}
                 {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores).length > 0 && (
-                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 mb-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-2 mb-3">
                     {criterion.subcriteria.map(sub => (
-                      <div key={sub.id} className="bg-white rounded-lg px-3 py-2 border border-gray-200">
-                        <div className="text-xs text-gray-500 truncate" title={sub.name}>{sub.name}</div>
-                        <div className="text-sm font-medium text-gray-900">
-                          {criterion.sub_scores[sub.id] ?? 0}/{sub.max_points}
-                        </div>
+                      <div key={sub.id} className="flex items-center justify-between gap-2 py-1">
+                        <span className="text-sm text-gray-700 truncate" title={sub.name}>
+                          {sub.name}
+                        </span>
+                        <StarRating
+                          score={criterion.sub_scores[sub.id] ?? 0}
+                          maxScore={sub.max_points}
+                        />
                       </div>
                     ))}
                   </div>

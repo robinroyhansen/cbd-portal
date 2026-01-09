@@ -5,7 +5,10 @@ import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { CollapsibleScoreBreakdown } from '@/components/CollapsibleScoreBreakdown';
 import { MarkdownContent } from '@/components/MarkdownContent';
+import { OverallStarRating } from '@/components/StarRating';
 import { getDomainFromUrl, getCountryWithFlag } from '@/lib/utils/brand-helpers';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cbd-portal.vercel.app';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -86,10 +89,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const supabase = await createClient();
 
-  // Get brand
+  // Get brand with logo
   const { data: brand } = await supabase
     .from('kb_brands')
-    .select('name, slug')
+    .select('id, name, slug, logo_url')
     .eq('slug', slug)
     .eq('is_published', true)
     .single();
@@ -102,38 +105,52 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   // Get review
-  const { data: brandWithId } = await supabase
-    .from('kb_brands')
-    .select('id')
-    .eq('slug', slug)
-    .single();
-
   const { data: review } = await supabase
     .from('kb_brand_reviews')
-    .select('overall_score, meta_title, meta_description')
-    .eq('brand_id', brandWithId?.id)
+    .select('overall_score, summary, meta_title, meta_description')
+    .eq('brand_id', brand.id)
     .eq('is_published', true)
     .single();
 
-  const title = review?.meta_title || `${brand.name} Review ${new Date().getFullYear()} - Score ${review?.overall_score || 0}/100`;
-  const description = review?.meta_description || `Independent review of ${brand.name} CBD products. Overall score: ${review?.overall_score || 0}/100. Read our detailed analysis of quality, value, and transparency.`;
+  const currentYear = new Date().getFullYear();
+  const score = review?.overall_score || 0;
+
+  // SEO-optimized title: "[Brand] CBD Review 2026 - Rated [X]/100 | CBD Portal"
+  const title = review?.meta_title || `${brand.name} CBD Review ${currentYear} - Rated ${score}/100`;
+
+  // SEO-optimized description: 145-155 chars including "[brand] review" keyword
+  const defaultDescription = `Read our ${brand.name} review. We tested their CBD products and rated them ${score}/100. See our detailed analysis of quality, testing, and value.`;
+  const description = review?.meta_description || defaultDescription;
+
+  const canonicalUrl = `${SITE_URL}/reviews/${slug}`;
+  const ogImage = brand.logo_url || `${SITE_URL}/og-default.png`;
 
   return {
     title: `${title} | CBD Portal`,
     description,
     alternates: {
-      canonical: `/reviews/${slug}`
+      canonical: canonicalUrl
     },
     openGraph: {
       title,
       description,
       type: 'article',
-      url: `/reviews/${slug}`
+      url: canonicalUrl,
+      siteName: 'CBD Portal',
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: `${brand.name} CBD Review`
+        }
+      ]
     },
     twitter: {
       card: 'summary_large_image',
       title,
-      description
+      description,
+      images: [ogImage]
     },
     robots: {
       index: true,
@@ -228,14 +245,18 @@ export default async function BrandReviewPage({ params }: Props) {
     { name: brand.name, href: `/reviews/${slug}` }
   ];
 
-  // Schema.org Review markup
+  // Schema.org Review markup - comprehensive for SEO
   const reviewSchema = {
     '@context': 'https://schema.org',
     '@type': 'Review',
+    'name': `${brand.name} CBD Review`,
+    'url': `${SITE_URL}/reviews/${slug}`,
     'itemReviewed': {
-      '@type': 'Brand',
+      '@type': 'Organization',
       'name': brand.name,
-      ...(brand.logo_url && { 'logo': brand.logo_url })
+      '@id': `${SITE_URL}/reviews/${slug}#organization`,
+      ...(brand.logo_url && { 'logo': brand.logo_url }),
+      ...(brand.website_url && { 'url': brand.website_url })
     },
     'reviewRating': {
       '@type': 'Rating',
@@ -243,23 +264,27 @@ export default async function BrandReviewPage({ params }: Props) {
       'bestRating': 100,
       'worstRating': 0
     },
-    ...(review.kb_authors && {
-      'author': {
-        '@type': 'Person',
-        'name': review.kb_authors.name
-      }
-    }),
-    ...(review.published_at && {
-      'datePublished': review.published_at
-    }),
-    ...(review.last_reviewed_at && {
-      'dateModified': review.last_reviewed_at
-    }),
+    'author': review.kb_authors ? {
+      '@type': 'Person',
+      'name': review.kb_authors.name,
+      'url': `${SITE_URL}/authors/${review.kb_authors.slug}`
+    } : {
+      '@type': 'Organization',
+      'name': 'CBD Portal',
+      'url': SITE_URL
+    },
     'publisher': {
       '@type': 'Organization',
-      'name': 'CBD Portal'
+      'name': 'CBD Portal',
+      'url': SITE_URL,
+      'logo': {
+        '@type': 'ImageObject',
+        'url': `${SITE_URL}/logo.png`
+      }
     },
-    ...(review.summary && { 'description': review.summary })
+    ...(review.published_at && { 'datePublished': review.published_at }),
+    ...(review.last_reviewed_at && { 'dateModified': review.last_reviewed_at }),
+    ...(review.summary && { 'reviewBody': review.summary })
   };
 
   return (
@@ -430,7 +455,17 @@ export default async function BrandReviewPage({ params }: Props) {
           {/* Verdict */}
           {review.verdict && (
             <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-xl p-8 text-white">
-              <h2 className="text-xl font-bold mb-4">Our Verdict</h2>
+              <h2 className="text-xl font-bold mb-4">My Final Verdict on {brand.name}</h2>
+
+              {/* Score display */}
+              <div className="flex items-center gap-4 mb-6 pb-6 border-b border-green-500/30">
+                <div className="text-5xl font-bold">{review.overall_score}/100</div>
+                <div>
+                  <OverallStarRating score={review.overall_score} />
+                  <div className="text-green-200 mt-1">{getScoreLabel(review.overall_score)}</div>
+                </div>
+              </div>
+
               <p className="text-lg text-green-50 leading-relaxed">{review.verdict}</p>
             </div>
           )}
