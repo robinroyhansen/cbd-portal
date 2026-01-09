@@ -6,11 +6,11 @@ import Link from 'next/link';
 interface GlossaryTerm {
   id: string;
   term: string;
+  display_name: string;
   slug: string;
   definition: string;
   short_definition: string;
   category: string;
-  difficulty: string;
   synonyms: string[];
   related_terms: string[];
   related_research: string[];
@@ -28,12 +28,6 @@ const CATEGORIES = [
   { key: 'conditions', label: 'Conditions' },
   { key: 'legal', label: 'Legal' },
   { key: 'dosing', label: 'Dosing' }
-];
-
-const DIFFICULTIES = [
-  { key: 'beginner', label: 'Beginner' },
-  { key: 'intermediate', label: 'Intermediate' },
-  { key: 'advanced', label: 'Advanced' }
 ];
 
 export default function AdminGlossaryPage() {
@@ -76,10 +70,10 @@ export default function AdminGlossaryPage() {
     setIsEditing(null);
     setFormData({
       term: '',
+      display_name: '',
       definition: '',
       short_definition: '',
       category: 'cannabinoids',
-      difficulty: 'beginner',
       synonyms: [],
       related_terms: [],
       related_research: [],
@@ -230,39 +224,37 @@ export default function AdminGlossaryPage() {
                   value={formData.term || ''}
                   onChange={(e) => setFormData({ ...formData, term: e.target.value })}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  placeholder="e.g., Cannabidiol"
+                  placeholder="e.g., CBD"
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Category <span className="text-red-500">*</span>
-                  </label>
-                  <select
-                    value={formData.category || 'cannabinoids'}
-                    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  >
-                    {CATEGORIES.map(cat => (
-                      <option key={cat.key} value={cat.key}>{cat.label}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Difficulty
-                  </label>
-                  <select
-                    value={formData.difficulty || 'beginner'}
-                    onChange={(e) => setFormData({ ...formData, difficulty: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  >
-                    {DIFFICULTIES.map(d => (
-                      <option key={d.key} value={d.key}>{d.label}</option>
-                    ))}
-                  </select>
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Category <span className="text-red-500">*</span>
+                </label>
+                <select
+                  value={formData.category || 'cannabinoids'}
+                  onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                >
+                  {CATEGORIES.map(cat => (
+                    <option key={cat.key} value={cat.key}>{cat.label}</option>
+                  ))}
+                </select>
               </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Display Name
+                <span className="text-gray-500 font-normal ml-1">(shown as card title, e.g., "CBD (Cannabidiol)")</span>
+              </label>
+              <input
+                type="text"
+                value={formData.display_name || ''}
+                onChange={(e) => setFormData({ ...formData, display_name: e.target.value })}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                placeholder="Leave blank to use term as display name"
+              />
             </div>
 
             <div>
@@ -382,7 +374,6 @@ export default function AdminGlossaryPage() {
               <tr>
                 <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">Term</th>
                 <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">Category</th>
-                <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">Difficulty</th>
                 <th className="text-left px-4 py-3 text-sm font-medium text-gray-600 hidden lg:table-cell">Short Definition</th>
                 <th className="text-right px-4 py-3 text-sm font-medium text-gray-600">Actions</th>
               </tr>
@@ -391,7 +382,12 @@ export default function AdminGlossaryPage() {
               {terms.map(term => (
                 <tr key={term.id} className="hover:bg-gray-50">
                   <td className="px-4 py-3">
-                    <div className="font-medium text-gray-900">{term.term}</div>
+                    <div className="font-medium text-gray-900">{term.display_name || term.term}</div>
+                    {term.display_name && term.display_name !== term.term && (
+                      <div className="text-xs text-gray-400 mt-0.5">
+                        slug: {term.term}
+                      </div>
+                    )}
                     {term.synonyms && term.synonyms.length > 0 && (
                       <div className="text-xs text-gray-500 mt-0.5">
                         Also: {term.synonyms.slice(0, 3).join(', ')}
@@ -401,15 +397,6 @@ export default function AdminGlossaryPage() {
                   <td className="px-4 py-3">
                     <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">
                       {CATEGORIES.find(c => c.key === term.category)?.label || term.category}
-                    </span>
-                  </td>
-                  <td className="px-4 py-3">
-                    <span className={`px-2 py-1 rounded text-xs ${
-                      term.difficulty === 'beginner' ? 'bg-green-100 text-green-700' :
-                      term.difficulty === 'intermediate' ? 'bg-yellow-100 text-yellow-700' :
-                      'bg-red-100 text-red-700'
-                    }`}>
-                      {term.difficulty}
                     </span>
                   </td>
                   <td className="px-4 py-3 hidden lg:table-cell">

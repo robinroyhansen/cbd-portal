@@ -10,7 +10,6 @@ export async function GET(request: NextRequest) {
     const letter = searchParams.get('letter');
     const search = searchParams.get('q');
     const slug = searchParams.get('slug');
-    const difficulty = searchParams.get('difficulty');
 
     // Single term lookup by slug
     if (slug) {
@@ -51,15 +50,11 @@ export async function GET(request: NextRequest) {
     // Build query for listing terms
     let query = supabase
       .from('kb_glossary')
-      .select('id, term, slug, short_definition, category, difficulty, synonyms')
+      .select('id, term, display_name, slug, short_definition, category, synonyms')
       .order('term', { ascending: true });
 
     if (category) {
       query = query.eq('category', category);
-    }
-
-    if (difficulty) {
-      query = query.eq('difficulty', difficulty);
     }
 
     if (letter) {

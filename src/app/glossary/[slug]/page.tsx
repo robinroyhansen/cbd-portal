@@ -103,7 +103,7 @@ export default async function GlossaryTermPage({ params }: Props) {
           </span>
         </div>
 
-        <h1 className="text-4xl font-bold mb-6">{term.term}</h1>
+        <h1 className="text-4xl font-bold mb-6">{term.display_name || term.term}</h1>
 
         <div className="prose prose-green max-w-none mb-12">
           <p className="text-xl text-gray-700 leading-relaxed">{term.definition}</p>

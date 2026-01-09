@@ -61,13 +61,13 @@ export async function POST(request: NextRequest) {
 
     const {
       term,
+      display_name,
       definition,
       short_definition,
       category,
       synonyms,
       related_terms,
       related_research,
-      difficulty,
       sources
     } = body;
 
@@ -111,6 +111,7 @@ export async function POST(request: NextRequest) {
       .from('kb_glossary')
       .insert({
         term: term.trim(),
+        display_name: display_name?.trim() || term.trim(),
         slug,
         definition: definition.trim(),
         short_definition: short_definition.trim(),
@@ -118,7 +119,6 @@ export async function POST(request: NextRequest) {
         synonyms: synonyms || [],
         related_terms: related_terms || [],
         related_research: related_research || [],
-        difficulty: difficulty || 'beginner',
         sources: sources || []
       })
       .select()

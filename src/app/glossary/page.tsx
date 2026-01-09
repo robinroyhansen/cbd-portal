@@ -6,11 +6,11 @@ import Link from 'next/link';
 interface GlossaryTerm {
   id: string;
   term: string;
+  display_name: string;
   slug: string;
   definition: string;
   short_definition: string;
   category: string;
-  difficulty: string;
   synonyms: string[];
   related_terms: string[];
   related_terms_details?: { term: string; slug: string; short_definition: string; category: string }[];
@@ -27,12 +27,6 @@ const CATEGORIES = [
   { key: 'legal', label: 'Legal', icon: '⚖️', color: 'slate' },
   { key: 'dosing', label: 'Dosing', icon: '💊', color: 'cyan' }
 ];
-
-const DIFFICULTY_COLORS = {
-  beginner: { bg: 'bg-green-100', text: 'text-green-700' },
-  intermediate: { bg: 'bg-yellow-100', text: 'text-yellow-700' },
-  advanced: { bg: 'bg-red-100', text: 'text-red-700' }
-};
 
 const CATEGORY_COLORS: Record<string, { bg: string; text: string; border: string }> = {
   cannabinoids: { bg: 'bg-green-100', text: 'text-green-700', border: 'border-green-200' },
@@ -349,13 +343,11 @@ export default function GlossaryPage() {
                   <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">Term</th>
                   <th className="text-left px-4 py-3 text-sm font-medium text-gray-600 hidden md:table-cell">Category</th>
                   <th className="text-left px-4 py-3 text-sm font-medium text-gray-600 hidden lg:table-cell">Definition</th>
-                  <th className="text-left px-4 py-3 text-sm font-medium text-gray-600 hidden sm:table-cell">Difficulty</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {terms.map(term => {
                   const categoryColors = CATEGORY_COLORS[term.category] || CATEGORY_COLORS.cannabinoids;
-                  const difficultyColors = DIFFICULTY_COLORS[term.difficulty as keyof typeof DIFFICULTY_COLORS] || DIFFICULTY_COLORS.beginner;
                   const categoryInfo = CATEGORIES.find(c => c.key === term.category);
                   const isExpanded = expandedTerm === term.id;
 
@@ -366,7 +358,7 @@ export default function GlossaryPage() {
                       onClick={() => handleTermClick(term)}
                     >
                       <td className="px-4 py-3">
-                        <div className="font-medium text-gray-900">{term.term}</div>
+                        <div className="font-medium text-gray-900">{term.display_name || term.term}</div>
                         {term.synonyms && term.synonyms.length > 0 && (
                           <div className="text-xs text-gray-500 mt-0.5">
                             Also: {term.synonyms.slice(0, 2).join(', ')}
@@ -400,11 +392,6 @@ export default function GlossaryPage() {
                       </td>
                       <td className="px-4 py-3 hidden lg:table-cell">
                         <p className="text-sm text-gray-600 line-clamp-2">{term.short_definition}</p>
-                      </td>
-                      <td className="px-4 py-3 hidden sm:table-cell">
-                        <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${difficultyColors.bg} ${difficultyColors.text}`}>
-                          {term.difficulty}
-                        </span>
                       </td>
                     </tr>
                   );
@@ -471,7 +458,6 @@ function TermCard({
   onClick: () => void;
 }) {
   const categoryColors = CATEGORY_COLORS[term.category] || CATEGORY_COLORS.cannabinoids;
-  const difficultyColors = DIFFICULTY_COLORS[term.difficulty as keyof typeof DIFFICULTY_COLORS] || DIFFICULTY_COLORS.beginner;
   const categoryInfo = CATEGORIES.find(c => c.key === term.category);
 
   return (
@@ -484,7 +470,7 @@ function TermCard({
       <div className="p-4">
         {/* Header */}
         <div className="flex items-start justify-between gap-2 mb-2">
-          <h3 className="font-semibold text-gray-900 text-lg">{term.term}</h3>
+          <h3 className="font-semibold text-gray-900 text-lg">{term.display_name || term.term}</h3>
           <div className="flex items-center gap-1 flex-shrink-0">
             <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${categoryColors.bg} ${categoryColors.text}`}>
               {categoryInfo?.icon} {categoryInfo?.label}
@@ -495,18 +481,13 @@ function TermCard({
         {/* Short Definition */}
         <p className="text-gray-600 text-sm mb-3">{term.short_definition}</p>
 
-        {/* Meta */}
-        <div className="flex items-center gap-2 text-xs">
-          <span className={`px-2 py-0.5 rounded-full ${difficultyColors.bg} ${difficultyColors.text}`}>
-            {term.difficulty}
-          </span>
-          {term.synonyms && term.synonyms.length > 0 && (
-            <span className="text-gray-500">
-              Also: {term.synonyms.slice(0, 2).join(', ')}
-              {term.synonyms.length > 2 && '...'}
-            </span>
-          )}
-        </div>
+        {/* Synonyms */}
+        {term.synonyms && term.synonyms.length > 0 && (
+          <div className="text-xs text-gray-500">
+            Also: {term.synonyms.slice(0, 2).join(', ')}
+            {term.synonyms.length > 2 && '...'}
+          </div>
+        )}
 
         {/* Expanded Content */}
         {isExpanded && expandedData && (
