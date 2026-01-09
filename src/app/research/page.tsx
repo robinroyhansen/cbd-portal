@@ -104,28 +104,22 @@ export default async function ResearchPage() {
     // Ignore errors, lastUpdated will remain null
   }
 
-  // Calculate category statistics (matching ResearchPageClient categorization)
-  const categoryStats = {
-    all: allResearch.length,
-    cbd: 0,
-    cannabinoids: 0,
-    'medical-cannabis': 0,
-    cannabis: 0
+  // Calculate study type statistics for hero cards
+  const studyStats = {
+    total: allResearch.length,
+    human: 0,
+    preclinical: 0
   };
 
+  // Animal/preclinical keywords
+  const preclinicalPatterns = /\b(mice|mouse|rat|rats|rodent|animal model|in vivo|in vitro|cell culture|cell line|preclinical|murine)\b/i;
+
   allResearch.forEach(r => {
-    const text = `${r.title || ''} ${r.authors || ''} ${r.publication || ''} ${r.abstract || ''}`.toLowerCase();
-
-    if (/\b(cbd|cannabidiol)\b/.test(text)) {
-      categoryStats.cbd++;
-    } else if (/\b(cannabinoids?|thc|cbg|cbn|cbc|cannabichromene|cannabigerol|cannabinol|tetrahydrocannabinol)\b/.test(text)) {
-      categoryStats.cannabinoids++;
-    }
-
-    if (/\b(medical cannabis|medical marijuana|medicinal cannabis|medicinal marijuana|cannabis therapy|cannabis treatment|pharmaceutical cannabis)\b/.test(text)) {
-      categoryStats['medical-cannabis']++;
-    } else if (/\b(cannabis|marijuana|hemp)\b/.test(text) && !/\b(cbd|cannabidiol)\b/.test(text)) {
-      categoryStats.cannabis++;
+    const text = `${r.title || ''} ${r.abstract || ''}`.toLowerCase();
+    if (preclinicalPatterns.test(text)) {
+      studyStats.preclinical++;
+    } else {
+      studyStats.human++;
     }
   });
 
@@ -138,7 +132,7 @@ export default async function ResearchPage() {
           Evidence-based research with advanced quality assessment and classification
         </p>
         <p className="text-sm text-gray-500">
-          {categoryStats.all} peer-reviewed studies from PubMed, PMC, ClinicalTrials.gov, and authoritative medical journals
+          {studyStats.total} peer-reviewed studies from PubMed, PMC, ClinicalTrials.gov, and authoritative medical journals
         </p>
         {lastUpdated && (
           <p className="text-xs text-gray-400 mt-2">
@@ -147,42 +141,34 @@ export default async function ResearchPage() {
         )}
       </header>
 
-      {/* Study Categories - Clickable Filters */}
-      <div className="grid grid-cols-5 gap-3 mb-8">
+      {/* Study Statistics - 3 Simple Cards */}
+      <div className="grid grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
         <Link
           href="/research"
-          className="bg-gradient-to-br from-blue-50 to-blue-100 px-3 py-4 rounded-lg text-center border border-blue-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
+          className="bg-gradient-to-br from-slate-50 to-slate-100 px-4 py-5 rounded-xl text-center border border-slate-200 hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
         >
-          <div className="text-2xl font-bold text-blue-700">{categoryStats.all}</div>
-          <div className="text-xs text-blue-600 font-medium">All Studies</div>
+          <div className="text-3xl font-bold text-slate-700">{studyStats.total}</div>
+          <div className="text-sm text-slate-600 font-medium mt-1">Total Studies</div>
         </Link>
         <Link
-          href="/research?category=cbd"
-          className="bg-gradient-to-br from-green-50 to-green-100 px-3 py-4 rounded-lg text-center border border-green-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
+          href="/research?subject=human"
+          className="bg-gradient-to-br from-green-50 to-green-100 px-4 py-5 rounded-xl text-center border border-green-200 hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
         >
-          <div className="text-2xl font-bold text-green-700">{categoryStats.cbd}</div>
-          <div className="text-xs text-green-600 font-medium">CBD</div>
+          <div className="flex items-center justify-center gap-2">
+            <span className="text-xl">👥</span>
+            <span className="text-3xl font-bold text-green-700">{studyStats.human}</span>
+          </div>
+          <div className="text-sm text-green-600 font-medium mt-1">Human Studies</div>
         </Link>
         <Link
-          href="/research?category=cannabinoids"
-          className="bg-gradient-to-br from-purple-50 to-purple-100 px-3 py-4 rounded-lg text-center border border-purple-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
+          href="/research?subject=animal"
+          className="bg-gradient-to-br from-purple-50 to-purple-100 px-4 py-5 rounded-xl text-center border border-purple-200 hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
         >
-          <div className="text-2xl font-bold text-purple-700">{categoryStats.cannabinoids}</div>
-          <div className="text-xs text-purple-600 font-medium">Cannabinoids</div>
-        </Link>
-        <Link
-          href="/research?category=medical-cannabis"
-          className="bg-gradient-to-br from-teal-50 to-teal-100 px-3 py-4 rounded-lg text-center border border-teal-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
-        >
-          <div className="text-2xl font-bold text-teal-700">{categoryStats['medical-cannabis']}</div>
-          <div className="text-xs text-teal-600 font-medium">Medical Cannabis</div>
-        </Link>
-        <Link
-          href="/research?category=cannabis"
-          className="bg-gradient-to-br from-emerald-50 to-emerald-100 px-3 py-4 rounded-lg text-center border border-emerald-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
-        >
-          <div className="text-2xl font-bold text-emerald-700">{categoryStats.cannabis}</div>
-          <div className="text-xs text-emerald-600 font-medium">Cannabis Research</div>
+          <div className="flex items-center justify-center gap-2">
+            <span className="text-xl">🧪</span>
+            <span className="text-3xl font-bold text-purple-700">{studyStats.preclinical}</span>
+          </div>
+          <div className="text-sm text-purple-600 font-medium mt-1">Preclinical</div>
         </Link>
       </div>
 
@@ -208,7 +194,7 @@ export default async function ResearchPage() {
               '@type': 'Dataset',
               name: 'CBD Research Studies Database',
               description: 'Collection of peer-reviewed CBD and cannabis research from PubMed, PMC, ClinicalTrials.gov',
-              size: `${categoryStats.all} studies`,
+              size: `${studyStats.total} studies`,
               variableMeasured: ['Study Quality Score', 'Study Type', 'Publication Year', 'Medical Condition']
             }
           })

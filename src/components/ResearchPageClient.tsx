@@ -145,7 +145,7 @@ export const CONDITIONS = {
   },
   addiction: {
     label: 'Addiction',
-    keywords: ['addiction', 'substance abuse', 'substance use disorder', 'cannabis use disorder', 'cud', 'opioid use', 'withdrawal symptoms', 'dependence', 'alcohol use disorder', 'drug abuse', 'cocaine', 'heroin', 'relapse prevention', 'discontinuing cannabis', 'quit cannabis', 'cannabis withdrawal'],
+    keywords: ['addiction', 'substance abuse', 'substance use disorder', 'cannabis use disorder', 'opioid use disorder', 'alcohol use disorder', 'drug abuse', 'cocaine addiction', 'heroin addiction', 'relapse prevention', 'cannabis withdrawal'],
     icon: '🔄',
     color: 'green',
     category: 'Neurological & Mental Health',
@@ -163,7 +163,7 @@ export const CONDITIONS = {
   // === PAIN & INFLAMMATION ===
   chronic_pain: {
     label: 'Chronic Pain',
-    keywords: ['chronic pain', 'persistent pain', 'long-term pain', 'pain management', 'analgesic', 'pain relief', 'opioid-sparing'],
+    keywords: ['chronic pain', 'persistent pain', 'long-term pain', 'pain syndrome', 'intractable pain', 'opioid-sparing'],
     icon: '💪',
     color: 'red',
     category: 'Pain & Inflammation',
@@ -179,7 +179,7 @@ export const CONDITIONS = {
   },
   arthritis: {
     label: 'Arthritis',
-    keywords: ['arthritis', 'osteoarthritis', 'rheumatoid', 'joint pain', 'joint inflammation', 'synovitis', 'articular'],
+    keywords: ['arthritis', 'osteoarthritis', 'rheumatoid arthritis', 'rheumatoid disease', 'synovitis', 'arthritic'],
     icon: '🦴',
     color: 'stone',
     category: 'Pain & Inflammation',
@@ -203,7 +203,7 @@ export const CONDITIONS = {
   },
   inflammation: {
     label: 'Inflammation',
-    keywords: ['inflammation', 'inflammatory', 'anti-inflammatory', 'cytokine', 'tnf-alpha', 'interleukin', 'nf-kb', 'cox-2', 'prostaglandin'],
+    keywords: ['anti-inflammatory effect', 'inflammatory disease', 'inflammation treatment', 'reduce inflammation', 'inflammatory condition', 'chronic inflammation'],
     icon: '🔥',
     color: 'orange',
     category: 'Pain & Inflammation',
@@ -281,7 +281,7 @@ export const CONDITIONS = {
   },
   eczema: {
     label: 'Eczema & Dermatitis',
-    keywords: ['eczema', 'dermatitis', 'atopic', 'pruritus', 'itching', 'skin inflammation', 'topical'],
+    keywords: ['eczema', 'dermatitis', 'atopic dermatitis', 'atopic eczema', 'skin rash'],
     icon: '🩹',
     color: 'pink',
     category: 'Skin',
@@ -317,7 +317,7 @@ export const CONDITIONS = {
   },
   obesity: {
     label: 'Obesity & Weight',
-    keywords: ['obesity', 'weight loss', 'appetite', 'metabolic', 'bmi', 'adipose', 'fat tissue', 'overweight'],
+    keywords: ['obesity', 'weight loss', 'overweight', 'body mass index', 'weight management', 'weight reduction'],
     icon: '⚖️',
     color: 'emerald',
     category: 'Other',
@@ -325,7 +325,7 @@ export const CONDITIONS = {
   },
   athletic: {
     label: 'Athletic Performance',
-    keywords: ['athletic', 'sport', 'exercise', 'recovery', 'muscle', 'performance', 'endurance', 'wada', 'athlete'],
+    keywords: ['athlete', 'athletic performance', 'sports medicine', 'exercise recovery', 'sports injury', 'wada'],
     icon: '🏃',
     color: 'green',
     category: 'Other',
@@ -333,7 +333,7 @@ export const CONDITIONS = {
   },
   veterinary: {
     label: 'Veterinary & Pets',
-    keywords: ['veterinary', 'canine', 'feline', 'dog', 'cat', 'pet', 'animal', 'equine', 'horse'],
+    keywords: ['veterinary', 'canine cbd', 'feline cbd', 'dogs with', 'cats with', 'pet cbd', 'equine cbd', 'companion animal'],
     icon: '🐕',
     color: 'amber',
     category: 'Other',
@@ -1483,9 +1483,6 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
             {/* Drawer Content */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
               <FilterSidebarContent
-                activeCategory={activeCategory}
-                setActiveCategory={(cat) => { setActiveCategory(cat); setCurrentPage(1); }}
-                categoryStats={categoryStats}
                 selectedConditions={selectedConditions}
                 toggleCondition={toggleCondition}
                 conditionStats={conditionStats}
@@ -1534,9 +1531,6 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
         <aside className="hidden lg:block lg:w-72 xl:w-80 shrink-0">
           <div className="sticky top-4 space-y-4 max-h-[calc(100vh-2rem)] overflow-y-auto pb-4">
             <FilterSidebarContent
-              activeCategory={activeCategory}
-              setActiveCategory={(cat) => { setActiveCategory(cat); setCurrentPage(1); }}
-              categoryStats={categoryStats}
               selectedConditions={selectedConditions}
               toggleCondition={toggleCondition}
               conditionStats={conditionStats}
@@ -1930,9 +1924,6 @@ function ResearchInfoFooter() {
 // ============================================================================
 
 interface FilterSidebarContentProps {
-  activeCategory: StudyCategory;
-  setActiveCategory: (cat: StudyCategory) => void;
-  categoryStats: Record<StudyCategory, number>;
   selectedConditions: ConditionKey[];
   toggleCondition: (cond: ConditionKey) => void;
   conditionStats: Record<ConditionKey, number>;
@@ -1957,9 +1948,6 @@ interface FilterSidebarContentProps {
 }
 
 function FilterSidebarContent({
-  activeCategory,
-  setActiveCategory,
-  categoryStats,
   selectedConditions,
   toggleCondition,
   conditionStats,
@@ -1984,43 +1972,8 @@ function FilterSidebarContent({
 }: FilterSidebarContentProps) {
   const [advancedExpanded, setAdvancedExpanded] = useState(false);
 
-  const categories: { key: StudyCategory; label: string; color: string }[] = [
-    { key: 'all', label: 'All Studies', color: 'gray' },
-    { key: 'cbd', label: 'CBD', color: 'green' },
-    { key: 'cannabinoids', label: 'Cannabinoids', color: 'purple' },
-    { key: 'medical-cannabis', label: 'Medical', color: 'blue' },
-    { key: 'cannabis', label: 'Cannabis', color: 'emerald' },
-  ];
-
   return (
     <>
-      {/* Category Filter - Compact Pills */}
-      <div className="bg-white rounded-lg border border-gray-200 p-3">
-        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Category</h3>
-        <div className="flex flex-wrap gap-1.5">
-          {categories.map(({ key, label, color }) => {
-            const isActive = activeCategory === key;
-            const count = categoryStats[key];
-            const colorClasses: Record<string, string> = {
-              gray: isActive ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
-              green: isActive ? 'bg-green-600 text-white' : 'bg-green-50 text-green-700 hover:bg-green-100',
-              purple: isActive ? 'bg-purple-600 text-white' : 'bg-purple-50 text-purple-700 hover:bg-purple-100',
-              blue: isActive ? 'bg-blue-600 text-white' : 'bg-blue-50 text-blue-700 hover:bg-blue-100',
-              emerald: isActive ? 'bg-emerald-600 text-white' : 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100',
-            };
-            return (
-              <button
-                key={key}
-                onClick={() => setActiveCategory(key)}
-                className={`px-2.5 py-1 text-xs font-medium rounded-full transition-colors ${colorClasses[color]}`}
-              >
-                {label} ({count})
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
       {/* Condition Filter - Top 8 with expand */}
       <div className="bg-white rounded-lg border border-gray-200 p-3">
         <div className="flex items-center justify-between mb-2">
@@ -2362,8 +2315,17 @@ function ResearchCard({ study, onConditionClick }: { study: any; onConditionClic
             {study.authors?.split(',').slice(0, 2).join(', ')}{study.authors?.split(',').length > 2 ? ' et al.' : ''} • {study.year}
           </p>
         </div>
-        <div className="shrink-0" title={`Quality Score: ${study.qualityScore}/100`}>
-          <CircularQualityScore score={study.qualityScore} size={44} />
+        <div className="shrink-0">
+          {study.studyType === StudyType.ANIMAL_STUDY || study.studyType === StudyType.IN_VITRO_STUDY ? (
+            <div className="flex flex-col items-center justify-center w-11 h-11 rounded-full bg-purple-100 border-2 border-purple-200" title="Preclinical Study">
+              <span className="text-base">🧪</span>
+              <span className="text-[8px] font-semibold text-purple-700 -mt-0.5">PRE</span>
+            </div>
+          ) : (
+            <div title={`Quality Score: ${study.qualityScore}/100`}>
+              <CircularQualityScore score={study.qualityScore} size={44} />
+            </div>
+          )}
         </div>
       </div>
 
@@ -2555,8 +2517,16 @@ function ResearchTable({ studies }: { studies: any[] }) {
                   </div>
                 </td>
                 <td className="px-4 py-3">
-                  <QualityIndicator tier={study.qualityTier} />
-                  <div className="text-xs text-gray-500 mt-1">{study.qualityScore}/100</div>
+                  {study.studyType === StudyType.ANIMAL_STUDY || study.studyType === StudyType.IN_VITRO_STUDY ? (
+                    <span className="inline-flex items-center gap-1 px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-medium">
+                      🧪 Preclinical
+                    </span>
+                  ) : (
+                    <>
+                      <QualityIndicator tier={study.qualityTier} />
+                      <div className="text-xs text-gray-500 mt-1">{study.qualityScore}/100</div>
+                    </>
+                  )}
                 </td>
                 <td className="px-4 py-3">
                   <StudyTypeBadgeSimple studyType={study.studyType} />
