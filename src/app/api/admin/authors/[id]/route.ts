@@ -13,7 +13,7 @@ export async function GET(
     const supabase = await createClient();
 
     const { data: author, error } = await supabase
-      .from('authors')
+      .from('kb_authors')
       .select('*')
       .eq('id', params.id)
       .single();
@@ -41,7 +41,7 @@ export async function PUT(
     // If slug is being changed, check if it already exists
     if (body.slug) {
       const { data: existingAuthor } = await supabase
-        .from('authors')
+        .from('kb_authors')
         .select('id')
         .eq('slug', body.slug)
         .neq('id', params.id)
@@ -55,13 +55,13 @@ export async function PUT(
     // If this author is being set as primary, unset all other primary authors
     if (body.is_primary) {
       await supabase
-        .from('authors')
+        .from('kb_authors')
         .update({ is_primary: false })
         .neq('id', params.id);
     }
 
     const { data: author, error } = await supabase
-      .from('authors')
+      .from('kb_authors')
       .update({
         ...body,
         updated_at: new Date().toISOString()
@@ -109,7 +109,7 @@ export async function DELETE(
 
     // Check if this is the primary author
     const { data: author } = await supabase
-      .from('authors')
+      .from('kb_authors')
       .select('is_primary')
       .eq('id', params.id)
       .single();
@@ -121,7 +121,7 @@ export async function DELETE(
     }
 
     const { error } = await supabase
-      .from('authors')
+      .from('kb_authors')
       .delete()
       .eq('id', params.id);
 

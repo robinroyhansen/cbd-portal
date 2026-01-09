@@ -19,7 +19,7 @@ export async function GET() {
     const supabase = await createClient();
 
     const { data: authors, error } = await supabase
-      .from('authors')
+      .from('kb_authors')
       .select('*')
       .order('display_order', { ascending: true })
       .order('created_at', { ascending: false });
@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
 
     // Check if slug already exists
     const { data: existingAuthor } = await supabase
-      .from('authors')
+      .from('kb_authors')
       .select('id')
       .eq('slug', slug)
       .single();
@@ -76,13 +76,13 @@ export async function POST(request: NextRequest) {
     // If this author is set as primary, unset all other primary authors
     if (body.is_primary) {
       await supabase
-        .from('authors')
+        .from('kb_authors')
         .update({ is_primary: false })
         .neq('id', 'placeholder'); // Update all existing authors
     }
 
     const { data: author, error } = await supabase
-      .from('authors')
+      .from('kb_authors')
       .insert({
         ...body,
         slug,
