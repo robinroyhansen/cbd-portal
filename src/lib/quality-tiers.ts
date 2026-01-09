@@ -44,7 +44,7 @@ export enum QualityTier {
   HIGH_QUALITY = 'High Quality',
   MODERATE_QUALITY = 'Moderate Quality',
   LIMITED_EVIDENCE = 'Limited Evidence',
-  PRECLINICAL = 'Preclinical'
+  PRELIMINARY = 'Preliminary'
 }
 
 export enum StudyType {
@@ -71,7 +71,7 @@ export const QUALITY_SCORE_RANGES = {
   [QualityTier.HIGH_QUALITY]: { min: 70, max: 89 },
   [QualityTier.MODERATE_QUALITY]: { min: 50, max: 69 },
   [QualityTier.LIMITED_EVIDENCE]: { min: 30, max: 49 },
-  [QualityTier.PRECLINICAL]: { min: 0, max: 29 }
+  [QualityTier.PRELIMINARY]: { min: 0, max: 29 }
 };
 
 // ============================================================================
@@ -305,7 +305,7 @@ export function classifyQualityTier(score: number): QualityTier {
   if (score >= 70) return QualityTier.HIGH_QUALITY;
   if (score >= 50) return QualityTier.MODERATE_QUALITY;
   if (score >= 30) return QualityTier.LIMITED_EVIDENCE;
-  return QualityTier.PRECLINICAL;
+  return QualityTier.PRELIMINARY;
 }
 
 // ============================================================================
@@ -384,7 +384,7 @@ export function getQualityTierColor(tier: QualityTier): string {
       return 'bg-blue-100 text-blue-800 border-blue-300';
     case QualityTier.LIMITED_EVIDENCE:
       return 'bg-orange-100 text-orange-800 border-orange-300';
-    case QualityTier.PRECLINICAL:
+    case QualityTier.PRELIMINARY:
       return 'bg-gray-100 text-gray-800 border-gray-300';
   }
 }
@@ -423,7 +423,7 @@ export function getQualityTierDescription(tier: QualityTier): string {
       return 'Moderate evidence with some limitations in methodology or scope';
     case QualityTier.LIMITED_EVIDENCE:
       return 'Preliminary evidence requiring further validation';
-    case QualityTier.PRECLINICAL:
+    case QualityTier.PRELIMINARY:
       return 'Early-stage evidence from laboratory or animal studies';
   }
 }
@@ -440,7 +440,7 @@ export function filterStudiesByQuality(
     QualityTier.HIGH_QUALITY,
     QualityTier.MODERATE_QUALITY,
     QualityTier.LIMITED_EVIDENCE,
-    QualityTier.PRECLINICAL
+    QualityTier.PRELIMINARY
   ];
 
   const minIndex = tierOrder.indexOf(minTier);

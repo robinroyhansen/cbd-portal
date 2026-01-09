@@ -504,10 +504,10 @@ function extractSampleInfo(text: string, studyType?: string): SampleInfo | null 
     if (lowerText.includes('rats') || lowerText.includes('rat ') || lowerText.includes('wistar') || lowerText.includes('sprague')) {
       return { size: maxSize, subjectType: 'rats', label: `${maxSize} rats` };
     }
-    if (lowerText.includes('dog') || lowerText.includes('canine')) {
+    if (/\b(dogs?|canines?|beagles?)\b/i.test(lowerText)) {
       return { size: maxSize, subjectType: 'dogs', label: `${maxSize} dogs` };
     }
-    if (lowerText.includes('cat') || lowerText.includes('feline')) {
+    if (/\b(cats?|felines?)\b/i.test(lowerText)) {
       return { size: maxSize, subjectType: 'cats', label: `${maxSize} cats` };
     }
     if (lowerText.includes('animal') || lowerText.includes('preclinical')) {
@@ -906,9 +906,8 @@ const CONDITION_COLORS: Record<string, { bg: string; text: string; border: strin
 
 function matchesCondition(study: any, conditionKey: ConditionKey): boolean {
   const condition = CONDITIONS[conditionKey];
-  const searchText = `${study.title || ''} ${study.abstract || ''} ${
-    Array.isArray(study.relevant_topics) ? study.relevant_topics.join(' ') : study.relevant_topics || ''
-  }`.toLowerCase();
+  // Only match based on title and abstract - NOT relevant_topics (which has bad data)
+  const searchText = `${study.title || ''} ${study.abstract || ''}`.toLowerCase();
 
   return condition.keywords.some(keyword => searchText.includes(keyword.toLowerCase()));
 }
@@ -948,67 +947,44 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
   const [urlInitialized, setUrlInitialized] = useState(false);
   const itemsPerPage = 20;
 
-  // Load filters from URL on mount
+  // Load filters from URL - runs on mount and when URL changes
   useEffect(() => {
-    if (urlInitialized || condition) return;
+    // Skip if condition is set (coming from condition page)
+    if (condition) return;
 
     const urlCategory = searchParams.get('category') as StudyCategory;
     const urlCondition = searchParams.get('condition');
     const urlQuality = searchParams.get('quality');
     const urlYear = searchParams.get('year');
     const urlSearch = searchParams.get('q');
-
-    let hasUrlFilters = false;
-
-    if (urlCategory && ['all', 'cbd', 'cannabinoids', 'cannabis', 'medical-cannabis'].includes(urlCategory)) {
-      setActiveCategory(urlCategory);
-      hasUrlFilters = true;
-    }
-    if (urlCondition && urlCondition in CONDITIONS) {
-      setSelectedConditions([urlCondition as ConditionKey]);
-      hasUrlFilters = true;
-    }
-    if (urlQuality) {
-      const minQuality = parseInt(urlQuality);
-      if (!isNaN(minQuality)) {
-        setQualityRange({ min: minQuality, max: 100 });
-        hasUrlFilters = true;
-      }
-    }
-    if (urlYear) {
-      const minYear = parseInt(urlYear);
-      if (!isNaN(minYear)) {
-        setYearRange({ min: minYear, max: dataYearRange.max });
-        hasUrlFilters = true;
-      }
-    }
-    if (urlSearch) {
-      setSearchQuery(urlSearch);
-      hasUrlFilters = true;
-    }
-
-    // Handle type=rct parameter
     const urlType = searchParams.get('type');
-    if (urlType === 'rct') {
-      setSelectedStudyTypes([StudyType.RANDOMIZED_CONTROLLED_TRIAL]);
-      hasUrlFilters = true;
-    }
-
-    // Handle subject type parameter
     const urlSubject = searchParams.get('subject');
-    if (urlSubject === 'human' || urlSubject === 'animal') {
-      setSubjectType(urlSubject);
-      hasUrlFilters = true;
-    }
-    // Also support legacy human=1 parameter
     const urlHuman = searchParams.get('human');
-    if (urlHuman === '1') {
-      setSubjectType('human');
-      hasUrlFilters = true;
-    }
 
-    // Only load from localStorage if no URL params
-    if (!hasUrlFilters) {
+    // Check if we have any URL params
+    const hasUrlFilters = !!(urlCategory || urlCondition || urlQuality || urlYear || urlSearch || urlType || urlSubject || urlHuman);
+
+    if (hasUrlFilters) {
+      // Apply URL params - reset to defaults first for clean state
+      setActiveCategory(urlCategory && ['all', 'cbd', 'cannabinoids', 'cannabis', 'medical-cannabis'].includes(urlCategory) ? urlCategory : 'all');
+      setSelectedConditions(urlCondition && urlCondition in CONDITIONS ? [urlCondition as ConditionKey] : []);
+      setQualityRange(urlQuality ? { min: parseInt(urlQuality) || 0, max: 100 } : { min: 0, max: 100 });
+      setYearRange(urlYear ? { min: parseInt(urlYear) || dataYearRange.min, max: dataYearRange.max } : dataYearRange);
+      setSearchQuery(urlSearch || '');
+      setSelectedStudyTypes(urlType === 'rct' ? [StudyType.RANDOMIZED_CONTROLLED_TRIAL] : []);
+
+      // Handle subject type
+      if (urlSubject === 'human' || urlSubject === 'animal') {
+        setSubjectType(urlSubject);
+      } else if (urlHuman === '1') {
+        setSubjectType('human');
+      } else {
+        setSubjectType('all');
+      }
+
+      setCurrentPage(1);
+    } else if (!urlInitialized) {
+      // Only load from localStorage on first mount with no URL params
       const saved = loadSavedFilters();
       if (saved) {
         if (saved.searchQuery) setSearchQuery(saved.searchQuery);
@@ -1025,7 +1001,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
     }
 
     setUrlInitialized(true);
-  }, [searchParams, condition, urlInitialized, dataYearRange.max]);
+  }, [searchParams, condition, dataYearRange.min, dataYearRange.max]);
 
   // Update URL when filters change
   useEffect(() => {
@@ -1096,7 +1072,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
       [QualityTier.HIGH_QUALITY]: 0,
       [QualityTier.MODERATE_QUALITY]: 0,
       [QualityTier.LIMITED_EVIDENCE]: 0,
-      [QualityTier.PRECLINICAL]: 0
+      [QualityTier.PRELIMINARY]: 0
     };
 
     studiesWithQuality.forEach(study => {

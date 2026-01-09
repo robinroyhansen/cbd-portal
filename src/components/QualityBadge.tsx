@@ -49,7 +49,7 @@ export function QualityBadge({
     [QualityTier.HIGH_QUALITY]: '⭐',
     [QualityTier.MODERATE_QUALITY]: '📊',
     [QualityTier.LIMITED_EVIDENCE]: '🔍',
-    [QualityTier.PRECLINICAL]: '🧪'
+    [QualityTier.PRELIMINARY]: '🧪'
   };
 
   const badgeContent = (
@@ -166,7 +166,7 @@ export function QualityIndicator({
     [QualityTier.HIGH_QUALITY]: '⭐',
     [QualityTier.MODERATE_QUALITY]: '📊',
     [QualityTier.LIMITED_EVIDENCE]: '🔍',
-    [QualityTier.PRECLINICAL]: '🧪'
+    [QualityTier.PRELIMINARY]: '🧪'
   };
 
   return (
