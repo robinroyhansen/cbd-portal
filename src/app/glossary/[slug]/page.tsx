@@ -264,11 +264,6 @@ export default async function GlossaryTermPage({ params }: Props) {
               <span>{categoryInfo.icon}</span>
               {categoryInfo.label}
             </span>
-            {term.is_advanced && (
-              <span className="ml-2 inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-700">
-                Advanced Term
-              </span>
-            )}
           </div>
 
           {/* Title & Pronunciation */}

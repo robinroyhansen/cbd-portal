@@ -10,7 +10,6 @@ export async function GET(request: NextRequest) {
     const letter = searchParams.get('letter');
     const search = searchParams.get('q');
     const slug = searchParams.get('slug');
-    const hideAdvanced = searchParams.get('hideAdvanced') === 'true';
     const fetchAll = searchParams.get('all') === 'true';
 
     // Single term lookup by slug
@@ -53,7 +52,7 @@ export async function GET(request: NextRequest) {
     if (fetchAll) {
       const { data: allTerms } = await supabase
         .from('kb_glossary')
-        .select('id, term, display_name, slug, category, synonyms, is_advanced')
+        .select('id, term, display_name, slug, category, synonyms')
         .order('term', { ascending: true });
 
       return NextResponse.json({ terms: allTerms || [] });
@@ -62,7 +61,7 @@ export async function GET(request: NextRequest) {
     // Build query for listing terms
     let query = supabase
       .from('kb_glossary')
-      .select('id, term, display_name, slug, short_definition, category, synonyms, pronunciation, is_advanced')
+      .select('id, term, display_name, slug, short_definition, category, synonyms, pronunciation')
       .order('term', { ascending: true });
 
     if (category) {
@@ -74,12 +73,8 @@ export async function GET(request: NextRequest) {
     }
 
     if (search) {
-      // Search in term, display_name, synonyms, and short_definition
+      // Search in term, display_name, and short_definition
       query = query.or(`term.ilike.%${search}%,display_name.ilike.%${search}%,short_definition.ilike.%${search}%`);
-    }
-
-    if (hideAdvanced) {
-      query = query.or('is_advanced.is.null,is_advanced.eq.false');
     }
 
     const { data: terms, error } = await query;
@@ -99,12 +94,11 @@ export async function GET(request: NextRequest) {
       // Fetch all terms to check synonyms
       const { data: allTermsForSynonyms } = await supabase
         .from('kb_glossary')
-        .select('id, term, display_name, slug, short_definition, category, synonyms, pronunciation, is_advanced');
+        .select('id, term, display_name, slug, short_definition, category, synonyms, pronunciation');
 
       if (allTermsForSynonyms) {
         for (const t of allTermsForSynonyms) {
           if (existingSlugs.has(t.slug)) continue;
-          if (hideAdvanced && t.is_advanced) continue;
 
           if (t.synonyms && t.synonyms.some((s: string) => s.toLowerCase().includes(searchLower))) {
             filteredTerms.push(t);
@@ -116,24 +110,19 @@ export async function GET(request: NextRequest) {
       filteredTerms.sort((a, b) => a.term.localeCompare(b.term));
     }
 
-    // Get counts by category (respecting hideAdvanced)
-    let countQuery = supabase.from('kb_glossary').select('category, is_advanced');
-    const { data: allTermsForCount } = await countQuery;
+    // Get counts by category
+    const { data: allTermsForCount } = await supabase.from('kb_glossary').select('category');
 
     const categoryCounts: Record<string, number> = {};
     allTermsForCount?.forEach(t => {
-      if (hideAdvanced && t.is_advanced) return;
       categoryCounts[t.category] = (categoryCounts[t.category] || 0) + 1;
     });
 
-    // Get available letters (respecting hideAdvanced)
-    let letterQuery = supabase.from('kb_glossary').select('term, is_advanced');
-    const { data: letterData } = await letterQuery;
+    // Get available letters
+    const { data: letterData } = await supabase.from('kb_glossary').select('term');
 
     const availableLetters = [...new Set(
-      letterData
-        ?.filter(t => !hideAdvanced || !t.is_advanced)
-        .map(t => t.term.charAt(0).toUpperCase()) || []
+      letterData?.map(t => t.term.charAt(0).toUpperCase()) || []
     )].sort();
 
     return NextResponse.json({

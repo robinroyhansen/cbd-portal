@@ -13,7 +13,6 @@ interface GlossaryTerm {
   category: string;
   synonyms: string[];
   pronunciation?: string;
-  is_advanced?: boolean;
 }
 
 interface AutocompleteSuggestion {
@@ -58,9 +57,7 @@ export default function GlossaryPage() {
   const [categoryCounts, setCategoryCounts] = useState<Record<string, number>>({});
   const [availableLetters, setAvailableLetters] = useState<string[]>([]);
   const [viewMode, setViewMode] = useState<'cards' | 'table'>('cards');
-  const [showAdvanced, setShowAdvanced] = useState(false);
   const [totalAllTerms, setTotalAllTerms] = useState(0);
-  const [advancedCount, setAdvancedCount] = useState(0);
 
   // Autocomplete state
   const [suggestions, setSuggestions] = useState<AutocompleteSuggestion[]>([]);
@@ -78,7 +75,6 @@ export default function GlossaryPage() {
         const allTerms = data.terms || [];
         setAllTermsForSearch(allTerms);
         setTotalAllTerms(allTerms.length);
-        setAdvancedCount(allTerms.filter((t: GlossaryTerm) => t.is_advanced).length);
       } catch (err) {
         console.error('Error fetching all terms:', err);
       }
@@ -93,7 +89,6 @@ export default function GlossaryPage() {
       if (selectedCategory) params.set('category', selectedCategory);
       if (selectedLetter) params.set('letter', selectedLetter);
       if (searchQuery) params.set('q', searchQuery);
-      if (!showAdvanced) params.set('hideAdvanced', 'true');
 
       const res = await fetch(`/api/glossary?${params.toString()}`);
       const data = await res.json();
@@ -106,7 +101,7 @@ export default function GlossaryPage() {
     } finally {
       setLoading(false);
     }
-  }, [selectedCategory, selectedLetter, searchQuery, showAdvanced]);
+  }, [selectedCategory, selectedLetter, searchQuery]);
 
   useEffect(() => {
     fetchTerms();
@@ -125,9 +120,6 @@ export default function GlossaryPage() {
 
     for (const term of allTermsForSearch) {
       if (matches.length >= 8) break;
-
-      // Skip advanced terms if not showing them
-      if (!showAdvanced && term.is_advanced) continue;
 
       const termLower = term.term.toLowerCase();
       const displayLower = (term.display_name || term.term).toLowerCase();
@@ -164,7 +156,7 @@ export default function GlossaryPage() {
     }
 
     setSuggestions(matches);
-  }, [searchQuery, allTermsForSearch, showAdvanced]);
+  }, [searchQuery, allTermsForSearch]);
 
   // Handle keyboard navigation for autocomplete
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -230,10 +222,7 @@ export default function GlossaryPage() {
         <div className="max-w-6xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-4">CBD & Cannabis Glossary</h1>
           <p className="text-xl text-green-100 mb-6">
-            {showAdvanced
-              ? `${totalAllTerms} terms explained - from cannabinoids to legal terminology`
-              : `${totalAllTerms - advancedCount} terms explained (${advancedCount} advanced hidden)`
-            }
+            {totalAllTerms} terms explained - from cannabinoids to legal terminology
           </p>
 
           {/* Search Box with Autocomplete */}
@@ -424,20 +413,6 @@ export default function GlossaryPage() {
                 );
               })}
 
-              {/* Advanced Toggle */}
-              <label className="ml-2 px-3 py-2 text-sm font-medium rounded-lg bg-purple-50 border border-purple-200 flex items-center gap-2 cursor-pointer hover:bg-purple-100 transition-colors">
-                <input
-                  type="checkbox"
-                  checked={showAdvanced}
-                  onChange={() => setShowAdvanced(!showAdvanced)}
-                  className="w-4 h-4 rounded border-purple-300 text-purple-600 focus:ring-purple-500"
-                />
-                <span className="text-purple-700">Show advanced terms</span>
-                <span className="text-xs px-1.5 py-0.5 rounded bg-purple-200 text-purple-700">
-                  {advancedCount}
-                </span>
-              </label>
-
               {/* View Toggle - Desktop */}
               <div className="ml-auto flex items-center gap-1 bg-gray-100 rounded-lg p-1">
                 <button
@@ -469,21 +444,6 @@ export default function GlossaryPage() {
               </div>
             </div>
 
-            {/* Mobile Advanced Toggle */}
-            <div className="md:hidden mt-3">
-              <label className="w-full px-3 py-2.5 text-sm font-medium rounded-lg bg-purple-50 border border-purple-200 flex items-center justify-center gap-2 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={showAdvanced}
-                  onChange={() => setShowAdvanced(!showAdvanced)}
-                  className="w-4 h-4 rounded border-purple-300 text-purple-600 focus:ring-purple-500"
-                />
-                <span className="text-purple-700">Show advanced terms</span>
-                <span className="text-xs px-1.5 py-0.5 rounded bg-purple-200 text-purple-700">
-                  {advancedCount}
-                </span>
-              </label>
-            </div>
           </div>
         </div>
       </div>
@@ -560,11 +520,6 @@ export default function GlossaryPage() {
                             <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${categoryColors.bg} ${categoryColors.text}`}>
                               {categoryInfo?.icon} {categoryInfo?.label}
                             </span>
-                            {term.is_advanced && (
-                              <span className="ml-1 px-2 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-700">
-                                Advanced
-                              </span>
-                            )}
                           </div>
                         </Link>
                       </td>
@@ -572,11 +527,6 @@ export default function GlossaryPage() {
                         <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${categoryColors.bg} ${categoryColors.text}`}>
                           {categoryInfo?.icon} {categoryInfo?.label}
                         </span>
-                        {term.is_advanced && (
-                          <span className="ml-1 px-2 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-700">
-                            Advanced
-                          </span>
-                        )}
                       </td>
                       <td className="px-4 py-3 hidden lg:table-cell">
                         <p className="text-sm text-gray-600 line-clamp-2">{term.short_definition}</p>
@@ -642,16 +592,9 @@ function TermCard({ term }: { term: GlossaryTerm }) {
               <span className="text-xs text-gray-400 font-mono">/{term.pronunciation}/</span>
             )}
           </div>
-          <div className="flex items-center gap-1 flex-shrink-0">
-            {term.is_advanced && (
-              <span className="px-1.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-700">
-                Adv
-              </span>
-            )}
-            <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${categoryColors.bg} ${categoryColors.text}`}>
-              {categoryInfo?.icon} {categoryInfo?.label}
-            </span>
-          </div>
+          <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${categoryColors.bg} ${categoryColors.text}`}>
+            {categoryInfo?.icon} {categoryInfo?.label}
+          </span>
         </div>
 
         {/* Short Definition */}
