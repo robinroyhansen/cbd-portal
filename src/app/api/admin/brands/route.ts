@@ -140,15 +140,25 @@ export async function PATCH(request: NextRequest) {
   try {
     const supabase = createServiceClient();
     const body = await request.json();
-    const { id, ...updates } = body;
+    const { id } = body;
 
     if (!id) {
       return NextResponse.json({ error: 'Brand ID required' }, { status: 400 });
     }
 
+    // Only allow updating specific fields (filter out computed/readonly fields)
+    const allowedFields = ['name', 'website_url', 'logo_url', 'headquarters_country', 'founded_year', 'short_description', 'is_published'];
+    const updates: Record<string, unknown> = {};
+
+    for (const field of allowedFields) {
+      if (body[field] !== undefined) {
+        updates[field] = body[field];
+      }
+    }
+
     // If name is being updated, regenerate slug
     if (updates.name) {
-      updates.slug = updates.name
+      updates.slug = (updates.name as string)
         .toLowerCase()
         .replace(/[^a-z0-9\s-]/g, '')
         .replace(/\s+/g, '-')
@@ -168,8 +178,12 @@ export async function PATCH(request: NextRequest) {
       }
     }
 
-    // Remove website_domain if it was sent (we no longer use it)
-    delete updates.website_domain;
+    // Handle empty strings - convert to null for optional fields
+    if (updates.headquarters_country === '') updates.headquarters_country = null;
+    if (updates.website_url === '') updates.website_url = null;
+    if (updates.logo_url === '') updates.logo_url = null;
+    if (updates.short_description === '') updates.short_description = null;
+    if (updates.founded_year === '' || updates.founded_year === 0) updates.founded_year = null;
 
     const { data: updatedBrand, error } = await supabase
       .from('kb_brands')
