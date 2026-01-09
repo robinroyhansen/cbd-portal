@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
       // First get brand by slug
       const { data: brand, error: brandError } = await supabase
         .from('kb_brands')
-        .select('id, name, slug, website_domain, logo_url, headquarters_country, founded_year, short_description')
+        .select('id, name, slug, website_url, logo_url, headquarters_country, founded_year, short_description')
         .eq('slug', slug)
         .eq('is_published', true)
         .single();
@@ -107,7 +107,7 @@ export async function GET(request: NextRequest) {
           id,
           name,
           slug,
-          website_domain,
+          website_url,
           logo_url,
           short_description,
           is_published

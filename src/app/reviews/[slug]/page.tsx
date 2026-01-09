@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import ReactMarkdown from 'react-markdown';
+import { getDomainFromUrl, getCountryName } from '@/lib/utils/brand-helpers';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -22,9 +23,9 @@ interface Brand {
   id: string;
   name: string;
   slug: string;
-  website_domain: string | null;
+  website_url: string | null;
   logo_url: string | null;
-  headquarters_country: string | null;
+  headquarters_country: string | null; // ISO code
   founded_year: number | null;
   short_description: string | null;
 }
@@ -153,7 +154,7 @@ export default async function BrandReviewPage({ params }: Props) {
   // Fetch the review data from API-style query
   const { data: brand } = await supabase
     .from('kb_brands')
-    .select('id, name, slug, website_domain, logo_url, headquarters_country, founded_year, short_description')
+    .select('id, name, slug, website_url, logo_url, headquarters_country, founded_year, short_description')
     .eq('slug', slug)
     .eq('is_published', true)
     .single();
@@ -302,13 +303,13 @@ export default async function BrandReviewPage({ params }: Props) {
               </h1>
 
               <div className="flex flex-wrap items-center gap-3 text-gray-500 mb-4">
-                {brand.website_domain && (
-                  <span className="text-sm">{brand.website_domain}</span>
+                {brand.website_url && (
+                  <span className="text-sm">{getDomainFromUrl(brand.website_url)}</span>
                 )}
                 {brand.headquarters_country && (
                   <>
                     <span className="text-gray-300">•</span>
-                    <span className="text-sm">{brand.headquarters_country}</span>
+                    <span className="text-sm">{getCountryName(brand.headquarters_country)}</span>
                   </>
                 )}
                 {brand.founded_year && (

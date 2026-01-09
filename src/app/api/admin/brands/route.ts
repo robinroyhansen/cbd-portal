@@ -77,7 +77,6 @@ export async function POST(request: NextRequest) {
     const {
       name,
       website_url,
-      website_domain,
       logo_url,
       headquarters_country,
       founded_year,
@@ -109,24 +108,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'A brand with this name already exists' }, { status: 400 });
     }
 
-    // Extract domain from URL if not provided
-    let domain = website_domain;
-    if (!domain && website_url) {
-      try {
-        const url = new URL(website_url);
-        domain = url.hostname.replace(/^www\./, '');
-      } catch {
-        // Invalid URL, ignore
-      }
-    }
-
     const { data: newBrand, error } = await supabase
       .from('kb_brands')
       .insert({
         name: name.trim(),
         slug,
         website_url: website_url?.trim() || null,
-        website_domain: domain?.trim() || null,
         logo_url: logo_url?.trim() || null,
         headquarters_country: headquarters_country?.trim() || null,
         founded_year: founded_year || null,
@@ -181,15 +168,8 @@ export async function PATCH(request: NextRequest) {
       }
     }
 
-    // Extract domain from URL if URL is updated but domain isn't
-    if (updates.website_url && !updates.website_domain) {
-      try {
-        const url = new URL(updates.website_url);
-        updates.website_domain = url.hostname.replace(/^www\./, '');
-      } catch {
-        // Invalid URL, ignore
-      }
-    }
+    // Remove website_domain if it was sent (we no longer use it)
+    delete updates.website_domain;
 
     const { data: updatedBrand, error } = await supabase
       .from('kb_brands')

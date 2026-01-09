@@ -2,12 +2,13 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import { getDomainFromUrl } from '@/lib/utils/brand-helpers';
 
 interface Brand {
   id: string;
   name: string;
   slug: string;
-  website_domain: string | null;
+  website_url: string | null;
   logo_url: string | null;
   short_description: string | null;
 }
@@ -203,8 +204,8 @@ export default function ReviewsIndexPage() {
                       <h2 className="text-lg font-semibold text-gray-900 group-hover:text-green-600 transition-colors truncate">
                         {review.brand.name}
                       </h2>
-                      {review.brand.website_domain && (
-                        <p className="text-sm text-gray-500 truncate">{review.brand.website_domain}</p>
+                      {review.brand.website_url && (
+                        <p className="text-sm text-gray-500 truncate">{getDomainFromUrl(review.brand.website_url)}</p>
                       )}
                     </div>
                   </div>

@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getCountryCode, getDomainFromUrl } from '@/lib/utils/brand-helpers';
 
 interface BrandResearchResult {
   success: boolean;
   data?: {
-    headquarters_country: string | null;
+    headquarters_country: string | null; // ISO code
     founded_year: number | null;
     short_description: string | null;
-    website_domain: string;
   };
   error?: string;
 }
@@ -145,28 +145,23 @@ function extractCountry(text: string, html: string): string | null {
     for (const match of stateMatches) {
       const stateMatch = match.match(/,\s*([A-Z]{2})\s+\d{5}/);
       if (stateMatch && US_STATES.includes(stateMatch[1])) {
-        return 'USA';
+        return 'US'; // Return ISO code
       }
     }
   }
 
-  // Check for country names
+  // Check for country names and return ISO codes
   for (const country of COUNTRIES) {
     if (searchText.includes(country.toLowerCase())) {
-      // Normalize to standard names
-      if (['united states', 'usa', 'u.s.a.', 'u.s.'].includes(country.toLowerCase())) {
-        return 'USA';
-      }
-      if (['united kingdom', 'uk', 'u.k.'].includes(country.toLowerCase())) {
-        return 'United Kingdom';
-      }
-      return country;
+      // Use the helper to get ISO code
+      const isoCode = getCountryCode(country);
+      if (isoCode) return isoCode;
     }
   }
 
   // Check for .co.uk domain suggesting UK
   if (html.includes('.co.uk')) {
-    return 'United Kingdom';
+    return 'GB';
   }
 
   return null;
@@ -184,11 +179,9 @@ export async function POST(request: NextRequest): Promise<NextResponse<BrandRese
       }, { status: 400 });
     }
 
-    // Extract domain from URL
-    let website_domain: string;
+    // Validate URL
     try {
-      const url = new URL(websiteUrl);
-      website_domain = url.hostname.replace(/^www\./, '');
+      new URL(websiteUrl);
     } catch {
       return NextResponse.json({
         success: false,
@@ -200,14 +193,13 @@ export async function POST(request: NextRequest): Promise<NextResponse<BrandRese
     const content = await fetchWebsiteContent(websiteUrl);
 
     if (!content) {
-      // Return partial result with just domain
+      // Return empty result if fetch failed
       return NextResponse.json({
         success: true,
         data: {
           headquarters_country: null,
           founded_year: null,
-          short_description: null,
-          website_domain
+          short_description: null
         }
       });
     }
@@ -222,8 +214,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<BrandRese
       data: {
         headquarters_country,
         founded_year,
-        short_description,
-        website_domain
+        short_description
       }
     });
 
