@@ -10,6 +10,8 @@ export async function GET(request: NextRequest) {
     const letter = searchParams.get('letter');
     const search = searchParams.get('q');
     const slug = searchParams.get('slug');
+    const hideAdvanced = searchParams.get('hideAdvanced') === 'true';
+    const fetchAll = searchParams.get('all') === 'true';
 
     // Single term lookup by slug
     if (slug) {
@@ -47,10 +49,20 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ term });
     }
 
+    // Fetch all terms for autocomplete (minimal fields, include synonyms)
+    if (fetchAll) {
+      const { data: allTerms } = await supabase
+        .from('kb_glossary')
+        .select('id, term, display_name, slug, category, synonyms, is_advanced')
+        .order('term', { ascending: true });
+
+      return NextResponse.json({ terms: allTerms || [] });
+    }
+
     // Build query for listing terms
     let query = supabase
       .from('kb_glossary')
-      .select('id, term, display_name, slug, short_definition, category, synonyms')
+      .select('id, term, display_name, slug, short_definition, category, synonyms, pronunciation, is_advanced')
       .order('term', { ascending: true });
 
     if (category) {
@@ -62,8 +74,12 @@ export async function GET(request: NextRequest) {
     }
 
     if (search) {
-      // Search in term, synonyms, and short_definition
-      query = query.or(`term.ilike.%${search}%,short_definition.ilike.%${search}%`);
+      // Search in term, display_name, synonyms, and short_definition
+      query = query.or(`term.ilike.%${search}%,display_name.ilike.%${search}%,short_definition.ilike.%${search}%`);
+    }
+
+    if (hideAdvanced) {
+      query = query.or('is_advanced.is.null,is_advanced.eq.false');
     }
 
     const { data: terms, error } = await query;
@@ -73,26 +89,56 @@ export async function GET(request: NextRequest) {
       throw error;
     }
 
-    // Get counts by category
-    const { data: allTerms } = await supabase
-      .from('kb_glossary')
-      .select('category');
+    // Filter synonym matches client-side if searching (since Supabase can't search in arrays easily)
+    let filteredTerms = terms || [];
+    if (search && filteredTerms) {
+      const searchLower = search.toLowerCase();
+      // Include terms that match in synonyms but weren't caught by the main query
+      const existingSlugs = new Set(filteredTerms.map(t => t.slug));
+
+      // Fetch all terms to check synonyms
+      const { data: allTermsForSynonyms } = await supabase
+        .from('kb_glossary')
+        .select('id, term, display_name, slug, short_definition, category, synonyms, pronunciation, is_advanced');
+
+      if (allTermsForSynonyms) {
+        for (const t of allTermsForSynonyms) {
+          if (existingSlugs.has(t.slug)) continue;
+          if (hideAdvanced && t.is_advanced) continue;
+
+          if (t.synonyms && t.synonyms.some((s: string) => s.toLowerCase().includes(searchLower))) {
+            filteredTerms.push(t);
+          }
+        }
+      }
+
+      // Sort alphabetically
+      filteredTerms.sort((a, b) => a.term.localeCompare(b.term));
+    }
+
+    // Get counts by category (respecting hideAdvanced)
+    let countQuery = supabase.from('kb_glossary').select('category, is_advanced');
+    const { data: allTermsForCount } = await countQuery;
 
     const categoryCounts: Record<string, number> = {};
-    allTerms?.forEach(t => {
+    allTermsForCount?.forEach(t => {
+      if (hideAdvanced && t.is_advanced) return;
       categoryCounts[t.category] = (categoryCounts[t.category] || 0) + 1;
     });
 
-    // Get available letters
-    const { data: letterData } = await supabase
-      .from('kb_glossary')
-      .select('term');
+    // Get available letters (respecting hideAdvanced)
+    let letterQuery = supabase.from('kb_glossary').select('term, is_advanced');
+    const { data: letterData } = await letterQuery;
 
-    const availableLetters = [...new Set(letterData?.map(t => t.term.charAt(0).toUpperCase()) || [])].sort();
+    const availableLetters = [...new Set(
+      letterData
+        ?.filter(t => !hideAdvanced || !t.is_advanced)
+        .map(t => t.term.charAt(0).toUpperCase()) || []
+    )].sort();
 
     return NextResponse.json({
-      terms: terms || [],
-      total: terms?.length || 0,
+      terms: filteredTerms,
+      total: filteredTerms.length,
       categoryCounts,
       availableLetters
     });

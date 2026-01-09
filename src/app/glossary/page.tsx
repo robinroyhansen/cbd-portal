@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import Link from 'next/link';
 
 interface GlossaryTerm {
@@ -12,9 +12,16 @@ interface GlossaryTerm {
   short_definition: string;
   category: string;
   synonyms: string[];
-  related_terms: string[];
-  related_terms_details?: { term: string; slug: string; short_definition: string; category: string }[];
-  related_research_details?: { id: string; title: string; url: string; year: number }[];
+  pronunciation?: string;
+  is_advanced?: boolean;
+}
+
+interface AutocompleteSuggestion {
+  term: string;
+  display_name: string;
+  slug: string;
+  category: string;
+  matchType: 'term' | 'synonym';
 }
 
 const CATEGORIES = [
@@ -43,15 +50,36 @@ const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
 export default function GlossaryPage() {
   const [terms, setTerms] = useState<GlossaryTerm[]>([]);
+  const [allTermsForSearch, setAllTermsForSearch] = useState<GlossaryTerm[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
-  const [expandedTerm, setExpandedTerm] = useState<string | null>(null);
-  const [expandedTermData, setExpandedTermData] = useState<GlossaryTerm | null>(null);
   const [categoryCounts, setCategoryCounts] = useState<Record<string, number>>({});
   const [availableLetters, setAvailableLetters] = useState<string[]>([]);
   const [viewMode, setViewMode] = useState<'cards' | 'table'>('cards');
+  const [showAdvanced, setShowAdvanced] = useState(false);
+
+  // Autocomplete state
+  const [suggestions, setSuggestions] = useState<AutocompleteSuggestion[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(-1);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const suggestionsRef = useRef<HTMLDivElement>(null);
+
+  // Fetch all terms for search autocomplete (once)
+  useEffect(() => {
+    const fetchAllTerms = async () => {
+      try {
+        const res = await fetch('/api/glossary?all=true');
+        const data = await res.json();
+        setAllTermsForSearch(data.terms || []);
+      } catch (err) {
+        console.error('Error fetching all terms:', err);
+      }
+    };
+    fetchAllTerms();
+  }, []);
 
   const fetchTerms = useCallback(async () => {
     setLoading(true);
@@ -60,6 +88,7 @@ export default function GlossaryPage() {
       if (selectedCategory) params.set('category', selectedCategory);
       if (selectedLetter) params.set('letter', selectedLetter);
       if (searchQuery) params.set('q', searchQuery);
+      if (!showAdvanced) params.set('hideAdvanced', 'true');
 
       const res = await fetch(`/api/glossary?${params.toString()}`);
       const data = await res.json();
@@ -72,33 +101,109 @@ export default function GlossaryPage() {
     } finally {
       setLoading(false);
     }
-  }, [selectedCategory, selectedLetter, searchQuery]);
+  }, [selectedCategory, selectedLetter, searchQuery, showAdvanced]);
 
   useEffect(() => {
     fetchTerms();
   }, [fetchTerms]);
 
-  const fetchTermDetails = async (slug: string) => {
-    try {
-      const res = await fetch(`/api/glossary?slug=${slug}`);
-      const data = await res.json();
-      if (data.term) {
-        setExpandedTermData(data.term);
+  // Generate autocomplete suggestions
+  useEffect(() => {
+    if (searchQuery.length < 2) {
+      setSuggestions([]);
+      return;
+    }
+
+    const query = searchQuery.toLowerCase();
+    const matches: AutocompleteSuggestion[] = [];
+    const seen = new Set<string>();
+
+    for (const term of allTermsForSearch) {
+      if (matches.length >= 8) break;
+
+      // Skip advanced terms if not showing them
+      if (!showAdvanced && term.is_advanced) continue;
+
+      const termLower = term.term.toLowerCase();
+      const displayLower = (term.display_name || term.term).toLowerCase();
+
+      // Check term/display_name match
+      if (termLower.includes(query) || displayLower.includes(query)) {
+        if (!seen.has(term.slug)) {
+          seen.add(term.slug);
+          matches.push({
+            term: term.term,
+            display_name: term.display_name || term.term,
+            slug: term.slug,
+            category: term.category,
+            matchType: 'term'
+          });
+        }
+        continue;
       }
-    } catch (err) {
-      console.error('Error fetching term details:', err);
+
+      // Check synonyms
+      if (term.synonyms && term.synonyms.length > 0) {
+        const matchedSynonym = term.synonyms.find(s => s.toLowerCase().includes(query));
+        if (matchedSynonym && !seen.has(term.slug)) {
+          seen.add(term.slug);
+          matches.push({
+            term: term.term,
+            display_name: term.display_name || term.term,
+            slug: term.slug,
+            category: term.category,
+            matchType: 'synonym'
+          });
+        }
+      }
+    }
+
+    setSuggestions(matches);
+  }, [searchQuery, allTermsForSearch, showAdvanced]);
+
+  // Handle keyboard navigation for autocomplete
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (!showSuggestions || suggestions.length === 0) return;
+
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        setSelectedSuggestionIndex(prev =>
+          prev < suggestions.length - 1 ? prev + 1 : prev
+        );
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        setSelectedSuggestionIndex(prev => (prev > 0 ? prev - 1 : -1));
+        break;
+      case 'Enter':
+        e.preventDefault();
+        if (selectedSuggestionIndex >= 0) {
+          window.location.href = `/glossary/${suggestions[selectedSuggestionIndex].slug}`;
+        }
+        break;
+      case 'Escape':
+        setShowSuggestions(false);
+        setSelectedSuggestionIndex(-1);
+        break;
     }
   };
 
-  const handleTermClick = (term: GlossaryTerm) => {
-    if (expandedTerm === term.id) {
-      setExpandedTerm(null);
-      setExpandedTermData(null);
-    } else {
-      setExpandedTerm(term.id);
-      fetchTermDetails(term.slug);
-    }
-  };
+  // Close suggestions when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        suggestionsRef.current &&
+        !suggestionsRef.current.contains(e.target as Node) &&
+        searchInputRef.current &&
+        !searchInputRef.current.contains(e.target as Node)
+      ) {
+        setShowSuggestions(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const totalTerms = Object.values(categoryCounts).reduce((a, b) => a + b, 0);
 
@@ -123,19 +228,55 @@ export default function GlossaryPage() {
             {totalTerms} terms explained - from cannabinoids to legal terminology
           </p>
 
-          {/* Search Box */}
+          {/* Search Box with Autocomplete */}
           <div className="relative max-w-xl">
             <input
+              ref={searchInputRef}
               type="text"
-              placeholder="Search terms..."
+              placeholder="Search terms, synonyms..."
               value={searchQuery}
               onChange={(e) => {
                 setSearchQuery(e.target.value);
                 setSelectedLetter(null);
+                setShowSuggestions(true);
+                setSelectedSuggestionIndex(-1);
               }}
+              onFocus={() => setShowSuggestions(true)}
+              onKeyDown={handleKeyDown}
               className="w-full px-5 py-3 pl-12 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
             />
             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
+
+            {/* Autocomplete Dropdown */}
+            {showSuggestions && suggestions.length > 0 && (
+              <div
+                ref={suggestionsRef}
+                className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50"
+              >
+                {suggestions.map((suggestion, index) => {
+                  const categoryInfo = CATEGORIES.find(c => c.key === suggestion.category);
+                  const isSelected = index === selectedSuggestionIndex;
+                  return (
+                    <Link
+                      key={suggestion.slug}
+                      href={`/glossary/${suggestion.slug}`}
+                      className={`flex items-center justify-between px-4 py-3 hover:bg-green-50 transition-colors ${
+                        isSelected ? 'bg-green-50' : ''
+                      }`}
+                      onClick={() => setShowSuggestions(false)}
+                    >
+                      <div>
+                        <div className="font-medium text-gray-900">{suggestion.display_name}</div>
+                        {suggestion.matchType === 'synonym' && (
+                          <div className="text-xs text-gray-500">Synonym match</div>
+                        )}
+                      </div>
+                      <span className="text-sm text-gray-500">{categoryInfo?.icon}</span>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -268,6 +409,21 @@ export default function GlossaryPage() {
                 );
               })}
 
+              {/* Advanced Toggle */}
+              <button
+                onClick={() => setShowAdvanced(!showAdvanced)}
+                className={`ml-2 px-3 py-2 text-sm font-medium rounded-lg transition-all flex items-center gap-2 ${
+                  showAdvanced
+                    ? 'bg-purple-600 text-white'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+                Advanced
+              </button>
+
               {/* View Toggle - Desktop */}
               <div className="ml-auto flex items-center gap-1 bg-gray-100 rounded-lg p-1">
                 <button
@@ -297,6 +453,23 @@ export default function GlossaryPage() {
                   </svg>
                 </button>
               </div>
+            </div>
+
+            {/* Mobile Advanced Toggle */}
+            <div className="md:hidden mt-3">
+              <button
+                onClick={() => setShowAdvanced(!showAdvanced)}
+                className={`w-full px-3 py-2 text-sm font-medium rounded-lg transition-all flex items-center justify-center gap-2 ${
+                  showAdvanced
+                    ? 'bg-purple-600 text-white'
+                    : 'bg-gray-100 text-gray-600'
+                }`}
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+                {showAdvanced ? 'Hide Advanced Terms' : 'Show Advanced Terms'}
+              </button>
             </div>
           </div>
         </div>
@@ -349,46 +522,48 @@ export default function GlossaryPage() {
                 {terms.map(term => {
                   const categoryColors = CATEGORY_COLORS[term.category] || CATEGORY_COLORS.cannabinoids;
                   const categoryInfo = CATEGORIES.find(c => c.key === term.category);
-                  const isExpanded = expandedTerm === term.id;
 
                   return (
                     <tr
                       key={term.id}
-                      className={`hover:bg-gray-50 cursor-pointer ${isExpanded ? 'bg-green-50' : ''}`}
-                      onClick={() => handleTermClick(term)}
+                      className="hover:bg-gray-50"
                     >
                       <td className="px-4 py-3">
-                        <div className="font-medium text-gray-900">{term.display_name || term.term}</div>
-                        {term.synonyms && term.synonyms.length > 0 && (
-                          <div className="text-xs text-gray-500 mt-0.5">
-                            Also: {term.synonyms.slice(0, 2).join(', ')}
-                            {term.synonyms.length > 2 && '...'}
+                        <Link href={`/glossary/${term.slug}`} className="block group">
+                          <div className="font-medium text-gray-900 group-hover:text-green-600 transition-colors">
+                            {term.display_name || term.term}
                           </div>
-                        )}
-                        {/* Mobile category badge */}
-                        <div className="md:hidden mt-1">
-                          <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${categoryColors.bg} ${categoryColors.text}`}>
-                            {categoryInfo?.icon} {categoryInfo?.label}
-                          </span>
-                        </div>
-                        {/* Expanded content for table view */}
-                        {isExpanded && expandedTermData && (
-                          <div className="mt-3 pt-3 border-t border-gray-200" onClick={e => e.stopPropagation()}>
-                            <div className="text-sm text-gray-700 whitespace-pre-wrap mb-3">
-                              {expandedTermData.definition}
+                          {term.pronunciation && (
+                            <div className="text-xs text-gray-400 font-mono">/{term.pronunciation}/</div>
+                          )}
+                          {term.synonyms && term.synonyms.length > 0 && (
+                            <div className="text-xs text-gray-500 mt-0.5">
+                              Also: {term.synonyms.slice(0, 2).join(', ')}
+                              {term.synonyms.length > 2 && '...'}
                             </div>
-                            {expandedTermData.synonyms && expandedTermData.synonyms.length > 0 && (
-                              <div className="text-xs text-gray-500">
-                                <span className="font-medium">Also known as:</span> {expandedTermData.synonyms.join(', ')}
-                              </div>
+                          )}
+                          {/* Mobile category badge */}
+                          <div className="md:hidden mt-1">
+                            <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${categoryColors.bg} ${categoryColors.text}`}>
+                              {categoryInfo?.icon} {categoryInfo?.label}
+                            </span>
+                            {term.is_advanced && (
+                              <span className="ml-1 px-2 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-700">
+                                Advanced
+                              </span>
                             )}
                           </div>
-                        )}
+                        </Link>
                       </td>
                       <td className="px-4 py-3 hidden md:table-cell">
                         <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${categoryColors.bg} ${categoryColors.text}`}>
                           {categoryInfo?.icon} {categoryInfo?.label}
                         </span>
+                        {term.is_advanced && (
+                          <span className="ml-1 px-2 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-700">
+                            Advanced
+                          </span>
+                        )}
                       </td>
                       <td className="px-4 py-3 hidden lg:table-cell">
                         <p className="text-sm text-gray-600 line-clamp-2">{term.short_definition}</p>
@@ -406,13 +581,7 @@ export default function GlossaryPage() {
               // Show flat list when filtering
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {terms.map(term => (
-                  <TermCard
-                    key={term.id}
-                    term={term}
-                    isExpanded={expandedTerm === term.id}
-                    expandedData={expandedTerm === term.id ? expandedTermData : null}
-                    onClick={() => handleTermClick(term)}
-                  />
+                  <TermCard key={term.id} term={term} />
                 ))}
               </div>
             ) : (
@@ -427,13 +596,7 @@ export default function GlossaryPage() {
                   </h2>
                   <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                     {letterTerms.map(term => (
-                      <TermCard
-                        key={term.id}
-                        term={term}
-                        isExpanded={expandedTerm === term.id}
-                        expandedData={expandedTerm === term.id ? expandedTermData : null}
-                        onClick={() => handleTermClick(term)}
-                      />
+                      <TermCard key={term.id} term={term} />
                     ))}
                   </div>
                 </div>
@@ -446,32 +609,32 @@ export default function GlossaryPage() {
   );
 }
 
-function TermCard({
-  term,
-  isExpanded,
-  expandedData,
-  onClick
-}: {
-  term: GlossaryTerm;
-  isExpanded: boolean;
-  expandedData: GlossaryTerm | null;
-  onClick: () => void;
-}) {
+function TermCard({ term }: { term: GlossaryTerm }) {
   const categoryColors = CATEGORY_COLORS[term.category] || CATEGORY_COLORS.cannabinoids;
   const categoryInfo = CATEGORIES.find(c => c.key === term.category);
 
   return (
-    <div
-      className={`bg-white rounded-lg border transition-all cursor-pointer ${
-        isExpanded ? 'col-span-full border-green-300 shadow-lg' : 'border-gray-200 hover:shadow-md hover:border-gray-300'
-      }`}
-      onClick={onClick}
+    <Link
+      href={`/glossary/${term.slug}`}
+      className="block bg-white rounded-lg border border-gray-200 hover:shadow-md hover:border-green-300 transition-all group"
     >
       <div className="p-4">
         {/* Header */}
         <div className="flex items-start justify-between gap-2 mb-2">
-          <h3 className="font-semibold text-gray-900 text-lg">{term.display_name || term.term}</h3>
+          <div>
+            <h3 className="font-semibold text-gray-900 text-lg group-hover:text-green-600 transition-colors">
+              {term.display_name || term.term}
+            </h3>
+            {term.pronunciation && (
+              <span className="text-xs text-gray-400 font-mono">/{term.pronunciation}/</span>
+            )}
+          </div>
           <div className="flex items-center gap-1 flex-shrink-0">
+            {term.is_advanced && (
+              <span className="px-1.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-700">
+                Adv
+              </span>
+            )}
             <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${categoryColors.bg} ${categoryColors.text}`}>
               {categoryInfo?.icon} {categoryInfo?.label}
             </span>
@@ -479,7 +642,7 @@ function TermCard({
         </div>
 
         {/* Short Definition */}
-        <p className="text-gray-600 text-sm mb-3">{term.short_definition}</p>
+        <p className="text-gray-600 text-sm mb-3 line-clamp-2">{term.short_definition}</p>
 
         {/* Synonyms */}
         {term.synonyms && term.synonyms.length > 0 && (
@@ -488,72 +651,12 @@ function TermCard({
             {term.synonyms.length > 2 && '...'}
           </div>
         )}
-
-        {/* Expanded Content */}
-        {isExpanded && expandedData && (
-          <div className="mt-4 pt-4 border-t border-gray-100" onClick={e => e.stopPropagation()}>
-            {/* Full Definition */}
-            <div className="prose prose-sm max-w-none mb-4">
-              <h4 className="text-sm font-semibold text-gray-700 mb-2">Definition</h4>
-              <div className="text-gray-700 whitespace-pre-wrap">{expandedData.definition}</div>
-            </div>
-
-            {/* Related Terms */}
-            {expandedData.related_terms_details && expandedData.related_terms_details.length > 0 && (
-              <div className="mb-4">
-                <h4 className="text-sm font-semibold text-gray-700 mb-2">Related Terms</h4>
-                <div className="flex flex-wrap gap-2">
-                  {expandedData.related_terms_details.map(related => (
-                    <Link
-                      key={related.slug}
-                      href={`/glossary?q=${encodeURIComponent(related.term)}`}
-                      className="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700"
-                    >
-                      {related.term}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Related Research */}
-            {expandedData.related_research_details && expandedData.related_research_details.length > 0 && (
-              <div className="mb-4">
-                <h4 className="text-sm font-semibold text-gray-700 mb-2">Related Research</h4>
-                <ul className="space-y-1">
-                  {expandedData.related_research_details.map(research => (
-                    <li key={research.id}>
-                      <Link
-                        href={research.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-blue-600 hover:underline"
-                      >
-                        {research.title} ({research.year})
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {/* All Synonyms */}
-            {expandedData.synonyms && expandedData.synonyms.length > 0 && (
-              <div>
-                <h4 className="text-sm font-semibold text-gray-700 mb-2">Also Known As</h4>
-                <p className="text-sm text-gray-600">{expandedData.synonyms.join(', ')}</p>
-              </div>
-            )}
-          </div>
-        )}
       </div>
 
-      {/* Expand Indicator */}
-      <div className={`px-4 py-2 border-t border-gray-100 text-center text-xs text-gray-500 ${
-        isExpanded ? 'bg-green-50' : 'bg-gray-50'
-      }`}>
-        {isExpanded ? 'Click to collapse' : 'Click to expand'}
+      {/* View More Indicator */}
+      <div className="px-4 py-2 border-t border-gray-100 bg-gray-50 text-center text-xs text-gray-500 group-hover:bg-green-50 group-hover:text-green-600 transition-colors">
+        View full definition →
       </div>
-    </div>
+    </Link>
   );
 }
