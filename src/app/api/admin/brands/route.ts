@@ -1,10 +1,10 @@
-import { createClient } from '@/lib/supabase/server';
+import { createServiceClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 
 // GET all brands for admin
 export async function GET(request: NextRequest) {
   try {
-    const supabase = await createClient();
+    const supabase = createServiceClient();
     const { searchParams } = new URL(request.url);
 
     const search = searchParams.get('q');
@@ -71,7 +71,7 @@ export async function GET(request: NextRequest) {
 // POST create new brand
 export async function POST(request: NextRequest) {
   try {
-    const supabase = await createClient();
+    const supabase = createServiceClient();
     const body = await request.json();
 
     const {
@@ -151,7 +151,7 @@ export async function POST(request: NextRequest) {
 // PATCH update brand
 export async function PATCH(request: NextRequest) {
   try {
-    const supabase = await createClient();
+    const supabase = createServiceClient();
     const body = await request.json();
     const { id, ...updates } = body;
 
@@ -213,7 +213,7 @@ export async function PATCH(request: NextRequest) {
 // DELETE brand(s)
 export async function DELETE(request: NextRequest) {
   try {
-    const supabase = await createClient();
+    const supabase = createServiceClient();
     const body = await request.json();
     const { ids } = body;
 
