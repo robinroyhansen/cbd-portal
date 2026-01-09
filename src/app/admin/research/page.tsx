@@ -44,6 +44,22 @@ const SOURCE_NAMES: Record<string, string> = {
   scholar: 'Google Scholar'
 };
 
+// Short source names for compact display
+const SOURCE_NAMES_SHORT: Record<string, string> = {
+  pubmed: 'PubMed',
+  pmc: 'PMC',
+  clinicaltrials: 'CT.gov',
+  europepmc: 'EuroPMC',
+  biorxiv: 'bioRxiv',
+  semanticscholar: 'S2',
+  crossref: 'CrossRef',
+  openalex: 'OpenAlex',
+  cochrane: 'Cochrane',
+  who_ictrp: 'WHO',
+  doaj: 'DOAJ',
+  scholar: 'Scholar'
+};
+
 // Format elapsed time
 function formatElapsedTime(startedAt: string | null): string {
   if (!startedAt) return '0s';
@@ -437,7 +453,7 @@ export default function AdminResearchPage() {
 
       {/* Real-time Feed */}
       {(isScanning || recentItems.length > 0) && (
-        <div className="mb-6 p-4 bg-white rounded-lg shadow border">
+        <div className="mb-6 p-4 bg-white rounded-lg shadow border overflow-hidden">
           <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
             {isScanning && <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -449,14 +465,18 @@ export default function AdminResearchPage() {
             {recentItems.map(item => (
               <div
                 key={item.id}
-                className="flex items-center justify-between p-2 bg-gray-50 rounded text-sm animate-fadeIn"
+                className="flex items-center gap-2 p-2 bg-gray-50 rounded text-sm animate-fadeIn"
               >
-                <div className="flex-1 truncate pr-4">
-                  <span className="font-medium">{item.title}</span>
+                <div className="flex-1 min-w-0">
+                  <span className="font-medium block truncate" title={item.title}>{item.title}</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-gray-500 shrink-0">
-                  <span className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded">{item.source_site}</span>
-                  <span className="px-2 py-0.5 bg-purple-100 text-purple-700 rounded">Score: {item.relevance_score}</span>
+                <div className="flex items-center gap-1.5 text-xs shrink-0">
+                  <span className="px-1.5 py-0.5 bg-blue-100 text-blue-700 rounded whitespace-nowrap" title={SOURCE_NAMES[item.source_site] || item.source_site}>
+                    {SOURCE_NAMES_SHORT[item.source_site] || item.source_site}
+                  </span>
+                  <span className="px-1.5 py-0.5 bg-purple-100 text-purple-700 rounded whitespace-nowrap">
+                    {item.relevance_score}
+                  </span>
                 </div>
               </div>
             ))}

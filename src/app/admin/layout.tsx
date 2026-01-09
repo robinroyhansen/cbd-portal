@@ -24,6 +24,7 @@ const staticNavItems: NavItem[] = [
     subItems: [
       { name: 'All Articles', href: '/admin/articles', icon: '📋' },
       { name: 'Create Article', href: '/admin/articles/new', icon: '➕' },
+      { name: 'Categories', href: '/admin/categories', icon: '🏷️' },
     ]
   },
   {
@@ -35,7 +36,6 @@ const staticNavItems: NavItem[] = [
       { name: 'Create Author', href: '/admin/authors/new', icon: '➕' },
     ]
   },
-  { name: 'Categories', href: '/admin/categories', icon: '🏷️' },
   { name: 'Citations', href: '/admin/citations', icon: '📚' },
   { name: 'Comments', href: '/admin/comments', icon: '💬' },
   { name: 'Research Queue', href: '/admin/research/queue', icon: '🔬' },
