@@ -366,6 +366,16 @@ export default function BrandReviewEditorPage() {
       });
       setScores(newScores);
 
+      // Update originalScores to match AI-generated scores (so warnings only show for user changes)
+      const newOriginalScores: Record<string, { score: number; sub_scores: Record<string, number> }> = {};
+      Object.entries(newScores).forEach(([id, s]) => {
+        newOriginalScores[id] = { score: s.score, sub_scores: { ...s.sub_scores } };
+      });
+      setOriginalScores(newOriginalScores);
+
+      // Clear any dismissed warnings since we have fresh scores
+      setDismissedWarnings(new Set());
+
       // Update form data with generated content
       setFormData(prev => ({
         ...prev,
