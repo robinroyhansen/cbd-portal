@@ -5,6 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ToneSlider, ToneType } from '@/components/admin/ToneSlider';
 import { AdjustReviewModal } from '@/components/admin/AdjustReviewModal';
+import { PublicationStatus } from '@/components/admin/PublicationStatus';
 
 // Types for adjust review feature
 interface ScoreHistory {
@@ -89,6 +90,7 @@ interface Review {
   meta_description: string | null;
   is_published: boolean;
   published_at: string | null;
+  scheduled_publish_at: string | null;
   last_reviewed_at: string | null;
   kb_brands: Brand;
   kb_authors: Author | null;
@@ -121,7 +123,8 @@ export default function BrandReviewEditorPage() {
     sources_researched: [''],
     meta_title: '',
     meta_description: '',
-    is_published: false
+    is_published: false,
+    scheduled_publish_at: null as string | null
   });
 
   const [scores, setScores] = useState<Record<string, { score: number; sub_scores: Record<string, number>; ai_reasoning: string; author_notes: string }>>({});
@@ -219,7 +222,8 @@ export default function BrandReviewEditorPage() {
           sources_researched: reviewData.review.sources_researched?.length > 0 ? reviewData.review.sources_researched : [''],
           meta_title: reviewData.review.meta_title || '',
           meta_description: reviewData.review.meta_description || '',
-          is_published: reviewData.review.is_published || false
+          is_published: reviewData.review.is_published || false,
+          scheduled_publish_at: reviewData.review.scheduled_publish_at || null
         });
 
         // Populate scores from existing review
@@ -313,6 +317,7 @@ export default function BrandReviewEditorPage() {
         meta_title: formData.meta_title.trim() || null,
         meta_description: formData.meta_description.trim() || null,
         is_published: publish ? true : formData.is_published,
+        scheduled_publish_at: formData.scheduled_publish_at,
         scores: scoresArray
       };
 
@@ -330,7 +335,11 @@ export default function BrandReviewEditorPage() {
 
       setSuccessMessage(publish ? 'Review published successfully!' : 'Review saved successfully!');
       setReview(data.review);
-      setFormData(prev => ({ ...prev, is_published: data.review.is_published }));
+      setFormData(prev => ({
+        ...prev,
+        is_published: data.review.is_published,
+        scheduled_publish_at: data.review.scheduled_publish_at
+      }));
 
       // Scroll to top to show success message
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1269,51 +1278,76 @@ export default function BrandReviewEditorPage() {
             </div>
           </div>
 
-          {/* Actions */}
+          {/* Publication & Actions */}
           <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <Link
-                  href="/admin/brands"
-                  className="px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200"
-                >
-                  Back to Brands
-                </Link>
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Publication Status */}
+              <PublicationStatus
+                isPublished={formData.is_published}
+                scheduledPublishAt={formData.scheduled_publish_at}
+                onPublish={() => {
+                  setFormData(prev => ({
+                    ...prev,
+                    is_published: true,
+                    scheduled_publish_at: null
+                  }));
+                  handleSave(true);
+                }}
+                onUnpublish={() => {
+                  setFormData(prev => ({
+                    ...prev,
+                    is_published: false,
+                    scheduled_publish_at: null
+                  }));
+                }}
+                onSchedule={(scheduledAt) => {
+                  setFormData(prev => ({
+                    ...prev,
+                    is_published: false,
+                    scheduled_publish_at: scheduledAt
+                  }));
+                }}
+                onCancelSchedule={() => {
+                  setFormData(prev => ({
+                    ...prev,
+                    scheduled_publish_at: null
+                  }));
+                }}
+                disabled={saving}
+              />
 
-                {review?.is_published && brand?.slug && (
-                  <Link
-                    href={`/reviews/${brand.slug}`}
-                    target="_blank"
-                    className="px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200"
+              {/* Actions */}
+              <div className="space-y-4">
+                <h3 className="text-sm font-semibold text-gray-900">Actions</h3>
+
+                <div className="space-y-3">
+                  <button
+                    onClick={() => handleSave(false)}
+                    disabled={saving}
+                    className="w-full px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-50 text-sm font-medium"
                   >
-                    View Public Page
-                  </Link>
-                )}
-              </div>
+                    {saving ? 'Saving...' : 'Save Changes'}
+                  </button>
 
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={() => handleSave(false)}
-                  disabled={saving}
-                  className="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50"
-                >
-                  {saving ? 'Saving...' : 'Save Draft'}
-                </button>
-                <button
-                  onClick={() => handleSave(true)}
-                  disabled={saving}
-                  className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50"
-                >
-                  {saving ? 'Publishing...' : formData.is_published ? 'Update & Publish' : 'Save & Publish'}
-                </button>
+                  {review?.is_published && brand?.slug && (
+                    <Link
+                      href={`/reviews/${brand.slug}`}
+                      target="_blank"
+                      className="block w-full px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 text-sm font-medium text-center"
+                    >
+                      View Public Page
+                    </Link>
+                  )}
+
+                  <Link
+                    href="/admin/brands"
+                    className="block w-full px-4 py-2 text-gray-500 hover:text-gray-700 text-sm text-center"
+                  >
+                    Back to Brands
+                  </Link>
+                </div>
               </div>
             </div>
-
-            {formData.is_published && (
-              <div className="mt-4 p-3 bg-green-50 rounded-lg text-sm text-green-800">
-                This review is currently published and visible on the public site.
-              </div>
-            )}
           </div>
         </div>
       )}

@@ -282,9 +282,15 @@ export async function PATCH(request: NextRequest) {
       return NextResponse.json({ error: 'Review ID required' }, { status: 400 });
     }
 
-    // If publishing, set last_reviewed_at
+    // If publishing, set last_reviewed_at and clear scheduled_publish_at
     if (updates.is_published === true) {
       updates.last_reviewed_at = new Date().toISOString();
+      updates.scheduled_publish_at = null;
+    }
+
+    // If scheduling, ensure not published
+    if (updates.scheduled_publish_at) {
+      updates.is_published = false;
     }
 
     // If section_content is provided, store it and regenerate full_review
