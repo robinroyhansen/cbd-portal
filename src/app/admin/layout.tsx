@@ -24,6 +24,7 @@ const staticNavItems: NavItem[] = [
       { name: 'All Articles', href: '/admin/articles', icon: '📋' },
       { name: 'Create Article', href: '/admin/articles/new', icon: '➕' },
       { name: 'Categories', href: '/admin/categories', icon: '🏷️' },
+      { name: 'Comments', href: '/admin/articles/comments', icon: '💬' },
     ]
   },
   {

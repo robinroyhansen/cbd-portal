@@ -1,12 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { createClient } from '@/lib/supabase/client';
 
 interface Comment {
   id: string;
   author_name: string;
-  content: string;
+  comment_text: string;
   created_at: string;
   parent_id: string | null;
 }
@@ -16,66 +15,110 @@ export function Comments({ articleId }: { articleId: string }) {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: '', email: '', content: '' });
+  const [error, setError] = useState<string | null>(null);
+  const [form, setForm] = useState({ name: '', email: '', comment: '', honeypot: '' });
 
   useEffect(() => {
     fetchComments();
   }, [articleId]);
 
   const fetchComments = async () => {
-    const supabase = createClient();
-    const { data } = await supabase
-      .from('kb_comments')
-      .select('*')
-      .eq('article_id', articleId)
-      .eq('status', 'approved')
-      .order('created_at', { ascending: true });
-
-    setComments(data || []);
-    setLoading(false);
+    try {
+      const res = await fetch(`/api/comments?article_id=${articleId}`);
+      const data = await res.json();
+      setComments(data.comments || []);
+    } catch (err) {
+      console.error('Error fetching comments:', err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
     setSubmitting(true);
 
-    const supabase = createClient();
-    const { error } = await supabase.from('kb_comments').insert({
-      article_id: articleId,
-      author_name: form.name,
-      author_email: form.email,
-      content: form.content,
-      status: 'pending'
-    });
+    try {
+      const res = await fetch('/api/comments', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          article_id: articleId,
+          author_name: form.name,
+          author_email: form.email,
+          comment_text: form.comment,
+          honeypot: form.honeypot
+        })
+      });
 
-    if (!error) {
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to submit comment');
+      }
+
       setSubmitted(true);
-      setForm({ name: '', email: '', content: '' });
+      setForm({ name: '', email: '', comment: '', honeypot: '' });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to submit comment');
+    } finally {
+      setSubmitting(false);
     }
+  };
 
-    setSubmitting(false);
+  const formatRelativeTime = (dateString: string) => {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diff = now.getTime() - date.getTime();
+
+    const minutes = Math.floor(diff / (1000 * 60));
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+    const weeks = Math.floor(days / 7);
+    const months = Math.floor(days / 30);
+
+    if (months > 0) return `${months} month${months > 1 ? 's' : ''} ago`;
+    if (weeks > 0) return `${weeks} week${weeks > 1 ? 's' : ''} ago`;
+    if (days > 0) return `${days} day${days > 1 ? 's' : ''} ago`;
+    if (hours > 0) return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+    if (minutes > 0) return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+    return 'Just now';
   };
 
   return (
     <section className="mt-12 pt-8 border-t border-gray-200 print:hidden">
-      <h2 className="text-2xl font-bold mb-6">Comments</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">
+        Comments {comments.length > 0 && <span className="text-gray-500 font-normal">({comments.length})</span>}
+      </h2>
 
-      {/* Existing comments */}
+      {/* Existing comments - sorted oldest first for conversation flow */}
       {loading ? (
-        <p className="text-gray-500">Loading comments...</p>
+        <div className="space-y-4 mb-8">
+          {[1, 2].map(i => (
+            <div key={i} className="animate-pulse">
+              <div className="h-4 bg-gray-200 rounded w-32 mb-2"></div>
+              <div className="h-16 bg-gray-100 rounded"></div>
+            </div>
+          ))}
+        </div>
       ) : comments.length === 0 ? (
         <p className="text-gray-500 mb-8">No comments yet. Be the first to share your thoughts!</p>
       ) : (
         <div className="space-y-6 mb-8">
           {comments.map((comment) => (
-            <div key={comment.id} className="bg-gray-50 rounded-lg p-4">
-              <div className="flex justify-between items-start mb-2">
-                <span className="font-medium">{comment.author_name}</span>
-                <span className="text-xs text-gray-400">
-                  {new Date(comment.created_at).toLocaleDateString('en-GB')}
-                </span>
+            <div key={comment.id} className="bg-white border border-gray-200 rounded-lg p-5">
+              <div className="flex items-center gap-3 mb-3">
+                {/* Avatar */}
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-sm">
+                  {comment.author_name.charAt(0).toUpperCase()}
+                </div>
+                <div>
+                  <span className="font-semibold text-gray-900">{comment.author_name}</span>
+                  <p className="text-xs text-gray-500">{formatRelativeTime(comment.created_at)}</p>
+                </div>
               </div>
-              <p className="text-gray-700">{comment.content}</p>
+              <p className="text-gray-700 whitespace-pre-wrap">{comment.comment_text}</p>
             </div>
           ))}
         </div>
@@ -83,61 +126,119 @@ export function Comments({ articleId }: { articleId: string }) {
 
       {/* Comment form */}
       {submitted ? (
-        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-          <p className="text-green-800">
-            Thank you for your comment! It will appear after review.
+        <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+          <div className="flex items-center gap-3 mb-2">
+            <span className="text-green-600 text-xl">✓</span>
+            <p className="text-green-800 font-medium">Thank you for your comment!</p>
+          </div>
+          <p className="text-green-700 text-sm">
+            Your comment has been submitted and will appear after moderation.
           </p>
+          <button
+            onClick={() => setSubmitted(false)}
+            className="mt-4 text-sm text-green-700 hover:text-green-900 underline"
+          >
+            Submit another comment
+          </button>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="bg-gray-50 rounded-lg p-6">
-          <h3 className="font-semibold mb-4">Leave a Comment</h3>
-          <p className="text-sm text-gray-500 mb-4">
-            Your comment will be reviewed before publishing.
-          </p>
+        <div className="bg-gray-50 rounded-xl p-6">
+          <h3 className="text-lg font-semibold text-gray-800 mb-4">Leave a Comment</h3>
 
-          <div className="grid md:grid-cols-2 gap-4 mb-4">
+          {error && (
+            <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800 text-sm">
+              {error}
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="comment-name" className="block text-sm font-medium text-gray-700 mb-1">
+                  Name <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="comment-name"
+                  required
+                  minLength={2}
+                  maxLength={100}
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  placeholder="Your name"
+                />
+              </div>
+              <div>
+                <label htmlFor="comment-email" className="block text-sm font-medium text-gray-700 mb-1">
+                  Email <span className="text-red-500">*</span>
+                  <span className="text-gray-500 font-normal ml-1">(not displayed)</span>
+                </label>
+                <input
+                  type="email"
+                  id="comment-email"
+                  required
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  placeholder="your@email.com"
+                />
+              </div>
+            </div>
+
             <div>
-              <label className="block text-sm font-medium mb-1">Name *</label>
+              <label htmlFor="comment-text" className="block text-sm font-medium text-gray-700 mb-1">
+                Comment <span className="text-red-500">*</span>
+              </label>
+              <textarea
+                id="comment-text"
+                required
+                minLength={10}
+                maxLength={5000}
+                rows={4}
+                value={form.comment}
+                onChange={(e) => setForm({ ...form, comment: e.target.value })}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 resize-y"
+                placeholder="Share your thoughts..."
+              />
+              <p className="text-xs text-gray-500 mt-1">{form.comment.length}/5000 characters</p>
+            </div>
+
+            {/* Honeypot field - hidden from real users */}
+            <div className="absolute -left-[9999px]" aria-hidden="true">
+              <label htmlFor="website-field">Website</label>
               <input
                 type="text"
-                required
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full px-3 py-2 border rounded-md"
+                id="website-field"
+                name="website"
+                value={form.honeypot}
+                onChange={(e) => setForm({ ...form, honeypot: e.target.value })}
+                tabIndex={-1}
+                autoComplete="off"
               />
             </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">Email *</label>
-              <input
-                type="email"
-                required
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full px-3 py-2 border rounded-md"
-              />
-              <p className="text-xs text-gray-400 mt-1">Not displayed publicly</p>
+
+            <div className="flex items-center justify-between pt-2">
+              <p className="text-xs text-gray-500">
+                Comments are moderated before appearing.
+              </p>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+              >
+                {submitting ? (
+                  <>
+                    <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
+                    Submitting...
+                  </>
+                ) : (
+                  'Post Comment'
+                )}
+              </button>
             </div>
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-1">Comment *</label>
-            <textarea
-              required
-              rows={4}
-              value={form.content}
-              onChange={(e) => setForm({ ...form, content: e.target.value })}
-              className="w-full px-3 py-2 border rounded-md"
-            />
-          </div>
-
-          <button
-            type="submit"
-            disabled={submitting}
-            className="px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 disabled:opacity-50"
-          >
-            {submitting ? 'Submitting...' : 'Submit Comment'}
-          </button>
-        </form>
+          </form>
+        </div>
       )}
     </section>
   );
