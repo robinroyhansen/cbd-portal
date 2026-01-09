@@ -1241,56 +1241,158 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
 
         {filtersExpanded && (
           <div id="advanced-filters" className="p-4 border-t border-gray-200 space-y-4">
-            {/* Compact Range Filters Row */}
-            <div className="flex flex-wrap gap-4">
-              {/* Year Range - Compact Selects */}
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-medium text-gray-700">Year:</span>
-                <select
-                  value={yearRange.min}
-                  onChange={(e) => setYearRange(prev => ({ ...prev, min: parseInt(e.target.value) }))}
-                  className="px-2 py-1 text-sm border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
-                  aria-label="From year"
-                >
-                  {Array.from({ length: dataYearRange.max - dataYearRange.min + 1 }, (_, i) => dataYearRange.min + i).map(year => (
-                    <option key={year} value={year}>{year}</option>
-                  ))}
-                </select>
-                <span className="text-gray-400">–</span>
-                <select
-                  value={yearRange.max}
-                  onChange={(e) => setYearRange(prev => ({ ...prev, max: parseInt(e.target.value) }))}
-                  className="px-2 py-1 text-sm border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
-                  aria-label="To year"
-                >
-                  {Array.from({ length: dataYearRange.max - dataYearRange.min + 1 }, (_, i) => dataYearRange.min + i).map(year => (
-                    <option key={year} value={year}>{year}</option>
-                  ))}
-                </select>
-              </div>
+            {/* Quick Preset Buttons */}
+            <div className="flex flex-wrap gap-2">
+              <span className="text-sm font-medium text-gray-600 mr-2 self-center">Quick filters:</span>
+              <button
+                onClick={() => {
+                  setYearRange({ min: 2020, max: dataYearRange.max });
+                  setCurrentPage(1);
+                }}
+                className={`px-3 py-1.5 text-sm font-medium rounded-full border transition-all ${
+                  yearRange.min === 2020 && yearRange.max === dataYearRange.max
+                    ? 'bg-blue-600 text-white border-blue-600'
+                    : 'bg-white text-gray-700 border-gray-300 hover:border-blue-400 hover:text-blue-600'
+                }`}
+              >
+                Recent (2020+)
+              </button>
+              <button
+                onClick={() => {
+                  setQualityRange({ min: 70, max: 100 });
+                  setCurrentPage(1);
+                }}
+                className={`px-3 py-1.5 text-sm font-medium rounded-full border transition-all ${
+                  qualityRange.min === 70 && qualityRange.max === 100
+                    ? 'bg-green-600 text-white border-green-600'
+                    : 'bg-white text-gray-700 border-gray-300 hover:border-green-400 hover:text-green-600'
+                }`}
+              >
+                High Quality (70+)
+              </button>
+              <button
+                onClick={() => {
+                  setSelectedStudyTypes([StudyType.RANDOMIZED_CONTROLLED_TRIAL]);
+                  setShowHumanStudiesOnly(true);
+                  setCurrentPage(1);
+                }}
+                className={`px-3 py-1.5 text-sm font-medium rounded-full border transition-all ${
+                  selectedStudyTypes.length === 1 && selectedStudyTypes.includes(StudyType.RANDOMIZED_CONTROLLED_TRIAL) && showHumanStudiesOnly
+                    ? 'bg-purple-600 text-white border-purple-600'
+                    : 'bg-white text-gray-700 border-gray-300 hover:border-purple-400 hover:text-purple-600'
+                }`}
+              >
+                Human RCTs only
+              </button>
+            </div>
 
-              {/* Quality Score - Compact Inputs */}
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-medium text-gray-700">Quality:</span>
-                <input
-                  type="number"
-                  min={0}
-                  max={100}
-                  value={qualityRange.min}
-                  onChange={(e) => setQualityRange(prev => ({ ...prev, min: Math.max(0, Math.min(100, parseInt(e.target.value) || 0)) }))}
-                  className="w-14 px-2 py-1 text-sm border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
-                  aria-label="Minimum quality score"
-                />
-                <span className="text-gray-400">–</span>
-                <input
-                  type="number"
-                  min={0}
-                  max={100}
-                  value={qualityRange.max}
-                  onChange={(e) => setQualityRange(prev => ({ ...prev, max: Math.max(0, Math.min(100, parseInt(e.target.value) || 100)) }))}
-                  className="w-14 px-2 py-1 text-sm border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
-                  aria-label="Maximum quality score"
-                />
+            {/* Year & Quality Range Filters - Modern UI */}
+            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Year Range */}
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <label className="text-sm font-semibold text-gray-700">Publication Year</label>
+                    <span className="text-sm font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded">
+                      {yearRange.min} – {yearRange.max}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <select
+                      value={yearRange.min}
+                      onChange={(e) => {
+                        const newMin = parseInt(e.target.value);
+                        setYearRange(prev => ({ min: newMin, max: Math.max(newMin, prev.max) }));
+                        setCurrentPage(1);
+                      }}
+                      className="flex-1 px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      aria-label="From year"
+                    >
+                      {Array.from({ length: dataYearRange.max - dataYearRange.min + 1 }, (_, i) => dataYearRange.min + i).map(year => (
+                        <option key={year} value={year}>{year}</option>
+                      ))}
+                    </select>
+                    <span className="text-gray-400 font-medium">to</span>
+                    <select
+                      value={yearRange.max}
+                      onChange={(e) => {
+                        const newMax = parseInt(e.target.value);
+                        setYearRange(prev => ({ min: Math.min(prev.min, newMax), max: newMax }));
+                        setCurrentPage(1);
+                      }}
+                      className="flex-1 px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      aria-label="To year"
+                    >
+                      {Array.from({ length: dataYearRange.max - dataYearRange.min + 1 }, (_, i) => dataYearRange.min + i).map(year => (
+                        <option key={year} value={year}>{year}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* Quality Score Range with Visual Slider */}
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <label className="text-sm font-semibold text-gray-700">Quality Score</label>
+                    <span className={`text-sm font-medium px-2 py-0.5 rounded ${
+                      qualityRange.min >= 70 ? 'bg-green-100 text-green-700' :
+                      qualityRange.min >= 40 ? 'bg-yellow-100 text-yellow-700' :
+                      'bg-gray-100 text-gray-700'
+                    }`}>
+                      {qualityRange.min} – {qualityRange.max}
+                    </span>
+                  </div>
+                  {/* Gradient bar background */}
+                  <div className="relative h-3 rounded-full bg-gradient-to-r from-red-400 via-yellow-400 to-green-500 mb-2">
+                    {/* Selected range overlay */}
+                    <div
+                      className="absolute top-0 h-full bg-white/60 rounded-l-full"
+                      style={{ left: 0, width: `${qualityRange.min}%` }}
+                    />
+                    <div
+                      className="absolute top-0 h-full bg-white/60 rounded-r-full"
+                      style={{ right: 0, width: `${100 - qualityRange.max}%` }}
+                    />
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="flex-1">
+                      <input
+                        type="range"
+                        min={0}
+                        max={100}
+                        value={qualityRange.min}
+                        onChange={(e) => {
+                          const newMin = parseInt(e.target.value);
+                          setQualityRange(prev => ({ min: newMin, max: Math.max(newMin, prev.max) }));
+                          setCurrentPage(1);
+                        }}
+                        className="w-full h-2 bg-transparent appearance-none cursor-pointer accent-blue-600"
+                        aria-label="Minimum quality score"
+                      />
+                    </div>
+                    <span className="text-gray-400 text-xs">to</span>
+                    <div className="flex-1">
+                      <input
+                        type="range"
+                        min={0}
+                        max={100}
+                        value={qualityRange.max}
+                        onChange={(e) => {
+                          const newMax = parseInt(e.target.value);
+                          setQualityRange(prev => ({ min: Math.min(prev.min, newMax), max: newMax }));
+                          setCurrentPage(1);
+                        }}
+                        className="w-full h-2 bg-transparent appearance-none cursor-pointer accent-blue-600"
+                        aria-label="Maximum quality score"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex justify-between text-xs text-gray-500 mt-1">
+                    <span>0 (Low)</span>
+                    <span>50</span>
+                    <span>100 (High)</span>
+                  </div>
+                </div>
               </div>
             </div>
 
