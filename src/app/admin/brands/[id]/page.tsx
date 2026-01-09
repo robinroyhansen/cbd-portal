@@ -131,6 +131,11 @@ export default function BrandReviewEditorPage() {
   const [showPreview, setShowPreview] = useState(false);
   const [generating, setGenerating] = useState(false);
 
+  // AI generation options
+  const [targetScoreRange, setTargetScoreRange] = useState<string>('');
+  const [generationInstructions, setGenerationInstructions] = useState('');
+  const [generationWarning, setGenerationWarning] = useState<string | null>(null);
+
   // Adjust Review feature state
   const [originalScores, setOriginalScores] = useState<Record<string, { score: number; sub_scores: Record<string, number> }>>({});
   const [sectionTones, setSectionTones] = useState<Record<string, ToneType>>({});
@@ -359,18 +364,28 @@ export default function BrandReviewEditorPage() {
     setGenerating(true);
     setError(null);
     setSuccessMessage(null);
+    setGenerationWarning(null);
 
     try {
       const res = await fetch('/api/admin/brand-reviews/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ brand_id: brandId })
+        body: JSON.stringify({
+          brand_id: brandId,
+          target_score_range: targetScoreRange || null,
+          generation_instructions: generationInstructions || null
+        })
       });
 
       const data = await res.json();
 
       if (!data.success) {
         throw new Error(data.error || 'Failed to generate review');
+      }
+
+      // Show warning if AI couldn't meet target score
+      if (data.warning) {
+        setGenerationWarning(data.warning);
       }
 
       // Update scores with AI-generated values
@@ -751,6 +766,67 @@ export default function BrandReviewEditorPage() {
           {successMessage}
         </div>
       )}
+      {generationWarning && (
+        <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-lg text-amber-800">
+          <div className="flex items-start gap-2">
+            <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            <span>{generationWarning}</span>
+          </div>
+        </div>
+      )}
+
+      {/* AI Generation Options */}
+      <div className="mb-6 p-4 bg-purple-50 border border-purple-200 rounded-lg">
+        <div className="flex items-center gap-2 mb-3">
+          <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          <h3 className="text-sm font-semibold text-purple-900">AI Generation Options</h3>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-xs font-medium text-purple-700 mb-1">
+              Target Score Range (optional)
+            </label>
+            <select
+              value={targetScoreRange}
+              onChange={(e) => setTargetScoreRange(e.target.value)}
+              className="w-full px-3 py-2 border border-purple-200 rounded-lg text-sm bg-white focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            >
+              <option value="">Let AI determine</option>
+              <option value="1-10">1-10 (Very Poor)</option>
+              <option value="11-20">11-20 (Poor)</option>
+              <option value="21-30">21-30 (Below Average)</option>
+              <option value="31-40">31-40 (Fair)</option>
+              <option value="41-50">41-50 (Average)</option>
+              <option value="51-60">51-60 (Above Average)</option>
+              <option value="61-70">61-70 (Good)</option>
+              <option value="71-80">71-80 (Very Good)</option>
+              <option value="81-90">81-90 (Excellent)</option>
+              <option value="91-100">91-100 (Outstanding)</option>
+            </select>
+            <p className="mt-1 text-xs text-purple-600">
+              Set a target if you've researched this brand and have expectations
+            </p>
+          </div>
+
+          <div>
+            <label className="block text-xs font-medium text-purple-700 mb-1">
+              Additional Instructions (optional)
+            </label>
+            <input
+              type="text"
+              value={generationInstructions}
+              onChange={(e) => setGenerationInstructions(e.target.value)}
+              placeholder="e.g., Focus on their organic certifications..."
+              className="w-full px-3 py-2 border border-purple-200 rounded-lg text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            />
+          </div>
+        </div>
+      </div>
 
       {/* Batch Rewrite Banner */}
       {getChangedSections().length >= 2 && Object.keys(formData.section_content).length > 0 && (

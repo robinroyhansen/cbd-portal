@@ -24,6 +24,7 @@ interface GeneratedReview {
   not_ideal_for: string[]; // User types this brand is not good for
   verdict: string;
   recommendation_status: 'recommended' | 'cautiously_recommended' | 'not_recommended';
+  score_deviation_reason?: string; // Only if AI couldn't meet target score
   trustpilot_score?: number;
   trustpilot_count?: number;
   google_score?: number;
@@ -248,13 +249,24 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { brand_id } = body;
+    const { brand_id, target_score_range, generation_instructions } = body;
 
     if (!brand_id) {
       return NextResponse.json({
         success: false,
         error: 'Brand ID is required'
       }, { status: 400 });
+    }
+
+    // Parse target score range if provided
+    let targetMin: number | null = null;
+    let targetMax: number | null = null;
+    if (target_score_range) {
+      const [min, max] = target_score_range.split('-').map(Number);
+      if (!isNaN(min) && !isNaN(max)) {
+        targetMin = min;
+        targetMax = max;
+      }
     }
 
     const supabase = createServiceClient();
@@ -376,7 +388,20 @@ ${websiteContent || 'Limited content available - use brand description and Trust
 
 REVIEW CRITERIA - Score EACH sub-criterion individually:
 ${criteriaPrompt}
+${targetMin !== null && targetMax !== null ? `
+AUTHOR'S TARGET SCORE: ${targetMin}-${targetMax}
+The reviewing author has assessed this brand and determined it should score in the ${targetMin}-${targetMax} range based on their research and expertise. Generate scores that total within this range.
 
+Important targeting guidelines:
+- All facts must be accurate and verifiable from the provided content
+- Distribute sub-scores proportionally to reach the target total
+- If you cannot find facts to support this score range, include a "score_deviation_reason" field in your response explaining why
+- Frame the review to reflect the author's editorial judgment while maintaining factual accuracy
+- If the evidence strongly contradicts the target range, generate honest scores and explain in score_deviation_reason
+` : ''}${generation_instructions ? `
+ADDITIONAL INSTRUCTIONS FROM AUTHOR:
+${generation_instructions}
+` : ''}
 IMPORTANT:
 - The "score" for each criterion MUST equal the sum of its sub_scores
 - Each sub_score must not exceed its max_points
@@ -403,7 +428,8 @@ Return ONLY valid JSON in this exact format:
   "best_for": ["<specific user type 1>", "<specific user type 2>", ...],
   "not_ideal_for": ["<specific user type 1>", "<specific user type 2>", ...],
   "verdict": "<final recommendation in personal voice, 150+ words>",
-  "recommendation_status": "<recommended | cautiously_recommended | not_recommended>"
+  "recommendation_status": "<recommended | cautiously_recommended | not_recommended>",
+  "score_deviation_reason": "<ONLY include if you could not meet the target score range - explain why>"
 }`;
 
     // Call Claude API
@@ -499,9 +525,23 @@ Return ONLY valid JSON in this exact format:
       const metaTitle = `${brand.name} Review ${currentYear} - Score ${overallScore}/100`;
       const metaDescription = `Independent ${brand.name} review with ${overallScore}/100 score. We analyze quality, testing, transparency, pricing and more. See full breakdown.`;
 
+      // Build warning message
+      const warnings: string[] = [];
+      if (!websiteAccessible) {
+        warnings.push('Website was difficult to access. Scores may be conservative.');
+      }
+      if (generated.score_deviation_reason) {
+        warnings.push(`Target score adjustment: ${generated.score_deviation_reason}`);
+      } else if (targetMin !== null && targetMax !== null) {
+        // Check if score fell outside target range
+        if (overallScore < targetMin || overallScore > targetMax) {
+          warnings.push(`Generated score (${overallScore}) is outside the target range (${targetMin}-${targetMax}). Review the scores and adjust if needed.`);
+        }
+      }
+
       return NextResponse.json({
         success: true,
-        warning: !websiteAccessible ? 'Website was difficult to access. Scores may be conservative.' : undefined,
+        warning: warnings.length > 0 ? warnings.join(' ') : undefined,
         data: {
           ...generated,
           scores: validatedScores,
@@ -512,6 +552,8 @@ Return ONLY valid JSON in this exact format:
           best_for: generated.best_for || [],
           not_ideal_for: generated.not_ideal_for || [],
           recommendation_status: generated.recommendation_status || 'recommended',
+          target_score_range: target_score_range || null,
+          generation_instructions: generation_instructions || null,
           trustpilot_score: trustpilotData?.score || null,
           trustpilot_count: trustpilotData?.count || null,
           trustpilot_url: trustpilotData?.url || null,
