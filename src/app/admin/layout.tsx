@@ -25,6 +25,7 @@ const staticNavItems: NavItem[] = [
       { name: 'Create Article', href: '/admin/articles/new', icon: '➕' },
       { name: 'Categories', href: '/admin/categories', icon: '🏷️' },
       { name: 'Comments', href: '/admin/articles/comments', icon: '💬' },
+      { name: 'Authors', href: '/admin/authors', icon: '👤' },
     ]
   },
   {
@@ -37,7 +38,6 @@ const staticNavItems: NavItem[] = [
       { name: 'Citations', href: '/admin/citations', icon: '📚' },
     ]
   },
-  { name: 'Authors', href: '/admin/authors', icon: '👤' },
   { name: 'Media Library', href: '/admin/media', icon: '🖼️' },
   { name: 'Languages', href: '/admin/languages', icon: '🌍' },
 ];
