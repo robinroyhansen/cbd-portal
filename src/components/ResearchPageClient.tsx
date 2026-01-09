@@ -1777,6 +1777,7 @@ function ResearchInfoFooter() {
                   <li>Double-blind design: +10</li>
                   <li>Placebo-controlled: +8</li>
                   <li>Multicenter study: +7</li>
+                  <li>Single-blind design: +5</li>
                 </ul>
               </div>
 
@@ -1784,10 +1785,13 @@ function ResearchInfoFooter() {
                 <h4 className="font-semibold text-gray-800">Sample Size (up to 15 points)</h4>
                 <p>Larger studies provide more reliable results:</p>
                 <ul className="list-disc list-inside ml-2 mt-1 space-y-0.5">
-                  <li>500+ participants: +15</li>
-                  <li>100-499 participants: +12</li>
+                  <li>1,000+ participants: +15</li>
+                  <li>500-999 participants: +14</li>
+                  <li>200-499 participants: +12</li>
+                  <li>100-199 participants: +10</li>
                   <li>50-99 participants: +8</li>
-                  <li>20-49 participants: +5</li>
+                  <li>30-49 participants: +6</li>
+                  <li>20-29 participants: +5</li>
                 </ul>
               </div>
 
@@ -1802,7 +1806,7 @@ function ResearchInfoFooter() {
 
             <div className="pt-2 border-t border-gray-200">
               <p className="text-xs text-gray-500">
-                <strong>Score ranges:</strong> Gold Standard (90-100) • High Quality (70-89) • Moderate (50-69) • Limited (30-49) • Preclinical (0-29)
+                <strong>Score ranges:</strong> Gold Standard (90-100) • High Quality (70-89) • Moderate (50-69) • Limited (30-49) • Preliminary (0-29)
               </p>
             </div>
           </div>
