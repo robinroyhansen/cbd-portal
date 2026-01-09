@@ -182,65 +182,127 @@ export default function GlossaryPage() {
             })}
           </div>
 
-          {/* Category Tabs and View Toggle */}
-          <div className="py-2 flex items-center gap-2 overflow-x-auto border-t border-gray-100">
-            <button
-              onClick={() => setSelectedCategory(null)}
-              className={`px-3 py-1.5 text-sm font-medium rounded-full whitespace-nowrap ${
-                !selectedCategory
-                  ? 'bg-gray-900 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
-            >
-              All Categories ({totalTerms})
-            </button>
-            {CATEGORIES.map(cat => {
-              const count = categoryCounts[cat.key] || 0;
-              return (
-                <button
-                  key={cat.key}
-                  onClick={() => setSelectedCategory(selectedCategory === cat.key ? null : cat.key)}
-                  className={`px-3 py-1.5 text-sm font-medium rounded-full whitespace-nowrap flex items-center gap-1 ${
-                    selectedCategory === cat.key
-                      ? 'bg-gray-900 text-white'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                  }`}
-                >
-                  <span>{cat.icon}</span>
-                  <span>{cat.label}</span>
-                  <span className="opacity-60">({count})</span>
-                </button>
-              );
-            })}
+          {/* Category Filter and View Toggle */}
+          <div className="py-3 border-t border-gray-100">
+            {/* Mobile: Dropdown selector */}
+            <div className="md:hidden flex items-center gap-3">
+              <select
+                value={selectedCategory || ''}
+                onChange={(e) => setSelectedCategory(e.target.value || null)}
+                className="flex-1 px-4 py-2.5 bg-white border border-gray-200 rounded-lg text-sm font-medium text-gray-700 focus:ring-2 focus:ring-green-500 focus:border-green-500"
+              >
+                <option value="">All Categories ({totalTerms})</option>
+                {CATEGORIES.map(cat => {
+                  const count = categoryCounts[cat.key] || 0;
+                  return (
+                    <option key={cat.key} value={cat.key}>
+                      {cat.icon} {cat.label} ({count})
+                    </option>
+                  );
+                })}
+              </select>
 
-            {/* View Toggle */}
-            <div className="ml-auto flex items-center gap-1 bg-gray-100 rounded-lg p-1">
+              {/* View Toggle - Mobile */}
+              <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-1">
+                <button
+                  onClick={() => setViewMode('cards')}
+                  className={`p-2 rounded ${
+                    viewMode === 'cards'
+                      ? 'bg-white shadow text-gray-900'
+                      : 'text-gray-500 hover:text-gray-700'
+                  }`}
+                  title="Card view"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => setViewMode('table')}
+                  className={`p-2 rounded ${
+                    viewMode === 'table'
+                      ? 'bg-white shadow text-gray-900'
+                      : 'text-gray-500 hover:text-gray-700'
+                  }`}
+                  title="Table view"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Desktop: Grid of category pills */}
+            <div className="hidden md:flex md:flex-wrap md:items-center md:gap-2">
+              {/* All Categories button */}
               <button
-                onClick={() => setViewMode('cards')}
-                className={`p-1.5 rounded ${
-                  viewMode === 'cards'
-                    ? 'bg-white shadow text-gray-900'
-                    : 'text-gray-500 hover:text-gray-700'
+                onClick={() => setSelectedCategory(null)}
+                className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all ${
+                  !selectedCategory
+                    ? 'bg-green-600 text-white shadow-md'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 }`}
-                title="Card view"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                </svg>
+                All Categories ({totalTerms})
               </button>
-              <button
-                onClick={() => setViewMode('table')}
-                className={`p-1.5 rounded ${
-                  viewMode === 'table'
-                    ? 'bg-white shadow text-gray-900'
-                    : 'text-gray-500 hover:text-gray-700'
-                }`}
-                title="Table view"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-                </svg>
-              </button>
+
+              {/* Category pills */}
+              {CATEGORIES.map(cat => {
+                const count = categoryCounts[cat.key] || 0;
+                const isSelected = selectedCategory === cat.key;
+                return (
+                  <button
+                    key={cat.key}
+                    onClick={() => setSelectedCategory(isSelected ? null : cat.key)}
+                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all flex items-center gap-2 ${
+                      isSelected
+                        ? 'bg-green-600 text-white shadow-md'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    <span className="text-lg">{cat.icon}</span>
+                    <span>{cat.label}</span>
+                    <span className={`text-xs px-1.5 py-0.5 rounded ${
+                      isSelected
+                        ? 'bg-green-500 text-green-100'
+                        : 'bg-gray-200 text-gray-500'
+                    }`}>
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
+
+              {/* View Toggle - Desktop */}
+              <div className="ml-auto flex items-center gap-1 bg-gray-100 rounded-lg p-1">
+                <button
+                  onClick={() => setViewMode('cards')}
+                  className={`p-2 rounded ${
+                    viewMode === 'cards'
+                      ? 'bg-white shadow text-gray-900'
+                      : 'text-gray-500 hover:text-gray-700'
+                  }`}
+                  title="Card view"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => setViewMode('table')}
+                  className={`p-2 rounded ${
+                    viewMode === 'table'
+                      ? 'bg-white shadow text-gray-900'
+                      : 'text-gray-500 hover:text-gray-700'
+                  }`}
+                  title="Table view"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         </div>
