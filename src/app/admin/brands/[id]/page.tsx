@@ -99,6 +99,7 @@ export default function BrandReviewEditorPage() {
 
   const [scores, setScores] = useState<Record<string, { score: number; ai_reasoning: string; author_notes: string }>>({});
   const [showPreview, setShowPreview] = useState(false);
+  const [generating, setGenerating] = useState(false);
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -260,6 +261,61 @@ export default function BrandReviewEditorPage() {
     }
   };
 
+  const generateAIReview = async () => {
+    if (!brand?.website_url) {
+      setError('Brand must have a website URL to generate AI review');
+      return;
+    }
+
+    setGenerating(true);
+    setError(null);
+    setSuccessMessage(null);
+
+    try {
+      const res = await fetch('/api/admin/brand-reviews/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ brand_id: brandId })
+      });
+
+      const data = await res.json();
+
+      if (!data.success) {
+        throw new Error(data.error || 'Failed to generate review');
+      }
+
+      // Update scores with AI-generated values
+      const newScores = { ...scores };
+      data.data.scores.forEach((s: { criterion_id: string; score: number; reasoning: string }) => {
+        if (newScores[s.criterion_id]) {
+          newScores[s.criterion_id] = {
+            ...newScores[s.criterion_id],
+            score: s.score,
+            ai_reasoning: s.reasoning
+          };
+        }
+      });
+      setScores(newScores);
+
+      // Update form data with generated content
+      setFormData(prev => ({
+        ...prev,
+        summary: data.data.summary || prev.summary,
+        full_review: data.data.full_review || prev.full_review,
+        pros: data.data.pros?.length > 0 ? data.data.pros : prev.pros,
+        cons: data.data.cons?.length > 0 ? data.data.cons : prev.cons,
+        verdict: data.data.verdict || prev.verdict
+      }));
+
+      setSuccessMessage('AI review generated successfully! Review and edit the content before saving.');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to generate AI review');
+    } finally {
+      setGenerating(false);
+    }
+  };
+
   const getScoreColor = (score: number, maxPoints: number) => {
     const percentage = (score / maxPoints) * 100;
     if (percentage >= 80) return 'bg-green-500';
@@ -325,9 +381,34 @@ export default function BrandReviewEditorPage() {
             </div>
           </div>
         </div>
-        <div className="text-right">
-          <div className="text-4xl font-bold text-gray-900">{calculateTotalScore()}/100</div>
-          <div className="text-sm text-gray-500">Overall Score</div>
+        <div className="flex items-center gap-6">
+          <button
+            onClick={generateAIReview}
+            disabled={generating || !brand?.website_url}
+            className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+            title={!brand?.website_url ? 'Brand needs a website URL' : 'Generate review using AI'}
+          >
+            {generating ? (
+              <>
+                <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Generating...
+              </>
+            ) : (
+              <>
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                Generate AI Review
+              </>
+            )}
+          </button>
+          <div className="text-right">
+            <div className="text-4xl font-bold text-gray-900">{calculateTotalScore()}/100</div>
+            <div className="text-sm text-gray-500">Overall Score</div>
+          </div>
         </div>
       </div>
 
@@ -493,6 +574,19 @@ export default function BrandReviewEditorPage() {
                           </div>
                         ))}
                       </div>
+                    </div>
+                  )}
+
+                  {/* AI Reasoning (if available) */}
+                  {scores[criterion.id]?.ai_reasoning && (
+                    <div className="mb-3 p-3 bg-purple-50 rounded-lg border border-purple-100">
+                      <div className="text-xs font-medium text-purple-700 mb-1 flex items-center gap-1">
+                        <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        AI Reasoning
+                      </div>
+                      <p className="text-sm text-purple-900">{scores[criterion.id].ai_reasoning}</p>
                     </div>
                   )}
 
