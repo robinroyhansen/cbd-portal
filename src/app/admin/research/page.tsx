@@ -21,39 +21,6 @@ interface ScanJob {
   created_at: string;
 }
 
-interface RecalculateResults {
-  totalStudies: number;
-  scoreChanges: {
-    increased: number;
-    decreased: number;
-    unchanged: number;
-  };
-  tierChanges: {
-    upgraded: number;
-    downgraded: number;
-    unchanged: number;
-  };
-  tierDistribution: {
-    before: Record<string, number>;
-    after: Record<string, number>;
-  };
-  averageScore: {
-    before: number;
-    after: number;
-  };
-  sampleUpdates: Array<{
-    id: string;
-    title: string;
-    oldScore: number;
-    newScore: number;
-    scoreDiff: number;
-    oldTier: string;
-    newTier: string;
-  }>;
-  updatedCount: number;
-  dryRun: boolean;
-}
-
 interface RecentResearchItem {
   id: string;
   title: string;
@@ -100,11 +67,6 @@ export default function AdminResearchPage() {
   const [stopping, setStopping] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [elapsedTime, setElapsedTime] = useState<string>('0s');
-
-  // Recalculate scores state
-  const [recalculating, setRecalculating] = useState(false);
-  const [recalculateResults, setRecalculateResults] = useState<RecalculateResults | null>(null);
-  const [recalculateError, setRecalculateError] = useState<string | null>(null);
 
   const supabase = createClient();
 
@@ -300,32 +262,6 @@ export default function AdminResearchPage() {
     setError(null);
     setElapsedTime('0s');
     checkActiveScan();
-  };
-
-  // Recalculate quality scores
-  const recalculateScores = async (dryRun: boolean) => {
-    setRecalculating(true);
-    setRecalculateError(null);
-
-    try {
-      const response = await fetch('/api/admin/recalculate-scores', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ dryRun })
-      });
-
-      const data = await response.json();
-
-      if (data.error) {
-        setRecalculateError(data.error);
-      } else {
-        setRecalculateResults(data);
-      }
-    } catch (err) {
-      setRecalculateError(err instanceof Error ? err.message : 'Failed to recalculate scores');
-    } finally {
-      setRecalculating(false);
-    }
   };
 
   const isScanning = activeJob && ['pending', 'running'].includes(activeJob.status);
@@ -699,189 +635,6 @@ export default function AdminResearchPage() {
           <strong>How it works:</strong> The scanner queries public research APIs (PubMed, ClinicalTrials.gov, etc.)
           for cannabis/CBD related studies. Results are filtered for relevance and added to your review queue.
           You can stop the scan at any time - results found so far will be saved.
-        </div>
-
-        {/* Recalculate Quality Scores Section */}
-        <div className="p-6 bg-white rounded-lg shadow border">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">Recalculate Quality Scores</h3>
-          <p className="text-sm text-gray-600 mb-4">
-            Re-analyze all studies with the improved quality scoring algorithm. This updates study type detection,
-            methodology scoring, and sample size extraction.
-          </p>
-
-          {/* Action Buttons */}
-          <div className="flex gap-3 mb-4">
-            <button
-              onClick={() => recalculateScores(true)}
-              disabled={recalculating}
-              className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors disabled:opacity-50 flex items-center gap-2"
-            >
-              {recalculating && recalculateResults?.dryRun !== false ? (
-                <>
-                  <div className="animate-spin h-4 w-4 border-2 border-gray-600 border-t-transparent rounded-full"></div>
-                  Analyzing...
-                </>
-              ) : (
-                <>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                  </svg>
-                  Preview Changes
-                </>
-              )}
-            </button>
-            <button
-              onClick={() => recalculateScores(false)}
-              disabled={recalculating}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 flex items-center gap-2"
-            >
-              {recalculating && recalculateResults?.dryRun === false ? (
-                <>
-                  <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
-                  Recalculating...
-                </>
-              ) : (
-                <>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                  </svg>
-                  Apply Changes
-                </>
-              )}
-            </button>
-            {recalculateResults && (
-              <button
-                onClick={() => setRecalculateResults(null)}
-                className="px-4 py-2 text-gray-500 hover:text-gray-700 transition-colors"
-              >
-                Clear Results
-              </button>
-            )}
-          </div>
-
-          {/* Error Display */}
-          {recalculateError && (
-            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-800 text-sm">
-              <strong>Error:</strong> {recalculateError}
-            </div>
-          )}
-
-          {/* Results Display */}
-          {recalculateResults && (
-            <div className="space-y-4">
-              {/* Status Banner */}
-              <div className={`p-3 rounded-lg ${recalculateResults.dryRun ? 'bg-yellow-50 border border-yellow-200' : 'bg-green-50 border border-green-200'}`}>
-                <span className={`font-medium ${recalculateResults.dryRun ? 'text-yellow-800' : 'text-green-800'}`}>
-                  {recalculateResults.dryRun ? (
-                    <>Preview Mode - No changes saved. Click &quot;Apply Changes&quot; to update the database.</>
-                  ) : (
-                    <>Success! Updated {recalculateResults.updatedCount} studies.</>
-                  )}
-                </span>
-              </div>
-
-              {/* Summary Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-gray-50 rounded-lg p-4 text-center">
-                  <div className="text-2xl font-bold text-gray-900">{recalculateResults.totalStudies}</div>
-                  <div className="text-xs text-gray-500">Total Studies</div>
-                </div>
-                <div className="bg-gray-50 rounded-lg p-4 text-center">
-                  <div className="text-2xl font-bold text-blue-600">
-                    {recalculateResults.averageScore.before} → {recalculateResults.averageScore.after}
-                  </div>
-                  <div className="text-xs text-gray-500">Avg Score</div>
-                </div>
-                <div className="bg-green-50 rounded-lg p-4 text-center">
-                  <div className="text-2xl font-bold text-green-600">{recalculateResults.scoreChanges.increased}</div>
-                  <div className="text-xs text-gray-500">Scores Increased</div>
-                </div>
-                <div className="bg-red-50 rounded-lg p-4 text-center">
-                  <div className="text-2xl font-bold text-red-600">{recalculateResults.scoreChanges.decreased}</div>
-                  <div className="text-xs text-gray-500">Scores Decreased</div>
-                </div>
-              </div>
-
-              {/* Tier Distribution Comparison */}
-              <div className="bg-gray-50 rounded-lg p-4">
-                <h4 className="font-medium text-gray-800 mb-3">Quality Tier Distribution</h4>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="text-left text-gray-500">
-                        <th className="pb-2">Tier</th>
-                        <th className="pb-2 text-center">Before</th>
-                        <th className="pb-2 text-center">After</th>
-                        <th className="pb-2 text-center">Change</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {['Gold Standard', 'High Quality', 'Moderate Quality', 'Limited Evidence', 'Preliminary'].map(tier => {
-                        const before = recalculateResults.tierDistribution.before[tier] || 0;
-                        const after = recalculateResults.tierDistribution.after[tier] || 0;
-                        const diff = after - before;
-                        return (
-                          <tr key={tier} className="border-t border-gray-200">
-                            <td className="py-2 font-medium">{tier}</td>
-                            <td className="py-2 text-center">{before}</td>
-                            <td className="py-2 text-center">{after}</td>
-                            <td className={`py-2 text-center font-medium ${diff > 0 ? 'text-green-600' : diff < 0 ? 'text-red-600' : 'text-gray-400'}`}>
-                              {diff > 0 ? `+${diff}` : diff}
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              {/* Tier Changes Summary */}
-              <div className="grid grid-cols-3 gap-4">
-                <div className="bg-green-50 rounded-lg p-3 text-center">
-                  <div className="text-xl font-bold text-green-600">{recalculateResults.tierChanges.upgraded}</div>
-                  <div className="text-xs text-gray-500">Upgraded Tiers</div>
-                </div>
-                <div className="bg-gray-50 rounded-lg p-3 text-center">
-                  <div className="text-xl font-bold text-gray-600">{recalculateResults.tierChanges.unchanged}</div>
-                  <div className="text-xs text-gray-500">Unchanged</div>
-                </div>
-                <div className="bg-red-50 rounded-lg p-3 text-center">
-                  <div className="text-xl font-bold text-red-600">{recalculateResults.tierChanges.downgraded}</div>
-                  <div className="text-xs text-gray-500">Downgraded Tiers</div>
-                </div>
-              </div>
-
-              {/* Sample Updates */}
-              {recalculateResults.sampleUpdates.length > 0 && (
-                <details className="bg-gray-50 rounded-lg p-4">
-                  <summary className="font-medium text-gray-800 cursor-pointer">
-                    Sample Score Changes ({recalculateResults.sampleUpdates.length} studies with significant changes)
-                  </summary>
-                  <div className="mt-3 space-y-2 max-h-64 overflow-y-auto">
-                    {recalculateResults.sampleUpdates.map(update => (
-                      <div key={update.id} className="flex items-center justify-between p-2 bg-white rounded border text-sm">
-                        <div className="flex-1 truncate pr-4">
-                          <span className="font-medium">{update.title}</span>
-                        </div>
-                        <div className="flex items-center gap-2 shrink-0">
-                          <span className="text-gray-500">{update.oldScore}</span>
-                          <span className="text-gray-400">→</span>
-                          <span className={`font-medium ${update.scoreDiff > 0 ? 'text-green-600' : 'text-red-600'}`}>
-                            {update.newScore}
-                          </span>
-                          <span className={`text-xs px-1.5 py-0.5 rounded ${update.scoreDiff > 0 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-                            {update.scoreDiff > 0 ? `+${update.scoreDiff}` : update.scoreDiff}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </details>
-              )}
-            </div>
-          )}
         </div>
       </div>
 
