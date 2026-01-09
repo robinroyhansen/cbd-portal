@@ -228,14 +228,28 @@ export function calculateQualityScore(study: ResearchStudy): number {
     factors.push('Multicenter study (+8 points)');
   }
 
-  // Sample size indicators (extract numbers)
-  const sampleMatches = text.match(/(\d+)\s*(participant|patient|subject|individual)/g);
-  if (sampleMatches) {
-    const numbers = sampleMatches.map(match => {
-      const num = match.match(/\d+/);
-      return num ? parseInt(num[0]) : 0;
-    });
-    const maxSample = Math.max(...numbers);
+  // Sample size indicators (extract numbers) - includes future tense for clinical trials
+  const samplePatterns = [
+    /(\d+)\s*(?:participant|patient|subject|individual|volunteer|adult)s?/gi,
+    /n\s*=\s*(\d+)/gi,
+    /(?:will|to)\s+(?:enroll|recruit|include)\s+(?:up\s+to\s+)?(\d+)/gi,
+    /(?:up\s+to|approximately|about)\s+(\d+)\s*(?:participant|patient|subject)/gi,
+    /sample\s+size\s+(?:of\s+)?(\d+)/gi,
+    /enroll(?:ment|ing)?\s+(?:of\s+)?(?:up\s+to\s+)?(\d+)/gi,
+  ];
+
+  let maxSample = 0;
+  for (const pattern of samplePatterns) {
+    const matches = [...text.matchAll(pattern)];
+    for (const match of matches) {
+      const num = parseInt(match[1]);
+      if (num >= 5 && num < 50000 && num > maxSample) {
+        maxSample = num;
+      }
+    }
+  }
+
+  if (maxSample > 0) {
 
     if (maxSample >= 500) {
       score += 15;

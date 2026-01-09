@@ -411,6 +411,11 @@ function extractSampleInfo(text: string, studyType?: string): SampleInfo | null 
         /(\d+)\s*(?:healthy|human)\s+(?:volunteer|subject|participant|adult)/gi,
         /(?:enrolled|recruited|randomized|included)\s+(\d+)\s*(?:participant|subject|patient|adult|individual|volunteer)/gi,
         /(?:participant|subject|volunteer|adult|individual)s?\s*(?:\()?n\s*=\s*(\d+)/gi,
+        // Future tense patterns for clinical trials
+        /(?:will|to)\s+(?:enroll|recruit|include|randomize)\s+(?:up\s+to\s+)?(\d+)/gi,
+        /(?:up\s+to|approximately|about|target|targeting)\s+(\d+)\s*(?:patient|participant|subject|volunteer|adult|individual)/gi,
+        /enroll(?:ment|ing)?\s+(?:of\s+)?(?:up\s+to\s+)?(\d+)/gi,
+        /sample\s+size\s+(?:of\s+)?(\d+)/gi,
       ],
       label: 'humans'
     },
