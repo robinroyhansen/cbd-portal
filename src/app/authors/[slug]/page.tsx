@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const supabase = await createClient();
     const { data: author } = await supabase
-      .from('authors')
+      .from('kb_authors')
       .select('name, meta_title, meta_description')
       .eq('slug', params.slug)
       .single();
@@ -54,7 +54,7 @@ export default async function AuthorPage({ params }: Props) {
   if (params.slug === 'robin-roy-krigslund-hansen') {
     try {
       const { data: authorData } = await supabase
-        .from('authors')
+        .from('kb_authors')
         .select('*')
         .eq('slug', params.slug)
         .eq('is_active', true)
@@ -170,7 +170,7 @@ Through this portal, Robin shares his decade-plus of practical experience to pro
   } else {
     // Get author from database for other slugs
     const { data: authorData } = await supabase
-      .from('authors')
+      .from('kb_authors')
       .select('*')
       .eq('slug', params.slug)
       .eq('is_active', true)

@@ -36,7 +36,7 @@ export default async function AuthorsPage() {
 
   try {
     const { data: authorsData, error } = await supabase
-      .from('authors')
+      .from('kb_authors')
       .select('*')
       .eq('is_active', true)
       .order('is_primary', { ascending: false })

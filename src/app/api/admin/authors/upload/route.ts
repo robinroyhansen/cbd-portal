@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
     // Update author with new image URL if authorId provided
     if (authorId && authorId !== 'temp') {
       const { error: updateError } = await supabase
-        .from('authors')
+        .from('kb_authors')
         .update({
           image_url: publicUrl,
           updated_at: new Date().toISOString()

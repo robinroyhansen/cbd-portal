@@ -32,7 +32,7 @@ export async function POST() {
     // Check if authors table already exists
     console.log('🔍 Checking if authors table exists...');
     const { data: tableExists, error: checkError } = await supabase
-      .from('authors')
+      .from('kb_authors')
       .select('id')
       .limit(1);
 
@@ -57,7 +57,7 @@ export async function POST() {
 
     // Insert sample data
     const { error: dataError } = await supabase
-      .from('authors')
+      .from('kb_authors')
       .upsert([
         {
           slug: 'dr-jane-smith',
