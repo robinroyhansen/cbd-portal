@@ -52,7 +52,8 @@ export async function GET(request: NextRequest) {
           ),
           kb_brand_review_scores (
             criterion_id,
-            score
+            score,
+            sub_scores
           )
         `)
         .eq('brand_id', brand.id)
@@ -70,9 +71,12 @@ export async function GET(request: NextRequest) {
         .order('display_order', { ascending: true });
 
       // Map scores to criteria
-      const scoreMap: Record<string, number> = {};
-      review.kb_brand_review_scores?.forEach((s: { criterion_id: string; score: number }) => {
-        scoreMap[s.criterion_id] = s.score;
+      const scoreMap: Record<string, { score: number; sub_scores: Record<string, number> }> = {};
+      review.kb_brand_review_scores?.forEach((s: { criterion_id: string; score: number; sub_scores?: Record<string, number> }) => {
+        scoreMap[s.criterion_id] = {
+          score: s.score,
+          sub_scores: s.sub_scores || {}
+        };
       });
 
       const scoreBreakdown = criteria?.map(c => ({
@@ -80,8 +84,9 @@ export async function GET(request: NextRequest) {
         name: c.name,
         description: c.description,
         max_points: c.max_points,
-        score: scoreMap[c.id] || 0,
-        subcriteria: c.subcriteria
+        score: scoreMap[c.id]?.score || 0,
+        subcriteria: c.subcriteria,
+        sub_scores: scoreMap[c.id]?.sub_scores || {}
       }));
 
       return NextResponse.json({

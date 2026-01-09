@@ -37,6 +37,7 @@ export async function GET(request: NextRequest) {
             id,
             criterion_id,
             score,
+            sub_scores,
             ai_reasoning,
             author_notes
           )
@@ -177,10 +178,11 @@ export async function POST(request: NextRequest) {
 
     // Insert scores if provided
     if (scores && Array.isArray(scores) && scores.length > 0) {
-      const scoreInserts = scores.map((s: { criterion_id: string; score: number; ai_reasoning?: string; author_notes?: string }) => ({
+      const scoreInserts = scores.map((s: { criterion_id: string; score: number; sub_scores?: Record<string, number>; ai_reasoning?: string; author_notes?: string }) => ({
         brand_review_id: newReview.id,
         criterion_id: s.criterion_id,
         score: s.score,
+        sub_scores: s.sub_scores || {},
         ai_reasoning: s.ai_reasoning || null,
         author_notes: s.author_notes || null
       }));
@@ -256,6 +258,7 @@ export async function PATCH(request: NextRequest) {
             brand_review_id: id,
             criterion_id: s.criterion_id,
             score: s.score,
+            sub_scores: s.sub_scores || {},
             ai_reasoning: s.ai_reasoning || null,
             author_notes: s.author_notes || null
           }, {

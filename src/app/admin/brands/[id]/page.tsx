@@ -1,9 +1,35 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
+import { ToneSlider, ToneType } from '@/components/admin/ToneSlider';
+import { AdjustReviewModal } from '@/components/admin/AdjustReviewModal';
+
+// Types for adjust review feature
+interface ScoreHistory {
+  score: number;
+  sub_scores: Record<string, number>;
+  timestamp: number;
+}
+
+interface SectionVersion {
+  text: string;
+  timestamp: number;
+}
+
+interface AdjustModalState {
+  isOpen: boolean;
+  criterionId: string;
+  criterionName: string;
+  oldScore: number;
+  newScore: number;
+  maxPoints: number;
+  originalText: string;
+  adjustedText: string;
+  tone: ToneType;
+}
 
 interface Brand {
   id: string;
@@ -36,6 +62,7 @@ interface Criterion {
 interface ReviewScore {
   criterion_id: string;
   score: number;
+  sub_scores: Record<string, number> | null;
   ai_reasoning: string | null;
   author_notes: string | null;
 }
@@ -97,9 +124,30 @@ export default function BrandReviewEditorPage() {
     is_published: false
   });
 
-  const [scores, setScores] = useState<Record<string, { score: number; ai_reasoning: string; author_notes: string }>>({});
+  const [scores, setScores] = useState<Record<string, { score: number; sub_scores: Record<string, number>; ai_reasoning: string; author_notes: string }>>({});
   const [showPreview, setShowPreview] = useState(false);
   const [generating, setGenerating] = useState(false);
+
+  // Adjust Review feature state
+  const [originalScores, setOriginalScores] = useState<Record<string, { score: number; sub_scores: Record<string, number> }>>({});
+  const [sectionTones, setSectionTones] = useState<Record<string, ToneType>>({});
+  const [adjustingSection, setAdjustingSection] = useState<string | null>(null);
+  const [adjustModal, setAdjustModal] = useState<AdjustModalState>({
+    isOpen: false,
+    criterionId: '',
+    criterionName: '',
+    oldScore: 0,
+    newScore: 0,
+    maxPoints: 0,
+    originalText: '',
+    adjustedText: '',
+    tone: 'balanced'
+  });
+
+  // Undo functionality
+  const [sectionHistory, setSectionHistory] = useState<Record<string, SectionVersion[]>>({});
+  const [dismissedWarnings, setDismissedWarnings] = useState<Set<string>>(new Set());
+  const undoTimers = useRef<Record<string, NodeJS.Timeout>>({});
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -129,9 +177,13 @@ export default function BrandReviewEditorPage() {
       setAuthors(authorsData.authors || []);
 
       // Initialize scores from criteria
-      const initialScores: Record<string, { score: number; ai_reasoning: string; author_notes: string }> = {};
+      const initialScores: Record<string, { score: number; sub_scores: Record<string, number>; ai_reasoning: string; author_notes: string }> = {};
       reviewData.criteria?.forEach((c: Criterion) => {
-        initialScores[c.id] = { score: 0, ai_reasoning: '', author_notes: '' };
+        const emptySubScores: Record<string, number> = {};
+        c.subcriteria?.forEach(sub => {
+          emptySubScores[sub.id] = 0;
+        });
+        initialScores[c.id] = { score: 0, sub_scores: emptySubScores, ai_reasoning: '', author_notes: '' };
       });
 
       if (reviewData.review) {
@@ -155,6 +207,7 @@ export default function BrandReviewEditorPage() {
         reviewData.review.kb_brand_review_scores?.forEach((s: ReviewScore) => {
           initialScores[s.criterion_id] = {
             score: s.score,
+            sub_scores: s.sub_scores || initialScores[s.criterion_id]?.sub_scores || {},
             ai_reasoning: s.ai_reasoning || '',
             author_notes: s.author_notes || ''
           };
@@ -162,6 +215,13 @@ export default function BrandReviewEditorPage() {
       }
 
       setScores(initialScores);
+
+      // Store original scores for mismatch detection
+      const origScores: Record<string, { score: number; sub_scores: Record<string, number> }> = {};
+      Object.entries(initialScores).forEach(([id, s]) => {
+        origScores[id] = { score: s.score, sub_scores: { ...s.sub_scores } };
+      });
+      setOriginalScores(origScores);
     } catch (err) {
       console.error('Error fetching data:', err);
       setError('Failed to load data');
@@ -217,6 +277,7 @@ export default function BrandReviewEditorPage() {
       const scoresArray = Object.entries(scores).map(([criterion_id, s]) => ({
         criterion_id,
         score: s.score,
+        sub_scores: s.sub_scores || {},
         ai_reasoning: s.ai_reasoning || null,
         author_notes: s.author_notes || null
       }));
@@ -286,11 +347,19 @@ export default function BrandReviewEditorPage() {
 
       // Update scores with AI-generated values
       const newScores = { ...scores };
-      data.data.scores.forEach((s: { criterion_id: string; score: number; reasoning: string }) => {
+      data.data.scores.forEach((s: { criterion_id: string; score: number; sub_scores?: { id: string; score: number }[]; reasoning: string }) => {
         if (newScores[s.criterion_id]) {
+          // Convert sub_scores array to Record<string, number>
+          const subScoresMap: Record<string, number> = {};
+          if (s.sub_scores && Array.isArray(s.sub_scores)) {
+            s.sub_scores.forEach(sub => {
+              subScoresMap[sub.id] = sub.score;
+            });
+          }
           newScores[s.criterion_id] = {
             ...newScores[s.criterion_id],
             score: s.score,
+            sub_scores: subScoresMap,
             ai_reasoning: s.reasoning
           };
         }
@@ -322,6 +391,237 @@ export default function BrandReviewEditorPage() {
     if (percentage >= 60) return 'bg-yellow-500';
     if (percentage >= 40) return 'bg-orange-500';
     return 'bg-red-500';
+  };
+
+  // Adjust Review helper functions
+  const hasScoreChanged = (criterionId: string): boolean => {
+    const original = originalScores[criterionId];
+    const current = scores[criterionId];
+    if (!original || !current) return false;
+    return original.score !== current.score;
+  };
+
+  const getScoreChange = (criterionId: string): { direction: 'up' | 'down' | 'none'; diff: number } => {
+    const original = originalScores[criterionId];
+    const current = scores[criterionId];
+    if (!original || !current) return { direction: 'none', diff: 0 };
+    const diff = current.score - original.score;
+    return {
+      direction: diff > 0 ? 'up' : diff < 0 ? 'down' : 'none',
+      diff: Math.abs(diff)
+    };
+  };
+
+  const getChangedSections = (): string[] => {
+    return Object.keys(scores).filter(id => hasScoreChanged(id) && !dismissedWarnings.has(id));
+  };
+
+  const extractSectionText = (criterionId: string, criterionName: string): string => {
+    const fullReview = formData.full_review;
+    if (!fullReview) return '';
+
+    // Try to find the section by heading pattern: ## Category Name — X/Y
+    const escapedName = criterionName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const sectionRegex = new RegExp(
+      `(## ${escapedName}\\s*[—-]\\s*\\d+\\/\\d+[\\s\\S]*?)(?=## |$)`,
+      'i'
+    );
+    const match = fullReview.match(sectionRegex);
+    return match ? match[1].trim() : '';
+  };
+
+  const updateSectionText = (criterionId: string, criterionName: string, newText: string) => {
+    const fullReview = formData.full_review;
+    if (!fullReview) return;
+
+    const escapedName = criterionName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const sectionRegex = new RegExp(
+      `(## ${escapedName}\\s*[—-]\\s*\\d+\\/\\d+[\\s\\S]*?)(?=## |$)`,
+      'gi'
+    );
+
+    const updatedReview = fullReview.replace(sectionRegex, newText + '\n\n');
+    setFormData(prev => ({ ...prev, full_review: updatedReview }));
+  };
+
+  const handleAdjustSection = async (criterionId: string, criterionName: string, maxPoints: number) => {
+    setAdjustingSection(criterionId);
+    setError(null);
+
+    const originalScore = originalScores[criterionId]?.score || 0;
+    const currentScore = scores[criterionId]?.score || 0;
+    const currentSubScores = scores[criterionId]?.sub_scores || {};
+    const tone = sectionTones[criterionId] || 'balanced';
+    const currentText = extractSectionText(criterionId, criterionName);
+
+    if (!currentText) {
+      setError(`Could not find section for "${criterionName}" in the review. Generate a full review first.`);
+      setAdjustingSection(null);
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/admin/brand-reviews/adjust-section', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          brand_id: brandId,
+          criterion_id: criterionId,
+          criterion_name: criterionName,
+          old_score: originalScore,
+          new_score: currentScore,
+          max_points: maxPoints,
+          sub_scores: Object.entries(currentSubScores).map(([id, score]) => ({ id, score })),
+          current_text: currentText,
+          tone
+        })
+      });
+
+      const data = await res.json();
+
+      if (!data.success) {
+        throw new Error(data.error || 'Failed to adjust section');
+      }
+
+      // Open preview modal
+      setAdjustModal({
+        isOpen: true,
+        criterionId,
+        criterionName,
+        oldScore: originalScore,
+        newScore: currentScore,
+        maxPoints,
+        originalText: currentText,
+        adjustedText: data.data.adjusted_text,
+        tone
+      });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to adjust section');
+    } finally {
+      setAdjustingSection(null);
+    }
+  };
+
+  const handleAcceptAdjustment = () => {
+    const { criterionId, criterionName, originalText, adjustedText } = adjustModal;
+
+    // Store previous version for undo
+    setSectionHistory(prev => {
+      const history = prev[criterionId] || [];
+      const newHistory = [{ text: originalText, timestamp: Date.now() }, ...history].slice(0, 3);
+      return { ...prev, [criterionId]: newHistory };
+    });
+
+    // Update the section text
+    updateSectionText(criterionId, criterionName, adjustedText);
+
+    // Update original scores to match current (clears warning)
+    setOriginalScores(prev => ({
+      ...prev,
+      [criterionId]: {
+        score: scores[criterionId]?.score || 0,
+        sub_scores: { ...scores[criterionId]?.sub_scores } || {}
+      }
+    }));
+
+    // Set up undo timer (1 minute)
+    if (undoTimers.current[criterionId]) {
+      clearTimeout(undoTimers.current[criterionId]);
+    }
+    undoTimers.current[criterionId] = setTimeout(() => {
+      setSectionHistory(prev => {
+        const { [criterionId]: _, ...rest } = prev;
+        return rest;
+      });
+    }, 60000);
+
+    // Close modal
+    setAdjustModal(prev => ({ ...prev, isOpen: false }));
+    setSuccessMessage(`"${criterionName}" section updated successfully!`);
+  };
+
+  const handleRegenerateAdjustment = async (newTone: ToneType) => {
+    const { criterionId, criterionName, maxPoints, originalText } = adjustModal;
+    const originalScore = originalScores[criterionId]?.score || 0;
+    const currentScore = scores[criterionId]?.score || 0;
+    const currentSubScores = scores[criterionId]?.sub_scores || {};
+
+    setAdjustingSection(criterionId);
+
+    try {
+      const res = await fetch('/api/admin/brand-reviews/adjust-section', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          brand_id: brandId,
+          criterion_id: criterionId,
+          criterion_name: criterionName,
+          old_score: originalScore,
+          new_score: currentScore,
+          max_points: maxPoints,
+          sub_scores: Object.entries(currentSubScores).map(([id, score]) => ({ id, score })),
+          current_text: originalText,
+          tone: newTone
+        })
+      });
+
+      const data = await res.json();
+
+      if (!data.success) {
+        throw new Error(data.error || 'Failed to regenerate');
+      }
+
+      setAdjustModal(prev => ({
+        ...prev,
+        adjustedText: data.data.adjusted_text,
+        tone: newTone
+      }));
+
+      setSectionTones(prev => ({ ...prev, [criterionId]: newTone }));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to regenerate');
+    } finally {
+      setAdjustingSection(null);
+    }
+  };
+
+  const handleUndo = (criterionId: string, criterionName: string) => {
+    const history = sectionHistory[criterionId];
+    if (!history || history.length === 0) return;
+
+    const previousVersion = history[0];
+    updateSectionText(criterionId, criterionName, previousVersion.text);
+
+    // Remove from history
+    setSectionHistory(prev => ({
+      ...prev,
+      [criterionId]: history.slice(1)
+    }));
+
+    // Clear timer
+    if (undoTimers.current[criterionId]) {
+      clearTimeout(undoTimers.current[criterionId]);
+      delete undoTimers.current[criterionId];
+    }
+  };
+
+  const handleDismissWarning = (criterionId: string) => {
+    setDismissedWarnings(prev => new Set([...prev, criterionId]));
+  };
+
+  const handleBatchAdjust = async () => {
+    const changedSections = getChangedSections();
+    if (changedSections.length === 0) return;
+
+    // For now, process them sequentially
+    for (const criterionId of changedSections) {
+      const criterion = criteria.find(c => c.id === criterionId);
+      if (criterion) {
+        await handleAdjustSection(criterionId, criterion.name, criterion.max_points);
+        // Wait for user to accept before continuing - for now just process first one
+        return;
+      }
+    }
   };
 
   if (loading) {
@@ -421,6 +721,36 @@ export default function BrandReviewEditorPage() {
       {successMessage && (
         <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">
           {successMessage}
+        </div>
+      )}
+
+      {/* Batch Rewrite Banner */}
+      {getChangedSections().length >= 2 && formData.full_review && (
+        <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-lg flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center">
+              <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <div>
+              <div className="font-medium text-amber-800">
+                {getChangedSections().length} sections have changed scores
+              </div>
+              <div className="text-sm text-amber-600">
+                Review text may no longer match the current scores
+              </div>
+            </div>
+          </div>
+          <button
+            onClick={handleBatchAdjust}
+            className="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors flex items-center gap-2"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            Adjust All Changed Sections
+          </button>
         </div>
       )}
 
@@ -534,12 +864,39 @@ export default function BrandReviewEditorPage() {
             <h2 className="text-xl font-semibold mb-6">Score Breakdown (100 points total)</h2>
 
             <div className="space-y-6">
-              {criteria.map(criterion => (
+              {criteria.map(criterion => {
+                const scoreChange = getScoreChange(criterion.id);
+                const showWarning = hasScoreChanged(criterion.id) && !dismissedWarnings.has(criterion.id) && formData.full_review;
+                const hasUndo = sectionHistory[criterion.id]?.length > 0;
+
+                return (
                 <div key={criterion.id} className="border-b border-gray-100 pb-6 last:border-0">
                   <div className="flex items-center justify-between mb-3">
-                    <div>
-                      <h3 className="font-medium text-gray-900">{criterion.name}</h3>
-                      <p className="text-sm text-gray-500">{criterion.description}</p>
+                    <div className="flex items-center gap-3">
+                      <div>
+                        <h3 className="font-medium text-gray-900">{criterion.name}</h3>
+                        <p className="text-sm text-gray-500">{criterion.description}</p>
+                      </div>
+                      {/* Score Change Warning Badge */}
+                      {showWarning && (
+                        <div className="flex items-center gap-2">
+                          <span className="px-2 py-1 bg-amber-100 text-amber-800 text-xs rounded-full flex items-center gap-1">
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            </svg>
+                            Score changed (was {originalScores[criterion.id]?.score}, now {scores[criterion.id]?.score})
+                          </span>
+                          <button
+                            onClick={() => handleDismissWarning(criterion.id)}
+                            className="text-gray-400 hover:text-gray-600"
+                            title="Dismiss"
+                          >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      )}
                     </div>
                     <div className="flex items-center gap-3">
                       <input
@@ -562,15 +919,39 @@ export default function BrandReviewEditorPage() {
                     />
                   </div>
 
-                  {/* Subcriteria reference */}
+                  {/* Subcriteria with editable scores */}
                   {criterion.subcriteria && criterion.subcriteria.length > 0 && (
                     <div className="bg-gray-50 rounded-lg p-3 mb-3">
-                      <div className="text-xs font-medium text-gray-500 mb-2">Subcriteria:</div>
-                      <div className="grid grid-cols-2 gap-2 text-sm">
+                      <div className="text-xs font-medium text-gray-500 mb-2">Sub-scores:</div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
                         {criterion.subcriteria.map(sub => (
-                          <div key={sub.id} className="flex justify-between">
-                            <span className="text-gray-600">{sub.name}</span>
-                            <span className="text-gray-400">{sub.max_points} pts</span>
+                          <div key={sub.id} className="flex items-center justify-between gap-2 bg-white rounded px-2 py-1">
+                            <span className="text-gray-600 truncate" title={sub.description}>{sub.name}</span>
+                            <div className="flex items-center gap-1 flex-shrink-0">
+                              <input
+                                type="number"
+                                min={0}
+                                max={sub.max_points}
+                                value={scores[criterion.id]?.sub_scores?.[sub.id] || 0}
+                                onChange={(e) => {
+                                  const newValue = Math.min(Math.max(0, parseInt(e.target.value) || 0), sub.max_points);
+                                  setScores(prev => {
+                                    const newSubScores = { ...prev[criterion.id]?.sub_scores, [sub.id]: newValue };
+                                    const newTotal = Object.values(newSubScores).reduce((sum, v) => sum + (v || 0), 0);
+                                    return {
+                                      ...prev,
+                                      [criterion.id]: {
+                                        ...prev[criterion.id],
+                                        sub_scores: newSubScores,
+                                        score: Math.min(newTotal, criterion.max_points)
+                                      }
+                                    };
+                                  });
+                                }}
+                                className="w-12 px-1 py-0.5 border border-gray-200 rounded text-center text-sm"
+                              />
+                              <span className="text-gray-400">/{sub.max_points}</span>
+                            </div>
                           </div>
                         ))}
                       </div>
@@ -604,8 +985,66 @@ export default function BrandReviewEditorPage() {
                       className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm"
                     />
                   </div>
+
+                  {/* Adjust Review Section - Only show when score changed and review exists */}
+                  {formData.full_review && (hasScoreChanged(criterion.id) || hasUndo) && (
+                    <div className="mt-4 pt-4 border-t border-gray-100">
+                      <div className="flex items-center justify-between gap-4">
+                        {/* Tone Selector */}
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs text-gray-500">Tone:</span>
+                          <ToneSlider
+                            value={sectionTones[criterion.id] || 'balanced'}
+                            onChange={(tone) => setSectionTones(prev => ({ ...prev, [criterion.id]: tone }))}
+                            compact
+                          />
+                        </div>
+
+                        {/* Adjust Button */}
+                        <div className="flex items-center gap-2">
+                          {hasUndo && (
+                            <button
+                              onClick={() => handleUndo(criterion.id, criterion.name)}
+                              className="px-3 py-1.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors flex items-center gap-1"
+                            >
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
+                              </svg>
+                              Undo
+                            </button>
+                          )}
+
+                          {scoreChange.direction !== 'none' && (
+                            <button
+                              onClick={() => handleAdjustSection(criterion.id, criterion.name, criterion.max_points)}
+                              disabled={adjustingSection === criterion.id}
+                              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${
+                                scoreChange.direction === 'down'
+                                  ? 'bg-red-50 text-red-700 hover:bg-red-100 border border-red-200'
+                                  : 'bg-green-50 text-green-700 hover:bg-green-100 border border-green-200'
+                              } disabled:opacity-50 disabled:cursor-not-allowed`}
+                            >
+                              {adjustingSection === criterion.id ? (
+                                <>
+                                  <svg className="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
+                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                                  </svg>
+                                  Adjusting...
+                                </>
+                              ) : (
+                                <>
+                                  Adjust Review {scoreChange.direction === 'down' ? '↓' : '↑'}
+                                </>
+                              )}
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              ))}
+              )})}
             </div>
           </div>
 
@@ -854,6 +1293,22 @@ export default function BrandReviewEditorPage() {
           </div>
         </div>
       )}
+
+      {/* Adjust Review Modal */}
+      <AdjustReviewModal
+        isOpen={adjustModal.isOpen}
+        onClose={() => setAdjustModal(prev => ({ ...prev, isOpen: false }))}
+        criterionName={adjustModal.criterionName}
+        oldScore={adjustModal.oldScore}
+        newScore={adjustModal.newScore}
+        maxPoints={adjustModal.maxPoints}
+        originalText={adjustModal.originalText}
+        adjustedText={adjustModal.adjustedText}
+        tone={adjustModal.tone}
+        onAccept={handleAcceptAdjustment}
+        onRegenerate={handleRegenerateAdjustment}
+        isRegenerating={adjustingSection === adjustModal.criterionId}
+      />
     </div>
   );
 }

@@ -17,6 +17,7 @@ interface ScoreBreakdown {
   max_points: number;
   score: number;
   subcriteria: { id: string; name: string; max_points: number; description: string }[];
+  sub_scores: Record<string, number>;
 }
 
 interface Brand {
@@ -203,13 +204,16 @@ export default async function BrandReviewPage({ params }: Props) {
 
   const { data: scores } = await supabase
     .from('kb_brand_review_scores')
-    .select('criterion_id, score')
+    .select('criterion_id, score, sub_scores')
     .eq('brand_review_id', review.id);
 
   // Map scores to criteria
-  const scoreMap: Record<string, number> = {};
+  const scoreMap: Record<string, { score: number; sub_scores: Record<string, number> }> = {};
   scores?.forEach(s => {
-    scoreMap[s.criterion_id] = s.score;
+    scoreMap[s.criterion_id] = {
+      score: s.score,
+      sub_scores: (s.sub_scores as Record<string, number>) || {}
+    };
   });
 
   const scoreBreakdown: ScoreBreakdown[] = (criteria || []).map(c => ({
@@ -217,8 +221,9 @@ export default async function BrandReviewPage({ params }: Props) {
     name: c.name,
     description: c.description,
     max_points: c.max_points,
-    score: scoreMap[c.id] || 0,
-    subcriteria: c.subcriteria || []
+    score: scoreMap[c.id]?.score || 0,
+    subcriteria: c.subcriteria || [],
+    sub_scores: scoreMap[c.id]?.sub_scores || {}
   }));
 
   // Breadcrumbs
@@ -354,9 +359,9 @@ export default async function BrandReviewPage({ params }: Props) {
           {/* Score Breakdown */}
           <div className="bg-white rounded-xl border border-gray-200 p-8">
             <h2 className="text-xl font-bold text-gray-900 mb-6">Score Breakdown</h2>
-            <div className="space-y-4">
+            <div className="space-y-6">
               {scoreBreakdown.map(criterion => (
-                <div key={criterion.id} className="group">
+                <div key={criterion.id} className="border-b border-gray-100 pb-6 last:border-0 last:pb-0">
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
                       <span className="font-medium text-gray-900">{criterion.name}</span>
@@ -366,14 +371,27 @@ export default async function BrandReviewPage({ params }: Props) {
                       {criterion.score}/{criterion.max_points}
                     </span>
                   </div>
-                  <div className="bg-gray-100 rounded-full h-3 overflow-hidden">
+                  <div className="bg-gray-100 rounded-full h-3 overflow-hidden mb-3">
                     <div
                       className={`h-full rounded-full transition-all ${getScoreColor(criterion.score, criterion.max_points)}`}
                       style={{ width: `${(criterion.score / criterion.max_points) * 100}%` }}
                     />
                   </div>
+                  {/* Sub-scores */}
+                  {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores).length > 0 && (
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 mt-3">
+                      {criterion.subcriteria.map(sub => (
+                        <div key={sub.id} className="bg-gray-50 rounded-lg px-3 py-2">
+                          <div className="text-xs text-gray-500 truncate" title={sub.name}>{sub.name}</div>
+                          <div className="text-sm font-medium text-gray-900">
+                            {criterion.sub_scores[sub.id] ?? 0}/{sub.max_points}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                   {criterion.description && (
-                    <p className="text-sm text-gray-500 mt-1">{criterion.description}</p>
+                    <p className="text-sm text-gray-500 mt-2">{criterion.description}</p>
                   )}
                 </div>
               ))}

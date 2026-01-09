@@ -1,12 +1,20 @@
 import { createServiceClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 
+interface SubScore {
+  id: string;
+  score: number;
+}
+
+interface GeneratedScore {
+  criterion_id: string;
+  score: number;
+  sub_scores: SubScore[];
+  reasoning: string;
+}
+
 interface GeneratedReview {
-  scores: {
-    criterion_id: string;
-    score: number;
-    reasoning: string;
-  }[];
+  scores: GeneratedScore[];
   summary: string;
   full_review: string;
   pros: string[];
@@ -32,22 +40,38 @@ Write: "I was impressed by how easy it was to find their lab reports - something
 Instead of: "Product variety meets industry standards."
 Write: "Their product range covers all the basics, but I'd love to see more innovative formats like nano CBD or targeted formulas."
 
-Instead of: "Customer service responsiveness is satisfactory."
-Write: "When I reached out with questions, I got a helpful response within hours - that's rare in this industry."
-
 SCORING GUIDELINES:
+- Score each sub-criterion individually - they must add up to the category total
 - Only give high scores if there's clear evidence on the website
-- Be conservative - if information is missing, give moderate scores
-- Look for: lab testing info, ingredient transparency, company background, certifications
-- Deduct points for missing information, vague claims, or red flags
-- If you can't find something, say so honestly: "I couldn't find any lab reports on their site, which is a red flag"
+- Be conservative - if information is missing, give moderate/low scores
+- If you can't find something, say so: "I couldn't find any lab reports on their site"
 
-CONTENT REQUIREMENTS:
-- The full_review should read like a blog post from a trusted expert, not a corporate report
-- Include genuine recommendations based on who would benefit from this brand
-- Be willing to praise AND criticize specifically
-- Reference specific things you found (or didn't find) on their website
-- Make comparisons to industry standards and other brands where relevant
+REVIEW STRUCTURE:
+The full_review MUST follow this exact structure for each category:
+
+## [Category Name] — [Total Score]/[Max Points]
+
+| Sub-criterion | Score |
+|---------------|-------|
+| [Sub-criterion 1] | [score]/[max] |
+| [Sub-criterion 2] | [score]/[max] |
+| ... |
+
+[2-3 paragraphs explaining the scores in first person, referencing specific findings]
+
+Example:
+## Quality & Testing — 14/20
+
+| Sub-criterion | Score |
+|---------------|-------|
+| Lab Testing Rigor | 4/5 |
+| Potency Accuracy | 4/5 |
+| Contaminant Free | 3/5 |
+| Extraction Quality | 3/5 |
+
+I was pleasantly surprised by how easy it was to find CBDistillery's lab reports. They've got batch-specific COAs from ProVerde Labs right on each product page - no hunting required. That's exactly what I want to see.
+
+Where they lose points is on the recency of some reports. A few products I checked had COAs that were several months old. In my experience, the best brands update these quarterly at minimum...
 
 Return your response as valid JSON only, no markdown code blocks.`;
 
@@ -97,6 +121,21 @@ async function fetchWebsiteContent(url: string): Promise<string | null> {
     console.error('Error fetching website:', error);
     return null;
   }
+}
+
+interface SubCriterion {
+  id: string;
+  name: string;
+  max_points: number;
+  description: string;
+}
+
+interface Criterion {
+  id: string;
+  name: string;
+  description: string;
+  max_points: number;
+  subcriteria: SubCriterion[];
 }
 
 export async function POST(request: NextRequest) {
@@ -161,15 +200,31 @@ export async function POST(request: NextRequest) {
       }, { status: 400 });
     }
 
-    // Build the criteria prompt
-    const criteriaPrompt = criteria.map(c => {
-      const subcriteria = c.subcriteria?.map((s: { name: string; max_points: number }) =>
-        `  - ${s.name} (${s.max_points} pts)`
+    // Build detailed criteria prompt with all sub-criteria
+    const criteriaPrompt = (criteria as Criterion[]).map(c => {
+      const subcriteriaList = c.subcriteria?.map((s: SubCriterion) =>
+        `    - ${s.id}: "${s.name}" (max ${s.max_points} pts) - ${s.description}`
       ).join('\n') || '';
 
-      return `${c.name} (max ${c.max_points} points): ${c.description}
-${subcriteria ? 'Subcriteria:\n' + subcriteria : ''}`;
+      return `${c.id}: "${c.name}" (max ${c.max_points} points total)
+  Description: ${c.description}
+  Sub-criteria (score each one):
+${subcriteriaList}`;
     }).join('\n\n');
+
+    // Build JSON structure for expected response
+    const scoresStructure = (criteria as Criterion[]).map(c => {
+      const subScoresStructure = c.subcriteria?.map((s: SubCriterion) =>
+        `{"id": "${s.id}", "score": <0-${s.max_points}>}`
+      ).join(', ') || '';
+
+      return `{
+      "criterion_id": "${c.id}",
+      "score": <total 0-${c.max_points}>,
+      "sub_scores": [${subScoresStructure}],
+      "reasoning": "<1-2 sentence explanation>"
+    }`;
+    }).join(',\n    ');
 
     // Build the user prompt
     const userPrompt = `Research and review this CBD brand:
@@ -183,27 +238,28 @@ ${brand.founded_year ? `FOUNDED: ${brand.founded_year}` : ''}
 WEBSITE CONTENT:
 ${websiteContent}
 
-REVIEW CRITERIA (score each one):
+REVIEW CRITERIA - Score EACH sub-criterion individually:
 ${criteriaPrompt}
 
-Generate a comprehensive review. Return ONLY valid JSON in this exact format:
+IMPORTANT:
+- The "score" for each criterion MUST equal the sum of its sub_scores
+- Each sub_score must not exceed its max_points
+- The full_review MUST include a section for EACH of the 9 categories with:
+  1. Markdown heading with score: "## Category Name — X/Y"
+  2. Markdown table showing all sub-criterion scores
+  3. 2-3 paragraphs explaining WHY you gave those scores
+
+Return ONLY valid JSON in this exact format:
 {
   "scores": [
-    {"criterion_id": "${criteria[0].id}", "score": <number>, "reasoning": "<brief explanation>"},
-    ... (one for each criterion)
+    ${scoresStructure}
   ],
-  "summary": "<2-3 sentence overview for listing pages>",
-  "full_review": "<detailed markdown review, 3-5 paragraphs>",
-  "pros": ["<pro 1>", "<pro 2>", ...],
-  "cons": ["<con 1>", "<con 2>", ...],
-  "verdict": "<final recommendation, 2-3 sentences>"
-}
-
-Important:
-- Scores must not exceed max points for each criterion
-- Be honest and evidence-based
-- If info is missing, mention it and score conservatively
-- Include criterion IDs exactly as provided`;
+  "summary": "<2-3 sentence overview for listing pages - personal voice>",
+  "full_review": "<markdown with ALL 9 category sections, each with heading, sub-score table, and explanation paragraphs>",
+  "pros": ["<specific pro 1>", "<specific pro 2>", "<specific pro 3>", ...],
+  "cons": ["<specific con 1>", "<specific con 2>", ...],
+  "verdict": "<final recommendation in personal voice, 2-3 sentences>"
+}`;
 
     // Call Claude API
     const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -215,7 +271,7 @@ Important:
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
-        max_tokens: 4000,
+        max_tokens: 8000, // Increased for detailed review
         system: SYSTEM_PROMPT,
         messages: [
           {
@@ -255,13 +311,29 @@ Important:
 
       const generated: GeneratedReview = JSON.parse(jsonMatch[0]);
 
-      // Validate scores don't exceed max points
+      // Validate and fix scores
       const validatedScores = generated.scores.map(score => {
-        const criterion = criteria.find(c => c.id === score.criterion_id);
-        const maxPoints = criterion?.max_points || 0;
+        const criterion = (criteria as Criterion[]).find(c => c.id === score.criterion_id);
+        if (!criterion) return score;
+
+        // Validate sub_scores
+        const validatedSubScores = (score.sub_scores || []).map(subScore => {
+          const subCriterion = criterion.subcriteria?.find(s => s.id === subScore.id);
+          const maxPoints = subCriterion?.max_points || 0;
+          return {
+            ...subScore,
+            score: Math.min(Math.max(0, subScore.score), maxPoints)
+          };
+        });
+
+        // Calculate total from sub_scores
+        const calculatedTotal = validatedSubScores.reduce((sum, s) => sum + s.score, 0);
+        const maxPoints = criterion.max_points;
+
         return {
           ...score,
-          score: Math.min(Math.max(0, score.score), maxPoints)
+          sub_scores: validatedSubScores,
+          score: Math.min(calculatedTotal, maxPoints) // Use calculated total, capped at max
         };
       });
 
