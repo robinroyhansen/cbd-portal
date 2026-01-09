@@ -740,7 +740,6 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
   const [viewMode, setViewMode] = useState<ViewMode>('cards');
   const [showHumanStudiesOnly, setShowHumanStudiesOnly] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [filtersExpanded, setFiltersExpanded] = useState(true);
   const itemsPerPage = 20;
 
   // Load saved filters on mount
@@ -1053,8 +1052,34 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
     showHumanStudiesOnly ? 1 : 0
   ].reduce((a, b) => a + b, 0);
 
+  // Top 8 most relevant conditions for collapsed view
+  const TOP_CONDITIONS: ConditionKey[] = ['anxiety', 'chronic_pain', 'sleep', 'epilepsy', 'depression', 'cancer', 'inflammation', 'addiction'];
+  const [showAllConditions, setShowAllConditions] = useState(false);
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+
+  // Get active filter labels for display
+  const activeFilterLabels = useMemo(() => {
+    const labels: string[] = [];
+    if (activeCategory !== 'all') {
+      const catLabels: Record<StudyCategory, string> = {
+        all: 'All', cbd: 'CBD', cannabinoids: 'Cannabinoids',
+        cannabis: 'Cannabis', 'medical-cannabis': 'Medical Cannabis'
+      };
+      labels.push(catLabels[activeCategory]);
+    }
+    selectedConditions.forEach(c => labels.push(CONDITIONS[c].label));
+    if (yearRange.min !== dataYearRange.min || yearRange.max !== dataYearRange.max) {
+      labels.push(`${yearRange.min}-${yearRange.max}`);
+    }
+    if (qualityRange.min > 0 || qualityRange.max < 100) {
+      labels.push(`Quality ${qualityRange.min}-${qualityRange.max}`);
+    }
+    if (showHumanStudiesOnly) labels.push('Human only');
+    return labels;
+  }, [activeCategory, selectedConditions, yearRange, qualityRange, showHumanStudiesOnly, dataYearRange]);
+
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Breadcrumbs */}
       <Breadcrumbs condition={condition} />
 
@@ -1090,8 +1115,8 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
         }}
       />
 
-      {/* Search Bar - Prominent */}
-      <div className="bg-white rounded-lg border border-gray-200 p-4 shadow-sm">
+      {/* Search Bar - Always visible at top */}
+      <div className="bg-white rounded-lg border border-gray-200 p-3 shadow-sm">
         <div className="relative">
           <label htmlFor="research-search" className="sr-only">Search research studies</label>
           <input
@@ -1100,16 +1125,16 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
             value={searchQuery}
             onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
             placeholder="Search by title, authors, abstract, condition..."
-            className="w-full pl-12 pr-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full pl-10 pr-4 py-2.5 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             aria-label="Search research studies"
           />
-          <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
           {searchQuery && (
             <button
               onClick={() => { setSearchQuery(''); setCurrentPage(1); }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
               aria-label="Clear search"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1120,491 +1145,624 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
         </div>
       </div>
 
-      {/* Study Category Filter Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3" role="group" aria-label="Filter by study category">
-        {[
-          { key: 'all' as StudyCategory, label: 'All Studies', icon: '📚', color: 'gray' },
-          { key: 'cbd' as StudyCategory, label: 'CBD Studies', icon: '💊', color: 'green' },
-          { key: 'cannabinoids' as StudyCategory, label: 'Cannabinoids', icon: '🧬', color: 'purple' },
-          { key: 'medical-cannabis' as StudyCategory, label: 'Medical Cannabis', icon: '🏥', color: 'blue' },
-          { key: 'cannabis' as StudyCategory, label: 'Cannabis Research', icon: '🌿', color: 'emerald' },
-        ].map(({ key, label, icon, color }) => {
-          const isActive = activeCategory === key;
-          const count = categoryStats[key];
-
-          const colorClasses = {
-            gray: isActive ? 'bg-gray-800 text-white border-gray-800' : 'bg-white text-gray-700 border-gray-200 hover:border-gray-400',
-            green: isActive ? 'bg-green-600 text-white border-green-600' : 'bg-white text-green-700 border-green-200 hover:border-green-400',
-            purple: isActive ? 'bg-purple-600 text-white border-purple-600' : 'bg-white text-purple-700 border-purple-200 hover:border-purple-400',
-            blue: isActive ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-blue-700 border-blue-200 hover:border-blue-400',
-            emerald: isActive ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white text-emerald-700 border-emerald-200 hover:border-emerald-400',
-          }[color];
-
-          return (
-            <button
-              key={key}
-              onClick={() => { setActiveCategory(key); setCurrentPage(1); }}
-              aria-pressed={isActive}
-              className={`flex flex-col items-center p-3 rounded-lg border-2 transition-all ${colorClasses}`}
-            >
-              <span className="text-2xl mb-1" aria-hidden="true">{icon}</span>
-              <span className="text-sm font-medium">{label}</span>
-              <span className={`text-lg font-bold ${isActive ? 'text-white' : ''}`}>
-                {count}
-              </span>
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Condition Quick Filters - Grouped by Category */}
-      <div className="bg-white rounded-lg border border-gray-200 p-4">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-            <span>Filter by Condition</span>
-            {selectedConditions.length > 0 && (
-              <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded-full">
-                {selectedConditions.length} selected
+      {/* Mobile Filter Button - Only visible on mobile */}
+      <div className="lg:hidden">
+        <button
+          onClick={() => setMobileFiltersOpen(true)}
+          className="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-200 rounded-lg shadow-sm"
+        >
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+            </svg>
+            <span className="font-medium">Filters</span>
+            {activeFilterCount > 0 && (
+              <span className="px-2 py-0.5 bg-blue-600 text-white text-xs rounded-full">
+                {activeFilterCount}
               </span>
             )}
-          </h2>
+          </div>
+          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile Filter Drawer */}
+      {mobileFiltersOpen && (
+        <div className="lg:hidden fixed inset-0 z-50 overflow-hidden">
+          <div className="absolute inset-0 bg-black/50" onClick={() => setMobileFiltersOpen(false)} />
+          <div className="absolute inset-y-0 right-0 w-full max-w-md bg-white shadow-xl flex flex-col">
+            {/* Drawer Header */}
+            <div className="flex items-center justify-between px-4 py-3 border-b">
+              <h2 className="text-lg font-semibold">Filters</h2>
+              <button
+                onClick={() => setMobileFiltersOpen(false)}
+                className="p-2 text-gray-500 hover:text-gray-700"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            {/* Drawer Content */}
+            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+              <FilterSidebarContent
+                activeCategory={activeCategory}
+                setActiveCategory={(cat) => { setActiveCategory(cat); setCurrentPage(1); }}
+                categoryStats={categoryStats}
+                selectedConditions={selectedConditions}
+                toggleCondition={toggleCondition}
+                conditionStats={conditionStats}
+                showAllConditions={showAllConditions}
+                setShowAllConditions={setShowAllConditions}
+                TOP_CONDITIONS={TOP_CONDITIONS}
+                yearRange={yearRange}
+                setYearRange={setYearRange}
+                dataYearRange={dataYearRange}
+                qualityRange={qualityRange}
+                setQualityRange={setQualityRange}
+                selectedQualityTiers={selectedQualityTiers}
+                toggleQualityTier={toggleQualityTier}
+                qualityStats={qualityStats}
+                selectedStudyTypes={selectedStudyTypes}
+                toggleStudyType={toggleStudyType}
+                availableStudyTypes={availableStudyTypes}
+                showHumanStudiesOnly={showHumanStudiesOnly}
+                setShowHumanStudiesOnly={setShowHumanStudiesOnly}
+                clearAllFilters={clearAllFilters}
+                setCurrentPage={setCurrentPage}
+              />
+            </div>
+            {/* Drawer Footer */}
+            <div className="border-t px-4 py-3 flex gap-3">
+              <button
+                onClick={clearAllFilters}
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50"
+              >
+                Clear All
+              </button>
+              <button
+                onClick={() => setMobileFiltersOpen(false)}
+                className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700"
+              >
+                Show {filteredStudies.length} Results
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Desktop Layout: Sidebar + Main Content */}
+      <div className="lg:flex lg:gap-6">
+        {/* Desktop Sidebar - Hidden on mobile */}
+        <aside className="hidden lg:block lg:w-72 xl:w-80 shrink-0">
+          <div className="sticky top-4 space-y-4 max-h-[calc(100vh-2rem)] overflow-y-auto pb-4">
+            <FilterSidebarContent
+              activeCategory={activeCategory}
+              setActiveCategory={(cat) => { setActiveCategory(cat); setCurrentPage(1); }}
+              categoryStats={categoryStats}
+              selectedConditions={selectedConditions}
+              toggleCondition={toggleCondition}
+              conditionStats={conditionStats}
+              showAllConditions={showAllConditions}
+              setShowAllConditions={setShowAllConditions}
+              TOP_CONDITIONS={TOP_CONDITIONS}
+              yearRange={yearRange}
+              setYearRange={setYearRange}
+              dataYearRange={dataYearRange}
+              qualityRange={qualityRange}
+              setQualityRange={setQualityRange}
+              selectedQualityTiers={selectedQualityTiers}
+              toggleQualityTier={toggleQualityTier}
+              qualityStats={qualityStats}
+              selectedStudyTypes={selectedStudyTypes}
+              toggleStudyType={toggleStudyType}
+              availableStudyTypes={availableStudyTypes}
+              showHumanStudiesOnly={showHumanStudiesOnly}
+              setShowHumanStudiesOnly={setShowHumanStudiesOnly}
+              clearAllFilters={clearAllFilters}
+              setCurrentPage={setCurrentPage}
+            />
+          </div>
+        </aside>
+
+        {/* Main Content Area */}
+        <main className="flex-1 min-w-0 space-y-4">
+          {/* Sticky Results Bar */}
+          <div className="sticky top-0 z-10 bg-gray-50 -mx-4 px-4 py-3 lg:mx-0 lg:px-0 lg:bg-transparent">
+            <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-3">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                {/* Results count and active filters */}
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="font-semibold text-gray-900">
+                    {filteredStudies.length} studies
+                  </span>
+                  {activeFilterLabels.length > 0 && (
+                    <>
+                      <span className="text-gray-400">|</span>
+                      <div className="flex flex-wrap gap-1">
+                        {activeFilterLabels.slice(0, 3).map((label, i) => (
+                          <span key={i} className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded-full">
+                            {label}
+                          </span>
+                        ))}
+                        {activeFilterLabels.length > 3 && (
+                          <span className="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded-full">
+                            +{activeFilterLabels.length - 3} more
+                          </span>
+                        )}
+                      </div>
+                      <button
+                        onClick={clearAllFilters}
+                        className="text-xs text-gray-500 hover:text-red-600"
+                      >
+                        Clear
+                      </button>
+                    </>
+                  )}
+                </div>
+                {/* Sort and View Controls */}
+                <div className="flex items-center gap-3">
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value as SortOption)}
+                    className="px-2 py-1 text-sm border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
+                    aria-label="Sort by"
+                  >
+                    <option value="quality">Quality</option>
+                    <option value="year">Year</option>
+                    <option value="title">Title</option>
+                    <option value="relevance">Relevance</option>
+                  </select>
+                  <div className="hidden sm:flex items-center border border-gray-300 rounded overflow-hidden">
+                    <button
+                      onClick={() => setViewMode('cards')}
+                      aria-pressed={viewMode === 'cards'}
+                      className={`p-1.5 ${viewMode === 'cards' ? 'bg-blue-100 text-blue-700' : 'text-gray-500 hover:bg-gray-100'}`}
+                      title="Card view"
+                    >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                      </svg>
+                    </button>
+                    <button
+                      onClick={() => setViewMode('table')}
+                      aria-pressed={viewMode === 'table'}
+                      className={`p-1.5 ${viewMode === 'table' ? 'bg-blue-100 text-blue-700' : 'text-gray-500 hover:bg-gray-100'}`}
+                      title="Table view"
+                    >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
+                      </svg>
+                    </button>
+                    <button
+                      onClick={() => setViewMode('timeline')}
+                      aria-pressed={viewMode === 'timeline'}
+                      className={`p-1.5 ${viewMode === 'timeline' ? 'bg-blue-100 text-blue-700' : 'text-gray-500 hover:bg-gray-100'}`}
+                      title="Timeline view"
+                    >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11 4a1 1 0 10-2 0v4a1 1 0 102 0V7zm-3 1a1 1 0 10-2 0v3a1 1 0 102 0V8zM8 9a1 1 0 00-2 0v2a1 1 0 102 0V9z" clipRule="evenodd" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Research Results */}
+          {viewMode === 'cards' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4" role="list" aria-label="Research studies">
+              {paginatedStudies.map((study) => (
+                <ResearchCard key={study.id} study={study} />
+              ))}
+            </div>
+          )}
+
+          {viewMode === 'table' && (
+            <ResearchTable studies={paginatedStudies} />
+          )}
+
+          {viewMode === 'timeline' && (
+            <ResearchTimeline
+              studies={filteredStudies}
+              yearDistribution={yearDistribution}
+              dataYearRange={dataYearRange}
+            />
+          )}
+
+          {/* No Results */}
+          {filteredStudies.length === 0 && (
+            <div className="text-center py-12 bg-gray-50 rounded-lg" role="status">
+              <p className="text-gray-500 mb-4">No studies match your current filters.</p>
+              <button
+                onClick={clearAllFilters}
+                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              >
+                Clear All Filters
+              </button>
+            </div>
+          )}
+
+          {/* Bottom Pagination */}
+          {totalPages > 1 && filteredStudies.length > 0 && (
+            <nav aria-label="Pagination" className="flex justify-center items-center gap-2 pt-4">
+              <button
+                onClick={() => setCurrentPage(1)}
+                disabled={currentPage === 1}
+                className="px-3 py-1.5 text-sm border rounded disabled:opacity-50 hover:bg-gray-50"
+                aria-label="First page"
+              >
+                First
+              </button>
+              <button
+                onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                disabled={currentPage === 1}
+                className="px-3 py-1.5 text-sm border rounded disabled:opacity-50 hover:bg-gray-50"
+                aria-label="Previous page"
+              >
+                Prev
+              </button>
+              <span className="px-4 py-1.5 text-sm font-medium">
+                {currentPage} / {totalPages}
+              </span>
+              <button
+                onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+                disabled={currentPage === totalPages}
+                className="px-3 py-1.5 text-sm border rounded disabled:opacity-50 hover:bg-gray-50"
+                aria-label="Next page"
+              >
+                Next
+              </button>
+              <button
+                onClick={() => setCurrentPage(totalPages)}
+                disabled={currentPage === totalPages}
+                className="px-3 py-1.5 text-sm border rounded disabled:opacity-50 hover:bg-gray-50"
+                aria-label="Last page"
+              >
+                Last
+              </button>
+            </nav>
+          )}
+        </main>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================================
+// FILTER SIDEBAR CONTENT COMPONENT
+// ============================================================================
+
+interface FilterSidebarContentProps {
+  activeCategory: StudyCategory;
+  setActiveCategory: (cat: StudyCategory) => void;
+  categoryStats: Record<StudyCategory, number>;
+  selectedConditions: ConditionKey[];
+  toggleCondition: (cond: ConditionKey) => void;
+  conditionStats: Record<ConditionKey, number>;
+  showAllConditions: boolean;
+  setShowAllConditions: (show: boolean) => void;
+  TOP_CONDITIONS: ConditionKey[];
+  yearRange: { min: number; max: number };
+  setYearRange: React.Dispatch<React.SetStateAction<{ min: number; max: number }>>;
+  dataYearRange: { min: number; max: number };
+  qualityRange: { min: number; max: number };
+  setQualityRange: React.Dispatch<React.SetStateAction<{ min: number; max: number }>>;
+  selectedQualityTiers: QualityTier[];
+  toggleQualityTier: (tier: QualityTier) => void;
+  qualityStats: Record<QualityTier, number>;
+  selectedStudyTypes: StudyType[];
+  toggleStudyType: (type: StudyType) => void;
+  availableStudyTypes: StudyType[];
+  showHumanStudiesOnly: boolean;
+  setShowHumanStudiesOnly: (show: boolean) => void;
+  clearAllFilters: () => void;
+  setCurrentPage: (page: number) => void;
+}
+
+function FilterSidebarContent({
+  activeCategory,
+  setActiveCategory,
+  categoryStats,
+  selectedConditions,
+  toggleCondition,
+  conditionStats,
+  showAllConditions,
+  setShowAllConditions,
+  TOP_CONDITIONS,
+  yearRange,
+  setYearRange,
+  dataYearRange,
+  qualityRange,
+  setQualityRange,
+  selectedQualityTiers,
+  toggleQualityTier,
+  qualityStats,
+  selectedStudyTypes,
+  toggleStudyType,
+  availableStudyTypes,
+  showHumanStudiesOnly,
+  setShowHumanStudiesOnly,
+  clearAllFilters,
+  setCurrentPage,
+}: FilterSidebarContentProps) {
+  const [advancedExpanded, setAdvancedExpanded] = useState(false);
+
+  const categories: { key: StudyCategory; label: string; color: string }[] = [
+    { key: 'all', label: 'All Studies', color: 'gray' },
+    { key: 'cbd', label: 'CBD', color: 'green' },
+    { key: 'cannabinoids', label: 'Cannabinoids', color: 'purple' },
+    { key: 'medical-cannabis', label: 'Medical', color: 'blue' },
+    { key: 'cannabis', label: 'Cannabis', color: 'emerald' },
+  ];
+
+  return (
+    <>
+      {/* Category Filter - Compact Pills */}
+      <div className="bg-white rounded-lg border border-gray-200 p-3">
+        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Category</h3>
+        <div className="flex flex-wrap gap-1.5">
+          {categories.map(({ key, label, color }) => {
+            const isActive = activeCategory === key;
+            const count = categoryStats[key];
+            const colorClasses: Record<string, string> = {
+              gray: isActive ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
+              green: isActive ? 'bg-green-600 text-white' : 'bg-green-50 text-green-700 hover:bg-green-100',
+              purple: isActive ? 'bg-purple-600 text-white' : 'bg-purple-50 text-purple-700 hover:bg-purple-100',
+              blue: isActive ? 'bg-blue-600 text-white' : 'bg-blue-50 text-blue-700 hover:bg-blue-100',
+              emerald: isActive ? 'bg-emerald-600 text-white' : 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100',
+            };
+            return (
+              <button
+                key={key}
+                onClick={() => setActiveCategory(key)}
+                className={`px-2.5 py-1 text-xs font-medium rounded-full transition-colors ${colorClasses[color]}`}
+              >
+                {label} ({count})
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Condition Filter - Top 8 with expand */}
+      <div className="bg-white rounded-lg border border-gray-200 p-3">
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Condition</h3>
           {selectedConditions.length > 0 && (
             <button
-              onClick={() => setSelectedConditions([])}
-              className="text-xs text-gray-500 hover:text-gray-700"
+              onClick={() => {
+                selectedConditions.forEach(c => toggleCondition(c));
+              }}
+              className="text-xs text-gray-500 hover:text-red-600"
             >
-              Clear conditions
+              Clear
             </button>
           )}
         </div>
+        <div className="flex flex-wrap gap-1.5">
+          {(showAllConditions ? Object.keys(CONDITIONS) as ConditionKey[] : TOP_CONDITIONS).map((key) => {
+            const cond = CONDITIONS[key];
+            const colors = CONDITION_COLORS[key] || { bg: 'bg-gray-100', text: 'text-gray-700' };
+            const isSelected = selectedConditions.includes(key);
+            const count = conditionStats[key] || 0;
+            return (
+              <button
+                key={key}
+                onClick={() => toggleCondition(key)}
+                className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium transition-all ${
+                  isSelected
+                    ? `${colors.bg} ${colors.text} ring-2 ring-blue-500`
+                    : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
+                }`}
+              >
+                <span>{cond.icon}</span>
+                <span>{cond.label}</span>
+                <span className="opacity-60">({count})</span>
+              </button>
+            );
+          })}
+        </div>
+        {!showAllConditions && (
+          <button
+            onClick={() => setShowAllConditions(true)}
+            className="mt-2 text-xs text-blue-600 hover:text-blue-700 font-medium"
+          >
+            Show all {Object.keys(CONDITIONS).length} conditions...
+          </button>
+        )}
+        {showAllConditions && (
+          <button
+            onClick={() => setShowAllConditions(false)}
+            className="mt-2 text-xs text-gray-500 hover:text-gray-700"
+          >
+            Show less
+          </button>
+        )}
+      </div>
 
-        <div className="space-y-4" role="group" aria-label="Condition filters by category">
-          {(Object.entries(CONDITION_CATEGORIES) as [string, readonly ConditionKey[]][]).map(([category, conditionKeys]) => (
-            <div key={category}>
-              <h3 className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">{category}</h3>
-              <div className="flex flex-wrap gap-1.5">
-                {conditionKeys.map((key) => {
-                  const cond = CONDITIONS[key];
-                  const colors = CONDITION_COLORS[key] || { bg: 'bg-gray-100', text: 'text-gray-700', border: 'border-gray-200' };
-                  const isSelected = selectedConditions.includes(key);
-                  const count = conditionStats[key] || 0;
+      {/* Year Range */}
+      <div className="bg-white rounded-lg border border-gray-200 p-3">
+        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Publication Year</h3>
+        <div className="flex items-center gap-2">
+          <select
+            value={yearRange.min}
+            onChange={(e) => {
+              const newMin = parseInt(e.target.value);
+              setYearRange(prev => ({ min: newMin, max: Math.max(newMin, prev.max) }));
+              setCurrentPage(1);
+            }}
+            className="flex-1 px-2 py-1.5 text-sm bg-white border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
+          >
+            {Array.from({ length: dataYearRange.max - dataYearRange.min + 1 }, (_, i) => dataYearRange.min + i).map(year => (
+              <option key={year} value={year}>{year}</option>
+            ))}
+          </select>
+          <span className="text-gray-400">-</span>
+          <select
+            value={yearRange.max}
+            onChange={(e) => {
+              const newMax = parseInt(e.target.value);
+              setYearRange(prev => ({ min: Math.min(prev.min, newMax), max: newMax }));
+              setCurrentPage(1);
+            }}
+            className="flex-1 px-2 py-1.5 text-sm bg-white border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
+          >
+            {Array.from({ length: dataYearRange.max - dataYearRange.min + 1 }, (_, i) => dataYearRange.min + i).map(year => (
+              <option key={year} value={year}>{year}</option>
+            ))}
+          </select>
+        </div>
+      </div>
 
-                  return (
-                    <button
-                      key={key}
-                      onClick={() => toggleCondition(key)}
-                      aria-pressed={isSelected}
-                      className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium transition-all ${
-                        isSelected
-                          ? `${colors.bg} ${colors.text} ring-2 ring-offset-1 ring-blue-500`
-                          : 'bg-gray-50 text-gray-600 hover:bg-gray-100 border border-gray-200'
-                      }`}
-                    >
-                      <span aria-hidden="true">{cond.icon}</span>
-                      <span>{cond.label}</span>
-                      {count > 0 && <span className="opacity-60">({count})</span>}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+      {/* Quality Score */}
+      <div className="bg-white rounded-lg border border-gray-200 p-3">
+        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Quality Score</h3>
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5">
+            <span className={`w-2.5 h-2.5 rounded-full ${
+              qualityRange.min >= 70 ? 'bg-green-500' : qualityRange.min >= 40 ? 'bg-yellow-500' : 'bg-red-400'
+            }`} />
+            <input
+              type="number"
+              min={0}
+              max={100}
+              value={qualityRange.min}
+              onChange={(e) => {
+                const newMin = Math.max(0, Math.min(100, parseInt(e.target.value) || 0));
+                setQualityRange(prev => ({ min: newMin, max: Math.max(newMin, prev.max) }));
+                setCurrentPage(1);
+              }}
+              className="w-14 px-2 py-1.5 text-sm border border-gray-300 rounded text-center focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+          <span className="text-gray-400">-</span>
+          <div className="flex items-center gap-1.5">
+            <input
+              type="number"
+              min={0}
+              max={100}
+              value={qualityRange.max}
+              onChange={(e) => {
+                const newMax = Math.max(0, Math.min(100, parseInt(e.target.value) || 100));
+                setQualityRange(prev => ({ min: Math.min(prev.min, newMax), max: newMax }));
+                setCurrentPage(1);
+              }}
+              className="w-14 px-2 py-1.5 text-sm border border-gray-300 rounded text-center focus:ring-blue-500 focus:border-blue-500"
+            />
+            <span className={`w-2.5 h-2.5 rounded-full ${
+              qualityRange.max >= 70 ? 'bg-green-500' : qualityRange.max >= 40 ? 'bg-yellow-500' : 'bg-red-400'
+            }`} />
+          </div>
+        </div>
+      </div>
+
+      {/* Quick Filters */}
+      <div className="bg-white rounded-lg border border-gray-200 p-3">
+        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Quick Filters</h3>
+        <div className="space-y-2">
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={showHumanStudiesOnly}
+              onChange={(e) => { setShowHumanStudiesOnly(e.target.checked); setCurrentPage(1); }}
+              className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+            />
+            <span className="text-sm">Human studies only</span>
+          </label>
+          <button
+            onClick={() => {
+              setYearRange({ min: 2020, max: dataYearRange.max });
+              setCurrentPage(1);
+            }}
+            className={`w-full text-left px-3 py-2 text-sm rounded border ${
+              yearRange.min === 2020 ? 'bg-blue-50 border-blue-200 text-blue-700' : 'border-gray-200 hover:bg-gray-50'
+            }`}
+          >
+            Recent studies (2020+)
+          </button>
+          <button
+            onClick={() => {
+              setQualityRange({ min: 70, max: 100 });
+              setCurrentPage(1);
+            }}
+            className={`w-full text-left px-3 py-2 text-sm rounded border ${
+              qualityRange.min === 70 ? 'bg-green-50 border-green-200 text-green-700' : 'border-gray-200 hover:bg-gray-50'
+            }`}
+          >
+            High quality (70+)
+          </button>
         </div>
       </div>
 
       {/* Advanced Filters - Collapsible */}
       <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
         <button
-          onClick={() => setFiltersExpanded(!filtersExpanded)}
-          className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-gray-50"
-          aria-expanded={filtersExpanded}
-          aria-controls="advanced-filters"
+          onClick={() => setAdvancedExpanded(!advancedExpanded)}
+          className="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-gray-50"
         >
-          <div className="flex items-center gap-2">
-            <span className="font-semibold text-gray-900">Advanced Filters</span>
-            {activeFilterCount > 0 && (
-              <span className="px-2 py-0.5 bg-blue-600 text-white text-xs rounded-full">
-                {activeFilterCount} active
-              </span>
-            )}
-          </div>
+          <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Advanced</span>
           <svg
-            className={`w-5 h-5 text-gray-500 transition-transform ${filtersExpanded ? 'rotate-180' : ''}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
+            className={`w-4 h-4 text-gray-400 transition-transform ${advancedExpanded ? 'rotate-180' : ''}`}
+            fill="none" stroke="currentColor" viewBox="0 0 24 24"
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
         </button>
-
-        {filtersExpanded && (
-          <div id="advanced-filters" className="p-4 border-t border-gray-200 space-y-4">
-            {/* Quick Preset Buttons */}
-            <div className="flex flex-wrap gap-2">
-              <span className="text-sm font-medium text-gray-600 mr-2 self-center">Quick filters:</span>
-              <button
-                onClick={() => {
-                  setYearRange({ min: 2020, max: dataYearRange.max });
-                  setCurrentPage(1);
-                }}
-                className={`px-3 py-1.5 text-sm font-medium rounded-full border transition-all ${
-                  yearRange.min === 2020 && yearRange.max === dataYearRange.max
-                    ? 'bg-blue-600 text-white border-blue-600'
-                    : 'bg-white text-gray-700 border-gray-300 hover:border-blue-400 hover:text-blue-600'
-                }`}
-              >
-                Recent (2020+)
-              </button>
-              <button
-                onClick={() => {
-                  setQualityRange({ min: 70, max: 100 });
-                  setCurrentPage(1);
-                }}
-                className={`px-3 py-1.5 text-sm font-medium rounded-full border transition-all ${
-                  qualityRange.min === 70 && qualityRange.max === 100
-                    ? 'bg-green-600 text-white border-green-600'
-                    : 'bg-white text-gray-700 border-gray-300 hover:border-green-400 hover:text-green-600'
-                }`}
-              >
-                High Quality (70+)
-              </button>
-              <button
-                onClick={() => {
-                  setSelectedStudyTypes([StudyType.RANDOMIZED_CONTROLLED_TRIAL]);
-                  setShowHumanStudiesOnly(true);
-                  setCurrentPage(1);
-                }}
-                className={`px-3 py-1.5 text-sm font-medium rounded-full border transition-all ${
-                  selectedStudyTypes.length === 1 && selectedStudyTypes.includes(StudyType.RANDOMIZED_CONTROLLED_TRIAL) && showHumanStudiesOnly
-                    ? 'bg-purple-600 text-white border-purple-600'
-                    : 'bg-white text-gray-700 border-gray-300 hover:border-purple-400 hover:text-purple-600'
-                }`}
-              >
-                Human RCTs only
-              </button>
-            </div>
-
-            {/* Year & Quality Range Filters - Modern UI */}
-            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Year Range */}
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <label className="text-sm font-semibold text-gray-700">Publication Year</label>
-                    <span className="text-sm font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded">
-                      {yearRange.min} – {yearRange.max}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <select
-                      value={yearRange.min}
-                      onChange={(e) => {
-                        const newMin = parseInt(e.target.value);
-                        setYearRange(prev => ({ min: newMin, max: Math.max(newMin, prev.max) }));
-                        setCurrentPage(1);
-                      }}
-                      className="flex-1 px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      aria-label="From year"
-                    >
-                      {Array.from({ length: dataYearRange.max - dataYearRange.min + 1 }, (_, i) => dataYearRange.min + i).map(year => (
-                        <option key={year} value={year}>{year}</option>
-                      ))}
-                    </select>
-                    <span className="text-gray-400 font-medium">to</span>
-                    <select
-                      value={yearRange.max}
-                      onChange={(e) => {
-                        const newMax = parseInt(e.target.value);
-                        setYearRange(prev => ({ min: Math.min(prev.min, newMax), max: newMax }));
-                        setCurrentPage(1);
-                      }}
-                      className="flex-1 px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      aria-label="To year"
-                    >
-                      {Array.from({ length: dataYearRange.max - dataYearRange.min + 1 }, (_, i) => dataYearRange.min + i).map(year => (
-                        <option key={year} value={year}>{year}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                {/* Quality Score Range - Simple Inputs with Color Indicators */}
-                <div>
-                  <label className="text-sm font-semibold text-gray-700 block mb-2">Quality Score</label>
-                  <div className="flex items-center gap-3">
-                    {/* Min Quality Input */}
-                    <div className="flex items-center gap-2">
-                      <span
-                        className={`w-3 h-3 rounded-full shrink-0 ${
-                          qualityRange.min >= 70 ? 'bg-green-500' :
-                          qualityRange.min >= 40 ? 'bg-yellow-500' :
-                          'bg-red-400'
-                        }`}
-                        title={qualityRange.min >= 70 ? 'High quality' : qualityRange.min >= 40 ? 'Moderate quality' : 'Low quality'}
-                      />
-                      <input
-                        type="number"
-                        min={0}
-                        max={100}
-                        value={qualityRange.min}
-                        onChange={(e) => {
-                          const newMin = Math.max(0, Math.min(100, parseInt(e.target.value) || 0));
-                          setQualityRange(prev => ({ min: newMin, max: Math.max(newMin, prev.max) }));
-                          setCurrentPage(1);
-                        }}
-                        className="w-16 px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-center"
-                        aria-label="Minimum quality score"
-                      />
-                    </div>
-                    <span className="text-gray-400 font-medium">to</span>
-                    {/* Max Quality Input */}
-                    <div className="flex items-center gap-2">
-                      <input
-                        type="number"
-                        min={0}
-                        max={100}
-                        value={qualityRange.max}
-                        onChange={(e) => {
-                          const newMax = Math.max(0, Math.min(100, parseInt(e.target.value) || 100));
-                          setQualityRange(prev => ({ min: Math.min(prev.min, newMax), max: newMax }));
-                          setCurrentPage(1);
-                        }}
-                        className="w-16 px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-center"
-                        aria-label="Maximum quality score"
-                      />
-                      <span
-                        className={`w-3 h-3 rounded-full shrink-0 ${
-                          qualityRange.max >= 70 ? 'bg-green-500' :
-                          qualityRange.max >= 40 ? 'bg-yellow-500' :
-                          'bg-red-400'
-                        }`}
-                        title={qualityRange.max >= 70 ? 'High quality' : qualityRange.max >= 40 ? 'Moderate quality' : 'Low quality'}
-                      />
-                    </div>
-                  </div>
-                  <div className="text-xs text-gray-400 mt-1.5">
-                    <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-400"></span> 0-39</span>
-                    <span className="mx-2">·</span>
-                    <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-yellow-500"></span> 40-69</span>
-                    <span className="mx-2">·</span>
-                    <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-500"></span> 70-100</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+        {advancedExpanded && (
+          <div className="px-3 pb-3 space-y-3 border-t border-gray-100 pt-3">
             {/* Quality Tiers */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Quality Tiers
-              </label>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-2" role="group" aria-label="Quality tier filters">
+              <label className="text-xs text-gray-600 mb-1 block">Quality Tiers</label>
+              <div className="grid grid-cols-2 gap-1">
                 {Object.entries(qualityStats).map(([tier, count]) => (
                   <button
                     key={tier}
                     onClick={() => toggleQualityTier(tier as QualityTier)}
-                    aria-pressed={selectedQualityTiers.includes(tier as QualityTier)}
-                    className={`p-2 rounded-lg border-2 text-center transition-all text-sm ${
+                    className={`p-1.5 rounded text-xs text-center transition-all ${
                       selectedQualityTiers.includes(tier as QualityTier)
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'bg-blue-100 text-blue-700 ring-1 ring-blue-500'
+                        : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
                     }`}
                   >
-                    <QualityIndicator tier={tier as QualityTier} className="mx-auto mb-1" />
                     <div className="font-medium">{count}</div>
-                    <div className="text-xs text-gray-600 line-clamp-1">{tier}</div>
+                    <div className="truncate text-[10px]">{tier}</div>
                   </button>
                 ))}
               </div>
             </div>
-
             {/* Study Types */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Study Types ({selectedStudyTypes.length} selected)
-              </label>
-              <StudyTypeFilter
-                selectedTypes={selectedStudyTypes}
-                onToggleType={toggleStudyType}
-                availableTypes={availableStudyTypes}
-                className="max-h-32 overflow-y-auto"
-              />
-            </div>
-
-            {/* Controls Row */}
-            <div className="flex flex-wrap items-center gap-4 pt-4 border-t">
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={showHumanStudiesOnly}
-                  onChange={(e) => setShowHumanStudiesOnly(e.target.checked)}
-                  className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                />
-                <span className="text-sm">Human studies only</span>
-              </label>
-
-              <div className="flex items-center gap-2">
-                <label htmlFor="sort-select" className="text-sm font-medium">Sort by:</label>
-                <select
-                  id="sort-select"
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as SortOption)}
-                  className="px-3 py-1 border border-gray-300 rounded text-sm focus:ring-blue-500 focus:border-blue-500"
-                >
-                  <option value="quality">Quality Score</option>
-                  <option value="year">Publication Year</option>
-                  <option value="title">Title</option>
-                  <option value="relevance">Relevance Score</option>
-                </select>
+              <label className="text-xs text-gray-600 mb-1 block">Study Types</label>
+              <div className="max-h-32 overflow-y-auto space-y-1">
+                {availableStudyTypes.map((type) => (
+                  <label key={type} className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={selectedStudyTypes.includes(type)}
+                      onChange={() => toggleStudyType(type)}
+                      className="w-3.5 h-3.5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                    />
+                    <span className="text-xs text-gray-700 truncate">{type}</span>
+                  </label>
+                ))}
               </div>
-
-              <div className="flex items-center gap-2" role="group" aria-label="View mode">
-                <label className="text-sm font-medium">View:</label>
-                <button
-                  onClick={() => setViewMode('cards')}
-                  aria-pressed={viewMode === 'cards'}
-                  className={`px-3 py-1 text-sm rounded ${viewMode === 'cards' ? 'bg-blue-100 text-blue-700' : 'text-gray-600 hover:bg-gray-100'}`}
-                >
-                  Cards
-                </button>
-                <button
-                  onClick={() => setViewMode('table')}
-                  aria-pressed={viewMode === 'table'}
-                  className={`px-3 py-1 text-sm rounded ${viewMode === 'table' ? 'bg-blue-100 text-blue-700' : 'text-gray-600 hover:bg-gray-100'}`}
-                >
-                  Table
-                </button>
-                <button
-                  onClick={() => setViewMode('timeline')}
-                  aria-pressed={viewMode === 'timeline'}
-                  className={`px-3 py-1 text-sm rounded ${viewMode === 'timeline' ? 'bg-blue-100 text-blue-700' : 'text-gray-600 hover:bg-gray-100'}`}
-                >
-                  Timeline
-                </button>
-              </div>
-
-              <button
-                onClick={clearAllFilters}
-                className="ml-auto text-sm text-red-600 hover:text-red-700 font-medium"
-              >
-                Clear All Filters
-              </button>
             </div>
           </div>
         )}
       </div>
 
-      {/* Results Summary */}
-      <div className="flex flex-wrap justify-between items-center gap-4 text-sm">
-        <div className="text-gray-600">
-          Showing <strong>{paginatedStudies.length}</strong> of <strong>{filteredStudies.length}</strong> studies
-          {filteredStudies.length !== studiesWithQuality.length && (
-            <span> (filtered from {studiesWithQuality.length} total)</span>
-          )}
-        </div>
-
-        {totalPages > 1 && (
-          <nav aria-label="Pagination" className="flex items-center gap-2">
-            <button
-              onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-              disabled={currentPage === 1}
-              className="px-3 py-1 text-sm border rounded disabled:opacity-50 hover:bg-gray-50 disabled:hover:bg-white"
-              aria-label="Previous page"
-            >
-              Previous
-            </button>
-            <span className="text-sm" aria-current="page">
-              Page {currentPage} of {totalPages}
-            </span>
-            <button
-              onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
-              disabled={currentPage === totalPages}
-              className="px-3 py-1 text-sm border rounded disabled:opacity-50 hover:bg-gray-50 disabled:hover:bg-white"
-              aria-label="Next page"
-            >
-              Next
-            </button>
-          </nav>
-        )}
-      </div>
-
-      {/* Research Results */}
-      {viewMode === 'cards' && (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4" role="list" aria-label="Research studies">
-          {paginatedStudies.map((study) => (
-            <ResearchCard key={study.id} study={study} />
-          ))}
-        </div>
-      )}
-
-      {viewMode === 'table' && (
-        <ResearchTable studies={paginatedStudies} />
-      )}
-
-      {viewMode === 'timeline' && (
-        <ResearchTimeline
-          studies={filteredStudies}
-          yearDistribution={yearDistribution}
-          dataYearRange={dataYearRange}
-        />
-      )}
-
-      {/* No Results */}
-      {filteredStudies.length === 0 && (
-        <div className="text-center py-12 bg-gray-50 rounded-lg" role="status">
-          <p className="text-gray-500 mb-4">No studies match your current filters.</p>
-          <button
-            onClick={clearAllFilters}
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
-            Clear All Filters
-          </button>
-        </div>
-      )}
-
-      {/* Bottom Pagination */}
-      {totalPages > 1 && filteredStudies.length > 0 && (
-        <nav aria-label="Bottom pagination" className="flex justify-center items-center gap-2 pt-4">
-          <button
-            onClick={() => setCurrentPage(1)}
-            disabled={currentPage === 1}
-            className="px-3 py-1 text-sm border rounded disabled:opacity-50 hover:bg-gray-50"
-            aria-label="First page"
-          >
-            First
-          </button>
-          <button
-            onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-            disabled={currentPage === 1}
-            className="px-3 py-1 text-sm border rounded disabled:opacity-50 hover:bg-gray-50"
-            aria-label="Previous page"
-          >
-            Previous
-          </button>
-          <span className="px-4 py-1 text-sm">
-            Page {currentPage} of {totalPages}
-          </span>
-          <button
-            onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
-            disabled={currentPage === totalPages}
-            className="px-3 py-1 text-sm border rounded disabled:opacity-50 hover:bg-gray-50"
-            aria-label="Next page"
-          >
-            Next
-          </button>
-          <button
-            onClick={() => setCurrentPage(totalPages)}
-            disabled={currentPage === totalPages}
-            className="px-3 py-1 text-sm border rounded disabled:opacity-50 hover:bg-gray-50"
-            aria-label="Last page"
-          >
-            Last
-          </button>
-        </nav>
-      )}
-    </div>
+      {/* Clear All */}
+      <button
+        onClick={clearAllFilters}
+        className="w-full px-3 py-2 text-sm text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg border border-gray-200 font-medium"
+      >
+        Clear All Filters
+      </button>
+    </>
   );
 }
 
