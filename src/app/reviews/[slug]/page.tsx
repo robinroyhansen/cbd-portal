@@ -546,10 +546,10 @@ export default async function BrandReviewPage({ params }: Props) {
                         {criterion.name} — {criterion.score}/{criterion.max_points}
                       </h3>
                       {/* Sub-scores with stars */}
-                      {criterion.subcriteria && criterion.subcriteria.length > 0 && (
+                      {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores || {}).length > 0 && (
                         <div className="flex flex-wrap gap-x-4 gap-y-1 mb-3 pb-3 border-b border-gray-100">
                           {criterion.subcriteria.map(sub => {
-                            const subScore = criterion.sub_scores[sub.id] || 0;
+                            const subScore = criterion.sub_scores[sub.id] ?? 0;
                             return (
                               <span key={sub.id} className="inline-flex items-center gap-1 text-sm text-gray-600">
                                 <span>{sub.name}</span>
@@ -570,9 +570,52 @@ export default async function BrandReviewPage({ params }: Props) {
           ) : review.full_review && (
             <div className="bg-white rounded-xl border border-gray-200 p-8">
               <h2 className="text-xl font-bold text-gray-900 mb-6">Full Review</h2>
-              <MarkdownContent className="prose max-w-none prose-green prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-green-600">
-                {review.full_review}
-              </MarkdownContent>
+              {/* Parse full_review by section headers and add stars */}
+              <div className="space-y-8">
+                {(() => {
+                  // Split markdown by ## headers
+                  const sections = review.full_review.split(/(?=^## )/m).filter(Boolean);
+                  return sections.map((section, idx) => {
+                    // Extract header name (e.g., "Quality & Testing" from "## Quality & Testing — 8/20")
+                    const headerMatch = section.match(/^## ([^—\n]+)/);
+                    const headerName = headerMatch?.[1]?.trim();
+
+                    // Find matching criterion by name
+                    const criterion = headerName
+                      ? scoreBreakdown.find(c => c.name.toLowerCase() === headerName.toLowerCase())
+                      : null;
+
+                    // Remove the header line from section content (we'll render it ourselves)
+                    const contentWithoutHeader = section.replace(/^## [^\n]+\n*/, '');
+
+                    return (
+                      <div key={idx}>
+                        {headerName && criterion && (
+                          <>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                              {criterion.name} — {criterion.score}/{criterion.max_points}
+                            </h3>
+                            {/* Sub-scores with stars */}
+                            {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores || {}).length > 0 && (
+                              <div className="flex flex-wrap gap-x-4 gap-y-1 mb-3 pb-3 border-b border-gray-100">
+                                {criterion.subcriteria.map(sub => (
+                                  <span key={sub.id} className="inline-flex items-center gap-1 text-sm text-gray-600">
+                                    <span>{sub.name}</span>
+                                    <StarRating score={criterion.sub_scores[sub.id] ?? 0} maxScore={sub.max_points} />
+                                  </span>
+                                ))}
+                              </div>
+                            )}
+                          </>
+                        )}
+                        <MarkdownContent className="prose prose-sm max-w-none prose-green prose-p:text-gray-700">
+                          {stripMarkdownTables(contentWithoutHeader)}
+                        </MarkdownContent>
+                      </div>
+                    );
+                  });
+                })()}
+              </div>
             </div>
           )}
 
