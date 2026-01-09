@@ -110,17 +110,25 @@ export default async function GlossaryTermPage({ params }: Props) {
   const { slug } = await params;
   const supabase = await createClient();
 
-  // Fetch term with author info
-  const { data: term } = await supabase
+  // Fetch term
+  const { data: term, error } = await supabase
     .from('kb_glossary')
-    .select(`
-      *,
-      author:kb_authors(id, name, slug, title, avatar_url)
-    `)
+    .select('*')
     .eq('slug', slug)
     .single();
 
-  if (!term) notFound();
+  if (error || !term) notFound();
+
+  // Fetch author separately if author_id exists
+  let author = null;
+  if (term.author_id) {
+    const { data: authorData } = await supabase
+      .from('kb_authors')
+      .select('id, name, slug, title, avatar_url')
+      .eq('id', term.author_id)
+      .single();
+    author = authorData;
+  }
 
   // Get related terms
   let relatedTerms: { term: string; display_name: string; slug: string; short_definition: string; category: string }[] = [];
@@ -273,22 +281,22 @@ export default async function GlossaryTermPage({ params }: Props) {
 
           {/* Author & Last Updated Attribution */}
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-500 mb-6">
-            {term.author && (
+            {author && (
               <div className="flex items-center gap-2">
-                {term.author.avatar_url && (
+                {author.avatar_url && (
                   <img
-                    src={term.author.avatar_url}
-                    alt={term.author.name}
+                    src={author.avatar_url}
+                    alt={author.name}
                     className="w-6 h-6 rounded-full"
                   />
                 )}
                 <span>
                   Reviewed by{' '}
                   <Link
-                    href={`/authors/${term.author.slug}`}
+                    href={`/authors/${author.slug}`}
                     className="text-green-600 hover:text-green-700 hover:underline"
                   >
-                    {term.author.name}
+                    {author.name}
                   </Link>
                 </span>
               </div>
