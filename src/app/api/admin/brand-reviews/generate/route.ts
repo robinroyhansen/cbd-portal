@@ -39,16 +39,29 @@ const CERTIFICATIONS = [
   { id: 'iso_certified', name: 'ISO Certified', keywords: ['iso certified', 'iso 9001', 'iso certification'] },
 ];
 
+// Browser-like headers to avoid being blocked
+const BROWSER_HEADERS = {
+  'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'Accept-Language': 'en-US,en;q=0.5',
+  'Cache-Control': 'no-cache',
+  'Pragma': 'no-cache',
+};
+
+// Alternative headers if first attempt fails
+const ALT_HEADERS = {
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'en-US,en;q=0.9',
+};
+
 // Fetch Trustpilot data
 async function fetchTrustpilotData(brandName: string, websiteDomain: string): Promise<{ score: number; count: number } | null> {
   try {
     // Try to fetch Trustpilot page
     const searchUrl = `https://www.trustpilot.com/review/${websiteDomain}`;
     const response = await fetch(searchUrl, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; CBDPortal/1.0)',
-        'Accept': 'text/html',
-      },
+      headers: BROWSER_HEADERS,
       signal: AbortSignal.timeout(10000),
     });
 
@@ -56,13 +69,15 @@ async function fetchTrustpilotData(brandName: string, websiteDomain: string): Pr
 
     const html = await response.text();
 
-    // Extract rating from Trustpilot page
+    // Extract rating from Trustpilot page - multiple patterns
     const scoreMatch = html.match(/TrustScore[^\d]*(\d+\.?\d*)/i) ||
                        html.match(/"ratingValue":\s*"?(\d+\.?\d*)"?/i) ||
-                       html.match(/data-rating="(\d+\.?\d*)"/i);
+                       html.match(/data-rating="(\d+\.?\d*)"/i) ||
+                       html.match(/"score":\s*(\d+\.?\d*)/i);
 
-    const countMatch = html.match(/(\d+,?\d*)\s*reviews?/i) ||
-                       html.match(/"reviewCount":\s*"?(\d+,?\d*)"?/i);
+    const countMatch = html.match(/"numberOfReviews":\s*"?(\d+,?\d*)"?/i) ||
+                       html.match(/"reviewCount":\s*"?(\d+,?\d*)"?/i) ||
+                       html.match(/(\d+,?\d*)\s*reviews?/i);
 
     if (scoreMatch && countMatch) {
       return {
@@ -131,6 +146,30 @@ Write 2-3 paragraphs per category. No markdown formatting, no tables, no headers
 
 Return valid JSON only, no markdown code blocks.`;
 
+async function fetchSinglePage(pageUrl: string, headers: Record<string, string>): Promise<string | null> {
+  try {
+    const response = await fetch(pageUrl, {
+      headers,
+      signal: AbortSignal.timeout(10000),
+    });
+
+    if (response.ok) {
+      const html = await response.text();
+      const textContent = html
+        .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+        .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 10000);
+      return textContent;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 async function fetchWebsiteContent(url: string): Promise<string | null> {
   try {
     const urls = [
@@ -141,34 +180,23 @@ async function fetchWebsiteContent(url: string): Promise<string | null> {
       url.replace(/\/$/, '') + '/lab-reports',
       url.replace(/\/$/, '') + '/third-party-testing',
       url.replace(/\/$/, '') + '/certificates',
+      url.replace(/\/$/, '') + '/pages/lab-results',
+      url.replace(/\/$/, '') + '/pages/about',
     ];
 
     let combinedContent = '';
 
     for (const pageUrl of urls) {
-      try {
-        const response = await fetch(pageUrl, {
-          headers: {
-            'User-Agent': 'Mozilla/5.0 (compatible; CBDPortal/1.0; +https://cbd-portal.vercel.app)',
-            'Accept': 'text/html,application/xhtml+xml',
-          },
-          signal: AbortSignal.timeout(10000),
-        });
+      // Try with primary headers first
+      let content = await fetchSinglePage(pageUrl, BROWSER_HEADERS);
 
-        if (response.ok) {
-          const html = await response.text();
-          const textContent = html
-            .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-            .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '')
-            .replace(/<[^>]+>/g, ' ')
-            .replace(/\s+/g, ' ')
-            .trim()
-            .slice(0, 10000);
+      // If failed, try with alternative headers
+      if (!content) {
+        content = await fetchSinglePage(pageUrl, ALT_HEADERS);
+      }
 
-          combinedContent += `\n\n--- Content from ${pageUrl} ---\n${textContent}`;
-        }
-      } catch {
-        // Continue to next URL
+      if (content && content.length > 100) {
+        combinedContent += `\n\n--- Content from ${pageUrl} ---\n${content}`;
       }
     }
 
@@ -245,15 +273,16 @@ export async function POST(request: NextRequest) {
 
     // Fetch website content
     let websiteContent = '';
+    let websiteAccessible = true;
     if (brand.website_url) {
       websiteContent = await fetchWebsiteContent(brand.website_url) || '';
     }
 
-    if (!websiteContent || websiteContent.trim().length < 500) {
-      return NextResponse.json({
-        success: false,
-        error: 'Could not access brand website. Please try again later or add review information manually. Reviews cannot be generated without proper website research.'
-      }, { status: 400 });
+    // Soft requirement - warn but don't block if we have other data sources
+    const hasLimitedWebsiteData = !websiteContent || websiteContent.trim().length < 500;
+    if (hasLimitedWebsiteData) {
+      websiteAccessible = false;
+      console.log(`Warning: Limited website content for ${brand.name}. Will use available data.`);
     }
 
     // Extract domain from URL for Trustpilot lookup
@@ -310,6 +339,11 @@ ${subcriteriaList}`;
       ? `TRUSTPILOT: ${trustpilotData.score}/5 from ${trustpilotData.count.toLocaleString()} reviews`
       : 'TRUSTPILOT: No data found';
 
+    // Build website access warning
+    const websiteWarning = !websiteAccessible
+      ? `\nNOTE: Website was difficult to access during research. Score conservatively for areas that require website verification (transparency, lab reports). Focus on what IS available: Trustpilot data, brand description, and any content that was accessible. DO NOT mention access issues in the review text - write as if you researched the brand normally, just be conservative with scores.`
+      : '';
+
     // Build the user prompt
     const userPrompt = `Research and review this CBD brand:
 
@@ -320,10 +354,10 @@ ${brand.headquarters_country ? `LOCATION: ${brand.headquarters_country}` : ''}
 ${brand.founded_year ? `FOUNDED: ${brand.founded_year}` : ''}
 
 ${trustpilotInfo}
-${certificationInfo}
+${certificationInfo}${websiteWarning}
 
 WEBSITE CONTENT:
-${websiteContent}
+${websiteContent || 'Limited content available - use brand description and Trustpilot data.'}
 
 REVIEW CRITERIA - Score EACH sub-criterion individually:
 ${criteriaPrompt}
@@ -335,6 +369,7 @@ IMPORTANT:
 - Each section should be 2-3 paragraphs of prose - NO markdown headings or tables
 - The prose should explain WHY you gave those scores, with specific findings
 - For the "customer_experience" section, ALWAYS mention the Trustpilot rating if available (e.g., "${brand.name} has a X/5 rating on Trustpilot from Y reviews...")
+- NEVER mention "couldn't access" or "limited data" - write confidently about what you found
 
 Return ONLY valid JSON in this exact format:
 {
@@ -439,6 +474,7 @@ Return ONLY valid JSON in this exact format:
 
       return NextResponse.json({
         success: true,
+        warning: !websiteAccessible ? 'Website was difficult to access. Scores may be conservative.' : undefined,
         data: {
           ...generated,
           scores: validatedScores,
