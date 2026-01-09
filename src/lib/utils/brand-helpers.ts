@@ -1,3 +1,29 @@
+/**
+ * Get country flag emoji from ISO code
+ * Uses regional indicator symbols to create flag emoji
+ */
+export function getCountryFlag(code: string | null | undefined): string {
+  if (!code || code.length !== 2) return '';
+
+  // Convert ISO code to regional indicator symbols
+  // A = 🇦 (U+1F1E6), B = 🇧 (U+1F1E7), etc.
+  const upperCode = code.toUpperCase();
+  const firstChar = 0x1F1E6 + (upperCode.charCodeAt(0) - 65);
+  const secondChar = 0x1F1E6 + (upperCode.charCodeAt(1) - 65);
+
+  return String.fromCodePoint(firstChar, secondChar);
+}
+
+/**
+ * Get country name with flag emoji
+ */
+export function getCountryWithFlag(code: string | null | undefined): string {
+  if (!code) return '';
+  const flag = getCountryFlag(code);
+  const name = getCountryName(code);
+  return flag ? `${flag} ${name}` : name;
+}
+
 // ISO 3166-1 alpha-2 country codes with display names
 export const COUNTRIES = [
   { code: 'US', name: 'United States' },

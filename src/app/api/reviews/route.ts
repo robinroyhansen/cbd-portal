@@ -110,6 +110,7 @@ export async function GET(request: NextRequest) {
           website_url,
           logo_url,
           short_description,
+          headquarters_country,
           is_published
         ),
         kb_authors (

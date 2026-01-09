@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import ReactMarkdown from 'react-markdown';
-import { getDomainFromUrl, getCountryName } from '@/lib/utils/brand-helpers';
+import { getDomainFromUrl, getCountryWithFlag } from '@/lib/utils/brand-helpers';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -309,7 +309,7 @@ export default async function BrandReviewPage({ params }: Props) {
                 {brand.headquarters_country && (
                   <>
                     <span className="text-gray-300">•</span>
-                    <span className="text-sm">{getCountryName(brand.headquarters_country)}</span>
+                    <span className="text-sm">{getCountryWithFlag(brand.headquarters_country)}</span>
                   </>
                 )}
                 {brand.founded_year && (

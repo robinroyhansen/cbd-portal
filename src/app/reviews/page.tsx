@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { getDomainFromUrl } from '@/lib/utils/brand-helpers';
+import { getDomainFromUrl, getCountryFlag } from '@/lib/utils/brand-helpers';
 
 interface Brand {
   id: string;
@@ -11,6 +11,7 @@ interface Brand {
   website_url: string | null;
   logo_url: string | null;
   short_description: string | null;
+  headquarters_country: string | null;
 }
 
 interface Author {
@@ -204,9 +205,14 @@ export default function ReviewsIndexPage() {
                       <h2 className="text-lg font-semibold text-gray-900 group-hover:text-green-600 transition-colors truncate">
                         {review.brand.name}
                       </h2>
-                      {review.brand.website_url && (
-                        <p className="text-sm text-gray-500 truncate">{getDomainFromUrl(review.brand.website_url)}</p>
-                      )}
+                      <p className="text-sm text-gray-500 truncate flex items-center gap-1">
+                        {review.brand.headquarters_country && (
+                          <span>{getCountryFlag(review.brand.headquarters_country)}</span>
+                        )}
+                        {review.brand.website_url && (
+                          <span>{getDomainFromUrl(review.brand.website_url)}</span>
+                        )}
+                      </p>
                     </div>
                   </div>
 

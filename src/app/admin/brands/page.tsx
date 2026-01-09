@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { COUNTRIES, getCountryName, getDomainFromUrl } from '@/lib/utils/brand-helpers';
+import { COUNTRIES, getCountryName, getCountryWithFlag, getDomainFromUrl } from '@/lib/utils/brand-helpers';
 
 interface Brand {
   id: string;
@@ -596,7 +596,7 @@ export default function AdminBrandsPage() {
                       <div>
                         <div className="font-medium text-gray-900">{brand.name}</div>
                         {brand.headquarters_country && (
-                          <div className="text-xs text-gray-500">{getCountryName(brand.headquarters_country)}</div>
+                          <div className="text-xs text-gray-500">{getCountryWithFlag(brand.headquarters_country)}</div>
                         )}
                       </div>
                     </div>
