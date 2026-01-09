@@ -1120,6 +1120,43 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
         </div>
       </div>
 
+      {/* Study Category Filter Cards */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3" role="group" aria-label="Filter by study category">
+        {[
+          { key: 'all' as StudyCategory, label: 'All Studies', icon: '📚', color: 'gray' },
+          { key: 'cbd' as StudyCategory, label: 'CBD Studies', icon: '💊', color: 'green' },
+          { key: 'cannabinoids' as StudyCategory, label: 'Cannabinoids', icon: '🧬', color: 'purple' },
+          { key: 'medical-cannabis' as StudyCategory, label: 'Medical Cannabis', icon: '🏥', color: 'blue' },
+          { key: 'cannabis' as StudyCategory, label: 'Cannabis Research', icon: '🌿', color: 'emerald' },
+        ].map(({ key, label, icon, color }) => {
+          const isActive = activeCategory === key;
+          const count = categoryStats[key];
+
+          const colorClasses = {
+            gray: isActive ? 'bg-gray-800 text-white border-gray-800' : 'bg-white text-gray-700 border-gray-200 hover:border-gray-400',
+            green: isActive ? 'bg-green-600 text-white border-green-600' : 'bg-white text-green-700 border-green-200 hover:border-green-400',
+            purple: isActive ? 'bg-purple-600 text-white border-purple-600' : 'bg-white text-purple-700 border-purple-200 hover:border-purple-400',
+            blue: isActive ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-blue-700 border-blue-200 hover:border-blue-400',
+            emerald: isActive ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white text-emerald-700 border-emerald-200 hover:border-emerald-400',
+          }[color];
+
+          return (
+            <button
+              key={key}
+              onClick={() => { setActiveCategory(key); setCurrentPage(1); }}
+              aria-pressed={isActive}
+              className={`flex flex-col items-center p-3 rounded-lg border-2 transition-all ${colorClasses}`}
+            >
+              <span className="text-2xl mb-1" aria-hidden="true">{icon}</span>
+              <span className="text-sm font-medium">{label}</span>
+              <span className={`text-lg font-bold ${isActive ? 'text-white' : ''}`}>
+                {count}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
       {/* Condition Quick Filters - Grouped by Category */}
       <div className="bg-white rounded-lg border border-gray-200 p-4">
         <div className="flex items-center justify-between mb-4">
