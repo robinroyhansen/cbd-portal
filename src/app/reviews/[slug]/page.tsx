@@ -101,6 +101,23 @@ const CERTIFICATION_LABELS: Record<string, { name: string; icon: string }> = {
   'iso_certified': { name: 'ISO Certified', icon: '📜' },
 };
 
+// Strip markdown tables from section content (stars are now displayed via React components)
+function stripMarkdownTables(text: string): string {
+  // Remove markdown table lines (lines starting with | or containing |---|)
+  return text
+    .split('\n')
+    .filter(line => {
+      const trimmed = line.trim();
+      // Skip table header/separator lines
+      if (trimmed.match(/^\|[\s\-:]+\|$/)) return false;
+      // Skip table rows
+      if (trimmed.startsWith('|') && trimmed.endsWith('|')) return false;
+      return true;
+    })
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n'); // Clean up extra newlines
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const supabase = await createClient();
@@ -543,7 +560,7 @@ export default async function BrandReviewPage({ params }: Props) {
                         </div>
                       )}
                       <MarkdownContent className="prose prose-sm max-w-none prose-green prose-p:text-gray-700">
-                        {sectionText}
+                        {stripMarkdownTables(sectionText)}
                       </MarkdownContent>
                     </div>
                   );
