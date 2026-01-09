@@ -21,7 +21,7 @@ export async function GET() {
     const { data: authors, error } = await supabase
       .from('kb_authors')
       .select('*')
-      .order('display_order', { ascending: true })
+      .order('is_primary', { ascending: false })
       .order('created_at', { ascending: false });
 
     if (error) {
