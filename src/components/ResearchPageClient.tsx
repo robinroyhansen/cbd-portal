@@ -1330,67 +1330,66 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
                   </div>
                 </div>
 
-                {/* Quality Score Range with Visual Slider */}
+                {/* Quality Score Range - Simple Inputs with Color Indicators */}
                 <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <label className="text-sm font-semibold text-gray-700">Quality Score</label>
-                    <span className={`text-sm font-medium px-2 py-0.5 rounded ${
-                      qualityRange.min >= 70 ? 'bg-green-100 text-green-700' :
-                      qualityRange.min >= 40 ? 'bg-yellow-100 text-yellow-700' :
-                      'bg-gray-100 text-gray-700'
-                    }`}>
-                      {qualityRange.min} – {qualityRange.max}
-                    </span>
-                  </div>
-                  {/* Gradient bar background */}
-                  <div className="relative h-3 rounded-full bg-gradient-to-r from-red-400 via-yellow-400 to-green-500 mb-2">
-                    {/* Selected range overlay */}
-                    <div
-                      className="absolute top-0 h-full bg-white/60 rounded-l-full"
-                      style={{ left: 0, width: `${qualityRange.min}%` }}
-                    />
-                    <div
-                      className="absolute top-0 h-full bg-white/60 rounded-r-full"
-                      style={{ right: 0, width: `${100 - qualityRange.max}%` }}
-                    />
-                  </div>
+                  <label className="text-sm font-semibold text-gray-700 block mb-2">Quality Score</label>
                   <div className="flex items-center gap-3">
-                    <div className="flex-1">
+                    {/* Min Quality Input */}
+                    <div className="flex items-center gap-2">
+                      <span
+                        className={`w-3 h-3 rounded-full shrink-0 ${
+                          qualityRange.min >= 70 ? 'bg-green-500' :
+                          qualityRange.min >= 40 ? 'bg-yellow-500' :
+                          'bg-red-400'
+                        }`}
+                        title={qualityRange.min >= 70 ? 'High quality' : qualityRange.min >= 40 ? 'Moderate quality' : 'Low quality'}
+                      />
                       <input
-                        type="range"
+                        type="number"
                         min={0}
                         max={100}
                         value={qualityRange.min}
                         onChange={(e) => {
-                          const newMin = parseInt(e.target.value);
+                          const newMin = Math.max(0, Math.min(100, parseInt(e.target.value) || 0));
                           setQualityRange(prev => ({ min: newMin, max: Math.max(newMin, prev.max) }));
                           setCurrentPage(1);
                         }}
-                        className="w-full h-2 bg-transparent appearance-none cursor-pointer accent-blue-600"
+                        className="w-16 px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-center"
                         aria-label="Minimum quality score"
                       />
                     </div>
-                    <span className="text-gray-400 text-xs">to</span>
-                    <div className="flex-1">
+                    <span className="text-gray-400 font-medium">to</span>
+                    {/* Max Quality Input */}
+                    <div className="flex items-center gap-2">
                       <input
-                        type="range"
+                        type="number"
                         min={0}
                         max={100}
                         value={qualityRange.max}
                         onChange={(e) => {
-                          const newMax = parseInt(e.target.value);
+                          const newMax = Math.max(0, Math.min(100, parseInt(e.target.value) || 100));
                           setQualityRange(prev => ({ min: Math.min(prev.min, newMax), max: newMax }));
                           setCurrentPage(1);
                         }}
-                        className="w-full h-2 bg-transparent appearance-none cursor-pointer accent-blue-600"
+                        className="w-16 px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-center"
                         aria-label="Maximum quality score"
+                      />
+                      <span
+                        className={`w-3 h-3 rounded-full shrink-0 ${
+                          qualityRange.max >= 70 ? 'bg-green-500' :
+                          qualityRange.max >= 40 ? 'bg-yellow-500' :
+                          'bg-red-400'
+                        }`}
+                        title={qualityRange.max >= 70 ? 'High quality' : qualityRange.max >= 40 ? 'Moderate quality' : 'Low quality'}
                       />
                     </div>
                   </div>
-                  <div className="flex justify-between text-xs text-gray-500 mt-1">
-                    <span>0 (Low)</span>
-                    <span>50</span>
-                    <span>100 (High)</span>
+                  <div className="text-xs text-gray-400 mt-1.5">
+                    <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-400"></span> 0-39</span>
+                    <span className="mx-2">·</span>
+                    <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-yellow-500"></span> 40-69</span>
+                    <span className="mx-2">·</span>
+                    <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-500"></span> 70-100</span>
                   </div>
                 </div>
               </div>
