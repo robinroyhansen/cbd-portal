@@ -1,13 +1,10 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeRaw from 'rehype-raw';
-import rehypeSlug from 'rehype-slug';
 import { headers } from 'next/headers';
 import { getArticleBySlug, getRelatedArticles } from '@/lib/articles';
 import { getLanguageFromHostname } from '@/lib/language';
+import { getGlossaryTermsForLinking } from '@/lib/glossary';
 import { AuthorBio, AuthorByline } from '@/components/AuthorBio';
 import { Citations, CitationCount } from '@/components/Citations';
 import { DateDisplay } from '@/components/DateDisplay';
@@ -21,6 +18,7 @@ import { YouMightAlsoLike } from '@/components/YouMightAlsoLike';
 import { Comments } from '@/components/Comments';
 import { TagList } from '@/components/TagList';
 import { getArticleTags } from '@/lib/tags';
+import { ArticleContent } from '@/components/ArticleContent';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -125,6 +123,9 @@ export default async function ArticlePage({ params }: Props) {
 
   // Get article tags
   const tags = await getArticleTags(article.id);
+
+  // Get glossary terms for auto-linking
+  const glossaryTerms = await getGlossaryTermsForLinking();
 
   // Extract FAQs from content
   const faqs = extractFAQs(article.content);
@@ -313,16 +314,11 @@ export default async function ArticlePage({ params }: Props) {
         </figure>
       )}
 
-      {/* Content */}
-      <div className="article-content">
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw, rehypeSlug]}
-        >
-          {/* Remove the first H1 from content since we already have an H1 in the template */}
-          {article.content.replace(/^#\s+[^\n]+\n\n?/, '')}
-        </ReactMarkdown>
-      </div>
+      {/* Content with auto-linked glossary terms */}
+      <ArticleContent
+        content={article.content}
+        glossaryTerms={glossaryTerms}
+      />
 
       {/* Enhanced Citations Component */}
       <Citations citations={article.citations || []} />

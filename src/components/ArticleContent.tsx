@@ -1,63 +1,165 @@
+'use client';
+
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import rehypeSlug from 'rehype-slug';
+import React from 'react';
 import { GlossaryTooltip } from './GlossaryTooltip';
-import { getGlossaryTerms } from '@/lib/glossary-linker';
+
+export interface GlossaryTerm {
+  term: string;
+  slug: string;
+  short_definition: string;
+  synonyms?: string[];
+}
 
 interface ArticleContentProps {
   content: string;
-  enableGlossary?: boolean;
+  glossaryTerms?: GlossaryTerm[];
 }
 
-export async function ArticleContent({ content, enableGlossary = true }: ArticleContentProps) {
-  let processedContent = content;
-  let glossaryTerms: Map<string, { slug: string; definition: string }> = new Map();
+export function ArticleContent({ content, glossaryTerms = [] }: ArticleContentProps) {
+  // Build a map of terms and their synonyms for quick lookup
+  const termMap = React.useMemo(() => {
+    const map = new Map<string, GlossaryTerm>();
 
-  if (enableGlossary) {
-    const terms = await getGlossaryTerms();
+    glossaryTerms.forEach(term => {
+      // Add main term
+      map.set(term.term.toLowerCase(), term);
 
-    // Build map for quick lookup
-    terms.forEach(t => {
-      glossaryTerms.set(t.term.toLowerCase(), {
-        slug: t.slug,
-        definition: t.short_definition
-      });
+      // Add synonyms
+      if (term.synonyms) {
+        term.synonyms.forEach(synonym => {
+          if (!map.has(synonym.toLowerCase())) {
+            map.set(synonym.toLowerCase(), term);
+          }
+        });
+      }
     });
 
-    // Sort terms by length (longest first)
-    const sortedTerms = [...terms].sort((a, b) => b.term.length - a.term.length);
+    return map;
+  }, [glossaryTerms]);
 
-    // Replace first occurrence of each term
-    const replacedTerms = new Set<string>();
+  // Sort terms by length (longest first) to match longer terms first
+  const sortedTerms = React.useMemo(() => {
+    return Array.from(termMap.keys()).sort((a, b) => b.length - a.length);
+  }, [termMap]);
 
-    for (const term of sortedTerms) {
-      if (replacedTerms.has(term.term.toLowerCase())) continue;
+  // Build regex pattern for all terms
+  const termPattern = React.useMemo(() => {
+    if (sortedTerms.length === 0) return null;
 
-      const regex = new RegExp(`\\b(${escapeRegex(term.term)})\\b`, 'i');
+    const escaped = sortedTerms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    return new RegExp(`\\b(${escaped.join('|')})\\b`, 'gi');
+  }, [sortedTerms]);
 
-      if (regex.test(processedContent)) {
-        processedContent = processedContent.replace(regex,
-          `<span class="glossary-term" data-slug="${term.slug}" data-definition="${escapeHtml(term.short_definition)}">$1</span>`
-        );
-        replacedTerms.add(term.term.toLowerCase());
-      }
+  // Track which terms have been linked (only link first occurrence)
+  const linkedTermsRef = React.useRef<Set<string>>(new Set());
+
+  // Reset linked terms on content change
+  React.useEffect(() => {
+    linkedTermsRef.current = new Set();
+  }, [content]);
+
+  // Process text to add glossary links
+  const processText = (text: string): React.ReactNode => {
+    if (!termPattern || glossaryTerms.length === 0) {
+      return text;
     }
-  }
+
+    const parts: React.ReactNode[] = [];
+    let lastIndex = 0;
+    let match;
+
+    // Reset regex
+    termPattern.lastIndex = 0;
+
+    while ((match = termPattern.exec(text)) !== null) {
+      const matchedText = match[0];
+      const termKey = matchedText.toLowerCase();
+
+      // Add text before match
+      if (match.index > lastIndex) {
+        parts.push(text.slice(lastIndex, match.index));
+      }
+
+      // Check if this term has already been linked
+      const termData = termMap.get(termKey);
+      if (termData && !linkedTermsRef.current.has(termData.term.toLowerCase())) {
+        // Mark as linked
+        linkedTermsRef.current.add(termData.term.toLowerCase());
+
+        // Add glossary tooltip
+        parts.push(
+          <GlossaryTooltip
+            key={`${match.index}-${matchedText}`}
+            term={termData.term}
+            slug={termData.slug}
+            definition={termData.short_definition}
+          >
+            {matchedText}
+          </GlossaryTooltip>
+        );
+      } else {
+        // Already linked or no data, just add the text
+        parts.push(matchedText);
+      }
+
+      lastIndex = match.index + matchedText.length;
+    }
+
+    // Add remaining text
+    if (lastIndex < text.length) {
+      parts.push(text.slice(lastIndex));
+    }
+
+    return parts.length > 0 ? parts : text;
+  };
+
+  // Custom text component that processes glossary terms
+  const TextComponent = ({ children }: { children?: React.ReactNode }) => {
+    if (typeof children === 'string') {
+      return <>{processText(children)}</>;
+    }
+    return <>{children}</>;
+  };
+
+  // Remove the first H1 from content since we already have an H1 in the template
+  const processedContent = content.replace(/^#\s+[^\n]+\n\n?/, '');
 
   return (
-    <div
-      className="prose prose-green max-w-none article-content"
-      dangerouslySetInnerHTML={{ __html: processedContent }}
-    />
+    <div className="article-content">
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw, rehypeSlug]}
+        components={{
+          // Process text in paragraphs
+          p: ({ children }) => (
+            <p>
+              {React.Children.map(children, child => {
+                if (typeof child === 'string') {
+                  return processText(child);
+                }
+                return child;
+              })}
+            </p>
+          ),
+          // Process text in list items
+          li: ({ children }) => (
+            <li>
+              {React.Children.map(children, child => {
+                if (typeof child === 'string') {
+                  return processText(child);
+                }
+                return child;
+              })}
+            </li>
+          ),
+        }}
+      >
+        {processedContent}
+      </ReactMarkdown>
+    </div>
   );
-}
-
-function escapeRegex(string: string): string {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function escapeHtml(string: string): string {
-  return string
-    .replace(/&/g, '&amp;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
 }
