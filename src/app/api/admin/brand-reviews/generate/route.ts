@@ -16,7 +16,7 @@ interface GeneratedScore {
 interface GeneratedReview {
   scores: GeneratedScore[];
   summary: string;
-  full_review: string;
+  section_content: Record<string, string>; // { criterion_id: "section text..." }
   pros: string[];
   cons: string[];
   verdict: string;
@@ -46,32 +46,13 @@ SCORING GUIDELINES:
 - Be conservative - if information is missing, give moderate/low scores
 - If you can't find something, say so: "I couldn't find any lab reports on their site"
 
-REVIEW STRUCTURE:
-The full_review MUST follow this exact structure for each category:
+SECTION CONTENT:
+For each scoring category, write 2-3 paragraphs of review text in first person. Do NOT include markdown headings or tables in the section text - just the prose explanation. The headings and sub-scores will be added automatically by the system.
 
-## [Category Name] — [Total Score]/[Max Points]
+Example section_content for "quality_testing":
+"I was pleasantly surprised by how easy it was to find CBDistillery's lab reports. They've got batch-specific COAs from ProVerde Labs right on each product page - no hunting required. That's exactly what I want to see.
 
-| Sub-criterion | Score |
-|---------------|-------|
-| [Sub-criterion 1] | [score]/[max] |
-| [Sub-criterion 2] | [score]/[max] |
-| ... |
-
-[2-3 paragraphs explaining the scores in first person, referencing specific findings]
-
-Example:
-## Quality & Testing — 14/20
-
-| Sub-criterion | Score |
-|---------------|-------|
-| Lab Testing Rigor | 4/5 |
-| Potency Accuracy | 4/5 |
-| Contaminant Free | 3/5 |
-| Extraction Quality | 3/5 |
-
-I was pleasantly surprised by how easy it was to find CBDistillery's lab reports. They've got batch-specific COAs from ProVerde Labs right on each product page - no hunting required. That's exactly what I want to see.
-
-Where they lose points is on the recency of some reports. A few products I checked had COAs that were several months old. In my experience, the best brands update these quarterly at minimum...
+Where they lose points is on the recency of some reports. A few products I checked had COAs that were several months old. In my experience, the best brands update these quarterly at minimum. The extraction method isn't clearly stated either, which left me with a few unanswered questions about their process."
 
 Return your response as valid JSON only, no markdown code blocks.`;
 
@@ -244,10 +225,9 @@ ${criteriaPrompt}
 IMPORTANT:
 - The "score" for each criterion MUST equal the sum of its sub_scores
 - Each sub_score must not exceed its max_points
-- The full_review MUST include a section for EACH of the 9 categories with:
-  1. Markdown heading with score: "## Category Name — X/Y"
-  2. Markdown table showing all sub-criterion scores
-  3. 2-3 paragraphs explaining WHY you gave those scores
+- Write section_content for EACH of the 9 categories (keyed by criterion_id)
+- Each section should be 2-3 paragraphs of prose - NO markdown headings or tables
+- The prose should explain WHY you gave those scores, with specific findings
 
 Return ONLY valid JSON in this exact format:
 {
@@ -255,7 +235,11 @@ Return ONLY valid JSON in this exact format:
     ${scoresStructure}
   ],
   "summary": "<2-3 sentence overview for listing pages - personal voice>",
-  "full_review": "<markdown with ALL 9 category sections, each with heading, sub-score table, and explanation paragraphs>",
+  "section_content": {
+    "<criterion_id_1>": "<2-3 paragraphs explaining this category's scores>",
+    "<criterion_id_2>": "<2-3 paragraphs explaining this category's scores>",
+    ... (one entry for each of the 9 criteria)
+  },
   "pros": ["<specific pro 1>", "<specific pro 2>", "<specific pro 3>", ...],
   "cons": ["<specific con 1>", "<specific con 2>", ...],
   "verdict": "<final recommendation in personal voice, 2-3 sentences>"
@@ -337,11 +321,22 @@ Return ONLY valid JSON in this exact format:
         };
       });
 
+      // Generate full_review from sections for backward compatibility
+      const fullReview = (criteria as Criterion[]).map(c => {
+        const score = validatedScores.find(s => s.criterion_id === c.id);
+        const sectionText = generated.section_content?.[c.id] || '';
+        const totalScore = score?.score || 0;
+
+        return `## ${c.name} — ${totalScore}/${c.max_points}\n\n${sectionText}`;
+      }).join('\n\n');
+
       return NextResponse.json({
         success: true,
         data: {
           ...generated,
-          scores: validatedScores
+          scores: validatedScores,
+          section_content: generated.section_content || {},
+          full_review: fullReview // Auto-generated from sections
         }
       });
     } catch (parseError) {

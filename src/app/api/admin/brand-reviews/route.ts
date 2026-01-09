@@ -115,6 +115,31 @@ export async function GET(request: NextRequest) {
   }
 }
 
+// Helper function to generate full_review from section_content
+async function generateFullReviewFromSections(
+  supabase: ReturnType<typeof createServiceClient>,
+  sectionContent: Record<string, string>,
+  scores: Array<{ criterion_id: string; score: number }>
+): Promise<string> {
+  // Fetch criteria to get names and max_points
+  const { data: criteria } = await supabase
+    .from('kb_review_criteria')
+    .select('id, name, max_points')
+    .order('display_order', { ascending: true });
+
+  if (!criteria) return '';
+
+  return criteria.map(c => {
+    const sectionText = sectionContent[c.id] || '';
+    const score = scores.find(s => s.criterion_id === c.id);
+    const totalScore = score?.score || 0;
+
+    if (!sectionText) return null;
+
+    return `## ${c.name} — ${totalScore}/${c.max_points}\n\n${sectionText}`;
+  }).filter(Boolean).join('\n\n');
+}
+
 // POST create new brand review
 export async function POST(request: NextRequest) {
   try {
@@ -126,6 +151,7 @@ export async function POST(request: NextRequest) {
       author_id,
       summary,
       full_review,
+      section_content,
       pros,
       cons,
       verdict,
@@ -151,6 +177,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'A review already exists for this brand' }, { status: 400 });
     }
 
+    // Auto-generate full_review from section_content if provided
+    let finalFullReview = full_review?.trim() || null;
+    if (section_content && Object.keys(section_content).length > 0 && scores) {
+      finalFullReview = await generateFullReviewFromSections(supabase, section_content, scores);
+    }
+
     // Create the review
     const { data: newReview, error } = await supabase
       .from('kb_brand_reviews')
@@ -158,7 +190,8 @@ export async function POST(request: NextRequest) {
         brand_id,
         author_id: author_id || null,
         summary: summary?.trim() || null,
-        full_review: full_review?.trim() || null,
+        full_review: finalFullReview,
+        section_content: section_content || {},
         pros: pros || [],
         cons: cons || [],
         verdict: verdict?.trim() || null,
@@ -225,7 +258,7 @@ export async function PATCH(request: NextRequest) {
   try {
     const supabase = createServiceClient();
     const body = await request.json();
-    const { id, scores, ...updates } = body;
+    const { id, scores, section_content, ...updates } = body;
 
     if (!id) {
       return NextResponse.json({ error: 'Review ID required' }, { status: 400 });
@@ -234,6 +267,16 @@ export async function PATCH(request: NextRequest) {
     // If publishing, set last_reviewed_at
     if (updates.is_published === true) {
       updates.last_reviewed_at = new Date().toISOString();
+    }
+
+    // If section_content is provided, store it and regenerate full_review
+    if (section_content !== undefined) {
+      updates.section_content = section_content;
+
+      // Auto-generate full_review from section_content
+      if (section_content && Object.keys(section_content).length > 0 && scores) {
+        updates.full_review = await generateFullReviewFromSections(supabase, section_content, scores);
+      }
     }
 
     // Update the review

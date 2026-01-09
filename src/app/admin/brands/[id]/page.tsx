@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import ReactMarkdown from 'react-markdown';
 import { ToneSlider, ToneType } from '@/components/admin/ToneSlider';
 import { AdjustReviewModal } from '@/components/admin/AdjustReviewModal';
 
@@ -81,6 +80,7 @@ interface Review {
   overall_score: number;
   summary: string | null;
   full_review: string | null;
+  section_content: Record<string, string> | null;
   pros: string[];
   cons: string[];
   verdict: string | null;
@@ -114,7 +114,7 @@ export default function BrandReviewEditorPage() {
   const [formData, setFormData] = useState({
     author_id: '',
     summary: '',
-    full_review: '',
+    section_content: {} as Record<string, string>,
     pros: [''],
     cons: [''],
     verdict: '',
@@ -189,11 +189,30 @@ export default function BrandReviewEditorPage() {
       if (reviewData.review) {
         setReview(reviewData.review);
 
+        // Handle section_content - use existing or try to extract from full_review for backward compatibility
+        let sectionContent = reviewData.review.section_content || {};
+
+        // If section_content is empty but full_review exists, try to extract sections
+        if (Object.keys(sectionContent).length === 0 && reviewData.review.full_review) {
+          const fullReview = reviewData.review.full_review;
+          reviewData.criteria?.forEach((c: Criterion) => {
+            const escapedName = c.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const sectionRegex = new RegExp(
+              `## ${escapedName}\\s*[—-]\\s*\\d+\\/\\d+\\n\\n([\\s\\S]*?)(?=## |$)`,
+              'i'
+            );
+            const match = fullReview.match(sectionRegex);
+            if (match && match[1]) {
+              sectionContent[c.id] = match[1].trim();
+            }
+          });
+        }
+
         // Populate form with existing review data
         setFormData({
           author_id: reviewData.review.author_id || '',
           summary: reviewData.review.summary || '',
-          full_review: reviewData.review.full_review || '',
+          section_content: sectionContent,
           pros: reviewData.review.pros?.length > 0 ? reviewData.review.pros : [''],
           cons: reviewData.review.cons?.length > 0 ? reviewData.review.cons : [''],
           verdict: reviewData.review.verdict || '',
@@ -286,7 +305,7 @@ export default function BrandReviewEditorPage() {
         ...(review ? { id: review.id } : { brand_id: brandId }),
         author_id: formData.author_id || null,
         summary: formData.summary.trim() || null,
-        full_review: formData.full_review.trim() || null,
+        section_content: formData.section_content,
         pros: formData.pros.filter(p => p.trim()),
         cons: formData.cons.filter(c => c.trim()),
         verdict: formData.verdict.trim() || null,
@@ -380,7 +399,7 @@ export default function BrandReviewEditorPage() {
       setFormData(prev => ({
         ...prev,
         summary: data.data.summary || prev.summary,
-        full_review: data.data.full_review || prev.full_review,
+        section_content: data.data.section_content || prev.section_content,
         pros: data.data.pros?.length > 0 ? data.data.pros : prev.pros,
         cons: data.data.cons?.length > 0 ? data.data.cons : prev.cons,
         verdict: data.data.verdict || prev.verdict
@@ -423,35 +442,25 @@ export default function BrandReviewEditorPage() {
   };
 
   const getChangedSections = (): string[] => {
-    return Object.keys(scores).filter(id => hasScoreChanged(id) && !dismissedWarnings.has(id));
+    return Object.keys(scores).filter(id =>
+      hasScoreChanged(id) &&
+      !dismissedWarnings.has(id) &&
+      formData.section_content[id]
+    );
   };
 
   const extractSectionText = (criterionId: string, criterionName: string): string => {
-    const fullReview = formData.full_review;
-    if (!fullReview) return '';
-
-    // Try to find the section by heading pattern: ## Category Name — X/Y
-    const escapedName = criterionName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const sectionRegex = new RegExp(
-      `(## ${escapedName}\\s*[—-]\\s*\\d+\\/\\d+[\\s\\S]*?)(?=## |$)`,
-      'i'
-    );
-    const match = fullReview.match(sectionRegex);
-    return match ? match[1].trim() : '';
+    return formData.section_content[criterionId] || '';
   };
 
   const updateSectionText = (criterionId: string, criterionName: string, newText: string) => {
-    const fullReview = formData.full_review;
-    if (!fullReview) return;
-
-    const escapedName = criterionName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const sectionRegex = new RegExp(
-      `(## ${escapedName}\\s*[—-]\\s*\\d+\\/\\d+[\\s\\S]*?)(?=## |$)`,
-      'gi'
-    );
-
-    const updatedReview = fullReview.replace(sectionRegex, newText + '\n\n');
-    setFormData(prev => ({ ...prev, full_review: updatedReview }));
+    setFormData(prev => ({
+      ...prev,
+      section_content: {
+        ...prev.section_content,
+        [criterionId]: newText
+      }
+    }));
   };
 
   const handleAdjustSection = async (criterionId: string, criterionName: string, maxPoints: number) => {
@@ -735,7 +744,7 @@ export default function BrandReviewEditorPage() {
       )}
 
       {/* Batch Rewrite Banner */}
-      {getChangedSections().length >= 2 && formData.full_review && (
+      {getChangedSections().length >= 2 && Object.keys(formData.section_content).length > 0 && (
         <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-lg flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center">
@@ -820,11 +829,27 @@ export default function BrandReviewEditorPage() {
             </div>
           )}
 
-          {/* Full Review */}
-          {formData.full_review && (
-            <div className="mb-6 prose max-w-none">
-              <h3 className="text-lg font-semibold mb-2">Full Review</h3>
-              <ReactMarkdown>{formData.full_review}</ReactMarkdown>
+          {/* Full Review - Section Based */}
+          {Object.keys(formData.section_content).length > 0 && (
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold mb-4">Full Review</h3>
+              <div className="space-y-6">
+                {criteria.map(c => {
+                  const sectionText = formData.section_content[c.id];
+                  if (!sectionText) return null;
+                  const score = scores[c.id]?.score || 0;
+                  return (
+                    <div key={c.id} className="border-l-4 border-green-200 pl-4">
+                      <h4 className="font-medium text-gray-900 mb-2">
+                        {c.name} — {score}/{c.max_points}
+                      </h4>
+                      <div className="prose prose-sm max-w-none text-gray-700 whitespace-pre-wrap">
+                        {sectionText}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           )}
 
@@ -876,7 +901,7 @@ export default function BrandReviewEditorPage() {
             <div className="space-y-6">
               {criteria.map(criterion => {
                 const scoreChange = getScoreChange(criterion.id);
-                const showWarning = hasScoreChanged(criterion.id) && !dismissedWarnings.has(criterion.id) && formData.full_review;
+                const showWarning = hasScoreChanged(criterion.id) && !dismissedWarnings.has(criterion.id) && formData.section_content[criterion.id];
                 const hasUndo = sectionHistory[criterion.id]?.length > 0;
 
                 return (
@@ -996,8 +1021,28 @@ export default function BrandReviewEditorPage() {
                     />
                   </div>
 
-                  {/* Adjust Review Section - Only show when score changed and review exists */}
-                  {formData.full_review && (hasScoreChanged(criterion.id) || hasUndo) && (
+                  {/* Section Text Editor */}
+                  <div className="mt-4">
+                    <label className="text-xs font-medium text-gray-500 mb-1 block">
+                      Review text for this section
+                    </label>
+                    <textarea
+                      value={formData.section_content[criterion.id] || ''}
+                      onChange={(e) => setFormData(prev => ({
+                        ...prev,
+                        section_content: {
+                          ...prev.section_content,
+                          [criterion.id]: e.target.value
+                        }
+                      }))}
+                      rows={4}
+                      className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-green-500"
+                      placeholder={`Write your review for ${criterion.name}...`}
+                    />
+                  </div>
+
+                  {/* Adjust Review Section - Only show when score changed and section text exists */}
+                  {formData.section_content[criterion.id] && (hasScoreChanged(criterion.id) || hasUndo) && (
                     <div className="mt-4 pt-4 border-t border-gray-100">
                       <div className="flex items-center justify-between gap-4">
                         {/* Tone Selector */}
@@ -1095,19 +1140,20 @@ export default function BrandReviewEditorPage() {
                 />
               </div>
 
-              {/* Full Review */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Full Review
-                  <span className="text-gray-500 font-normal ml-1">(supports markdown)</span>
-                </label>
-                <textarea
-                  value={formData.full_review}
-                  onChange={(e) => setFormData({ ...formData, full_review: e.target.value })}
-                  rows={12}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 font-mono text-sm"
-                  placeholder="Detailed review content with markdown formatting..."
-                />
+              {/* Note about section-based editing */}
+              <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                <div className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-blue-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <div>
+                    <p className="text-sm font-medium text-blue-800">Section-Based Review</p>
+                    <p className="text-sm text-blue-700 mt-1">
+                      The full review is composed from individual sections above. Edit each section text directly within its scoring category.
+                      The sections will be combined automatically with proper headings when the review is published.
+                    </p>
+                  </div>
+                </div>
               </div>
 
               {/* Pros */}

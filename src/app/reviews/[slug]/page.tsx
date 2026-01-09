@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
-import ReactMarkdown from 'react-markdown';
+import { CollapsibleScoreBreakdown } from '@/components/CollapsibleScoreBreakdown';
+import { MarkdownContent } from '@/components/MarkdownContent';
 import { getDomainFromUrl, getCountryWithFlag } from '@/lib/utils/brand-helpers';
 
 interface Props {
@@ -45,6 +46,7 @@ interface Review {
   overall_score: number;
   summary: string | null;
   full_review: string | null;
+  section_content: Record<string, string> | null;
   pros: string[];
   cons: string[];
   verdict: string | null;
@@ -71,14 +73,6 @@ function getScoreLabel(score: number): string {
   if (score >= 60) return 'Good';
   if (score >= 40) return 'Average';
   return 'Below Average';
-}
-
-function getScoreColor(score: number, maxPoints: number): string {
-  const percentage = (score / maxPoints) * 100;
-  if (percentage >= 80) return 'bg-green-500';
-  if (percentage >= 60) return 'bg-yellow-500';
-  if (percentage >= 40) return 'bg-orange-500';
-  return 'bg-red-500';
 }
 
 function getScoreBadgeColor(score: number): string {
@@ -172,6 +166,7 @@ export default async function BrandReviewPage({ params }: Props) {
       overall_score,
       summary,
       full_review,
+      section_content,
       pros,
       cons,
       verdict,
@@ -359,43 +354,8 @@ export default async function BrandReviewPage({ params }: Props) {
           {/* Score Breakdown */}
           <div className="bg-white rounded-xl border border-gray-200 p-8">
             <h2 className="text-xl font-bold text-gray-900 mb-6">Score Breakdown</h2>
-            <div className="space-y-6">
-              {scoreBreakdown.map(criterion => (
-                <div key={criterion.id} className="border-b border-gray-100 pb-6 last:border-0 last:pb-0">
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-2">
-                      <span className="font-medium text-gray-900">{criterion.name}</span>
-                      <span className="text-sm text-gray-400">({criterion.max_points} pts max)</span>
-                    </div>
-                    <span className="font-bold text-gray-900">
-                      {criterion.score}/{criterion.max_points}
-                    </span>
-                  </div>
-                  <div className="bg-gray-100 rounded-full h-3 overflow-hidden mb-3">
-                    <div
-                      className={`h-full rounded-full transition-all ${getScoreColor(criterion.score, criterion.max_points)}`}
-                      style={{ width: `${(criterion.score / criterion.max_points) * 100}%` }}
-                    />
-                  </div>
-                  {/* Sub-scores */}
-                  {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores).length > 0 && (
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 mt-3">
-                      {criterion.subcriteria.map(sub => (
-                        <div key={sub.id} className="bg-gray-50 rounded-lg px-3 py-2">
-                          <div className="text-xs text-gray-500 truncate" title={sub.name}>{sub.name}</div>
-                          <div className="text-sm font-medium text-gray-900">
-                            {criterion.sub_scores[sub.id] ?? 0}/{sub.max_points}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  {criterion.description && (
-                    <p className="text-sm text-gray-500 mt-2">{criterion.description}</p>
-                  )}
-                </div>
-              ))}
-            </div>
+            <p className="text-sm text-gray-500 mb-4">Click on a category to see sub-scores and details</p>
+            <CollapsibleScoreBreakdown scoreBreakdown={scoreBreakdown} />
           </div>
 
           {/* Pros and Cons */}
@@ -437,13 +397,33 @@ export default async function BrandReviewPage({ params }: Props) {
             </div>
           )}
 
-          {/* Full Review */}
-          {review.full_review && (
+          {/* Full Review - Section Based */}
+          {(review.section_content && Object.keys(review.section_content).length > 0) ? (
             <div className="bg-white rounded-xl border border-gray-200 p-8">
               <h2 className="text-xl font-bold text-gray-900 mb-6">Full Review</h2>
-              <div className="prose max-w-none prose-green prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-green-600">
-                <ReactMarkdown>{review.full_review}</ReactMarkdown>
+              <div className="space-y-8">
+                {scoreBreakdown.map(criterion => {
+                  const sectionText = (review.section_content as Record<string, string>)[criterion.id];
+                  if (!sectionText) return null;
+                  return (
+                    <div key={criterion.id}>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100">
+                        {criterion.name} — {criterion.score}/{criterion.max_points}
+                      </h3>
+                      <MarkdownContent className="prose prose-sm max-w-none prose-green prose-p:text-gray-700">
+                        {sectionText}
+                      </MarkdownContent>
+                    </div>
+                  );
+                })}
               </div>
+            </div>
+          ) : review.full_review && (
+            <div className="bg-white rounded-xl border border-gray-200 p-8">
+              <h2 className="text-xl font-bold text-gray-900 mb-6">Full Review</h2>
+              <MarkdownContent className="prose max-w-none prose-green prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-green-600">
+                {review.full_review}
+              </MarkdownContent>
             </div>
           )}
 
