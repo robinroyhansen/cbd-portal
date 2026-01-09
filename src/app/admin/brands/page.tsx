@@ -33,6 +33,8 @@ export default function AdminBrandsPage() {
   const [formData, setFormData] = useState<Partial<Brand>>({});
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [researching, setResearching] = useState(false);
+  const [researchComplete, setResearchComplete] = useState(false);
 
   const fetchBrands = useCallback(async () => {
     setLoading(true);
@@ -75,6 +77,49 @@ export default function AdminBrandsPage() {
       is_published: false
     });
     setError(null);
+    setResearchComplete(false);
+  };
+
+  const handleResearch = async () => {
+    if (!formData.name || !formData.website_url) {
+      setError('Please enter brand name and website URL first');
+      return;
+    }
+
+    setResearching(true);
+    setError(null);
+
+    try {
+      const res = await fetch('/api/admin/brands/research', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          websiteUrl: formData.website_url
+        })
+      });
+
+      const data = await res.json();
+
+      if (!data.success) {
+        throw new Error(data.error || 'Research failed');
+      }
+
+      // Auto-populate fields from research
+      setFormData(prev => ({
+        ...prev,
+        website_domain: data.data.website_domain || prev.website_domain,
+        headquarters_country: data.data.headquarters_country || prev.headquarters_country,
+        founded_year: data.data.founded_year || prev.founded_year,
+        short_description: data.data.short_description || prev.short_description
+      }));
+
+      setResearchComplete(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to research brand');
+    } finally {
+      setResearching(false);
+    }
   };
 
   const handleEdit = (brand: Brand) => {
@@ -82,6 +127,7 @@ export default function AdminBrandsPage() {
     setIsCreating(false);
     setFormData({ ...brand });
     setError(null);
+    setResearchComplete(true); // Skip research step when editing
   };
 
   const handleCancel = () => {
@@ -89,6 +135,7 @@ export default function AdminBrandsPage() {
     setIsEditing(null);
     setFormData({});
     setError(null);
+    setResearchComplete(false);
   };
 
   const handleSave = async () => {
@@ -211,136 +258,225 @@ export default function AdminBrandsPage() {
             </div>
           )}
 
-          <div className="space-y-4">
-            <div className="grid md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Brand Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  value={formData.name || ''}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  placeholder="e.g., Charlotte's Web"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Headquarters Country
-                </label>
-                <input
-                  type="text"
-                  value={formData.headquarters_country || ''}
-                  onChange={(e) => setFormData({ ...formData, headquarters_country: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  placeholder="e.g., USA"
-                />
-              </div>
-            </div>
+          {/* Step 1: Basic info for new brands */}
+          {isCreating && !researchComplete && (
+            <div className="space-y-4">
+              <p className="text-sm text-gray-600 mb-4">
+                Enter the brand name and website, then click &quot;Fetch Brand Info&quot; to auto-populate details using AI.
+              </p>
 
-            <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Brand Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.name || ''}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    placeholder="e.g., Charlotte's Web"
+                    disabled={researching}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Website URL <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="url"
+                    value={formData.website_url || ''}
+                    onChange={(e) => setFormData({ ...formData, website_url: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    placeholder="https://charlottesweb.com"
+                    disabled={researching}
+                  />
+                </div>
+              </div>
+
+              <div className="flex justify-end gap-3 pt-4 border-t">
+                <button
+                  onClick={handleCancel}
+                  disabled={researching}
+                  className="px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 disabled:opacity-50"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleResearch}
+                  disabled={researching || !formData.name || !formData.website_url}
+                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 flex items-center gap-2"
+                >
+                  {researching ? (
+                    <>
+                      <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Researching...
+                    </>
+                  ) : (
+                    <>Fetch Brand Info</>
+                  )}
+                </button>
+                <button
+                  onClick={() => setResearchComplete(true)}
+                  disabled={researching}
+                  className="px-4 py-2 text-gray-600 hover:text-gray-800 disabled:opacity-50"
+                >
+                  Skip
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Step 2: Full form after research or when editing */}
+          {(researchComplete || isEditing) && (
+            <div className="space-y-4">
+              {isCreating && (
+                <div className="p-3 bg-green-50 border border-green-200 rounded-lg text-green-800 text-sm mb-4">
+                  Review the auto-populated information below and make any corrections before creating the brand.
+                </div>
+              )}
+
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Brand Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.name || ''}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    placeholder="e.g., Charlotte's Web"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Headquarters Country
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.headquarters_country || ''}
+                    onChange={(e) => setFormData({ ...formData, headquarters_country: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    placeholder="e.g., USA"
+                  />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Website URL
+                    <span className="text-gray-500 font-normal ml-1">(internal use only)</span>
+                  </label>
+                  <input
+                    type="url"
+                    value={formData.website_url || ''}
+                    onChange={(e) => setFormData({ ...formData, website_url: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    placeholder="https://charlottesweb.com"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Website Domain
+                    <span className="text-gray-500 font-normal ml-1">(display text, not a link)</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.website_domain || ''}
+                    onChange={(e) => setFormData({ ...formData, website_domain: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    placeholder="charlottesweb.com"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">Auto-extracted from URL if left blank</p>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Logo URL
+                    <span className="text-gray-500 font-normal ml-1">(manual upload)</span>
+                  </label>
+                  <input
+                    type="url"
+                    value={formData.logo_url || ''}
+                    onChange={(e) => setFormData({ ...formData, logo_url: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    placeholder="https://example.com/logo.png"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Founded Year
+                  </label>
+                  <input
+                    type="number"
+                    value={formData.founded_year || ''}
+                    onChange={(e) => setFormData({ ...formData, founded_year: e.target.value ? parseInt(e.target.value) : undefined })}
+                    min={1900}
+                    max={new Date().getFullYear()}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    placeholder="e.g., 2014"
+                  />
+                </div>
+              </div>
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Website URL
-                  <span className="text-gray-500 font-normal ml-1">(internal use only for AI research)</span>
+                  Short Description
                 </label>
-                <input
-                  type="url"
-                  value={formData.website_url || ''}
-                  onChange={(e) => setFormData({ ...formData, website_url: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  placeholder="https://charlottesweb.com"
+                <textarea
+                  value={formData.short_description || ''}
+                  onChange={(e) => setFormData({ ...formData, short_description: e.target.value })}
+                  rows={3}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 resize-y"
+                  placeholder="Brief description of the brand..."
                 />
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Website Domain
-                  <span className="text-gray-500 font-normal ml-1">(display text, not a link)</span>
-                </label>
+
+              <div className="flex items-center">
                 <input
-                  type="text"
-                  value={formData.website_domain || ''}
-                  onChange={(e) => setFormData({ ...formData, website_domain: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  placeholder="charlottesweb.com"
+                  type="checkbox"
+                  id="is_published"
+                  checked={formData.is_published || false}
+                  onChange={(e) => setFormData({ ...formData, is_published: e.target.checked })}
+                  className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
                 />
-                <p className="text-xs text-gray-500 mt-1">Auto-extracted from URL if left blank</p>
+                <label htmlFor="is_published" className="ml-2 text-sm text-gray-700">
+                  Published (brand visible on public site)
+                </label>
+              </div>
+
+              <div className="flex justify-end gap-3 pt-4 border-t">
+                <button
+                  onClick={handleCancel}
+                  className="px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200"
+                >
+                  Cancel
+                </button>
+                {isCreating && (
+                  <button
+                    onClick={() => setResearchComplete(false)}
+                    className="px-4 py-2 text-blue-600 hover:text-blue-800"
+                  >
+                    Back
+                  </button>
+                )}
+                <button
+                  onClick={handleSave}
+                  disabled={saving}
+                  className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50"
+                >
+                  {saving ? 'Saving...' : isCreating ? 'Create Brand' : 'Save Changes'}
+                </button>
               </div>
             </div>
-
-            <div className="grid md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Logo URL
-                  <span className="text-gray-500 font-normal ml-1">(manual upload)</span>
-                </label>
-                <input
-                  type="url"
-                  value={formData.logo_url || ''}
-                  onChange={(e) => setFormData({ ...formData, logo_url: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  placeholder="https://example.com/logo.png"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Founded Year
-                </label>
-                <input
-                  type="number"
-                  value={formData.founded_year || ''}
-                  onChange={(e) => setFormData({ ...formData, founded_year: e.target.value ? parseInt(e.target.value) : undefined })}
-                  min={1900}
-                  max={new Date().getFullYear()}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  placeholder="e.g., 2014"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Short Description
-              </label>
-              <textarea
-                value={formData.short_description || ''}
-                onChange={(e) => setFormData({ ...formData, short_description: e.target.value })}
-                rows={3}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 resize-y"
-                placeholder="Brief description of the brand..."
-              />
-            </div>
-
-            <div className="flex items-center">
-              <input
-                type="checkbox"
-                id="is_published"
-                checked={formData.is_published || false}
-                onChange={(e) => setFormData({ ...formData, is_published: e.target.checked })}
-                className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
-              />
-              <label htmlFor="is_published" className="ml-2 text-sm text-gray-700">
-                Published (brand visible on public site)
-              </label>
-            </div>
-
-            <div className="flex justify-end gap-3 pt-4 border-t">
-              <button
-                onClick={handleCancel}
-                className="px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleSave}
-                disabled={saving}
-                className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50"
-              >
-                {saving ? 'Saving...' : isCreating ? 'Create Brand' : 'Save Changes'}
-              </button>
-            </div>
-          </div>
+          )}
         </div>
       )}
 
