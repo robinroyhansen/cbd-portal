@@ -44,6 +44,7 @@ interface ResearchPageClientProps {
 type SortOption = 'quality' | 'year' | 'title' | 'relevance';
 type ViewMode = 'cards' | 'table' | 'timeline';
 type StudyCategory = 'all' | 'cbd' | 'cannabinoids' | 'cannabis' | 'medical-cannabis';
+type SubjectType = 'all' | 'human' | 'animal';
 
 // ============================================================================
 // CONDITION/TOPIC DEFINITIONS - Organized by Category
@@ -356,7 +357,7 @@ interface SavedFilters {
   selectedConditions: ConditionKey[];
   yearRange: { min: number; max: number };
   qualityRange: { min: number; max: number };
-  showHumanStudiesOnly: boolean;
+  subjectType: SubjectType;
   sortBy: SortOption;
   viewMode: ViewMode;
 }
@@ -942,7 +943,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
   const [qualityRange, setQualityRange] = useState<{ min: number; max: number }>({ min: 0, max: 100 });
   const [sortBy, setSortBy] = useState<SortOption>('quality');
   const [viewMode, setViewMode] = useState<ViewMode>('cards');
-  const [showHumanStudiesOnly, setShowHumanStudiesOnly] = useState(false);
+  const [subjectType, setSubjectType] = useState<SubjectType>('all');
   const [currentPage, setCurrentPage] = useState(1);
   const [urlInitialized, setUrlInitialized] = useState(false);
   const itemsPerPage = 20;
@@ -993,10 +994,16 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
       hasUrlFilters = true;
     }
 
-    // Handle human=1 parameter
+    // Handle subject type parameter
+    const urlSubject = searchParams.get('subject');
+    if (urlSubject === 'human' || urlSubject === 'animal') {
+      setSubjectType(urlSubject);
+      hasUrlFilters = true;
+    }
+    // Also support legacy human=1 parameter
     const urlHuman = searchParams.get('human');
     if (urlHuman === '1') {
-      setShowHumanStudiesOnly(true);
+      setSubjectType('human');
       hasUrlFilters = true;
     }
 
@@ -1011,7 +1018,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
         if (saved.selectedConditions) setSelectedConditions(saved.selectedConditions);
         if (saved.yearRange) setYearRange(saved.yearRange);
         if (saved.qualityRange) setQualityRange(saved.qualityRange);
-        if (saved.showHumanStudiesOnly !== undefined) setShowHumanStudiesOnly(saved.showHumanStudiesOnly);
+        if (saved.subjectType) setSubjectType(saved.subjectType);
         if (saved.sortBy) setSortBy(saved.sortBy);
         if (saved.viewMode) setViewMode(saved.viewMode);
       }
@@ -1033,11 +1040,11 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
     if (selectedStudyTypes.length === 1 && selectedStudyTypes[0] === StudyType.RANDOMIZED_CONTROLLED_TRIAL) {
       params.set('type', 'rct');
     }
-    if (showHumanStudiesOnly) params.set('human', '1');
+    if (subjectType !== 'all') params.set('subject', subjectType);
 
     const newUrl = params.toString() ? `/research?${params.toString()}` : '/research';
     window.history.replaceState({}, '', newUrl);
-  }, [activeCategory, selectedConditions, qualityRange, yearRange, searchQuery, urlInitialized, condition, dataYearRange.min, selectedStudyTypes, showHumanStudiesOnly]);
+  }, [activeCategory, selectedConditions, qualityRange, yearRange, searchQuery, urlInitialized, condition, dataYearRange.min, selectedStudyTypes, subjectType]);
 
   // Save filters when they change
   useEffect(() => {
@@ -1049,12 +1056,12 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
       selectedConditions,
       yearRange,
       qualityRange,
-      showHumanStudiesOnly,
+      subjectType,
       sortBy,
       viewMode
     };
     saveFilters(filters);
-  }, [searchQuery, activeCategory, selectedQualityTiers, selectedStudyTypes, selectedConditions, yearRange, qualityRange, showHumanStudiesOnly, sortBy, viewMode]);
+  }, [searchQuery, activeCategory, selectedQualityTiers, selectedStudyTypes, selectedConditions, yearRange, qualityRange, subjectType, sortBy, viewMode]);
 
   // Calculate quality metrics for all studies
   const studiesWithQuality = useMemo(() => {
@@ -1249,11 +1256,16 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
       study.qualityScore >= qualityRange.min && study.qualityScore <= qualityRange.max
     );
 
-    // Human studies filter
-    if (showHumanStudiesOnly) {
+    // Subject type filter (human/animal/all)
+    if (subjectType === 'human') {
       filtered = filtered.filter(study =>
         study.studyType !== StudyType.ANIMAL_STUDY &&
         study.studyType !== StudyType.IN_VITRO_STUDY
+      );
+    } else if (subjectType === 'animal') {
+      filtered = filtered.filter(study =>
+        study.studyType === StudyType.ANIMAL_STUDY ||
+        study.studyType === StudyType.IN_VITRO_STUDY
       );
     }
 
@@ -1274,7 +1286,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
     }
 
     return filtered;
-  }, [studiesWithQuality, activeCategory, selectedConditions, searchQuery, selectedQualityTiers, selectedStudyTypes, yearRange, qualityRange, sortBy, showHumanStudiesOnly]);
+  }, [studiesWithQuality, activeCategory, selectedConditions, searchQuery, selectedQualityTiers, selectedStudyTypes, yearRange, qualityRange, sortBy, subjectType]);
 
   // Pagination
   const totalPages = Math.ceil(filteredStudies.length / itemsPerPage);
@@ -1319,7 +1331,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
     setSelectedConditions([]);
     setYearRange(dataYearRange);
     setQualityRange({ min: 0, max: 100 });
-    setShowHumanStudiesOnly(false);
+    setSubjectType('all');
     setCurrentPage(1);
   };
 
@@ -1331,7 +1343,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
     selectedConditions.length,
     (yearRange.min !== dataYearRange.min || yearRange.max !== dataYearRange.max) ? 1 : 0,
     (qualityRange.min !== 0 || qualityRange.max !== 100) ? 1 : 0,
-    showHumanStudiesOnly ? 1 : 0
+    subjectType !== 'all' ? 1 : 0
   ].reduce((a, b) => a + b, 0);
 
   // Top 8 most relevant conditions for collapsed view
@@ -1356,9 +1368,10 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
     if (qualityRange.min > 0 || qualityRange.max < 100) {
       labels.push(`Quality ${qualityRange.min}-${qualityRange.max}`);
     }
-    if (showHumanStudiesOnly) labels.push('Human only');
+    if (subjectType === 'human') labels.push('Human only');
+    if (subjectType === 'animal') labels.push('Animal only');
     return labels;
-  }, [activeCategory, selectedConditions, yearRange, qualityRange, showHumanStudiesOnly, dataYearRange]);
+  }, [activeCategory, selectedConditions, yearRange, qualityRange, subjectType, dataYearRange]);
 
   return (
     <div className="space-y-4">
@@ -1490,8 +1503,8 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
                 selectedStudyTypes={selectedStudyTypes}
                 toggleStudyType={toggleStudyType}
                 availableStudyTypes={availableStudyTypes}
-                showHumanStudiesOnly={showHumanStudiesOnly}
-                setShowHumanStudiesOnly={setShowHumanStudiesOnly}
+                subjectType={subjectType}
+                setSubjectType={setSubjectType}
                 clearAllFilters={clearAllFilters}
                 setCurrentPage={setCurrentPage}
               />
@@ -1541,8 +1554,8 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
               selectedStudyTypes={selectedStudyTypes}
               toggleStudyType={toggleStudyType}
               availableStudyTypes={availableStudyTypes}
-              showHumanStudiesOnly={showHumanStudiesOnly}
-              setShowHumanStudiesOnly={setShowHumanStudiesOnly}
+              subjectType={subjectType}
+              setSubjectType={setSubjectType}
               clearAllFilters={clearAllFilters}
               setCurrentPage={setCurrentPage}
             />
@@ -1762,8 +1775,8 @@ interface FilterSidebarContentProps {
   selectedStudyTypes: StudyType[];
   toggleStudyType: (type: StudyType) => void;
   availableStudyTypes: StudyType[];
-  showHumanStudiesOnly: boolean;
-  setShowHumanStudiesOnly: (show: boolean) => void;
+  subjectType: SubjectType;
+  setSubjectType: (type: SubjectType) => void;
   clearAllFilters: () => void;
   setCurrentPage: (page: number) => void;
 }
@@ -1789,8 +1802,8 @@ function FilterSidebarContent({
   selectedStudyTypes,
   toggleStudyType,
   availableStudyTypes,
-  showHumanStudiesOnly,
-  setShowHumanStudiesOnly,
+  subjectType,
+  setSubjectType,
   clearAllFilters,
   setCurrentPage,
 }: FilterSidebarContentProps) {
@@ -1965,40 +1978,39 @@ function FilterSidebarContent({
         </div>
       </div>
 
-      {/* Quick Filters */}
+      {/* Subject Type Filter */}
       <div className="bg-white rounded-lg border border-gray-200 p-3">
-        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Quick Filters</h3>
-        <div className="space-y-2">
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox"
-              checked={showHumanStudiesOnly}
-              onChange={(e) => { setShowHumanStudiesOnly(e.target.checked); setCurrentPage(1); }}
-              className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-            />
-            <span className="text-sm">Human studies only</span>
-          </label>
+        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Subject Type</h3>
+        <div className="flex rounded-lg border border-gray-200 overflow-hidden">
           <button
-            onClick={() => {
-              setYearRange({ min: 2020, max: dataYearRange.max });
-              setCurrentPage(1);
-            }}
-            className={`w-full text-left px-3 py-2 text-sm rounded border ${
-              yearRange.min === 2020 ? 'bg-blue-50 border-blue-200 text-blue-700' : 'border-gray-200 hover:bg-gray-50'
+            onClick={() => { setSubjectType('all'); setCurrentPage(1); }}
+            className={`flex-1 px-3 py-2 text-sm font-medium transition-colors ${
+              subjectType === 'all'
+                ? 'bg-blue-600 text-white'
+                : 'bg-white text-gray-600 hover:bg-gray-50'
             }`}
           >
-            Recent studies (2020+)
+            All
           </button>
           <button
-            onClick={() => {
-              setQualityRange({ min: 70, max: 100 });
-              setCurrentPage(1);
-            }}
-            className={`w-full text-left px-3 py-2 text-sm rounded border ${
-              qualityRange.min === 70 ? 'bg-green-50 border-green-200 text-green-700' : 'border-gray-200 hover:bg-gray-50'
+            onClick={() => { setSubjectType('human'); setCurrentPage(1); }}
+            className={`flex-1 px-3 py-2 text-sm font-medium border-l border-gray-200 transition-colors ${
+              subjectType === 'human'
+                ? 'bg-blue-600 text-white'
+                : 'bg-white text-gray-600 hover:bg-gray-50'
             }`}
           >
-            High quality (70+)
+            Human
+          </button>
+          <button
+            onClick={() => { setSubjectType('animal'); setCurrentPage(1); }}
+            className={`flex-1 px-3 py-2 text-sm font-medium border-l border-gray-200 transition-colors ${
+              subjectType === 'animal'
+                ? 'bg-blue-600 text-white'
+                : 'bg-white text-gray-600 hover:bg-gray-50'
+            }`}
+          >
+            Animal
           </button>
         </div>
       </div>

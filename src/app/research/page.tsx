@@ -196,7 +196,7 @@ export default async function ResearchPage() {
           <div className="text-[10px] text-purple-600 leading-tight">High Quality</div>
         </Link>
         <Link
-          href="/research?type=rct&human=1"
+          href="/research?type=rct&subject=human"
           className="bg-gradient-to-br from-teal-50 to-teal-100 px-2 py-3 rounded-lg text-center border border-teal-200 hover:shadow-md hover:scale-105 transition-all cursor-pointer"
         >
           <div className="text-lg font-bold text-teal-700">{stats.rctCount}</div>
