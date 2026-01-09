@@ -25,7 +25,8 @@ export async function GET(request: NextRequest) {
             logo_url,
             headquarters_country,
             founded_year,
-            short_description
+            short_description,
+            certifications
           ),
           kb_authors (
             id,
@@ -158,6 +159,11 @@ export async function POST(request: NextRequest) {
       sources_researched,
       meta_title,
       meta_description,
+      trustpilot_score,
+      trustpilot_count,
+      google_score,
+      google_count,
+      certifications,
       scores // Array of { criterion_id, score, ai_reasoning, author_notes }
     } = body;
 
@@ -183,6 +189,14 @@ export async function POST(request: NextRequest) {
       finalFullReview = await generateFullReviewFromSections(supabase, section_content, scores);
     }
 
+    // Update brand certifications if provided
+    if (certifications && certifications.length > 0) {
+      await supabase
+        .from('kb_brands')
+        .update({ certifications })
+        .eq('id', brand_id);
+    }
+
     // Create the review
     const { data: newReview, error } = await supabase
       .from('kb_brand_reviews')
@@ -196,6 +210,10 @@ export async function POST(request: NextRequest) {
         cons: cons || [],
         verdict: verdict?.trim() || null,
         sources_researched: sources_researched || [],
+        trustpilot_score: trustpilot_score || null,
+        trustpilot_count: trustpilot_count || null,
+        google_score: google_score || null,
+        google_count: google_count || null,
         meta_title: meta_title?.trim() || null,
         meta_description: meta_description?.trim() || null,
         overall_score: 0,
@@ -258,7 +276,7 @@ export async function PATCH(request: NextRequest) {
   try {
     const supabase = createServiceClient();
     const body = await request.json();
-    const { id, scores, section_content, ...updates } = body;
+    const { id, scores, section_content, certifications, brand_id, ...updates } = body;
 
     if (!id) {
       return NextResponse.json({ error: 'Review ID required' }, { status: 400 });
@@ -277,6 +295,14 @@ export async function PATCH(request: NextRequest) {
       if (section_content && Object.keys(section_content).length > 0 && scores) {
         updates.full_review = await generateFullReviewFromSections(supabase, section_content, scores);
       }
+    }
+
+    // Update brand certifications if provided
+    if (certifications !== undefined && brand_id) {
+      await supabase
+        .from('kb_brands')
+        .update({ certifications })
+        .eq('id', brand_id);
     }
 
     // Update the review

@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { CollapsibleScoreBreakdown } from '@/components/CollapsibleScoreBreakdown';
 import { MarkdownContent } from '@/components/MarkdownContent';
-import { OverallStarRating } from '@/components/StarRating';
+import { StarRating, OverallStarRating } from '@/components/StarRating';
 import { getDomainFromUrl, getCountryWithFlag } from '@/lib/utils/brand-helpers';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cbd-portal.vercel.app';
@@ -33,6 +33,7 @@ interface Brand {
   headquarters_country: string | null; // ISO code
   founded_year: number | null;
   short_description: string | null;
+  certifications: string[] | null;
 }
 
 interface Author {
@@ -57,6 +58,10 @@ interface Review {
   meta_description: string | null;
   published_at: string | null;
   last_reviewed_at: string | null;
+  trustpilot_score: number | null;
+  trustpilot_count: number | null;
+  google_score: number | null;
+  google_count: number | null;
   kb_authors: Author | null;
   scoreBreakdown: ScoreBreakdown[];
 }
@@ -84,6 +89,17 @@ function getScoreBadgeColor(score: number): string {
   if (score >= 40) return 'bg-orange-100 text-orange-800 border-orange-200';
   return 'bg-red-100 text-red-800 border-red-200';
 }
+
+const CERTIFICATION_LABELS: Record<string, { name: string; icon: string }> = {
+  'gmp': { name: 'GMP Certified', icon: '🏭' },
+  'usda_organic': { name: 'USDA Organic', icon: '🌿' },
+  'us_hemp_authority': { name: 'US Hemp Authority', icon: '✓' },
+  'third_party_tested': { name: 'Third-Party Tested', icon: '🔬' },
+  'non_gmo': { name: 'Non-GMO', icon: '🌱' },
+  'vegan': { name: 'Vegan', icon: '🌿' },
+  'cruelty_free': { name: 'Cruelty-Free', icon: '🐰' },
+  'iso_certified': { name: 'ISO Certified', icon: '📜' },
+};
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -166,7 +182,7 @@ export default async function BrandReviewPage({ params }: Props) {
   // Fetch the review data from API-style query
   const { data: brand } = await supabase
     .from('kb_brands')
-    .select('id, name, slug, website_url, logo_url, headquarters_country, founded_year, short_description')
+    .select('id, name, slug, website_url, logo_url, headquarters_country, founded_year, short_description, certifications')
     .eq('slug', slug)
     .eq('is_published', true)
     .single();
@@ -191,6 +207,10 @@ export default async function BrandReviewPage({ params }: Props) {
       meta_description,
       published_at,
       last_reviewed_at,
+      trustpilot_score,
+      trustpilot_count,
+      google_score,
+      google_count,
       kb_authors (
         id,
         name,
@@ -360,6 +380,26 @@ export default async function BrandReviewPage({ params }: Props) {
                   )}
                 </div>
               </div>
+
+              {/* Trust Badges */}
+              {brand.certifications && brand.certifications.length > 0 && (
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {brand.certifications.map((cert: string) => {
+                    const certInfo = CERTIFICATION_LABELS[cert];
+                    if (!certInfo) return null;
+                    return (
+                      <span
+                        key={cert}
+                        className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-green-50 text-green-700 text-sm border border-green-200"
+                        title={certInfo.name}
+                      >
+                        <span>{certInfo.icon}</span>
+                        <span>{certInfo.name}</span>
+                      </span>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -376,11 +416,64 @@ export default async function BrandReviewPage({ params }: Props) {
             </div>
           )}
 
+          {/* Third-Party Reviews */}
+          {(review.trustpilot_score || review.google_score) && (
+            <div className="bg-white rounded-xl border border-gray-200 p-8">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">Customer Reviews</h2>
+              <p className="text-sm text-gray-500 mb-4">What customers are saying on third-party review platforms</p>
+              <div className="grid sm:grid-cols-2 gap-6">
+                {review.trustpilot_score && (
+                  <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#00B67A] rounded-lg flex items-center justify-center">
+                      <span className="text-white text-xl font-bold">★</span>
+                    </div>
+                    <div>
+                      <div className="text-sm text-gray-500">Trustpilot</div>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-2xl font-bold text-gray-900">{review.trustpilot_score}</span>
+                        <span className="text-gray-500">/5</span>
+                      </div>
+                      {review.trustpilot_count && (
+                        <div className="text-xs text-gray-400">
+                          Based on {review.trustpilot_count.toLocaleString()} reviews
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+                {review.google_score && (
+                  <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                    <div className="flex-shrink-0 w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
+                      <span className="text-white text-xl font-bold">G</span>
+                    </div>
+                    <div>
+                      <div className="text-sm text-gray-500">Google Reviews</div>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-2xl font-bold text-gray-900">{review.google_score}</span>
+                        <span className="text-gray-500">/5</span>
+                      </div>
+                      {review.google_count && (
+                        <div className="text-xs text-gray-400">
+                          Based on {review.google_count.toLocaleString()} reviews
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
           {/* Score Breakdown */}
           <div className="bg-white rounded-xl border border-gray-200 p-8">
             <h2 className="text-xl font-bold text-gray-900 mb-6">Score Breakdown</h2>
             <p className="text-sm text-gray-500 mb-4">Click on a category to see sub-scores and details</p>
             <CollapsibleScoreBreakdown scoreBreakdown={scoreBreakdown} />
+            <div className="mt-4 pt-4 border-t border-gray-100">
+              <Link href="/reviews/methodology" className="text-sm text-green-600 hover:text-green-700">
+                Learn about our 100-point scoring methodology →
+              </Link>
+            </div>
           </div>
 
           {/* Pros and Cons */}
@@ -432,9 +525,23 @@ export default async function BrandReviewPage({ params }: Props) {
                   if (!sectionText) return null;
                   return (
                     <div key={criterion.id}>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
                         {criterion.name} — {criterion.score}/{criterion.max_points}
                       </h3>
+                      {/* Sub-scores with stars */}
+                      {criterion.subcriteria && criterion.subcriteria.length > 0 && (
+                        <div className="flex flex-wrap gap-x-4 gap-y-1 mb-3 pb-3 border-b border-gray-100">
+                          {criterion.subcriteria.map(sub => {
+                            const subScore = criterion.sub_scores[sub.id] || 0;
+                            return (
+                              <span key={sub.id} className="inline-flex items-center gap-1 text-sm text-gray-600">
+                                <span>{sub.name}</span>
+                                <StarRating score={subScore} maxScore={sub.max_points} />
+                              </span>
+                            );
+                          })}
+                        </div>
+                      )}
                       <MarkdownContent className="prose prose-sm max-w-none prose-green prose-p:text-gray-700">
                         {sectionText}
                       </MarkdownContent>

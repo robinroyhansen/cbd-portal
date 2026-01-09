@@ -20,6 +20,74 @@ interface GeneratedReview {
   pros: string[];
   cons: string[];
   verdict: string;
+  trustpilot_score?: number;
+  trustpilot_count?: number;
+  google_score?: number;
+  google_count?: number;
+  certifications?: string[];
+}
+
+// Available certifications
+const CERTIFICATIONS = [
+  { id: 'gmp', name: 'GMP Certified', keywords: ['gmp', 'good manufacturing practice'] },
+  { id: 'usda_organic', name: 'USDA Organic', keywords: ['usda organic', 'certified organic'] },
+  { id: 'us_hemp_authority', name: 'US Hemp Authority', keywords: ['us hemp authority', 'u.s. hemp authority'] },
+  { id: 'third_party_tested', name: 'Third-Party Tested', keywords: ['third party tested', 'third-party tested', 'independent lab', 'coa', 'certificate of analysis'] },
+  { id: 'non_gmo', name: 'Non-GMO', keywords: ['non-gmo', 'non gmo', 'no gmo'] },
+  { id: 'vegan', name: 'Vegan', keywords: ['vegan', 'plant-based'] },
+  { id: 'cruelty_free', name: 'Cruelty-Free', keywords: ['cruelty free', 'cruelty-free', 'not tested on animals'] },
+  { id: 'iso_certified', name: 'ISO Certified', keywords: ['iso certified', 'iso 9001', 'iso certification'] },
+];
+
+// Fetch Trustpilot data
+async function fetchTrustpilotData(brandName: string, websiteDomain: string): Promise<{ score: number; count: number } | null> {
+  try {
+    // Try to fetch Trustpilot page
+    const searchUrl = `https://www.trustpilot.com/review/${websiteDomain}`;
+    const response = await fetch(searchUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; CBDPortal/1.0)',
+        'Accept': 'text/html',
+      },
+      signal: AbortSignal.timeout(10000),
+    });
+
+    if (!response.ok) return null;
+
+    const html = await response.text();
+
+    // Extract rating from Trustpilot page
+    const scoreMatch = html.match(/TrustScore[^\d]*(\d+\.?\d*)/i) ||
+                       html.match(/"ratingValue":\s*"?(\d+\.?\d*)"?/i) ||
+                       html.match(/data-rating="(\d+\.?\d*)"/i);
+
+    const countMatch = html.match(/(\d+,?\d*)\s*reviews?/i) ||
+                       html.match(/"reviewCount":\s*"?(\d+,?\d*)"?/i);
+
+    if (scoreMatch && countMatch) {
+      return {
+        score: parseFloat(scoreMatch[1]),
+        count: parseInt(countMatch[1].replace(/,/g, ''), 10)
+      };
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+// Detect certifications from website content
+function detectCertifications(websiteContent: string): string[] {
+  const content = websiteContent.toLowerCase();
+  const detected: string[] = [];
+
+  for (const cert of CERTIFICATIONS) {
+    if (cert.keywords.some(keyword => content.includes(keyword))) {
+      detected.push(cert.id);
+    }
+  }
+
+  return detected;
 }
 
 const SYSTEM_PROMPT = `You are an experienced CBD industry expert who has personally tested and reviewed dozens of CBD brands. Write reviews in first person with a personal, authentic voice - like a trusted friend who happens to be an expert.
@@ -189,6 +257,21 @@ export async function POST(request: NextRequest) {
       }, { status: 400 });
     }
 
+    // Extract domain from URL for Trustpilot lookup
+    let websiteDomain = '';
+    try {
+      const url = new URL(brand.website_url);
+      websiteDomain = url.hostname.replace('www.', '');
+    } catch {
+      websiteDomain = brand.website_domain || '';
+    }
+
+    // Fetch Trustpilot data in parallel with AI generation
+    const trustpilotPromise = fetchTrustpilotData(brand.name, websiteDomain);
+
+    // Detect certifications from website content
+    const detectedCertifications = detectCertifications(websiteContent);
+
     // Build detailed criteria prompt with all sub-criteria
     const criteriaPrompt = (criteria as Criterion[]).map(c => {
       const subcriteriaList = c.subcriteria?.map((s: SubCriterion) =>
@@ -215,6 +298,19 @@ ${subcriteriaList}`;
     }`;
     }).join(',\n    ');
 
+    // Wait for Trustpilot data
+    const trustpilotData = await trustpilotPromise;
+
+    // Build certification info for prompt
+    const certificationInfo = detectedCertifications.length > 0
+      ? `DETECTED CERTIFICATIONS: ${detectedCertifications.map(id => CERTIFICATIONS.find(c => c.id === id)?.name).join(', ')}`
+      : 'DETECTED CERTIFICATIONS: None found';
+
+    // Build Trustpilot info for prompt
+    const trustpilotInfo = trustpilotData
+      ? `TRUSTPILOT: ${trustpilotData.score}/5 from ${trustpilotData.count.toLocaleString()} reviews`
+      : 'TRUSTPILOT: No data found';
+
     // Build the user prompt
     const userPrompt = `Research and review this CBD brand:
 
@@ -223,6 +319,9 @@ WEBSITE: ${brand.website_url || 'Not provided'}
 ${brand.short_description ? `DESCRIPTION: ${brand.short_description}` : ''}
 ${brand.headquarters_country ? `LOCATION: ${brand.headquarters_country}` : ''}
 ${brand.founded_year ? `FOUNDED: ${brand.founded_year}` : ''}
+
+${trustpilotInfo}
+${certificationInfo}
 
 WEBSITE CONTENT:
 ${websiteContent}
@@ -236,6 +335,7 @@ IMPORTANT:
 - Write section_content for EACH of the 9 categories (keyed by criterion_id)
 - Each section should be 2-3 paragraphs of prose - NO markdown headings or tables
 - The prose should explain WHY you gave those scores, with specific findings
+- For the "customer_experience" section, ALWAYS mention the Trustpilot rating if available (e.g., "${brand.name} has a X/5 rating on Trustpilot from Y reviews...")
 
 Return ONLY valid JSON in this exact format:
 {
@@ -344,7 +444,10 @@ Return ONLY valid JSON in this exact format:
           ...generated,
           scores: validatedScores,
           section_content: generated.section_content || {},
-          full_review: fullReview // Auto-generated from sections
+          full_review: fullReview, // Auto-generated from sections
+          trustpilot_score: trustpilotData?.score || null,
+          trustpilot_count: trustpilotData?.count || null,
+          certifications: detectedCertifications
         }
       });
     } catch (parseError) {
