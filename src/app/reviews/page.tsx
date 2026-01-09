@@ -109,9 +109,16 @@ export default function ReviewsIndexPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               CBD Brand Reviews
             </h1>
-            <p className="text-xl text-green-100 max-w-2xl mx-auto">
-              Independent & unbiased reviews of CBD brands. We evaluate quality, transparency, value, and more using our comprehensive 100-point scoring system.
+            <p className="text-xl text-green-100 max-w-2xl mx-auto mb-4">
+              Independent, expert reviews of CBD brands using our comprehensive 100-point scoring system. We evaluate quality, transparency, value, and more.
             </p>
+            <Link
+              href="/reviews/methodology"
+              className="inline-flex items-center gap-1 text-green-200 hover:text-white transition-colors text-sm"
+            >
+              Learn how we score brands
+              <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
       </div>
@@ -252,9 +259,17 @@ export default function ReviewsIndexPage() {
         {/* Scoring System Info */}
         <div className="mt-16 bg-white rounded-xl border border-gray-200 p-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Our Scoring System</h2>
-          <p className="text-gray-600 text-center max-w-2xl mx-auto mb-8">
+          <p className="text-gray-600 text-center max-w-2xl mx-auto mb-4">
             Each brand is evaluated across 9 categories totaling 100 points. Our comprehensive review process ensures fair, consistent, and transparent evaluations.
           </p>
+          <div className="text-center mb-8">
+            <Link
+              href="/reviews/methodology"
+              className="text-green-600 hover:text-green-700 text-sm font-medium"
+            >
+              See our full review methodology →
+            </Link>
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               { name: 'Quality & Testing', points: 20, desc: 'Lab testing, potency, purity' },
