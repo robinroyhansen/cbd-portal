@@ -167,15 +167,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Get review
   const { data: review } = await supabase
     .from('kb_brand_reviews')
-    .select('overall_score, summary, meta_title, meta_description')
+    .select('overall_score, summary, meta_title, meta_description, last_reviewed_at, published_at')
     .eq('brand_id', brand.id)
     .eq('is_published', true)
     .single();
 
-  const currentYear = new Date().getFullYear();
+  // Determine review year: last_reviewed_at → published_at → current year
+  const reviewYear = review?.last_reviewed_at
+    ? new Date(review.last_reviewed_at).getFullYear()
+    : review?.published_at
+    ? new Date(review.published_at).getFullYear()
+    : new Date().getFullYear();
 
   // SEO-optimized title: curiosity-driven, don't reveal score (higher CTR)
-  const defaultTitle = `${brand.name} CBD Review ${currentYear}: Is It Worth It? (Honest Analysis)`;
+  const defaultTitle = `${brand.name} CBD Review ${reviewYear}: Is It Worth It? (Honest Analysis)`;
   const title = review?.meta_title || defaultTitle;
 
   // SEO-optimized description: curiosity-driven, 145-155 chars
@@ -276,6 +281,13 @@ export default async function BrandReviewPage({ params }: Props) {
   if (!review) {
     notFound();
   }
+
+  // Determine review year: last_reviewed_at → published_at → current year
+  const reviewYear = review.last_reviewed_at
+    ? new Date(review.last_reviewed_at).getFullYear()
+    : review.published_at
+    ? new Date(review.published_at).getFullYear()
+    : new Date().getFullYear();
 
   // Get criteria and scores
   const { data: criteria } = await supabase
@@ -463,7 +475,7 @@ export default async function BrandReviewPage({ params }: Props) {
             {/* Brand Info */}
             <div className="flex-1">
               <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-                {brand.name} Review
+                {brand.name} CBD Review {reviewYear}
               </h1>
 
               <div className="flex flex-wrap items-center gap-3 text-gray-500 mb-2">
