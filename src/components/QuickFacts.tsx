@@ -5,7 +5,6 @@ import { getCountryWithFlag } from '@/lib/utils/brand-helpers';
 interface QuickFactsProps {
   brand: {
     name: string;
-    website_url: string | null;
     headquarters_country: string | null;
     founded_year: number | null;
     certifications: string[] | null;
@@ -30,15 +29,6 @@ const CERTIFICATION_LABELS: Record<string, string> = {
   'eu_organic': 'EU Organic',
   'novel_food': 'Novel Food',
 };
-
-function getDomainFromUrl(url: string): string {
-  try {
-    const domain = new URL(url).hostname;
-    return domain.replace('www.', '');
-  } catch {
-    return url;
-  }
-}
 
 function getScoreLabel(score: number): string {
   if (score >= 80) return 'Excellent';
@@ -97,14 +87,6 @@ export function QuickFacts({ brand, review }: QuickFactsProps) {
     facts.push({
       label: 'Founded',
       value: brand.founded_year.toString(),
-    });
-  }
-
-  // Website (plain text, no link - SEO strategy)
-  if (brand.website_url) {
-    facts.push({
-      label: 'Website',
-      value: <span className="text-gray-700">{getDomainFromUrl(brand.website_url)}</span>,
     });
   }
 

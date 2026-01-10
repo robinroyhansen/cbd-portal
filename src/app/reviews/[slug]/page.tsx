@@ -556,7 +556,6 @@ export default async function BrandReviewPage({ params }: Props) {
               <QuickFacts
                 brand={{
                   name: brand.name,
-                  website_url: brand.website_url,
                   headquarters_country: brand.headquarters_country,
                   founded_year: brand.founded_year,
                   certifications: brand.certifications,

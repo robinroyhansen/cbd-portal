@@ -9,7 +9,8 @@ interface AutoLinkOptions {
 
 /**
  * Auto-links first mention of "Trustpilot" and "Google Reviews" in markdown text
- * Returns the modified text with links added
+ * Returns the modified text with standard markdown links
+ * Note: ReactMarkdown handles target="_blank" for external links automatically
  */
 export function autoLinkReviewPlatforms(text: string, options: AutoLinkOptions): string {
   const { brandName, trustpilotUrl } = options;
@@ -17,18 +18,18 @@ export function autoLinkReviewPlatforms(text: string, options: AutoLinkOptions):
 
   // Auto-link first mention of "Trustpilot"
   if (trustpilotUrl) {
-    // Match "Trustpilot" that's not already in a link
-    const trustpilotRegex = /(?<!\[)(?<!\()Trustpilot(?!\]|\))/i;
+    // Match "Trustpilot" that's not already in a link (not preceded by [ or followed by ])
+    const trustpilotRegex = /(?<!\[)Trustpilot(?!\])/i;
     result = result.replace(trustpilotRegex, (match) => {
-      return `[${match}](${trustpilotUrl}){:target="_blank" rel="noopener noreferrer"} ↗`;
+      return `[${match} ↗](${trustpilotUrl})`;
     });
   }
 
   // Auto-link first mention of "Google Reviews" or "Google reviews"
-  const googleReviewsRegex = /(?<!\[)(?<!\()Google [Rr]eviews?(?!\]|\))/;
+  const googleReviewsRegex = /(?<!\[)Google [Rr]eviews?(?!\])/;
   const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(brandName + ' reviews')}`;
   result = result.replace(googleReviewsRegex, (match) => {
-    return `[${match}](${googleSearchUrl}){:target="_blank" rel="noopener noreferrer"} ↗`;
+    return `[${match} ↗](${googleSearchUrl})`;
   });
 
   return result;
