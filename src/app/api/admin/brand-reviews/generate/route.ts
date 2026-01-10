@@ -346,8 +346,13 @@ WRITING STYLE:
 - NEVER use hedging: "appears to", "seems to", "may be"
 - NEVER start with "Additionally," "Furthermore," "Moreover,"
 
-ABOUT CONTENT:
-Write a factual 2-3 sentence intro. Include ONLY facts you were given: founded year, location, what they're known for.
+ABOUT CONTENT (REQUIRED):
+Write a factual 3-4 sentence company background. This is NOT a review - just facts:
+- When the company was founded (if known)
+- Where they're headquartered (country/city if known)
+- What products they specialize in
+- Any notable certifications or focus areas (organic, vegan, etc.)
+Example: "Raw Organics is a Swedish CBD company founded in 2018, headquartered in Stockholm. They specialize in handmade, vegan full-spectrum cannabis products including oils, gummies, and topicals. The company emphasizes organic ingredients and sustainable practices."
 
 SECTION CONTENT:
 Write 2-3 paragraphs per category. No markdown formatting - just prose.
@@ -557,7 +562,7 @@ Return ONLY valid JSON in this exact format:
     ${scoresStructure}
   ],
   "summary": "<2-3 sentence overview>",
-  "about_content": "<2-3 factual sentences using ONLY verified data above>",
+  "about_content": "<3-4 factual sentences: company background, founded year, location, products, certifications - NO opinions>",
   "section_content": {
     "<criterion_id_1>": "<2-3 paragraphs>",
     ... (one entry for each of the 9 criteria)
