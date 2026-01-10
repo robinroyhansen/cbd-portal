@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 
 interface Props {
   params: { slug: string };
@@ -264,18 +265,7 @@ Through this portal, Robin shares his decade-plus of practical experience to pro
 
       <div className="max-w-4xl mx-auto px-4 py-12">
         {/* Breadcrumbs */}
-        <nav className="mb-8">
-          <ol className="flex items-center space-x-2 text-sm text-gray-500">
-            {breadcrumbs.map((crumb, index) => (
-              <li key={crumb.url} className="flex items-center">
-                {index > 0 && <span className="mx-2">/</span>}
-                <Link href={crumb.url} className="hover:text-blue-600">
-                  {crumb.name}
-                </Link>
-              </li>
-            ))}
-          </ol>
-        </nav>
+        <Breadcrumbs items={breadcrumbs} />
 
         {/* Author header */}
         <div className="flex flex-col md:flex-row gap-8 mb-12">

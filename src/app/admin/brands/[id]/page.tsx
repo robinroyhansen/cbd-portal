@@ -426,16 +426,26 @@ export default function BrandReviewEditorPage() {
       setDismissedWarnings(new Set());
 
       // Update form data with generated content
-      setFormData(prev => ({
-        ...prev,
-        summary: data.data.summary || prev.summary,
-        section_content: data.data.section_content || prev.section_content,
-        pros: data.data.pros?.length > 0 ? data.data.pros : prev.pros,
-        cons: data.data.cons?.length > 0 ? data.data.cons : prev.cons,
-        verdict: data.data.verdict || prev.verdict,
-        meta_title: data.data.meta_title || prev.meta_title,
-        meta_description: data.data.meta_description || prev.meta_description
-      }));
+      // Use explicit checks for meta fields to ensure they're always set when provided
+      const apiMetaTitle = data.data?.meta_title;
+      const apiMetaDesc = data.data?.meta_description;
+
+      setFormData(prev => {
+        // Only use prev value if API value is null/undefined, not if it's empty string
+        const newMetaTitle = apiMetaTitle !== null && apiMetaTitle !== undefined ? apiMetaTitle : prev.meta_title;
+        const newMetaDesc = apiMetaDesc !== null && apiMetaDesc !== undefined ? apiMetaDesc : prev.meta_description;
+
+        return {
+          ...prev,
+          summary: data.data.summary || prev.summary,
+          section_content: data.data.section_content || prev.section_content,
+          pros: data.data.pros?.length > 0 ? data.data.pros : prev.pros,
+          cons: data.data.cons?.length > 0 ? data.data.cons : prev.cons,
+          verdict: data.data.verdict || prev.verdict,
+          meta_title: newMetaTitle,
+          meta_description: newMetaDesc
+        };
+      });
 
       setSuccessMessage('AI review generated successfully! Review and edit the content before saving.');
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1285,7 +1295,7 @@ export default function BrandReviewEditorPage() {
                 </label>
                 <select
                   value={formData.author_id}
-                  onChange={(e) => setFormData({ ...formData, author_id: e.target.value })}
+                  onChange={(e) => setFormData(prev => ({ ...prev, author_id: e.target.value }))}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
                 >
                   <option value="">Select an author</option>
@@ -1303,7 +1313,7 @@ export default function BrandReviewEditorPage() {
                 </label>
                 <textarea
                   value={formData.summary}
-                  onChange={(e) => setFormData({ ...formData, summary: e.target.value })}
+                  onChange={(e) => setFormData(prev => ({ ...prev, summary: e.target.value }))}
                   rows={3}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
                   placeholder="A 2-3 sentence summary of the review..."
@@ -1391,7 +1401,7 @@ export default function BrandReviewEditorPage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Verdict</label>
                 <textarea
                   value={formData.verdict}
-                  onChange={(e) => setFormData({ ...formData, verdict: e.target.value })}
+                  onChange={(e) => setFormData(prev => ({ ...prev, verdict: e.target.value }))}
                   rows={3}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
                   placeholder="Final verdict and recommendation..."
@@ -1412,19 +1422,19 @@ export default function BrandReviewEditorPage() {
                 </label>
                 <input
                   type="text"
-                  value={formData.meta_title}
-                  onChange={(e) => setFormData({ ...formData, meta_title: e.target.value })}
+                  value={formData.meta_title || ''}
+                  onChange={(e) => setFormData(prev => ({ ...prev, meta_title: e.target.value }))}
                   maxLength={70}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  placeholder={`${brand?.name} CBD Review ${new Date().getFullYear()}: Is It Worth Buying?`}
+                  placeholder="e.g., Brand CBD Review 2026: Is It Worth Buying?"
                 />
                 <div className={`text-xs mt-1 ${
-                  formData.meta_title.length > 60 ? 'text-red-600 font-medium' :
-                  formData.meta_title.length > 55 ? 'text-yellow-600' :
+                  (formData.meta_title || '').length > 60 ? 'text-red-600 font-medium' :
+                  (formData.meta_title || '').length > 55 ? 'text-yellow-600' :
                   'text-green-600'
                 }`}>
-                  {formData.meta_title.length}/60
-                  {formData.meta_title.length > 60 && ' (over limit!)'}
+                  {(formData.meta_title || '').length}/60
+                  {(formData.meta_title || '').length > 60 && ' (over limit!)'}
                 </div>
               </div>
 
@@ -1434,20 +1444,20 @@ export default function BrandReviewEditorPage() {
                   <span className="text-gray-500 font-normal ml-1">(max 155 chars)</span>
                 </label>
                 <textarea
-                  value={formData.meta_description}
-                  onChange={(e) => setFormData({ ...formData, meta_description: e.target.value })}
+                  value={formData.meta_description || ''}
+                  onChange={(e) => setFormData(prev => ({ ...prev, meta_description: e.target.value }))}
                   maxLength={165}
                   rows={2}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  placeholder={`We tested ${brand?.name} CBD products and analyzed their lab reports, pricing & reviews. See what we found...`}
+                  placeholder="e.g., We tested Brand CBD products and analyzed their lab reports..."
                 />
                 <div className={`text-xs mt-1 ${
-                  formData.meta_description.length > 155 ? 'text-red-600 font-medium' :
-                  formData.meta_description.length > 150 ? 'text-yellow-600' :
+                  (formData.meta_description || '').length > 155 ? 'text-red-600 font-medium' :
+                  (formData.meta_description || '').length > 150 ? 'text-yellow-600' :
                   'text-green-600'
                 }`}>
-                  {formData.meta_description.length}/155
-                  {formData.meta_description.length > 155 && ' (over limit!)'}
+                  {(formData.meta_description || '').length}/155
+                  {(formData.meta_description || '').length > 155 && ' (over limit!)'}
                 </div>
               </div>
             </div>

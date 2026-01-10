@@ -95,7 +95,8 @@ export default async function ConditionResearchPage({ params }: PageProps) {
       source_site: item.source_site || 'Research Database',
       source_type: 'research_queue' as const,
       relevant_topics: item.relevant_topics || [],
-      relevance_score: item.relevance_score || 50
+      relevance_score: item.relevance_score || 50,
+      slug: item.slug
     }));
 
     console.log(`[Research Page] Loaded ${allResearch.length} approved studies for condition: ${condition}`);

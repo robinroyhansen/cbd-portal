@@ -9,7 +9,6 @@ interface TOCItem {
 
 const TOC_ITEMS: TOCItem[] = [
   { id: 'summary', label: 'Summary' },
-  { id: 'about', label: 'About' },
   { id: 'score-breakdown', label: 'Score Breakdown' },
   { id: 'pros-cons', label: 'Pros & Cons' },
   { id: 'section-quality-testing', label: 'Quality & Testing' },

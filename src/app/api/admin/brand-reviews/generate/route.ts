@@ -655,24 +655,50 @@ Return ONLY valid JSON in this exact format:
       }).join('\n\n');
 
       // Auto-generate SEO meta fields
+      // META TITLE: 50-58 chars, format: "[Brand] CBD Review [Year]: [Short Hook]"
+      // META DESC: 140-152 chars, start with hook, mention quality/testing/verdict
       const currentYear = new Date().getFullYear();
-      const titleVariants = [
-        `${brand.name} CBD Review ${currentYear}: Is It Worth It? (Honest Analysis)`,
-        `${brand.name} Review ${currentYear}: Quality, Testing & Value Analyzed`,
-        `Is ${brand.name} Legit? Our In-Depth ${currentYear} CBD Review`,
-        `${brand.name} CBD Review: What You Need to Know Before Buying`,
-      ];
-      const titleIndex = brand.name.length % titleVariants.length;
-      const metaTitle = titleVariants[titleIndex];
+      const brandNameLen = brand.name.length;
 
-      const countryInfo = brand.headquarters_country ? ` this ${brand.headquarters_country} brand` : '';
-      const descVariants = [
-        `We tested ${brand.name} CBD products and analyzed their lab reports, pricing, and customer reviews. Here's what we found about${countryInfo}...`,
-        `Is ${brand.name} worth your money? Our independent review covers quality, testing transparency, and real customer experiences. See our verdict.`,
-        `Before buying ${brand.name} CBD, read our comprehensive review. We examine their testing practices, certifications, and whether they deliver on promises.`,
+      // Generate title variants that fit within 50-58 chars
+      // Base format: "[Brand] CBD Review [Year]: [Hook]" = brand + ~25 chars for " CBD Review 2026: "
+      // So hook should be ~(50-25-brand) to ~(58-25-brand) chars
+      const titleHooks = [
+        'Worth Your Money?',        // 17 chars
+        'Legit or Hype?',           // 14 chars
+        'Quality Tested',           // 14 chars
+        'Our Verdict',              // 11 chars
+        'Honest Review',            // 13 chars
       ];
-      const descIndex = (brand.name.length + 1) % descVariants.length;
-      const metaDescription = descVariants[descIndex];
+
+      // Pick hook based on brand name length to stay within limits
+      let hookIndex = 0;
+      const baseLen = brandNameLen + 18; // " CBD Review 2026: " = 18 chars
+      if (baseLen + 17 <= 58) hookIndex = 0; // Can fit longest hook
+      else if (baseLen + 14 <= 58) hookIndex = 1;
+      else if (baseLen + 13 <= 58) hookIndex = 4;
+      else hookIndex = 3; // Shortest hook
+
+      const metaTitle = `${brand.name} CBD Review ${currentYear}: ${titleHooks[hookIndex]}`;
+
+      // Generate description variants that fit within 140-152 chars
+      const descVariants = [
+        `Is ${brand.name} CBD worth it? We tested their products, verified lab reports, and analyzed customer feedback. Read our independent verdict.`,
+        `${brand.name} CBD review: We examine product quality, third-party testing, and real customer experiences. See if this brand delivers.`,
+        `Considering ${brand.name} CBD? Our expert review covers lab testing, product quality, and value. Find out if they meet our standards.`,
+      ];
+
+      // Pick description that fits within limits
+      let metaDescription = descVariants[0];
+      for (const desc of descVariants) {
+        if (desc.length >= 140 && desc.length <= 152) {
+          metaDescription = desc;
+          break;
+        }
+        if (desc.length <= 152) {
+          metaDescription = desc;
+        }
+      }
 
       // Build warning messages
       const warnings: string[] = [];

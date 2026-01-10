@@ -34,6 +34,7 @@ interface ResearchItem {
   source_type: 'research_queue' | 'citation';
   relevant_topics?: string[] | string;
   relevance_score?: number;
+  slug?: string;
 }
 
 interface ResearchPageClientProps {
@@ -2383,39 +2384,69 @@ function FilterSidebarContent({
 // ============================================================================
 
 function Breadcrumbs({ condition }: { condition?: string }) {
+  // Determine back link - if on condition page, go to research; if on research, go to home
+  const backLink = condition ? { href: '/research', label: 'Research' } : { href: '/', label: 'Home' };
+
   return (
-    <nav aria-label="Breadcrumb" className="text-sm">
-      <ol className="flex items-center gap-2" itemScope itemType="https://schema.org/BreadcrumbList">
-        <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-          <Link href="/" itemProp="item" className="text-gray-500 hover:text-gray-700">
-            <span itemProp="name">Home</span>
-          </Link>
-          <meta itemProp="position" content="1" />
-        </li>
-        <li className="text-gray-400" aria-hidden="true">/</li>
-        <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-          {condition ? (
-            <Link href="/research" itemProp="item" className="text-gray-500 hover:text-gray-700">
-              <span itemProp="name">Research</span>
+    <>
+      {/* Mobile: Simple back link */}
+      <nav aria-label="Back" className="sm:hidden text-sm mb-4">
+        <Link
+          href={backLink.href}
+          className="inline-flex items-center gap-1 text-gray-500 hover:text-green-600"
+        >
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+          {backLink.label}
+        </Link>
+      </nav>
+
+      {/* Desktop: Full breadcrumb path */}
+      <nav aria-label="Breadcrumb" className="hidden sm:block text-sm mb-6">
+        <ol className="flex items-center gap-2" itemScope itemType="https://schema.org/BreadcrumbList">
+          <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+            <Link href="/" itemProp="item" className="text-gray-500 hover:text-gray-700">
+              <span itemProp="name">Home</span>
             </Link>
-          ) : (
-            <span itemProp="name" className="text-gray-900 font-medium" aria-current="page">Research</span>
+            <meta itemProp="position" content="1" />
+          </li>
+          <li className="text-gray-400" aria-hidden="true">/</li>
+          <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+            {condition ? (
+              <Link href="/research" itemProp="item" className="text-gray-500 hover:text-gray-700">
+                <span itemProp="name">Research</span>
+              </Link>
+            ) : (
+              <span itemProp="name" className="text-gray-900 font-medium" aria-current="page">Research</span>
+            )}
+            <meta itemProp="position" content="2" />
+          </li>
+          {condition && CONDITIONS[condition as ConditionKey] && (
+            <>
+              <li className="text-gray-400" aria-hidden="true">/</li>
+              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                <span itemProp="name" className="text-gray-900 font-medium" aria-current="page">
+                  {CONDITIONS[condition as ConditionKey].label}
+                </span>
+                <meta itemProp="position" content="3" />
+              </li>
+            </>
           )}
-          <meta itemProp="position" content="2" />
-        </li>
-        {condition && CONDITIONS[condition as ConditionKey] && (
-          <>
-            <li className="text-gray-400" aria-hidden="true">/</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <span itemProp="name" className="text-gray-900 font-medium" aria-current="page">
-                {CONDITIONS[condition as ConditionKey].label}
-              </span>
-              <meta itemProp="position" content="3" />
-            </li>
-          </>
-        )}
-      </ol>
-    </nav>
+        </ol>
+      </nav>
+    </>
   );
 }
 
@@ -2473,7 +2504,13 @@ function ResearchCard({ study, onConditionClick }: { study: any; onConditionClic
         <span className="text-lg shrink-0" aria-hidden="true" title={study.studyType}>{studyTypeIcon}</span>
         <div className="flex-1 min-w-0">
           <h3 className="font-semibold text-sm leading-snug line-clamp-2" itemProp="name">
-            {study.title}
+            {study.slug ? (
+              <Link href={`/research/study/${study.slug}`} className="hover:text-green-600 transition-colors">
+                {study.title}
+              </Link>
+            ) : (
+              study.title
+            )}
           </h3>
           <p className="text-xs text-gray-500 mt-1 truncate">
             {study.authors?.split(',').slice(0, 2).join(', ')}{study.authors?.split(',').length > 2 ? ' et al.' : ''} • {study.year}
@@ -2632,19 +2669,32 @@ function ResearchCard({ study, onConditionClick }: { study: any; onConditionClic
               <span>Publication: {study.publication}</span>
             </div>
 
-            {/* View Full Study Button */}
-            <a
-              href={study.url}
-              itemProp="url"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-            >
-              View Full Study
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
+            {/* Action Buttons */}
+            <div className="flex flex-wrap gap-2">
+              {study.slug && (
+                <Link
+                  href={`/research/study/${study.slug}`}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                >
+                  Read Summary
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              )}
+              <a
+                href={study.url}
+                itemProp="url"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              >
+                View Original
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
           </div>
         )}
       </div>

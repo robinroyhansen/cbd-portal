@@ -18,10 +18,14 @@ const CATEGORY_INFO: Record<string, { label: string; icon: string; color: string
   terpenes: { label: 'Terpenes', icon: '🌿', color: 'emerald' },
   products: { label: 'Products', icon: '📦', color: 'blue' },
   extraction: { label: 'Extraction', icon: '🔬', color: 'purple' },
-  medical: { label: 'Medical', icon: '⚕️', color: 'red' },
+  science: { label: 'Science & Biology', icon: '🧠', color: 'indigo' },
+  research: { label: 'Research', icon: '📊', color: 'violet' },
+  'side-effects': { label: 'Side Effects', icon: '⚠️', color: 'amber' },
   conditions: { label: 'Conditions', icon: '🩺', color: 'orange' },
-  legal: { label: 'Legal', icon: '⚖️', color: 'slate' },
-  dosing: { label: 'Dosing', icon: '💊', color: 'cyan' }
+  testing: { label: 'Testing & Quality', icon: '🧪', color: 'teal' },
+  legal: { label: 'Legal & Compliance', icon: '⚖️', color: 'slate' },
+  dosing: { label: 'Dosing', icon: '💊', color: 'cyan' },
+  plant: { label: 'Plant & Cultivation', icon: '🌱', color: 'lime' }
 };
 
 const CATEGORY_COLORS: Record<string, { bg: string; text: string }> = {
@@ -29,10 +33,14 @@ const CATEGORY_COLORS: Record<string, { bg: string; text: string }> = {
   terpenes: { bg: 'bg-emerald-100', text: 'text-emerald-700' },
   products: { bg: 'bg-blue-100', text: 'text-blue-700' },
   extraction: { bg: 'bg-purple-100', text: 'text-purple-700' },
-  medical: { bg: 'bg-red-100', text: 'text-red-700' },
+  science: { bg: 'bg-indigo-100', text: 'text-indigo-700' },
+  research: { bg: 'bg-violet-100', text: 'text-violet-700' },
+  'side-effects': { bg: 'bg-amber-100', text: 'text-amber-700' },
   conditions: { bg: 'bg-orange-100', text: 'text-orange-700' },
+  testing: { bg: 'bg-teal-100', text: 'text-teal-700' },
   legal: { bg: 'bg-slate-100', text: 'text-slate-700' },
-  dosing: { bg: 'bg-cyan-100', text: 'text-cyan-700' }
+  dosing: { bg: 'bg-cyan-100', text: 'text-cyan-700' },
+  plant: { bg: 'bg-lime-100', text: 'text-lime-700' }
 };
 
 // Cannabinoid slugs that should link to research

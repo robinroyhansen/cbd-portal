@@ -28,10 +28,14 @@ const CATEGORIES = [
   { key: 'terpenes', label: 'Terpenes', icon: '🌿', color: 'emerald' },
   { key: 'products', label: 'Products', icon: '📦', color: 'blue' },
   { key: 'extraction', label: 'Extraction', icon: '🔬', color: 'purple' },
-  { key: 'medical', label: 'Medical', icon: '⚕️', color: 'red' },
+  { key: 'science', label: 'Science & Biology', icon: '🧠', color: 'indigo' },
+  { key: 'research', label: 'Research', icon: '📊', color: 'violet' },
+  { key: 'side-effects', label: 'Side Effects', icon: '⚠️', color: 'amber' },
   { key: 'conditions', label: 'Conditions', icon: '🩺', color: 'orange' },
-  { key: 'legal', label: 'Legal', icon: '⚖️', color: 'slate' },
-  { key: 'dosing', label: 'Dosing', icon: '💊', color: 'cyan' }
+  { key: 'testing', label: 'Testing & Quality', icon: '🧪', color: 'teal' },
+  { key: 'legal', label: 'Legal & Compliance', icon: '⚖️', color: 'slate' },
+  { key: 'dosing', label: 'Dosing', icon: '💊', color: 'cyan' },
+  { key: 'plant', label: 'Plant & Cultivation', icon: '🌱', color: 'lime' }
 ];
 
 const CATEGORY_COLORS: Record<string, { bg: string; text: string; border: string }> = {
@@ -39,10 +43,14 @@ const CATEGORY_COLORS: Record<string, { bg: string; text: string; border: string
   terpenes: { bg: 'bg-emerald-100', text: 'text-emerald-700', border: 'border-emerald-200' },
   products: { bg: 'bg-blue-100', text: 'text-blue-700', border: 'border-blue-200' },
   extraction: { bg: 'bg-purple-100', text: 'text-purple-700', border: 'border-purple-200' },
-  medical: { bg: 'bg-red-100', text: 'text-red-700', border: 'border-red-200' },
+  science: { bg: 'bg-indigo-100', text: 'text-indigo-700', border: 'border-indigo-200' },
+  research: { bg: 'bg-violet-100', text: 'text-violet-700', border: 'border-violet-200' },
+  'side-effects': { bg: 'bg-amber-100', text: 'text-amber-700', border: 'border-amber-200' },
   conditions: { bg: 'bg-orange-100', text: 'text-orange-700', border: 'border-orange-200' },
+  testing: { bg: 'bg-teal-100', text: 'text-teal-700', border: 'border-teal-200' },
   legal: { bg: 'bg-slate-100', text: 'text-slate-700', border: 'border-slate-200' },
-  dosing: { bg: 'bg-cyan-100', text: 'text-cyan-700', border: 'border-cyan-200' }
+  dosing: { bg: 'bg-cyan-100', text: 'text-cyan-700', border: 'border-cyan-200' },
+  plant: { bg: 'bg-lime-100', text: 'text-lime-700', border: 'border-lime-200' }
 };
 
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');

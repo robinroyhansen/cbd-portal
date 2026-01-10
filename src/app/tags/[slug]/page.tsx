@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 
 interface Props {
   params: { slug: string };
@@ -104,23 +105,15 @@ export default async function TagPage({ params }: Props) {
   const colors = colorClasses[tag.color] || colorClasses.gray;
 
   const breadcrumbs = [
-    { name: 'Home', url: 'https://cbd-portal.vercel.app' },
-    { name: 'Tags', url: 'https://cbd-portal.vercel.app/tags' },
-    { name: tag.name, url: `https://cbd-portal.vercel.app/tags/${tag.slug}` }
+    { name: 'Home', url: '/' },
+    { name: 'Tags', url: '/tags' },
+    { name: tag.name, url: `/tags/${tag.slug}` }
   ];
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
       {/* Breadcrumbs */}
-      <nav className="mb-6">
-        <ol className="flex items-center space-x-2 text-sm">
-          <li><Link href="/" className="text-gray-500 hover:text-gray-700">Home</Link></li>
-          <li className="text-gray-400">/</li>
-          <li><Link href="/tags" className="text-gray-500 hover:text-gray-700">Tags</Link></li>
-          <li className="text-gray-400">/</li>
-          <li className="text-gray-900 font-medium">{tag.name}</li>
-        </ol>
-      </nav>
+      <Breadcrumbs items={breadcrumbs} />
 
       {/* Tag header */}
       <div className={`rounded-xl p-8 mb-10 ${colors.bg} border ${colors.border}`}>
