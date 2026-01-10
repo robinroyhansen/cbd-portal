@@ -499,24 +499,30 @@ export default async function BrandReviewPage({ params }: Props) {
           {/* Summary */}
           {review.summary && (
             <div id="summary" className="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
-              <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-4">{brand.name} Review Summary</h2>
+              <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-5">{brand.name} Review Summary</h2>
 
-              {/* Score Display */}
-              <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-5 pb-5 md:mb-6 md:pb-6 border-b border-gray-100">
-                <div className={`inline-flex items-center px-3 py-1.5 md:px-4 md:py-2 rounded-lg border-2 ${getScoreBadgeColor(review.overall_score)}`}>
-                  <span className="text-xl md:text-2xl font-bold">{review.overall_score}</span>
-                  <span className="text-xs md:text-sm ml-1">/100</span>
+              {/* Score Display - Score box on left, stars/label on right */}
+              <div className="flex items-center gap-4 md:gap-5 mb-6 pb-6 border-b border-gray-100">
+                {/* Score Box */}
+                <div className={`flex-shrink-0 flex flex-col items-center justify-center px-4 py-3 md:px-5 md:py-4 rounded-xl ${
+                  review.overall_score >= 70 ? 'bg-green-50' :
+                  review.overall_score >= 50 ? 'bg-yellow-50' :
+                  'bg-orange-50'
+                }`}>
+                  <span className="text-3xl md:text-4xl font-bold text-gray-900">{review.overall_score}</span>
+                  <span className="text-sm text-gray-500">/100</span>
                 </div>
-                <div className="flex items-center gap-1.5 md:gap-2">
-                  <OverallStarRating score={review.overall_score} />
-                  <span className="font-medium text-sm md:text-base text-gray-700">{getScoreLabel(review.overall_score)}</span>
-                </div>
-                {review.last_reviewed_at && (
-                  <div className="w-full md:w-auto flex items-center gap-2 mt-1 md:mt-0">
-                    <span className="hidden md:inline text-gray-300">·</span>
-                    <span className="text-xs md:text-sm text-gray-500">Last reviewed {formatDate(review.last_reviewed_at)}</span>
+
+                {/* Stars and Label */}
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-2">
+                    <OverallStarRating score={review.overall_score} />
+                    <span className="font-semibold text-gray-900">{getScoreLabel(review.overall_score)}</span>
                   </div>
-                )}
+                  {review.last_reviewed_at && (
+                    <span className="text-sm text-gray-500">Last reviewed {formatDate(review.last_reviewed_at)}</span>
+                  )}
+                </div>
               </div>
 
               <p className="text-base md:text-lg text-gray-700 leading-relaxed">{review.summary}</p>
