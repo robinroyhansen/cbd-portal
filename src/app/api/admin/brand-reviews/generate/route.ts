@@ -520,10 +520,28 @@ Return ONLY valid JSON in this exact format:
         return `## ${c.name} — ${totalScore}/${c.max_points}\n\n${sectionText}`;
       }).join('\n\n');
 
-      // Auto-generate SEO meta fields
+      // Auto-generate SEO meta fields (curiosity-driven, don't reveal score)
       const currentYear = new Date().getFullYear();
-      const metaTitle = `${brand.name} Review ${currentYear} - Score ${overallScore}/100`;
-      const metaDescription = `Independent ${brand.name} review with ${overallScore}/100 score. We analyze quality, testing, transparency, pricing and more. See full breakdown.`;
+
+      // Generate varied, CTR-optimized titles (rotate based on brand name hash)
+      const titleVariants = [
+        `${brand.name} CBD Review ${currentYear}: Is It Worth It? (Honest Analysis)`,
+        `${brand.name} Review ${currentYear}: Quality, Testing & Value Analyzed`,
+        `Is ${brand.name} Legit? Our In-Depth ${currentYear} CBD Review`,
+        `${brand.name} CBD Review: What You Need to Know Before Buying`,
+      ];
+      const titleIndex = brand.name.length % titleVariants.length;
+      const metaTitle = titleVariants[titleIndex];
+
+      // Generate curiosity-driven description without revealing score
+      const countryInfo = brand.headquarters_country ? ` this ${brand.headquarters_country} brand` : '';
+      const descVariants = [
+        `We tested ${brand.name} CBD products and analyzed their lab reports, pricing, and customer reviews. Here's what we found about${countryInfo}...`,
+        `Is ${brand.name} worth your money? Our independent review covers quality, testing transparency, and real customer experiences. See our verdict.`,
+        `Before buying ${brand.name} CBD, read our comprehensive review. We examine their testing practices, certifications, and whether they deliver on promises.`,
+      ];
+      const descIndex = (brand.name.length + 1) % descVariants.length;
+      const metaDescription = descVariants[descIndex];
 
       // Build warning message
       const warnings: string[] = [];

@@ -11,6 +11,7 @@ import { ReadingProgress, BackToTopButton } from '@/components/ReadingProgress';
 import { RelatedReviews } from '@/components/RelatedReviews';
 import { FAQAccordion } from '@/components/FAQAccordion';
 import { TableOfContents } from '@/components/TableOfContents';
+import { QuickFacts } from '@/components/QuickFacts';
 import { getDomainFromUrl, getCountryWithFlag } from '@/lib/utils/brand-helpers';
 import { generateFAQs, generateFAQSchema } from '@/lib/utils/faq-generator';
 
@@ -162,13 +163,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .single();
 
   const currentYear = new Date().getFullYear();
-  const score = review?.overall_score || 0;
 
-  // SEO-optimized title: "[Brand] CBD Review 2026 - Rated [X]/100 | CBD Portal"
-  const title = review?.meta_title || `${brand.name} CBD Review ${currentYear} - Rated ${score}/100`;
+  // SEO-optimized title: curiosity-driven, don't reveal score (higher CTR)
+  const defaultTitle = `${brand.name} CBD Review ${currentYear}: Is It Worth It? (Honest Analysis)`;
+  const title = review?.meta_title || defaultTitle;
 
-  // SEO-optimized description: 145-155 chars including "[brand] review" keyword
-  const defaultDescription = `Read our ${brand.name} review. We tested their CBD products and rated them ${score}/100. See our detailed analysis of quality, testing, and value.`;
+  // SEO-optimized description: curiosity-driven, 145-155 chars
+  const defaultDescription = `We tested ${brand.name} CBD products and analyzed their lab reports, pricing, and customer reviews. Read our honest verdict before buying.`;
   const description = review?.meta_description || defaultDescription;
 
   const canonicalUrl = `${SITE_URL}/reviews/${slug}`;
@@ -541,13 +542,35 @@ export default async function BrandReviewPage({ params }: Props) {
       {/* Main Content */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="space-y-12">
-          {/* Summary */}
-          {review.summary && (
-            <div id="summary" className="bg-white rounded-xl border border-gray-200 p-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">Summary</h2>
-              <p className="text-lg text-gray-700 leading-relaxed">{review.summary}</p>
+          {/* Summary + Quick Facts side by side on desktop */}
+          <div className="grid lg:grid-cols-3 gap-6">
+            {/* Summary */}
+            {review.summary && (
+              <div id="summary" className="lg:col-span-2 bg-white rounded-xl border border-gray-200 p-8">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">{brand.name} Review Summary</h2>
+                <p className="text-lg text-gray-700 leading-relaxed">{review.summary}</p>
+              </div>
+            )}
+
+            {/* Quick Facts Sidebar */}
+            <div className={review.summary ? '' : 'lg:col-span-3'}>
+              <QuickFacts
+                brand={{
+                  name: brand.name,
+                  website_url: brand.website_url,
+                  headquarters_country: brand.headquarters_country,
+                  founded_year: brand.founded_year,
+                  certifications: brand.certifications,
+                }}
+                review={{
+                  overall_score: review.overall_score,
+                  trustpilot_score: review.trustpilot_score,
+                  trustpilot_count: review.trustpilot_count,
+                  trustpilot_url: review.trustpilot_url,
+                }}
+              />
             </div>
-          )}
+          </div>
 
           {/* Key Highlights - for quick scanning */}
           <div id="key-highlights">
@@ -604,7 +627,7 @@ export default async function BrandReviewPage({ params }: Props) {
           {/* Third-Party Reviews */}
           {(review.trustpilot_score || review.google_score) && (
             <div className="bg-white rounded-xl border border-gray-200 p-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">Customer Reviews</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-4">{brand.name} Customer Reviews</h2>
               <p className="text-sm text-gray-500 mb-4">What customers are saying on third-party review platforms</p>
               <div className="grid sm:grid-cols-2 gap-6">
                 {review.trustpilot_score && (
@@ -659,7 +682,7 @@ export default async function BrandReviewPage({ params }: Props) {
 
           {/* Score Breakdown */}
           <div id="score-breakdown" className="bg-white rounded-xl border border-gray-200 p-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">Score Breakdown</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6">{brand.name} Score Breakdown</h2>
             <p className="text-sm text-gray-500 mb-4">Click on a category to see sub-scores and details</p>
             <CollapsibleScoreBreakdown scoreBreakdown={scoreBreakdown} />
             <div className="mt-4 pt-4 border-t border-gray-100">
@@ -711,7 +734,7 @@ export default async function BrandReviewPage({ params }: Props) {
           {/* Full Review - Section Based */}
           {(review.section_content && Object.keys(review.section_content).length > 0) ? (
             <div id="full-review" className="bg-white rounded-xl border border-gray-200 p-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">Full Review</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-6">Full {brand.name} Review</h2>
               <div className="space-y-10">
                 {scoreBreakdown.map(criterion => {
                   const sectionText = (review.section_content as Record<string, string>)[criterion.id];
@@ -768,7 +791,7 @@ export default async function BrandReviewPage({ params }: Props) {
             </div>
           ) : review.full_review && (
             <div id="full-review" className="bg-white rounded-xl border border-gray-200 p-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">Full Review</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-6">Full {brand.name} Review</h2>
               {/* Parse full_review by section headers and add stars */}
               <div className="space-y-10">
                 {(() => {
