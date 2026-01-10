@@ -3,6 +3,20 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
+import {
+  assessStudyQuality,
+  calculateQualityScoreWithBreakdown,
+  detectStudyType,
+  StudyType,
+  getStudyTypeColor
+} from '@/lib/quality-tiers';
+import {
+  extractSampleInfo,
+  extractStudyStatus,
+  extractTreatment,
+  getSubjectIcon,
+  getStudyStatusInfo
+} from '@/lib/study-analysis';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cbd-portal.vercel.app';
 
@@ -37,28 +51,6 @@ interface Study {
   discovered_at: string;
 }
 
-// Study type badges
-const STUDY_TYPE_INFO: Record<string, { label: string; color: string; bgColor: string }> = {
-  'RCT': { label: 'Randomized Controlled Trial', color: 'text-green-700', bgColor: 'bg-green-100' },
-  'Systematic Review': { label: 'Systematic Review', color: 'text-blue-700', bgColor: 'bg-blue-100' },
-  'Meta-Analysis': { label: 'Meta-Analysis', color: 'text-purple-700', bgColor: 'bg-purple-100' },
-  'Cohort Study': { label: 'Cohort Study', color: 'text-teal-700', bgColor: 'bg-teal-100' },
-  'Case-Control': { label: 'Case-Control Study', color: 'text-orange-700', bgColor: 'bg-orange-100' },
-  'Case Report': { label: 'Case Report', color: 'text-amber-700', bgColor: 'bg-amber-100' },
-  'In Vitro': { label: 'In Vitro Study', color: 'text-indigo-700', bgColor: 'bg-indigo-100' },
-  'Animal Study': { label: 'Animal Study', color: 'text-violet-700', bgColor: 'bg-violet-100' },
-  'Review': { label: 'Review Article', color: 'text-slate-700', bgColor: 'bg-slate-100' },
-  'Clinical Trial': { label: 'Clinical Trial', color: 'text-emerald-700', bgColor: 'bg-emerald-100' },
-};
-
-// Quality score colors
-const QUALITY_COLORS: Record<string, { bg: string; text: string; progress: string }> = {
-  'High': { bg: 'bg-green-50', text: 'text-green-700', progress: 'bg-green-500' },
-  'Moderate': { bg: 'bg-yellow-50', text: 'text-yellow-700', progress: 'bg-yellow-500' },
-  'Low': { bg: 'bg-orange-50', text: 'text-orange-700', progress: 'bg-orange-500' },
-  'Very Low': { bg: 'bg-red-50', text: 'text-red-700', progress: 'bg-red-500' },
-};
-
 // Topic/condition colors
 const TOPIC_COLORS: Record<string, string> = {
   'anxiety': 'bg-purple-100 text-purple-700',
@@ -71,6 +63,10 @@ const TOPIC_COLORS: Record<string, string> = {
   'nausea': 'bg-teal-100 text-teal-700',
   'skin': 'bg-rose-100 text-rose-700',
   'arthritis': 'bg-amber-100 text-amber-700',
+  'stress': 'bg-violet-100 text-violet-700',
+  'neurological': 'bg-cyan-100 text-cyan-700',
+  'addiction': 'bg-slate-100 text-slate-700',
+  'ptsd': 'bg-fuchsia-100 text-fuchsia-700',
 };
 
 function formatDate(dateString: string): string {
@@ -82,14 +78,51 @@ function formatDate(dateString: string): string {
   });
 }
 
-function getQualityPercentage(quality: string): number {
-  switch (quality) {
-    case 'High': return 100;
-    case 'Moderate': return 66;
-    case 'Low': return 33;
-    case 'Very Low': return 15;
-    default: return 50;
-  }
+// Circular quality score component
+function CircularQualityScore({ score, size = 56 }: { score: number; size?: number }) {
+  const radius = (size - 8) / 2;
+  const circumference = 2 * Math.PI * radius;
+  const progress = (score / 100) * circumference;
+
+  const getColor = (s: number) => {
+    if (s >= 70) return { stroke: '#22c55e', bg: '#dcfce7', text: '#166534' };
+    if (s >= 40) return { stroke: '#eab308', bg: '#fef9c3', text: '#854d0e' };
+    return { stroke: '#ef4444', bg: '#fee2e2', text: '#991b1b' };
+  };
+
+  const colors = getColor(score);
+
+  return (
+    <div className="relative" style={{ width: size, height: size }}>
+      <svg className="transform -rotate-90" width={size} height={size}>
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          fill={colors.bg}
+          stroke="#e5e7eb"
+          strokeWidth="4"
+        />
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          fill="none"
+          stroke={colors.stroke}
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeDasharray={circumference}
+          strokeDashoffset={circumference - progress}
+        />
+      </svg>
+      <div
+        className="absolute inset-0 flex items-center justify-center font-bold"
+        style={{ color: colors.text, fontSize: size * 0.3 }}
+      >
+        {score}
+      </div>
+    </div>
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -111,7 +144,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  // Generate SEO-optimized title and description
   const year = study.year || new Date().getFullYear();
   const defaultTitle = study.title.length > 55
     ? `${study.title.substring(0, 55)}... (${year})`
@@ -129,9 +161,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${title} | CBD Portal Research`,
     description,
-    alternates: {
-      canonical: canonicalUrl
-    },
+    alternates: { canonical: canonicalUrl },
     openGraph: {
       title,
       description,
@@ -139,15 +169,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: canonicalUrl,
       siteName: 'CBD Portal'
     },
-    twitter: {
-      card: 'summary',
-      title,
-      description
-    },
-    robots: {
-      index: true,
-      follow: true
-    }
+    twitter: { card: 'summary', title, description },
+    robots: { index: true, follow: true }
   };
 }
 
@@ -155,7 +178,6 @@ export default async function ResearchStudyPage({ params }: Props) {
   const { slug } = await params;
   const supabase = await createClient();
 
-  // Fetch the study
   const { data: study, error } = await supabase
     .from('kb_research_queue')
     .select('*')
@@ -167,7 +189,20 @@ export default async function ResearchStudyPage({ params }: Props) {
     notFound();
   }
 
-  // Fetch related studies (same topics)
+  // Analyze study using shared utilities
+  const studyText = `${study.title || ''} ${study.abstract || ''}`;
+  const assessment = assessStudyQuality(study);
+  const scoreBreakdown = calculateQualityScoreWithBreakdown(study);
+  const detectedStudyType = detectStudyType(study);
+  const sampleInfo = extractSampleInfo(studyText, detectedStudyType);
+  const studyStatus = extractStudyStatus(studyText, study.url);
+  const treatment = extractTreatment(studyText);
+  const statusInfo = getStudyStatusInfo(studyStatus);
+
+  // Get primary topic
+  const primaryTopic = study.relevant_topics?.[0] || null;
+
+  // Fetch related studies
   let relatedStudies: Study[] = [];
   if (study.relevant_topics && study.relevant_topics.length > 0) {
     const { data } = await supabase
@@ -180,15 +215,12 @@ export default async function ResearchStudyPage({ params }: Props) {
     relatedStudies = data || [];
   }
 
-  // Fetch articles that cite this study
+  // Fetch citing articles
   const { data: citingArticles } = await supabase
     .from('kb_article_research')
     .select(`
       article_id,
-      kb_articles (
-        title,
-        slug
-      )
+      kb_articles (title, slug)
     `)
     .eq('research_id', study.id)
     .limit(5);
@@ -199,13 +231,11 @@ export default async function ResearchStudyPage({ params }: Props) {
     { name: 'Study Details', url: `${SITE_URL}/research/study/${slug}` }
   ];
 
-  const studyTypeInfo = study.study_type ? STUDY_TYPE_INFO[study.study_type] : null;
-  const qualityColors = study.study_quality ? QUALITY_COLORS[study.study_quality] : null;
   const keyFindings = (study.key_findings as KeyFinding[]) || [];
   const findings = keyFindings.filter(f => f.type === 'finding');
   const limitations = keyFindings.filter(f => f.type === 'limitation');
 
-  // Schema.org ScholarlyArticle markup
+  // Schema.org ScholarlyArticle
   const scholarlyArticleSchema = {
     '@context': 'https://schema.org',
     '@type': 'ScholarlyArticle',
@@ -218,21 +248,21 @@ export default async function ResearchStudyPage({ params }: Props) {
     ...(study.doi && { 'identifier': { '@type': 'PropertyValue', 'propertyID': 'doi', 'value': study.doi } }),
     ...(study.abstract && { 'abstract': study.abstract }),
     ...(study.url && { 'url': study.url }),
-    'publisher': {
-      '@type': 'Organization',
-      'name': study.source_site || 'Academic Publisher'
-    }
+    'publisher': { '@type': 'Organization', 'name': study.source_site || 'Academic Publisher' }
   };
+
+  // Study type display info
+  const studyTypeLabel = detectedStudyType !== StudyType.UNKNOWN ? detectedStudyType : (study.study_type || 'Research Study');
+  const studyTypeColorClass = getStudyTypeColor(detectedStudyType);
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Schema.org JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(scholarlyArticleSchema) }}
       />
 
-      {/* Header with Breadcrumbs */}
+      {/* Header */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Breadcrumbs items={breadcrumbs} />
@@ -243,7 +273,7 @@ export default async function ResearchStudyPage({ params }: Props) {
         {/* Back Link */}
         <Link
           href="/research"
-          className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-medium mb-6 transition-colors"
+          className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-medium mb-6"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -251,22 +281,20 @@ export default async function ResearchStudyPage({ params }: Props) {
           Back to Research Database
         </Link>
 
-        {/* Header Section */}
+        {/* Main Header Card */}
         <div className="bg-white rounded-xl border border-gray-200 p-6 md:p-8 mb-6">
-          {/* Study Type Badge & Year */}
-          <div className="flex flex-wrap items-center gap-3 mb-4">
-            {studyTypeInfo && (
-              <span className={`px-3 py-1 rounded-full text-sm font-medium ${studyTypeInfo.bgColor} ${studyTypeInfo.color}`}>
-                {studyTypeInfo.label}
-              </span>
-            )}
+          {/* Study Type Badge & Year Row */}
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            <span className={`px-3 py-1.5 rounded-full text-sm font-semibold border ${studyTypeColorClass}`}>
+              {studyTypeLabel}
+            </span>
             {study.year && (
               <span className="px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700">
                 {study.year}
               </span>
             )}
             {study.publication && (
-              <span className="text-sm text-gray-500">
+              <span className="text-sm text-gray-500 hidden sm:inline">
                 {study.publication}
               </span>
             )}
@@ -279,72 +307,132 @@ export default async function ResearchStudyPage({ params }: Props) {
 
           {/* Authors */}
           {study.authors && (
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 mb-5">
               <span className="font-medium">Authors:</span> {study.authors}
             </p>
           )}
 
-          {/* Topics/Conditions */}
-          {study.relevant_topics && study.relevant_topics.length > 0 && (
-            <div className="flex flex-wrap gap-2">
-              {study.relevant_topics.map((topic: string) => (
-                <Link
-                  key={topic}
-                  href={`/research/${topic}`}
-                  className={`px-3 py-1 rounded-full text-sm font-medium transition-colors hover:opacity-80 ${
-                    TOPIC_COLORS[topic] || 'bg-gray-100 text-gray-700'
-                  }`}
-                >
-                  {topic.charAt(0).toUpperCase() + topic.slice(1)}
-                </Link>
-              ))}
-            </div>
-          )}
+          {/* Info Badges Row - Like List View */}
+          <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-gray-100">
+            {/* Primary Topic */}
+            {primaryTopic && (
+              <Link
+                href={`/research/${primaryTopic}`}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-opacity hover:opacity-80 ${
+                  TOPIC_COLORS[primaryTopic] || 'bg-gray-100 text-gray-700'
+                }`}
+              >
+                <span>🎯</span>
+                {primaryTopic.charAt(0).toUpperCase() + primaryTopic.slice(1)}
+              </Link>
+            )}
+
+            {/* Sample Size */}
+            {sampleInfo && (
+              <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium ${
+                sampleInfo.subjectType === 'cells' ? 'bg-purple-50 text-purple-700 border border-purple-200' :
+                sampleInfo.subjectType === 'mice' || sampleInfo.subjectType === 'rats' || sampleInfo.subjectType === 'animals' ? 'bg-amber-50 text-amber-700 border border-amber-200' :
+                'bg-blue-50 text-blue-700 border border-blue-200'
+              }`}>
+                <span>{getSubjectIcon(sampleInfo.subjectType)}</span>
+                {sampleInfo.label}
+              </span>
+            )}
+
+            {/* Study Status */}
+            <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium ${statusInfo.color}`}>
+              <span>{statusInfo.icon}</span>
+              {statusInfo.label}
+            </span>
+
+            {/* Treatment */}
+            {treatment && (
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-green-50 text-green-700 border border-green-200">
+                <span>💊</span>
+                {treatment}
+              </span>
+            )}
+          </div>
         </div>
 
-        {/* Study Quality Box */}
-        {study.study_quality && qualityColors && (
-          <div className={`rounded-xl border p-6 mb-6 ${qualityColors.bg} border-gray-200`}>
-            <div className="flex items-center justify-between mb-3">
-              <h2 className="text-lg font-bold text-gray-900">Study Quality Assessment</h2>
-              <span className={`px-3 py-1 rounded-full text-sm font-bold ${qualityColors.text} bg-white`}>
-                {study.study_quality}
-              </span>
+        {/* Quality Score Card */}
+        <div className="bg-white rounded-xl border border-gray-200 p-6 md:p-8 mb-6">
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex-1">
+              <h2 className="text-lg font-bold text-gray-900 mb-3">Quality Assessment</h2>
+              <p className="text-gray-600 mb-4">{assessment.tier}</p>
+
+              {/* Progress Bar */}
+              <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+                <div
+                  className={`h-2.5 rounded-full transition-all ${
+                    assessment.score >= 70 ? 'bg-green-500' :
+                    assessment.score >= 40 ? 'bg-yellow-500' : 'bg-red-500'
+                  }`}
+                  style={{ width: `${assessment.score}%` }}
+                />
+              </div>
+
+              {/* Score Breakdown */}
+              <div className="grid grid-cols-2 gap-2 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Study Design</span>
+                  <span className="font-medium">{scoreBreakdown.studyDesign.score}/50</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Methodology</span>
+                  <span className="font-medium">{scoreBreakdown.methodology.score}/25</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Sample Size</span>
+                  <span className="font-medium">{scoreBreakdown.sampleSize.score}/15</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Relevance</span>
+                  <span className="font-medium">{scoreBreakdown.relevance.score}/10</span>
+                </div>
+              </div>
             </div>
 
-            {/* Progress Bar */}
-            <div className="w-full bg-gray-200 rounded-full h-3 mb-4">
-              <div
-                className={`h-3 rounded-full transition-all ${qualityColors.progress}`}
-                style={{ width: `${getQualityPercentage(study.study_quality)}%` }}
-              />
+            {/* Circular Score */}
+            <div className="flex-shrink-0">
+              <CircularQualityScore score={assessment.score} size={72} />
             </div>
+          </div>
+        </div>
 
-            <p className="text-sm text-gray-600">
-              {study.study_quality === 'High' && 'This study demonstrates strong methodology, adequate sample size, and rigorous controls. Results are highly reliable.'}
-              {study.study_quality === 'Moderate' && 'This study has sound methodology with some limitations. Results should be interpreted with appropriate context.'}
-              {study.study_quality === 'Low' && 'This study has methodological limitations that may affect reliability. Results should be considered preliminary.'}
-              {study.study_quality === 'Very Low' && 'This study has significant limitations. Results should be interpreted with caution and require further research.'}
-            </p>
+        {/* Study Strengths */}
+        {assessment.strengths.length > 0 && (
+          <div className="bg-green-50 rounded-xl border border-green-200 p-6 mb-6">
+            <h2 className="text-lg font-bold text-green-800 mb-3 flex items-center gap-2">
+              <span>✓</span>
+              Study Strengths
+            </h2>
+            <ul className="space-y-2">
+              {assessment.strengths.map((strength, idx) => (
+                <li key={idx} className="flex items-start gap-2 text-green-700">
+                  <span className="text-green-500 mt-0.5">✓</span>
+                  {strength}
+                </li>
+              ))}
+            </ul>
           </div>
         )}
 
-        {/* Plain Language Summary */}
+        {/* In Simple Terms (Plain Language Summary) */}
         {study.plain_summary && (
-          <div className="bg-white rounded-xl border border-gray-200 p-6 md:p-8 mb-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <span className="text-2xl">📖</span>
-              Plain Language Summary
+          <div className="bg-blue-50 rounded-xl border border-blue-200 p-6 md:p-8 mb-6">
+            <h2 className="text-xl font-bold text-blue-900 mb-4 flex items-center gap-2">
+              <span className="text-2xl">✨</span>
+              In Simple Terms
             </h2>
-            <div className="prose prose-green max-w-none">
-              <p className="text-gray-700 leading-relaxed text-lg">
-                {study.plain_summary}
-              </p>
-            </div>
+            <p className="text-blue-800 leading-relaxed text-lg">
+              {study.plain_summary}
+            </p>
 
-            <div className="mt-6 pt-6 border-t border-gray-100">
-              <h3 className="font-semibold text-gray-900 mb-2">What This Means For You</h3>
-              <p className="text-gray-600">
+            <div className="mt-6 pt-6 border-t border-blue-200">
+              <h3 className="font-semibold text-blue-900 mb-2">What This Means For You</h3>
+              <p className="text-blue-700">
                 This research contributes to our understanding of CBD and its potential applications.
                 Always consult with a healthcare professional before making decisions based on research findings.
               </p>
@@ -353,45 +441,55 @@ export default async function ResearchStudyPage({ params }: Props) {
         )}
 
         {/* Key Findings */}
-        {keyFindings.length > 0 && (
+        {findings.length > 0 && (
           <div className="bg-white rounded-xl border border-gray-200 p-6 md:p-8 mb-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Key Findings</h2>
-
-            {findings.length > 0 && (
-              <ul className="space-y-3 mb-6">
-                {findings.map((finding, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <span className="text-green-600 mt-0.5 text-lg flex-shrink-0">✓</span>
-                    <span className="text-gray-700">{finding.text}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-
-            {limitations.length > 0 && (
-              <>
-                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                  <span className="text-amber-500">⚠</span>
-                  Limitations & Considerations
-                </h3>
-                <ul className="space-y-3">
-                  {limitations.map((limitation, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <span className="text-amber-500 mt-0.5 flex-shrink-0">⚠</span>
-                      <span className="text-gray-600">{limitation.text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
+            <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <span className="text-blue-500">📋</span>
+              Key Findings
+            </h2>
+            <ul className="space-y-3">
+              {findings.map((finding, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <span className="text-blue-500 mt-0.5 text-lg">✓</span>
+                  <span className="text-gray-700">{finding.text}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
 
-        {/* Abstract (if no plain summary) */}
-        {study.abstract && !study.plain_summary && (
-          <div className="bg-white rounded-xl border border-gray-200 p-6 md:p-8 mb-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Abstract</h2>
-            <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">
+        {/* Limitations */}
+        {(limitations.length > 0 || assessment.limitations.length > 0) && (
+          <div className="bg-amber-50 rounded-xl border border-amber-200 p-6 mb-6">
+            <h2 className="text-lg font-bold text-amber-800 mb-3 flex items-center gap-2">
+              <span>⚠</span>
+              Limitations & Considerations
+            </h2>
+            <ul className="space-y-2">
+              {limitations.map((limitation, idx) => (
+                <li key={idx} className="flex items-start gap-2 text-amber-700">
+                  <span className="text-amber-500 mt-0.5">⚠</span>
+                  {limitation.text}
+                </li>
+              ))}
+              {assessment.limitations.map((limitation, idx) => (
+                <li key={`auto-${idx}`} className="flex items-start gap-2 text-amber-700">
+                  <span className="text-amber-500 mt-0.5">⚠</span>
+                  {limitation}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Original Abstract */}
+        {study.abstract && (
+          <div className="bg-gray-50 rounded-xl border border-gray-200 p-6 md:p-8 mb-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <span className="text-gray-500">📄</span>
+              Original Abstract
+            </h2>
+            <p className="text-gray-700 leading-relaxed whitespace-pre-wrap font-serif">
               {study.abstract}
             </p>
           </div>
@@ -429,6 +527,18 @@ export default async function ResearchStudyPage({ params }: Props) {
                         {study.doi}
                       </a>
                     </td>
+                  </tr>
+                )}
+                {sampleInfo && sampleInfo.size > 0 && (
+                  <tr>
+                    <th className="py-3 pr-4 text-gray-500 font-medium">Sample Size</th>
+                    <td className="py-3 text-gray-900">{sampleInfo.label}</td>
+                  </tr>
+                )}
+                {treatment && (
+                  <tr>
+                    <th className="py-3 pr-4 text-gray-500 font-medium">Treatment</th>
+                    <td className="py-3 text-gray-900">{treatment}</td>
                   </tr>
                 )}
                 {study.source_site && (
@@ -476,7 +586,7 @@ export default async function ResearchStudyPage({ params }: Props) {
           </div>
         </div>
 
-        {/* Cited In Our Articles */}
+        {/* Cited In Articles */}
         {citingArticles && citingArticles.length > 0 && (
           <div className="bg-white rounded-xl border border-gray-200 p-6 md:p-8 mb-6">
             <h2 className="text-xl font-bold text-gray-900 mb-4">Cited In Our Articles</h2>
