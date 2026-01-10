@@ -5,7 +5,8 @@ import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { CollapsibleScoreBreakdown } from '@/components/CollapsibleScoreBreakdown';
 import { MarkdownContent } from '@/components/MarkdownContent';
-import { StarRating, OverallStarRating } from '@/components/StarRating';
+import { StarRating, OverallStarRating, CategoryStarRating, InlineStarRating } from '@/components/StarRating';
+import { KeyHighlights } from '@/components/KeyHighlights';
 import { getDomainFromUrl, getCountryWithFlag } from '@/lib/utils/brand-helpers';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cbd-portal.vercel.app';
@@ -465,6 +466,9 @@ export default async function BrandReviewPage({ params }: Props) {
             </div>
           )}
 
+          {/* Key Highlights - for quick scanning */}
+          <KeyHighlights scoreBreakdown={scoreBreakdown} />
+
           {/* About the Brand */}
           {review.about_content && (
             <div className="bg-white rounded-xl border border-gray-200 p-8">
@@ -623,29 +627,47 @@ export default async function BrandReviewPage({ params }: Props) {
           {(review.section_content && Object.keys(review.section_content).length > 0) ? (
             <div className="bg-white rounded-xl border border-gray-200 p-8">
               <h2 className="text-xl font-bold text-gray-900 mb-6">Full Review</h2>
-              <div className="space-y-8">
+              <div className="space-y-10">
                 {scoreBreakdown.map(criterion => {
                   const sectionText = (review.section_content as Record<string, string>)[criterion.id];
                   if (!sectionText) return null;
                   return (
-                    <div key={criterion.id}>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                        {criterion.name} — {criterion.score}/{criterion.max_points}
+                    <div key={criterion.id} className="relative">
+                      {/* Floated Star Summary Box */}
+                      <div className="float-right ml-4 mb-3 bg-gray-50 rounded-lg border border-gray-200 p-3 w-auto">
+                        <CategoryStarRating
+                          score={criterion.score}
+                          maxScore={criterion.max_points}
+                          colorCode={true}
+                        />
+                      </div>
+
+                      {/* Section Header */}
+                      <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                        {criterion.name}
                       </h3>
-                      {/* Sub-scores with stars - vertical layout */}
+
+                      {/* Sub-scores with compact inline format */}
                       {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores || {}).length > 0 && (
-                        <div className="divide-y divide-gray-100 mb-4 bg-gray-50 rounded-lg px-4">
+                        <div className="space-y-1.5 mb-4 clear-right">
                           {criterion.subcriteria.map(sub => (
-                            <div key={sub.id} className="flex items-center justify-between py-2">
-                              <span className="text-sm text-gray-700">{sub.name}</span>
-                              <StarRating score={criterion.sub_scores[sub.id] ?? 0} maxScore={sub.max_points} />
+                            <div key={sub.id} className="flex items-center gap-2 text-sm">
+                              <span className="text-gray-700">{sub.name}</span>
+                              <InlineStarRating
+                                score={criterion.sub_scores[sub.id] ?? 0}
+                                maxScore={sub.max_points}
+                                colorCode={true}
+                              />
                             </div>
                           ))}
                         </div>
                       )}
-                      <MarkdownContent className="prose prose-sm max-w-none prose-green prose-p:text-gray-700">
-                        {stripMarkdownTables(sectionText)}
-                      </MarkdownContent>
+
+                      <div className="clear-both">
+                        <MarkdownContent className="prose prose-sm max-w-none prose-green prose-p:text-gray-700">
+                          {stripMarkdownTables(sectionText)}
+                        </MarkdownContent>
+                      </div>
                     </div>
                   );
                 })}
@@ -655,7 +677,7 @@ export default async function BrandReviewPage({ params }: Props) {
             <div className="bg-white rounded-xl border border-gray-200 p-8">
               <h2 className="text-xl font-bold text-gray-900 mb-6">Full Review</h2>
               {/* Parse full_review by section headers and add stars */}
-              <div className="space-y-8">
+              <div className="space-y-10">
                 {(() => {
                   // Split markdown by ## headers
                   const sections = review.full_review.split(/(?=^## )/m).filter(Boolean);
@@ -673,28 +695,45 @@ export default async function BrandReviewPage({ params }: Props) {
                     const contentWithoutHeader = section.replace(/^## [^\n]+\n*/, '');
 
                     return (
-                      <div key={idx}>
+                      <div key={idx} className="relative">
                         {headerName && criterion && (
                           <>
-                            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                              {criterion.name} — {criterion.score}/{criterion.max_points}
+                            {/* Floated Star Summary Box */}
+                            <div className="float-right ml-4 mb-3 bg-gray-50 rounded-lg border border-gray-200 p-3 w-auto">
+                              <CategoryStarRating
+                                score={criterion.score}
+                                maxScore={criterion.max_points}
+                                colorCode={true}
+                              />
+                            </div>
+
+                            {/* Section Header */}
+                            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                              {criterion.name}
                             </h3>
-                            {/* Sub-scores with stars - vertical layout */}
+
+                            {/* Sub-scores with compact inline format */}
                             {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores || {}).length > 0 && (
-                              <div className="divide-y divide-gray-100 mb-4 bg-gray-50 rounded-lg px-4">
+                              <div className="space-y-1.5 mb-4 clear-right">
                                 {criterion.subcriteria.map(sub => (
-                                  <div key={sub.id} className="flex items-center justify-between py-2">
-                                    <span className="text-sm text-gray-700">{sub.name}</span>
-                                    <StarRating score={criterion.sub_scores[sub.id] ?? 0} maxScore={sub.max_points} />
+                                  <div key={sub.id} className="flex items-center gap-2 text-sm">
+                                    <span className="text-gray-700">{sub.name}</span>
+                                    <InlineStarRating
+                                      score={criterion.sub_scores[sub.id] ?? 0}
+                                      maxScore={sub.max_points}
+                                      colorCode={true}
+                                    />
                                   </div>
                                 ))}
                               </div>
                             )}
                           </>
                         )}
-                        <MarkdownContent className="prose prose-sm max-w-none prose-green prose-p:text-gray-700">
-                          {stripMarkdownTables(contentWithoutHeader)}
-                        </MarkdownContent>
+                        <div className="clear-both">
+                          <MarkdownContent className="prose prose-sm max-w-none prose-green prose-p:text-gray-700">
+                            {stripMarkdownTables(contentWithoutHeader)}
+                          </MarkdownContent>
+                        </div>
                       </div>
                     );
                   });

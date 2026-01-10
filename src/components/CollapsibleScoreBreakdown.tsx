@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { StarRating } from './StarRating';
+import { CategoryStarRating, InlineStarRating } from './StarRating';
 
 interface SubCriterion {
   id: string;
@@ -30,6 +30,14 @@ function getScoreColor(score: number, maxPoints: number): string {
   if (percentage >= 60) return 'bg-yellow-500';
   if (percentage >= 40) return 'bg-orange-500';
   return 'bg-red-500';
+}
+
+function getScoreBgColor(score: number, maxPoints: number): string {
+  const percentage = (score / maxPoints) * 100;
+  if (percentage >= 80) return 'bg-green-50 border-green-200';
+  if (percentage >= 60) return 'bg-yellow-50 border-yellow-200';
+  if (percentage >= 40) return 'bg-orange-50 border-orange-200';
+  return 'bg-red-50 border-red-200';
 }
 
 export function CollapsibleScoreBreakdown({ scoreBreakdown }: CollapsibleScoreBreakdownProps) {
@@ -63,34 +71,27 @@ export function CollapsibleScoreBreakdown({ scoreBreakdown }: CollapsibleScoreBr
         return (
           <div
             key={criterion.id}
-            className="border border-gray-200 rounded-lg overflow-hidden"
+            className={`border rounded-lg overflow-hidden ${getScoreBgColor(criterion.score, criterion.max_points)}`}
           >
             {/* Header - always visible */}
             <button
               onClick={() => canExpand && toggleItem(criterion.id)}
-              className={`w-full px-4 py-3 flex items-center justify-between bg-white ${
-                canExpand ? 'hover:bg-gray-50 cursor-pointer' : 'cursor-default'
+              className={`w-full px-4 py-4 flex items-center justify-between ${
+                canExpand ? 'hover:bg-white/50 cursor-pointer' : 'cursor-default'
               } transition-colors`}
               disabled={!canExpand}
             >
               <div className="flex items-center gap-3 flex-1 min-w-0">
-                <span className="font-medium text-gray-900 truncate">{criterion.name}</span>
-                <span className="text-sm text-gray-400 flex-shrink-0">({criterion.max_points} pts)</span>
+                <span className="font-semibold text-gray-900">{criterion.name}</span>
               </div>
 
-              <div className="flex items-center gap-3 flex-shrink-0">
-                {/* Progress bar */}
-                <div className="w-24 sm:w-32 bg-gray-100 rounded-full h-2 overflow-hidden">
-                  <div
-                    className={`h-full rounded-full transition-all ${getScoreColor(criterion.score, criterion.max_points)}`}
-                    style={{ width: `${(criterion.score / criterion.max_points) * 100}%` }}
-                  />
-                </div>
-
-                {/* Score */}
-                <span className="font-bold text-gray-900 w-16 text-right">
-                  {criterion.score}/{criterion.max_points}
-                </span>
+              <div className="flex items-center gap-4 flex-shrink-0">
+                {/* Star rating with points */}
+                <CategoryStarRating
+                  score={criterion.score}
+                  maxScore={criterion.max_points}
+                  colorCode={true}
+                />
 
                 {/* Chevron */}
                 {canExpand && (
@@ -112,21 +113,25 @@ export function CollapsibleScoreBreakdown({ scoreBreakdown }: CollapsibleScoreBr
             {/* Expandable content */}
             <div
               className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
-              <div className="px-4 pb-4 pt-2 bg-gray-50 border-t border-gray-100">
-                {/* Sub-scores with star ratings - vertical layout */}
+              <div className="px-4 pb-4 pt-2 bg-white/70 border-t border-gray-100/50">
+                {/* Sub-scores with inline star ratings */}
                 {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores).length > 0 && (
-                  <div className="divide-y divide-gray-100 mb-3">
+                  <div className="space-y-2 mb-3">
                     {criterion.subcriteria.map(sub => (
-                      <div key={sub.id} className="flex items-center justify-between py-2">
-                        <span className="text-sm text-gray-700">
+                      <div
+                        key={sub.id}
+                        className="flex items-center justify-between py-2 px-3 bg-white rounded-lg border border-gray-100"
+                      >
+                        <span className="text-sm text-gray-700 font-medium">
                           {sub.name}
                         </span>
-                        <StarRating
+                        <InlineStarRating
                           score={criterion.sub_scores[sub.id] ?? 0}
                           maxScore={sub.max_points}
+                          colorCode={true}
                         />
                       </div>
                     ))}
@@ -135,7 +140,7 @@ export function CollapsibleScoreBreakdown({ scoreBreakdown }: CollapsibleScoreBr
 
                 {/* Description */}
                 {criterion.description && (
-                  <p className="text-sm text-gray-600">{criterion.description}</p>
+                  <p className="text-sm text-gray-600 italic">{criterion.description}</p>
                 )}
               </div>
             </div>
