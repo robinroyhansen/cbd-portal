@@ -474,13 +474,19 @@ export default async function BrandReviewPage({ params }: Props) {
 
             {/* Brand Info */}
             <div className="flex-1">
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-1">
                 {brand.name} CBD Review {reviewYear}
               </h1>
 
-              {brand.website_url && (
-                <div className="text-gray-500 text-sm mb-2">
-                  {getDomainFromUrl(brand.website_url)}
+              {review.kb_authors && (
+                <div className="text-gray-600 text-base mb-4">
+                  by{' '}
+                  <Link
+                    href={`/authors/${review.kb_authors.slug}`}
+                    className="hover:underline"
+                  >
+                    {review.kb_authors.name}
+                  </Link>
                 </div>
               )}
 
