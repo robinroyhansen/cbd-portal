@@ -177,8 +177,51 @@ export async function getScanJob(supabase: SupabaseClient, jobId: string): Promi
   return data;
 }
 
-// Get active scan job (if any)
+// Maximum time a scan job can run before being considered stuck (in minutes)
+const SCAN_TIMEOUT_MINUTES = 30;
+
+// Clean up stuck scan jobs (jobs running longer than timeout)
+export async function cleanupStuckJobs(supabase: SupabaseClient): Promise<{ cleaned: number; jobs: string[] }> {
+  const timeoutThreshold = new Date(Date.now() - SCAN_TIMEOUT_MINUTES * 60 * 1000).toISOString();
+
+  // Find jobs that are "running" or "pending" but started more than SCAN_TIMEOUT_MINUTES ago
+  const { data: stuckJobs, error: fetchError } = await supabase
+    .from('kb_scan_jobs')
+    .select('id, status, started_at, created_at')
+    .in('status', ['pending', 'running'])
+    .or(`started_at.lt.${timeoutThreshold},and(started_at.is.null,created_at.lt.${timeoutThreshold})`);
+
+  if (fetchError || !stuckJobs || stuckJobs.length === 0) {
+    return { cleaned: 0, jobs: [] };
+  }
+
+  const cleanedJobIds: string[] = [];
+
+  for (const job of stuckJobs) {
+    const { error: updateError } = await supabase
+      .from('kb_scan_jobs')
+      .update({
+        status: 'failed',
+        error_message: `Job timed out after ${SCAN_TIMEOUT_MINUTES} minutes (auto-cleanup)`,
+        completed_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      })
+      .eq('id', job.id);
+
+    if (!updateError) {
+      cleanedJobIds.push(job.id);
+      console.log(`[Scanner] Auto-cleaned stuck job ${job.id} (was ${job.status} since ${job.started_at || job.created_at})`);
+    }
+  }
+
+  return { cleaned: cleanedJobIds.length, jobs: cleanedJobIds };
+}
+
+// Get active scan job (if any) - also cleans up stuck jobs first
 export async function getActiveScanJob(supabase: SupabaseClient): Promise<ScanJob | null> {
+  // First, clean up any stuck jobs
+  await cleanupStuckJobs(supabase);
+
   const { data, error } = await supabase
     .from('kb_scan_jobs')
     .select('*')

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { runDailyResearchScan } from '@/lib/research-scanner';
+import { createClient } from '@supabase/supabase-js';
+import { runDailyResearchScan, cleanupStuckJobs } from '@/lib/research-scanner';
 
 export const maxDuration = 300; // 5 minutes max for Vercel
 
@@ -12,6 +13,22 @@ export async function GET(request: Request) {
   }
 
   console.log('🕒 Daily research scan triggered by cron job');
+
+  // Create Supabase client for cleanup
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+
+  // First, clean up any stuck jobs from previous runs
+  try {
+    const cleanupResult = await cleanupStuckJobs(supabase);
+    if (cleanupResult.cleaned > 0) {
+      console.log(`🧹 Cleaned up ${cleanupResult.cleaned} stuck jobs: ${cleanupResult.jobs.join(', ')}`);
+    }
+  } catch (cleanupError) {
+    console.error('⚠️ Cleanup failed (continuing anyway):', cleanupError);
+  }
 
   try {
     const startTime = Date.now();
