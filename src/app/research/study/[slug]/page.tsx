@@ -48,7 +48,6 @@ interface Study {
   study_type: string | null;
   meta_title: string | null;
   meta_description: string | null;
-  discovered_at: string;
 }
 
 // Topic/condition colors
@@ -68,15 +67,6 @@ const TOPIC_COLORS: Record<string, string> = {
   'addiction': 'bg-slate-100 text-slate-700',
   'ptsd': 'bg-fuchsia-100 text-fuchsia-700',
 };
-
-function formatDate(dateString: string): string {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
-}
 
 // Circular quality score component
 function CircularQualityScore({ score, size = 56 }: { score: number; size?: number }) {
@@ -202,15 +192,15 @@ export default async function ResearchStudyPage({ params }: Props) {
   // Get primary topic
   const primaryTopic = study.relevant_topics?.[0] || null;
 
-  // Fetch related studies
+  // Fetch related studies - match by primary topic only
   let relatedStudies: Study[] = [];
-  if (study.relevant_topics && study.relevant_topics.length > 0) {
+  if (primaryTopic) {
     const { data } = await supabase
       .from('kb_research_queue')
       .select('id, title, slug, year, publication, relevant_topics')
       .eq('status', 'approved')
       .neq('id', study.id)
-      .overlaps('relevant_topics', study.relevant_topics)
+      .contains('relevant_topics', [primaryTopic])
       .limit(4);
     relatedStudies = data || [];
   }
@@ -399,6 +389,12 @@ export default async function ResearchStudyPage({ params }: Props) {
               <CircularQualityScore score={assessment.score} size={72} />
             </div>
           </div>
+          <Link
+            href="/research/methodology"
+            className="inline-block mt-4 text-sm text-gray-500 hover:text-gray-700 hover:underline"
+          >
+            How we calculate this →
+          </Link>
         </div>
 
         {/* Study Strengths */}
@@ -419,24 +415,16 @@ export default async function ResearchStudyPage({ params }: Props) {
           </div>
         )}
 
-        {/* In Simple Terms (Plain Language Summary) */}
+        {/* What You Need to Know (Plain Language Summary) */}
         {study.plain_summary && (
           <div className="bg-blue-50 rounded-xl border border-blue-200 p-6 md:p-8 mb-6">
             <h2 className="text-xl font-bold text-blue-900 mb-4 flex items-center gap-2">
               <span className="text-2xl">✨</span>
-              In Simple Terms
+              What You Need to Know
             </h2>
             <p className="text-blue-800 leading-relaxed text-lg">
               {study.plain_summary}
             </p>
-
-            <div className="mt-6 pt-6 border-t border-blue-200">
-              <h3 className="font-semibold text-blue-900 mb-2">What This Means For You</h3>
-              <p className="text-blue-700">
-                This research contributes to our understanding of CBD and its potential applications.
-                Always consult with a healthcare professional before making decisions based on research findings.
-              </p>
-            </div>
           </div>
         )}
 
@@ -482,17 +470,23 @@ export default async function ResearchStudyPage({ params }: Props) {
           </div>
         )}
 
-        {/* Original Abstract */}
+        {/* Original Abstract - Collapsible */}
         {study.abstract && (
-          <div className="bg-gray-50 rounded-xl border border-gray-200 p-6 md:p-8 mb-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <span className="text-gray-500">📄</span>
-              Original Abstract
-            </h2>
-            <p className="text-gray-700 leading-relaxed whitespace-pre-wrap font-serif">
-              {study.abstract}
-            </p>
-          </div>
+          <details className="bg-gray-50 rounded-xl border border-gray-200 mb-6 group">
+            <summary className="p-6 cursor-pointer select-none flex items-center gap-2 text-gray-700 hover:text-gray-900 font-medium list-none">
+              <span>📄</span>
+              <span>Original Abstract</span>
+              <span className="text-sm text-gray-500 ml-1">(click to expand)</span>
+              <svg className="w-5 h-5 ml-auto transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div className="px-6 pb-6">
+              <p className="text-gray-700 leading-relaxed whitespace-pre-wrap font-serif">
+                {study.abstract}
+              </p>
+            </div>
+          </details>
         )}
 
         {/* Study Details Table */}
@@ -510,7 +504,7 @@ export default async function ResearchStudyPage({ params }: Props) {
                 )}
                 {study.year && (
                   <tr>
-                    <th className="py-3 pr-4 text-gray-500 font-medium">Year</th>
+                    <th className="py-3 pr-4 text-gray-500 font-medium">Published</th>
                     <td className="py-3 text-gray-900">{study.year}</td>
                   </tr>
                 )}
@@ -547,10 +541,6 @@ export default async function ResearchStudyPage({ params }: Props) {
                     <td className="py-3 text-gray-900">{study.source_site}</td>
                   </tr>
                 )}
-                <tr>
-                  <th className="py-3 pr-4 text-gray-500 font-medium">Added to Database</th>
-                  <td className="py-3 text-gray-900">{formatDate(study.discovered_at)}</td>
-                </tr>
               </tbody>
             </table>
           </div>
