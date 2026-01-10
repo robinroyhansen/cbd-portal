@@ -26,26 +26,6 @@ interface QuickFactsProps {
   };
 }
 
-const CERTIFICATION_LABELS: Record<string, string> = {
-  'gmp': 'GMP Certified',
-  'third_party_tested': 'Third-Party Tested',
-  'iso_certified': 'ISO Certified',
-  'non_gmo': 'Non-GMO',
-  'vegan': 'Vegan',
-  'cruelty_free': 'Cruelty-Free',
-  'usda_organic': 'USDA Organic',
-  'us_hemp_authority': 'US Hemp Authority',
-  'eu_organic': 'EU Organic',
-  'novel_food': 'Novel Food',
-};
-
-function getScoreLabel(score: number): string {
-  if (score >= 80) return 'Excellent';
-  if (score >= 60) return 'Good';
-  if (score >= 40) return 'Average';
-  return 'Below Average';
-}
-
 function getDomainFromUrl(url: string): string {
   try {
     const hostname = new URL(url).hostname;
@@ -66,16 +46,6 @@ function formatDate(dateString: string): string {
 
 export function QuickFacts({ brand, review }: QuickFactsProps) {
   const facts: { label: string; value: React.ReactNode }[] = [];
-
-  // Our Score
-  facts.push({
-    label: 'Our Score',
-    value: (
-      <span className="font-bold text-green-600">
-        {review.overall_score}/100 ({getScoreLabel(review.overall_score)})
-      </span>
-    ),
-  });
 
   // Headquarters
   if (brand.headquarters_country) {
@@ -123,19 +93,6 @@ export function QuickFacts({ brand, review }: QuickFactsProps) {
           {review.trustpilot_score}/5
           {review.trustpilot_count && ` (${review.trustpilot_count.toLocaleString()} reviews)`}
         </span>
-      ),
-    });
-  }
-
-  // Lab Testing (check certifications for third_party_tested)
-  const hasLabTesting = brand.certifications?.includes('third_party_tested');
-  if (hasLabTesting !== undefined) {
-    facts.push({
-      label: 'Lab Testing',
-      value: hasLabTesting ? (
-        <span className="text-green-600">✓ Third-party tested</span>
-      ) : (
-        <span className="text-gray-500">✗ Not verified</span>
       ),
     });
   }

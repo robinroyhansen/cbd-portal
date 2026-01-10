@@ -479,7 +479,7 @@ export default async function BrandReviewPage({ params }: Props) {
               </h1>
 
               {review.kb_authors && (
-                <div className="text-gray-600 text-base mb-4">
+                <div className="text-gray-600 text-base">
                   by{' '}
                   <Link
                     href={`/authors/${review.kb_authors.slug}`}
@@ -487,67 +487,6 @@ export default async function BrandReviewPage({ params }: Props) {
                   >
                     {review.kb_authors.name}
                   </Link>
-                </div>
-              )}
-
-              {/* Trustpilot Badge - inline below metadata */}
-              {review.trustpilot_score && (
-                <a
-                  href={review.trustpilot_url || `https://www.trustpilot.com/review/${brand.website_url ? new URL(brand.website_url).hostname.replace('www.', '') : ''}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-1.5 text-sm mb-4 ${
-                    review.trustpilot_score >= 4 ? 'text-green-600 hover:text-green-700' :
-                    review.trustpilot_score < 3 ? 'text-red-600 hover:text-red-700' :
-                    'text-yellow-600 hover:text-yellow-700'
-                  }`}
-                  title="View on Trustpilot"
-                >
-                  <span>⭐</span>
-                  <span className="font-medium">{review.trustpilot_score}/5 on Trustpilot</span>
-                  {review.trustpilot_count && (
-                    <span className="text-gray-500">({review.trustpilot_count.toLocaleString()} reviews)</span>
-                  )}
-                  <span>↗</span>
-                </a>
-              )}
-
-              {/* Score Badge with Stars */}
-              <div className="flex flex-wrap items-center gap-4">
-                <div className={`inline-flex items-center px-6 py-3 rounded-xl border-2 ${getScoreBadgeColor(review.overall_score)}`}>
-                  <span className="text-4xl font-bold">{review.overall_score}</span>
-                  <span className="text-lg ml-1">/100</span>
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="font-semibold text-gray-900">{getScoreLabel(review.overall_score)}</span>
-                    <OverallStarRating score={review.overall_score} />
-                  </div>
-                  {review.last_reviewed_at && (
-                    <div className="text-sm text-gray-500">
-                      Last reviewed {formatDate(review.last_reviewed_at)}
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Trust Badges */}
-              {brand.certifications && brand.certifications.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {brand.certifications.map((cert: string) => {
-                    const certInfo = CERTIFICATION_LABELS[cert];
-                    if (!certInfo) return null;
-                    return (
-                      <span
-                        key={cert}
-                        className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-green-50 text-green-700 text-sm border border-green-200"
-                        title={certInfo.name}
-                      >
-                        <span>{certInfo.icon}</span>
-                        <span>{certInfo.name}</span>
-                      </span>
-                    );
-                  })}
                 </div>
               )}
             </div>
@@ -564,6 +503,25 @@ export default async function BrandReviewPage({ params }: Props) {
             {review.summary && (
               <div id="summary" className="lg:col-span-2 bg-white rounded-xl border border-gray-200 p-8">
                 <h2 className="text-xl font-bold text-gray-900 mb-4">{brand.name} Review Summary</h2>
+
+                {/* Score Display */}
+                <div className="flex flex-wrap items-center gap-3 mb-6 pb-6 border-b border-gray-100">
+                  <div className={`inline-flex items-center px-4 py-2 rounded-lg border-2 ${getScoreBadgeColor(review.overall_score)}`}>
+                    <span className="text-2xl font-bold">{review.overall_score}</span>
+                    <span className="text-sm ml-1">/100</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <OverallStarRating score={review.overall_score} />
+                    <span className="font-medium text-gray-700">{getScoreLabel(review.overall_score)}</span>
+                  </div>
+                  {review.last_reviewed_at && (
+                    <>
+                      <span className="text-gray-300">·</span>
+                      <span className="text-sm text-gray-500">Last reviewed {formatDate(review.last_reviewed_at)}</span>
+                    </>
+                  )}
+                </div>
+
                 <p className="text-lg text-gray-700 leading-relaxed">{review.summary}</p>
               </div>
             )}

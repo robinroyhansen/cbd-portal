@@ -491,7 +491,7 @@ ${subcriteriaList}`;
 
     // Trustpilot - explicit about availability
     if (dataReport.trustpilot.success && dataReport.trustpilot.score !== null) {
-      verifiedDataLines.push(`TRUSTPILOT: ${dataReport.trustpilot.score}/5 from ${dataReport.trustpilot.count?.toLocaleString()} reviews (VERIFIED - mention this in Customer Experience section)`);
+      verifiedDataLines.push(`TRUSTPILOT: ${dataReport.trustpilot.score} out of 5 from ${dataReport.trustpilot.count?.toLocaleString()} reviews (VERIFIED - mention as "${dataReport.trustpilot.score} out of 5 Trustpilot rating" in Customer Experience section)`);
     } else {
       verifiedDataLines.push(`TRUSTPILOT: NOT AVAILABLE - DO NOT mention Trustpilot in the review at all`);
     }
