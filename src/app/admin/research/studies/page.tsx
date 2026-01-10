@@ -107,6 +107,7 @@ export default function AdminStudiesPage() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [genResult, setGenResult] = useState<GenerationResult | null>(null);
   const [showConfirmAll, setShowConfirmAll] = useState(false);
+  const [bulkProgress, setBulkProgress] = useState<{ current: number; total: number; successful: number; failed: number } | null>(null);
 
   const supabase = createClient();
 
@@ -139,19 +140,24 @@ export default function AdminStudiesPage() {
     }
   }, []);
 
-  // Generate batch of studies
-  const generateBatch = async (batchSize: number = 10) => {
+  // Generate a single batch of studies
+  const generateBatch = async (batchSize: number = 10): Promise<GenerationResult> => {
+    const response = await fetch('/api/admin/research/bulk-generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ batchSize }),
+    });
+    return response.json();
+  };
+
+  // Generate next N studies (single batch)
+  const generateNext = async (count: number = 10) => {
     setIsGenerating(true);
     setGenResult(null);
+    setBulkProgress(null);
     try {
-      const response = await fetch('/api/admin/research/bulk-generate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ batchSize }),
-      });
-      const data = await response.json();
+      const data = await generateBatch(count);
       setGenResult(data);
-      // Refresh status and studies list
       await fetchGenStatus();
       await fetchStudies();
     } catch (error) {
@@ -165,6 +171,63 @@ export default function AdminStudiesPage() {
       });
     } finally {
       setIsGenerating(false);
+    }
+  };
+
+  // Generate all studies in chunks
+  const generateAll = async () => {
+    if (!genStatus) return;
+
+    setIsGenerating(true);
+    setGenResult(null);
+    setShowConfirmAll(false);
+
+    const total = genStatus.needsContent;
+    const chunkSize = 10;
+    let processed = 0;
+    let successful = 0;
+    let failed = 0;
+
+    setBulkProgress({ current: 0, total, successful: 0, failed: 0 });
+
+    try {
+      while (processed < total) {
+        const data = await generateBatch(chunkSize);
+        processed += data.processed;
+        successful += data.successful;
+        failed += data.failed;
+
+        setBulkProgress({ current: processed, total, successful, failed });
+
+        // If no more to process, break
+        if (data.remaining === 0 || data.processed === 0) break;
+
+        // Wait 2 seconds between batches
+        await new Promise(r => setTimeout(r, 2000));
+      }
+
+      // Final status
+      setGenResult({
+        processed,
+        successful,
+        failed,
+        remaining: total - processed,
+        results: [],
+      });
+      await fetchGenStatus();
+      await fetchStudies();
+    } catch (error) {
+      console.error('Error in bulk generation:', error);
+      setGenResult({
+        processed,
+        successful,
+        failed,
+        remaining: total - processed,
+        results: [{ id: 'error', status: 'error', error: String(error) }],
+      });
+    } finally {
+      setIsGenerating(false);
+      setBulkProgress(null);
     }
   };
 
@@ -361,7 +424,7 @@ export default function AdminStudiesPage() {
 
           <div className="flex items-center gap-3">
             <button
-              onClick={() => generateBatch(10)}
+              onClick={() => generateNext(10)}
               disabled={isGenerating || genStatus.needsContent === 0}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 isGenerating || genStatus.needsContent === 0
@@ -369,7 +432,7 @@ export default function AdminStudiesPage() {
                   : 'bg-blue-600 text-white hover:bg-blue-700'
               }`}
             >
-              {isGenerating ? 'Generating...' : 'Generate Next 10'}
+              {isGenerating && !bulkProgress ? 'Generating...' : 'Generate Next 10'}
             </button>
 
             <button
@@ -384,13 +447,38 @@ export default function AdminStudiesPage() {
               Generate All ({genStatus.needsContent})
             </button>
 
-            {isGenerating && (
+            {isGenerating && !bulkProgress && (
               <div className="flex items-center gap-2 text-sm text-gray-600">
                 <div className="animate-spin rounded-full h-4 w-4 border-2 border-blue-600 border-t-transparent"></div>
                 Processing...
               </div>
             )}
           </div>
+
+          {/* Bulk Progress Display */}
+          {bulkProgress && (
+            <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-medium text-blue-900">
+                  Bulk Generation in Progress
+                </span>
+                <span className="text-sm text-blue-700">
+                  {bulkProgress.current} / {bulkProgress.total}
+                </span>
+              </div>
+              <div className="w-full bg-blue-200 rounded-full h-2 mb-2">
+                <div
+                  className="bg-blue-600 h-2 rounded-full transition-all duration-500"
+                  style={{ width: `${(bulkProgress.current / bulkProgress.total) * 100}%` }}
+                />
+              </div>
+              <div className="flex gap-4 text-xs text-blue-700">
+                <span className="text-green-600">Success: {bulkProgress.successful}</span>
+                {bulkProgress.failed > 0 && <span className="text-red-600">Failed: {bulkProgress.failed}</span>}
+                <span>Processing in batches of 10...</span>
+              </div>
+            </div>
+          )}
 
           {/* Generation Result Toast */}
           {genResult && (
@@ -456,13 +544,10 @@ export default function AdminStudiesPage() {
                 Cancel
               </button>
               <button
-                onClick={() => {
-                  setShowConfirmAll(false);
-                  generateBatch(genStatus.needsContent);
-                }}
+                onClick={generateAll}
                 className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
               >
-                Generate All
+                Start Generation
               </button>
             </div>
           </div>

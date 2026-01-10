@@ -18,9 +18,23 @@ interface GeneratedContent {
   meta_description: string;
 }
 
-async function generateStudyContent(study: StudyData, apiKey: string): Promise<GeneratedContent> {
+// Truncate content to safe lengths for database
+function truncateContent(content: GeneratedContent): GeneratedContent {
+  return {
+    ...content,
+    display_title: content.display_title?.slice(0, 250) || '',
+    meta_title: content.meta_title?.slice(0, 60) || '',
+    meta_description: content.meta_description?.slice(0, 155) || '',
+  };
+}
+
+// Generate content with retry logic for rate limits
+async function generateStudyContent(
+  study: StudyData,
+  apiKey: string,
+  maxRetries: number = 3
+): Promise<GeneratedContent> {
   const topics = study.relevant_topics?.join(', ') || 'CBD research';
-  const primaryTopic = study.relevant_topics?.[0] || 'health';
 
   const prompt = `You are generating SEO content for a CBD research study page.
 
@@ -47,11 +61,11 @@ Each limitation: { "type": "limitation", "text": "..." }
 Common limitations: small sample, short duration, specific population, ongoing study
 Example: { "type": "limitation", "text": "Limited to adults aged 18-65" }
 
-4. META_TITLE (50-60 characters)
+4. META_TITLE (50-60 characters max)
 Format: "CBD for [Condition]: [Year] [Type] | CBD Portal"
 Must include primary topic and year
 
-5. META_DESCRIPTION (145-155 characters)
+5. META_DESCRIPTION (145-155 characters max)
 Include: study type, sample size if known, key finding or quality note
 End with action phrase like "Expert analysis" or "See the evidence"
 
@@ -64,53 +78,81 @@ Return as JSON only, no markdown code blocks:
   "meta_description": "..."
 }`;
 
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': apiKey,
-      'anthropic-version': '2023-06-01'
-    },
-    body: JSON.stringify({
-      model: 'claude-3-haiku-20240307',
-      max_tokens: 1000,
-      messages: [
-        {
-          role: 'user',
-          content: prompt
-        }
-      ]
-    })
-  });
+  let lastError: Error | null = null;
 
-  if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(`API error ${response.status}: ${errorText}`);
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': apiKey,
+          'anthropic-version': '2023-06-01'
+        },
+        body: JSON.stringify({
+          model: 'claude-3-haiku-20240307',
+          max_tokens: 1000,
+          messages: [
+            {
+              role: 'user',
+              content: prompt
+            }
+          ]
+        })
+      });
+
+      // Handle rate limit (429)
+      if (response.status === 429) {
+        const retryAfter = response.headers.get('retry-after');
+        const waitTime = retryAfter ? parseInt(retryAfter) * 1000 : 5000 * attempt;
+        console.log(`[BulkGenerate] Rate limited, waiting ${waitTime}ms before retry ${attempt}/${maxRetries}`);
+        await new Promise(r => setTimeout(r, waitTime));
+        continue;
+      }
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`API error ${response.status}: ${errorText}`);
+      }
+
+      const data = await response.json();
+      const content = data.content?.[0]?.text?.trim();
+
+      if (!content) {
+        throw new Error('No content generated');
+      }
+
+      // Parse JSON from response
+      const jsonMatch = content.match(/\{[\s\S]*\}/);
+      if (!jsonMatch) {
+        throw new Error('Could not extract JSON from response');
+      }
+
+      try {
+        const parsed = JSON.parse(jsonMatch[0]) as GeneratedContent;
+        // Truncate to safe lengths
+        return truncateContent(parsed);
+      } catch (e) {
+        throw new Error(`Failed to parse JSON: ${content.substring(0, 200)}`);
+      }
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error(String(error));
+      if (attempt < maxRetries) {
+        console.log(`[BulkGenerate] Attempt ${attempt} failed, retrying...`);
+        await new Promise(r => setTimeout(r, 2000 * attempt));
+      }
+    }
   }
 
-  const data = await response.json();
-  const content = data.content?.[0]?.text?.trim();
-
-  if (!content) {
-    throw new Error('No content generated');
-  }
-
-  // Parse JSON from response
-  const jsonMatch = content.match(/\{[\s\S]*\}/);
-  if (!jsonMatch) {
-    throw new Error('Could not extract JSON from response');
-  }
-
-  try {
-    return JSON.parse(jsonMatch[0]) as GeneratedContent;
-  } catch (e) {
-    throw new Error(`Failed to parse JSON: ${content.substring(0, 200)}`);
-  }
+  throw lastError || new Error('Max retries exceeded');
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const { batchSize = 10, startFrom = 0 } = await request.json();
+    const { batchSize = 10 } = await request.json();
+
+    // Limit batch size to prevent timeout
+    const safeBatchSize = Math.min(batchSize, 20);
 
     const apiKey = process.env.ANTHROPIC_API_KEY;
     if (!apiKey) {
@@ -123,14 +165,13 @@ export async function POST(request: NextRequest) {
     );
 
     // Fetch studies needing content generation
-    // key_findings is NULL or empty array
     const { data: studies, error: fetchError } = await supabase
       .from('kb_research_queue')
       .select('id, title, year, relevant_topics, plain_summary, abstract')
       .eq('status', 'approved')
       .or('key_findings.is.null,key_findings.eq.[]')
       .order('created_at', { ascending: true })
-      .range(startFrom, startFrom + batchSize - 1);
+      .limit(safeBatchSize);
 
     if (fetchError) {
       return NextResponse.json({ error: fetchError.message }, { status: 500 });
@@ -152,10 +193,10 @@ export async function POST(request: NextRequest) {
       try {
         console.log(`[BulkGenerate] Processing study ${study.id}: ${study.title?.substring(0, 50)}...`);
 
-        // Generate content
+        // Generate content with retry logic
         const content = await generateStudyContent(study as StudyData, apiKey);
 
-        // Update database
+        // Update database with truncated content
         const { error: updateError } = await supabase
           .from('kb_research_queue')
           .update({
@@ -179,8 +220,8 @@ export async function POST(request: NextRequest) {
         console.error(`[BulkGenerate] Failed: ${study.id}:`, errorMessage);
       }
 
-      // Small delay to avoid rate limits (200ms)
-      await new Promise(r => setTimeout(r, 200));
+      // Delay between API calls to avoid rate limits (1 second)
+      await new Promise(r => setTimeout(r, 1000));
     }
 
     // Get remaining count
