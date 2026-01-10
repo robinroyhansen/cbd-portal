@@ -677,16 +677,85 @@ export default async function BrandReviewPage({ params }: Props) {
             </div>
           )}
 
-          {/* Full Review - Section Based */}
+          {/* Review Sections - Each category as standalone section */}
           {(review.section_content && Object.keys(review.section_content).length > 0) ? (
-            <div id="full-review" className="bg-white rounded-xl border border-gray-200 p-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">Full {brand.name} Review</h2>
-              <div className="space-y-10">
-                {scoreBreakdown.map(criterion => {
-                  const sectionText = (review.section_content as Record<string, string>)[criterion.id];
-                  if (!sectionText) return null;
+            <>
+              {scoreBreakdown.map(criterion => {
+                const sectionText = (review.section_content as Record<string, string>)[criterion.id];
+                if (!sectionText) return null;
+                return (
+                  <div key={criterion.id} id={getSectionId(criterion.name)} className="bg-white rounded-xl border border-gray-200 p-6 md:p-8 relative">
+                    {/* Floated Star Summary Box */}
+                    <div className="float-right ml-4 mb-3 bg-gray-50 rounded-lg border border-gray-200 p-3 w-auto">
+                      <CategoryStarRating
+                        score={criterion.score}
+                        maxScore={criterion.max_points}
+                        colorCode={true}
+                      />
+                    </div>
+
+                    {/* Section Header - H2 */}
+                    <h2 className="text-xl font-bold text-gray-900 mb-4">
+                      {criterion.name}
+                    </h2>
+
+                    {/* Sub-scores with CSS Grid for alignment */}
+                    {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores || {}).length > 0 && (
+                      <div className="grid gap-1 mb-4 clear-right text-sm" style={{ gridTemplateColumns: '1fr auto auto' }}>
+                        {criterion.subcriteria.map(sub => {
+                          const subScore = criterion.sub_scores[sub.id] ?? 0;
+                          return (
+                            <div key={sub.id} className="contents">
+                              <span className="text-gray-700 py-1">{sub.name}</span>
+                              <span className="py-1 px-2 flex items-center justify-start" style={{ minWidth: '90px' }}>
+                                <InlineStarRating score={subScore} maxScore={sub.max_points} colorCode={true} />
+                              </span>
+                              <span className="text-gray-400 py-1 text-right" style={{ minWidth: '60px' }}>
+                                ({subScore}/{sub.max_points})
+                              </span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+
+                    <div className="clear-both">
+                      <MarkdownContent
+                        className="prose prose-sm max-w-none prose-green prose-p:text-gray-700"
+                        brandName={brand.name}
+                        trustpilotUrl={review.trustpilot_url}
+                        websiteDomain={brand.website_url ? getDomainFromUrl(brand.website_url) : null}
+                      >
+                        {stripMarkdownTables(sectionText)}
+                      </MarkdownContent>
+                    </div>
+                  </div>
+                );
+              })}
+            </>
+          ) : review.full_review && (
+            <>
+              {/* Parse full_review by section headers - legacy fallback */}
+              {(() => {
+                // Split markdown by ## headers
+                const sections = review.full_review.split(/(?=^## )/m).filter(Boolean);
+                return sections.map((section: string, idx: number) => {
+                  // Extract header name (e.g., "Quality & Testing" from "## Quality & Testing — 8/20")
+                  const headerMatch = section.match(/^## ([^—\n]+)/);
+                  const headerName = headerMatch?.[1]?.trim();
+
+                  // Find matching criterion by name
+                  const criterion = headerName
+                    ? scoreBreakdown.find(c => c.name.toLowerCase() === headerName.toLowerCase())
+                    : null;
+
+                  // Remove the header line from section content (we'll render it ourselves)
+                  const contentWithoutHeader = section.replace(/^## [^\n]+\n*/, '');
+
+                  if (!headerName || !criterion) return null;
+
                   return (
-                    <div key={criterion.id} className="relative">
+                    <div key={idx} id={getSectionId(criterion.name)} className="bg-white rounded-xl border border-gray-200 p-6 md:p-8 relative">
                       {/* Floated Star Summary Box */}
                       <div className="float-right ml-4 mb-3 bg-gray-50 rounded-lg border border-gray-200 p-3 w-auto">
                         <CategoryStarRating
@@ -696,10 +765,10 @@ export default async function BrandReviewPage({ params }: Props) {
                         />
                       </div>
 
-                      {/* Section Header */}
-                      <h3 id={getSectionId(criterion.name)} className="text-lg font-semibold text-gray-900 mb-4">
+                      {/* Section Header - H2 */}
+                      <h2 className="text-xl font-bold text-gray-900 mb-4">
                         {criterion.name}
-                      </h3>
+                      </h2>
 
                       {/* Sub-scores with CSS Grid for alignment */}
                       {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores || {}).length > 0 && (
@@ -728,90 +797,14 @@ export default async function BrandReviewPage({ params }: Props) {
                           trustpilotUrl={review.trustpilot_url}
                           websiteDomain={brand.website_url ? getDomainFromUrl(brand.website_url) : null}
                         >
-                          {stripMarkdownTables(sectionText)}
+                          {stripMarkdownTables(contentWithoutHeader)}
                         </MarkdownContent>
                       </div>
                     </div>
                   );
-                })}
-              </div>
-            </div>
-          ) : review.full_review && (
-            <div id="full-review" className="bg-white rounded-xl border border-gray-200 p-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">Full {brand.name} Review</h2>
-              {/* Parse full_review by section headers and add stars */}
-              <div className="space-y-10">
-                {(() => {
-                  // Split markdown by ## headers
-                  const sections = review.full_review.split(/(?=^## )/m).filter(Boolean);
-                  return sections.map((section: string, idx: number) => {
-                    // Extract header name (e.g., "Quality & Testing" from "## Quality & Testing — 8/20")
-                    const headerMatch = section.match(/^## ([^—\n]+)/);
-                    const headerName = headerMatch?.[1]?.trim();
-
-                    // Find matching criterion by name
-                    const criterion = headerName
-                      ? scoreBreakdown.find(c => c.name.toLowerCase() === headerName.toLowerCase())
-                      : null;
-
-                    // Remove the header line from section content (we'll render it ourselves)
-                    const contentWithoutHeader = section.replace(/^## [^\n]+\n*/, '');
-
-                    return (
-                      <div key={idx} className="relative">
-                        {headerName && criterion && (
-                          <>
-                            {/* Floated Star Summary Box */}
-                            <div className="float-right ml-4 mb-3 bg-gray-50 rounded-lg border border-gray-200 p-3 w-auto">
-                              <CategoryStarRating
-                                score={criterion.score}
-                                maxScore={criterion.max_points}
-                                colorCode={true}
-                              />
-                            </div>
-
-                            {/* Section Header */}
-                            <h3 id={getSectionId(criterion.name)} className="text-lg font-semibold text-gray-900 mb-4">
-                              {criterion.name}
-                            </h3>
-
-                            {/* Sub-scores with CSS Grid for alignment */}
-                            {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores || {}).length > 0 && (
-                              <div className="grid gap-1 mb-4 clear-right text-sm" style={{ gridTemplateColumns: '1fr auto auto' }}>
-                                {criterion.subcriteria.map(sub => {
-                                  const subScore = criterion.sub_scores[sub.id] ?? 0;
-                                  return (
-                                    <div key={sub.id} className="contents">
-                                      <span className="text-gray-700 py-1">{sub.name}</span>
-                                      <span className="py-1 px-2 flex items-center justify-start" style={{ minWidth: '90px' }}>
-                                        <InlineStarRating score={subScore} maxScore={sub.max_points} colorCode={true} />
-                                      </span>
-                                      <span className="text-gray-400 py-1 text-right" style={{ minWidth: '60px' }}>
-                                        ({subScore}/{sub.max_points})
-                                      </span>
-                                    </div>
-                                  );
-                                })}
-                              </div>
-                            )}
-                          </>
-                        )}
-                        <div className="clear-both">
-                          <MarkdownContent
-                            className="prose prose-sm max-w-none prose-green prose-p:text-gray-700"
-                            brandName={brand.name}
-                            trustpilotUrl={review.trustpilot_url}
-                            websiteDomain={brand.website_url ? getDomainFromUrl(brand.website_url) : null}
-                          >
-                            {stripMarkdownTables(contentWithoutHeader)}
-                          </MarkdownContent>
-                        </div>
-                      </div>
-                    );
-                  });
-                })()}
-              </div>
-            </div>
+                });
+              })()}
+            </>
           )}
 
           {/* Verdict */}
