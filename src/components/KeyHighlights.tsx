@@ -11,13 +11,14 @@ interface ScoreBreakdownItem {
 
 interface KeyHighlightsProps {
   scoreBreakdown: ScoreBreakdownItem[];
+  brandName: string;
 }
 
 function getStrengthColorClass(isStrength: boolean): string {
   return isStrength ? 'text-green-700' : 'text-red-700';
 }
 
-export function KeyHighlights({ scoreBreakdown }: KeyHighlightsProps) {
+export function KeyHighlights({ scoreBreakdown, brandName }: KeyHighlightsProps) {
   if (scoreBreakdown.length < 4) {
     return null;
   }
@@ -38,10 +39,10 @@ export function KeyHighlights({ scoreBreakdown }: KeyHighlightsProps) {
 
   return (
     <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200 p-6">
-      <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+      <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
         <span className="text-xl">📊</span>
-        Key Highlights
-      </h3>
+        {brandName} Key Highlights
+      </h2>
 
       <div className="space-y-3">
         {/* Best items */}

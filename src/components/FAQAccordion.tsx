@@ -23,8 +23,8 @@ export function FAQAccordion({ faqs, brandName }: FAQAccordionProps) {
 
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-8">
-      <h2 className="text-xl font-bold text-gray-900 mb-2">Frequently Asked Questions</h2>
-      <p className="text-sm text-gray-500 mb-6">Common questions about {brandName}</p>
+      <h2 className="text-xl font-bold text-gray-900 mb-2">Frequently Asked Questions About {brandName}</h2>
+      <p className="text-sm text-gray-500 mb-6">Common questions answered</p>
 
       <div className="space-y-3">
         {faqs.map((faq, index) => (

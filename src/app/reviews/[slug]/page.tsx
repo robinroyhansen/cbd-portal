@@ -574,7 +574,7 @@ export default async function BrandReviewPage({ params }: Props) {
 
           {/* Key Highlights - for quick scanning */}
           <div id="key-highlights">
-            <KeyHighlights scoreBreakdown={scoreBreakdown} />
+            <KeyHighlights scoreBreakdown={scoreBreakdown} brandName={brand.name} />
           </div>
 
           {/* About the Brand */}
@@ -699,7 +699,7 @@ export default async function BrandReviewPage({ params }: Props) {
                 <div className="bg-green-50 rounded-xl border border-green-200 p-6">
                   <h2 className="text-lg font-bold text-green-800 mb-4 flex items-center gap-2">
                     <span className="text-xl">✅</span>
-                    Pros
+                    {brand.name} Pros
                   </h2>
                   <ul className="space-y-3">
                     {review.pros.map((pro: string, i: number) => (
@@ -716,7 +716,7 @@ export default async function BrandReviewPage({ params }: Props) {
                 <div className="bg-red-50 rounded-xl border border-red-200 p-6">
                   <h2 className="text-lg font-bold text-red-800 mb-4 flex items-center gap-2">
                     <span className="text-xl">❌</span>
-                    Cons
+                    {brand.name} Cons
                   </h2>
                   <ul className="space-y-3">
                     {review.cons.map((con: string, i: number) => (
