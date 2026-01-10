@@ -49,6 +49,7 @@ interface Study {
   study_type: string | null;
   meta_title: string | null;
   meta_description: string | null;
+  country: string | null;
 }
 
 // Country extraction from text
@@ -117,38 +118,128 @@ const COUNTRY_FLAGS: Record<string, { flag: string; name: string }> = {
   'finnish': { flag: '🇫🇮', name: 'Finland' },
 };
 
-function extractCountry(text: string): { flag: string; name: string } | null {
+function extractCountry(
+  text: string,
+  sourceSite?: string | null,
+  dbCountry?: string | null
+): { flag: string; name: string } | null {
+  // 1. Use database country field if available
+  if (dbCountry) {
+    const lowerCountry = dbCountry.toLowerCase();
+    for (const [keyword, info] of Object.entries(COUNTRY_FLAGS)) {
+      if (lowerCountry.includes(keyword)) {
+        return info;
+      }
+    }
+  }
+
+  // 2. Try to extract from text
   const lowerText = text.toLowerCase();
   for (const [keyword, info] of Object.entries(COUNTRY_FLAGS)) {
     if (lowerText.includes(keyword)) {
       return info;
     }
   }
+
+  // 3. Infer from source site
+  if (sourceSite) {
+    const lowerSource = sourceSite.toLowerCase();
+    if (lowerSource.includes('clinicaltrials.gov')) {
+      return { flag: '🇺🇸', name: 'USA' };
+    }
+    if (lowerSource.includes('pubmed') || lowerSource.includes('ncbi')) {
+      // PubMed is international, can't assume country
+      return null;
+    }
+  }
+
   return null;
 }
 
 // Generate readable title from scientific title
-function generateReadableTitle(scientificTitle: string): string {
-  let readable = scientificTitle;
+function generateReadableTitle(scientificTitle: string, studyType?: string): string {
+  const title = scientificTitle;
 
-  // Remove common scientific prefixes
-  readable = readable.replace(/^(A |An |The )/i, '');
-  readable = readable.replace(/randomized,? controlled trial(s)? (of|to|for)/gi, '');
-  readable = readable.replace(/randomized,? placebo-controlled/gi, '');
-  readable = readable.replace(/double-blind,?/gi, '');
-  readable = readable.replace(/placebo-controlled,?/gi, '');
-  readable = readable.replace(/systematic review (of|and)/gi, '');
-  readable = readable.replace(/meta-analysis (of|and)/gi, '');
+  // Detect study type from title if not provided
+  let type = studyType || 'Study';
+  if (/randomized.*controlled.*trial|RCT/i.test(title)) {
+    type = 'Clinical Trial';
+  } else if (/systematic review/i.test(title)) {
+    type = 'Systematic Review';
+  } else if (/meta-analysis/i.test(title)) {
+    type = 'Meta-Analysis';
+  } else if (/pilot study/i.test(title)) {
+    type = 'Pilot Study';
+  } else if (/case report/i.test(title)) {
+    type = 'Case Report';
+  } else if (/cohort/i.test(title)) {
+    type = 'Cohort Study';
+  } else if (/in vitro|cell line/i.test(title)) {
+    type = 'Lab Study';
+  } else if (/mice|mouse|rat|animal/i.test(title)) {
+    type = 'Animal Study';
+  }
 
-  // Truncate if too long
-  if (readable.length > 80) {
-    const words = readable.split(' ');
-    let truncated = '';
-    for (const word of words) {
-      if ((truncated + ' ' + word).length > 75) break;
-      truncated += (truncated ? ' ' : '') + word;
+  // Try to extract condition/topic from title
+  // Pattern: "for [Condition]" at the end, or "treatment for [Condition]"
+  // Be careful not to match "for CBD" or "for Cannabidiol"
+  let condition: string | null = null;
+
+  // Try specific patterns in order of preference
+  const patterns = [
+    // "treatment for Social Anxiety Disorder"
+    /(?:treatment|therapy)\s+(?:of|for)\s+([A-Z][a-zA-Z\s]+?)(?:\s*[:(]|\s*$)/i,
+    // "for Chronic Pain" at end of title
+    /\bfor\s+([A-Z][a-zA-Z\s]+?)(?:\s*[:(]|\s*$)/i,
+    // "in Epilepsy" or "in Sleep Disorders"
+    /\bin\s+([A-Z][a-zA-Z\s]+?(?:disorder|disease|syndrome|condition|pain|epilepsy|anxiety|depression)s?)(?:\s*[:(]|\s*$)/i,
+  ];
+
+  for (const pattern of patterns) {
+    const match = title.match(pattern);
+    if (match) {
+      const extracted = match[1].trim();
+      // Skip if it's just CBD/Cannabidiol
+      if (!/^(cannabidiol|cbd|cannabis|hemp|thc)$/i.test(extracted)) {
+        condition = extracted;
+        break;
+      }
     }
-    readable = truncated;
+  }
+
+  // If we found a good condition, create a nice title
+  if (condition && condition.length > 3 && condition.length < 50) {
+    // Clean up the condition
+    condition = condition.replace(/\s+/g, ' ').trim();
+
+    // Check if it mentions CBD/cannabidiol
+    const hasCBD = /cannabidiol|cbd/i.test(title);
+    if (hasCBD) {
+      return `CBD for ${condition}: ${type} Results`;
+    }
+    return `${condition}: ${type} Results`;
+  }
+
+  // Fallback: Clean up the original title
+  let readable = title;
+
+  // Remove common scientific prefixes but keep the important parts
+  readable = readable.replace(/^(A |An |The )/i, '');
+
+  // Remove study type descriptors at the beginning
+  readable = readable.replace(/^randomized,?\s*/i, '');
+  readable = readable.replace(/^double-blind,?\s*/i, '');
+  readable = readable.replace(/^placebo-controlled,?\s*/i, '');
+  readable = readable.replace(/^controlled\s+trial\s+(of|to|for)\s*/i, '');
+  readable = readable.replace(/^trial\s+(of|to|for)\s*/i, '');
+
+  // Remove parenthetical references like (R61)
+  readable = readable.replace(/\s*\([A-Z0-9]+\)\s*$/i, '');
+
+  // If still too long, smart truncation
+  if (readable.length > 85) {
+    // Word boundary truncation
+    readable = readable.substring(0, 82).replace(/\s+\S*$/, '');
   }
 
   // Capitalize first letter
@@ -236,7 +327,7 @@ export default async function ResearchStudyPage({ params }: Props) {
   const studyStatus = extractStudyStatus(studyText, study.url);
   const treatment = extractTreatment(studyText);
   const statusInfo = getStudyStatusInfo(studyStatus);
-  const country = extractCountry(studyText);
+  const country = extractCountry(studyText, study.source_site, study.country);
   const primaryTopic = study.relevant_topics?.[0] || null;
 
   // Generate readable title
@@ -246,7 +337,7 @@ export default async function ResearchStudyPage({ params }: Props) {
   const contentForReading = `${study.plain_summary || ''} ${study.abstract || ''}`;
   const readingTime = calculateReadingTime(contentForReading);
 
-  // Fetch related studies - match by primary topic only
+  // Fetch related studies - match by PRIMARY topic only (first element of topics array)
   let relatedStudies: Study[] = [];
   if (primaryTopic) {
     const { data } = await supabase
@@ -255,8 +346,14 @@ export default async function ResearchStudyPage({ params }: Props) {
       .eq('status', 'approved')
       .neq('id', study.id)
       .contains('relevant_topics', [primaryTopic])
-      .limit(4);
-    relatedStudies = data || [];
+      .order('year', { ascending: false })
+      .limit(20);
+
+    // Filter to only keep studies where PRIMARY topic matches
+    // (contains matches anywhere in array, we want first element to match)
+    relatedStudies = (data || [])
+      .filter(s => s.relevant_topics?.[0] === primaryTopic)
+      .slice(0, 4);
   }
 
   const breadcrumbs = [
