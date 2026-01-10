@@ -7,6 +7,8 @@ import { CollapsibleScoreBreakdown } from '@/components/CollapsibleScoreBreakdow
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { StarRating, OverallStarRating, CategoryStarRating, InlineStarRating } from '@/components/StarRating';
 import { KeyHighlights } from '@/components/KeyHighlights';
+import { ReadingProgress, BackToTopButton } from '@/components/ReadingProgress';
+import { RelatedReviews } from '@/components/RelatedReviews';
 import { getDomainFromUrl, getCountryWithFlag } from '@/lib/utils/brand-helpers';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cbd-portal.vercel.app';
@@ -291,6 +293,44 @@ export default async function BrandReviewPage({ params }: Props) {
     sub_scores: scoreMap[c.id]?.sub_scores || {}
   }));
 
+  // Fetch related reviews - prioritize same country, then similar score range
+  const { data: relatedBrands } = await supabase
+    .from('kb_brands')
+    .select(`
+      id,
+      name,
+      slug,
+      logo_url,
+      headquarters_country,
+      kb_brand_reviews!inner (
+        overall_score,
+        is_published
+      )
+    `)
+    .eq('is_published', true)
+    .eq('kb_brand_reviews.is_published', true)
+    .neq('id', brand.id)
+    .limit(8);
+
+  // Transform and sort related brands (same country first, then by score proximity)
+  const transformedRelated = (relatedBrands || []).map(b => ({
+    id: b.id,
+    name: b.name,
+    slug: b.slug,
+    logo_url: b.logo_url,
+    headquarters_country: b.headquarters_country,
+    overall_score: (b.kb_brand_reviews as unknown as { overall_score: number })?.overall_score || 0
+  })).sort((a, b) => {
+    // Prioritize same country
+    const aCountry = a.headquarters_country === brand.headquarters_country ? 0 : 1;
+    const bCountry = b.headquarters_country === brand.headquarters_country ? 0 : 1;
+    if (aCountry !== bCountry) return aCountry - bCountry;
+    // Then by score proximity
+    const aDiff = Math.abs(a.overall_score - review.overall_score);
+    const bDiff = Math.abs(b.overall_score - review.overall_score);
+    return aDiff - bDiff;
+  });
+
   // Breadcrumbs
   const breadcrumbs = [
     { name: 'Home', href: '/' },
@@ -342,6 +382,12 @@ export default async function BrandReviewPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Reading Progress Bar */}
+      <ReadingProgress />
+
+      {/* Back to Top Button */}
+      <BackToTopButton />
+
       {/* Schema.org JSON-LD */}
       <script
         type="application/ld+json"
@@ -380,7 +426,7 @@ export default async function BrandReviewPage({ params }: Props) {
                 {brand.name} Review
               </h1>
 
-              <div className="flex flex-wrap items-center gap-3 text-gray-500 mb-4">
+              <div className="flex flex-wrap items-center gap-3 text-gray-500 mb-2">
                 {brand.website_url && (
                   <span className="text-sm">{getDomainFromUrl(brand.website_url)}</span>
                 )}
@@ -397,6 +443,28 @@ export default async function BrandReviewPage({ params }: Props) {
                   </>
                 )}
               </div>
+
+              {/* Trustpilot Badge - inline below metadata */}
+              {review.trustpilot_score && (
+                <a
+                  href={review.trustpilot_url || `https://www.trustpilot.com/review/${brand.website_url ? new URL(brand.website_url).hostname.replace('www.', '') : ''}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center gap-1.5 text-sm mb-4 ${
+                    review.trustpilot_score >= 4 ? 'text-green-600 hover:text-green-700' :
+                    review.trustpilot_score < 3 ? 'text-red-600 hover:text-red-700' :
+                    'text-yellow-600 hover:text-yellow-700'
+                  }`}
+                  title="View on Trustpilot"
+                >
+                  <span>⭐</span>
+                  <span className="font-medium">{review.trustpilot_score}/5 on Trustpilot</span>
+                  {review.trustpilot_count && (
+                    <span className="text-gray-500">({review.trustpilot_count.toLocaleString()} reviews)</span>
+                  )}
+                  <span>↗</span>
+                </a>
+              )}
 
               {/* Score Badge with Stars */}
               <div className="flex flex-wrap items-center gap-4">
@@ -415,20 +483,6 @@ export default async function BrandReviewPage({ params }: Props) {
                     </div>
                   )}
                 </div>
-
-                {/* Trustpilot Badge */}
-                {review.trustpilot_score && (
-                  <a
-                    href={review.trustpilot_url || `https://www.trustpilot.com/review/${brand.website_url ? new URL(brand.website_url).hostname.replace('www.', '') : ''}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#00B67A] text-white rounded-lg hover:bg-[#00a06b] transition-colors"
-                    title="View on Trustpilot"
-                  >
-                    <span className="text-lg font-bold">★ {review.trustpilot_score}</span>
-                    <span className="text-sm opacity-90">Trustpilot</span>
-                  </a>
-                )}
               </div>
 
               {/* Trust Badges */}
@@ -647,19 +701,23 @@ export default async function BrandReviewPage({ params }: Props) {
                         {criterion.name}
                       </h3>
 
-                      {/* Sub-scores with compact inline format */}
+                      {/* Sub-scores with CSS Grid for alignment */}
                       {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores || {}).length > 0 && (
-                        <div className="space-y-1.5 mb-4 clear-right">
-                          {criterion.subcriteria.map(sub => (
-                            <div key={sub.id} className="flex items-center gap-2 text-sm">
-                              <span className="text-gray-700">{sub.name}</span>
-                              <InlineStarRating
-                                score={criterion.sub_scores[sub.id] ?? 0}
-                                maxScore={sub.max_points}
-                                colorCode={true}
-                              />
-                            </div>
-                          ))}
+                        <div className="grid gap-1 mb-4 clear-right text-sm" style={{ gridTemplateColumns: '1fr auto auto' }}>
+                          {criterion.subcriteria.map(sub => {
+                            const subScore = criterion.sub_scores[sub.id] ?? 0;
+                            return (
+                              <div key={sub.id} className="contents">
+                                <span className="text-gray-700 py-1">{sub.name}</span>
+                                <span className="py-1 px-2 flex items-center justify-start" style={{ minWidth: '90px' }}>
+                                  <InlineStarRating score={subScore} maxScore={sub.max_points} colorCode={true} />
+                                </span>
+                                <span className="text-gray-400 py-1 text-right" style={{ minWidth: '60px' }}>
+                                  ({subScore}/{sub.max_points})
+                                </span>
+                              </div>
+                            );
+                          })}
                         </div>
                       )}
 
@@ -712,19 +770,23 @@ export default async function BrandReviewPage({ params }: Props) {
                               {criterion.name}
                             </h3>
 
-                            {/* Sub-scores with compact inline format */}
+                            {/* Sub-scores with CSS Grid for alignment */}
                             {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores || {}).length > 0 && (
-                              <div className="space-y-1.5 mb-4 clear-right">
-                                {criterion.subcriteria.map(sub => (
-                                  <div key={sub.id} className="flex items-center gap-2 text-sm">
-                                    <span className="text-gray-700">{sub.name}</span>
-                                    <InlineStarRating
-                                      score={criterion.sub_scores[sub.id] ?? 0}
-                                      maxScore={sub.max_points}
-                                      colorCode={true}
-                                    />
-                                  </div>
-                                ))}
+                              <div className="grid gap-1 mb-4 clear-right text-sm" style={{ gridTemplateColumns: '1fr auto auto' }}>
+                                {criterion.subcriteria.map(sub => {
+                                  const subScore = criterion.sub_scores[sub.id] ?? 0;
+                                  return (
+                                    <div key={sub.id} className="contents">
+                                      <span className="text-gray-700 py-1">{sub.name}</span>
+                                      <span className="py-1 px-2 flex items-center justify-start" style={{ minWidth: '90px' }}>
+                                        <InlineStarRating score={subScore} maxScore={sub.max_points} colorCode={true} />
+                                      </span>
+                                      <span className="text-gray-400 py-1 text-right" style={{ minWidth: '60px' }}>
+                                        ({subScore}/{sub.max_points})
+                                      </span>
+                                    </div>
+                                  );
+                                })}
                               </div>
                             )}
                           </>
@@ -793,6 +855,9 @@ export default async function BrandReviewPage({ params }: Props) {
               )}
             </div>
           )}
+
+          {/* Related Reviews */}
+          <RelatedReviews brands={transformedRelated} currentBrandId={brand.id} />
 
           {/* Back to Reviews */}
           <div className="text-center pt-8">

@@ -80,6 +80,8 @@ export function CollapsibleScoreBreakdown({ scoreBreakdown }: CollapsibleScoreBr
                 canExpand ? 'hover:bg-white/50 cursor-pointer' : 'cursor-default'
               } transition-colors`}
               disabled={!canExpand}
+              aria-expanded={canExpand ? isExpanded : undefined}
+              aria-controls={canExpand ? `content-${criterion.id}` : undefined}
             >
               <div className="flex items-center gap-3 flex-1 min-w-0">
                 <span className="font-semibold text-gray-900">{criterion.name}</span>
@@ -112,29 +114,35 @@ export function CollapsibleScoreBreakdown({ scoreBreakdown }: CollapsibleScoreBr
 
             {/* Expandable content */}
             <div
+              id={`content-${criterion.id}`}
               className={`overflow-hidden transition-all duration-300 ease-in-out ${
                 isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
               <div className="px-4 pb-4 pt-2 bg-white/70 border-t border-gray-100/50">
-                {/* Sub-scores with inline star ratings */}
+                {/* Sub-scores with inline star ratings - CSS Grid for alignment */}
                 {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores).length > 0 && (
-                  <div className="space-y-2 mb-3">
-                    {criterion.subcriteria.map(sub => (
-                      <div
-                        key={sub.id}
-                        className="flex items-center justify-between py-2 px-3 bg-white rounded-lg border border-gray-100"
-                      >
-                        <span className="text-sm text-gray-700 font-medium">
-                          {sub.name}
-                        </span>
-                        <InlineStarRating
-                          score={criterion.sub_scores[sub.id] ?? 0}
-                          maxScore={sub.max_points}
-                          colorCode={true}
-                        />
-                      </div>
-                    ))}
+                  <div className="grid gap-2 mb-3" style={{ gridTemplateColumns: '1fr auto auto' }}>
+                    {criterion.subcriteria.map(sub => {
+                      const subScore = criterion.sub_scores[sub.id] ?? 0;
+                      return (
+                        <div key={sub.id} className="contents">
+                          <span className="text-sm text-gray-700 font-medium py-2 px-3 bg-white rounded-l-lg border-y border-l border-gray-100">
+                            {sub.name}
+                          </span>
+                          <span className="py-2 px-2 bg-white border-y border-gray-100 flex items-center" style={{ minWidth: '100px' }}>
+                            <InlineStarRating
+                              score={subScore}
+                              maxScore={sub.max_points}
+                              colorCode={true}
+                            />
+                          </span>
+                          <span className="text-sm text-gray-500 py-2 px-3 bg-white rounded-r-lg border-y border-r border-gray-100 text-right whitespace-nowrap" style={{ minWidth: '70px' }}>
+                            {subScore}/{sub.max_points} pts
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
 

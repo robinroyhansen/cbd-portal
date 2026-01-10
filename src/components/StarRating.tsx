@@ -148,9 +148,15 @@ export function StarRating({
     lg: 'text-base'
   };
 
+  const ariaLabel = `Rating: ${roundedStars} out of 5 stars`;
+
   return (
-    <span className="inline-flex items-center gap-1">
-      <span className="inline-flex items-center gap-px">
+    <span
+      className="inline-flex items-center gap-1"
+      role="img"
+      aria-label={ariaLabel}
+    >
+      <span className="inline-flex items-center gap-px" aria-hidden="true">
         {/* Full stars */}
         {Array.from({ length: fullStars }).map((_, i) => (
           <svg
@@ -224,40 +230,48 @@ export function OverallStarRating({
   };
   const starSize = sizeMap[size];
 
+  const ariaLabel = `Rating: ${roundedStars} out of 5 stars`;
+
   return (
-    <span className="inline-flex items-center gap-0.5">
-      {/* Full stars */}
-      {Array.from({ length: fullStars }).map((_, i) => (
-        <svg
-          key={`full-${i}`}
-          width={starSize}
-          height={starSize}
-          viewBox="0 0 24 24"
-          className={colorClass}
-          fill="currentColor"
-        >
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-        </svg>
-      ))}
+    <span
+      className="inline-flex items-center gap-0.5"
+      role="img"
+      aria-label={ariaLabel}
+    >
+      <span aria-hidden="true" className="inline-flex items-center gap-0.5">
+        {/* Full stars */}
+        {Array.from({ length: fullStars }).map((_, i) => (
+          <svg
+            key={`full-${i}`}
+            width={starSize}
+            height={starSize}
+            viewBox="0 0 24 24"
+            className={colorClass}
+            fill="currentColor"
+          >
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+        ))}
 
-      {/* Half star */}
-      {hasHalfStar && (
-        <HalfStar size={starSize} colorClass={colorClass} />
-      )}
+        {/* Half star */}
+        {hasHalfStar && (
+          <HalfStar size={starSize} colorClass={colorClass} />
+        )}
 
-      {/* Empty stars */}
-      {Array.from({ length: emptyStars }).map((_, i) => (
-        <svg
-          key={`empty-${i}`}
-          width={starSize}
-          height={starSize}
-          viewBox="0 0 24 24"
-          className="text-gray-300"
-          fill="currentColor"
-        >
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-        </svg>
-      ))}
+        {/* Empty stars */}
+        {Array.from({ length: emptyStars }).map((_, i) => (
+          <svg
+            key={`empty-${i}`}
+            width={starSize}
+            height={starSize}
+            viewBox="0 0 24 24"
+            className="text-gray-300"
+            fill="currentColor"
+          >
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+        ))}
+      </span>
     </span>
   );
 }
@@ -285,10 +299,11 @@ export function CategoryStarRating({
 
   const colorClass = getStarColor(percentage, colorCode);
   const starSize = 18;
+  const ariaLabel = `Rating: ${roundedStars} out of 5 stars, ${score} out of ${maxScore} points`;
 
   return (
-    <div className="flex flex-col items-end">
-      <span className="inline-flex items-center gap-0.5">
+    <div className="flex flex-col items-end" role="img" aria-label={ariaLabel}>
+      <span className="inline-flex items-center gap-0.5" aria-hidden="true">
         {Array.from({ length: fullStars }).map((_, i) => (
           <svg
             key={`full-${i}`}
@@ -322,16 +337,18 @@ export function CategoryStarRating({
 
 /**
  * Inline star rating for compact sub-criteria display
- * Shows: Name ★★★½☆ (3/4 pts)
+ * Shows: ★★★½☆ with optional (3/4 pts) suffix
  */
 export function InlineStarRating({
   score,
   maxScore,
-  colorCode = true
+  colorCode = true,
+  showPoints = false
 }: {
   score: number;
   maxScore: number;
   colorCode?: boolean;
+  showPoints?: boolean;
 }) {
   const percentage = maxScore > 0 ? (score / maxScore) * 100 : 0;
   const rawStars = (score / maxScore) * 5;
@@ -344,9 +361,11 @@ export function InlineStarRating({
   const colorClass = getStarColor(percentage, colorCode);
   const starSize = 14;
 
+  const ariaLabel = `Rating: ${roundedStars} out of 5 stars`;
+
   return (
-    <span className="inline-flex items-center gap-1.5">
-      <span className="inline-flex items-center gap-px">
+    <span className="inline-flex items-center gap-1.5" role="img" aria-label={ariaLabel}>
+      <span className="inline-flex items-center gap-px" aria-hidden="true">
         {Array.from({ length: fullStars }).map((_, i) => (
           <svg
             key={`full-${i}`}
@@ -373,7 +392,9 @@ export function InlineStarRating({
           </svg>
         ))}
       </span>
-      <span className="text-xs text-gray-400">({score}/{maxScore} pts)</span>
+      {showPoints && (
+        <span className="text-xs text-gray-400">({score}/{maxScore} pts)</span>
+      )}
     </span>
   );
 }
