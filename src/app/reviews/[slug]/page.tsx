@@ -6,7 +6,6 @@ import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { CollapsibleScoreBreakdown } from '@/components/CollapsibleScoreBreakdown';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { StarRating, OverallStarRating, CategoryStarRating, InlineStarRating } from '@/components/StarRating';
-import { KeyHighlights } from '@/components/KeyHighlights';
 import { ReadingProgress, BackToTopButton } from '@/components/ReadingProgress';
 import { RelatedReviews } from '@/components/RelatedReviews';
 import { FAQAccordion } from '@/components/FAQAccordion';
@@ -570,11 +569,6 @@ export default async function BrandReviewPage({ params }: Props) {
                 }}
               />
             </div>
-          </div>
-
-          {/* Key Highlights - for quick scanning */}
-          <div id="key-highlights">
-            <KeyHighlights scoreBreakdown={scoreBreakdown} brandName={brand.name} />
           </div>
 
           {/* About the Brand */}

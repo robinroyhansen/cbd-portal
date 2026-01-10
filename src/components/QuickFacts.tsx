@@ -100,20 +100,11 @@ export function QuickFacts({ brand, review }: QuickFactsProps) {
     });
   }
 
-  // Website
+  // Website (plain text, no link - SEO strategy)
   if (brand.website_url) {
     facts.push({
       label: 'Website',
-      value: (
-        <a
-          href={brand.website_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-green-600 hover:text-green-700"
-        >
-          {getDomainFromUrl(brand.website_url)} ↗
-        </a>
-      ),
+      value: <span className="text-gray-700">{getDomainFromUrl(brand.website_url)}</span>,
     });
   }
 
