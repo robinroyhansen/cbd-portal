@@ -165,6 +165,7 @@ export async function POST(request: NextRequest) {
     );
 
     // Fetch studies needing content generation
+    // Always start from 0 - the filter excludes already-completed studies
     // Order by relevance_score DESC to prioritize high-quality studies first
     const { data: studies, error: fetchError } = await supabase
       .from('kb_research_queue')
@@ -172,7 +173,7 @@ export async function POST(request: NextRequest) {
       .eq('status', 'approved')
       .or('key_findings.is.null,key_findings.eq.[]')
       .order('relevance_score', { ascending: false, nullsFirst: false })
-      .limit(safeBatchSize);
+      .limit(safeBatchSize);  // NOT .range() - filter handles exclusion
 
     if (fetchError) {
       return NextResponse.json({ error: fetchError.message }, { status: 500 });
