@@ -9,20 +9,23 @@ interface MarkdownContentProps {
   className?: string;
   brandName?: string;
   trustpilotUrl?: string | null;
+  websiteDomain?: string | null;
 }
 
 export function MarkdownContent({
   children,
   className = '',
   brandName,
-  trustpilotUrl
+  trustpilotUrl,
+  websiteDomain
 }: MarkdownContentProps) {
   // Auto-link review platforms if brandName is provided
   let processedContent = children;
   if (brandName) {
     processedContent = autoLinkReviewPlatforms(children, {
       brandName,
-      trustpilotUrl
+      trustpilotUrl,
+      websiteDomain
     });
   }
 

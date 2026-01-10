@@ -5,6 +5,7 @@
 interface AutoLinkOptions {
   brandName: string;
   trustpilotUrl?: string | null;
+  websiteDomain?: string | null; // Used to construct Trustpilot URL if trustpilotUrl is null
 }
 
 /**
@@ -13,15 +14,23 @@ interface AutoLinkOptions {
  * Note: ReactMarkdown handles target="_blank" for external links automatically
  */
 export function autoLinkReviewPlatforms(text: string, options: AutoLinkOptions): string {
-  const { brandName, trustpilotUrl } = options;
+  const { brandName, trustpilotUrl, websiteDomain } = options;
   let result = text;
 
+  // Determine Trustpilot URL - use provided URL or construct from domain
+  let finalTrustpilotUrl = trustpilotUrl;
+  if (!finalTrustpilotUrl && websiteDomain) {
+    // Construct Trustpilot URL from website domain
+    const cleanDomain = websiteDomain.replace(/^www\./, '');
+    finalTrustpilotUrl = `https://www.trustpilot.com/review/${cleanDomain}`;
+  }
+
   // Auto-link first mention of "Trustpilot"
-  if (trustpilotUrl) {
+  if (finalTrustpilotUrl) {
     // Match "Trustpilot" that's not already in a link (not preceded by [ or followed by ])
     const trustpilotRegex = /(?<!\[)Trustpilot(?!\])/i;
     result = result.replace(trustpilotRegex, (match) => {
-      return `[${match} ↗](${trustpilotUrl})`;
+      return `[${match} ↗](${finalTrustpilotUrl})`;
     });
   }
 

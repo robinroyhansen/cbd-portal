@@ -773,6 +773,7 @@ export default async function BrandReviewPage({ params }: Props) {
                           className="prose prose-sm max-w-none prose-green prose-p:text-gray-700"
                           brandName={brand.name}
                           trustpilotUrl={review.trustpilot_url}
+                          websiteDomain={brand.website_url ? getDomainFromUrl(brand.website_url) : null}
                         >
                           {stripMarkdownTables(sectionText)}
                         </MarkdownContent>
@@ -847,6 +848,7 @@ export default async function BrandReviewPage({ params }: Props) {
                             className="prose prose-sm max-w-none prose-green prose-p:text-gray-700"
                             brandName={brand.name}
                             trustpilotUrl={review.trustpilot_url}
+                            websiteDomain={brand.website_url ? getDomainFromUrl(brand.website_url) : null}
                           >
                             {stripMarkdownTables(contentWithoutHeader)}
                           </MarkdownContent>

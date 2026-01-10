@@ -1412,11 +1412,18 @@ export default function BrandReviewEditorPage() {
                   type="text"
                   value={formData.meta_title}
                   onChange={(e) => setFormData({ ...formData, meta_title: e.target.value })}
-                  maxLength={60}
+                  maxLength={70}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  placeholder={`${brand?.name} Review 2024 - Score ${calculateTotalScore()}/100`}
+                  placeholder={`${brand?.name} CBD Review ${new Date().getFullYear()}: Is It Worth Buying?`}
                 />
-                <div className="text-xs text-gray-400 mt-1">{formData.meta_title.length}/60</div>
+                <div className={`text-xs mt-1 ${
+                  formData.meta_title.length > 60 ? 'text-red-600 font-medium' :
+                  formData.meta_title.length > 55 ? 'text-yellow-600' :
+                  'text-green-600'
+                }`}>
+                  {formData.meta_title.length}/60
+                  {formData.meta_title.length > 60 && ' (over limit!)'}
+                </div>
               </div>
 
               <div>
@@ -1427,12 +1434,19 @@ export default function BrandReviewEditorPage() {
                 <textarea
                   value={formData.meta_description}
                   onChange={(e) => setFormData({ ...formData, meta_description: e.target.value })}
-                  maxLength={155}
+                  maxLength={165}
                   rows={2}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  placeholder="Independent review of brand's CBD products..."
+                  placeholder={`We tested ${brand?.name} CBD products and analyzed their lab reports, pricing & reviews. See what we found...`}
                 />
-                <div className="text-xs text-gray-400 mt-1">{formData.meta_description.length}/155</div>
+                <div className={`text-xs mt-1 ${
+                  formData.meta_description.length > 155 ? 'text-red-600 font-medium' :
+                  formData.meta_description.length > 150 ? 'text-yellow-600' :
+                  'text-green-600'
+                }`}>
+                  {formData.meta_description.length}/155
+                  {formData.meta_description.length > 155 && ' (over limit!)'}
+                </div>
               </div>
             </div>
           </div>
