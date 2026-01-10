@@ -16,6 +16,17 @@ import { generateFAQs, generateFAQSchema } from '@/lib/utils/faq-generator';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cbd-portal.vercel.app';
 
+// Convert criterion name to section ID for TOC linking
+// e.g., "Quality & Testing" -> "section-quality-testing"
+function getSectionId(name: string): string {
+  return 'section-' + name
+    .toLowerCase()
+    .replace(/&/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
@@ -744,7 +755,7 @@ export default async function BrandReviewPage({ params }: Props) {
                       </div>
 
                       {/* Section Header */}
-                      <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                      <h3 id={getSectionId(criterion.name)} className="text-lg font-semibold text-gray-900 mb-4">
                         {criterion.name}
                       </h3>
 
@@ -818,7 +829,7 @@ export default async function BrandReviewPage({ params }: Props) {
                             </div>
 
                             {/* Section Header */}
-                            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                            <h3 id={getSectionId(criterion.name)} className="text-lg font-semibold text-gray-900 mb-4">
                               {criterion.name}
                             </h3>
 
