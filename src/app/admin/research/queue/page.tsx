@@ -148,8 +148,26 @@ export default function ResearchQueuePage() {
   };
 
   const approveResearch = async (id: string) => {
-    // Update status first
-    await updateResearchStatus(id, 'approved');
+    // Approve study and generate SEO-friendly slug
+    try {
+      const response = await fetch('/api/admin/research/approve', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ studyId: id })
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        console.error('Failed to approve study:', error);
+        return;
+      }
+    } catch (error) {
+      console.error('Failed to approve study:', error);
+      return;
+    }
+
+    // Refresh the list
+    fetchResearch();
 
     // Generate plain language summary (silent)
     try {
@@ -264,10 +282,12 @@ export default function ResearchQueuePage() {
   const handleBulkApprove = async () => {
     if (bulkSelected.length === 0) return;
 
+    // Process approvals sequentially to avoid race conditions with slug generation
     for (const id of bulkSelected) {
       await approveResearch(id);
     }
     setBulkSelected([]);
+    fetchResearch();
   };
 
   const [bulkRejectReason, setBulkRejectReason] = useState<string>('');
