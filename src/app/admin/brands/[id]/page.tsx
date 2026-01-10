@@ -432,7 +432,9 @@ export default function BrandReviewEditorPage() {
         section_content: data.data.section_content || prev.section_content,
         pros: data.data.pros?.length > 0 ? data.data.pros : prev.pros,
         cons: data.data.cons?.length > 0 ? data.data.cons : prev.cons,
-        verdict: data.data.verdict || prev.verdict
+        verdict: data.data.verdict || prev.verdict,
+        meta_title: data.data.meta_title || prev.meta_title,
+        meta_description: data.data.meta_description || prev.meta_description
       }));
 
       setSuccessMessage('AI review generated successfully! Review and edit the content before saving.');
