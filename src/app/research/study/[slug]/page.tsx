@@ -482,6 +482,12 @@ export default async function ResearchStudyPage({ params }: Props) {
     { name: 'Study', url: `${SITE_URL}/research/study/${slug}` }
   ];
 
+  // Fetch glossary terms for auto-linking
+  const { data: glossaryTerms } = await supabase
+    .from('kb_glossary')
+    .select('term, slug')
+    .order('term', { ascending: true });
+
   const keyFindings = (study.key_findings as KeyFinding[]) || [];
   const findings = keyFindings.filter(f => f.type === 'finding');
   const limitations = keyFindings.filter(f => f.type === 'limitation');
@@ -529,6 +535,7 @@ export default async function ResearchStudyPage({ params }: Props) {
     pageUrl,
     breadcrumbs,
     scholarlyArticleSchema,
+    glossaryTerms: glossaryTerms || [],
   };
 
   return <StudyPageClient data={studyData} />;

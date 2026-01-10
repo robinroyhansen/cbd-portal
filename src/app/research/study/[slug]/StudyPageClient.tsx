@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { getSubjectIcon, SampleInfo } from '@/lib/study-analysis';
+import { LinkedContent } from '@/components/LinkedContent';
+import { GlossaryTerm } from '@/lib/utils/glossary-autolink';
 
 // Topic/condition colors
 const TOPIC_COLORS: Record<string, string> = {
@@ -93,6 +95,7 @@ interface StudyPageData {
   pageUrl: string;
   breadcrumbs: { name: string; url: string }[];
   scholarlyArticleSchema: object;
+  glossaryTerms: GlossaryTerm[];
 }
 
 // Circular quality score component
@@ -292,6 +295,7 @@ export function StudyPageClient({ data }: { data: StudyPageData }) {
     pageUrl,
     breadcrumbs,
     scholarlyArticleSchema,
+    glossaryTerms,
   } = data;
 
   return (
@@ -398,9 +402,12 @@ export function StudyPageClient({ data }: { data: StudyPageData }) {
               <span className="text-2xl">✨</span>
               What You Need to Know
             </h2>
-            <p className="text-blue-800 leading-relaxed text-lg">
-              {study.plain_summary}
-            </p>
+            <LinkedContent
+              content={study.plain_summary}
+              glossaryTerms={glossaryTerms}
+              className="text-blue-800 leading-relaxed text-lg block"
+              as="p"
+            />
           </div>
         )}
 
@@ -507,7 +514,11 @@ export function StudyPageClient({ data }: { data: StudyPageData }) {
               {findings.map((finding, idx) => (
                 <li key={idx} className="flex items-start gap-3">
                   <span className="text-blue-500 mt-0.5 text-lg">✓</span>
-                  <span className="text-gray-700">{finding.text}</span>
+                  <LinkedContent
+                    content={finding.text}
+                    glossaryTerms={glossaryTerms}
+                    className="text-gray-700"
+                  />
                 </li>
               ))}
             </ul>
@@ -525,13 +536,21 @@ export function StudyPageClient({ data }: { data: StudyPageData }) {
               {limitations.map((limitation, idx) => (
                 <li key={idx} className="flex items-start gap-2 text-amber-700">
                   <span className="text-amber-500 mt-0.5">•</span>
-                  {limitation.text}
+                  <LinkedContent
+                    content={limitation.text}
+                    glossaryTerms={glossaryTerms}
+                    className="text-amber-700"
+                  />
                 </li>
               ))}
               {assessment.limitations.map((limitation, idx) => (
                 <li key={`auto-${idx}`} className="flex items-start gap-2 text-amber-700">
                   <span className="text-amber-500 mt-0.5">•</span>
-                  {limitation}
+                  <LinkedContent
+                    content={limitation}
+                    glossaryTerms={glossaryTerms}
+                    className="text-amber-700"
+                  />
                 </li>
               ))}
             </ul>
