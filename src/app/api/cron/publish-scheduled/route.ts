@@ -61,6 +61,7 @@ export async function GET(request: NextRequest) {
       .from('kb_brand_reviews')
       .select(`
         id,
+        brand_id,
         kb_brands (name)
       `)
       .eq('is_published', false)
@@ -71,6 +72,7 @@ export async function GET(request: NextRequest) {
       console.error('Error fetching scheduled reviews:', reviewsError);
     } else if (scheduledReviews && scheduledReviews.length > 0) {
       for (const review of scheduledReviews) {
+        // Publish the review
         const { error: updateError } = await supabase
           .from('kb_brand_reviews')
           .update({
@@ -87,6 +89,18 @@ export async function GET(request: NextRequest) {
           const brandName = (review.kb_brands as { name: string } | null)?.name || 'Unknown';
           console.log(`Auto-published review for: ${brandName}`);
           results.reviews.published++;
+
+          // Also auto-publish the brand
+          if (review.brand_id) {
+            const { error: brandError } = await supabase
+              .from('kb_brands')
+              .update({ is_published: true })
+              .eq('id', review.brand_id);
+
+            if (brandError) {
+              console.error(`Error auto-publishing brand for review:`, brandError);
+            }
+          }
         }
       }
     }

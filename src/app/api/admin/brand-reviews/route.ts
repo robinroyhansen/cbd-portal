@@ -286,6 +286,29 @@ export async function PATCH(request: NextRequest) {
     if (updates.is_published === true) {
       updates.last_reviewed_at = new Date().toISOString();
       updates.scheduled_publish_at = null;
+
+      // Auto-publish the brand when publishing its review
+      // First get the brand_id from the review if not provided
+      let reviewBrandId = brand_id;
+      if (!reviewBrandId) {
+        const { data: existingReview } = await supabase
+          .from('kb_brand_reviews')
+          .select('brand_id')
+          .eq('id', id)
+          .single();
+        reviewBrandId = existingReview?.brand_id;
+      }
+
+      if (reviewBrandId) {
+        const { error: brandError } = await supabase
+          .from('kb_brands')
+          .update({ is_published: true })
+          .eq('id', reviewBrandId);
+
+        if (brandError) {
+          console.error('Error auto-publishing brand:', brandError);
+        }
+      }
     }
 
     // If scheduling, ensure not published
