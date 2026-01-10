@@ -10,6 +10,21 @@ import {
 } from '@/lib/quality-tiers';
 import { extractSampleInfo } from '@/lib/study-analysis';
 
+interface GenerationStatus {
+  totalApproved: number;
+  needsContent: number;
+  completed: number;
+  percentage: number;
+}
+
+interface GenerationResult {
+  processed: number;
+  successful: number;
+  failed: number;
+  remaining: number;
+  results: Array<{ id: string; status: string; error?: string; title?: string }>;
+}
+
 interface Study {
   id: string;
   title: string;
@@ -86,6 +101,13 @@ export default function AdminStudiesPage() {
   const [hasMeta, setHasMeta] = useState<string>('');
   const [qualityFilter, setQualityFilter] = useState<string>('');
   const [currentPage, setCurrentPage] = useState(1);
+
+  // Bulk generation state
+  const [genStatus, setGenStatus] = useState<GenerationStatus | null>(null);
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [genResult, setGenResult] = useState<GenerationResult | null>(null);
+  const [showConfirmAll, setShowConfirmAll] = useState(false);
+
   const supabase = createClient();
 
   const fetchStudies = useCallback(async () => {
@@ -104,9 +126,52 @@ export default function AdminStudiesPage() {
     setLoading(false);
   }, [supabase]);
 
+  // Fetch generation status
+  const fetchGenStatus = useCallback(async () => {
+    try {
+      const response = await fetch('/api/admin/research/bulk-generate');
+      if (response.ok) {
+        const data = await response.json();
+        setGenStatus(data);
+      }
+    } catch (error) {
+      console.error('Error fetching generation status:', error);
+    }
+  }, []);
+
+  // Generate batch of studies
+  const generateBatch = async (batchSize: number = 10) => {
+    setIsGenerating(true);
+    setGenResult(null);
+    try {
+      const response = await fetch('/api/admin/research/bulk-generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ batchSize }),
+      });
+      const data = await response.json();
+      setGenResult(data);
+      // Refresh status and studies list
+      await fetchGenStatus();
+      await fetchStudies();
+    } catch (error) {
+      console.error('Error generating content:', error);
+      setGenResult({
+        processed: 0,
+        successful: 0,
+        failed: 0,
+        remaining: genStatus?.needsContent || 0,
+        results: [{ id: 'error', status: 'error', error: String(error) }],
+      });
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
   useEffect(() => {
     fetchStudies();
-  }, [fetchStudies]);
+    fetchGenStatus();
+  }, [fetchStudies, fetchGenStatus]);
 
   // Enrich studies with calculated fields
   const enrichedStudies: EnrichedStudy[] = useMemo(() => {
@@ -271,6 +336,138 @@ export default function AdminStudiesPage() {
           </button>
         </div>
       </div>
+
+      {/* Content Generation Status Card */}
+      {genStatus && (
+        <div className="mb-6 bg-white rounded-lg shadow p-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <span>📊</span> Content Generation Status
+          </h2>
+
+          <div className="mb-4">
+            <div className="flex justify-between text-sm mb-1">
+              <span className="text-gray-600">
+                Studies needing content: <strong>{genStatus.needsContent}</strong> of {genStatus.totalApproved}
+              </span>
+              <span className="font-medium text-gray-900">{genStatus.percentage}% complete</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-3">
+              <div
+                className="bg-green-500 h-3 rounded-full transition-all duration-500"
+                style={{ width: `${genStatus.percentage}%` }}
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => generateBatch(10)}
+              disabled={isGenerating || genStatus.needsContent === 0}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                isGenerating || genStatus.needsContent === 0
+                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                  : 'bg-blue-600 text-white hover:bg-blue-700'
+              }`}
+            >
+              {isGenerating ? 'Generating...' : 'Generate Next 10'}
+            </button>
+
+            <button
+              onClick={() => setShowConfirmAll(true)}
+              disabled={isGenerating || genStatus.needsContent === 0}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                isGenerating || genStatus.needsContent === 0
+                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                  : 'bg-purple-600 text-white hover:bg-purple-700'
+              }`}
+            >
+              Generate All ({genStatus.needsContent})
+            </button>
+
+            {isGenerating && (
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <div className="animate-spin rounded-full h-4 w-4 border-2 border-blue-600 border-t-transparent"></div>
+                Processing...
+              </div>
+            )}
+          </div>
+
+          {/* Generation Result Toast */}
+          {genResult && (
+            <div className={`mt-4 p-4 rounded-lg ${genResult.failed > 0 ? 'bg-amber-50 border border-amber-200' : 'bg-green-50 border border-green-200'}`}>
+              <div className="flex items-start gap-3">
+                <span className="text-xl">{genResult.failed > 0 ? '⚠️' : '✅'}</span>
+                <div>
+                  <p className="font-medium text-gray-900">
+                    Generated content for {genResult.successful} studies
+                    {genResult.failed > 0 && ` (${genResult.failed} failed)`}
+                  </p>
+                  <p className="text-sm text-gray-600 mt-1">
+                    {genResult.remaining} studies remaining
+                  </p>
+                  {genResult.failed > 0 && (
+                    <details className="mt-2">
+                      <summary className="text-sm text-amber-700 cursor-pointer">View errors</summary>
+                      <ul className="mt-2 text-sm text-gray-600 space-y-1">
+                        {genResult.results
+                          .filter(r => r.status === 'error')
+                          .map((r, i) => (
+                            <li key={i} className="truncate">
+                              • {r.title}: {r.error}
+                            </li>
+                          ))}
+                      </ul>
+                    </details>
+                  )}
+                </div>
+                <button
+                  onClick={() => setGenResult(null)}
+                  className="ml-auto text-gray-400 hover:text-gray-600"
+                >
+                  ×
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Confirm All Modal */}
+      {showConfirmAll && genStatus && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-xl p-6 max-w-md mx-4">
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Generate All Content?</h3>
+            <p className="text-gray-600 mb-4">
+              This will generate content for <strong>{genStatus.needsContent} studies</strong>.
+            </p>
+            <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-4">
+              <p className="text-sm text-amber-800">
+                <strong>Estimated cost:</strong> ~${((genStatus.needsContent * 0.002)).toFixed(2)} (Claude Haiku)
+              </p>
+              <p className="text-sm text-amber-800 mt-1">
+                <strong>Estimated time:</strong> ~{Math.ceil(genStatus.needsContent * 2 / 60)} minutes
+              </p>
+            </div>
+            <div className="flex gap-3 justify-end">
+              <button
+                onClick={() => setShowConfirmAll(false)}
+                className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => {
+                  setShowConfirmAll(false);
+                  generateBatch(genStatus.needsContent);
+                }}
+                className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+              >
+                Generate All
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Stats Cards */}
       <div className="mb-6 grid grid-cols-2 md:grid-cols-4 gap-4">
