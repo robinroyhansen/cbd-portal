@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { COUNTRIES, getCountryName, getCountryWithFlag, getDomainFromUrl } from '@/lib/utils/brand-helpers';
+import { UnpublishBrandWarningModal } from '@/components/admin/BrandPublishWarningModal';
 
 interface Brand {
   id: string;
@@ -35,6 +36,8 @@ export default function AdminBrandsPage() {
   const [error, setError] = useState<string | null>(null);
   const [researching, setResearching] = useState(false);
   const [researchComplete, setResearchComplete] = useState(false);
+  const [showUnpublishModal, setShowUnpublishModal] = useState(false);
+  const [unpublishingBrand, setUnpublishingBrand] = useState<Brand | null>(null);
 
   const fetchBrands = useCallback(async () => {
     setLoading(true);
@@ -176,8 +179,20 @@ export default function AdminBrandsPage() {
     setResearchComplete(false);
   };
 
-  const handleSave = async () => {
+  const handleSave = async (forceUnpublish: boolean = false) => {
     setError(null);
+
+    // Check if we're unpublishing a brand with published reviews
+    if (isEditing && !isCreating && !forceUnpublish) {
+      const originalBrand = brands.find(b => b.id === isEditing);
+      if (originalBrand?.is_published && formData.is_published === false && originalBrand.review_published) {
+        // Show warning modal
+        setUnpublishingBrand(originalBrand);
+        setShowUnpublishModal(true);
+        return;
+      }
+    }
+
     setSaving(true);
 
     try {
@@ -203,6 +218,13 @@ export default function AdminBrandsPage() {
     } finally {
       setSaving(false);
     }
+  };
+
+  const handleConfirmUnpublish = async () => {
+    setShowUnpublishModal(false);
+    setUnpublishingBrand(null);
+    // Force save with unpublish
+    await handleSave(true);
   };
 
   const handleDelete = async (id: string) => {
@@ -525,7 +547,7 @@ export default function AdminBrandsPage() {
                   </button>
                 )}
                 <button
-                  onClick={handleSave}
+                  onClick={() => handleSave()}
                   disabled={saving}
                   className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50"
                 >
@@ -650,6 +672,21 @@ export default function AdminBrandsPage() {
           </table>
         </div>
       )}
+
+      {/* Unpublish Brand Warning Modal */}
+      <UnpublishBrandWarningModal
+        isOpen={showUnpublishModal}
+        brandName={unpublishingBrand?.name || ''}
+        reviewCount={1}
+        onCancel={() => {
+          setShowUnpublishModal(false);
+          setUnpublishingBrand(null);
+          // Reset the published state in form since user cancelled
+          setFormData(prev => ({ ...prev, is_published: true }));
+        }}
+        onConfirm={handleConfirmUnpublish}
+        isLoading={saving}
+      />
     </div>
   );
 }
