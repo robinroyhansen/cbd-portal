@@ -11,7 +11,7 @@ import { RelatedReviews } from '@/components/RelatedReviews';
 import { FAQAccordion } from '@/components/FAQAccordion';
 import { TableOfContents } from '@/components/TableOfContents';
 import { QuickFacts } from '@/components/QuickFacts';
-import { getDomainFromUrl, getCountryWithFlag } from '@/lib/utils/brand-helpers';
+import { getDomainFromUrl } from '@/lib/utils/brand-helpers';
 import { generateFAQs, generateFAQSchema } from '@/lib/utils/faq-generator';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cbd-portal.vercel.app';
@@ -478,23 +478,11 @@ export default async function BrandReviewPage({ params }: Props) {
                 {brand.name} CBD Review {reviewYear}
               </h1>
 
-              <div className="flex flex-wrap items-center gap-3 text-gray-500 mb-2">
-                {brand.website_url && (
-                  <span className="text-sm">{getDomainFromUrl(brand.website_url)}</span>
-                )}
-                {brand.headquarters_country && (
-                  <>
-                    <span className="text-gray-300">•</span>
-                    <span className="text-sm">{getCountryWithFlag(brand.headquarters_country)}</span>
-                  </>
-                )}
-                {brand.founded_year && (
-                  <>
-                    <span className="text-gray-300">•</span>
-                    <span className="text-sm">Est. {brand.founded_year}</span>
-                  </>
-                )}
-              </div>
+              {brand.website_url && (
+                <div className="text-gray-500 text-sm mb-2">
+                  {getDomainFromUrl(brand.website_url)}
+                </div>
+              )}
 
               {/* Trustpilot Badge - inline below metadata */}
               {review.trustpilot_score && (
@@ -581,6 +569,7 @@ export default async function BrandReviewPage({ params }: Props) {
                   name: brand.name,
                   headquarters_country: brand.headquarters_country,
                   founded_year: brand.founded_year,
+                  website_url: brand.website_url,
                   certifications: brand.certifications,
                 }}
                 review={{
@@ -588,6 +577,11 @@ export default async function BrandReviewPage({ params }: Props) {
                   trustpilot_score: review.trustpilot_score,
                   trustpilot_count: review.trustpilot_count,
                   trustpilot_url: review.trustpilot_url,
+                  last_reviewed_at: review.last_reviewed_at,
+                  author: review.kb_authors ? {
+                    name: review.kb_authors.name,
+                    slug: review.kb_authors.slug,
+                  } : null,
                 }}
               />
             </div>

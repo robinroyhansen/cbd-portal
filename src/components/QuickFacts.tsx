@@ -1,12 +1,19 @@
 'use client';
 
+import Link from 'next/link';
 import { getCountryWithFlag } from '@/lib/utils/brand-helpers';
+
+interface Author {
+  name: string;
+  slug: string;
+}
 
 interface QuickFactsProps {
   brand: {
     name: string;
     headquarters_country: string | null;
     founded_year: number | null;
+    website_url: string | null;
     certifications: string[] | null;
   };
   review: {
@@ -14,6 +21,8 @@ interface QuickFactsProps {
     trustpilot_score: number | null;
     trustpilot_count: number | null;
     trustpilot_url: string | null;
+    last_reviewed_at: string | null;
+    author: Author | null;
   };
 }
 
@@ -37,6 +46,24 @@ function getScoreLabel(score: number): string {
   return 'Below Average';
 }
 
+function getDomainFromUrl(url: string): string {
+  try {
+    const hostname = new URL(url).hostname;
+    return hostname.replace(/^www\./, '');
+  } catch {
+    return url;
+  }
+}
+
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
+
 export function QuickFacts({ brand, review }: QuickFactsProps) {
   const facts: { label: string; value: React.ReactNode }[] = [];
 
@@ -49,30 +76,6 @@ export function QuickFacts({ brand, review }: QuickFactsProps) {
       </span>
     ),
   });
-
-  // Trustpilot
-  if (review.trustpilot_score) {
-    facts.push({
-      label: 'Trustpilot',
-      value: review.trustpilot_url ? (
-        <a
-          href={review.trustpilot_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-green-600 hover:text-green-700"
-        >
-          {review.trustpilot_score}/5
-          {review.trustpilot_count && ` (${review.trustpilot_count.toLocaleString()} reviews)`}
-          <span className="ml-1">↗</span>
-        </a>
-      ) : (
-        <span>
-          {review.trustpilot_score}/5
-          {review.trustpilot_count && ` (${review.trustpilot_count.toLocaleString()} reviews)`}
-        </span>
-      ),
-    });
-  }
 
   // Headquarters
   if (brand.headquarters_country) {
@@ -90,31 +93,74 @@ export function QuickFacts({ brand, review }: QuickFactsProps) {
     });
   }
 
-  // Certifications
-  if (brand.certifications && brand.certifications.length > 0) {
-    const certNames = brand.certifications
-      .map(c => CERTIFICATION_LABELS[c])
-      .filter(Boolean);
-    if (certNames.length > 0) {
-      facts.push({
-        label: 'Certifications',
-        value: (
-          <div className="flex flex-wrap gap-1">
-            {certNames.slice(0, 3).map((cert, i) => (
-              <span
-                key={i}
-                className="inline-block px-2 py-0.5 bg-green-100 text-green-800 text-xs rounded"
-              >
-                {cert}
-              </span>
-            ))}
-            {certNames.length > 3 && (
-              <span className="text-gray-500 text-xs">+{certNames.length - 3} more</span>
-            )}
-          </div>
-        ),
-      });
-    }
+  // Website
+  if (brand.website_url) {
+    facts.push({
+      label: 'Website',
+      value: getDomainFromUrl(brand.website_url),
+    });
+  }
+
+  // Trustpilot
+  if (review.trustpilot_score) {
+    facts.push({
+      label: 'Trustpilot',
+      value: review.trustpilot_url ? (
+        <a
+          href={review.trustpilot_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-green-600 hover:text-green-700"
+        >
+          <span className="mr-1">⭐</span>
+          {review.trustpilot_score}/5
+          {review.trustpilot_count && ` (${review.trustpilot_count.toLocaleString()} reviews)`}
+          <span className="ml-1">↗</span>
+        </a>
+      ) : (
+        <span>
+          <span className="mr-1">⭐</span>
+          {review.trustpilot_score}/5
+          {review.trustpilot_count && ` (${review.trustpilot_count.toLocaleString()} reviews)`}
+        </span>
+      ),
+    });
+  }
+
+  // Lab Testing (check certifications for third_party_tested)
+  const hasLabTesting = brand.certifications?.includes('third_party_tested');
+  if (hasLabTesting !== undefined) {
+    facts.push({
+      label: 'Lab Testing',
+      value: hasLabTesting ? (
+        <span className="text-green-600">✓ Third-party tested</span>
+      ) : (
+        <span className="text-gray-500">✗ Not verified</span>
+      ),
+    });
+  }
+
+  // Reviewed By (Author)
+  if (review.author) {
+    facts.push({
+      label: 'Reviewed By',
+      value: (
+        <Link
+          href={`/authors/${review.author.slug}`}
+          className="text-green-600 hover:text-green-700"
+        >
+          {review.author.name}
+        </Link>
+      ),
+    });
+  }
+
+  // Last Reviewed
+  if (review.last_reviewed_at) {
+    facts.push({
+      label: 'Last Reviewed',
+      value: formatDate(review.last_reviewed_at),
+    });
   }
 
   if (facts.length === 0) return null;
