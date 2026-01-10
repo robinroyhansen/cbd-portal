@@ -16,40 +16,54 @@ interface GeneratedScore {
 interface GeneratedReview {
   scores: GeneratedScore[];
   summary: string;
-  about_content: string; // Factual intro about the brand
-  section_content: Record<string, string>; // { criterion_id: "section text..." }
+  about_content: string;
+  section_content: Record<string, string>;
   pros: string[];
   cons: string[];
-  best_for: string[]; // User types this brand is good for
-  not_ideal_for: string[]; // User types this brand is not good for
+  best_for: string[];
+  not_ideal_for: string[];
   verdict: string;
   recommendation_status: 'recommended' | 'cautiously_recommended' | 'not_recommended';
-  score_deviation_reason?: string; // Only if AI couldn't meet target score
-  trustpilot_score?: number;
-  trustpilot_count?: number;
-  google_score?: number;
-  google_count?: number;
+  score_deviation_reason?: string;
   certifications?: string[];
+}
+
+// Track what data was successfully scraped
+interface ScrapedDataReport {
+  trustpilot: {
+    success: boolean;
+    score: number | null;
+    count: number | null;
+    url: string;
+    method: 'json-ld' | 'regex' | 'none';
+    error?: string;
+  };
+  website: {
+    success: boolean;
+    pages_fetched: string[];
+    total_content_length: number;
+    error?: string;
+  };
+  certifications: {
+    detected: string[];
+    source: 'website' | 'none';
+  };
 }
 
 // Available certifications - International list
 const CERTIFICATIONS = [
-  // Universal certifications
   { id: 'third_party_tested', name: 'Third-Party Tested', keywords: ['third party tested', 'third-party tested', 'independent lab', 'coa', 'certificate of analysis', 'lab tested'], market: 'all' },
   { id: 'gmp', name: 'GMP Certified', keywords: ['gmp', 'good manufacturing practice', 'cgmp', 'eu gmp'], market: 'all' },
   { id: 'iso_certified', name: 'ISO Certified', keywords: ['iso certified', 'iso 9001', 'iso 17025', 'iso certification'], market: 'all' },
   { id: 'non_gmo', name: 'Non-GMO', keywords: ['non-gmo', 'non gmo', 'no gmo', 'gmo free'], market: 'all' },
   { id: 'vegan', name: 'Vegan', keywords: ['vegan', 'plant-based', 'plant based'], market: 'all' },
   { id: 'cruelty_free', name: 'Cruelty-Free', keywords: ['cruelty free', 'cruelty-free', 'not tested on animals'], market: 'all' },
-  // US-specific
   { id: 'usda_organic', name: 'USDA Organic', keywords: ['usda organic'], market: 'US' },
   { id: 'us_hemp_authority', name: 'US Hemp Authority', keywords: ['us hemp authority', 'u.s. hemp authority'], market: 'US' },
-  // EU/UK-specific
   { id: 'eu_organic', name: 'EU Organic', keywords: ['eu organic', 'organic certified eu', 'bio', 'ecocert'], market: 'EU' },
   { id: 'novel_food', name: 'Novel Food Authorized', keywords: ['novel food', 'novel food authorized', 'fsa validated', 'fsa approved'], market: 'EU' },
 ];
 
-// Browser-like headers to avoid being blocked
 const BROWSER_HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
@@ -58,47 +72,167 @@ const BROWSER_HEADERS = {
   'Pragma': 'no-cache',
 };
 
-// Alternative headers if first attempt fails
 const ALT_HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
   'Accept-Language': 'en-US,en;q=0.9',
 };
 
-// Fetch Trustpilot data (works globally)
-async function fetchTrustpilotData(brandName: string, websiteDomain: string): Promise<{ score: number; count: number; url: string } | null> {
+/**
+ * Scrape Trustpilot data using multiple methods
+ * Priority: 1. JSON-LD structured data, 2. HTML patterns, 3. Fail gracefully
+ */
+async function scrapeTrustpilot(websiteDomain: string): Promise<ScrapedDataReport['trustpilot']> {
+  const trustpilotUrl = `https://www.trustpilot.com/review/${websiteDomain}`;
+
   try {
-    // Try to fetch Trustpilot page
-    const trustpilotUrl = `https://www.trustpilot.com/review/${websiteDomain}`;
+    console.log(`[Trustpilot] Scraping: ${trustpilotUrl}`);
+
     const response = await fetch(trustpilotUrl, {
       headers: BROWSER_HEADERS,
-      signal: AbortSignal.timeout(10000),
+      signal: AbortSignal.timeout(15000),
     });
 
-    if (!response.ok) return null;
-
-    const html = await response.text();
-
-    // Extract rating from Trustpilot page - multiple patterns
-    const scoreMatch = html.match(/TrustScore[^\d]*(\d+\.?\d*)/i) ||
-                       html.match(/"ratingValue":\s*"?(\d+\.?\d*)"?/i) ||
-                       html.match(/data-rating="(\d+\.?\d*)"/i) ||
-                       html.match(/"score":\s*(\d+\.?\d*)/i);
-
-    const countMatch = html.match(/"numberOfReviews":\s*"?(\d+,?\d*)"?/i) ||
-                       html.match(/"reviewCount":\s*"?(\d+,?\d*)"?/i) ||
-                       html.match(/(\d+,?\d*)\s*reviews?/i);
-
-    if (scoreMatch && countMatch) {
+    if (!response.ok) {
+      console.log(`[Trustpilot] HTTP ${response.status} for ${websiteDomain}`);
       return {
-        score: parseFloat(scoreMatch[1]),
-        count: parseInt(countMatch[1].replace(/,/g, ''), 10),
-        url: trustpilotUrl
+        success: false,
+        score: null,
+        count: null,
+        url: trustpilotUrl,
+        method: 'none',
+        error: `HTTP ${response.status}`
       };
     }
-    return null;
-  } catch {
-    return null;
+
+    const html = await response.text();
+    console.log(`[Trustpilot] Got ${html.length} bytes of HTML`);
+
+    // METHOD 1: Parse JSON-LD structured data (most reliable)
+    const jsonLdMatches = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi);
+    if (jsonLdMatches) {
+      for (const match of jsonLdMatches) {
+        try {
+          const jsonContent = match.replace(/<script[^>]*>|<\/script>/gi, '').trim();
+          const parsed = JSON.parse(jsonContent);
+
+          // Handle array of JSON-LD objects
+          const objects = Array.isArray(parsed) ? parsed : [parsed];
+
+          for (const obj of objects) {
+            // Look for Organization or LocalBusiness with aggregateRating
+            if ((obj['@type'] === 'Organization' || obj['@type'] === 'LocalBusiness') && obj.aggregateRating) {
+              const rating = obj.aggregateRating;
+              const score = parseFloat(rating.ratingValue);
+              const count = parseInt(rating.reviewCount, 10);
+
+              if (!isNaN(score) && !isNaN(count)) {
+                console.log(`[Trustpilot] JSON-LD found: ${score}/5 from ${count} reviews`);
+                return {
+                  success: true,
+                  score,
+                  count,
+                  url: trustpilotUrl,
+                  method: 'json-ld'
+                };
+              }
+            }
+          }
+        } catch (e) {
+          // Continue to next JSON-LD block
+        }
+      }
+    }
+
+    // METHOD 2: Parse HTML patterns as fallback
+    // Trustpilot typically has rating in specific data attributes or visible elements
+    const patterns = [
+      // Data attribute patterns
+      /data-rating="(\d+\.?\d*)"/i,
+      // JSON patterns in page data
+      /"ratingValue":\s*"?(\d+\.?\d*)"?/i,
+      /"score":\s*(\d+\.?\d*)/i,
+      // Text patterns
+      /TrustScore\s*(\d+\.?\d*)/i,
+    ];
+
+    const countPatterns = [
+      /"reviewCount":\s*"?(\d+,?\d*)"?/i,
+      /"numberOfReviews":\s*"?(\d+,?\d*)"?/i,
+      /(\d{1,3}(?:,\d{3})*)\s*(?:total\s+)?reviews?/i,
+    ];
+
+    let score: number | null = null;
+    let count: number | null = null;
+
+    for (const pattern of patterns) {
+      const match = html.match(pattern);
+      if (match) {
+        const parsed = parseFloat(match[1]);
+        if (!isNaN(parsed) && parsed > 0 && parsed <= 5) {
+          score = parsed;
+          console.log(`[Trustpilot] Regex found score: ${score}`);
+          break;
+        }
+      }
+    }
+
+    for (const pattern of countPatterns) {
+      const match = html.match(pattern);
+      if (match) {
+        const parsed = parseInt(match[1].replace(/,/g, ''), 10);
+        if (!isNaN(parsed) && parsed > 0) {
+          count = parsed;
+          console.log(`[Trustpilot] Regex found count: ${count}`);
+          break;
+        }
+      }
+    }
+
+    if (score !== null && count !== null) {
+      return {
+        success: true,
+        score,
+        count,
+        url: trustpilotUrl,
+        method: 'regex'
+      };
+    }
+
+    // Check if this is a "not found" page
+    if (html.includes('We couldn\'t find') || html.includes('isn\'t on Trustpilot')) {
+      console.log(`[Trustpilot] Brand not found on Trustpilot`);
+      return {
+        success: false,
+        score: null,
+        count: null,
+        url: trustpilotUrl,
+        method: 'none',
+        error: 'Brand not found on Trustpilot'
+      };
+    }
+
+    console.log(`[Trustpilot] Could not extract rating from page`);
+    return {
+      success: false,
+      score: null,
+      count: null,
+      url: trustpilotUrl,
+      method: 'none',
+      error: 'Could not parse rating from page'
+    };
+
+  } catch (error) {
+    const errorMsg = error instanceof Error ? error.message : 'Unknown error';
+    console.error(`[Trustpilot] Error scraping ${websiteDomain}:`, errorMsg);
+    return {
+      success: false,
+      score: null,
+      count: null,
+      url: trustpilotUrl,
+      method: 'none',
+      error: errorMsg
+    };
   }
 }
 
@@ -115,52 +249,6 @@ function detectCertifications(websiteContent: string): string[] {
 
   return detected;
 }
-
-const SYSTEM_PROMPT = `You are a CBD industry expert who has reviewed hundreds of CBD brands globally. Write like a real human reviewer - confident, opinionated, and specific.
-
-INTERNATIONAL AWARENESS:
-- Brands operate in different markets: US, EU, UK, Canada, Australia
-- Use appropriate currency ($/€/£) based on brand's market
-- Reference relevant regulations: Novel Food (EU/UK), FDA (US)
-- Certifications vary by market: USDA Organic (US), EU Organic (EU), etc.
-- Compare prices relative to that market, not globally
-
-CRITICAL WRITING RULES - NEVER DO THESE:
-- NEVER say "I couldn't access" or "I couldn't verify"
-- NEVER mention "content provided" or "available content"
-- NEVER use "based on my analysis" or "upon review" or "it's worth noting"
-- NEVER start sentences with "However," "Additionally," "Furthermore," "Moreover,"
-- NEVER use hedging: "appears to", "seems to", "may be", "could be"
-- NEVER overuse hyphens or em-dashes
-
-WRITE LIKE A HUMAN:
-- Use contractions: "don't", "isn't", "they've", "I'd", "won't"
-- Be specific: "€0.06 per mg", "47 products", "founded in 2016"
-- Mix sentence lengths. Short sentences punch.
-- Have opinions: "This is one of the better testing pages I've seen"
-- Be conversational: "Look," "Here's the thing," "Bottom line:"
-- Reference specific things: product names, lab names, prices
-
-ABOUT CONTENT:
-Write a factual 2-3 sentence intro about the brand. Include: when founded, where based, what they're known for. No opinions, just facts.
-
-BEST FOR / NOT IDEAL FOR:
-Be specific about user types:
-- Best for: "Budget-conscious first-time users", "Athletes seeking recovery products"
-- Not ideal for: "Those wanting THC-free options only", "People needing high-potency products"
-
-VERDICT:
-Write 150+ words. Be definitive. Give a clear recommendation with specific reasons.
-
-RECOMMENDATION STATUS:
-- "recommended": Score 60+, no major concerns
-- "cautiously_recommended": Score 40-59 or has some concerns
-- "not_recommended": Score <40 or serious issues
-
-SECTION CONTENT:
-Write 2-3 paragraphs per category. No markdown formatting, no tables, no headers - just prose.
-
-Return valid JSON only, no markdown code blocks.`;
 
 async function fetchSinglePage(pageUrl: string, headers: Record<string, string>): Promise<string | null> {
   try {
@@ -186,41 +274,38 @@ async function fetchSinglePage(pageUrl: string, headers: Record<string, string>)
   }
 }
 
-async function fetchWebsiteContent(url: string): Promise<string | null> {
-  try {
-    const urls = [
-      url,
-      url.replace(/\/$/, '') + '/about',
-      url.replace(/\/$/, '') + '/about-us',
-      url.replace(/\/$/, '') + '/lab-results',
-      url.replace(/\/$/, '') + '/lab-reports',
-      url.replace(/\/$/, '') + '/third-party-testing',
-      url.replace(/\/$/, '') + '/certificates',
-      url.replace(/\/$/, '') + '/pages/lab-results',
-      url.replace(/\/$/, '') + '/pages/about',
-    ];
+async function fetchWebsiteContent(url: string): Promise<{ content: string; pages: string[] }> {
+  const urls = [
+    url,
+    url.replace(/\/$/, '') + '/about',
+    url.replace(/\/$/, '') + '/about-us',
+    url.replace(/\/$/, '') + '/lab-results',
+    url.replace(/\/$/, '') + '/lab-reports',
+    url.replace(/\/$/, '') + '/third-party-testing',
+    url.replace(/\/$/, '') + '/certificates',
+    url.replace(/\/$/, '') + '/pages/lab-results',
+    url.replace(/\/$/, '') + '/pages/about',
+  ];
 
-    let combinedContent = '';
+  let combinedContent = '';
+  const pagesFetched: string[] = [];
 
-    for (const pageUrl of urls) {
-      // Try with primary headers first
-      let content = await fetchSinglePage(pageUrl, BROWSER_HEADERS);
-
-      // If failed, try with alternative headers
-      if (!content) {
-        content = await fetchSinglePage(pageUrl, ALT_HEADERS);
-      }
-
-      if (content && content.length > 100) {
-        combinedContent += `\n\n--- Content from ${pageUrl} ---\n${content}`;
-      }
+  for (const pageUrl of urls) {
+    let content = await fetchSinglePage(pageUrl, BROWSER_HEADERS);
+    if (!content) {
+      content = await fetchSinglePage(pageUrl, ALT_HEADERS);
     }
 
-    return combinedContent.slice(0, 50000) || null;
-  } catch (error) {
-    console.error('Error fetching website:', error);
-    return null;
+    if (content && content.length > 100) {
+      combinedContent += `\n\n--- Content from ${pageUrl} ---\n${content}`;
+      pagesFetched.push(pageUrl);
+    }
   }
+
+  return {
+    content: combinedContent.slice(0, 50000),
+    pages: pagesFetched
+  };
 }
 
 interface SubCriterion {
@@ -237,6 +322,38 @@ interface Criterion {
   max_points: number;
   subcriteria: SubCriterion[];
 }
+
+// System prompt that emphasizes factual accuracy
+const SYSTEM_PROMPT = `You are a CBD industry expert writing reviews. Your reviews must be FACTUALLY ACCURATE.
+
+CRITICAL DATA INTEGRITY RULES:
+- You will be provided with VERIFIED DATA in the prompt (Trustpilot scores, certifications, etc.)
+- ONLY use data that is explicitly provided to you
+- If data says "NOT AVAILABLE" or "No data", do NOT mention it or make up alternatives
+- NEVER invent, guess, or fabricate any statistics, scores, or numbers
+- If you don't have data for something, simply don't mention it
+
+INTERNATIONAL AWARENESS:
+- Brands operate in different markets: US, EU, UK, Canada, Australia
+- Use appropriate currency ($/€/£) based on brand's market
+- Reference relevant regulations: Novel Food (EU/UK), FDA (US)
+
+WRITING STYLE:
+- Use contractions: "don't", "isn't", "they've", "I'd", "won't"
+- Be specific with data you HAVE: "€0.06 per mg", "47 products"
+- Mix sentence lengths. Short sentences punch.
+- Be conversational: "Look," "Here's the thing," "Bottom line:"
+- NEVER use hedging: "appears to", "seems to", "may be"
+- NEVER start with "Additionally," "Furthermore," "Moreover,"
+
+ABOUT CONTENT:
+Write a factual 2-3 sentence intro. Include ONLY facts you were given: founded year, location, what they're known for.
+
+SECTION CONTENT:
+Write 2-3 paragraphs per category. No markdown formatting - just prose.
+Only mention data you were explicitly given. If Trustpilot data wasn't provided, don't mention Trustpilot at all.
+
+Return valid JSON only, no markdown code blocks.`;
 
 export async function POST(request: NextRequest) {
   try {
@@ -298,21 +415,14 @@ export async function POST(request: NextRequest) {
       }, { status: 500 });
     }
 
-    // Fetch website content
-    let websiteContent = '';
-    let websiteAccessible = true;
-    if (brand.website_url) {
-      websiteContent = await fetchWebsiteContent(brand.website_url) || '';
-    }
+    // Initialize data report
+    const dataReport: ScrapedDataReport = {
+      trustpilot: { success: false, score: null, count: null, url: '', method: 'none' },
+      website: { success: false, pages_fetched: [], total_content_length: 0 },
+      certifications: { detected: [], source: 'none' }
+    };
 
-    // Soft requirement - warn but don't block if we have other data sources
-    const hasLimitedWebsiteData = !websiteContent || websiteContent.trim().length < 500;
-    if (hasLimitedWebsiteData) {
-      websiteAccessible = false;
-      console.log(`Warning: Limited website content for ${brand.name}. Will use available data.`);
-    }
-
-    // Extract domain from URL for Trustpilot lookup
+    // Extract domain from URL
     let websiteDomain = '';
     try {
       const url = new URL(brand.website_url);
@@ -321,11 +431,33 @@ export async function POST(request: NextRequest) {
       websiteDomain = brand.website_domain || '';
     }
 
-    // Fetch Trustpilot data in parallel with AI generation
-    const trustpilotPromise = fetchTrustpilotData(brand.name, websiteDomain);
+    // Fetch website content
+    let websiteContent = '';
+    if (brand.website_url) {
+      const result = await fetchWebsiteContent(brand.website_url);
+      websiteContent = result.content;
+      dataReport.website = {
+        success: result.content.length > 500,
+        pages_fetched: result.pages,
+        total_content_length: result.content.length
+      };
+    }
+
+    // Scrape Trustpilot data
+    if (websiteDomain) {
+      dataReport.trustpilot = await scrapeTrustpilot(websiteDomain);
+    }
 
     // Detect certifications from website content
-    const detectedCertifications = detectCertifications(websiteContent);
+    if (websiteContent.length > 0) {
+      const detected = detectCertifications(websiteContent);
+      dataReport.certifications = {
+        detected,
+        source: detected.length > 0 ? 'website' : 'none'
+      };
+    }
+
+    console.log('[DataReport]', JSON.stringify(dataReport, null, 2));
 
     // Build detailed criteria prompt with all sub-criteria
     const criteriaPrompt = (criteria as Criterion[]).map(c => {
@@ -353,83 +485,90 @@ ${subcriteriaList}`;
     }`;
     }).join(',\n    ');
 
-    // Wait for Trustpilot data
-    const trustpilotData = await trustpilotPromise;
+    // Build VERIFIED DATA section - be explicit about what we have and don't have
+    const verifiedDataLines: string[] = [];
+    verifiedDataLines.push('=== VERIFIED DATA (USE ONLY THIS DATA) ===');
 
-    // Build certification info for prompt
-    const certificationInfo = detectedCertifications.length > 0
-      ? `DETECTED CERTIFICATIONS: ${detectedCertifications.map(id => CERTIFICATIONS.find(c => c.id === id)?.name).join(', ')}`
-      : 'DETECTED CERTIFICATIONS: None found';
+    // Trustpilot - explicit about availability
+    if (dataReport.trustpilot.success && dataReport.trustpilot.score !== null) {
+      verifiedDataLines.push(`TRUSTPILOT: ${dataReport.trustpilot.score}/5 from ${dataReport.trustpilot.count?.toLocaleString()} reviews (VERIFIED - mention this in Customer Experience section)`);
+    } else {
+      verifiedDataLines.push(`TRUSTPILOT: NOT AVAILABLE - DO NOT mention Trustpilot in the review at all`);
+    }
 
-    // Build Trustpilot info for prompt
-    const trustpilotInfo = trustpilotData
-      ? `TRUSTPILOT: ${trustpilotData.score}/5 from ${trustpilotData.count.toLocaleString()} reviews`
-      : 'TRUSTPILOT: No data found';
+    // Certifications
+    if (dataReport.certifications.detected.length > 0) {
+      const certNames = dataReport.certifications.detected.map(id =>
+        CERTIFICATIONS.find(c => c.id === id)?.name
+      ).filter(Boolean);
+      verifiedDataLines.push(`CERTIFICATIONS (VERIFIED): ${certNames.join(', ')}`);
+    } else {
+      verifiedDataLines.push(`CERTIFICATIONS: None detected - only mention certifications if visible in website content below`);
+    }
 
-    // Build website access warning
-    const websiteWarning = !websiteAccessible
-      ? `\nNOTE: Website was difficult to access during research. Score conservatively for areas that require website verification (transparency, lab reports). Focus on what IS available: Trustpilot data, brand description, and any content that was accessible. DO NOT mention access issues in the review text - write as if you researched the brand normally, just be conservative with scores.`
-      : '';
+    // Website data availability
+    if (dataReport.website.success) {
+      verifiedDataLines.push(`WEBSITE DATA: Available (${dataReport.website.pages_fetched.length} pages fetched)`);
+    } else {
+      verifiedDataLines.push(`WEBSITE DATA: Limited - score conservatively for transparency/lab reports`);
+    }
+
+    // Brand info
+    if (brand.headquarters_country) {
+      verifiedDataLines.push(`LOCATION (VERIFIED): ${brand.headquarters_country}`);
+    }
+    if (brand.founded_year) {
+      verifiedDataLines.push(`FOUNDED (VERIFIED): ${brand.founded_year}`);
+    }
+
+    verifiedDataLines.push('===========================================');
 
     // Build the user prompt
-    const userPrompt = `Research and review this CBD brand:
+    const userPrompt = `Review this CBD brand using ONLY the verified data provided below.
 
 BRAND: ${brand.name}
 WEBSITE: ${brand.website_url || 'Not provided'}
 ${brand.short_description ? `DESCRIPTION: ${brand.short_description}` : ''}
-${brand.headquarters_country ? `LOCATION: ${brand.headquarters_country}` : ''}
-${brand.founded_year ? `FOUNDED: ${brand.founded_year}` : ''}
 
-${trustpilotInfo}
-${certificationInfo}${websiteWarning}
+${verifiedDataLines.join('\n')}
 
-WEBSITE CONTENT:
-${websiteContent || 'Limited content available - use brand description and Trustpilot data.'}
+WEBSITE CONTENT (for reference - extract facts from here):
+${websiteContent || 'Limited content available.'}
 
-REVIEW CRITERIA - Score EACH sub-criterion individually:
+REVIEW CRITERIA - Score EACH sub-criterion:
 ${criteriaPrompt}
 ${targetMin !== null && targetMax !== null ? `
-AUTHOR'S TARGET SCORE: ${targetMin}-${targetMax}
-The reviewing author has assessed this brand and determined it should score in the ${targetMin}-${targetMax} range based on their research and expertise. Generate scores that total within this range.
-
-Important targeting guidelines:
-- All facts must be accurate and verifiable from the provided content
-- Distribute sub-scores proportionally to reach the target total
-- If you cannot find facts to support this score range, include a "score_deviation_reason" field in your response explaining why
-- Frame the review to reflect the author's editorial judgment while maintaining factual accuracy
-- If the evidence strongly contradicts the target range, generate honest scores and explain in score_deviation_reason
+TARGET SCORE RANGE: ${targetMin}-${targetMax}
+Generate scores within this range. If evidence doesn't support this range, include "score_deviation_reason".
 ` : ''}${generation_instructions ? `
-ADDITIONAL INSTRUCTIONS FROM AUTHOR:
-${generation_instructions}
+ADDITIONAL INSTRUCTIONS: ${generation_instructions}
 ` : ''}
-IMPORTANT:
+IMPORTANT REMINDERS:
 - The "score" for each criterion MUST equal the sum of its sub_scores
 - Each sub_score must not exceed its max_points
 - Write section_content for EACH of the 9 categories (keyed by criterion_id)
-- Each section should be 2-3 paragraphs of prose - NO markdown headings or tables
-- The prose should explain WHY you gave those scores, with specific findings
-- For the "customer_experience" section, ALWAYS mention the Trustpilot rating if available (e.g., "${brand.name} has a X/5 rating on Trustpilot from Y reviews...")
-- NEVER mention "couldn't access" or "limited data" - write confidently about what you found
+- ONLY mention Trustpilot if marked as VERIFIED above
+- ONLY mention certifications that are VERIFIED above
+- DO NOT invent any statistics, ratings, or numerical data
 
 Return ONLY valid JSON in this exact format:
 {
   "scores": [
     ${scoresStructure}
   ],
-  "summary": "<2-3 sentence overview for listing pages - personal voice>",
-  "about_content": "<2-3 factual sentences about the brand: when founded, where based, what they're known for>",
+  "summary": "<2-3 sentence overview>",
+  "about_content": "<2-3 factual sentences using ONLY verified data above>",
   "section_content": {
-    "<criterion_id_1>": "<2-3 paragraphs explaining this category's scores>",
-    "<criterion_id_2>": "<2-3 paragraphs explaining this category's scores>",
+    "<criterion_id_1>": "<2-3 paragraphs>",
     ... (one entry for each of the 9 criteria)
   },
-  "pros": ["<specific pro 1>", "<specific pro 2>", "<specific pro 3>", ...],
-  "cons": ["<specific con 1>", "<specific con 2>", ...],
-  "best_for": ["<specific user type 1>", "<specific user type 2>", ...],
-  "not_ideal_for": ["<specific user type 1>", "<specific user type 2>", ...],
-  "verdict": "<final recommendation in personal voice, 150+ words>",
+  "pros": ["<specific pro>", ...],
+  "cons": ["<specific con>", ...],
+  "best_for": ["<user type>", ...],
+  "not_ideal_for": ["<user type>", ...],
+  "verdict": "<150+ words final recommendation>",
   "recommendation_status": "<recommended | cautiously_recommended | not_recommended>",
-  "score_deviation_reason": "<ONLY include if you could not meet the target score range - explain why>"
+  "score_deviation_reason": "<ONLY if couldn't meet target range>"
 }`;
 
     // Call Claude API
@@ -442,14 +581,9 @@ Return ONLY valid JSON in this exact format:
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
-        max_tokens: 8000, // Increased for detailed review
+        max_tokens: 8000,
         system: SYSTEM_PROMPT,
-        messages: [
-          {
-            role: 'user',
-            content: userPrompt
-          }
-        ]
+        messages: [{ role: 'user', content: userPrompt }]
       })
     });
 
@@ -474,7 +608,6 @@ Return ONLY valid JSON in this exact format:
 
     // Parse the JSON response
     try {
-      // Extract JSON from response (in case there's extra text)
       const jsonMatch = responseText.match(/\{[\s\S]*\}/);
       if (!jsonMatch) {
         throw new Error('No JSON found in response');
@@ -487,7 +620,6 @@ Return ONLY valid JSON in this exact format:
         const criterion = (criteria as Criterion[]).find(c => c.id === score.criterion_id);
         if (!criterion) return score;
 
-        // Validate sub_scores
         const validatedSubScores = (score.sub_scores || []).map(subScore => {
           const subCriterion = criterion.subcriteria?.find(s => s.id === subScore.id);
           const maxPoints = subCriterion?.max_points || 0;
@@ -497,33 +629,28 @@ Return ONLY valid JSON in this exact format:
           };
         });
 
-        // Calculate total from sub_scores
         const calculatedTotal = validatedSubScores.reduce((sum, s) => sum + s.score, 0);
         const maxPoints = criterion.max_points;
 
         return {
           ...score,
           sub_scores: validatedSubScores,
-          score: Math.min(calculatedTotal, maxPoints) // Use calculated total, capped at max
+          score: Math.min(calculatedTotal, maxPoints)
         };
       });
 
-      // Calculate overall score
       const overallScore = validatedScores.reduce((sum, s) => sum + s.score, 0);
 
-      // Generate full_review from sections for backward compatibility
+      // Generate full_review from sections
       const fullReview = (criteria as Criterion[]).map(c => {
         const score = validatedScores.find(s => s.criterion_id === c.id);
         const sectionText = generated.section_content?.[c.id] || '';
         const totalScore = score?.score || 0;
-
         return `## ${c.name} — ${totalScore}/${c.max_points}\n\n${sectionText}`;
       }).join('\n\n');
 
-      // Auto-generate SEO meta fields (curiosity-driven, don't reveal score)
+      // Auto-generate SEO meta fields
       const currentYear = new Date().getFullYear();
-
-      // Generate varied, CTR-optimized titles (rotate based on brand name hash)
       const titleVariants = [
         `${brand.name} CBD Review ${currentYear}: Is It Worth It? (Honest Analysis)`,
         `${brand.name} Review ${currentYear}: Quality, Testing & Value Analyzed`,
@@ -533,7 +660,6 @@ Return ONLY valid JSON in this exact format:
       const titleIndex = brand.name.length % titleVariants.length;
       const metaTitle = titleVariants[titleIndex];
 
-      // Generate curiosity-driven description without revealing score
       const countryInfo = brand.headquarters_country ? ` this ${brand.headquarters_country} brand` : '';
       const descVariants = [
         `We tested ${brand.name} CBD products and analyzed their lab reports, pricing, and customer reviews. Here's what we found about${countryInfo}...`,
@@ -543,39 +669,44 @@ Return ONLY valid JSON in this exact format:
       const descIndex = (brand.name.length + 1) % descVariants.length;
       const metaDescription = descVariants[descIndex];
 
-      // Build warning message
+      // Build warning messages
       const warnings: string[] = [];
-      if (!websiteAccessible) {
-        warnings.push('Website was difficult to access. Scores may be conservative.');
+
+      if (!dataReport.trustpilot.success) {
+        warnings.push(`Trustpilot: ${dataReport.trustpilot.error || 'Could not scrape'}`);
+      }
+      if (!dataReport.website.success) {
+        warnings.push('Website data was limited. Scores may be conservative.');
       }
       if (generated.score_deviation_reason) {
-        warnings.push(`Target score adjustment: ${generated.score_deviation_reason}`);
+        warnings.push(`Score deviation: ${generated.score_deviation_reason}`);
       } else if (targetMin !== null && targetMax !== null) {
-        // Check if score fell outside target range
         if (overallScore < targetMin || overallScore > targetMax) {
-          warnings.push(`Generated score (${overallScore}) is outside the target range (${targetMin}-${targetMax}). Review the scores and adjust if needed.`);
+          warnings.push(`Generated score (${overallScore}) is outside target range (${targetMin}-${targetMax}).`);
         }
       }
 
       return NextResponse.json({
         success: true,
-        warning: warnings.length > 0 ? warnings.join(' ') : undefined,
+        warning: warnings.length > 0 ? warnings.join(' | ') : undefined,
+        data_report: dataReport, // Include full data report for transparency
         data: {
           ...generated,
           scores: validatedScores,
           overall_score: overallScore,
           section_content: generated.section_content || {},
-          full_review: fullReview, // Auto-generated from sections
+          full_review: fullReview,
           about_content: generated.about_content || null,
           best_for: generated.best_for || [],
           not_ideal_for: generated.not_ideal_for || [],
           recommendation_status: generated.recommendation_status || 'recommended',
           target_score_range: target_score_range || null,
           generation_instructions: generation_instructions || null,
-          trustpilot_score: trustpilotData?.score || null,
-          trustpilot_count: trustpilotData?.count || null,
-          trustpilot_url: trustpilotData?.url || null,
-          certifications: detectedCertifications,
+          // Use ONLY scraped data, never AI-generated
+          trustpilot_score: dataReport.trustpilot.score,
+          trustpilot_count: dataReport.trustpilot.count,
+          trustpilot_url: dataReport.trustpilot.success ? dataReport.trustpilot.url : null,
+          certifications: dataReport.certifications.detected,
           meta_title: metaTitle,
           meta_description: metaDescription
         }
