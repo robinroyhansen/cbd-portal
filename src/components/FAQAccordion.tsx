@@ -22,8 +22,8 @@ export function FAQAccordion({ faqs, brandName }: FAQAccordionProps) {
   if (faqs.length === 0) return null;
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-8">
-      <h2 className="text-xl font-bold text-gray-900 mb-2">Frequently Asked Questions About {brandName}</h2>
+    <div className="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
+      <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-2">Frequently Asked Questions About {brandName}</h2>
       <p className="text-sm text-gray-500 mb-6">Common questions answered</p>
 
       <div className="space-y-3">
@@ -34,11 +34,11 @@ export function FAQAccordion({ faqs, brandName }: FAQAccordionProps) {
           >
             <button
               onClick={() => toggleItem(index)}
-              className="w-full px-5 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors text-left"
+              className="w-full px-4 py-4 md:px-5 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors text-left min-h-[48px]"
               aria-expanded={openIndex === index}
               aria-controls={`faq-answer-${index}`}
             >
-              <span className="font-medium text-gray-900 pr-4">{faq.question}</span>
+              <span className="font-medium text-gray-900 pr-4 text-sm md:text-base">{faq.question}</span>
               <svg
                 className={`w-5 h-5 text-gray-500 flex-shrink-0 transition-transform duration-200 ${
                   openIndex === index ? 'rotate-180' : ''
@@ -55,11 +55,11 @@ export function FAQAccordion({ faqs, brandName }: FAQAccordionProps) {
             <div
               id={`faq-answer-${index}`}
               className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
-              <div className="px-5 py-4 bg-white border-t border-gray-100">
-                <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+              <div className="px-4 py-4 md:px-5 bg-white border-t border-gray-100">
+                <p className="text-gray-700 leading-relaxed text-sm md:text-base">{faq.answer}</p>
               </div>
             </div>
           </div>

@@ -531,8 +531,8 @@ export default async function BrandReviewPage({ params }: Props) {
 
           {/* About the Brand */}
           {review.about_content && (
-            <div id="about" className="bg-white rounded-xl border border-gray-200 p-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">About {brand.name}</h2>
+            <div id="about" className="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
+              <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-4">About {brand.name}</h2>
               <p className="text-gray-700 leading-relaxed">{review.about_content}</p>
             </div>
           )}
@@ -578,8 +578,8 @@ export default async function BrandReviewPage({ params }: Props) {
 
           {/* Third-Party Reviews */}
           {(review.trustpilot_score || review.google_score) && (
-            <div className="bg-white rounded-xl border border-gray-200 p-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">{brand.name} Customer Reviews</h2>
+            <div className="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
+              <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-4">{brand.name} Customer Reviews</h2>
               <p className="text-sm text-gray-500 mb-4">What customers are saying on third-party review platforms</p>
               <div className="grid sm:grid-cols-2 gap-6">
                 {review.trustpilot_score && (
@@ -633,8 +633,8 @@ export default async function BrandReviewPage({ params }: Props) {
           )}
 
           {/* Score Breakdown */}
-          <div id="score-breakdown" className="bg-white rounded-xl border border-gray-200 p-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">Score Breakdown of {brand.name}</h2>
+          <div id="score-breakdown" className="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
+            <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-6">Score Breakdown of {brand.name}</h2>
             <p className="text-sm text-gray-500 mb-4">Click on a category to see sub-scores and details</p>
             <CollapsibleScoreBreakdown scoreBreakdown={scoreBreakdown} />
             <div className="mt-4 pt-4 border-t border-gray-100">
@@ -690,51 +690,49 @@ export default async function BrandReviewPage({ params }: Props) {
                 const sectionText = (review.section_content as Record<string, string>)[criterion.id];
                 if (!sectionText) return null;
                 return (
-                  <div key={criterion.id} id={getSectionId(criterion.name)} className="bg-white rounded-xl border border-gray-200 p-6 md:p-8 relative">
-                    {/* Floated Star Summary Box */}
-                    <div className="float-right ml-4 mb-3 bg-gray-50 rounded-lg border border-gray-200 p-3 w-auto">
-                      <CategoryStarRating
-                        score={criterion.score}
-                        maxScore={criterion.max_points}
-                        colorCode={true}
-                      />
+                  <div key={criterion.id} id={getSectionId(criterion.name)} className="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
+                    {/* Header with Score - Responsive layout */}
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
+                      <h2 className="text-lg md:text-xl font-bold text-gray-900">
+                        {criterion.name}
+                      </h2>
+                      <div className="flex-shrink-0 bg-gray-50 rounded-lg border border-gray-200 p-2 sm:p-3">
+                        <CategoryStarRating
+                          score={criterion.score}
+                          maxScore={criterion.max_points}
+                          colorCode={true}
+                        />
+                      </div>
                     </div>
 
-                    {/* Section Header - H2 */}
-                    <h2 className="text-xl font-bold text-gray-900 mb-4">
-                      {criterion.name}
-                    </h2>
-
-                    {/* Sub-scores with CSS Grid for alignment */}
+                    {/* Sub-scores - Responsive layout */}
                     {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores || {}).length > 0 && (
-                      <div className="grid gap-1 mb-4 clear-right text-sm" style={{ gridTemplateColumns: '1fr auto auto' }}>
+                      <div className="space-y-2 mb-4 text-sm">
                         {criterion.subcriteria.map(sub => {
                           const subScore = criterion.sub_scores[sub.id] ?? 0;
                           return (
-                            <div key={sub.id} className="contents">
-                              <span className="text-gray-700 py-1">{sub.name}</span>
-                              <span className="py-1 px-2 flex items-center justify-start" style={{ minWidth: '90px' }}>
+                            <div key={sub.id} className="flex flex-wrap items-center justify-between gap-2">
+                              <span className="text-gray-700">{sub.name}</span>
+                              <div className="flex items-center gap-2">
                                 <InlineStarRating score={subScore} maxScore={sub.max_points} colorCode={true} />
-                              </span>
-                              <span className="text-gray-400 py-1 text-right" style={{ minWidth: '60px' }}>
-                                ({subScore}/{sub.max_points})
-                              </span>
+                                <span className="text-gray-400 text-xs">
+                                  ({subScore}/{sub.max_points})
+                                </span>
+                              </div>
                             </div>
                           );
                         })}
                       </div>
                     )}
 
-                    <div className="clear-both">
-                      <MarkdownContent
-                        className="prose prose-sm max-w-none prose-green prose-p:text-gray-700"
-                        brandName={brand.name}
-                        trustpilotUrl={review.trustpilot_url}
-                        websiteDomain={brand.website_url ? getDomainFromUrl(brand.website_url) : null}
-                      >
-                        {stripMarkdownTables(sectionText)}
-                      </MarkdownContent>
-                    </div>
+                    <MarkdownContent
+                      className="prose prose-sm max-w-none prose-green prose-p:text-gray-700"
+                      brandName={brand.name}
+                      trustpilotUrl={review.trustpilot_url}
+                      websiteDomain={brand.website_url ? getDomainFromUrl(brand.website_url) : null}
+                    >
+                      {stripMarkdownTables(sectionText)}
+                    </MarkdownContent>
                   </div>
                 );
               })}
@@ -761,51 +759,49 @@ export default async function BrandReviewPage({ params }: Props) {
                   if (!headerName || !criterion) return null;
 
                   return (
-                    <div key={idx} id={getSectionId(criterion.name)} className="bg-white rounded-xl border border-gray-200 p-6 md:p-8 relative">
-                      {/* Floated Star Summary Box */}
-                      <div className="float-right ml-4 mb-3 bg-gray-50 rounded-lg border border-gray-200 p-3 w-auto">
-                        <CategoryStarRating
-                          score={criterion.score}
-                          maxScore={criterion.max_points}
-                          colorCode={true}
-                        />
+                    <div key={idx} id={getSectionId(criterion.name)} className="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
+                      {/* Header with Score - Responsive layout */}
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
+                        <h2 className="text-lg md:text-xl font-bold text-gray-900">
+                          {criterion.name}
+                        </h2>
+                        <div className="flex-shrink-0 bg-gray-50 rounded-lg border border-gray-200 p-2 sm:p-3">
+                          <CategoryStarRating
+                            score={criterion.score}
+                            maxScore={criterion.max_points}
+                            colorCode={true}
+                          />
+                        </div>
                       </div>
 
-                      {/* Section Header - H2 */}
-                      <h2 className="text-xl font-bold text-gray-900 mb-4">
-                        {criterion.name}
-                      </h2>
-
-                      {/* Sub-scores with CSS Grid for alignment */}
+                      {/* Sub-scores - Responsive layout */}
                       {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores || {}).length > 0 && (
-                        <div className="grid gap-1 mb-4 clear-right text-sm" style={{ gridTemplateColumns: '1fr auto auto' }}>
+                        <div className="space-y-2 mb-4 text-sm">
                           {criterion.subcriteria.map(sub => {
                             const subScore = criterion.sub_scores[sub.id] ?? 0;
                             return (
-                              <div key={sub.id} className="contents">
-                                <span className="text-gray-700 py-1">{sub.name}</span>
-                                <span className="py-1 px-2 flex items-center justify-start" style={{ minWidth: '90px' }}>
+                              <div key={sub.id} className="flex flex-wrap items-center justify-between gap-2">
+                                <span className="text-gray-700">{sub.name}</span>
+                                <div className="flex items-center gap-2">
                                   <InlineStarRating score={subScore} maxScore={sub.max_points} colorCode={true} />
-                                </span>
-                                <span className="text-gray-400 py-1 text-right" style={{ minWidth: '60px' }}>
-                                  ({subScore}/{sub.max_points})
-                                </span>
+                                  <span className="text-gray-400 text-xs">
+                                    ({subScore}/{sub.max_points})
+                                  </span>
+                                </div>
                               </div>
                             );
                           })}
                         </div>
                       )}
 
-                      <div className="clear-both">
-                        <MarkdownContent
-                          className="prose prose-sm max-w-none prose-green prose-p:text-gray-700"
-                          brandName={brand.name}
-                          trustpilotUrl={review.trustpilot_url}
-                          websiteDomain={brand.website_url ? getDomainFromUrl(brand.website_url) : null}
-                        >
-                          {stripMarkdownTables(contentWithoutHeader)}
-                        </MarkdownContent>
-                      </div>
+                      <MarkdownContent
+                        className="prose prose-sm max-w-none prose-green prose-p:text-gray-700"
+                        brandName={brand.name}
+                        trustpilotUrl={review.trustpilot_url}
+                        websiteDomain={brand.website_url ? getDomainFromUrl(brand.website_url) : null}
+                      >
+                        {stripMarkdownTables(contentWithoutHeader)}
+                      </MarkdownContent>
                     </div>
                   );
                 });
@@ -815,19 +811,19 @@ export default async function BrandReviewPage({ params }: Props) {
 
           {/* Verdict */}
           {review.verdict && (
-            <div id="verdict" className="bg-gradient-to-br from-green-600 to-green-700 rounded-xl p-8 text-white">
-              <h2 className="text-xl font-bold mb-4">My Final Verdict on {brand.name}</h2>
+            <div id="verdict" className="bg-gradient-to-br from-green-600 to-green-700 rounded-xl p-6 md:p-8 text-white">
+              <h2 className="text-lg md:text-xl font-bold mb-4">My Final Verdict on {brand.name}</h2>
 
               {/* Score display */}
               <div className="flex items-center gap-4 mb-6 pb-6 border-b border-green-500/30">
-                <div className="text-5xl font-bold">{review.overall_score}/100</div>
+                <div className="text-4xl md:text-5xl font-bold">{review.overall_score}/100</div>
                 <div>
                   <OverallStarRating score={review.overall_score} />
-                  <div className="text-green-200 mt-1">{getScoreLabel(review.overall_score)}</div>
+                  <div className="text-green-200 mt-1 text-sm md:text-base">{getScoreLabel(review.overall_score)}</div>
                 </div>
               </div>
 
-              <p className="text-lg text-green-50 leading-relaxed">{review.verdict}</p>
+              <p className="text-base md:text-lg text-green-50 leading-relaxed">{review.verdict}</p>
             </div>
           )}
 

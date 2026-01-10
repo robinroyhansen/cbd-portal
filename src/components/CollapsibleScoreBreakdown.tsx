@@ -24,14 +24,6 @@ interface CollapsibleScoreBreakdownProps {
   scoreBreakdown: ScoreBreakdownItem[];
 }
 
-function getScoreColor(score: number, maxPoints: number): string {
-  const percentage = (score / maxPoints) * 100;
-  if (percentage >= 80) return 'bg-green-500';
-  if (percentage >= 60) return 'bg-yellow-500';
-  if (percentage >= 40) return 'bg-orange-500';
-  return 'bg-red-500';
-}
-
 function getScoreBgColor(score: number, maxPoints: number): string {
   const percentage = (score / maxPoints) * 100;
   if (percentage >= 80) return 'bg-green-50 border-green-200';
@@ -76,18 +68,18 @@ export function CollapsibleScoreBreakdown({ scoreBreakdown }: CollapsibleScoreBr
             {/* Header - always visible */}
             <button
               onClick={() => canExpand && toggleItem(criterion.id)}
-              className={`w-full px-4 py-4 flex items-center justify-between ${
+              className={`w-full px-3 py-3 md:px-4 md:py-4 flex items-center justify-between ${
                 canExpand ? 'hover:bg-white/50 cursor-pointer' : 'cursor-default'
-              } transition-colors`}
+              } transition-colors min-h-[48px]`}
               disabled={!canExpand}
               aria-expanded={canExpand ? isExpanded : undefined}
               aria-controls={canExpand ? `content-${criterion.id}` : undefined}
             >
-              <div className="flex items-center gap-3 flex-1 min-w-0">
-                <span className="font-semibold text-gray-900">{criterion.name}</span>
+              <div className="flex items-center gap-2 md:gap-3 flex-1 min-w-0">
+                <span className="font-semibold text-gray-900 text-sm md:text-base">{criterion.name}</span>
               </div>
 
-              <div className="flex items-center gap-4 flex-shrink-0">
+              <div className="flex items-center gap-2 md:gap-4 flex-shrink-0">
                 {/* Star rating with points */}
                 <CategoryStarRating
                   score={criterion.score}
@@ -116,30 +108,30 @@ export function CollapsibleScoreBreakdown({ scoreBreakdown }: CollapsibleScoreBr
             <div
               id={`content-${criterion.id}`}
               className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                isExpanded ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
-              <div className="px-4 pb-4 pt-2 bg-white/70 border-t border-gray-100/50">
-                {/* Sub-scores with inline star ratings - CSS Grid for alignment */}
+              <div className="px-3 pb-4 pt-2 md:px-4 bg-white/70 border-t border-gray-100/50">
+                {/* Sub-scores - Responsive layout */}
                 {criterion.subcriteria && criterion.subcriteria.length > 0 && Object.keys(criterion.sub_scores).length > 0 && (
-                  <div className="grid gap-2 mb-3" style={{ gridTemplateColumns: '1fr auto auto' }}>
+                  <div className="space-y-2 mb-3">
                     {criterion.subcriteria.map(sub => {
                       const subScore = criterion.sub_scores[sub.id] ?? 0;
                       return (
-                        <div key={sub.id} className="contents">
-                          <span className="text-sm text-gray-700 font-medium py-2 px-3 bg-white rounded-l-lg border-y border-l border-gray-100">
+                        <div key={sub.id} className="flex flex-wrap items-center justify-between gap-2 py-2 px-3 bg-white rounded-lg border border-gray-100">
+                          <span className="text-sm text-gray-700 font-medium">
                             {sub.name}
                           </span>
-                          <span className="py-2 px-2 bg-white border-y border-gray-100 flex items-center" style={{ minWidth: '100px' }}>
+                          <div className="flex items-center gap-2">
                             <InlineStarRating
                               score={subScore}
                               maxScore={sub.max_points}
                               colorCode={true}
                             />
-                          </span>
-                          <span className="text-sm text-gray-500 py-2 px-3 bg-white rounded-r-lg border-y border-r border-gray-100 text-right whitespace-nowrap" style={{ minWidth: '70px' }}>
-                            {subScore}/{sub.max_points} pts
-                          </span>
+                            <span className="text-xs text-gray-500 whitespace-nowrap">
+                              {subScore}/{sub.max_points}
+                            </span>
+                          </div>
                         </div>
                       );
                     })}
