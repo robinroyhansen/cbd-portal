@@ -337,24 +337,144 @@ export default async function ResearchStudyPage({ params }: Props) {
   const contentForReading = `${study.plain_summary || ''} ${study.abstract || ''}`;
   const readingTime = calculateReadingTime(contentForReading);
 
-  // Fetch related studies - match by PRIMARY topic only (first element of topics array)
+  // Fetch ALL studies with same primary topic for research context
+  interface TopicStudy {
+    id: string;
+    title: string;
+    slug: string;
+    year: number | null;
+    publication: string | null;
+    relevant_topics: string[] | null;
+    abstract: string | null;
+  }
+
+  let allTopicStudies: TopicStudy[] = [];
   let relatedStudies: Study[] = [];
+
   if (primaryTopic) {
     const { data } = await supabase
       .from('kb_research_queue')
-      .select('id, title, slug, year, publication, relevant_topics')
+      .select('id, title, slug, year, publication, relevant_topics, abstract')
       .eq('status', 'approved')
-      .neq('id', study.id)
       .contains('relevant_topics', [primaryTopic])
-      .order('year', { ascending: false })
-      .limit(20);
+      .order('year', { ascending: false });
 
     // Filter to only keep studies where PRIMARY topic matches
-    // (contains matches anywhere in array, we want first element to match)
-    relatedStudies = (data || [])
-      .filter(s => s.relevant_topics?.[0] === primaryTopic)
+    allTopicStudies = (data || []).filter(s => s.relevant_topics?.[0] === primaryTopic);
+
+    // Get related studies (excluding current, limit to 4)
+    relatedStudies = allTopicStudies
+      .filter(s => s.id !== study.id)
       .slice(0, 4);
   }
+
+  // Calculate research context
+  interface ResearchContext {
+    totalInTopic: number;
+    qualityScore: number;
+    qualityRank: number;
+    currentSampleSize: number;
+    medianSampleSize: number;
+    sampleComparison: 'larger' | 'smaller' | 'average' | 'unknown';
+    studyTypeName: string;
+    rctCount: number;
+    bottomLine: string;
+  }
+
+  // Calculate quality scores for all topic studies
+  const topicStudiesWithScores = allTopicStudies.map(s => {
+    const studyAssessment = assessStudyQuality(s);
+    const studyText = `${s.title || ''} ${s.abstract || ''}`;
+    const studySampleInfo = extractSampleInfo(studyText);
+    const studyDetectedType = detectStudyType(s);
+    const isRCT = studyDetectedType === StudyType.RCT ||
+                  studyDetectedType === StudyType.META_ANALYSIS ||
+                  studyDetectedType === StudyType.SYSTEMATIC_REVIEW;
+    return {
+      id: s.id,
+      qualityScore: studyAssessment.score,
+      sampleSize: studySampleInfo?.size || 0,
+      isRCT,
+    };
+  });
+
+  // Sort by quality score descending
+  const sortedByQuality = [...topicStudiesWithScores].sort((a, b) => b.qualityScore - a.qualityScore);
+  const qualityRank = sortedByQuality.findIndex(s => s.id === study.id) + 1;
+  const totalInTopic = allTopicStudies.length;
+
+  // Calculate median sample size
+  const validSampleSizes = topicStudiesWithScores
+    .map(s => s.sampleSize)
+    .filter(size => size > 0)
+    .sort((a, b) => a - b);
+  const medianSampleSize = validSampleSizes.length > 0
+    ? validSampleSizes[Math.floor(validSampleSizes.length / 2)]
+    : 0;
+
+  // Sample comparison
+  const currentSampleSize = sampleInfo?.size || 0;
+  let sampleComparison: ResearchContext['sampleComparison'] = 'unknown';
+  if (currentSampleSize > 0 && medianSampleSize > 0) {
+    if (currentSampleSize > medianSampleSize * 1.2) sampleComparison = 'larger';
+    else if (currentSampleSize < medianSampleSize * 0.8) sampleComparison = 'smaller';
+    else sampleComparison = 'average';
+  }
+
+  // Count RCTs (gold standard studies)
+  const rctCount = topicStudiesWithScores.filter(s => s.isRCT).length;
+
+  // Study type name for display
+  const studyTypeName =
+    detectedStudyType === StudyType.RCT ? 'RCT' :
+    detectedStudyType === StudyType.META_ANALYSIS ? 'Meta-Analysis' :
+    detectedStudyType === StudyType.SYSTEMATIC_REVIEW ? 'Systematic Review' :
+    detectedStudyType === StudyType.COHORT ? 'Cohort Study' :
+    detectedStudyType === StudyType.CLINICAL_TRIAL ? 'Clinical Trial' :
+    detectedStudyType === StudyType.CASE_CONTROL ? 'Case-Control' :
+    detectedStudyType === StudyType.OBSERVATIONAL ? 'Observational' :
+    detectedStudyType === StudyType.IN_VITRO ? 'In Vitro' :
+    detectedStudyType === StudyType.ANIMAL ? 'Animal Study' :
+    'Study';
+
+  // Determine if this study is gold standard
+  const isGoldStandard = detectedStudyType === StudyType.RCT ||
+                         detectedStudyType === StudyType.META_ANALYSIS ||
+                         detectedStudyType === StudyType.SYSTEMATIC_REVIEW;
+
+  // Generate bottom line (user's spec)
+  const topicLower = primaryTopic?.toLowerCase() || 'this condition';
+  const qualityWord = assessment.score >= 70 ? 'high-quality' :
+                      assessment.score >= 50 ? 'moderate-quality' : 'preliminary';
+  const sampleWord = !currentSampleSize ? '' :
+                     currentSampleSize >= 100 ? 'with a robust sample size' :
+                     currentSampleSize >= 50 ? 'with an adequate sample size' :
+                     'with a small sample size';
+  const volumeWord = totalInTopic >= 30 ? 'substantial body of' :
+                     totalInTopic >= 15 ? 'growing body of' :
+                     totalInTopic >= 5 ? 'emerging' : 'limited';
+
+  let bottomLine = `This is a ${qualityWord} study`;
+  if (sampleWord) bottomLine += ` ${sampleWord}`;
+  bottomLine += `. It adds to the ${volumeWord} research on CBD and ${topicLower}`;
+
+  if (totalInTopic > 1) {
+    bottomLine += `, but isn't definitive on its own. Consider alongside the other ${totalInTopic - 1} ${totalInTopic - 1 === 1 ? 'study' : 'studies'} in this area.`;
+  } else {
+    bottomLine += `. More research is needed in this area.`;
+  }
+
+  const researchContext: ResearchContext = {
+    totalInTopic,
+    qualityScore: assessment.score,
+    qualityRank,
+    currentSampleSize,
+    medianSampleSize,
+    sampleComparison,
+    studyTypeName,
+    rctCount,
+    bottomLine,
+  };
 
   const breadcrumbs = [
     { name: 'Home', url: SITE_URL },
@@ -405,6 +525,7 @@ export default async function ResearchStudyPage({ params }: Props) {
     assessment,
     scoreBreakdown,
     relatedStudies,
+    researchContext,
     pageUrl,
     breadcrumbs,
     scholarlyArticleSchema,

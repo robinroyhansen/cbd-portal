@@ -37,6 +37,7 @@ const staticNavItems: NavItem[] = [
       { name: 'Queue', href: '/admin/research/queue', icon: '📋' },
       { name: 'Rejected', href: '/admin/research/rejected', icon: '🚫' },
       { name: 'Citations', href: '/admin/citations', icon: '📚' },
+      { name: 'Studies', href: '/admin/research/studies', icon: '📄' },
     ]
   },
   {

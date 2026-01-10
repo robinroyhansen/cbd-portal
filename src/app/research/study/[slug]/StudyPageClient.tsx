@@ -51,6 +51,18 @@ interface RelatedStudy {
   publication: string | null;
 }
 
+interface ResearchContext {
+  totalInTopic: number;
+  qualityScore: number;
+  qualityRank: number;
+  currentSampleSize: number;
+  medianSampleSize: number;
+  sampleComparison: 'larger' | 'smaller' | 'average' | 'unknown';
+  studyTypeName: string;
+  rctCount: number;
+  bottomLine: string;
+}
+
 interface StudyPageData {
   study: Study;
   readableTitle: string;
@@ -77,6 +89,7 @@ interface StudyPageData {
     relevance: { score: number };
   };
   relatedStudies: RelatedStudy[];
+  researchContext: ResearchContext;
   pageUrl: string;
   breadcrumbs: { name: string; url: string }[];
   scholarlyArticleSchema: object;
@@ -275,6 +288,7 @@ export function StudyPageClient({ data }: { data: StudyPageData }) {
     assessment,
     scoreBreakdown,
     relatedStudies,
+    researchContext,
     pageUrl,
     breadcrumbs,
     scholarlyArticleSchema,
@@ -387,6 +401,98 @@ export function StudyPageClient({ data }: { data: StudyPageData }) {
             <p className="text-blue-800 leading-relaxed text-lg">
               {study.plain_summary}
             </p>
+          </div>
+        )}
+
+        {/* 6.5. Research Context */}
+        {primaryTopic && researchContext && researchContext.totalInTopic >= 1 && (
+          <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl border border-blue-200 p-6 md:p-8 mb-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <span className="text-2xl">📊</span>
+              Research Context
+            </h2>
+
+            {researchContext.totalInTopic === 1 ? (
+              /* Only 1 study in topic */
+              <p className="text-gray-700 mb-4">
+                This is the only {primaryTopic} study in our database so far. More research is needed.
+              </p>
+            ) : (
+              <>
+                <p className="text-gray-600 mb-5">
+                  This is <span className="font-semibold text-gray-900">1 of {researchContext.totalInTopic}</span>{' '}
+                  {primaryTopic} studies in our database.
+                </p>
+
+                {/* How This Study Compares */}
+                <div className="mb-5">
+                  <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">
+                    How This Study Compares
+                  </h3>
+                  <ul className="space-y-2.5 text-gray-700">
+                    {/* Quality */}
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">•</span>
+                      <span>
+                        <span className="font-medium">Quality:</span>{' '}
+                        {researchContext.qualityScore}/100 — ranks #{researchContext.qualityRank} of {researchContext.totalInTopic} {primaryTopic} studies
+                      </span>
+                    </li>
+
+                    {/* Sample Size */}
+                    {researchContext.currentSampleSize > 0 && researchContext.medianSampleSize > 0 && (
+                      <li className="flex items-start gap-2">
+                        <span className="text-gray-400">•</span>
+                        <span>
+                          <span className="font-medium">Sample:</span>{' '}
+                          {researchContext.currentSampleSize} participants —{' '}
+                          {researchContext.sampleComparison === 'larger' && 'larger than average'}
+                          {researchContext.sampleComparison === 'smaller' && 'smaller than average'}
+                          {researchContext.sampleComparison === 'average' && 'about average'}
+                          {' '}({researchContext.medianSampleSize})
+                        </span>
+                      </li>
+                    )}
+
+                    {/* Design */}
+                    <li className="flex items-start gap-2">
+                      <span className="text-gray-400">•</span>
+                      <span>
+                        <span className="font-medium">Design:</span>{' '}
+                        {researchContext.studyTypeName}
+                        {(researchContext.studyTypeName === 'RCT' ||
+                          researchContext.studyTypeName === 'Meta-Analysis' ||
+                          researchContext.studyTypeName === 'Systematic Review') && (
+                          <span className="text-green-700"> — gold standard</span>
+                        )}
+                        {researchContext.rctCount > 0 && (
+                          <span className="text-gray-500"> ({researchContext.rctCount} of {researchContext.totalInTopic} are gold-standard)</span>
+                        )}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Link to filtered research */}
+                <Link
+                  href={`/research?condition=${primaryTopic}`}
+                  className="inline-flex items-center gap-1 text-green-600 hover:text-green-700 font-medium text-sm mb-5"
+                >
+                  See all {researchContext.totalInTopic} {primaryTopic} studies →
+                </Link>
+              </>
+            )}
+
+            {/* Bottom Line */}
+            <div className="bg-white/80 rounded-lg border border-gray-200 p-4 mt-4">
+              <h3 className="text-sm font-semibold text-gray-800 mb-2 flex items-center gap-2">
+                <span>💡</span>
+                The Bottom Line
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                {researchContext.bottomLine}
+              </p>
+            </div>
           </div>
         )}
 
