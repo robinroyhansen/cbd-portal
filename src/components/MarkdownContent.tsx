@@ -2,13 +2,30 @@
 
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { autoLinkReviewPlatforms } from '@/lib/utils/auto-link';
 
 interface MarkdownContentProps {
   children: string;
   className?: string;
+  brandName?: string;
+  trustpilotUrl?: string | null;
 }
 
-export function MarkdownContent({ children, className = '' }: MarkdownContentProps) {
+export function MarkdownContent({
+  children,
+  className = '',
+  brandName,
+  trustpilotUrl
+}: MarkdownContentProps) {
+  // Auto-link review platforms if brandName is provided
+  let processedContent = children;
+  if (brandName) {
+    processedContent = autoLinkReviewPlatforms(children, {
+      brandName,
+      trustpilotUrl
+    });
+  }
+
   return (
     <div className={className}>
       <ReactMarkdown
@@ -38,9 +55,23 @@ export function MarkdownContent({ children, className = '' }: MarkdownContentPro
           tr: ({ children }) => (
             <tr className="even:bg-gray-50">{children}</tr>
           ),
+          // Style links with external indicator
+          a: ({ href, children }) => {
+            const isExternal = href?.startsWith('http');
+            return (
+              <a
+                href={href}
+                target={isExternal ? '_blank' : undefined}
+                rel={isExternal ? 'noopener noreferrer' : undefined}
+                className="text-green-600 hover:text-green-700 underline"
+              >
+                {children}
+              </a>
+            );
+          },
         }}
       >
-        {children}
+        {processedContent}
       </ReactMarkdown>
     </div>
   );

@@ -9,7 +9,10 @@ import { StarRating, OverallStarRating, CategoryStarRating, InlineStarRating } f
 import { KeyHighlights } from '@/components/KeyHighlights';
 import { ReadingProgress, BackToTopButton } from '@/components/ReadingProgress';
 import { RelatedReviews } from '@/components/RelatedReviews';
+import { FAQAccordion } from '@/components/FAQAccordion';
+import { TableOfContents } from '@/components/TableOfContents';
 import { getDomainFromUrl, getCountryWithFlag } from '@/lib/utils/brand-helpers';
+import { generateFAQs, generateFAQSchema } from '@/lib/utils/faq-generator';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cbd-portal.vercel.app';
 
@@ -380,6 +383,23 @@ export default async function BrandReviewPage({ params }: Props) {
     ...(review.summary && { 'reviewBody': review.summary })
   };
 
+  // Generate FAQs for SEO
+  const faqs = generateFAQs(
+    {
+      name: brand.name,
+      headquarters_country: brand.headquarters_country,
+      founded_year: brand.founded_year,
+      certifications: brand.certifications,
+      website_url: brand.website_url
+    },
+    {
+      overall_score: review.overall_score,
+      trustpilot_score: review.trustpilot_score,
+      summary: review.summary
+    }
+  );
+  const faqSchema = generateFAQSchema(faqs);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Reading Progress Bar */}
@@ -388,10 +408,19 @@ export default async function BrandReviewPage({ params }: Props) {
       {/* Back to Top Button */}
       <BackToTopButton />
 
-      {/* Schema.org JSON-LD */}
+      {/* Sticky Table of Contents (desktop only) */}
+      <TableOfContents />
+
+      {/* Schema.org JSON-LD - Review */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
+      />
+
+      {/* Schema.org JSON-LD - FAQPage */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* Breadcrumbs */}
@@ -514,18 +543,20 @@ export default async function BrandReviewPage({ params }: Props) {
         <div className="space-y-12">
           {/* Summary */}
           {review.summary && (
-            <div className="bg-white rounded-xl border border-gray-200 p-8">
+            <div id="summary" className="bg-white rounded-xl border border-gray-200 p-8">
               <h2 className="text-xl font-bold text-gray-900 mb-4">Summary</h2>
               <p className="text-lg text-gray-700 leading-relaxed">{review.summary}</p>
             </div>
           )}
 
           {/* Key Highlights - for quick scanning */}
-          <KeyHighlights scoreBreakdown={scoreBreakdown} />
+          <div id="key-highlights">
+            <KeyHighlights scoreBreakdown={scoreBreakdown} />
+          </div>
 
           {/* About the Brand */}
           {review.about_content && (
-            <div className="bg-white rounded-xl border border-gray-200 p-8">
+            <div id="about" className="bg-white rounded-xl border border-gray-200 p-8">
               <h2 className="text-xl font-bold text-gray-900 mb-4">About {brand.name}</h2>
               <p className="text-gray-700 leading-relaxed">{review.about_content}</p>
             </div>
@@ -627,7 +658,7 @@ export default async function BrandReviewPage({ params }: Props) {
           )}
 
           {/* Score Breakdown */}
-          <div className="bg-white rounded-xl border border-gray-200 p-8">
+          <div id="score-breakdown" className="bg-white rounded-xl border border-gray-200 p-8">
             <h2 className="text-xl font-bold text-gray-900 mb-6">Score Breakdown</h2>
             <p className="text-sm text-gray-500 mb-4">Click on a category to see sub-scores and details</p>
             <CollapsibleScoreBreakdown scoreBreakdown={scoreBreakdown} />
@@ -640,7 +671,7 @@ export default async function BrandReviewPage({ params }: Props) {
 
           {/* Pros and Cons */}
           {(review.pros?.length > 0 || review.cons?.length > 0) && (
-            <div className="grid md:grid-cols-2 gap-6">
+            <div id="pros-cons" className="grid md:grid-cols-2 gap-6">
               {review.pros?.length > 0 && (
                 <div className="bg-green-50 rounded-xl border border-green-200 p-6">
                   <h2 className="text-lg font-bold text-green-800 mb-4 flex items-center gap-2">
@@ -679,7 +710,7 @@ export default async function BrandReviewPage({ params }: Props) {
 
           {/* Full Review - Section Based */}
           {(review.section_content && Object.keys(review.section_content).length > 0) ? (
-            <div className="bg-white rounded-xl border border-gray-200 p-8">
+            <div id="full-review" className="bg-white rounded-xl border border-gray-200 p-8">
               <h2 className="text-xl font-bold text-gray-900 mb-6">Full Review</h2>
               <div className="space-y-10">
                 {scoreBreakdown.map(criterion => {
@@ -722,7 +753,11 @@ export default async function BrandReviewPage({ params }: Props) {
                       )}
 
                       <div className="clear-both">
-                        <MarkdownContent className="prose prose-sm max-w-none prose-green prose-p:text-gray-700">
+                        <MarkdownContent
+                          className="prose prose-sm max-w-none prose-green prose-p:text-gray-700"
+                          brandName={brand.name}
+                          trustpilotUrl={review.trustpilot_url}
+                        >
                           {stripMarkdownTables(sectionText)}
                         </MarkdownContent>
                       </div>
@@ -732,7 +767,7 @@ export default async function BrandReviewPage({ params }: Props) {
               </div>
             </div>
           ) : review.full_review && (
-            <div className="bg-white rounded-xl border border-gray-200 p-8">
+            <div id="full-review" className="bg-white rounded-xl border border-gray-200 p-8">
               <h2 className="text-xl font-bold text-gray-900 mb-6">Full Review</h2>
               {/* Parse full_review by section headers and add stars */}
               <div className="space-y-10">
@@ -792,7 +827,11 @@ export default async function BrandReviewPage({ params }: Props) {
                           </>
                         )}
                         <div className="clear-both">
-                          <MarkdownContent className="prose prose-sm max-w-none prose-green prose-p:text-gray-700">
+                          <MarkdownContent
+                            className="prose prose-sm max-w-none prose-green prose-p:text-gray-700"
+                            brandName={brand.name}
+                            trustpilotUrl={review.trustpilot_url}
+                          >
                             {stripMarkdownTables(contentWithoutHeader)}
                           </MarkdownContent>
                         </div>
@@ -806,7 +845,7 @@ export default async function BrandReviewPage({ params }: Props) {
 
           {/* Verdict */}
           {review.verdict && (
-            <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-xl p-8 text-white">
+            <div id="verdict" className="bg-gradient-to-br from-green-600 to-green-700 rounded-xl p-8 text-white">
               <h2 className="text-xl font-bold mb-4">My Final Verdict on {brand.name}</h2>
 
               {/* Score display */}
@@ -855,6 +894,11 @@ export default async function BrandReviewPage({ params }: Props) {
               )}
             </div>
           )}
+
+          {/* FAQ Section */}
+          <div id="faqs">
+            <FAQAccordion faqs={faqs} brandName={brand.name} />
+          </div>
 
           {/* Related Reviews */}
           <RelatedReviews brands={transformedRelated} currentBrandId={brand.id} />
