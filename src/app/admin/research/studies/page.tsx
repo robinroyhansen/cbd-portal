@@ -450,7 +450,7 @@ export default function AdminStudiesPage() {
             {isGenerating && !bulkProgress && (
               <div className="flex items-center gap-2 text-sm text-gray-600">
                 <div className="animate-spin rounded-full h-4 w-4 border-2 border-blue-600 border-t-transparent"></div>
-                Processing...
+                Generating content (highest quality first)...
               </div>
             )}
           </div>
@@ -475,7 +475,7 @@ export default function AdminStudiesPage() {
               <div className="flex gap-4 text-xs text-blue-700">
                 <span className="text-green-600">Success: {bulkProgress.successful}</span>
                 {bulkProgress.failed > 0 && <span className="text-red-600">Failed: {bulkProgress.failed}</span>}
-                <span>Processing in batches of 10...</span>
+                <span>Processing highest quality studies first...</span>
               </div>
             </div>
           )}

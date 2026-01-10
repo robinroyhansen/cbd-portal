@@ -165,12 +165,13 @@ export async function POST(request: NextRequest) {
     );
 
     // Fetch studies needing content generation
+    // Order by relevance_score DESC to prioritize high-quality studies first
     const { data: studies, error: fetchError } = await supabase
       .from('kb_research_queue')
-      .select('id, title, year, relevant_topics, plain_summary, abstract')
+      .select('id, title, year, relevant_topics, plain_summary, abstract, relevance_score')
       .eq('status', 'approved')
       .or('key_findings.is.null,key_findings.eq.[]')
-      .order('created_at', { ascending: true })
+      .order('relevance_score', { ascending: false, nullsFirst: false })
       .limit(safeBatchSize);
 
     if (fetchError) {
@@ -220,8 +221,8 @@ export async function POST(request: NextRequest) {
         console.error(`[BulkGenerate] Failed: ${study.id}:`, errorMessage);
       }
 
-      // Delay between API calls to avoid rate limits (1 second)
-      await new Promise(r => setTimeout(r, 1000));
+      // Delay between API calls to avoid rate limits (1.5 seconds)
+      await new Promise(r => setTimeout(r, 1500));
     }
 
     // Get remaining count
