@@ -10,7 +10,6 @@ import { ReadingProgress, BackToTopButton } from '@/components/ReadingProgress';
 import { RelatedReviews } from '@/components/RelatedReviews';
 import { FAQAccordion } from '@/components/FAQAccordion';
 import { TableOfContents } from '@/components/TableOfContents';
-import { QuickFacts } from '@/components/QuickFacts';
 import { getDomainFromUrl } from '@/lib/utils/brand-helpers';
 import { generateFAQs, generateFAQSchema } from '@/lib/utils/faq-generator';
 
@@ -497,59 +496,32 @@ export default async function BrandReviewPage({ params }: Props) {
       {/* Main Content */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         <div className="space-y-8 md:space-y-12">
-          {/* Summary + Quick Facts side by side on desktop */}
-          <div className="grid lg:grid-cols-3 gap-6">
-            {/* Summary */}
-            {review.summary && (
-              <div id="summary" className="lg:col-span-2 bg-white rounded-xl border border-gray-200 p-6 md:p-8">
-                <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-4">{brand.name} Review Summary</h2>
+          {/* Summary */}
+          {review.summary && (
+            <div id="summary" className="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
+              <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-4">{brand.name} Review Summary</h2>
 
-                {/* Score Display */}
-                <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-5 pb-5 md:mb-6 md:pb-6 border-b border-gray-100">
-                  <div className={`inline-flex items-center px-3 py-1.5 md:px-4 md:py-2 rounded-lg border-2 ${getScoreBadgeColor(review.overall_score)}`}>
-                    <span className="text-xl md:text-2xl font-bold">{review.overall_score}</span>
-                    <span className="text-xs md:text-sm ml-1">/100</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 md:gap-2">
-                    <OverallStarRating score={review.overall_score} />
-                    <span className="font-medium text-sm md:text-base text-gray-700">{getScoreLabel(review.overall_score)}</span>
-                  </div>
-                  {review.last_reviewed_at && (
-                    <div className="w-full md:w-auto flex items-center gap-2 mt-1 md:mt-0">
-                      <span className="hidden md:inline text-gray-300">·</span>
-                      <span className="text-xs md:text-sm text-gray-500">Last reviewed {formatDate(review.last_reviewed_at)}</span>
-                    </div>
-                  )}
+              {/* Score Display */}
+              <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-5 pb-5 md:mb-6 md:pb-6 border-b border-gray-100">
+                <div className={`inline-flex items-center px-3 py-1.5 md:px-4 md:py-2 rounded-lg border-2 ${getScoreBadgeColor(review.overall_score)}`}>
+                  <span className="text-xl md:text-2xl font-bold">{review.overall_score}</span>
+                  <span className="text-xs md:text-sm ml-1">/100</span>
                 </div>
-
-                <p className="text-base md:text-lg text-gray-700 leading-relaxed">{review.summary}</p>
+                <div className="flex items-center gap-1.5 md:gap-2">
+                  <OverallStarRating score={review.overall_score} />
+                  <span className="font-medium text-sm md:text-base text-gray-700">{getScoreLabel(review.overall_score)}</span>
+                </div>
+                {review.last_reviewed_at && (
+                  <div className="w-full md:w-auto flex items-center gap-2 mt-1 md:mt-0">
+                    <span className="hidden md:inline text-gray-300">·</span>
+                    <span className="text-xs md:text-sm text-gray-500">Last reviewed {formatDate(review.last_reviewed_at)}</span>
+                  </div>
+                )}
               </div>
-            )}
 
-            {/* Quick Facts Sidebar */}
-            <div className={review.summary ? '' : 'lg:col-span-3'}>
-              <QuickFacts
-                brand={{
-                  name: brand.name,
-                  headquarters_country: brand.headquarters_country,
-                  founded_year: brand.founded_year,
-                  website_url: brand.website_url,
-                  certifications: brand.certifications,
-                }}
-                review={{
-                  overall_score: review.overall_score,
-                  trustpilot_score: review.trustpilot_score,
-                  trustpilot_count: review.trustpilot_count,
-                  trustpilot_url: review.trustpilot_url,
-                  last_reviewed_at: review.last_reviewed_at,
-                  author: review.kb_authors ? {
-                    name: review.kb_authors.name,
-                    slug: review.kb_authors.slug,
-                  } : null,
-                }}
-              />
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed">{review.summary}</p>
             </div>
-          </div>
+          )}
 
           {/* About the Brand */}
           {review.about_content && (
@@ -656,7 +628,7 @@ export default async function BrandReviewPage({ params }: Props) {
 
           {/* Score Breakdown */}
           <div id="score-breakdown" className="bg-white rounded-xl border border-gray-200 p-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">{brand.name} Score Breakdown</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6">Score Breakdown of {brand.name}</h2>
             <p className="text-sm text-gray-500 mb-4">Click on a category to see sub-scores and details</p>
             <CollapsibleScoreBreakdown scoreBreakdown={scoreBreakdown} />
             <div className="mt-4 pt-4 border-t border-gray-100">
