@@ -7,10 +7,10 @@ interface HeroProps {
 
 function SourceBadge({ name, icon }: { name: string; icon: string }) {
   return (
-    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 md:gap-2 md:px-4 md:py-2 bg-white rounded-full border border-gray-200 text-gray-600 text-xs md:text-sm font-medium shadow-sm hover:shadow-md hover:border-gray-300 transition-all">
-      <span className="text-sm md:text-base">{icon}</span>
+    <span className="inline-flex items-center gap-1 text-gray-500 text-xs md:text-sm">
+      <span>{icon}</span>
       <span>{name}</span>
-    </div>
+    </span>
   );
 }
 
@@ -59,7 +59,7 @@ export function Hero({ stats }: HeroProps) {
               {/* Trust Headline */}
               <div className="text-center mb-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                  We Analyze the Research. You Get the Facts.
+                  We Analyze the Research. We Present the Facts.
                 </h2>
                 <p className="text-gray-600">
                   Every CBD study summarized in plain language, scored for quality,
@@ -118,10 +118,10 @@ export function Hero({ stats }: HeroProps) {
 
               {/* Data Sources - builds journalist trust */}
               <div className="mt-6 pt-6 border-t border-gray-100 text-center">
-                <p className="text-xs text-gray-400 mb-4 uppercase tracking-widest">
-                  Research Sourced From 8 Scientific Databases
+                <p className="text-xs text-gray-400 mb-3 uppercase tracking-widest">
+                  Trusted Data Sources
                 </p>
-                <div className="flex flex-wrap justify-center items-center gap-2">
+                <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2">
                   <SourceBadge name="PubMed" icon="🔬" />
                   <SourceBadge name="ClinicalTrials.gov" icon="🏥" />
                   <SourceBadge name="Cochrane" icon="📚" />
@@ -160,7 +160,7 @@ export function Hero({ stats }: HeroProps) {
           {/* Trust Headline */}
           <div className="text-center mb-6">
             <h2 className="text-xl font-bold text-gray-900 mb-2">
-              We Analyze the Research. You Get the Facts.
+              We Analyze the Research. We Present the Facts.
             </h2>
             <p className="text-sm text-gray-600">
               Every CBD study summarized in plain language and scored for quality.
@@ -207,10 +207,10 @@ export function Hero({ stats }: HeroProps) {
 
           {/* Data Sources - Mobile */}
           <div className="mt-4 pt-4 border-t border-gray-100 text-center">
-            <p className="text-[10px] text-gray-400 uppercase tracking-widest mb-3">
-              Research From 8 Scientific Databases
+            <p className="text-[10px] text-gray-400 uppercase tracking-widest mb-2">
+              Trusted Data Sources
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-1.5">
+            <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1">
               <SourceBadge name="PubMed" icon="🔬" />
               <SourceBadge name="ClinicalTrials" icon="🏥" />
               <SourceBadge name="Cochrane" icon="📚" />
