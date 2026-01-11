@@ -481,10 +481,10 @@ export default function EditStudyPage() {
           <p className="text-xs text-gray-500 mt-1">Leave blank to auto-generate from original title</p>
         </div>
 
-        {/* Plain Language Summary */}
+        {/* What You Need to Know */}
         <div className="mb-5">
           <div className="flex items-center justify-between mb-2">
-            <label className="text-sm font-medium text-gray-700">Plain Language Summary</label>
+            <label className="text-sm font-medium text-gray-700">What You Need to Know</label>
             <button
               onClick={() => handleGenerate('plain_summary')}
               disabled={generatingField === 'plain_summary'}
@@ -500,7 +500,7 @@ export default function EditStudyPage() {
             className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             placeholder="This clinical trial is testing whether CBD can help people with social anxiety disorder..."
           />
-          <p className="text-xs text-gray-500 mt-1">Shown in "What You Need to Know" section</p>
+          <p className="text-xs text-gray-500 mt-1">Plain language summary for general audience (max 100 words)</p>
         </div>
 
         {/* Key Findings */}

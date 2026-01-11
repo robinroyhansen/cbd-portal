@@ -60,43 +60,61 @@ export default function SummariesPage() {
   const currentStudy = research[currentIndex];
 
   const generateSummary = async () => {
-    if (!currentStudy?.abstract) return;
+    if (!currentStudy) return;
 
     setIsGenerating(true);
 
-    // Create a draft summary based on the abstract
-    // This is a template-based approach since we don't have API access
-    const abstract = currentStudy.abstract;
     const title = currentStudy.title;
+    const abstract = currentStudy.abstract;
+    const topics = currentStudy.relevant_topics;
+    const year = currentStudy.year;
 
-    // Extract key information for a draft
     let draft = '';
 
-    // Try to create a meaningful draft
-    const sentences = abstract.split(/[.!?]+/).filter(s => s.trim().length > 20);
-    if (sentences.length > 0) {
-      // Take first 2-3 sentences and simplify
-      const firstSentences = sentences.slice(0, 3).join('. ').trim();
+    if (abstract) {
+      // Create a draft summary based on the abstract
+      const sentences = abstract.split(/[.!?]+/).filter(s => s.trim().length > 20);
+      if (sentences.length > 0) {
+        // Take first 2-3 sentences and simplify
+        const firstSentences = sentences.slice(0, 3).join('. ').trim();
 
-      // Basic simplification
-      draft = firstSentences
-        .replace(/\([^)]*\)/g, '') // Remove parentheticals
-        .replace(/et al\./g, 'and colleagues')
-        .replace(/\s+/g, ' ')
-        .trim();
+        // Basic simplification
+        draft = firstSentences
+          .replace(/\([^)]*\)/g, '') // Remove parentheticals
+          .replace(/et al\./g, 'and colleagues')
+          .replace(/\s+/g, ' ')
+          .trim();
 
-      // Truncate to ~100 words
-      const words = draft.split(' ');
-      if (words.length > 100) {
-        draft = words.slice(0, 95).join(' ') + '...';
-      }
+        // Truncate to ~100 words
+        const words = draft.split(' ');
+        if (words.length > 100) {
+          draft = words.slice(0, 95).join(' ') + '...';
+        }
 
-      // Ensure it ends with a period
-      if (!draft.endsWith('.') && !draft.endsWith('...')) {
-        draft += '.';
+        // Ensure it ends with a period
+        if (!draft.endsWith('.') && !draft.endsWith('...')) {
+          draft += '.';
+        }
+      } else {
+        draft = `This study examines ${title.toLowerCase().replace(/[:.]/g, '')}. [Please edit this summary based on the abstract.]`;
       }
     } else {
-      draft = `This study examines ${title.toLowerCase().replace(/[:.]/g, '')}. [Please edit this summary based on the abstract below.]`;
+      // No abstract available - generate from title and topics
+      const topicsList = topics && topics.length > 0
+        ? topics.slice(0, 3).join(', ').toLowerCase()
+        : 'cannabidiol (CBD)';
+
+      // Clean the title for use in the summary
+      const cleanTitle = title
+        .replace(/[:.]/g, '')
+        .replace(/\([^)]*\)/g, '')
+        .trim()
+        .toLowerCase();
+
+      // Generate a basic template summary
+      draft = `This ${year ? year + ' ' : ''}study investigates ${cleanTitle}. `;
+      draft += `The research focuses on ${topicsList}. `;
+      draft += `[No abstract available - please click "View Full Paper" to read the source and complete this summary.]`;
     }
 
     // Simulate brief delay
@@ -247,9 +265,9 @@ export default function SummariesPage() {
     <div className="p-8">
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Plain Language Summaries</h1>
+          <h1 className="text-3xl font-bold text-gray-900">Study Summaries</h1>
           <p className="text-gray-600 mt-2">
-            Generate and edit summaries for research studies
+            Generate &quot;What You Need to Know&quot; summaries for research studies
           </p>
         </div>
         <div className="flex gap-3">
@@ -394,10 +412,10 @@ export default function SummariesPage() {
           {/* Right: Summary Editor */}
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-semibold text-gray-900">Plain Language Summary</h3>
+              <h3 className="text-lg font-semibold text-gray-900">What You Need to Know</h3>
               <button
                 onClick={generateSummary}
-                disabled={isGenerating || !currentStudy.abstract}
+                disabled={isGenerating}
                 className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
               >
                 {isGenerating ? (
