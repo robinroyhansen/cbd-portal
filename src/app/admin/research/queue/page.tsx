@@ -4,6 +4,69 @@ import { useEffect, useState, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import Link from 'next/link';
 
+// Helper function to extract sentences containing a keyword
+function getKeywordContext(text: string, keyword: string, maxSentences: number = 5): string[] {
+  if (!text || !keyword) return [];
+
+  // Split into sentences (rough split on . ! ?)
+  const sentences = text.split(/(?<=[.!?])\s+/);
+
+  // Find sentences containing the keyword (case-insensitive)
+  const keywordLower = keyword.toLowerCase();
+  const matchingSentences = sentences.filter(sentence =>
+    sentence.toLowerCase().includes(keywordLower)
+  );
+
+  // Return up to maxSentences
+  return matchingSentences.slice(0, maxSentences);
+}
+
+// Collapsible keyword context component
+function KeywordContextPreview({ text, keyword }: { text: string; keyword: string }) {
+  const [expanded, setExpanded] = useState(false);
+  const sentences = getKeywordContext(text, keyword, 5);
+
+  if (sentences.length === 0) return null;
+
+  // Function to highlight keyword in sentence
+  const highlightKeyword = (sentence: string, kw: string) => {
+    const regex = new RegExp(`(${kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const parts = sentence.split(regex);
+
+    return parts.map((part, i) =>
+      part.toLowerCase() === kw.toLowerCase()
+        ? <strong key={i} className="text-amber-700 bg-amber-100 px-0.5 rounded">{part}</strong>
+        : <span key={i}>{part}</span>
+    );
+  };
+
+  return (
+    <div className="mt-2">
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="text-xs text-blue-600 hover:text-blue-800 flex items-center gap-1"
+      >
+        <span>{expanded ? '▼' : '▶'}</span>
+        <span>Show {sentences.length} keyword match{sentences.length > 1 ? 'es' : ''}</span>
+      </button>
+
+      {expanded && (
+        <div className="mt-2 space-y-1.5 text-sm text-gray-600 bg-gray-50 rounded-lg p-3 border-l-2 border-amber-300">
+          {sentences.map((sentence, i) => (
+            <p key={i} className="leading-relaxed">
+              <span className="text-gray-400 mr-1 text-xs">[{i + 1}]</span>
+              {highlightKeyword(
+                sentence.trim().length > 250 ? sentence.trim().slice(0, 250) + '...' : sentence.trim(),
+                keyword
+              )}
+            </p>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 interface ResearchItem {
   id: string;
   title: string;
@@ -680,12 +743,20 @@ export default function ResearchQueuePage() {
                     </div>
                   )}
 
-                  <div className="flex items-center gap-4 text-xs text-gray-500 mb-3">
+                  <div className="flex items-center gap-4 text-xs text-gray-500">
                     <span>Discovered: {new Date(item.discovered_at).toLocaleDateString()}</span>
                     {item.search_term_matched && (
-                      <span>Matched: "{item.search_term_matched}"</span>
+                      <span>Matched: &quot;{item.search_term_matched}&quot;</span>
                     )}
                   </div>
+
+                  {/* Keyword context preview */}
+                  {item.search_term_matched && (item.abstract || item.title) && (
+                    <KeywordContextPreview
+                      text={`${item.title || ''} ${item.abstract || ''}`}
+                      keyword={item.search_term_matched}
+                    />
+                  )}
 
                   {item.rejection_reason && (
                     <div className="mt-2 p-2 bg-red-50 border border-red-200 rounded text-sm text-red-800">
