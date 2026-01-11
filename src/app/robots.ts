@@ -1,16 +1,16 @@
 import { MetadataRoute } from 'next';
 
-export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://cbd-portal.vercel.app';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cbd-portal.vercel.app';
 
+export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/admin/', '/api/', '/_next/'],
+        disallow: ['/admin/', '/api/admin/', '/_next/'],
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }
