@@ -5,6 +5,15 @@ interface HeroProps {
   stats: HomePageStats;
 }
 
+function SourceBadge({ name, icon }: { name: string; icon: string }) {
+  return (
+    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 md:gap-2 md:px-4 md:py-2 bg-white rounded-full border border-gray-200 text-gray-600 text-xs md:text-sm font-medium shadow-sm hover:shadow-md hover:border-gray-300 transition-all">
+      <span className="text-sm md:text-base">{icon}</span>
+      <span>{name}</span>
+    </div>
+  );
+}
+
 export function Hero({ stats }: HeroProps) {
   return (
     <section className="bg-gradient-to-br from-green-50 via-white to-green-50 py-16 md:py-24">
@@ -109,21 +118,22 @@ export function Hero({ stats }: HeroProps) {
 
               {/* Data Sources - builds journalist trust */}
               <div className="mt-6 pt-6 border-t border-gray-100 text-center">
-                <p className="text-xs text-gray-400 mb-3 uppercase tracking-wide">
-                  Research sourced from
+                <p className="text-xs text-gray-400 mb-4 uppercase tracking-widest">
+                  Research Sourced From 8 Scientific Databases
                 </p>
-                <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 text-gray-500 text-sm font-medium">
-                  <span>PubMed</span>
-                  <span className="text-gray-300">•</span>
-                  <span>ClinicalTrials.gov</span>
-                  <span className="text-gray-300">•</span>
-                  <span>Cochrane</span>
-                  <span className="text-gray-300">•</span>
-                  <span>Europe PMC</span>
+                <div className="flex flex-wrap justify-center items-center gap-2">
+                  <SourceBadge name="PubMed" icon="🔬" />
+                  <SourceBadge name="ClinicalTrials.gov" icon="🏥" />
+                  <SourceBadge name="Cochrane" icon="📚" />
+                  <SourceBadge name="Europe PMC" icon="🇪🇺" />
+                  <SourceBadge name="Semantic Scholar" icon="🎓" />
+                  <SourceBadge name="bioRxiv" icon="🧬" />
+                  <SourceBadge name="CrossRef" icon="🔗" />
+                  <SourceBadge name="OpenAlex" icon="📖" />
                 </div>
                 <Link
                   href="/research/methodology"
-                  className="inline-block mt-3 text-green-600 hover:text-green-700 text-sm font-medium"
+                  className="inline-block mt-4 text-green-600 hover:text-green-700 text-sm font-medium"
                 >
                   View our scoring methodology →
                 </Link>
@@ -197,13 +207,22 @@ export function Hero({ stats }: HeroProps) {
 
           {/* Data Sources - Mobile */}
           <div className="mt-4 pt-4 border-t border-gray-100 text-center">
-            <p className="text-[10px] text-gray-400 uppercase tracking-wide mb-2">Research sourced from</p>
-            <p className="text-xs text-gray-500 font-medium">
-              PubMed • ClinicalTrials.gov • Cochrane • Europe PMC
+            <p className="text-[10px] text-gray-400 uppercase tracking-widest mb-3">
+              Research From 8 Scientific Databases
             </p>
+            <div className="flex flex-wrap justify-center items-center gap-1.5">
+              <SourceBadge name="PubMed" icon="🔬" />
+              <SourceBadge name="ClinicalTrials" icon="🏥" />
+              <SourceBadge name="Cochrane" icon="📚" />
+              <SourceBadge name="Europe PMC" icon="🇪🇺" />
+              <SourceBadge name="Semantic Scholar" icon="🎓" />
+              <SourceBadge name="bioRxiv" icon="🧬" />
+              <SourceBadge name="CrossRef" icon="🔗" />
+              <SourceBadge name="OpenAlex" icon="📖" />
+            </div>
             <Link
               href="/research/methodology"
-              className="text-green-600 text-xs font-medium mt-2 inline-block hover:underline"
+              className="text-green-600 text-xs font-medium mt-3 inline-block hover:underline"
             >
               View our methodology →
             </Link>
