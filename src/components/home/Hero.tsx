@@ -1,6 +1,11 @@
 import Link from 'next/link';
+import { HomePageStats } from '@/lib/stats';
 
-export function Hero() {
+interface HeroProps {
+  stats: HomePageStats;
+}
+
+export function Hero({ stats }: HeroProps) {
   return (
     <section className="bg-gradient-to-br from-green-50 via-white to-green-50 py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-4">
@@ -42,24 +47,49 @@ export function Hero() {
             <div className="relative">
               {/* Trust signals */}
               <div className="bg-white rounded-2xl shadow-xl p-8">
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center p-4 bg-green-50 rounded-xl">
-                    <div className="text-3xl font-bold text-green-700">76+</div>
+                {/* Primary Stats Row */}
+                <div className="grid grid-cols-2 gap-4">
+                  <Link href="/research" className="text-center p-4 bg-green-50 rounded-xl hover:bg-green-100 transition-colors">
+                    <div className="text-3xl font-bold text-green-700">{stats.researchStudies}+</div>
                     <div className="text-sm text-gray-600">Research Studies</div>
-                  </div>
-                  <div className="text-center p-4 bg-blue-50 rounded-xl">
-                    <div className="text-3xl font-bold text-blue-700">50+</div>
-                    <div className="text-sm text-gray-600">Years Combined Experience</div>
-                  </div>
-                  <div className="text-center p-4 bg-purple-50 rounded-xl">
-                    <div className="text-3xl font-bold text-purple-700">25+</div>
+                  </Link>
+                  <Link href="/glossary" className="text-center p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors">
+                    <div className="text-3xl font-bold text-blue-700">{stats.glossaryTerms}+</div>
+                    <div className="text-sm text-gray-600">Glossary Terms</div>
+                  </Link>
+                  <Link href="/research" className="text-center p-4 bg-purple-50 rounded-xl hover:bg-purple-100 transition-colors">
+                    <div className="text-3xl font-bold text-purple-700">{stats.healthTopics}+</div>
                     <div className="text-sm text-gray-600">Health Topics</div>
-                  </div>
-                  <div className="text-center p-4 bg-orange-50 rounded-xl">
-                    <div className="text-3xl font-bold text-orange-700">100K+</div>
-                    <div className="text-sm text-gray-600">Readers Helped</div>
-                  </div>
+                  </Link>
+                  <Link href="/research" className="text-center p-4 bg-orange-50 rounded-xl hover:bg-orange-100 transition-colors">
+                    <div className="text-3xl font-bold text-orange-700">{stats.highQualityStudies}+</div>
+                    <div className="text-sm text-gray-600">High-Quality Studies</div>
+                  </Link>
                 </div>
+
+                {/* Secondary Stats Row (conditional - only show stats > 0) */}
+                {(stats.articles > 0 || stats.countriesStudied > 0 || stats.brandReviews > 0) && (
+                  <div className="grid grid-cols-3 gap-3 mt-4">
+                    {stats.articles > 0 && (
+                      <Link href="/articles" className="text-center p-3 bg-amber-50 rounded-lg hover:bg-amber-100 transition-colors">
+                        <div className="text-xl font-bold text-amber-700">{stats.articles}+</div>
+                        <div className="text-xs text-gray-600">Expert Articles</div>
+                      </Link>
+                    )}
+                    {stats.countriesStudied > 0 && (
+                      <Link href="/research" className="text-center p-3 bg-teal-50 rounded-lg hover:bg-teal-100 transition-colors">
+                        <div className="text-xl font-bold text-teal-700">{stats.countriesStudied}+</div>
+                        <div className="text-xs text-gray-600">Countries Studied</div>
+                      </Link>
+                    )}
+                    {stats.brandReviews > 0 && (
+                      <Link href="/reviews" className="text-center p-3 bg-rose-50 rounded-lg hover:bg-rose-100 transition-colors">
+                        <div className="text-xl font-bold text-rose-700">{stats.brandReviews}+</div>
+                        <div className="text-xs text-gray-600">Brand Reviews</div>
+                      </Link>
+                    )}
+                  </div>
+                )}
 
                 <div className="mt-6 pt-6 border-t border-gray-100">
                   <div className="flex items-center gap-3">
