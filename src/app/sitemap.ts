@@ -38,13 +38,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Research studies (~698)
   const { data: studies } = await supabase
     .from('kb_research_queue')
-    .select('slug, updated_at')
+    .select('slug')
     .eq('status', 'approved')
     .not('slug', 'is', null);
 
   const studyPages: MetadataRoute.Sitemap = (studies || []).map(study => ({
     url: `${SITE_URL}/research/study/${study.slug}`,
-    lastModified: study.updated_at ? new Date(study.updated_at) : new Date(),
+    lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.7,
   }));
@@ -52,61 +52,62 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Glossary terms (~262)
   const { data: glossaryTerms } = await supabase
     .from('kb_glossary')
-    .select('slug, updated_at');
+    .select('slug');
 
   const glossaryPages: MetadataRoute.Sitemap = (glossaryTerms || []).map(term => ({
     url: `${SITE_URL}/glossary/${term.slug}`,
-    lastModified: term.updated_at ? new Date(term.updated_at) : new Date(),
+    lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.6,
   }));
 
   // Brand reviews
   const { data: brands } = await supabase
-    .from('brands')
-    .select('slug, updated_at')
+    .from('kb_brands')
+    .select('slug')
     .not('review_content', 'is', null);
 
   const reviewPages: MetadataRoute.Sitemap = (brands || []).map(brand => ({
     url: `${SITE_URL}/reviews/${brand.slug}`,
-    lastModified: brand.updated_at ? new Date(brand.updated_at) : new Date(),
+    lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.8,
   }));
 
   // Articles
   const { data: articles } = await supabase
-    .from('articles')
-    .select('slug, updated_at')
+    .from('kb_articles')
+    .select('slug')
     .eq('status', 'published');
 
   const articlePages: MetadataRoute.Sitemap = (articles || []).map(article => ({
     url: `${SITE_URL}/articles/${article.slug}`,
-    lastModified: article.updated_at ? new Date(article.updated_at) : new Date(),
+    lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.7,
   }));
 
   // Categories
   const { data: categories } = await supabase
-    .from('categories')
-    .select('slug, updated_at');
+    .from('kb_categories')
+    .select('slug');
 
   const categoryPages: MetadataRoute.Sitemap = (categories || []).map(category => ({
     url: `${SITE_URL}/categories/${category.slug}`,
-    lastModified: category.updated_at ? new Date(category.updated_at) : new Date(),
+    lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.6,
   }));
 
   // Authors
   const { data: authors } = await supabase
-    .from('authors')
-    .select('slug, updated_at');
+    .from('kb_authors')
+    .select('slug')
+    .eq('is_active', true);
 
   const authorPages: MetadataRoute.Sitemap = (authors || []).map(author => ({
     url: `${SITE_URL}/authors/${author.slug}`,
-    lastModified: author.updated_at ? new Date(author.updated_at) : new Date(),
+    lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.5,
   }));
@@ -133,12 +134,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Tags
   const { data: tags } = await supabase
-    .from('tags')
-    .select('slug, updated_at');
+    .from('kb_tags')
+    .select('slug');
 
   const tagPages: MetadataRoute.Sitemap = (tags || []).map(tag => ({
     url: `${SITE_URL}/tags/${tag.slug}`,
-    lastModified: tag.updated_at ? new Date(tag.updated_at) : new Date(),
+    lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.4,
   }));

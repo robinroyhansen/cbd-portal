@@ -10,17 +10,17 @@ export async function GET() {
   // This is the exact query used in sitemap.ts
   const { data: studies, error: studiesError } = await supabase
     .from('kb_research_queue')
-    .select('slug, updated_at')
+    .select('slug')
     .eq('status', 'approved')
     .not('slug', 'is', null);
 
   const { data: glossary, error: glossaryError } = await supabase
     .from('kb_glossary')
-    .select('slug, updated_at');
+    .select('slug');
 
   const { data: brands, error: brandsError } = await supabase
-    .from('brands')
-    .select('slug, updated_at')
+    .from('kb_brands')
+    .select('slug')
     .not('review_content', 'is', null);
 
   return NextResponse.json({
