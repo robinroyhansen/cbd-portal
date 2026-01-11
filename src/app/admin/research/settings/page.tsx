@@ -38,6 +38,23 @@ export default function ResearchSettingsPage() {
       max: number;
     };
   } | null>(null);
+  const [recalculatingRelevance, setRecalculatingRelevance] = useState(false);
+  const [relevanceResult, setRelevanceResult] = useState<{
+    updated: number;
+    total: number;
+    distribution: {
+      high: number;
+      medium: number;
+      low: number;
+      irrelevant: number;
+    };
+    stats: {
+      average: number;
+      median: number;
+      min: number;
+      max: number;
+    };
+  } | null>(null);
   const supabase = createClient();
 
   useEffect(() => {
@@ -180,7 +197,7 @@ export default function ResearchSettingsPage() {
   }
 
   async function recalculateAllScores() {
-    if (!confirm('Recalculate scores for ALL studies? This may take a minute.')) return;
+    if (!confirm('Recalculate QUALITY scores for ALL studies? This may take a minute.')) return;
 
     setRecalculating(true);
     setRecalcResult(null);
@@ -195,6 +212,24 @@ export default function ResearchSettingsPage() {
     }
 
     setRecalculating(false);
+  }
+
+  async function recalculateRelevanceScores() {
+    if (!confirm('Recalculate RELEVANCE scores for ALL studies? This may take a minute.')) return;
+
+    setRecalculatingRelevance(true);
+    setRelevanceResult(null);
+
+    try {
+      const res = await fetch('/api/admin/research/recalculate-relevance', { method: 'POST' });
+      const data = await res.json();
+      setRelevanceResult(data);
+    } catch (error) {
+      console.error('Error recalculating relevance:', error);
+      alert('Failed to recalculate relevance scores');
+    }
+
+    setRecalculatingRelevance(false);
   }
 
   return (
@@ -437,11 +472,73 @@ export default function ResearchSettingsPage() {
         </div>
       </div>
 
-      {/* Score Recalculation */}
-      <div className="bg-white rounded-lg border p-6 mb-6">
-        <h2 className="text-lg font-semibold mb-2">Relevance Score Recalculation</h2>
+      {/* Relevance Score Recalculation */}
+      <div className="bg-white rounded-lg border p-6 mb-6 mt-6">
+        <h2 className="text-lg font-semibold mb-2">Relevance Score Calculation</h2>
         <p className="text-sm text-gray-600 mb-4">
-          Recalculate all study relevance scores using the updated algorithm (max 100 points).
+          Calculate relevance scores for all studies. This measures how relevant each study is to CBD health topics (separate from quality score).
+        </p>
+
+        <div className="bg-blue-50 rounded-lg p-4 mb-4 text-sm">
+          <p className="font-medium text-blue-800 mb-2">Relevance scoring factors:</p>
+          <ul className="text-blue-700 space-y-1">
+            <li><span className="text-green-700">Positive:</span> CBD in title, therapeutic context, health conditions, human studies</li>
+            <li><span className="text-red-700">Negative:</span> Policy/legal focus, market analysis, agriculture, recreational use</li>
+          </ul>
+        </div>
+
+        <button
+          onClick={recalculateRelevanceScores}
+          disabled={recalculatingRelevance}
+          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+        >
+          {recalculatingRelevance ? 'Calculating...' : 'Calculate Relevance Scores'}
+        </button>
+
+        {relevanceResult && (
+          <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+            <p className="font-medium mb-2">Results ({relevanceResult.updated} studies updated):</p>
+            <div className="grid grid-cols-4 gap-4 text-center">
+              <div>
+                <div className="text-xl font-bold text-green-600">{relevanceResult.distribution.high}</div>
+                <div className="text-xs text-gray-500">High (70+)</div>
+              </div>
+              <div>
+                <div className="text-xl font-bold text-amber-600">{relevanceResult.distribution.medium}</div>
+                <div className="text-xs text-gray-500">Medium (40-69)</div>
+              </div>
+              <div>
+                <div className="text-xl font-bold text-orange-600">{relevanceResult.distribution.low}</div>
+                <div className="text-xs text-gray-500">Low (20-39)</div>
+              </div>
+              <div>
+                <div className="text-xl font-bold text-red-600">{relevanceResult.distribution.irrelevant}</div>
+                <div className="text-xs text-gray-500">Irrelevant (&lt;20)</div>
+              </div>
+            </div>
+            <div className="mt-4 pt-4 border-t grid grid-cols-4 gap-4 text-center text-sm">
+              <div>
+                <span className="text-gray-500">Avg:</span> <span className="font-medium">{relevanceResult.stats.average}</span>
+              </div>
+              <div>
+                <span className="text-gray-500">Median:</span> <span className="font-medium">{relevanceResult.stats.median}</span>
+              </div>
+              <div>
+                <span className="text-gray-500">Min:</span> <span className="font-medium">{relevanceResult.stats.min}</span>
+              </div>
+              <div>
+                <span className="text-gray-500">Max:</span> <span className="font-medium">{relevanceResult.stats.max}</span>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Quality Score Recalculation */}
+      <div className="bg-white rounded-lg border p-6 mb-6">
+        <h2 className="text-lg font-semibold mb-2">Quality Score Recalculation</h2>
+        <p className="text-sm text-gray-600 mb-4">
+          Recalculate all study quality scores using the updated algorithm. Quality measures research rigor (study design, methodology, sample size).
         </p>
 
         <button
@@ -449,7 +546,7 @@ export default function ResearchSettingsPage() {
           disabled={recalculating}
           className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50"
         >
-          {recalculating ? 'Recalculating all studies...' : 'Recalculate All Scores'}
+          {recalculating ? 'Recalculating all studies...' : 'Recalculate Quality Scores'}
         </button>
 
         {recalcResult && (

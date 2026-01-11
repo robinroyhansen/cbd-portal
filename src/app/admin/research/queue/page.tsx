@@ -77,7 +77,16 @@ interface ResearchItem {
   url: string;
   doi?: string;
   source_site: string;
-  relevance_score: number;
+  quality_score?: number;
+  quality_breakdown?: {
+    studyDesign: number;
+    methodologyQuality: number;
+    relevance: number;
+    sampleSize: number;
+    recency: number;
+  };
+  relevance_score?: number;
+  relevance_signals?: string[];
   relevant_topics: string[];
   search_term_matched?: string;
   status: 'pending' | 'approved' | 'rejected';
@@ -184,9 +193,10 @@ export default function ResearchQueuePage() {
   const [selectedTopic, setSelectedTopic] = useState<string>('');
   const [selectedSource, setSelectedSource] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [sortBy, setSortBy] = useState<string>('discovered_at');
+  const [sortBy, setSortBy] = useState<string>('relevance_score');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
-  const [minRelevanceScore, setMinRelevanceScore] = useState<number>(0);
+  const [relevanceFilter, setRelevanceFilter] = useState<string>('');
+  const [qualityFilter, setQualityFilter] = useState<string>('');
   const [yearFilter, setYearFilter] = useState<string>('');
   const [bulkSelected, setBulkSelected] = useState<string[]>([]);
   const [newItemIds, setNewItemIds] = useState<Set<string>>(new Set());
@@ -383,7 +393,27 @@ export default function ResearchQueuePage() {
       const yearMatch = yearFilter ? item.year === parseInt(yearFilter) : true;
 
       // Relevance score filter
-      const scoreMatch = item.relevance_score >= minRelevanceScore;
+      let relevanceMatch = true;
+      if (relevanceFilter) {
+        const score = item.relevance_score ?? 0;
+        switch (relevanceFilter) {
+          case 'high': relevanceMatch = score >= 70; break;
+          case 'medium': relevanceMatch = score >= 40 && score < 70; break;
+          case 'low': relevanceMatch = score >= 20 && score < 40; break;
+          case 'irrelevant': relevanceMatch = score < 20; break;
+        }
+      }
+
+      // Quality score filter
+      let qualityMatch = true;
+      if (qualityFilter) {
+        const score = item.quality_score ?? 0;
+        switch (qualityFilter) {
+          case 'high': qualityMatch = score >= 70; break;
+          case 'medium': qualityMatch = score >= 40 && score < 70; break;
+          case 'low': qualityMatch = score < 40; break;
+        }
+      }
 
       // Text search across title, authors, abstract, and publication
       const searchMatch = !searchQuery || [
@@ -396,7 +426,7 @@ export default function ResearchQueuePage() {
         field?.toLowerCase().includes(searchQuery.toLowerCase())
       );
 
-      return statusMatch && topicMatch && sourceMatch && yearMatch && scoreMatch && searchMatch;
+      return statusMatch && topicMatch && sourceMatch && yearMatch && relevanceMatch && qualityMatch && searchMatch;
     })
     .sort((a, b) => {
       let aValue: any;
@@ -404,8 +434,12 @@ export default function ResearchQueuePage() {
 
       switch (sortBy) {
         case 'relevance_score':
-          aValue = a.relevance_score;
-          bValue = b.relevance_score;
+          aValue = a.relevance_score ?? 0;
+          bValue = b.relevance_score ?? 0;
+          break;
+        case 'quality_score':
+          aValue = a.quality_score ?? 0;
+          bValue = b.quality_score ?? 0;
           break;
         case 'year':
           aValue = a.year || 0;
@@ -479,10 +513,19 @@ export default function ResearchQueuePage() {
     setBulkSelected([]);
   };
 
-  const getPriorityColor = (score: number) => {
-    if (score >= 50) return 'bg-red-100 text-red-800 border-red-200';
-    if (score >= 30) return 'bg-yellow-100 text-yellow-800 border-yellow-200';
-    return 'bg-green-100 text-green-800 border-green-200';
+  const getRelevanceColor = (score: number | undefined) => {
+    if (score === undefined) return 'bg-gray-100 text-gray-600';
+    if (score >= 70) return 'bg-green-100 text-green-800';
+    if (score >= 40) return 'bg-amber-100 text-amber-800';
+    if (score >= 20) return 'bg-orange-100 text-orange-800';
+    return 'bg-red-100 text-red-800';
+  };
+
+  const getQualityColor = (score: number | undefined) => {
+    if (score === undefined) return 'bg-gray-100 text-gray-600';
+    if (score >= 70) return 'bg-blue-100 text-blue-800';
+    if (score >= 40) return 'bg-gray-100 text-gray-700';
+    return 'bg-gray-100 text-gray-500';
   };
 
   const getStatusColor = (status: string) => {
@@ -547,7 +590,7 @@ export default function ResearchQueuePage() {
         </div>
 
         {/* Filters Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Status Filter */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
@@ -557,9 +600,40 @@ export default function ResearchQueuePage() {
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
             >
               <option value="">All ({research.length})</option>
-              <option value="pending">⏳ Pending ({research.filter(r => r.status === 'pending').length})</option>
-              <option value="approved">✅ Approved ({research.filter(r => r.status === 'approved').length})</option>
-              <option value="rejected">❌ Rejected ({research.filter(r => r.status === 'rejected').length})</option>
+              <option value="pending">Pending ({research.filter(r => r.status === 'pending').length})</option>
+              <option value="approved">Approved ({research.filter(r => r.status === 'approved').length})</option>
+              <option value="rejected">Rejected ({research.filter(r => r.status === 'rejected').length})</option>
+            </select>
+          </div>
+
+          {/* Relevance Filter */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Relevance</label>
+            <select
+              value={relevanceFilter}
+              onChange={(e) => setRelevanceFilter(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+            >
+              <option value="">All</option>
+              <option value="high">High (70+)</option>
+              <option value="medium">Medium (40-69)</option>
+              <option value="low">Low (20-39)</option>
+              <option value="irrelevant">Irrelevant (&lt;20)</option>
+            </select>
+          </div>
+
+          {/* Quality Filter */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Quality</label>
+            <select
+              value={qualityFilter}
+              onChange={(e) => setQualityFilter(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+            >
+              <option value="">All</option>
+              <option value="high">High (70+)</option>
+              <option value="medium">Medium (40-69)</option>
+              <option value="low">Low (&lt;40)</option>
             </select>
           </div>
 
@@ -579,7 +653,10 @@ export default function ResearchQueuePage() {
               ))}
             </select>
           </div>
+        </div>
 
+        {/* Second Row Filters */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Source Filter */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Source</label>
@@ -622,11 +699,12 @@ export default function ResearchQueuePage() {
               onChange={(e) => setSortBy(e.target.value)}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
             >
-              <option value="discovered_at">📅 Date Found</option>
-              <option value="relevance_score">⭐ Relevance</option>
-              <option value="year">📊 Publication Year</option>
-              <option value="title">📝 Title</option>
-              <option value="source_site">🏢 Source</option>
+              <option value="relevance_score">Relevance Score</option>
+              <option value="quality_score">Quality Score</option>
+              <option value="discovered_at">Date Found</option>
+              <option value="year">Publication Year</option>
+              <option value="title">Title</option>
+              <option value="source_site">Source</option>
             </select>
           </div>
 
@@ -638,27 +716,14 @@ export default function ResearchQueuePage() {
               onChange={(e) => setSortOrder(e.target.value as 'asc' | 'desc')}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
             >
-              <option value="desc">⬇️ Descending</option>
-              <option value="asc">⬆️ Ascending</option>
+              <option value="desc">Descending</option>
+              <option value="asc">Ascending</option>
             </select>
           </div>
         </div>
 
-        {/* Advanced Filters */}
+        {/* Filter Status Bar */}
         <div className="flex gap-4 items-center flex-wrap bg-gray-50 p-3 rounded-lg">
-          <div className="flex items-center gap-2">
-            <label className="text-sm font-medium text-gray-700">Min Relevance:</label>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={minRelevanceScore}
-              onChange={(e) => setMinRelevanceScore(parseInt(e.target.value))}
-              className="w-20"
-            />
-            <span className="text-sm text-gray-600 w-8">{minRelevanceScore}</span>
-          </div>
-
           <div className="text-sm text-gray-600">
             Showing {filteredResearch.length} of {research.length} items
           </div>
@@ -667,17 +732,18 @@ export default function ResearchQueuePage() {
           <button
             onClick={() => {
               setSearchQuery('');
-              setSelectedStatus('');
+              setSelectedStatus('pending');
               setSelectedTopic('');
               setSelectedSource('');
               setYearFilter('');
-              setMinRelevanceScore(0);
-              setSortBy('discovered_at');
+              setRelevanceFilter('');
+              setQualityFilter('');
+              setSortBy('relevance_score');
               setSortOrder('desc');
             }}
             className="text-sm text-blue-600 hover:text-blue-700 font-medium"
           >
-            🔄 Clear All Filters
+            Clear All Filters
           </button>
         </div>
       </div>
@@ -779,9 +845,18 @@ export default function ResearchQueuePage() {
                         NEW
                       </span>
                     )}
-                    <span className={`px-2 py-1 text-xs font-medium rounded-full border ${getPriorityColor(item.relevance_score)}`}>
-                      Score: {item.relevance_score}
+                    {/* Relevance Score */}
+                    <span className={`px-2 py-0.5 text-xs font-medium rounded-full ${getRelevanceColor(item.relevance_score)}`}>
+                      Rel: {item.relevance_score ?? 'N/A'}
                     </span>
+                    {/* Quality Score */}
+                    <span className={`px-2 py-0.5 text-xs font-medium rounded-full ${getQualityColor(item.quality_score)}`}>
+                      Qual: {item.quality_score ?? 'N/A'}
+                    </span>
+                    {/* Low relevance warning */}
+                    {item.relevance_score !== undefined && item.relevance_score < 40 && (
+                      <span className="text-xs text-red-600">Check relevance</span>
+                    )}
                     <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(item.status)}`}>
                       {item.status.toUpperCase()}
                     </span>
@@ -848,6 +923,22 @@ export default function ResearchQueuePage() {
                         {item.abstract}
                       </p>
                     </div>
+                  )}
+
+                  {/* Relevance signals */}
+                  {item.relevance_signals && item.relevance_signals.length > 0 && (
+                    <details className="mt-2 text-sm mb-3">
+                      <summary className="text-gray-500 cursor-pointer hover:text-gray-700">
+                        Relevance signals ({item.relevance_signals.length})
+                      </summary>
+                      <ul className="mt-1 pl-4 text-xs text-gray-600 space-y-0.5">
+                        {item.relevance_signals.map((signal: string, i: number) => (
+                          <li key={i} className={signal.includes('CBD') || signal.includes('Health') || signal.includes('Treatment') || signal.includes('Clinical') ? 'text-green-700' : 'text-orange-700'}>
+                            {signal}
+                          </li>
+                        ))}
+                      </ul>
+                    </details>
                   )}
 
                   {/* Show original text if translated */}

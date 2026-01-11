@@ -1,5 +1,6 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { detectLanguage } from '@/lib/utils/language-detection';
+import { calculateRelevanceScore } from '@/lib/utils/relevance-scorer';
 
 // Blacklist types and cache
 interface BlacklistTerm {
@@ -1165,7 +1166,7 @@ export interface ScoreBreakdown {
   recency: number;           // 0-10 points
 }
 
-export function calculateRelevance(study: ResearchItem): { score: number; topics: string[]; breakdown: ScoreBreakdown } {
+export function calculateQualityScore(study: ResearchItem): { score: number; topics: string[]; breakdown: ScoreBreakdown } {
   const titleLower = (study.title || '').toLowerCase();
   const abstractLower = (study.abstract || '').toLowerCase();
   const text = `${titleLower} ${abstractLower}`;
@@ -1408,6 +1409,20 @@ export async function runDailyResearchScan(
       continue;
     }
 
+    // Calculate RELEVANCE score first (CBD health relevance)
+    const relevance = calculateRelevanceScore({
+      title: study.title,
+      abstract: study.abstract
+    });
+
+    // AUTO-REJECT if relevance < 20 (not about CBD health)
+    if (relevance.score < 20) {
+      console.log(`[Auto-rejected] Relevance ${relevance.score}: ${study.title?.slice(0, 60)}...`);
+      console.log(`  Signals: ${relevance.signals.join(', ')}`);
+      rejected++;
+      continue;
+    }
+
     // Check if already exists
     const { data: existing } = await supabase
       .from('kb_research_queue')
@@ -1420,14 +1435,8 @@ export async function runDailyResearchScan(
       continue;
     }
 
-    // Calculate relevance
-    const { score, topics } = calculateRelevance(study);
-
-    // Must have reasonable relevance score
-    if (score < 20) {
-      rejected++;
-      continue;
-    }
+    // Calculate QUALITY score (research rigor)
+    const { score: qualityScore, topics, breakdown } = calculateQualityScore(study);
 
     // Check blacklist
     const blacklistedTerm = await isBlacklisted(supabase, study);
@@ -1441,7 +1450,7 @@ export async function runDailyResearchScan(
     const textForLang = `${study.title} ${study.abstract || ''}`;
     const langResult = detectLanguage(textForLang);
 
-    // Insert
+    // Insert with both scores
     const { error } = await supabase
       .from('kb_research_queue')
       .insert({
@@ -1454,7 +1463,10 @@ export async function runDailyResearchScan(
         doi: study.doi,
         source_site: study.source_site,
         search_term_matched: study.search_term_matched,
-        relevance_score: score,
+        quality_score: qualityScore,
+        quality_breakdown: breakdown,
+        relevance_score: relevance.score,
+        relevance_signals: relevance.signals,
         relevant_topics: topics,
         detected_language: langResult.language,
         status: 'pending'
@@ -1565,14 +1577,22 @@ async function saveSourceResults(
       }
     }
 
-    // Calculate relevance
-    const { score, topics } = calculateRelevance(study);
+    // Calculate RELEVANCE score first (CBD health relevance)
+    const relevance = calculateRelevanceScore({
+      title: study.title,
+      abstract: study.abstract
+    });
 
-    // Must have reasonable relevance score
-    if (score < 20) {
+    // AUTO-REJECT if relevance < 20 (not about CBD health)
+    if (relevance.score < 20) {
+      console.log(`[Auto-rejected] Relevance ${relevance.score}: ${titleShort}...`);
+      console.log(`  Signals: ${relevance.signals.join(', ')}`);
       rejected++;
       continue;
     }
+
+    // Calculate QUALITY score (research rigor)
+    const { score: qualityScore, topics, breakdown } = calculateQualityScore(study);
 
     // Check blacklist
     const blacklistedTerm = await isBlacklisted(supabase, study);
@@ -1589,7 +1609,7 @@ async function saveSourceResults(
     const textForLang = `${study.title} ${study.abstract || ''}`;
     const langResult = detectLanguage(textForLang);
 
-    // Insert
+    // Insert with both scores
     const { error } = await supabase
       .from('kb_research_queue')
       .insert({
@@ -1602,7 +1622,10 @@ async function saveSourceResults(
         doi: study.doi,
         source_site: study.source_site,
         search_term_matched: study.search_term_matched,
-        relevance_score: score,
+        quality_score: qualityScore,
+        quality_breakdown: breakdown,
+        relevance_score: relevance.score,
+        relevance_signals: relevance.signals,
         relevant_topics: topics,
         country: country,
         detected_language: langResult.language,
@@ -1619,7 +1642,7 @@ async function saveSourceResults(
       }
     } else {
       added++;
-      console.log(`[SaveResults] Added: "${study.title?.substring(0, 60)}..." (score: ${score}${country ? `, country: ${country}` : ''})`);
+      console.log(`[SaveResults] Added: "${study.title?.substring(0, 60)}..." (quality: ${qualityScore}, relevance: ${relevance.score}${country ? `, country: ${country}` : ''})`);
     }
   }
 

@@ -1,6 +1,6 @@
 import { createServiceClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
-import { calculateRelevance } from '@/lib/research-scanner';
+import { calculateQualityScore } from '@/lib/research-scanner';
 
 function getBucket(score: number): string {
   if (score <= 10) return '0-10';
@@ -50,7 +50,7 @@ export async function POST() {
 
     // Process all studies
     for (const study of studies) {
-      const { score, topics, breakdown } = calculateRelevance({
+      const { score, topics, breakdown } = calculateQualityScore({
         title: study.title,
         abstract: study.abstract || undefined,
         year: study.year || undefined,
@@ -61,9 +61,9 @@ export async function POST() {
       const { error: updateError } = await supabase
         .from('kb_research_queue')
         .update({
-          relevance_score: score,
+          quality_score: score,
           relevant_topics: topics,
-          score_breakdown: breakdown,
+          quality_breakdown: breakdown,
         })
         .eq('id', study.id);
 
