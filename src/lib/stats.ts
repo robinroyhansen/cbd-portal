@@ -78,12 +78,12 @@ export async function getHomePageStats(): Promise<HomePageStats> {
       .not('sample_size', 'is', null)
       .gt('sample_size', 0),
 
-    // Count of animal/preclinical studies
+    // Count of animal/preclinical studies (by sample_type or title keywords)
     supabase
       .from('kb_research_queue')
       .select('*', { count: 'exact', head: true })
       .eq('status', 'approved')
-      .eq('sample_type', 'animal'),
+      .or('sample_type.eq.animal,title.ilike.%mice%,title.ilike.%mouse%,title.ilike.%rat%,title.ilike.%rats%,title.ilike.%murine%,title.ilike.%rodent%'),
 
     // Studies with expert analysis (plain_summary not null)
     supabase

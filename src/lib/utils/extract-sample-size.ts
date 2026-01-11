@@ -8,43 +8,93 @@ export interface SampleSizeResult {
   type: 'human' | 'animal' | 'unknown';
 }
 
-// Number words to digits
-const wordToNumber: Record<string, number> = {
-  'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5,
-  'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10,
-  'eleven': 11, 'twelve': 12, 'thirteen': 13, 'fourteen': 14, 'fifteen': 15,
-  'sixteen': 16, 'seventeen': 17, 'eighteen': 18, 'nineteen': 19, 'twenty': 20,
-  'thirty': 30, 'forty': 40, 'fifty': 50, 'sixty': 60,
-  'seventy': 70, 'eighty': 80, 'ninety': 90, 'hundred': 100,
-};
-
+/**
+ * Extract sample size and classify study type
+ * Priority: Check title for animal keywords first (most reliable)
+ */
 export function extractSampleSize(
   title: string | null,
   abstract: string | null,
   summary: string | null
 ): SampleSizeResult | null {
-  const text = `${title || ''} ${summary || ''} ${abstract || ''}`.toLowerCase();
+  const titleLower = (title || '').toLowerCase();
+  const abstractLower = (abstract || '').toLowerCase();
+  const summaryLower = (summary || '').toLowerCase();
+  const text = `${titleLower} ${summaryLower} ${abstractLower}`;
 
   if (!text.trim()) return null;
 
-  // Detect animal study indicators
-  const animalIndicators = /\b(mice|mouse|rat|rats|rodent|rodents|animal|animals|dog|dogs|cat|cats|rabbit|rabbits|monkey|monkeys|primate|primates|pig|pigs|in vivo|murine|canine|feline|bovine|C57BL|Sprague.?Dawley|Wistar)\b/i;
-  const isAnimalStudy = animalIndicators.test(text);
+  // Strong animal indicators in title (most reliable)
+  const titleAnimalKeywords = /\b(mice|mouse|rat|rats|murine|rodent|rodents|in vivo|animal model|preclinical|C57BL|Sprague.?Dawley|Wistar)\b/i;
 
-  // Detect human study indicators
-  const humanIndicators = /\b(patients?|participants?|volunteers?|adults?|children|humans?|men|women|subjects?|individuals?|people|clinical trial|randomized|placebo|double.?blind)\b/i;
-  const isHumanStudy = humanIndicators.test(text);
+  // If title contains animal keywords, it's an animal study
+  if (titleAnimalKeywords.test(titleLower)) {
+    const size = extractAnimalSampleSize(text);
+    return { size, type: 'animal' };
+  }
 
-  // Animal sample patterns
-  const animalPatterns = [
+  // Check abstract/summary for strong animal indicators (without human context)
+  const animalIndicators = /\b(mice|mouse|rat|rats|murine|rodent|C57BL|Sprague.?Dawley|Wistar)\b/i;
+  const humanIndicators = /\b(patients?|participants?|volunteers?|clinical trial|randomized controlled|double.?blind|placebo.?controlled)\b/i;
+
+  const hasAnimalInText = animalIndicators.test(text);
+  const hasHumanInText = humanIndicators.test(text);
+
+  // Animal study if animal indicators present and no strong human indicators
+  if (hasAnimalInText && !hasHumanInText) {
+    const size = extractAnimalSampleSize(text);
+    return { size, type: 'animal' };
+  }
+
+  // Human study - try to extract participant count
+  if (hasHumanInText || !hasAnimalInText) {
+    const size = extractHumanSampleSize(text);
+    if (size > 0) {
+      return { size, type: 'human' };
+    }
+  }
+
+  // Mixed or unclear - try generic extraction
+  const genericSize = extractGenericSampleSize(text);
+  if (genericSize > 0) {
+    // Default to human if we found a number but couldn't classify
+    return { size: genericSize, type: 'unknown' };
+  }
+
+  return null;
+}
+
+/**
+ * Extract sample size for animal studies
+ */
+function extractAnimalSampleSize(text: string): number {
+  const patterns = [
     /(\d+)\s*(?:mice|mouse)/i,
-    /(\d+)\s*(?:rats?|rodents?)/i,
+    /(\d+)\s*(?:rats?)/i,
+    /(\d+)\s*(?:rodents?)/i,
     /(\d+)\s*(?:animals?)/i,
-    /(?:mice|rats?|animals?)\s*\(?n\s*=\s*(\d+)\)?/i,
+    /(?:mice|rats?|animals?|rodents?)\s*\(?n\s*=\s*(\d+)\)?/i,
+    /\(?n\s*=\s*(\d+)\)?/i,  // Generic n= in animal context
   ];
 
-  // Human sample patterns (ordered by reliability)
-  const humanPatterns = [
+  for (const pattern of patterns) {
+    const match = text.match(pattern);
+    if (match) {
+      const num = parseInt(match[1] || match[2], 10);
+      if (num > 0 && num <= 10000) {
+        return num;
+      }
+    }
+  }
+
+  return 0; // Animal study but no clear sample size
+}
+
+/**
+ * Extract sample size for human studies
+ */
+function extractHumanSampleSize(text: string): number {
+  const patterns = [
     /\(?n\s*=\s*(\d+)\)?/i,
     /enrolled\s*(?:a\s*total\s*of\s*)?(\d+)/i,
     /recruited\s*(\d+)/i,
@@ -58,50 +108,31 @@ export function extractSampleSize(
     /total\s*of\s*(\d+)\s*(?:participants?|patients?|subjects?|adults?|people)/i,
   ];
 
-  // If clearly an animal study (and not also human), use animal patterns
-  if (isAnimalStudy && !isHumanStudy) {
-    for (const pattern of animalPatterns) {
-      const match = text.match(pattern);
-      if (match) {
-        const num = parseInt(match[1] || match[2], 10);
-        if (num > 0 && num <= 10000) {
-          return { size: num, type: 'animal' };
-        }
-      }
-    }
-    // Fall back to general n= pattern for animals
-    const nMatch = text.match(/\(?n\s*=\s*(\d+)\)?/i);
-    if (nMatch) {
-      const num = parseInt(nMatch[1], 10);
-      if (num > 0 && num <= 10000) {
-        return { size: num, type: 'animal' };
+  for (const pattern of patterns) {
+    const match = text.match(pattern);
+    if (match) {
+      const num = parseInt(match[1], 10);
+      if (num > 0 && num <= 100000) {
+        return num;
       }
     }
   }
 
-  // If human study or unclear (prefer human classification), use human patterns
-  if (isHumanStudy || !isAnimalStudy) {
-    for (const pattern of humanPatterns) {
-      const match = text.match(pattern);
-      if (match) {
-        const num = parseInt(match[1], 10);
-        if (num > 0 && num <= 100000) {
-          return { size: num, type: 'human' };
-        }
-      }
-    }
-  }
+  return 0;
+}
 
-  // If we found numbers but couldn't classify clearly
-  const genericMatch = text.match(/(\d+)\s*(?:subjects?)/i);
-  if (genericMatch) {
-    const num = parseInt(genericMatch[1], 10);
+/**
+ * Generic sample size extraction
+ */
+function extractGenericSampleSize(text: string): number {
+  const match = text.match(/(\d+)\s*(?:subjects?)/i);
+  if (match) {
+    const num = parseInt(match[1], 10);
     if (num > 0 && num <= 100000) {
-      return { size: num, type: 'unknown' };
+      return num;
     }
   }
-
-  return null;
+  return 0;
 }
 
 // Backward compatible function - returns just the number

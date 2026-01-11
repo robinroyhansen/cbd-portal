@@ -36,14 +36,12 @@ export async function POST() {
         unknown: 0
       },
       examples: [] as { title: string; size: number; type: string }[],
+      animalExamples: [] as { title: string; size: number }[],
     };
 
     for (const study of studies || []) {
-      // Skip if already has valid sample_size AND sample_type (not unknown)
-      if (study.sample_size && study.sample_size > 0 && study.sample_type && study.sample_type !== 'unknown') {
-        results.alreadySet++;
-        continue;
-      }
+      // Re-classify all studies to fix detection issues
+      // Only skip if sample_type is explicitly set to human or animal (not unknown/null)
 
       const result = extractSampleSize(study.title, study.abstract, study.plain_summary);
 
@@ -59,12 +57,19 @@ export async function POST() {
         if (!updateError) {
           results.updated++;
           results.byType[result.type]++;
-          // Store first 5 examples
+          // Store first 5 examples of each type
           if (results.examples.length < 5) {
             results.examples.push({
               title: study.title?.substring(0, 60) + '...',
               size: result.size,
               type: result.type
+            });
+          }
+          // Store animal examples separately for debugging
+          if (result.type === 'animal' && results.animalExamples.length < 10) {
+            results.animalExamples.push({
+              title: study.title?.substring(0, 80) + '...',
+              size: result.size
             });
           }
         }
@@ -82,13 +87,12 @@ export async function POST() {
       .not('sample_size', 'is', null)
       .gt('sample_size', 0);
 
+    // Count all animal studies (including those with size=0)
     const { data: animalData } = await supabase
       .from('kb_research_queue')
       .select('sample_size')
       .eq('status', 'approved')
-      .eq('sample_type', 'animal')
-      .not('sample_size', 'is', null)
-      .gt('sample_size', 0);
+      .eq('sample_type', 'animal');
 
     const humanParticipants = humanData?.reduce((sum, s) => sum + (s.sample_size || 0), 0) || 0;
     const animalSubjects = animalData?.reduce((sum, s) => sum + (s.sample_size || 0), 0) || 0;
