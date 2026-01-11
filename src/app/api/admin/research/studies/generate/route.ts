@@ -55,7 +55,8 @@ Rules:
 - Make it accessible to general audience
 - No scientific jargon
 - Capitalize properly
-- No quotes in your response`,
+- No quotes in your response
+- IMPORTANT: If the original title is a question (starts with Can, Does, Is, Are, Will, How, What, etc.), keep it as a question with a proper question mark. Example: "Can CBD Help Anxiety? 2023 Trial Results"`,
     user: (study) => `Create a readable display title for this research study:
 Original Title: ${study.title}
 Topics: ${study.relevant_topics?.join(', ') || 'Unknown'}
