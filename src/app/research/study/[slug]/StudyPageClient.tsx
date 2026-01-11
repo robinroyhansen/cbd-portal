@@ -94,7 +94,7 @@ interface StudyPageData {
   researchContext: ResearchContext;
   pageUrl: string;
   breadcrumbs: { name: string; url: string }[];
-  scholarlyArticleSchema: object;
+  combinedSchema: object[];
   glossaryTerms: GlossaryTerm[];
 }
 
@@ -294,21 +294,22 @@ export function StudyPageClient({ data }: { data: StudyPageData }) {
     researchContext,
     pageUrl,
     breadcrumbs,
-    scholarlyArticleSchema,
+    combinedSchema,
     glossaryTerms,
   } = data;
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Combined structured data: ScholarlyArticle + BreadcrumbList */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(scholarlyArticleSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }}
       />
 
       {/* 1. Header with Breadcrumbs */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <Breadcrumbs items={breadcrumbs} />
+          <Breadcrumbs items={breadcrumbs} skipSchema />
         </div>
       </div>
 

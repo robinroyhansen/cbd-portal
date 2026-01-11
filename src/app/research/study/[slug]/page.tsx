@@ -492,21 +492,71 @@ export default async function ResearchStudyPage({ params }: Props) {
   const findings = keyFindings.filter(f => f.type === 'finding');
   const limitations = keyFindings.filter(f => f.type === 'limitation');
 
-  // Schema.org ScholarlyArticle
+  // Schema.org ScholarlyArticle (enhanced for SEO)
   const scholarlyArticleSchema = {
     '@context': 'https://schema.org',
     '@type': 'ScholarlyArticle',
     '@id': `${SITE_URL}/research/study/${slug}`,
-    'headline': study.title,
+    'headline': readableTitle,
     'name': study.title,
-    ...(study.authors && { 'author': study.authors.split(',').map((name: string) => ({ '@type': 'Person', 'name': name.trim() })) }),
+    'description': study.meta_description || study.plain_summary?.slice(0, 160) || study.abstract?.slice(0, 160),
+    ...(study.year && { 'datePublished': `${study.year}-01-01` }),
+    ...(study.authors && {
+      'author': study.authors.split(',').map((name: string) => ({
+        '@type': 'Person',
+        'name': name.trim()
+      }))
+    }),
+    ...(primaryTopic && {
+      'about': {
+        '@type': 'MedicalCondition',
+        'name': primaryTopic.charAt(0).toUpperCase() + primaryTopic.slice(1)
+      }
+    }),
     ...(study.publication && { 'isPartOf': { '@type': 'Periodical', 'name': study.publication } }),
-    ...(study.year && { 'datePublished': `${study.year}` }),
     ...(study.doi && { 'identifier': { '@type': 'PropertyValue', 'propertyID': 'doi', 'value': study.doi } }),
     ...(study.abstract && { 'abstract': study.abstract }),
     ...(study.url && { 'url': study.url }),
-    'publisher': { '@type': 'Organization', 'name': study.source_site || 'Academic Publisher' }
+    'publisher': {
+      '@type': 'Organization',
+      'name': 'CBD Portal',
+      'url': SITE_URL
+    },
+    'mainEntityOfPage': {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}/research/study/${slug}`
+    },
+    'isAccessibleForFree': true,
+    ...(study.relevant_topics?.length && { 'keywords': study.relevant_topics.join(', ') })
   };
+
+  // Schema.org BreadcrumbList
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Research',
+        'item': `${SITE_URL}/research`
+      },
+      ...(primaryTopic ? [{
+        '@type': 'ListItem',
+        'position': 2,
+        'name': primaryTopic.charAt(0).toUpperCase() + primaryTopic.slice(1),
+        'item': `${SITE_URL}/research?topic=${encodeURIComponent(primaryTopic)}`
+      }] : []),
+      {
+        '@type': 'ListItem',
+        'position': primaryTopic ? 3 : 2,
+        'name': readableTitle
+      }
+    ]
+  };
+
+  // Combined schema array for single script tag
+  const combinedSchema = [scholarlyArticleSchema, breadcrumbSchema];
 
   // Study type display info
   const studyTypeLabel = detectedStudyType !== StudyType.UNKNOWN ? detectedStudyType : (study.study_type || 'Research Study');
@@ -534,7 +584,7 @@ export default async function ResearchStudyPage({ params }: Props) {
     researchContext,
     pageUrl,
     breadcrumbs,
-    scholarlyArticleSchema,
+    combinedSchema,
     glossaryTerms: glossaryTerms || [],
   };
 

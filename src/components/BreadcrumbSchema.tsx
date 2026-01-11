@@ -23,13 +23,18 @@ export function BreadcrumbSchema({ items }: { items: BreadcrumbItem[] }) {
   );
 }
 
-export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
+interface BreadcrumbsProps {
+  items: BreadcrumbItem[];
+  skipSchema?: boolean; // Skip schema output if already rendered elsewhere
+}
+
+export function Breadcrumbs({ items, skipSchema = false }: BreadcrumbsProps) {
   // Get the parent item (second to last) for mobile back link
   const parentItem = items.length > 1 ? items[items.length - 2] : null;
 
   return (
     <>
-      <BreadcrumbSchema items={items} />
+      {!skipSchema && <BreadcrumbSchema items={items} />}
 
       {/* Mobile: Simple back link */}
       {parentItem && (
