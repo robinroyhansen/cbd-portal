@@ -87,10 +87,12 @@ export function Hero({ stats }: HeroProps) {
 
               {/* Supporting Stats */}
               <div className="flex flex-wrap justify-center gap-6 text-center border-t border-gray-200 pt-6">
-                <div>
-                  <div className="text-2xl font-bold text-gray-700">{stats.participantsDisplay}</div>
-                  <div className="text-xs text-gray-500">Research Participants</div>
-                </div>
+                {stats.totalParticipants > 0 && (
+                  <div>
+                    <div className="text-2xl font-bold text-gray-700">{stats.participantsDisplay}</div>
+                    <div className="text-xs text-gray-500">Research Participants</div>
+                  </div>
+                )}
                 <div>
                   <div className="text-2xl font-bold text-gray-700">{stats.healthTopics}</div>
                   <div className="text-xs text-gray-500">Health Conditions</div>
@@ -172,11 +174,13 @@ export function Hero({ stats }: HeroProps) {
           </div>
 
           {/* Supporting Stats - Mobile */}
-          <div className="grid grid-cols-4 gap-2 text-center border-t border-gray-200 pt-4">
-            <div>
-              <div className="text-lg font-bold text-gray-700">{stats.participantsDisplay}</div>
-              <div className="text-[10px] text-gray-500">Participants</div>
-            </div>
+          <div className={`grid ${stats.totalParticipants > 0 ? 'grid-cols-4' : 'grid-cols-3'} gap-2 text-center border-t border-gray-200 pt-4`}>
+            {stats.totalParticipants > 0 && (
+              <div>
+                <div className="text-lg font-bold text-gray-700">{stats.participantsDisplay}</div>
+                <div className="text-[10px] text-gray-500">Participants</div>
+              </div>
+            )}
             <div>
               <div className="text-lg font-bold text-gray-700">{stats.healthTopics}</div>
               <div className="text-[10px] text-gray-500">Conditions</div>
