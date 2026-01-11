@@ -105,24 +105,39 @@ export function Hero({ stats }: HeroProps) {
                 </div>
               </div>
 
-              {/* Trust Badges - Data Sources */}
+              {/* Data Sources - builds journalist trust */}
               <div className="mt-6 pt-6 border-t border-gray-100 text-center">
-                <p className="text-xs text-gray-400 mb-2">Data sourced from</p>
-                <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-gray-500 text-xs">
+                <p className="text-xs text-gray-400 mb-3 uppercase tracking-wide">
+                  Research sourced from
+                </p>
+                <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 text-gray-500 text-sm font-medium">
                   <span>PubMed</span>
                   <span className="text-gray-300">•</span>
                   <span>ClinicalTrials.gov</span>
                   <span className="text-gray-300">•</span>
-                  <span>Cochrane Library</span>
+                  <span>Cochrane</span>
                   <span className="text-gray-300">•</span>
                   <span>Europe PMC</span>
                 </div>
                 <Link
                   href="/research/methodology"
-                  className="text-green-600 text-xs mt-2 inline-block hover:underline"
+                  className="inline-block mt-3 text-green-600 hover:text-green-700 text-sm font-medium"
                 >
-                  View our methodology →
+                  View our scoring methodology →
                 </Link>
+              </div>
+
+              {/* Trust Badges - No selling */}
+              <div className="mt-4 flex justify-center gap-4 text-xs text-gray-400">
+                <span className="flex items-center gap-1">
+                  <span className="text-green-500">✓</span> No products sold
+                </span>
+                <span className="flex items-center gap-1">
+                  <span className="text-green-500">✓</span> No sponsored content
+                </span>
+                <span className="flex items-center gap-1">
+                  <span className="text-green-500">✓</span> Independent research
+                </span>
               </div>
             </div>
           </div>
@@ -176,15 +191,31 @@ export function Hero({ stats }: HeroProps) {
             </div>
           </div>
 
-          {/* Trust Badges - Mobile */}
+          {/* Data Sources - Mobile */}
           <div className="mt-4 pt-4 border-t border-gray-100 text-center">
-            <p className="text-[10px] text-gray-400 mb-1">Data from PubMed, ClinicalTrials.gov, Cochrane & more</p>
+            <p className="text-[10px] text-gray-400 uppercase tracking-wide mb-2">Research sourced from</p>
+            <p className="text-xs text-gray-500 font-medium">
+              PubMed • ClinicalTrials.gov • Cochrane • Europe PMC
+            </p>
             <Link
               href="/research/methodology"
-              className="text-green-600 text-xs hover:underline"
+              className="text-green-600 text-xs font-medium mt-2 inline-block hover:underline"
             >
-              View methodology →
+              View our methodology →
             </Link>
+          </div>
+
+          {/* Trust Badges - Mobile */}
+          <div className="mt-3 flex flex-wrap justify-center gap-3 text-[10px] text-gray-400">
+            <span className="flex items-center gap-1">
+              <span className="text-green-500">✓</span> No products sold
+            </span>
+            <span className="flex items-center gap-1">
+              <span className="text-green-500">✓</span> No sponsored content
+            </span>
+            <span className="flex items-center gap-1">
+              <span className="text-green-500">✓</span> Independent
+            </span>
           </div>
         </div>
       </div>
