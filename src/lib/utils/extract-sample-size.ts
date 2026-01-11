@@ -1,7 +1,12 @@
 /**
- * Extract sample size from study text (title, abstract, summary)
- * Returns the number of participants/subjects in the study
+ * Extract sample size and type from study text (title, abstract, summary)
+ * Distinguishes between human and animal studies
  */
+
+export interface SampleSizeResult {
+  size: number;
+  type: 'human' | 'animal' | 'unknown';
+}
 
 // Number words to digits
 const wordToNumber: Record<string, number> = {
@@ -17,53 +22,94 @@ export function extractSampleSize(
   title: string | null,
   abstract: string | null,
   summary: string | null
-): number | null {
+): SampleSizeResult | null {
   const text = `${title || ''} ${summary || ''} ${abstract || ''}`.toLowerCase();
 
   if (!text.trim()) return null;
 
-  // Patterns ordered by reliability (most specific first)
-  const patterns = [
-    // "n=50" or "n = 50" or "(n=50)"
-    /\(?n\s*=\s*(\d+)\)?/i,
-    // "sample size of 120" or "sample of 120"
-    /sample\s*(?:size\s*)?(?:of\s*)?(\d+)/i,
-    // "enrolled 85" or "enrolled a total of 85"
-    /enrolled\s*(?:a\s*total\s*of\s*)?(\d+)/i,
-    // "recruited 200"
-    /recruited\s*(\d+)/i,
-    // "randomized 150 patients"
-    /randomized\s*(\d+)/i,
-    // "included 75 participants"
-    /included\s*(\d+)\s*(?:participants?|patients?|subjects?)/i,
-    // "study of 200 patients"
-    /study\s*of\s*(\d+)\s*(?:participants?|patients?|subjects?|adults?|people)/i,
-    // "total of 300 participants"
-    /total\s*of\s*(\d+)\s*(?:participants?|patients?|subjects?|adults?|people)/i,
-    // "50 participants/patients/subjects/adults/volunteers/humans"
-    /(\d+)\s*(?:participants?|patients?|subjects?|adults?|volunteers?|humans?|people|individuals?|men|women|children)/i,
-    // "twenty participants" (word numbers)
-    /\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred)\s+(?:participants?|patients?|subjects?|adults?)/i,
+  // Detect animal study indicators
+  const animalIndicators = /\b(mice|mouse|rat|rats|rodent|rodents|animal|animals|dog|dogs|cat|cats|rabbit|rabbits|monkey|monkeys|primate|primates|pig|pigs|in vivo|murine|canine|feline|bovine|C57BL|Sprague.?Dawley|Wistar)\b/i;
+  const isAnimalStudy = animalIndicators.test(text);
+
+  // Detect human study indicators
+  const humanIndicators = /\b(patients?|participants?|volunteers?|adults?|children|humans?|men|women|subjects?|individuals?|people|clinical trial|randomized|placebo|double.?blind)\b/i;
+  const isHumanStudy = humanIndicators.test(text);
+
+  // Animal sample patterns
+  const animalPatterns = [
+    /(\d+)\s*(?:mice|mouse)/i,
+    /(\d+)\s*(?:rats?|rodents?)/i,
+    /(\d+)\s*(?:animals?)/i,
+    /(?:mice|rats?|animals?)\s*\(?n\s*=\s*(\d+)\)?/i,
   ];
 
-  for (const pattern of patterns) {
-    const match = text.match(pattern);
-    if (match) {
-      const value = match[1];
+  // Human sample patterns (ordered by reliability)
+  const humanPatterns = [
+    /\(?n\s*=\s*(\d+)\)?/i,
+    /enrolled\s*(?:a\s*total\s*of\s*)?(\d+)/i,
+    /recruited\s*(\d+)/i,
+    /randomized\s*(\d+)/i,
+    /(\d+)\s*(?:participants?|patients?|volunteers?)/i,
+    /(\d+)\s*(?:adults?|children|humans?|people|individuals?)/i,
+    /(\d+)\s*(?:men|women)/i,
+    /sample\s*(?:size\s*)?(?:of\s*)?(\d+)/i,
+    /study\s*(?:of|with)\s*(\d+)/i,
+    /included\s*(\d+)\s*(?:participants?|patients?|subjects?)/i,
+    /total\s*of\s*(\d+)\s*(?:participants?|patients?|subjects?|adults?|people)/i,
+  ];
 
-      // Check if it's a word number
-      const wordNum = wordToNumber[value.toLowerCase()];
-      if (wordNum) return wordNum;
-
-      // Parse as integer
-      const num = parseInt(value, 10);
-
-      // Sanity check: between 1 and 100,000
-      if (num > 0 && num <= 100000) {
-        return num;
+  // If clearly an animal study (and not also human), use animal patterns
+  if (isAnimalStudy && !isHumanStudy) {
+    for (const pattern of animalPatterns) {
+      const match = text.match(pattern);
+      if (match) {
+        const num = parseInt(match[1] || match[2], 10);
+        if (num > 0 && num <= 10000) {
+          return { size: num, type: 'animal' };
+        }
+      }
+    }
+    // Fall back to general n= pattern for animals
+    const nMatch = text.match(/\(?n\s*=\s*(\d+)\)?/i);
+    if (nMatch) {
+      const num = parseInt(nMatch[1], 10);
+      if (num > 0 && num <= 10000) {
+        return { size: num, type: 'animal' };
       }
     }
   }
 
+  // If human study or unclear (prefer human classification), use human patterns
+  if (isHumanStudy || !isAnimalStudy) {
+    for (const pattern of humanPatterns) {
+      const match = text.match(pattern);
+      if (match) {
+        const num = parseInt(match[1], 10);
+        if (num > 0 && num <= 100000) {
+          return { size: num, type: 'human' };
+        }
+      }
+    }
+  }
+
+  // If we found numbers but couldn't classify clearly
+  const genericMatch = text.match(/(\d+)\s*(?:subjects?)/i);
+  if (genericMatch) {
+    const num = parseInt(genericMatch[1], 10);
+    if (num > 0 && num <= 100000) {
+      return { size: num, type: 'unknown' };
+    }
+  }
+
   return null;
+}
+
+// Backward compatible function - returns just the number
+export function extractSampleSizeNumber(
+  title: string | null,
+  abstract: string | null,
+  summary: string | null
+): number | null {
+  const result = extractSampleSize(title, abstract, summary);
+  return result?.size || null;
 }

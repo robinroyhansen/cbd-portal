@@ -69,16 +69,17 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Extract sample size from study text
-    const sampleSize = extractSampleSize(study.title, study.abstract, study.plain_summary);
+    // Extract sample size and type from study text
+    const sampleResult = extractSampleSize(study.title, study.abstract, study.plain_summary);
 
-    // Update study with approval status, slug, and sample size
+    // Update study with approval status, slug, sample size and type
     const { error: updateError } = await supabase
       .from('kb_research_queue')
       .update({
         status: 'approved',
         slug: finalSlug,
-        sample_size: sampleSize,
+        sample_size: sampleResult?.size || null,
+        sample_type: sampleResult?.type || 'unknown',
         reviewed_at: new Date().toISOString(),
         reviewed_by: 'admin'
       })
@@ -92,7 +93,8 @@ export async function POST(request: NextRequest) {
       success: true,
       studyId,
       slug: finalSlug,
-      sampleSize
+      sampleSize: sampleResult?.size || null,
+      sampleType: sampleResult?.type || 'unknown'
     });
 
   } catch (error) {

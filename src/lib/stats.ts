@@ -3,17 +3,22 @@ import { createClient } from '@/lib/supabase/server';
 export interface HomePageStats {
   // Primary impressive stats
   researchStudies: number;
-  totalParticipants: number;
-  participantsDisplay: string;
+  humanParticipants: number;
+  humanParticipantsDisplay: string;
   expertAnalyses: number;
   healthTopics: number;
   glossaryTerms: number;
   yearsOfResearch: number;
   yearRange: string;
 
-  // Secondary stats (shown if > 0)
+  // Secondary stats
+  animalStudyCount: number;
   articles: number;
   brandReviews: number;
+
+  // Legacy (for backwards compatibility)
+  totalParticipants: number;
+  participantsDisplay: string;
 }
 
 /**
@@ -30,7 +35,8 @@ export async function getHomePageStats(): Promise<HomePageStats> {
     glossaryResult,
     articlesResult,
     brandsResult,
-    sampleSizeResult,
+    humanSampleSizeResult,
+    animalStudiesResult,
     expertAnalysesResult,
     yearResult,
   ] = await Promise.all([
@@ -63,12 +69,21 @@ export async function getHomePageStats(): Promise<HomePageStats> {
       .select('*', { count: 'exact', head: true })
       .not('review_content', 'is', null),
 
-    // Total research participants (sum of sample sizes)
+    // Human participants only (for main display)
     supabase
       .from('kb_research_queue')
       .select('sample_size')
       .eq('status', 'approved')
-      .not('sample_size', 'is', null),
+      .eq('sample_type', 'human')
+      .not('sample_size', 'is', null)
+      .gt('sample_size', 0),
+
+    // Count of animal/preclinical studies
+    supabase
+      .from('kb_research_queue')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'approved')
+      .eq('sample_type', 'animal'),
 
     // Studies with expert analysis (plain_summary not null)
     supabase
@@ -93,20 +108,20 @@ export async function getHomePageStats(): Promise<HomePageStats> {
     }
   });
 
-  // Calculate total participants
-  const totalParticipants = sampleSizeResult.data?.reduce(
+  // Calculate human participants
+  const humanParticipants = humanSampleSizeResult.data?.reduce(
     (sum, s) => sum + (s.sample_size || 0),
     0
   ) || 0;
 
-  // Format participants display (e.g., "50K+")
-  let participantsDisplay: string;
-  if (totalParticipants >= 1000000) {
-    participantsDisplay = `${Math.floor(totalParticipants / 1000000)}M+`;
-  } else if (totalParticipants >= 1000) {
-    participantsDisplay = `${Math.floor(totalParticipants / 1000)}K+`;
+  // Format human participants display (e.g., "2.5K+")
+  let humanParticipantsDisplay: string;
+  if (humanParticipants >= 1000000) {
+    humanParticipantsDisplay = `${(humanParticipants / 1000000).toFixed(1)}M+`;
+  } else if (humanParticipants >= 1000) {
+    humanParticipantsDisplay = `${(humanParticipants / 1000).toFixed(1)}K+`.replace('.0K', 'K');
   } else {
-    participantsDisplay = `${totalParticipants}+`;
+    humanParticipantsDisplay = `${humanParticipants.toLocaleString()}+`;
   }
 
   // Calculate year range
@@ -118,14 +133,18 @@ export async function getHomePageStats(): Promise<HomePageStats> {
 
   return {
     researchStudies: studiesResult.count || 0,
-    totalParticipants,
-    participantsDisplay,
+    humanParticipants,
+    humanParticipantsDisplay,
     expertAnalyses: expertAnalysesResult.count || 0,
     healthTopics: uniqueTopics.size,
     glossaryTerms: glossaryResult.count || 0,
     yearsOfResearch,
     yearRange,
+    animalStudyCount: animalStudiesResult.count || 0,
     articles: articlesResult.count || 0,
     brandReviews: brandsResult.count || 0,
+    // Legacy fields
+    totalParticipants: humanParticipants,
+    participantsDisplay: humanParticipantsDisplay,
   };
 }

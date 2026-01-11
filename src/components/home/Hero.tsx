@@ -96,10 +96,10 @@ export function Hero({ stats }: HeroProps) {
 
               {/* Supporting Stats */}
               <div className="flex flex-wrap justify-center gap-6 text-center border-t border-gray-200 pt-6">
-                {stats.totalParticipants > 0 && (
+                {stats.humanParticipants > 0 && (
                   <div>
-                    <div className="text-2xl font-bold text-gray-700">{stats.participantsDisplay}</div>
-                    <div className="text-xs text-gray-500">Research Participants</div>
+                    <div className="text-2xl font-bold text-gray-700">{stats.humanParticipantsDisplay}</div>
+                    <div className="text-xs text-gray-500">Human Participants</div>
                   </div>
                 )}
                 <div>
@@ -184,11 +184,11 @@ export function Hero({ stats }: HeroProps) {
           </div>
 
           {/* Supporting Stats - Mobile */}
-          <div className={`grid ${stats.totalParticipants > 0 ? 'grid-cols-4' : 'grid-cols-3'} gap-2 text-center border-t border-gray-200 pt-4`}>
-            {stats.totalParticipants > 0 && (
+          <div className={`grid ${stats.humanParticipants > 0 ? 'grid-cols-4' : 'grid-cols-3'} gap-2 text-center border-t border-gray-200 pt-4`}>
+            {stats.humanParticipants > 0 && (
               <div>
-                <div className="text-lg font-bold text-gray-700">{stats.participantsDisplay}</div>
-                <div className="text-[10px] text-gray-500">Participants</div>
+                <div className="text-lg font-bold text-gray-700">{stats.humanParticipantsDisplay}</div>
+                <div className="text-[10px] text-gray-500">Humans</div>
               </div>
             )}
             <div>
