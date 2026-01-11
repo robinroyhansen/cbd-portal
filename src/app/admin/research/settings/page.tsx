@@ -23,7 +23,9 @@ export default function ResearchSettingsPage() {
   const [applying, setApplying] = useState(false);
   const [applyResult, setApplyResult] = useState<{ rejected: number; checked: number } | null>(null);
   const [scanningApproved, setScanningApproved] = useState(false);
-  const [approvedResult, setApprovedResult] = useState<{ found: number; checked: number; studies: { id: string; title: string; matchedTerm: string }[] } | null>(null);
+  const [approvedResult, setApprovedResult] = useState<{ found: number; checked: number } | null>(null);
+  const [flaggedStudies, setFlaggedStudies] = useState<{ id: string; title: string; matchedTerm: string }[]>([]);
+  const [processingId, setProcessingId] = useState<string | null>(null);
   const supabase = createClient();
 
   useEffect(() => {
@@ -107,21 +109,62 @@ export default function ResearchSettingsPage() {
 
     setScanningApproved(true);
     setApprovedResult(null);
+    setFlaggedStudies([]);
 
     try {
       const res = await fetch('/api/admin/research/check-approved-blacklist', { method: 'POST' });
       const data = await res.json();
       setApprovedResult({
         found: data.found,
-        checked: data.checked,
-        studies: data.flaggedStudies || []
+        checked: data.checked
       });
+      setFlaggedStudies(data.flaggedStudies || []);
     } catch (error) {
       console.error('Error checking approved studies:', error);
       alert('Failed to check approved studies');
     }
 
     setScanningApproved(false);
+  }
+
+  async function handleRejectStudy(studyId: string) {
+    if (!confirm('Reject this study? It will be moved to rejected status.')) return;
+
+    setProcessingId(studyId);
+    try {
+      const res = await fetch('/api/admin/research/update-status', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: studyId,
+          status: 'rejected',
+          rejection_reason: 'Matched blacklist term'
+        })
+      });
+
+      if (res.ok) {
+        setFlaggedStudies(prev => prev.filter(s => s.id !== studyId));
+        setApprovedResult(prev => prev ? { ...prev, found: prev.found - 1 } : null);
+      } else {
+        alert('Failed to reject study');
+      }
+    } catch (error) {
+      console.error('Error rejecting study:', error);
+      alert('Error rejecting study');
+    }
+    setProcessingId(null);
+  }
+
+  async function handleDismissFlag(studyId: string) {
+    setProcessingId(studyId);
+    try {
+      // Just remove from local state - no need to track dismissals in DB
+      setFlaggedStudies(prev => prev.filter(s => s.id !== studyId));
+      setApprovedResult(prev => prev ? { ...prev, found: prev.found - 1 } : null);
+    } catch (error) {
+      console.error('Error dismissing flag:', error);
+    }
+    setProcessingId(null);
   }
 
   return (
@@ -295,38 +338,70 @@ export default function ResearchSettingsPage() {
 
           {approvedResult && (
             <div className={`mt-3 p-3 rounded-lg ${
-              approvedResult.found > 0 ? 'bg-red-50' : 'bg-gray-50'
+              approvedResult.found > 0 || flaggedStudies.length > 0 ? 'bg-red-50' : 'bg-gray-50'
             }`}>
-              {approvedResult.found > 0 ? (
+              {approvedResult.found > 0 || flaggedStudies.length > 0 ? (
                 <div>
                   <p className="text-red-800">
                     Found <strong>{approvedResult.found}</strong> approved studies matching blacklist terms
                     (out of {approvedResult.checked} total)
                   </p>
-                  {approvedResult.studies.length > 0 && (
-                    <div className="mt-3 space-y-2">
-                      <p className="text-sm font-medium text-red-700">Flagged studies:</p>
-                      {approvedResult.studies.map((study) => (
-                        <div key={study.id} className="text-sm bg-white p-2 rounded border border-red-200">
-                          <span className="text-gray-900">{study.title}</span>
-                          <span className="text-red-600 ml-2 text-xs">
-                            (matched: &quot;{study.matchedTerm}&quot;)
-                          </span>
-                        </div>
-                      ))}
-                      {approvedResult.found > approvedResult.studies.length && (
-                        <p className="text-xs text-red-600">
-                          ... and {approvedResult.found - approvedResult.studies.length} more
-                        </p>
-                      )}
-                    </div>
-                  )}
                 </div>
               ) : (
                 <p className="text-gray-600">
                   Checked {approvedResult.checked} approved studies — no matches found
                 </p>
               )}
+            </div>
+          )}
+
+          {/* Flagged Studies with Action Buttons */}
+          {flaggedStudies.length > 0 && (
+            <div className="mt-4 space-y-3">
+              <p className="text-sm font-medium text-red-700">
+                Flagged studies ({flaggedStudies.length} remaining):
+              </p>
+              {flaggedStudies.map((study) => (
+                <div
+                  key={study.id}
+                  className="p-4 bg-white border border-red-200 rounded-lg"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1 min-w-0">
+                      <p className="font-medium text-gray-900 line-clamp-2">
+                        {study.title}
+                      </p>
+                      <p className="text-sm text-red-600 mt-1">
+                        Matched: &quot;{study.matchedTerm}&quot;
+                      </p>
+                    </div>
+                    <div className="flex gap-2 shrink-0">
+                      <a
+                        href={`/research/study/${study.id}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1.5 text-sm bg-gray-100 text-gray-700 rounded hover:bg-gray-200"
+                      >
+                        View
+                      </a>
+                      <button
+                        onClick={() => handleDismissFlag(study.id)}
+                        disabled={processingId === study.id}
+                        className="px-3 py-1.5 text-sm bg-green-100 text-green-700 rounded hover:bg-green-200 disabled:opacity-50"
+                      >
+                        Keep
+                      </button>
+                      <button
+                        onClick={() => handleRejectStudy(study.id)}
+                        disabled={processingId === study.id}
+                        className="px-3 py-1.5 text-sm bg-red-100 text-red-700 rounded hover:bg-red-200 disabled:opacity-50"
+                      >
+                        Reject
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           )}
         </div>
