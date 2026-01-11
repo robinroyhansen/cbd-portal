@@ -37,6 +37,8 @@ interface ResearchItem {
   source_type: 'research_queue' | 'citation';
   relevant_topics?: string[] | string;
   relevance_score?: number;
+  country?: string;
+  display_title?: string;
 }
 
 export default async function ResearchPage() {
@@ -72,7 +74,9 @@ export default async function ResearchPage() {
       source_type: 'research_queue' as const,
       relevant_topics: item.relevant_topics || [],
       relevance_score: item.relevance_score || 50,
-      slug: item.slug
+      slug: item.slug,
+      country: item.country,
+      display_title: item.display_title
     }));
 
     console.log(`[Research Page] Loaded ${allResearch.length} approved studies from database`);

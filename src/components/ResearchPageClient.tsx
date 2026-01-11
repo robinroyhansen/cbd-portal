@@ -35,6 +35,36 @@ interface ResearchItem {
   relevant_topics?: string[] | string;
   relevance_score?: number;
   slug?: string;
+  country?: string;
+  display_title?: string;
+}
+
+// Country code to flag emoji mapping
+const COUNTRY_FLAGS: Record<string, string> = {
+  'US': '🇺🇸', 'UK': '🇬🇧', 'CA': '🇨🇦', 'AU': '🇦🇺', 'DE': '🇩🇪',
+  'FR': '🇫🇷', 'IT': '🇮🇹', 'ES': '🇪🇸', 'NL': '🇳🇱', 'CH': '🇨🇭',
+  'IL': '🇮🇱', 'JP': '🇯🇵', 'CN': '🇨🇳', 'BR': '🇧🇷', 'IN': '🇮🇳',
+  'KR': '🇰🇷', 'SE': '🇸🇪', 'DK': '🇩🇰', 'NO': '🇳🇴', 'FI': '🇫🇮',
+  'PL': '🇵🇱', 'CZ': '🇨🇿', 'AT': '🇦🇹', 'BE': '🇧🇪', 'PT': '🇵🇹',
+  'IE': '🇮🇪', 'NZ': '🇳🇿', 'MX': '🇲🇽', 'AR': '🇦🇷', 'CO': '🇨🇴',
+  'ZA': '🇿🇦', 'TR': '🇹🇷', 'RU': '🇷🇺', 'GR': '🇬🇷', 'HU': '🇭🇺', 'RO': '🇷🇴'
+};
+
+function getCountryFlag(countryCode?: string): string | null {
+  if (!countryCode) return null;
+  return COUNTRY_FLAGS[countryCode.toUpperCase()] || null;
+}
+
+// Truncate text to max length with ellipsis
+function truncateText(text: string, maxLength: number): string {
+  if (!text || text.length <= maxLength) return text;
+  // Try to break at sentence boundary
+  const truncated = text.slice(0, maxLength);
+  const lastPeriod = truncated.lastIndexOf('.');
+  if (lastPeriod > maxLength * 0.6) {
+    return truncated.slice(0, lastPeriod + 1);
+  }
+  return truncated.trim() + '...';
 }
 
 interface ResearchPageClientProps {
@@ -1396,6 +1426,48 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
     currentPage * itemsPerPage
   );
 
+  // Calculate topic statistics for research context
+  const topicStatsMap = useMemo(() => {
+    const statsMap = new Map<string, { total: number; studyRanks: Map<string, number> }>();
+
+    // Group studies by primary condition
+    studiesWithQuality.forEach(study => {
+      if (study.primaryCondition?.key) {
+        const key = study.primaryCondition.key;
+        if (!statsMap.has(key)) {
+          statsMap.set(key, { total: 0, studyRanks: new Map() });
+        }
+        statsMap.get(key)!.total++;
+      }
+    });
+
+    // Calculate quality rank within each topic
+    Object.keys(CONDITIONS).forEach(condKey => {
+      const topicStudies = studiesWithQuality
+        .filter(s => s.primaryCondition?.key === condKey)
+        .sort((a, b) => (b.qualityScore || 0) - (a.qualityScore || 0));
+
+      topicStudies.forEach((study, index) => {
+        if (statsMap.has(condKey)) {
+          statsMap.get(condKey)!.studyRanks.set(study.id, index + 1);
+        }
+      });
+    });
+
+    return statsMap;
+  }, [studiesWithQuality]);
+
+  // Helper to get topic stats for a study
+  const getTopicStats = (study: any): { total: number; rank: number } | undefined => {
+    if (!study.primaryCondition?.key) return undefined;
+    const stats = topicStatsMap.get(study.primaryCondition.key);
+    if (!stats) return undefined;
+    return {
+      total: stats.total,
+      rank: stats.studyRanks.get(study.id) || 0
+    };
+  };
+
   // Handler functions
   const toggleQualityTier = (tier: QualityTier) => {
     setSelectedQualityTiers(prev =>
@@ -1782,6 +1854,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
                 <ResearchCard
                   key={study.id}
                   study={study}
+                  topicStats={getTopicStats(study)}
                   onConditionClick={(condKey) => {
                     setSelectedConditions([condKey]);
                     setCurrentPage(1);
@@ -2451,33 +2524,18 @@ function Breadcrumbs({ condition }: { condition?: string }) {
 }
 
 // ============================================================================
-// RESEARCH CARD COMPONENT - Compact Design
+// RESEARCH CARD COMPONENT - Redesigned with better hierarchy
 // ============================================================================
 
-function ResearchCard({ study, onConditionClick }: { study: any; onConditionClick?: (condition: ConditionKey) => void }) {
-  const [expanded, setExpanded] = useState(false);
+interface ResearchCardProps {
+  study: any;
+  onConditionClick?: (condition: ConditionKey) => void;
+  topicStats?: { total: number; rank: number };
+}
 
-  // Study type icon mapping
-  const studyTypeIcon = {
-    [StudyType.META_ANALYSIS]: '📊',
-    [StudyType.SYSTEMATIC_REVIEW]: '📚',
-    [StudyType.RANDOMIZED_CONTROLLED_TRIAL]: '🎯',
-    [StudyType.CONTROLLED_TRIAL]: '🔬',
-    [StudyType.COHORT_STUDY]: '👥',
-    [StudyType.CASE_CONTROL_STUDY]: '🔄',
-    [StudyType.CROSS_SECTIONAL_STUDY]: '📈',
-    [StudyType.CASE_SERIES]: '📋',
-    [StudyType.CASE_REPORT]: '📝',
-    [StudyType.ANIMAL_STUDY]: '🐁',
-    [StudyType.IN_VITRO_STUDY]: '🧫',
-    [StudyType.REVIEW_ARTICLE]: '📖',
-    [StudyType.SURVEY_STUDY]: '📊',
-    [StudyType.PILOT_STUDY]: '🚀',
-    [StudyType.UNKNOWN]: '📄'
-  }[study.studyType] || '📄';
-
+function ResearchCard({ study, onConditionClick, topicStats }: ResearchCardProps) {
   // Status badge config
-  const statusConfig = {
+  const statusConfig: Record<string, { label: string; bg: string; text: string; icon: string }> = {
     completed: { label: 'Completed', bg: 'bg-green-100', text: 'text-green-700', icon: '✓' },
     ongoing: { label: 'Ongoing', bg: 'bg-blue-100', text: 'text-blue-700', icon: '⏳' },
     recruiting: { label: 'Recruiting', bg: 'bg-amber-100', text: 'text-amber-700', icon: '📢' }
@@ -2485,6 +2543,24 @@ function ResearchCard({ study, onConditionClick }: { study: any; onConditionClic
 
   const conditionColors = study.primaryCondition
     ? CONDITION_COLORS[study.primaryCondition.key] || { bg: 'bg-gray-100', text: 'text-gray-700', border: 'border-gray-200' }
+    : null;
+
+  // Get country flag
+  const countryFlag = getCountryFlag(study.country);
+
+  // Check if high quality (top 15% = score >= 70)
+  const isHighQuality = study.qualityScore >= 70;
+  const isPreclinical = study.studyType === StudyType.ANIMAL_STUDY || study.studyType === StudyType.IN_VITRO_STUDY;
+
+  // Get display title or generate from title
+  const displayTitle = study.display_title || study.title;
+
+  // Get first author last name
+  const firstAuthor = study.authors?.split(',')[0]?.trim()?.split(' ').pop() || 'Unknown';
+
+  // Truncate summary
+  const truncatedSummary = study.plain_summary
+    ? truncateText(study.plain_summary, 150)
     : null;
 
   return (
@@ -2499,25 +2575,36 @@ function ResearchCard({ study, onConditionClick }: { study: any; onConditionClic
       {study.doi && <meta itemProp="identifier" content={study.doi} />}
       {study.abstract && <meta itemProp="abstract" content={study.abstract} />}
 
-      {/* Row 1: Title and Quality Score */}
-      <div className="flex items-start gap-3 mb-3">
-        <span className="text-lg shrink-0" aria-hidden="true" title={study.studyType}>{studyTypeIcon}</span>
+      {/* Row 1: Title with flag and Quality Score */}
+      <div className="flex items-start gap-3 mb-2">
         <div className="flex-1 min-w-0">
           <h3 className="font-semibold text-sm leading-snug line-clamp-2" itemProp="name">
+            {countryFlag && <span className="mr-1.5" title={study.country}>{countryFlag}</span>}
             {study.slug ? (
               <Link href={`/research/study/${study.slug}`} className="hover:text-green-600 transition-colors">
-                {study.title}
+                {displayTitle}
               </Link>
             ) : (
-              study.title
+              displayTitle
             )}
           </h3>
-          <p className="text-xs text-gray-500 mt-1 truncate">
-            {study.authors?.split(',').slice(0, 2).join(', ')}{study.authors?.split(',').length > 2 ? ' et al.' : ''} • {study.year}
+          <p className="text-xs text-gray-500 mt-1 flex items-center gap-1.5 flex-wrap">
+            <span>{firstAuthor}</span>
+            <span>•</span>
+            <span>{study.year}</span>
+            <span>•</span>
+            <span>{study.studyType}</span>
+            {isHighQuality && !isPreclinical && (
+              <>
+                <span className="ml-2 inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-amber-100 text-amber-700 rounded text-[10px] font-semibold">
+                  TOP 15% ⭐
+                </span>
+              </>
+            )}
           </p>
         </div>
         <div className="shrink-0">
-          {study.studyType === StudyType.ANIMAL_STUDY || study.studyType === StudyType.IN_VITRO_STUDY ? (
+          {isPreclinical ? (
             <div className="flex flex-col items-center justify-center w-11 h-11 rounded-full bg-purple-100 border-2 border-purple-200" title="Preclinical Study">
               <span className="text-base">🧪</span>
               <span className="text-[8px] font-semibold text-purple-700 -mt-0.5">PRE</span>
@@ -2531,12 +2618,12 @@ function ResearchCard({ study, onConditionClick }: { study: any; onConditionClic
       </div>
 
       {/* Row 2: Key Info Badges */}
-      <div className="flex flex-wrap items-center gap-2 mb-3">
+      <div className="flex flex-wrap items-center gap-1.5 mb-3">
         {/* Primary Condition Badge - Clickable */}
         {study.primaryCondition && conditionColors && (
           <button
             onClick={() => onConditionClick?.(study.primaryCondition.key)}
-            className={`inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium ${conditionColors.bg} ${conditionColors.text} border ${conditionColors.border} hover:opacity-80 transition-opacity cursor-pointer`}
+            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium ${conditionColors.bg} ${conditionColors.text} border ${conditionColors.border} hover:opacity-80 transition-opacity cursor-pointer`}
             title={`Filter by ${study.primaryCondition.data.label}`}
           >
             <span aria-hidden="true">{study.primaryCondition.data.icon}</span>
@@ -2546,7 +2633,7 @@ function ResearchCard({ study, onConditionClick }: { study: any; onConditionClic
 
         {/* Sample Size Badge with Subject Type */}
         {study.sampleInfo && (
-          <span className={`inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium ${
+          <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium ${
             study.sampleInfo.subjectType === 'cells' ? 'bg-purple-50 text-purple-700 border border-purple-200' :
             study.sampleInfo.subjectType === 'mice' || study.sampleInfo.subjectType === 'rats' || study.sampleInfo.subjectType === 'animals' ? 'bg-amber-50 text-amber-700 border border-amber-200' :
             study.sampleInfo.subjectType === 'dogs' || study.sampleInfo.subjectType === 'cats' ? 'bg-orange-50 text-orange-700 border border-orange-200' :
@@ -2566,136 +2653,61 @@ function ResearchCard({ study, onConditionClick }: { study: any; onConditionClic
 
         {/* Study Status Badge */}
         {study.studyStatus && statusConfig[study.studyStatus] && (
-          <span className={`inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium ${statusConfig[study.studyStatus].bg} ${statusConfig[study.studyStatus].text}`}>
+          <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium ${statusConfig[study.studyStatus].bg} ${statusConfig[study.studyStatus].text}`}>
             <span aria-hidden="true">{statusConfig[study.studyStatus].icon}</span>
             {statusConfig[study.studyStatus].label}
           </span>
         )}
 
-        {/* Study Type Badge */}
-        <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">
-          {study.studyType}
-        </span>
-
-        {/* Outcome Badge */}
-        {study.outcome && <OutcomeBadge outcome={study.outcome} />}
+        {/* Treatment/Dose Badge */}
+        {study.treatment && (
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
+            💊 {study.treatment.length > 20 ? study.treatment.slice(0, 20) + '...' : study.treatment}
+          </span>
+        )}
       </div>
 
-      {/* Row 3: Treatment/Intervention */}
-      {study.treatment && (
-        <div className="mb-3">
-          <span className="text-xs text-gray-500">Treatment: </span>
-          <span className="text-xs font-medium text-gray-800">{study.treatment}</span>
-        </div>
+      {/* Row 3: Truncated Summary */}
+      {truncatedSummary && (
+        <p className="text-sm text-gray-600 leading-relaxed mb-3">
+          {truncatedSummary}
+        </p>
       )}
 
-      {/* Row 4: Expandable Details */}
-      <div className="border-t pt-3 mt-2">
-        <button
-          onClick={() => setExpanded(!expanded)}
-          className="w-full flex items-center justify-between text-sm text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1"
-          aria-expanded={expanded}
-          aria-controls={`details-${study.id}`}
-        >
-          <span className="font-medium">{expanded ? 'Hide Details' : 'View Details'}</span>
-          <svg
-            className={`w-4 h-4 transition-transform ${expanded ? 'rotate-180' : ''}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
+      {/* Row 4: Research Context + CTA */}
+      <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+        {/* Research Context */}
+        {topicStats && study.primaryCondition && (
+          <p className="text-xs text-gray-400">
+            📊 1 of {topicStats.total} {study.primaryCondition.data.label.toLowerCase()} studies
+            {topicStats.rank > 0 && !isPreclinical && ` • Ranks #${topicStats.rank} for quality`}
+          </p>
+        )}
+        {!topicStats && <div />}
+
+        {/* Single CTA Button */}
+        {study.slug ? (
+          <Link
+            href={`/research/study/${study.slug}`}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-
-        {expanded && (
-          <div id={`details-${study.id}`} className="mt-3 space-y-3">
-            {/* Plain Language Summary (AI-generated) */}
-            {study.plain_summary && (
-              <div className="bg-blue-50 border border-blue-100 rounded-lg p-3">
-                <h4 className="text-xs font-semibold text-blue-800 mb-1 flex items-center gap-1">
-                  <span>✨</span> Plain Language Summary
-                </h4>
-                <p className="text-sm text-blue-900 leading-relaxed">{study.plain_summary}</p>
-              </div>
-            )}
-
-            {/* Full Abstract */}
-            {study.abstract && (
-              <div>
-                <h4 className="text-xs font-semibold text-gray-700 mb-1">
-                  {study.plain_summary ? 'Original Abstract' : 'Abstract'}
-                </h4>
-                <p className="text-xs text-gray-600 leading-relaxed">
-                  {study.plain_summary
-                    ? study.abstract
-                    : study.abstract.length > 500
-                      ? study.abstract.slice(0, 500) + '...'
-                      : study.abstract
-                  }
-                </p>
-              </div>
-            )}
-
-            {/* Study Strengths */}
-            {study.assessment?.strengths?.length > 0 && (
-              <div>
-                <h4 className="text-xs font-semibold text-green-700 mb-1">Study Strengths</h4>
-                <ul className="text-xs text-green-600 space-y-0.5">
-                  {study.assessment.strengths.map((strength: string, index: number) => (
-                    <li key={index}>✓ {strength}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {/* Study Limitations */}
-            {study.assessment?.limitations?.length > 0 && (
-              <div>
-                <h4 className="text-xs font-semibold text-orange-700 mb-1">Limitations</h4>
-                <ul className="text-xs text-orange-600 space-y-0.5">
-                  {study.assessment.limitations.map((limitation: string, index: number) => (
-                    <li key={index}>• {limitation}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {/* Metadata */}
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-400 pt-2 border-t">
-              <SourceIcon source={study.source_site} />
-              {study.doi && <span>DOI: {study.doi}</span>}
-              <span>Publication: {study.publication}</span>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap gap-2">
-              {study.slug && (
-                <Link
-                  href={`/research/study/${study.slug}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-                >
-                  Read Summary
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              )}
-              <a
-                href={study.url}
-                itemProp="url"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-              >
-                View Original
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-            </div>
-          </div>
+            View Study
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        ) : (
+          <a
+            href={study.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
+          >
+            View Study
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         )}
       </div>
     </article>
