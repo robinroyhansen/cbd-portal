@@ -746,14 +746,85 @@ function extractTreatment(text: string): string | null {
 
 // Get primary condition from study
 function getPrimaryCondition(study: any): { key: ConditionKey; data: typeof CONDITIONS[ConditionKey] } | null {
-  // First, check if the study has relevant_topics from the database
+  const title = (study.title || '').toLowerCase();
+
+  // STEP 1: Check TITLE for explicit condition keywords (most reliable)
+  // These are ordered by specificity - more specific conditions first
+  const titlePatterns: { pattern: RegExp; key: ConditionKey }[] = [
+    // Cancer - check first (very specific)
+    { pattern: /\b(cancer|tumor|tumour|oncology|carcinoma|malignant|leukemia|lymphoma)\b/, key: 'cancer' },
+    { pattern: /\b(chemotherapy|chemo-induced|palliative|cachexia)\b/, key: 'chemo_side_effects' },
+
+    // Epilepsy/Seizures - FDA approved
+    { pattern: /\b(epilepsy|seizure|dravet|lennox-gastaut|convulsion|anticonvulsant)\b/, key: 'epilepsy' },
+
+    // Schizophrenia/Psychosis - specific neurological
+    { pattern: /\b(schizophrenia|psychosis|psychotic|antipsychotic)\b/, key: 'schizophrenia' },
+
+    // Other neurological - specific conditions
+    { pattern: /\b(parkinson|parkinsonian)\b/, key: 'parkinsons' },
+    { pattern: /\b(alzheimer|dementia)\b/, key: 'alzheimers' },
+    { pattern: /\b(multiple sclerosis|\bms\b|spasticity)\b/, key: 'ms' },
+    { pattern: /\b(autism|autistic|asd\b)\b/, key: 'autism' },
+    { pattern: /\b(tourette|tic disorder)\b/, key: 'tourettes' },
+    { pattern: /\b(adhd|attention deficit|hyperactivity)\b/, key: 'adhd' },
+
+    // Pain conditions - check BEFORE anxiety (pain studies often mention anxiety)
+    { pattern: /\b(pain|analgesic|surgical|post-operative|postoperative|opioid|nociceptive)\b/, key: 'chronic_pain' },
+    { pattern: /\b(neuropath|nerve pain|neuralgia|allodynia)\b/, key: 'neuropathic_pain' },
+    { pattern: /\b(arthritis|osteoarthritis|rheumatoid|joint pain)\b/, key: 'arthritis' },
+    { pattern: /\b(fibromyalgia)\b/, key: 'fibromyalgia' },
+    { pattern: /\b(migraine|headache)\b/, key: 'migraines' },
+
+    // Addiction
+    { pattern: /\b(addiction|withdrawal|substance use|drug abuse|opioid use disorder|cannabis use disorder)\b/, key: 'addiction' },
+
+    // Mental health - after pain
+    { pattern: /\b(ptsd|post-traumatic|posttraumatic|trauma)\b/, key: 'ptsd' },
+    { pattern: /\b(anxiety|anxious|anxiolytic|gad\b)\b/, key: 'anxiety' },
+    { pattern: /\b(depression|depressive|antidepressant|mdd\b)\b/, key: 'depression' },
+
+    // Sleep
+    { pattern: /\b(sleep|insomnia|circadian)\b/, key: 'sleep' },
+
+    // Gastrointestinal
+    { pattern: /\b(crohn|inflammatory bowel|ibd\b)\b/, key: 'crohns' },
+    { pattern: /\b(irritable bowel|ibs\b)\b/, key: 'ibs' },
+    { pattern: /\b(nausea|vomiting|antiemetic)\b/, key: 'nausea' },
+
+    // Skin
+    { pattern: /\b(psoriasis)\b/, key: 'psoriasis' },
+    { pattern: /\b(eczema|dermatitis)\b/, key: 'eczema' },
+    { pattern: /\b(acne)\b/, key: 'acne' },
+
+    // Cardiovascular
+    { pattern: /\b(heart|cardiac|cardiovascular|myocardial)\b/, key: 'heart' },
+    { pattern: /\b(blood pressure|hypertension|hypotension)\b/, key: 'blood_pressure' },
+
+    // Other
+    { pattern: /\b(diabetes|diabetic|glycemic)\b/, key: 'diabetes' },
+    { pattern: /\b(obesity|weight loss|metabolic)\b/, key: 'obesity' },
+    { pattern: /\b(athlete|exercise|sport|performance)\b/, key: 'athletic' },
+    { pattern: /\b(veterinary|animal|pet|dog|cat|canine|feline)\b/, key: 'veterinary' },
+
+    // Inflammation - last resort for pain/inflammation
+    { pattern: /\b(inflammation|inflammatory|anti-inflammatory)\b/, key: 'inflammation' },
+  ];
+
+  // Check title first (most reliable indicator)
+  for (const { pattern, key } of titlePatterns) {
+    if (pattern.test(title)) {
+      return { key, data: CONDITIONS[key] };
+    }
+  }
+
+  // STEP 2: Fall back to database topics if no title match
   const topics = Array.isArray(study.relevant_topics)
     ? study.relevant_topics
     : typeof study.relevant_topics === 'string'
       ? [study.relevant_topics]
       : [];
 
-  // Map database topics to condition keys
   const topicToCondition: Record<string, ConditionKey> = {
     'anxiety': 'anxiety', 'depression': 'depression', 'ptsd': 'ptsd', 'sleep': 'sleep',
     'epilepsy': 'epilepsy', 'parkinsons': 'parkinsons', 'alzheimers': 'alzheimers',
@@ -766,51 +837,24 @@ function getPrimaryCondition(study: any): { key: ConditionKey; data: typeof COND
     'cancer': 'cancer', 'chemo_side_effects': 'chemo_side_effects',
     'acne': 'acne', 'psoriasis': 'psoriasis', 'eczema': 'eczema',
     'heart': 'heart', 'blood_pressure': 'blood_pressure',
-    'diabetes': 'diabetes', 'obesity': 'obesity', 'athletic': 'athletic', 'veterinary': 'veterinary'
+    'diabetes': 'diabetes', 'obesity': 'obesity', 'athletic': 'athletic', 'veterinary': 'veterinary',
+    'pain': 'chronic_pain', 'chronic pain': 'chronic_pain' // Map generic "pain" to chronic_pain
   };
 
-  // Use first matching topic from database if available
   for (const topic of topics) {
-    const normalizedTopic = topic.toLowerCase().replace(/[^a-z_]/g, '');
+    const normalizedTopic = topic.toLowerCase().replace(/[^a-z_ ]/g, '').trim();
     const condKey = topicToCondition[normalizedTopic];
     if (condKey && CONDITIONS[condKey]) {
       return { key: condKey, data: CONDITIONS[condKey] };
     }
   }
 
-  // Fallback: detect from text with priority order
-  const text = `${study.title || ''} ${study.abstract || ''}`.toLowerCase();
+  // STEP 3: Fall back to abstract keywords (last resort)
+  const abstract = (study.abstract || '').toLowerCase();
 
-  // Priority order for conditions - pain before mental health for better matching
-  const conditionPriority: ConditionKey[] = [
-    // High-priority clinical conditions (FDA-approved uses first)
-    'epilepsy', 'cancer', 'chemo_side_effects',
-    // Addiction should be checked early
-    'addiction',
-    // Neurological conditions
-    'parkinsons', 'alzheimers', 'ms', 'schizophrenia', 'autism', 'tourettes',
-    // Pain conditions BEFORE mental health (pain studies often mention anxiety as outcome)
-    'chronic_pain', 'neuropathic_pain', 'fibromyalgia', 'arthritis', 'migraines',
-    // Mental health
-    'anxiety', 'ptsd', 'depression', 'adhd',
-    // Sleep
-    'sleep',
-    // Gastrointestinal
-    'crohns', 'ibs', 'nausea',
-    // Skin
-    'psoriasis', 'eczema', 'acne',
-    // Cardiovascular
-    'heart', 'blood_pressure',
-    // Other
-    'diabetes', 'obesity', 'athletic', 'veterinary',
-    // General (last resort)
-    'inflammation'
-  ];
-
-  for (const key of conditionPriority) {
-    const cond = CONDITIONS[key];
-    if (cond && cond.keywords.some(kw => text.includes(kw.toLowerCase()))) {
-      return { key, data: cond };
+  for (const { pattern, key } of titlePatterns) {
+    if (pattern.test(abstract)) {
+      return { key, data: CONDITIONS[key] };
     }
   }
 
