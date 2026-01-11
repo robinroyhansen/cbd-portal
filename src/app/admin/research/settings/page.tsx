@@ -26,6 +26,12 @@ export default function ResearchSettingsPage() {
   const [approvedResult, setApprovedResult] = useState<{ found: number; checked: number } | null>(null);
   const [flaggedStudies, setFlaggedStudies] = useState<{ id: string; title: string; matchedTerm: string }[]>([]);
   const [processingId, setProcessingId] = useState<string | null>(null);
+  const [recalculating, setRecalculating] = useState(false);
+  const [recalcResult, setRecalcResult] = useState<{
+    updated: number;
+    total: number;
+    distribution: Record<string, number>;
+  } | null>(null);
   const supabase = createClient();
 
   useEffect(() => {
@@ -165,6 +171,28 @@ export default function ResearchSettingsPage() {
       console.error('Error dismissing flag:', error);
     }
     setProcessingId(null);
+  }
+
+  async function recalculateAllScores() {
+    if (!confirm('This will recalculate relevance scores for ALL studies using the new scoring algorithm (max 100). Continue?')) return;
+
+    setRecalculating(true);
+    setRecalcResult(null);
+
+    try {
+      const res = await fetch('/api/admin/research/recalculate-scores', { method: 'POST' });
+      const data = await res.json();
+      setRecalcResult({
+        updated: data.updated,
+        total: data.total,
+        distribution: data.distribution
+      });
+    } catch (error) {
+      console.error('Error recalculating scores:', error);
+      alert('Failed to recalculate scores');
+    }
+
+    setRecalculating(false);
   }
 
   return (
@@ -405,6 +433,64 @@ export default function ResearchSettingsPage() {
             </div>
           )}
         </div>
+      </div>
+
+      {/* Score Recalculation */}
+      <div className="bg-white rounded-lg border p-6 mb-6">
+        <h2 className="text-lg font-semibold mb-2">Relevance Score Recalculation</h2>
+        <p className="text-sm text-gray-600 mb-4">
+          Recalculate all study relevance scores using the updated algorithm (max 100 points).
+          This fixes any scores that previously exceeded 100.
+        </p>
+
+        <div className="mb-4 p-3 bg-blue-50 rounded-lg text-sm text-blue-800">
+          <strong>New scoring breakdown (max 100):</strong>
+          <ul className="mt-1 ml-4 list-disc">
+            <li><strong>Study Design:</strong> 0-35 pts (meta-analysis, RCT, cohort, etc.)</li>
+            <li><strong>Methodology:</strong> 0-25 pts (double-blind, placebo, multicenter)</li>
+            <li><strong>Relevance:</strong> 0-20 pts (CBD focus, topics)</li>
+            <li><strong>Sample Size:</strong> 0-10 pts (participant count)</li>
+            <li><strong>Recency:</strong> 0-10 pts (publication year)</li>
+          </ul>
+        </div>
+
+        <button
+          onClick={recalculateAllScores}
+          disabled={recalculating}
+          className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50"
+        >
+          {recalculating ? 'Recalculating...' : 'Recalculate All Scores'}
+        </button>
+
+        {recalcResult && (
+          <div className="mt-4 p-4 bg-green-50 rounded-lg">
+            <p className="text-green-800 font-medium">
+              Recalculated {recalcResult.updated} of {recalcResult.total} studies
+            </p>
+            <div className="mt-3 grid grid-cols-5 gap-2 text-sm">
+              <div className="text-center p-2 bg-white rounded">
+                <div className="font-bold text-gray-600">{recalcResult.distribution['0-20']}</div>
+                <div className="text-xs text-gray-500">0-20</div>
+              </div>
+              <div className="text-center p-2 bg-white rounded">
+                <div className="font-bold text-gray-600">{recalcResult.distribution['21-40']}</div>
+                <div className="text-xs text-gray-500">21-40</div>
+              </div>
+              <div className="text-center p-2 bg-white rounded">
+                <div className="font-bold text-blue-600">{recalcResult.distribution['41-60']}</div>
+                <div className="text-xs text-gray-500">41-60</div>
+              </div>
+              <div className="text-center p-2 bg-white rounded">
+                <div className="font-bold text-green-600">{recalcResult.distribution['61-80']}</div>
+                <div className="text-xs text-gray-500">61-80</div>
+              </div>
+              <div className="text-center p-2 bg-white rounded">
+                <div className="font-bold text-purple-600">{recalcResult.distribution['81-100']}</div>
+                <div className="text-xs text-gray-500">81-100</div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Common False Positives Reference */}

@@ -1156,51 +1156,145 @@ async function isJobCancelled(supabase: SupabaseClient, jobId: string): Promise<
   return data?.status === 'cancelled';
 }
 
-export function calculateRelevance(study: ResearchItem): { score: number; topics: string[] } {
-  const text = `${study.title || ''} ${study.abstract || ''}`.toLowerCase();
-  const topics: string[] = [];
-  let score = 0;
+export interface ScoreBreakdown {
+  studyDesign: number;      // 0-35 points (mutually exclusive tiers)
+  methodologyQuality: number; // 0-25 points (additive, capped)
+  relevance: number;         // 0-20 points (CBD-specificity + topics)
+  sampleSize: number;        // 0-10 points
+  recency: number;           // 0-10 points
+}
 
-  // Check for topic relevance
+export function calculateRelevance(study: ResearchItem): { score: number; topics: string[]; breakdown: ScoreBreakdown } {
+  const titleLower = (study.title || '').toLowerCase();
+  const abstractLower = (study.abstract || '').toLowerCase();
+  const text = `${titleLower} ${abstractLower}`;
+
+  const breakdown: ScoreBreakdown = {
+    studyDesign: 0,
+    methodologyQuality: 0,
+    relevance: 0,
+    sampleSize: 0,
+    recency: 0
+  };
+
+  // Collect matching topics
+  const topics: string[] = [];
   for (const [topic, keywords] of Object.entries(TOPIC_KEYWORDS)) {
     for (const keyword of keywords) {
       if (text.includes(keyword.toLowerCase())) {
         if (!topics.includes(topic)) {
           topics.push(topic);
-          score += 10;
         }
+        break; // Found match for this topic, move to next
       }
     }
   }
 
-  // Boost for study quality indicators
-  if (text.includes('randomized') || text.includes('randomised')) score += 20;
-  if (text.includes('controlled trial') || text.includes('rct')) score += 20;
-  if (text.includes('double-blind') || text.includes('double blind')) score += 15;
-  if (text.includes('placebo-controlled') || text.includes('placebo controlled')) score += 15;
-  if (text.includes('meta-analysis') || text.includes('meta analysis')) score += 25;
-  if (text.includes('systematic review')) score += 20;
-  if (text.includes('cochrane')) score += 25;
-  if (text.includes('human') || text.includes('patients') || text.includes('participants')) score += 10;
-  if (text.includes('multicenter') || text.includes('multicentre')) score += 10;
+  // ========== 1. STUDY DESIGN (0-35 points) - MUTUALLY EXCLUSIVE ==========
+  // Pick the HIGHEST matching study type (not additive!)
+  const studyTypeScores: { pattern: RegExp; score: number }[] = [
+    { pattern: /meta[\s-]?analysis|systematic review|cochrane/i, score: 35 },
+    { pattern: /randomized.*controlled|randomised.*controlled|\brct\b|double[\s-]?blind.*placebo/i, score: 30 },
+    { pattern: /randomized|randomised|controlled trial/i, score: 25 },
+    { pattern: /cohort|longitudinal|prospective/i, score: 20 },
+    { pattern: /observational|cross[\s-]?sectional/i, score: 15 },
+    { pattern: /case[\s-]?control|retrospective/i, score: 12 },
+    { pattern: /pilot|preliminary|feasibility/i, score: 10 },
+    { pattern: /case report|case series/i, score: 8 },
+    { pattern: /in[\s-]?vitro|cell culture|cell line|preclinical/i, score: 5 },
+    { pattern: /review|overview/i, score: 3 },
+  ];
 
-  // Boost for specific cannabinoid mentions
-  if (text.includes('cannabidiol') || text.includes('cbd')) score += 5;
-  if (text.includes('medical cannabis') || text.includes('medicinal cannabis')) score += 5;
-  if (text.includes('epidiolex') || text.includes('sativex')) score += 10;
-  if (text.includes('full spectrum') || text.includes('broad spectrum')) score += 5;
+  for (const st of studyTypeScores) {
+    if (st.pattern.test(text)) {
+      breakdown.studyDesign = st.score;
+      break; // Stop at first (highest) match
+    }
+  }
 
-  // Boost for recent/large studies
-  if (study.year && study.year >= new Date().getFullYear() - 1) score += 5;
-  if (text.includes('phase 2') || text.includes('phase ii')) score += 10;
-  if (text.includes('phase 3') || text.includes('phase iii')) score += 15;
+  // ========== 2. METHODOLOGY QUALITY (0-25 points) - additive but capped ==========
+  let methodologyScore = 0;
+  if (/double[\s-]?blind/i.test(text)) methodologyScore += 8;
+  if (/placebo[\s-]?controlled|placebo group|vs\.?\s*placebo/i.test(text)) methodologyScore += 7;
+  if (/multi[\s-]?cent(?:er|re)|multi[\s-]?site/i.test(text)) methodologyScore += 5;
+  if (/phase\s*[23]|phase\s*(?:ii|iii)\b/i.test(text)) methodologyScore += 5;
+  breakdown.methodologyQuality = Math.min(methodologyScore, 25);
 
-  // Lower score for preclinical
-  if (text.includes('mice') || text.includes('rats') || text.includes('mouse') || text.includes('rat model')) score -= 15;
-  if (text.includes('in vitro') || text.includes('cell culture') || text.includes('cell line')) score -= 20;
-  if (text.includes('animal model') || text.includes('preclinical')) score -= 10;
+  // ========== 3. RELEVANCE (0-20 points) - CBD-specificity + topics ==========
+  let relevanceScore = 0;
 
-  return { score: Math.max(0, score), topics: [...new Set(topics)] };
+  // Primary CBD focus (not just mentions)
+  if (/\bcbd\b|cannabidiol/i.test(titleLower)) {
+    relevanceScore += 10; // CBD in title = high relevance
+  } else if (/\bcbd\b|cannabidiol/i.test(abstractLower)) {
+    relevanceScore += 5; // CBD only in abstract = moderate
+  }
+
+  // Specific product mentions
+  if (/epidiolex|sativex|nabiximols/i.test(text)) {
+    relevanceScore += 3;
+  }
+
+  // Topic match bonus (cap at 7 points regardless of how many match)
+  if (topics.length > 0) {
+    relevanceScore += Math.min(topics.length * 2, 7);
+  }
+
+  breakdown.relevance = Math.min(relevanceScore, 20);
+
+  // ========== 4. SAMPLE SIZE (0-10 points) ==========
+  // Extract sample size from text
+  const samplePatterns = [
+    /(\d{1,3}(?:,\d{3})*|\d+)\s*(?:participant|patient|subject|individual|volunteer)s?/gi,
+    /\bn\s*=\s*(\d{1,3}(?:,\d{3})*|\d+)/gi,
+    /(\d{1,3}(?:,\d{3})*|\d+)\s+(?:were\s+)?(?:enrolled|recruited|randomized|randomised)/gi,
+    /sample\s+(?:size\s+)?(?:of\s+)?(\d{1,3}(?:,\d{3})*|\d+)/gi,
+  ];
+
+  let maxSample = 0;
+  for (const pattern of samplePatterns) {
+    const matches = [...text.matchAll(pattern)];
+    for (const match of matches) {
+      const numStr = match[1].replace(/,/g, '');
+      const num = parseInt(numStr);
+      if (num >= 5 && num < 100000 && num > maxSample) {
+        maxSample = num;
+      }
+    }
+  }
+
+  if (maxSample >= 1000) breakdown.sampleSize = 10;
+  else if (maxSample >= 500) breakdown.sampleSize = 8;
+  else if (maxSample >= 100) breakdown.sampleSize = 6;
+  else if (maxSample >= 50) breakdown.sampleSize = 4;
+  else if (maxSample >= 20) breakdown.sampleSize = 2;
+  else breakdown.sampleSize = 0;
+
+  // ========== 5. RECENCY (0-10 points) ==========
+  const year = study.year || 2000;
+  const currentYear = new Date().getFullYear();
+  const age = currentYear - year;
+
+  if (age <= 1) breakdown.recency = 10;
+  else if (age <= 2) breakdown.recency = 8;
+  else if (age <= 3) breakdown.recency = 6;
+  else if (age <= 5) breakdown.recency = 4;
+  else if (age <= 10) breakdown.recency = 2;
+  else breakdown.recency = 0;
+
+  // ========== TOTAL SCORE (guaranteed max 100) ==========
+  const totalScore =
+    breakdown.studyDesign +
+    breakdown.methodologyQuality +
+    breakdown.relevance +
+    breakdown.sampleSize +
+    breakdown.recency;
+
+  return {
+    score: totalScore,
+    topics: [...new Set(topics)],
+    breakdown
+  };
 }
 
 // Helper function to get date range filter based on scan depth
