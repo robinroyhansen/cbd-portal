@@ -296,9 +296,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       type: 'article',
       url: canonicalUrl,
-      siteName: 'CBD Portal'
+      siteName: 'CBD Portal',
+      publishedTime: study.year ? `${study.year}-01-01` : undefined,
+      authors: study.authors ? [study.authors] : undefined,
+      locale: 'en_US',
     },
-    twitter: { card: 'summary', title, description },
+    twitter: {
+      card: 'summary',
+      title,
+      description,
+      site: '@cbdportal',
+    },
     robots: { index: true, follow: true }
   };
 }

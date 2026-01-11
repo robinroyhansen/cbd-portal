@@ -99,17 +99,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const displayTitle = term.display_name || term.term;
   const metaDescription = formatMetaDescription(term.short_definition);
 
+  const canonicalUrl = `https://cbd-portal.vercel.app/glossary/${slug}`;
+
   return {
     title: `${displayTitle} - Definition | CBD Portal Glossary`,
     description: metaDescription,
     alternates: {
-      canonical: `/glossary/${slug}`,
+      canonical: canonicalUrl,
     },
     openGraph: {
       title: `${displayTitle} - CBD Glossary Definition`,
       description: metaDescription,
       type: 'article',
-      url: `/glossary/${slug}`,
+      url: canonicalUrl,
+      siteName: 'CBD Portal',
+      locale: 'en_US',
+    },
+    twitter: {
+      card: 'summary',
+      title: `${displayTitle} - CBD Glossary`,
+      description: metaDescription,
+      site: '@cbdportal',
+    },
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }
