@@ -5,40 +5,12 @@ interface HeroProps {
   stats: HomePageStats;
 }
 
-interface StatCardProps {
-  number: string | number;
-  label: string;
-  sublabel?: string;
-  href: string;
-  gradient: string;
-  textColor: string;
-}
-
-function StatCard({ number, label, sublabel, href, gradient, textColor }: StatCardProps) {
-  return (
-    <Link
-      href={href}
-      className={`group relative overflow-hidden rounded-2xl p-6 ${gradient} hover:shadow-lg transition-all duration-300 hover:scale-[1.02]`}
-    >
-      <div className="relative z-10">
-        <div className={`text-4xl md:text-5xl font-bold ${textColor} mb-1`}>
-          {number}
-        </div>
-        <div className="text-sm font-semibold text-gray-700">{label}</div>
-        {sublabel && (
-          <div className="text-xs text-gray-500 mt-0.5">{sublabel}</div>
-        )}
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-    </Link>
-  );
-}
-
 export function Hero({ stats }: HeroProps) {
   return (
     <section className="bg-gradient-to-br from-green-50 via-white to-green-50 py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        {/* Main Hero Content */}
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               Evidence-Based
@@ -72,97 +44,147 @@ export function Hero({ stats }: HeroProps) {
             </div>
           </div>
 
+          {/* Stats Card - Desktop Only */}
           <div className="hidden md:block">
-            <div className="relative">
-              {/* Trust signals */}
-              <div className="bg-white rounded-2xl shadow-xl p-6">
-                {/* Headline */}
-                <div className="text-center mb-6">
-                  <h2 className="text-lg font-bold text-gray-800">
-                    The Most Comprehensive CBD Research Database
-                  </h2>
-                  <p className="text-sm text-gray-500 mt-1">
-                    {stats.researchStudies}+ Studies Analyzed. Zero Bias. 100% Evidence-Based.
-                  </p>
-                </div>
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              {/* Trust Headline */}
+              <div className="text-center mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                  We Analyze the Research. You Get the Facts.
+                </h2>
+                <p className="text-gray-600">
+                  Every CBD study summarized in plain language, scored for quality,
+                  and free from industry influence.
+                </p>
+              </div>
 
-                {/* Stats Grid - 2 rows of 3 */}
-                <div className="grid grid-cols-3 gap-3">
-                  <StatCard
-                    number={`${stats.researchStudies}+`}
-                    label="Research Studies"
-                    sublabel="Analyzed & Scored"
-                    href="/research"
-                    gradient="bg-gradient-to-br from-green-50 to-green-100"
-                    textColor="text-green-700"
-                  />
-                  <StatCard
-                    number={stats.participantsDisplay}
-                    label="Participants"
-                    sublabel="In clinical trials"
-                    href="/research"
-                    gradient="bg-gradient-to-br from-blue-50 to-blue-100"
-                    textColor="text-blue-700"
-                  />
-                  <StatCard
-                    number={`${stats.expertAnalyses}+`}
-                    label="Expert Analyses"
-                    sublabel="Plain language"
-                    href="/research"
-                    gradient="bg-gradient-to-br from-purple-50 to-purple-100"
-                    textColor="text-purple-700"
-                  />
-                  <StatCard
-                    number={`${stats.healthTopics}+`}
-                    label="Health Conditions"
-                    sublabel="Covered in depth"
-                    href="/research"
-                    gradient="bg-gradient-to-br from-amber-50 to-amber-100"
-                    textColor="text-amber-700"
-                  />
-                  <StatCard
-                    number={`${stats.glossaryTerms}+`}
-                    label="Glossary Terms"
-                    sublabel="Medical terms explained"
-                    href="/glossary"
-                    gradient="bg-gradient-to-br from-teal-50 to-teal-100"
-                    textColor="text-teal-700"
-                  />
-                  <StatCard
-                    number={`${stats.yearsOfResearch}+`}
-                    label="Years of Research"
-                    sublabel={stats.yearRange}
-                    href="/research"
-                    gradient="bg-gradient-to-br from-rose-50 to-rose-100"
-                    textColor="text-rose-700"
-                  />
-                </div>
-
-                <div className="mt-5 pt-5 border-t border-gray-100">
-                  <div className="flex items-center gap-3">
-                    <div className="flex -space-x-2">
-                      <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center border-2 border-white">
-                        <span className="text-sm">👨‍🔬</span>
-                      </div>
-                      <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center border-2 border-white">
-                        <span className="text-sm">👩‍⚕️</span>
-                      </div>
-                      <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center border-2 border-white">
-                        <span className="text-sm">🧑‍🔬</span>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">Written by Industry Experts</p>
-                      <p className="text-sm text-gray-500">
-                        <Link href="/authors" className="text-green-600 hover:underline">
-                          Meet our authors →
-                        </Link>
-                      </p>
-                    </div>
+              {/* Primary Stats - The Big Three */}
+              <div className="grid grid-cols-3 gap-6 mb-8">
+                <Link href="/research" className="text-center group">
+                  <div className="text-5xl font-bold text-green-600 group-hover:text-green-700 transition-colors">
+                    {stats.researchStudies}
                   </div>
+                  <div className="text-sm font-semibold text-gray-800 mt-1">Studies Analyzed</div>
+                  <div className="text-xs text-gray-500">From peer-reviewed sources</div>
+                </Link>
+
+                <Link href="/research" className="text-center group">
+                  <div className="text-5xl font-bold text-blue-600 group-hover:text-blue-700 transition-colors">
+                    {stats.expertAnalyses}
+                  </div>
+                  <div className="text-sm font-semibold text-gray-800 mt-1">Expert Summaries</div>
+                  <div className="text-xs text-gray-500">Written for real people</div>
+                </Link>
+
+                <Link href="/research/methodology" className="text-center group">
+                  <div className="text-5xl font-bold text-purple-600 group-hover:text-purple-700 transition-colors">
+                    100%
+                  </div>
+                  <div className="text-sm font-semibold text-gray-800 mt-1">Quality Scored</div>
+                  <div className="text-xs text-gray-500">Transparent methodology</div>
+                </Link>
+              </div>
+
+              {/* Supporting Stats */}
+              <div className="flex flex-wrap justify-center gap-6 text-center border-t border-gray-200 pt-6">
+                <div>
+                  <div className="text-2xl font-bold text-gray-700">{stats.participantsDisplay}</div>
+                  <div className="text-xs text-gray-500">Research Participants</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-gray-700">{stats.healthTopics}</div>
+                  <div className="text-xs text-gray-500">Health Conditions</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-gray-700">{stats.glossaryTerms}</div>
+                  <div className="text-xs text-gray-500">Terms Explained</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-gray-700">{stats.yearRange}</div>
+                  <div className="text-xs text-gray-500">Years of Research</div>
                 </div>
               </div>
+
+              {/* Trust Badges - Data Sources */}
+              <div className="mt-6 pt-6 border-t border-gray-100 text-center">
+                <p className="text-xs text-gray-400 mb-2">Data sourced from</p>
+                <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-gray-500 text-xs">
+                  <span>PubMed</span>
+                  <span className="text-gray-300">•</span>
+                  <span>ClinicalTrials.gov</span>
+                  <span className="text-gray-300">•</span>
+                  <span>Cochrane Library</span>
+                  <span className="text-gray-300">•</span>
+                  <span>Europe PMC</span>
+                </div>
+                <Link
+                  href="/research/methodology"
+                  className="text-green-600 text-xs mt-2 inline-block hover:underline"
+                >
+                  View our methodology →
+                </Link>
+              </div>
             </div>
+          </div>
+        </div>
+
+        {/* Mobile Stats Section */}
+        <div className="md:hidden bg-white rounded-2xl shadow-lg p-6">
+          {/* Trust Headline */}
+          <div className="text-center mb-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-2">
+              We Analyze the Research. You Get the Facts.
+            </h2>
+            <p className="text-sm text-gray-600">
+              Every CBD study summarized in plain language and scored for quality.
+            </p>
+          </div>
+
+          {/* Primary Stats - Mobile */}
+          <div className="grid grid-cols-3 gap-4 mb-6">
+            <Link href="/research" className="text-center">
+              <div className="text-3xl font-bold text-green-600">{stats.researchStudies}</div>
+              <div className="text-xs font-semibold text-gray-800">Studies</div>
+            </Link>
+            <Link href="/research" className="text-center">
+              <div className="text-3xl font-bold text-blue-600">{stats.expertAnalyses}</div>
+              <div className="text-xs font-semibold text-gray-800">Summaries</div>
+            </Link>
+            <Link href="/research/methodology" className="text-center">
+              <div className="text-3xl font-bold text-purple-600">100%</div>
+              <div className="text-xs font-semibold text-gray-800">Scored</div>
+            </Link>
+          </div>
+
+          {/* Supporting Stats - Mobile */}
+          <div className="grid grid-cols-4 gap-2 text-center border-t border-gray-200 pt-4">
+            <div>
+              <div className="text-lg font-bold text-gray-700">{stats.participantsDisplay}</div>
+              <div className="text-[10px] text-gray-500">Participants</div>
+            </div>
+            <div>
+              <div className="text-lg font-bold text-gray-700">{stats.healthTopics}</div>
+              <div className="text-[10px] text-gray-500">Conditions</div>
+            </div>
+            <div>
+              <div className="text-lg font-bold text-gray-700">{stats.glossaryTerms}</div>
+              <div className="text-[10px] text-gray-500">Terms</div>
+            </div>
+            <div>
+              <div className="text-lg font-bold text-gray-700">{stats.yearRange}</div>
+              <div className="text-[10px] text-gray-500">Years</div>
+            </div>
+          </div>
+
+          {/* Trust Badges - Mobile */}
+          <div className="mt-4 pt-4 border-t border-gray-100 text-center">
+            <p className="text-[10px] text-gray-400 mb-1">Data from PubMed, ClinicalTrials.gov, Cochrane & more</p>
+            <Link
+              href="/research/methodology"
+              className="text-green-600 text-xs hover:underline"
+            >
+              View methodology →
+            </Link>
           </div>
         </div>
       </div>

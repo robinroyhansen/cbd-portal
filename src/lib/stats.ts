@@ -113,7 +113,7 @@ export async function getHomePageStats(): Promise<HomePageStats> {
   const years = yearResult.data?.map(y => y.year).filter(Boolean) as number[] || [];
   const minYear = years.length > 0 ? Math.min(...years) : 2000;
   const maxYear = years.length > 0 ? Math.max(...years) : new Date().getFullYear();
-  const yearRange = `${minYear}-${maxYear}`;
+  const yearRange = `${minYear}–${maxYear}`;
   const yearsOfResearch = maxYear - minYear;
 
   return {
