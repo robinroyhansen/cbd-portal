@@ -39,19 +39,39 @@ function classifyTopics(title: string, abstract: string, summary: string): strin
 
 export async function POST(request: NextRequest) {
   try {
-    const { batchSize = 50, dryRun = false } = await request.json();
+    // Support both query params and body for flexibility
+    const { searchParams } = new URL(request.url);
+    const offsetParam = searchParams.get('offset');
+
+    let body = { batchSize: 50, dryRun: false, offset: 0 };
+    try {
+      body = { ...body, ...await request.json() };
+    } catch {
+      // No body provided, use defaults
+    }
+
+    const offset = offsetParam ? parseInt(offsetParam, 10) : body.offset;
+    const batchSize = Math.min(body.batchSize, 100); // Cap at 100
+    const dryRun = body.dryRun;
 
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.SUPABASE_SERVICE_ROLE_KEY!
     );
 
-    // Fetch studies that might need topic reclassification
+    // Get total count first
+    const { count: totalCount } = await supabase
+      .from('kb_research_queue')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'approved');
+
+    // Fetch studies with offset for pagination
     const { data: studies, error: fetchError } = await supabase
       .from('kb_research_queue')
       .select('id, title, abstract, plain_summary, relevant_topics')
       .eq('status', 'approved')
-      .limit(batchSize);
+      .order('id')
+      .range(offset, offset + batchSize - 1);
 
     if (fetchError) {
       return NextResponse.json({ error: fetchError.message }, { status: 500 });
@@ -61,7 +81,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         processed: 0,
         updated: 0,
-        message: 'No studies found'
+        hasMore: false,
+        message: 'No more studies to process'
       });
     }
 
@@ -98,11 +119,22 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    const nextOffset = offset + batchSize;
+    const hasMore = nextOffset < (totalCount || 0);
+
     return NextResponse.json({
       processed: studies.length,
       updated: updates.length,
       dryRun,
-      changes: updates.slice(0, 20) // Limit response size
+      offset,
+      totalStudies: totalCount || 0,
+      hasMore,
+      nextOffset: hasMore ? nextOffset : null,
+      progress: `${Math.min(nextOffset, totalCount || 0)}/${totalCount || 0}`,
+      changes: updates.slice(0, 10),
+      nextCommand: hasMore
+        ? `curl -X POST "https://cbd-portal.vercel.app/api/admin/research/fix-topics?offset=${nextOffset}"`
+        : null
     });
 
   } catch (error) {
