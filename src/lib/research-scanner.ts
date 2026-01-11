@@ -1,5 +1,76 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
+// Blacklist types and cache
+interface BlacklistTerm {
+  term: string;
+  match_type: 'contains' | 'exact' | 'regex';
+  case_sensitive: boolean;
+}
+
+let blacklistCache: BlacklistTerm[] | null = null;
+let blacklistCacheTime = 0;
+const BLACKLIST_CACHE_TTL = 60000; // 1 minute
+
+async function getBlacklist(supabase: SupabaseClient): Promise<BlacklistTerm[]> {
+  const now = Date.now();
+  if (blacklistCache && now - blacklistCacheTime < BLACKLIST_CACHE_TTL) {
+    return blacklistCache;
+  }
+
+  const { data, error } = await supabase
+    .from('research_blacklist')
+    .select('term, match_type, case_sensitive');
+
+  if (error) {
+    console.error('[Blacklist] Failed to fetch:', error);
+    return blacklistCache || [];
+  }
+
+  blacklistCache = data || [];
+  blacklistCacheTime = now;
+  return blacklistCache;
+}
+
+function escapeRegex(str: string): string {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function matchesBlacklist(text: string, blacklist: BlacklistTerm[]): string | null {
+  for (const bl of blacklist) {
+    const searchText = bl.case_sensitive ? text : text.toLowerCase();
+    const searchTerm = bl.case_sensitive ? bl.term : bl.term.toLowerCase();
+
+    let matches = false;
+
+    if (bl.match_type === 'contains') {
+      matches = searchText.includes(searchTerm);
+    } else if (bl.match_type === 'exact') {
+      const regex = new RegExp(`\\b${escapeRegex(searchTerm)}\\b`, bl.case_sensitive ? '' : 'i');
+      matches = regex.test(text);
+    } else if (bl.match_type === 'regex') {
+      try {
+        const regex = new RegExp(bl.term, bl.case_sensitive ? '' : 'i');
+        matches = regex.test(text);
+      } catch {
+        continue;
+      }
+    }
+
+    if (matches) {
+      return bl.term;
+    }
+  }
+  return null;
+}
+
+async function isBlacklisted(supabase: SupabaseClient, study: ResearchItem): Promise<string | null> {
+  const blacklist = await getBlacklist(supabase);
+  if (blacklist.length === 0) return null;
+
+  const textToCheck = `${study.title || ''} ${study.abstract || ''}`;
+  return matchesBlacklist(textToCheck, blacklist);
+}
+
 interface ResearchItem {
   title: string;
   authors?: string;
@@ -1263,6 +1334,14 @@ export async function runDailyResearchScan(
       continue;
     }
 
+    // Check blacklist
+    const blacklistedTerm = await isBlacklisted(supabase, study);
+    if (blacklistedTerm) {
+      console.log(`[Blacklist] Rejected: "${study.title?.substring(0, 50)}..." (matched: "${blacklistedTerm}")`);
+      rejected++;
+      continue;
+    }
+
     // Insert
     const { error } = await supabase
       .from('kb_research_queue')
@@ -1395,6 +1474,14 @@ async function saveSourceResults(
       continue;
     }
 
+    // Check blacklist
+    const blacklistedTerm = await isBlacklisted(supabase, study);
+    if (blacklistedTerm) {
+      console.log(`[Blacklist] Rejected: "${titleShort}..." (matched: "${blacklistedTerm}")`);
+      rejected++;
+      continue;
+    }
+
     // Try to extract country from authors if not already set
     const country = study.country || extractCountryFromAuthors(study.authors);
 
@@ -1431,7 +1518,7 @@ async function saveSourceResults(
     }
   }
 
-  console.log(`[SaveResults] Batch complete: added=${added}, skipped=${skipped} (duplicates), rejected=${rejected} (not relevant)`);
+  console.log(`[SaveResults] Batch complete: added=${added}, skipped=${skipped} (duplicates), rejected=${rejected} (not relevant/blacklisted)`);
   return { added, skipped, rejected, cancelled: false };
 }
 

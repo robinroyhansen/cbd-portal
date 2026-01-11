@@ -69,6 +69,7 @@ function getNavItems(queueCounts: QueueCounts): NavItem[] {
         { name: 'Rejected', href: '/admin/research/rejected', icon: '🚫', badge: queueCounts.rejected },
         { name: 'Citations', href: '/admin/citations', icon: '📚' },
         { name: 'Studies', href: '/admin/research/studies', icon: '📄' },
+        { name: 'Settings', href: '/admin/research/settings', icon: '⚙️' },
       ]
     },
     {
