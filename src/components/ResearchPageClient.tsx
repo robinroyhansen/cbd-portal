@@ -746,20 +746,53 @@ function extractTreatment(text: string): string | null {
 
 // Get primary condition from study
 function getPrimaryCondition(study: any): { key: ConditionKey; data: typeof CONDITIONS[ConditionKey] } | null {
+  // First, check if the study has relevant_topics from the database
+  const topics = Array.isArray(study.relevant_topics)
+    ? study.relevant_topics
+    : typeof study.relevant_topics === 'string'
+      ? [study.relevant_topics]
+      : [];
+
+  // Map database topics to condition keys
+  const topicToCondition: Record<string, ConditionKey> = {
+    'anxiety': 'anxiety', 'depression': 'depression', 'ptsd': 'ptsd', 'sleep': 'sleep',
+    'epilepsy': 'epilepsy', 'parkinsons': 'parkinsons', 'alzheimers': 'alzheimers',
+    'autism': 'autism', 'adhd': 'adhd', 'schizophrenia': 'schizophrenia',
+    'addiction': 'addiction', 'tourettes': 'tourettes',
+    'chronic_pain': 'chronic_pain', 'neuropathic_pain': 'neuropathic_pain',
+    'arthritis': 'arthritis', 'fibromyalgia': 'fibromyalgia', 'ms': 'ms',
+    'inflammation': 'inflammation', 'migraines': 'migraines',
+    'crohns': 'crohns', 'ibs': 'ibs', 'nausea': 'nausea',
+    'cancer': 'cancer', 'chemo_side_effects': 'chemo_side_effects',
+    'acne': 'acne', 'psoriasis': 'psoriasis', 'eczema': 'eczema',
+    'heart': 'heart', 'blood_pressure': 'blood_pressure',
+    'diabetes': 'diabetes', 'obesity': 'obesity', 'athletic': 'athletic', 'veterinary': 'veterinary'
+  };
+
+  // Use first matching topic from database if available
+  for (const topic of topics) {
+    const normalizedTopic = topic.toLowerCase().replace(/[^a-z_]/g, '');
+    const condKey = topicToCondition[normalizedTopic];
+    if (condKey && CONDITIONS[condKey]) {
+      return { key: condKey, data: CONDITIONS[condKey] };
+    }
+  }
+
+  // Fallback: detect from text with priority order
   const text = `${study.title || ''} ${study.abstract || ''}`.toLowerCase();
 
-  // Priority order for conditions (most specific/clinical first)
+  // Priority order for conditions - pain before mental health for better matching
   const conditionPriority: ConditionKey[] = [
     // High-priority clinical conditions (FDA-approved uses first)
     'epilepsy', 'cancer', 'chemo_side_effects',
-    // Addiction should be checked early (before MS due to spasticity overlap)
+    // Addiction should be checked early
     'addiction',
     // Neurological conditions
     'parkinsons', 'alzheimers', 'ms', 'schizophrenia', 'autism', 'tourettes',
+    // Pain conditions BEFORE mental health (pain studies often mention anxiety as outcome)
+    'chronic_pain', 'neuropathic_pain', 'fibromyalgia', 'arthritis', 'migraines',
     // Mental health
     'anxiety', 'ptsd', 'depression', 'adhd',
-    // Pain conditions
-    'chronic_pain', 'neuropathic_pain', 'fibromyalgia', 'arthritis', 'migraines',
     // Sleep
     'sleep',
     // Gastrointestinal
@@ -2689,9 +2722,9 @@ function ResearchCard({ study, onConditionClick, topicStats }: ResearchCardProps
         {study.slug ? (
           <Link
             href={`/research/study/${study.slug}`}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
+            className="inline-flex items-center gap-1 px-3 py-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium whitespace-nowrap shrink-0"
           >
-            View Study
+            View
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
@@ -2701,9 +2734,9 @@ function ResearchCard({ study, onConditionClick, topicStats }: ResearchCardProps
             href={study.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
+            className="inline-flex items-center gap-1 px-3 py-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium whitespace-nowrap shrink-0"
           >
-            View Study
+            View
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
