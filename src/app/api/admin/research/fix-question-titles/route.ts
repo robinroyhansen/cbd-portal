@@ -39,10 +39,13 @@ export async function POST() {
     for (const study of studies || []) {
       results.checked++;
 
-      // Check if original title is a question
-      const isQuestion = QUESTION_STARTERS.test(study.title) || study.title.includes('?');
+      // Check if BOTH original title AND display_title are questions
+      // Original must start with question word, and display_title must also start with question word
+      const originalIsQuestion = QUESTION_STARTERS.test(study.title) || study.title.includes('?');
+      const displayIsQuestion = QUESTION_STARTERS.test(study.display_title);
 
-      if (!isQuestion) {
+      // Only fix if BOTH are questions (display kept the question format)
+      if (!originalIsQuestion || !displayIsQuestion) {
         results.notQuestion++;
         continue;
       }
@@ -117,6 +120,62 @@ export async function POST() {
 export async function GET() {
   return NextResponse.json({
     message: 'POST to this endpoint to fix question titles missing question marks',
-    description: 'Finds display_titles where original title is a question but display_title lacks a ?',
+    description: 'Finds display_titles where BOTH original and display title start with question words but display lacks ?',
+    revert: 'Use DELETE method to revert incorrectly added question marks',
   });
+}
+
+// Revert incorrectly added question marks (statement titles that got ? added)
+export async function DELETE() {
+  try {
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!
+    );
+
+    // Find display_titles that have ? but DON'T start with question words
+    const { data: studies, error: fetchError } = await supabase
+      .from('kb_research_queue')
+      .select('id, title, display_title')
+      .eq('status', 'approved')
+      .not('display_title', 'is', null);
+
+    if (fetchError) {
+      return NextResponse.json({ error: fetchError.message }, { status: 500 });
+    }
+
+    const results = { checked: 0, reverted: 0, examples: [] as { before: string; after: string }[] };
+
+    for (const study of studies || []) {
+      results.checked++;
+
+      // Find titles that have ? but don't start with question words (incorrectly fixed)
+      if (study.display_title.includes('?') && !QUESTION_STARTERS.test(study.display_title)) {
+        // Revert: replace "? " with ": "
+        const revertedTitle = study.display_title.replace(/\?\s*(\d{4})/, ': $1');
+
+        if (revertedTitle !== study.display_title) {
+          const { error: updateError } = await supabase
+            .from('kb_research_queue')
+            .update({ display_title: revertedTitle })
+            .eq('id', study.id);
+
+          if (!updateError) {
+            results.reverted++;
+            if (results.examples.length < 5) {
+              results.examples.push({ before: study.display_title, after: revertedTitle });
+            }
+          }
+        }
+      }
+    }
+
+    return NextResponse.json({ success: true, ...results });
+
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : 'Unknown error' },
+      { status: 500 }
+    );
+  }
 }
