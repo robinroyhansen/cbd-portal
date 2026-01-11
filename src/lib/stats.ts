@@ -1,16 +1,18 @@
 import { createClient } from '@/lib/supabase/server';
 
 export interface HomePageStats {
-  // Primary stats (always shown)
+  // Primary impressive stats
   researchStudies: number;
-  glossaryTerms: number;
+  totalParticipants: number;
+  participantsDisplay: string;
+  expertAnalyses: number;
   healthTopics: number;
-  highQualityStudies: number;
+  glossaryTerms: number;
+  yearsOfResearch: number;
+  yearRange: string;
 
   // Secondary stats (shown if > 0)
   articles: number;
-  expertAnalyses: number;
-  countriesStudied: number;
   brandReviews: number;
 }
 
@@ -24,25 +26,19 @@ export async function getHomePageStats(): Promise<HomePageStats> {
   // Run all queries in parallel for performance
   const [
     studiesResult,
-    highQualityResult,
     topicsResult,
     glossaryResult,
     articlesResult,
-    countriesResult,
     brandsResult,
+    sampleSizeResult,
+    expertAnalysesResult,
+    yearResult,
   ] = await Promise.all([
     // Total approved research studies
     supabase
       .from('kb_research_queue')
       .select('*', { count: 'exact', head: true })
       .eq('status', 'approved'),
-
-    // High quality studies (score >= 70)
-    supabase
-      .from('kb_research_queue')
-      .select('*', { count: 'exact', head: true })
-      .eq('status', 'approved')
-      .gte('relevance_score', 70),
 
     // Get unique health topics
     supabase
@@ -61,18 +57,32 @@ export async function getHomePageStats(): Promise<HomePageStats> {
       .select('*', { count: 'exact', head: true })
       .eq('status', 'published'),
 
-    // Countries with research
-    supabase
-      .from('kb_research_queue')
-      .select('country')
-      .eq('status', 'approved')
-      .not('country', 'is', null),
-
     // Brand reviews with content
     supabase
       .from('brands')
       .select('*', { count: 'exact', head: true })
       .not('review_content', 'is', null),
+
+    // Total research participants (sum of sample sizes)
+    supabase
+      .from('kb_research_queue')
+      .select('sample_size')
+      .eq('status', 'approved')
+      .not('sample_size', 'is', null),
+
+    // Studies with expert analysis (plain_summary not null)
+    supabase
+      .from('kb_research_queue')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'approved')
+      .not('plain_summary', 'is', null),
+
+    // Year range
+    supabase
+      .from('kb_research_queue')
+      .select('year')
+      .eq('status', 'approved')
+      .not('year', 'is', null),
   ]);
 
   // Calculate unique health topics
@@ -83,22 +93,39 @@ export async function getHomePageStats(): Promise<HomePageStats> {
     }
   });
 
-  // Calculate unique countries
-  const uniqueCountries = new Set<string>();
-  countriesResult.data?.forEach(study => {
-    if (study.country) {
-      uniqueCountries.add(study.country);
-    }
-  });
+  // Calculate total participants
+  const totalParticipants = sampleSizeResult.data?.reduce(
+    (sum, s) => sum + (s.sample_size || 0),
+    0
+  ) || 0;
+
+  // Format participants display (e.g., "50K+")
+  let participantsDisplay: string;
+  if (totalParticipants >= 1000000) {
+    participantsDisplay = `${Math.floor(totalParticipants / 1000000)}M+`;
+  } else if (totalParticipants >= 1000) {
+    participantsDisplay = `${Math.floor(totalParticipants / 1000)}K+`;
+  } else {
+    participantsDisplay = `${totalParticipants}+`;
+  }
+
+  // Calculate year range
+  const years = yearResult.data?.map(y => y.year).filter(Boolean) as number[] || [];
+  const minYear = years.length > 0 ? Math.min(...years) : 2000;
+  const maxYear = years.length > 0 ? Math.max(...years) : new Date().getFullYear();
+  const yearRange = `${minYear}-${maxYear}`;
+  const yearsOfResearch = maxYear - minYear;
 
   return {
     researchStudies: studiesResult.count || 0,
-    glossaryTerms: glossaryResult.count || 0,
+    totalParticipants,
+    participantsDisplay,
+    expertAnalyses: expertAnalysesResult.count || 0,
     healthTopics: uniqueTopics.size,
-    highQualityStudies: highQualityResult.count || 0,
+    glossaryTerms: glossaryResult.count || 0,
+    yearsOfResearch,
+    yearRange,
     articles: articlesResult.count || 0,
-    expertAnalyses: 0, // Placeholder - update when expert analyses table exists
-    countriesStudied: uniqueCountries.size,
     brandReviews: brandsResult.count || 0,
   };
 }

@@ -5,6 +5,35 @@ interface HeroProps {
   stats: HomePageStats;
 }
 
+interface StatCardProps {
+  number: string | number;
+  label: string;
+  sublabel?: string;
+  href: string;
+  gradient: string;
+  textColor: string;
+}
+
+function StatCard({ number, label, sublabel, href, gradient, textColor }: StatCardProps) {
+  return (
+    <Link
+      href={href}
+      className={`group relative overflow-hidden rounded-2xl p-6 ${gradient} hover:shadow-lg transition-all duration-300 hover:scale-[1.02]`}
+    >
+      <div className="relative z-10">
+        <div className={`text-4xl md:text-5xl font-bold ${textColor} mb-1`}>
+          {number}
+        </div>
+        <div className="text-sm font-semibold text-gray-700">{label}</div>
+        {sublabel && (
+          <div className="text-xs text-gray-500 mt-0.5">{sublabel}</div>
+        )}
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+    </Link>
+  );
+}
+
 export function Hero({ stats }: HeroProps) {
   return (
     <section className="bg-gradient-to-br from-green-50 via-white to-green-50 py-16 md:py-24">
@@ -17,8 +46,8 @@ export function Hero({ stats }: HeroProps) {
               <br />You Can Trust
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              The world's largest CBD information resource featuring the latest research, comprehensive guides,
-              expert articles, product reviews, and evidence-based insights to help you understand CBD's potential.
+              The world&apos;s largest CBD information resource featuring the latest research, comprehensive guides,
+              expert articles, product reviews, and evidence-based insights to help you understand CBD&apos;s potential.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -46,52 +75,70 @@ export function Hero({ stats }: HeroProps) {
           <div className="hidden md:block">
             <div className="relative">
               {/* Trust signals */}
-              <div className="bg-white rounded-2xl shadow-xl p-8">
-                {/* Primary Stats Row */}
-                <div className="grid grid-cols-2 gap-4">
-                  <Link href="/research" className="text-center p-4 bg-green-50 rounded-xl hover:bg-green-100 transition-colors">
-                    <div className="text-3xl font-bold text-green-700">{stats.researchStudies}+</div>
-                    <div className="text-sm text-gray-600">Research Studies</div>
-                  </Link>
-                  <Link href="/glossary" className="text-center p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors">
-                    <div className="text-3xl font-bold text-blue-700">{stats.glossaryTerms}+</div>
-                    <div className="text-sm text-gray-600">Glossary Terms</div>
-                  </Link>
-                  <Link href="/research" className="text-center p-4 bg-purple-50 rounded-xl hover:bg-purple-100 transition-colors">
-                    <div className="text-3xl font-bold text-purple-700">{stats.healthTopics}+</div>
-                    <div className="text-sm text-gray-600">Health Topics</div>
-                  </Link>
-                  <Link href="/research" className="text-center p-4 bg-orange-50 rounded-xl hover:bg-orange-100 transition-colors">
-                    <div className="text-3xl font-bold text-orange-700">{stats.highQualityStudies}+</div>
-                    <div className="text-sm text-gray-600">High-Quality Studies</div>
-                  </Link>
+              <div className="bg-white rounded-2xl shadow-xl p-6">
+                {/* Headline */}
+                <div className="text-center mb-6">
+                  <h2 className="text-lg font-bold text-gray-800">
+                    The Most Comprehensive CBD Research Database
+                  </h2>
+                  <p className="text-sm text-gray-500 mt-1">
+                    {stats.researchStudies}+ Studies Analyzed. Zero Bias. 100% Evidence-Based.
+                  </p>
                 </div>
 
-                {/* Secondary Stats Row (conditional - only show stats > 0) */}
-                {(stats.articles > 0 || stats.countriesStudied > 0 || stats.brandReviews > 0) && (
-                  <div className="grid grid-cols-3 gap-3 mt-4">
-                    {stats.articles > 0 && (
-                      <Link href="/articles" className="text-center p-3 bg-amber-50 rounded-lg hover:bg-amber-100 transition-colors">
-                        <div className="text-xl font-bold text-amber-700">{stats.articles}+</div>
-                        <div className="text-xs text-gray-600">Expert Articles</div>
-                      </Link>
-                    )}
-                    {stats.countriesStudied > 0 && (
-                      <Link href="/research" className="text-center p-3 bg-teal-50 rounded-lg hover:bg-teal-100 transition-colors">
-                        <div className="text-xl font-bold text-teal-700">{stats.countriesStudied}+</div>
-                        <div className="text-xs text-gray-600">Countries Studied</div>
-                      </Link>
-                    )}
-                    {stats.brandReviews > 0 && (
-                      <Link href="/reviews" className="text-center p-3 bg-rose-50 rounded-lg hover:bg-rose-100 transition-colors">
-                        <div className="text-xl font-bold text-rose-700">{stats.brandReviews}+</div>
-                        <div className="text-xs text-gray-600">Brand Reviews</div>
-                      </Link>
-                    )}
-                  </div>
-                )}
+                {/* Stats Grid - 2 rows of 3 */}
+                <div className="grid grid-cols-3 gap-3">
+                  <StatCard
+                    number={`${stats.researchStudies}+`}
+                    label="Research Studies"
+                    sublabel="Analyzed & Scored"
+                    href="/research"
+                    gradient="bg-gradient-to-br from-green-50 to-green-100"
+                    textColor="text-green-700"
+                  />
+                  <StatCard
+                    number={stats.participantsDisplay}
+                    label="Participants"
+                    sublabel="In clinical trials"
+                    href="/research"
+                    gradient="bg-gradient-to-br from-blue-50 to-blue-100"
+                    textColor="text-blue-700"
+                  />
+                  <StatCard
+                    number={`${stats.expertAnalyses}+`}
+                    label="Expert Analyses"
+                    sublabel="Plain language"
+                    href="/research"
+                    gradient="bg-gradient-to-br from-purple-50 to-purple-100"
+                    textColor="text-purple-700"
+                  />
+                  <StatCard
+                    number={`${stats.healthTopics}+`}
+                    label="Health Conditions"
+                    sublabel="Covered in depth"
+                    href="/research"
+                    gradient="bg-gradient-to-br from-amber-50 to-amber-100"
+                    textColor="text-amber-700"
+                  />
+                  <StatCard
+                    number={`${stats.glossaryTerms}+`}
+                    label="Glossary Terms"
+                    sublabel="Medical terms explained"
+                    href="/glossary"
+                    gradient="bg-gradient-to-br from-teal-50 to-teal-100"
+                    textColor="text-teal-700"
+                  />
+                  <StatCard
+                    number={`${stats.yearsOfResearch}+`}
+                    label="Years of Research"
+                    sublabel={stats.yearRange}
+                    href="/research"
+                    gradient="bg-gradient-to-br from-rose-50 to-rose-100"
+                    textColor="text-rose-700"
+                  />
+                </div>
 
-                <div className="mt-6 pt-6 border-t border-gray-100">
+                <div className="mt-5 pt-5 border-t border-gray-100">
                   <div className="flex items-center gap-3">
                     <div className="flex -space-x-2">
                       <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center border-2 border-white">
