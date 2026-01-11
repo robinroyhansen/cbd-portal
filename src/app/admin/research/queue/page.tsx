@@ -85,6 +85,96 @@ interface ResearchItem {
   reviewed_by?: string;
   rejection_reason?: string;
   discovered_at: string;
+  detected_language?: string;
+  original_title?: string;
+  original_abstract?: string;
+}
+
+// Language badge component
+function LanguageBadge({ language }: { language?: string }) {
+  if (!language || language === 'english') return null;
+
+  const flags: Record<string, string> = {
+    french: '🇫🇷',
+    german: '🇩🇪',
+    spanish: '🇪🇸',
+    portuguese: '🇵🇹',
+    italian: '🇮🇹',
+    chinese: '🇨🇳',
+    japanese: '🇯🇵',
+    korean: '🇰🇷',
+    russian: '🇷🇺',
+    arabic: '🇸🇦',
+  };
+
+  return (
+    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-blue-100 text-blue-800 text-xs rounded-full">
+      {flags[language] || '🌐'} {language.charAt(0).toUpperCase() + language.slice(1)}
+    </span>
+  );
+}
+
+// Translate button component
+function TranslateButton({
+  study,
+  onTranslated
+}: {
+  study: ResearchItem;
+  onTranslated: (data: { translated_title: string; translated_abstract: string; original_title: string; original_abstract: string }) => void;
+}) {
+  const [translating, setTranslating] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  // Already translated
+  if (study.original_title) {
+    return <span className="text-xs text-green-600 font-medium">✓ Translated</span>;
+  }
+
+  // English or no language detected - no translation needed
+  if (!study.detected_language || study.detected_language === 'english') {
+    return null;
+  }
+
+  async function handleTranslate() {
+    setTranslating(true);
+    setError(null);
+
+    try {
+      const res = await fetch('/api/admin/research/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ studyId: study.id })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Translation failed');
+      }
+
+      if (data.translated_title) {
+        onTranslated(data);
+      }
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Unknown error';
+      setError(message);
+    } finally {
+      setTranslating(false);
+    }
+  }
+
+  return (
+    <div className="inline-flex items-center gap-2">
+      <button
+        onClick={handleTranslate}
+        disabled={translating}
+        className="px-2 py-1 bg-blue-600 text-white text-xs rounded hover:bg-blue-700 disabled:opacity-50"
+      >
+        {translating ? 'Translating...' : '🌐 Translate'}
+      </button>
+      {error && <span className="text-xs text-red-600">{error}</span>}
+    </div>
+  );
 }
 
 export default function ResearchQueuePage() {
@@ -683,7 +773,7 @@ export default function ResearchQueuePage() {
                     </div>
                   )}
                   <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
+                    <div className="flex items-center gap-2 mb-2 flex-wrap">
                     {newItemIds.has(item.id) && (
                       <span className="px-2 py-1 text-xs font-bold bg-green-500 text-white rounded-full animate-bounce">
                         NEW
@@ -698,6 +788,23 @@ export default function ResearchQueuePage() {
                     <span className="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">
                       {item.source_site}
                     </span>
+                    <LanguageBadge language={item.detected_language} />
+                    <TranslateButton
+                      study={item}
+                      onTranslated={(data) => {
+                        setResearch(prev => prev.map(r =>
+                          r.id === item.id
+                            ? {
+                                ...r,
+                                title: data.translated_title,
+                                abstract: data.translated_abstract,
+                                original_title: data.original_title,
+                                original_abstract: data.original_abstract
+                              }
+                            : r
+                        ));
+                      }}
+                    />
                   </div>
 
                   <h3 className="font-semibold text-gray-900 mb-2 text-lg">
@@ -741,6 +848,21 @@ export default function ResearchQueuePage() {
                         {item.abstract}
                       </p>
                     </div>
+                  )}
+
+                  {/* Show original text if translated */}
+                  {item.original_title && (
+                    <details className="mb-3">
+                      <summary className="text-xs text-blue-600 hover:text-blue-800 cursor-pointer">
+                        Show original ({item.detected_language})
+                      </summary>
+                      <div className="mt-2 p-3 bg-gray-50 rounded border-l-2 border-blue-300 text-sm">
+                        <p className="font-medium text-gray-600 mb-2">{item.original_title}</p>
+                        {item.original_abstract && (
+                          <p className="text-gray-500 italic line-clamp-4">{item.original_abstract}</p>
+                        )}
+                      </div>
+                    </details>
                   )}
 
                   <div className="flex items-center gap-4 text-xs text-gray-500">

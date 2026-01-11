@@ -1,4 +1,5 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { detectLanguage } from '@/lib/utils/language-detection';
 
 // Blacklist types and cache
 interface BlacklistTerm {
@@ -1436,6 +1437,10 @@ export async function runDailyResearchScan(
       continue;
     }
 
+    // Detect language
+    const textForLang = `${study.title} ${study.abstract || ''}`;
+    const langResult = detectLanguage(textForLang);
+
     // Insert
     const { error } = await supabase
       .from('kb_research_queue')
@@ -1451,6 +1456,7 @@ export async function runDailyResearchScan(
         search_term_matched: study.search_term_matched,
         relevance_score: score,
         relevant_topics: topics,
+        detected_language: langResult.language,
         status: 'pending'
       });
 
@@ -1579,6 +1585,10 @@ async function saveSourceResults(
     // Try to extract country from authors if not already set
     const country = study.country || extractCountryFromAuthors(study.authors);
 
+    // Detect language
+    const textForLang = `${study.title} ${study.abstract || ''}`;
+    const langResult = detectLanguage(textForLang);
+
     // Insert
     const { error } = await supabase
       .from('kb_research_queue')
@@ -1595,6 +1605,7 @@ async function saveSourceResults(
         relevance_score: score,
         relevant_topics: topics,
         country: country,
+        detected_language: langResult.language,
         status: 'pending'
       });
 
