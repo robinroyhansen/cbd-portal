@@ -21,7 +21,7 @@ export async function GET() {
   const { data: brands, error: brandsError } = await supabase
     .from('kb_brands')
     .select('slug')
-    .not('review_content', 'is', null);
+    .eq('is_published', true);
 
   return NextResponse.json({
     studies: {

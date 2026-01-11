@@ -61,11 +61,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  // Brand reviews
+  // Brand reviews (published brands)
   const { data: brands } = await supabase
     .from('kb_brands')
     .select('slug')
-    .not('review_content', 'is', null);
+    .eq('is_published', true);
 
   const reviewPages: MetadataRoute.Sitemap = (brands || []).map(brand => ({
     url: `${SITE_URL}/reviews/${brand.slug}`,
