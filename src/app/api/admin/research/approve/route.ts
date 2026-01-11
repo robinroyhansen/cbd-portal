@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { generateStudySlug } from '@/lib/utils/slug-generator';
+import { extractSampleSize } from '@/lib/utils/extract-sample-size';
 
 interface Study {
   id: string;
@@ -8,6 +9,8 @@ interface Study {
   relevant_topics: string[] | null;
   authors: string | null;
   year: number | null;
+  abstract: string | null;
+  plain_summary: string | null;
 }
 
 export async function POST(request: NextRequest) {
@@ -23,10 +26,10 @@ export async function POST(request: NextRequest) {
       process.env.SUPABASE_SERVICE_ROLE_KEY!
     );
 
-    // Fetch the study to get data for slug generation
+    // Fetch the study to get data for slug generation and sample size extraction
     const { data: study, error: fetchError } = await supabase
       .from('kb_research_queue')
-      .select('id, title, relevant_topics, authors, year')
+      .select('id, title, relevant_topics, authors, year, abstract, plain_summary')
       .eq('id', studyId)
       .single();
 
@@ -66,12 +69,16 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Update study with approval status and new slug
+    // Extract sample size from study text
+    const sampleSize = extractSampleSize(study.title, study.abstract, study.plain_summary);
+
+    // Update study with approval status, slug, and sample size
     const { error: updateError } = await supabase
       .from('kb_research_queue')
       .update({
         status: 'approved',
         slug: finalSlug,
+        sample_size: sampleSize,
         reviewed_at: new Date().toISOString(),
         reviewed_by: 'admin'
       })
@@ -84,7 +91,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       studyId,
-      slug: finalSlug
+      slug: finalSlug,
+      sampleSize
     });
 
   } catch (error) {
