@@ -58,13 +58,12 @@ COMMENT ON COLUMN kb_research_queue.sample_type IS 'Type of study subjects: huma
       .not('sample_size', 'is', null)
       .gt('sample_size', 0);
 
+    // Animal studies - count all (don't filter by sample_size since animal sizes are often 0)
     const { data: animalData } = await supabase
       .from('kb_research_queue')
       .select('sample_size')
       .eq('status', 'approved')
-      .eq('sample_type', 'animal')
-      .not('sample_size', 'is', null)
-      .gt('sample_size', 0);
+      .eq('sample_type', 'animal');
 
     const { data: unknownData } = await supabase
       .from('kb_research_queue')
