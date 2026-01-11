@@ -7,20 +7,37 @@ export async function GET() {
     process.env.SUPABASE_SERVICE_ROLE_KEY!
   );
 
-  const { data: withSlug, count: withSlugCount } = await supabase
+  // This is the exact query used in sitemap.ts
+  const { data: studies, error: studiesError } = await supabase
     .from('kb_research_queue')
-    .select('slug', { count: 'exact' })
+    .select('slug, updated_at')
     .eq('status', 'approved')
     .not('slug', 'is', null);
 
-  const { count: totalCount } = await supabase
-    .from('kb_research_queue')
-    .select('*', { count: 'exact', head: true })
-    .eq('status', 'approved');
+  const { data: glossary, error: glossaryError } = await supabase
+    .from('kb_glossary')
+    .select('slug, updated_at');
+
+  const { data: brands, error: brandsError } = await supabase
+    .from('brands')
+    .select('slug, updated_at')
+    .not('review_content', 'is', null);
 
   return NextResponse.json({
-    totalApproved: totalCount,
-    withSlugs: withSlugCount,
-    sampleSlugs: withSlug?.slice(0, 5).map(s => s.slug)
+    studies: {
+      count: studies?.length || 0,
+      error: studiesError?.message,
+      sample: studies?.slice(0, 3).map(s => s.slug)
+    },
+    glossary: {
+      count: glossary?.length || 0,
+      error: glossaryError?.message,
+      sample: glossary?.slice(0, 3).map(s => s.slug)
+    },
+    brands: {
+      count: brands?.length || 0,
+      error: brandsError?.message,
+      sample: brands?.slice(0, 3).map(s => s.slug)
+    }
   });
 }
