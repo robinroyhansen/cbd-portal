@@ -22,6 +22,8 @@ export default function ResearchSettingsPage() {
   const [saving, setSaving] = useState(false);
   const [applying, setApplying] = useState(false);
   const [applyResult, setApplyResult] = useState<{ rejected: number; checked: number } | null>(null);
+  const [scanningApproved, setScanningApproved] = useState(false);
+  const [approvedResult, setApprovedResult] = useState<{ found: number; checked: number; studies: { id: string; title: string; matchedTerm: string }[] } | null>(null);
   const supabase = createClient();
 
   useEffect(() => {
@@ -98,6 +100,28 @@ export default function ResearchSettingsPage() {
     }
 
     setApplying(false);
+  }
+
+  async function checkApprovedStudies() {
+    if (!confirm('This will check all APPROVED studies against the blacklist. Matches will be flagged for review (not auto-rejected). Continue?')) return;
+
+    setScanningApproved(true);
+    setApprovedResult(null);
+
+    try {
+      const res = await fetch('/api/admin/research/check-approved-blacklist', { method: 'POST' });
+      const data = await res.json();
+      setApprovedResult({
+        found: data.found,
+        checked: data.checked,
+        studies: data.flaggedStudies || []
+      });
+    } catch (error) {
+      console.error('Error checking approved studies:', error);
+      alert('Failed to check approved studies');
+    }
+
+    setScanningApproved(false);
   }
 
   return (
@@ -220,36 +244,92 @@ export default function ResearchSettingsPage() {
 
       {/* Bulk Actions */}
       <div className="bg-white rounded-lg border p-6">
-        <h2 className="text-lg font-semibold mb-2">Bulk Actions</h2>
-        <p className="text-sm text-gray-600 mb-4">
-          Apply the blacklist to existing pending studies that were added before the blacklist was configured.
-        </p>
+        <h2 className="text-lg font-semibold mb-4">Bulk Actions</h2>
 
-        <button
-          onClick={applyBlacklistToExisting}
-          disabled={applying || terms.length === 0}
-          className="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 disabled:opacity-50"
-        >
-          {applying ? 'Applying...' : 'Apply Blacklist to Pending Studies'}
-        </button>
-
-        {terms.length === 0 && (
-          <p className="text-sm text-gray-500 mt-2">
-            Add blacklist terms above before applying.
+        {/* Pending Studies */}
+        <div className="mb-6">
+          <h3 className="font-medium text-gray-900 mb-2">Pending Studies</h3>
+          <p className="text-sm text-gray-600 mb-3">
+            Auto-reject pending studies that match blacklist terms.
           </p>
-        )}
+          <button
+            onClick={applyBlacklistToExisting}
+            disabled={applying || terms.length === 0}
+            className="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 disabled:opacity-50"
+          >
+            {applying ? 'Applying...' : 'Apply Blacklist to Pending Studies'}
+          </button>
 
-        {applyResult && (
-          <div className={`mt-4 p-3 rounded-lg ${
-            applyResult.rejected > 0 ? 'bg-green-50 text-green-800' : 'bg-gray-50 text-gray-600'
-          }`}>
-            {applyResult.rejected > 0 ? (
-              <>Rejected <strong>{applyResult.rejected}</strong> of {applyResult.checked} pending studies</>
-            ) : (
-              <>Checked {applyResult.checked} studies — no matches found</>
-            )}
-          </div>
-        )}
+          {terms.length === 0 && (
+            <p className="text-sm text-gray-500 mt-2">
+              Add blacklist terms above before applying.
+            </p>
+          )}
+
+          {applyResult && (
+            <div className={`mt-3 p-3 rounded-lg ${
+              applyResult.rejected > 0 ? 'bg-green-50 text-green-800' : 'bg-gray-50 text-gray-600'
+            }`}>
+              {applyResult.rejected > 0 ? (
+                <>Rejected <strong>{applyResult.rejected}</strong> of {applyResult.checked} pending studies</>
+              ) : (
+                <>Checked {applyResult.checked} studies — no matches found</>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* Approved Studies */}
+        <div className="pt-6 border-t">
+          <h3 className="font-medium text-gray-900 mb-2">Approved Studies</h3>
+          <p className="text-sm text-gray-600 mb-3">
+            Check already-approved studies against the blacklist. Matches will be flagged for manual review, not auto-rejected.
+          </p>
+          <button
+            onClick={checkApprovedStudies}
+            disabled={scanningApproved || terms.length === 0}
+            className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50"
+          >
+            {scanningApproved ? 'Checking...' : 'Check Approved Studies'}
+          </button>
+
+          {approvedResult && (
+            <div className={`mt-3 p-3 rounded-lg ${
+              approvedResult.found > 0 ? 'bg-red-50' : 'bg-gray-50'
+            }`}>
+              {approvedResult.found > 0 ? (
+                <div>
+                  <p className="text-red-800">
+                    Found <strong>{approvedResult.found}</strong> approved studies matching blacklist terms
+                    (out of {approvedResult.checked} total)
+                  </p>
+                  {approvedResult.studies.length > 0 && (
+                    <div className="mt-3 space-y-2">
+                      <p className="text-sm font-medium text-red-700">Flagged studies:</p>
+                      {approvedResult.studies.map((study) => (
+                        <div key={study.id} className="text-sm bg-white p-2 rounded border border-red-200">
+                          <span className="text-gray-900">{study.title}</span>
+                          <span className="text-red-600 ml-2 text-xs">
+                            (matched: &quot;{study.matchedTerm}&quot;)
+                          </span>
+                        </div>
+                      ))}
+                      {approvedResult.found > approvedResult.studies.length && (
+                        <p className="text-xs text-red-600">
+                          ... and {approvedResult.found - approvedResult.studies.length} more
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <p className="text-gray-600">
+                  Checked {approvedResult.checked} approved studies — no matches found
+                </p>
+              )}
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Common False Positives Reference */}
