@@ -12,7 +12,25 @@ export async function GET() {
       process.env.SUPABASE_SERVICE_ROLE_KEY!
     );
 
-    // Find studies with animal keywords in title
+    // Find studies with animal keywords in title - be specific
+    const { data: titleMice } = await supabase
+      .from('kb_research_queue')
+      .select('id, title, sample_type')
+      .eq('status', 'approved')
+      .ilike('title', '%mice%');
+
+    const { data: titleRat } = await supabase
+      .from('kb_research_queue')
+      .select('id, title, sample_type')
+      .eq('status', 'approved')
+      .or('title.ilike.%rat %,title.ilike.%rats %,title.ilike.%rats.%,title.ilike.%rat.%');
+
+    const { data: titleMurine } = await supabase
+      .from('kb_research_queue')
+      .select('id, title, sample_type')
+      .eq('status', 'approved')
+      .ilike('title', '%murine%');
+
     const { data: titleAnimal } = await supabase
       .from('kb_research_queue')
       .select('id, title, sample_type')
@@ -58,9 +76,14 @@ export async function GET() {
     return NextResponse.json({
       potentialAnimalStudies: {
         byTitle: titleAnimal?.length || 0,
+        byTitleMice: titleMice?.length || 0,
+        byTitleRat: titleRat?.length || 0,
+        byTitleMurine: titleMurine?.length || 0,
         byAbstract: abstractAnimal?.length || 0,
         bySummary: summaryAnimal?.length || 0,
-        titleExamples: titleAnimal?.slice(0, 5).map(s => s.title?.substring(0, 60))
+        miceExamples: titleMice?.slice(0, 5).map(s => s.title),
+        ratExamples: titleRat?.slice(0, 5).map(s => s.title),
+        murineExamples: titleMurine?.slice(0, 5).map(s => s.title),
       },
       currentDistribution: distribution,
       extractionExamples: examples,
