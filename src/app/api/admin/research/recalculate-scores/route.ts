@@ -1,19 +1,25 @@
 import { createServiceClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
-import { calculateRelevance, ScoreBreakdown } from '@/lib/research-scanner';
+import { calculateRelevance } from '@/lib/research-scanner';
 
-interface StudyForRecalc {
-  id: string;
-  title: string;
-  abstract: string | null;
-  year: number | null;
+function getBucket(score: number): string {
+  if (score <= 10) return '0-10';
+  if (score <= 20) return '11-20';
+  if (score <= 30) return '21-30';
+  if (score <= 40) return '31-40';
+  if (score <= 50) return '41-50';
+  if (score <= 60) return '51-60';
+  if (score <= 70) return '61-70';
+  if (score <= 80) return '71-80';
+  if (score <= 90) return '81-90';
+  return '91-100';
 }
 
 export async function POST() {
   try {
     const supabase = createServiceClient();
 
-    // Get all studies
+    // Get ALL studies
     const { data: studies, error: studiesError } = await supabase
       .from('kb_research_queue')
       .select('id, title, abstract, year');
@@ -28,62 +34,64 @@ export async function POST() {
     }
 
     let updated = 0;
-    let errors = 0;
-    const scoreDistribution = {
-      '0-20': 0,
-      '21-40': 0,
-      '41-60': 0,
-      '61-80': 0,
-      '81-100': 0,
+    const allScores: number[] = [];
+    const distribution: Record<string, number> = {
+      '0-10': 0,
+      '11-20': 0,
+      '21-30': 0,
+      '31-40': 0,
+      '41-50': 0,
+      '51-60': 0,
+      '61-70': 0,
+      '71-80': 0,
+      '81-90': 0,
+      '91-100': 0,
     };
 
-    // Process in batches
-    const batchSize = 50;
-    for (let i = 0; i < studies.length; i += batchSize) {
-      const batch = studies.slice(i, i + batchSize);
+    // Process all studies
+    for (const study of studies) {
+      const { score, topics, breakdown } = calculateRelevance({
+        title: study.title,
+        abstract: study.abstract || undefined,
+        year: study.year || undefined,
+        url: '',
+        source_site: '',
+      });
 
-      for (const study of batch) {
-        const { score, topics, breakdown } = calculateRelevance({
-          title: study.title,
-          abstract: study.abstract || undefined,
-          year: study.year || undefined,
-          url: '', // Required by interface but not used in scoring
-          source_site: '',
-        });
+      const { error: updateError } = await supabase
+        .from('kb_research_queue')
+        .update({
+          relevance_score: score,
+          relevant_topics: topics,
+          score_breakdown: breakdown,
+        })
+        .eq('id', study.id);
 
-        const { error: updateError } = await supabase
-          .from('kb_research_queue')
-          .update({
-            relevance_score: score,
-            relevant_topics: topics,
-            score_breakdown: breakdown,
-          })
-          .eq('id', study.id);
-
-        if (updateError) {
-          console.error(`Error updating study ${study.id}:`, updateError);
-          errors++;
-        } else {
-          updated++;
-
-          // Track distribution
-          if (score <= 20) scoreDistribution['0-20']++;
-          else if (score <= 40) scoreDistribution['21-40']++;
-          else if (score <= 60) scoreDistribution['41-60']++;
-          else if (score <= 80) scoreDistribution['61-80']++;
-          else scoreDistribution['81-100']++;
-        }
+      if (!updateError) {
+        updated++;
+        allScores.push(score);
+        const bucket = getBucket(score);
+        distribution[bucket]++;
       }
-
-      console.log(`[Recalculate] Processed ${Math.min(i + batchSize, studies.length)} of ${studies.length} studies`);
     }
 
+    // Calculate stats
+    const sortedScores = [...allScores].sort((a, b) => a - b);
+    const stats = {
+      average: allScores.length > 0 ? Math.round(allScores.reduce((a, b) => a + b, 0) / allScores.length) : 0,
+      median: allScores.length > 0 ? sortedScores[Math.floor(sortedScores.length / 2)] : 0,
+      min: allScores.length > 0 ? Math.min(...allScores) : 0,
+      max: allScores.length > 0 ? Math.max(...allScores) : 0,
+    };
+
+    console.log(`[Recalculate] Completed: ${updated}/${studies.length} studies, avg=${stats.average}, range=${stats.min}-${stats.max}`);
+
     return NextResponse.json({
+      success: true,
       updated,
-      errors,
       total: studies.length,
-      distribution: scoreDistribution,
-      message: `Recalculated ${updated} study scores (${errors} errors)`,
+      distribution,
+      stats,
     });
   } catch (error) {
     console.error('Error recalculating scores:', error);
