@@ -8,7 +8,7 @@ interface SearchResult {
   slug: string;
   title: string;
   excerpt: string;
-  type: 'article' | 'category';
+  type: 'article' | 'category' | 'study' | 'glossary';
 }
 
 export function SearchBar() {
@@ -38,13 +38,28 @@ export function SearchBar() {
           .select('slug, title, excerpt')
           .eq('status', 'published')
           .or(`title.ilike.%${query}%,excerpt.ilike.%${query}%,content.ilike.%${query}%`)
-          .limit(5);
+          .limit(4);
 
         // Search categories
         const { data: categories } = await supabase
           .from('kb_categories')
           .select('slug, name, description')
           .or(`name.ilike.%${query}%,description.ilike.%${query}%`)
+          .limit(2);
+
+        // Search research studies
+        const { data: studies } = await supabase
+          .from('research_queue')
+          .select('slug, title, authors, publication')
+          .eq('status', 'approved')
+          .or(`title.ilike.%${query}%,authors.ilike.%${query}%,abstract.ilike.%${query}%`)
+          .limit(3);
+
+        // Search glossary terms
+        const { data: glossary } = await supabase
+          .from('glossary_terms')
+          .select('slug, term, short_definition')
+          .or(`term.ilike.%${query}%,short_definition.ilike.%${query}%`)
           .limit(3);
 
         const articleResults: SearchResult[] = (articles || []).map(a => ({
@@ -61,7 +76,21 @@ export function SearchBar() {
           type: 'category' as const
         }));
 
-        setResults([...categoryResults, ...articleResults]);
+        const studyResults: SearchResult[] = (studies || []).map(s => ({
+          slug: s.slug,
+          title: s.title,
+          excerpt: `${s.authors} • ${s.publication}`,
+          type: 'study' as const
+        }));
+
+        const glossaryResults: SearchResult[] = (glossary || []).map(g => ({
+          slug: g.slug,
+          title: g.term,
+          excerpt: g.short_definition || '',
+          type: 'glossary' as const
+        }));
+
+        setResults([...categoryResults, ...studyResults, ...glossaryResults, ...articleResults]);
       } catch (error) {
         console.error('Search error:', error);
         setResults([]);
@@ -99,10 +128,13 @@ export function SearchBar() {
   };
 
   const handleResultClick = (result: SearchResult) => {
-    const url = result.type === 'article'
-      ? `/articles/${result.slug}`
-      : `/categories/${result.slug}`;
-    router.push(url);
+    const urls: Record<SearchResult['type'], string> = {
+      article: `/articles/${result.slug}`,
+      category: `/categories/${result.slug}`,
+      study: `/research/study/${result.slug}`,
+      glossary: `/glossary/${result.slug}`
+    };
+    router.push(urls[result.type]);
     setIsOpen(false);
     setQuery('');
   };
@@ -156,11 +188,15 @@ export function SearchBar() {
                     <span className={`text-xs px-2 py-0.5 rounded ${
                       result.type === 'category'
                         ? 'bg-purple-100 text-purple-700'
+                        : result.type === 'study'
+                        ? 'bg-blue-100 text-blue-700'
+                        : result.type === 'glossary'
+                        ? 'bg-amber-100 text-amber-700'
                         : 'bg-green-100 text-green-700'
                     }`}>
-                      {result.type === 'category' ? 'Category' : 'Article'}
+                      {result.type === 'category' ? 'Category' : result.type === 'study' ? 'Study' : result.type === 'glossary' ? 'Term' : 'Article'}
                     </span>
-                    <span className="font-medium text-gray-900">{result.title}</span>
+                    <span className="font-medium text-gray-900 line-clamp-1">{result.title}</span>
                   </div>
                   {result.excerpt && (
                     <p className="text-sm text-gray-500 mt-1 line-clamp-1">{result.excerpt}</p>

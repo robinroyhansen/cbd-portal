@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { useState, useEffect, useCallback } from 'react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { AdminAuthProvider, useAdminAuth } from '../../lib/admin-auth';
 import { AdminProtected } from '../../components/AdminProtected';
@@ -14,56 +14,88 @@ interface NavItem {
   subItems?: NavItem[];
 }
 
-const staticNavItems: NavItem[] = [
-  { name: 'Dashboard', href: '/admin/dashboard', icon: '📊' },
-  {
-    name: 'Articles',
-    href: '/admin/articles',
-    icon: '📝',
-    subItems: [
-      { name: 'All Articles', href: '/admin/articles', icon: '📋' },
-      { name: 'Create Article', href: '/admin/articles/new', icon: '➕' },
-      { name: 'Categories', href: '/admin/categories', icon: '🏷️' },
-      { name: 'Comments', href: '/admin/articles/comments', icon: '💬' },
-      { name: 'Authors', href: '/admin/authors', icon: '👤' },
-    ]
-  },
-  {
-    name: 'Research',
-    href: '/admin/research',
-    icon: '🔬',
-    subItems: [
-      { name: 'Scanner', href: '/admin/research', icon: '🔍' },
-      { name: 'Queue', href: '/admin/research/queue', icon: '📋' },
-      { name: 'Rejected', href: '/admin/research/rejected', icon: '🚫' },
-      { name: 'Citations', href: '/admin/citations', icon: '📚' },
-      { name: 'Studies', href: '/admin/research/studies', icon: '📄' },
-    ]
-  },
-  {
-    name: 'Reviews',
-    href: '/admin/brands',
-    icon: '⭐',
-    subItems: [
-      { name: 'Brands', href: '/admin/brands', icon: '🏢' },
-      { name: 'All Reviews', href: '/admin/reviews', icon: '📝' },
-    ]
-  },
-  { name: 'Glossary', href: '/admin/glossary', icon: '📖' },
-  { name: 'Media Library', href: '/admin/media', icon: '🖼️' },
-  { name: 'Languages', href: '/admin/languages', icon: '🌍' },
-];
+interface QueueCounts {
+  pending: number;
+  rejected: number;
+}
+
+function useQueueCounts() {
+  const [counts, setCounts] = useState<QueueCounts>({ pending: 0, rejected: 0 });
+
+  const fetchCounts = useCallback(async () => {
+    try {
+      const res = await fetch('/api/admin/queue-count');
+      if (res.ok) {
+        const data = await res.json();
+        setCounts(data);
+      }
+    } catch (error) {
+      console.error('Failed to fetch queue counts:', error);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchCounts();
+    // Refresh every 30 seconds
+    const interval = setInterval(fetchCounts, 30000);
+    return () => clearInterval(interval);
+  }, [fetchCounts]);
+
+  return counts;
+}
+
+function getNavItems(queueCounts: QueueCounts): NavItem[] {
+  return [
+    { name: 'Dashboard', href: '/admin/dashboard', icon: '📊' },
+    {
+      name: 'Articles',
+      href: '/admin/articles',
+      icon: '📝',
+      subItems: [
+        { name: 'All Articles', href: '/admin/articles', icon: '📋' },
+        { name: 'Create Article', href: '/admin/articles/new', icon: '➕' },
+        { name: 'Categories', href: '/admin/categories', icon: '🏷️' },
+        { name: 'Comments', href: '/admin/articles/comments', icon: '💬' },
+        { name: 'Authors', href: '/admin/authors', icon: '👤' },
+      ]
+    },
+    {
+      name: 'Research',
+      href: '/admin/research',
+      icon: '🔬',
+      subItems: [
+        { name: 'Scanner', href: '/admin/research', icon: '🔍' },
+        { name: 'Queue', href: '/admin/research/queue', icon: '📋', badge: queueCounts.pending },
+        { name: 'Rejected', href: '/admin/research/rejected', icon: '🚫', badge: queueCounts.rejected },
+        { name: 'Citations', href: '/admin/citations', icon: '📚' },
+        { name: 'Studies', href: '/admin/research/studies', icon: '📄' },
+      ]
+    },
+    {
+      name: 'Reviews',
+      href: '/admin/brands',
+      icon: '⭐',
+      subItems: [
+        { name: 'Brands', href: '/admin/brands', icon: '🏢' },
+        { name: 'All Reviews', href: '/admin/reviews', icon: '📝' },
+      ]
+    },
+    { name: 'Glossary', href: '/admin/glossary', icon: '📖' },
+    { name: 'Media Library', href: '/admin/media', icon: '🖼️' },
+    { name: 'Languages', href: '/admin/languages', icon: '🌍' },
+  ];
+}
 
 function AdminLayoutInner({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const router = useRouter();
   const pathname = usePathname();
   const [expandedItems, setExpandedItems] = useState<string[]>(['Articles', 'Research', 'Reviews']);
+  const queueCounts = useQueueCounts();
 
-  const navItems = staticNavItems;
+  const navItems = getNavItems(queueCounts);
 
   const toggleExpanded = (itemName: string) => {
     setExpandedItems(prev =>
@@ -127,14 +159,25 @@ function AdminLayoutInner({
                               <li key={subItem.href}>
                                 <Link
                                   href={subItem.href}
-                                  className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-colors ${
+                                  className={`flex items-center justify-between px-4 py-2 rounded-lg transition-colors ${
                                     isSubActive
                                       ? 'bg-primary-500 text-white'
                                       : 'hover:bg-gray-700 text-gray-300'
                                   }`}
                                 >
-                                  <span className="text-sm">{subItem.icon}</span>
-                                  <span className="text-sm">{subItem.name}</span>
+                                  <div className="flex items-center gap-3">
+                                    <span className="text-sm">{subItem.icon}</span>
+                                    <span className="text-sm">{subItem.name}</span>
+                                  </div>
+                                  {subItem.badge !== undefined && subItem.badge > 0 && (
+                                    <span className={`px-2 py-0.5 text-xs font-bold rounded-full min-w-[20px] text-center ${
+                                      subItem.badge > 10
+                                        ? 'bg-red-500 text-white'
+                                        : 'bg-amber-500 text-white'
+                                    }`}>
+                                      {subItem.badge > 99 ? '99+' : subItem.badge}
+                                    </span>
+                                  )}
                                 </Link>
                               </li>
                             );
