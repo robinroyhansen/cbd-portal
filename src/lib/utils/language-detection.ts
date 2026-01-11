@@ -72,10 +72,20 @@ const LANGUAGE_PATTERNS: { lang: string; patterns: RegExp[]; threshold: number }
   },
 ];
 
-export function detectLanguage(text: string): LanguageResult {
+// Check if text is likely English based on common English words
+function isLikelyEnglish(text: string): boolean {
+  const englishPatterns = /\b(the|and|of|to|in|for|with|on|that|this|from|by|as|an|be|are|is|was|were|been|have|has|had|will|would|could|should|may|might|can|study|treatment|patients|clinical|trial|effect|results)\b/gi;
+  const matches = text.match(englishPatterns) || [];
+  return matches.length >= 5;
+}
+
+export function detectLanguage(text: string, title?: string): LanguageResult {
   if (!text || text.length < 20) {
     return { language: 'english', confidence: 50, isEnglish: true };
   }
+
+  // If title is clearly English, require MUCH stronger abstract evidence
+  const titleIsEnglish = !title || isLikelyEnglish(title);
 
   const sample = text.slice(0, 1000);
   let detectedLang = 'english';
@@ -90,7 +100,10 @@ export function detectLanguage(text: string): LanguageResult {
       }
     }
 
-    if (score >= threshold && score > maxScore) {
+    // Use higher threshold if title is clearly English (reduce false positives)
+    const effectiveThreshold = titleIsEnglish ? Math.max(threshold, 12) : threshold;
+
+    if (score >= effectiveThreshold && score > maxScore) {
       maxScore = score;
       detectedLang = lang;
     }

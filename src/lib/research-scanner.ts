@@ -1446,9 +1446,9 @@ export async function runDailyResearchScan(
       continue;
     }
 
-    // Detect language
+    // Detect language (pass title separately for better detection)
     const textForLang = `${study.title} ${study.abstract || ''}`;
-    const langResult = detectLanguage(textForLang);
+    const langResult = detectLanguage(textForLang, study.title);
 
     // Insert with both scores
     const { error } = await supabase
@@ -1605,9 +1605,9 @@ async function saveSourceResults(
     // Try to extract country from authors if not already set
     const country = study.country || extractCountryFromAuthors(study.authors);
 
-    // Detect language
+    // Detect language (pass title separately for better detection)
     const textForLang = `${study.title} ${study.abstract || ''}`;
-    const langResult = detectLanguage(textForLang);
+    const langResult = detectLanguage(textForLang, study.title);
 
     // Insert with both scores
     const { error } = await supabase

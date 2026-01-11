@@ -49,7 +49,7 @@ export async function POST() {
 
     for (const study of studies) {
       const text = `${study.title} ${study.abstract || ''}`;
-      const result = detectLanguage(text);
+      const result = detectLanguage(text, study.title);
 
       // Track distribution
       distribution[result.language] = (distribution[result.language] || 0) + 1;
