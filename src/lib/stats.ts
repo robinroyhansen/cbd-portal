@@ -114,12 +114,12 @@ export async function getHomePageStats(): Promise<HomePageStats> {
     0
   ) || 0;
 
-  // Format human participants display (e.g., "2.5K+")
+  // Format human participants display - show full number up to 99,999
   let humanParticipantsDisplay: string;
   if (humanParticipants >= 1000000) {
     humanParticipantsDisplay = `${(humanParticipants / 1000000).toFixed(1)}M+`;
-  } else if (humanParticipants >= 1000) {
-    humanParticipantsDisplay = `${(humanParticipants / 1000).toFixed(1)}K+`.replace('.0K', 'K');
+  } else if (humanParticipants >= 100000) {
+    humanParticipantsDisplay = `${Math.floor(humanParticipants / 1000)}K+`;
   } else {
     humanParticipantsDisplay = `${humanParticipants.toLocaleString()}+`;
   }
