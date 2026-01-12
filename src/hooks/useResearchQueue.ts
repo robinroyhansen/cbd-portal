@@ -122,9 +122,9 @@ export function useResearchQueue(
     }
 
     // Filter by study subject - default to human studies and reviews only
-    // Use explicit eq clauses instead of in() to avoid PostgREST parsing issues
+    // Use in() filter which is simpler and more reliable
     if (!filters.includeAnimalStudies) {
-      query = query.or('study_subject.eq.human,study_subject.eq.review,study_subject.is.null');
+      query = query.in('study_subject', ['human', 'review']);
     }
 
     if (!countOnly) {
@@ -279,10 +279,9 @@ export function useResearchQueue(
           }
 
           // Filter by study subject for real-time updates
-          // Include items with null study_subject (not yet classified) as well as human/review
           if (!filters.includeAnimalStudies) {
-            const allowedTypes = ['human', 'review', null, undefined];
-            if (newItem.studySubject && !allowedTypes.includes(newItem.studySubject)) {
+            const allowedTypes = ['human', 'review'];
+            if (!allowedTypes.includes(newItem.studySubject as string)) {
               shouldAdd = false;
             }
           }
