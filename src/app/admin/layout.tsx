@@ -47,6 +47,7 @@ function useQueueCounts() {
 function getNavItems(queueCounts: QueueCounts): NavItem[] {
   return [
     { name: 'Dashboard', href: '/admin/dashboard', icon: '📊' },
+    { name: 'Projects', href: '/admin/projects', icon: '📋' },
     {
       name: 'Articles',
       href: '/admin/articles',

@@ -379,7 +379,7 @@ const TOPIC_KEYWORDS: Record<string, string[]> = {
   // === PAIN & INFLAMMATION ===
   'chronic_pain': ['chronic pain', 'persistent pain', 'long-term pain', 'pain management', 'analgesic', 'pain relief', 'opioid-sparing'],
   'neuropathic_pain': ['neuropathic', 'neuropathy', 'nerve pain', 'peripheral neuropathy', 'diabetic neuropathy', 'neuralgia', 'allodynia'],
-  'arthritis': ['arthritis', 'rheumatoid', 'osteoarthritis', 'joint pain', 'joint inflammation', 'RA', 'synovitis', 'articular'],
+  'arthritis': ['arthritis', 'rheumatoid', 'osteoarthritis', 'joint pain', 'joint inflammation', 'synovitis', 'articular'],
   'fibromyalgia': ['fibromyalgia', 'fibro', 'widespread pain', 'tender points', 'central sensitization'],
   'ms': ['multiple sclerosis', 'demyelinating', 'demyelination', 'spasticity', 'Sativex', 'nabiximols', 'relapsing-remitting', 'rrms', 'ppms', 'spms'],
   'inflammation': ['inflammation', 'anti-inflammatory', 'cytokine', 'TNF-alpha', 'interleukin', 'NF-kB', 'COX-2', 'prostaglandin', 'inflammatory'],
@@ -1179,11 +1179,14 @@ export function calculateQualityScore(study: ResearchItem): { score: number; top
     recency: 0
   };
 
-  // Collect matching topics
+  // Collect matching topics using word boundary matching for accuracy
   const topics: string[] = [];
   for (const [topic, keywords] of Object.entries(TOPIC_KEYWORDS)) {
     for (const keyword of keywords) {
-      if (text.includes(keyword.toLowerCase())) {
+      // Use word boundary regex to avoid false positives (e.g., "rat" matching "contrast")
+      const keywordLower = keyword.toLowerCase();
+      const regex = new RegExp(`\\b${keywordLower.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+      if (regex.test(text)) {
         if (!topics.includes(topic)) {
           topics.push(topic);
         }
