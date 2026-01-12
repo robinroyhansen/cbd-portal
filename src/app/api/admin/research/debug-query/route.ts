@@ -1,0 +1,93 @@
+import { NextResponse } from 'next/server';
+import { createClient } from '@supabase/supabase-js';
+
+export async function GET() {
+  try {
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!
+    );
+
+    // Test 1: Simple count query
+    const { count: totalCount, error: countError } = await supabase
+      .from('kb_research_queue')
+      .select('*', { count: 'exact', head: true });
+
+    if (countError) {
+      return NextResponse.json({
+        test: 'count',
+        error: countError.message,
+        code: countError.code,
+        details: countError.details
+      }, { status: 500 });
+    }
+
+    // Test 2: Select with all fields used in useResearchQueue
+    const { data: items, error: selectError } = await supabase
+      .from('kb_research_queue')
+      .select(`
+        id,
+        title,
+        authors,
+        publication,
+        year,
+        abstract,
+        url,
+        doi,
+        source_site,
+        search_term_matched,
+        relevance_score,
+        relevant_topics,
+        status,
+        study_subject,
+        job_id,
+        created_at,
+        updated_at,
+        reviewed_at,
+        reviewed_by
+      `)
+      .eq('status', 'pending')
+      .in('study_subject', ['human', 'review'])
+      .order('created_at', { ascending: false })
+      .limit(5);
+
+    if (selectError) {
+      return NextResponse.json({
+        test: 'select',
+        error: selectError.message,
+        code: selectError.code,
+        details: selectError.details
+      }, { status: 500 });
+    }
+
+    // Test 3: Check table columns
+    const { data: sampleRow, error: sampleError } = await supabase
+      .from('kb_research_queue')
+      .select('*')
+      .limit(1)
+      .single();
+
+    const columns = sampleRow ? Object.keys(sampleRow) : [];
+
+    return NextResponse.json({
+      success: true,
+      totalCount,
+      itemsReturned: items?.length || 0,
+      sampleItem: items?.[0] ? {
+        id: items[0].id,
+        title: items[0].title?.substring(0, 50),
+        study_subject: items[0].study_subject,
+        status: items[0].status
+      } : null,
+      tableColumns: columns,
+      hasCategories: columns.includes('categories'),
+      queriesWorking: true
+    });
+
+  } catch (error) {
+    return NextResponse.json({
+      error: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : undefined
+    }, { status: 500 });
+  }
+}

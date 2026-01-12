@@ -171,11 +171,13 @@ export function useResearchQueue(
       ]);
 
       if (itemsResponse.error) {
-        throw new Error(itemsResponse.error.message);
+        console.error('Items query error:', itemsResponse.error);
+        throw new Error(`Items query failed: ${itemsResponse.error.message} (code: ${itemsResponse.error.code})`);
       }
 
       if (countResponse.error) {
-        throw new Error(countResponse.error.message);
+        console.error('Count query error:', countResponse.error);
+        throw new Error(`Count query failed: ${countResponse.error.message} (code: ${countResponse.error.code})`);
       }
 
       const transformedItems = itemsResponse.data.map(transformItem);
