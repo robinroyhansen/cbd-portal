@@ -37,7 +37,8 @@ interface Study {
   url: string;
   doi?: string;
   source_site: string;
-  relevance_score: number;
+  quality_score?: number;
+  relevance_score?: number;
   relevant_topics: string[];
   status: string;
   reviewed_at?: string;
@@ -308,6 +309,10 @@ export default function AdminStudiesPage() {
         let bValue: any;
 
         switch (sortBy) {
+          case 'relevance':
+            aValue = a.relevance_score ?? 0;
+            bValue = b.relevance_score ?? 0;
+            break;
           case 'quality':
             aValue = a.qualityScore;
             bValue = b.qualityScore;
@@ -655,8 +660,9 @@ export default function AdminStudiesPage() {
             className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-blue-500"
           >
             <option value="reviewed_at">Sort: Recent</option>
-            <option value="year">Sort: Year</option>
+            <option value="relevance">Sort: Relevance</option>
             <option value="quality">Sort: Quality</option>
+            <option value="year">Sort: Year</option>
             <option value="title">Sort: Title</option>
             <option value="topic">Sort: Topic</option>
           </select>
