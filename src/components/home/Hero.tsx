@@ -68,7 +68,7 @@ export function Hero({ stats }: HeroProps) {
               </div>
 
               {/* Primary Stats - The Big Three */}
-              <div className="grid grid-cols-3 gap-6 mb-8">
+              <div className="grid grid-cols-3 gap-6 mb-6">
                 <Link href="/research" className="text-center group">
                   <div className="text-5xl font-bold text-green-600 group-hover:text-green-700 transition-colors">
                     {stats.researchStudies}
@@ -93,6 +93,39 @@ export function Hero({ stats }: HeroProps) {
                   <div className="text-xs text-gray-500">Transparent methodology</div>
                 </Link>
               </div>
+
+              {/* Study Subject Breakdown */}
+              {(stats.studySubjectDistribution.human > 0 || stats.studySubjectDistribution.review > 0) && (
+                <div className="bg-gray-50 rounded-lg p-4 mb-6">
+                  <div className="text-xs text-gray-500 uppercase tracking-wide mb-3 text-center">Research Breakdown</div>
+                  <div className="grid grid-cols-4 gap-3 text-center">
+                    {stats.studySubjectDistribution.human > 0 && (
+                      <div>
+                        <div className="text-lg font-bold text-blue-600">👤 {stats.studySubjectDistribution.human}</div>
+                        <div className="text-[10px] text-gray-600">Human Clinical</div>
+                      </div>
+                    )}
+                    {stats.studySubjectDistribution.review > 0 && (
+                      <div>
+                        <div className="text-lg font-bold text-teal-600">📚 {stats.studySubjectDistribution.review}</div>
+                        <div className="text-[10px] text-gray-600">Reviews</div>
+                      </div>
+                    )}
+                    {stats.studySubjectDistribution.animal > 0 && (
+                      <div>
+                        <div className="text-lg font-bold text-orange-600">🐭 {stats.studySubjectDistribution.animal}</div>
+                        <div className="text-[10px] text-gray-600">Preclinical</div>
+                      </div>
+                    )}
+                    {stats.studySubjectDistribution.in_vitro > 0 && (
+                      <div>
+                        <div className="text-lg font-bold text-purple-600">🧫 {stats.studySubjectDistribution.in_vitro}</div>
+                        <div className="text-[10px] text-gray-600">In Vitro</div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
 
               {/* Supporting Stats */}
               <div className="flex flex-wrap justify-center gap-6 text-center border-t border-gray-200 pt-6">
@@ -168,7 +201,7 @@ export function Hero({ stats }: HeroProps) {
           </div>
 
           {/* Primary Stats - Mobile */}
-          <div className="grid grid-cols-3 gap-4 mb-6">
+          <div className="grid grid-cols-3 gap-4 mb-4">
             <Link href="/research" className="text-center">
               <div className="text-3xl font-bold text-green-600">{stats.researchStudies}</div>
               <div className="text-xs font-semibold text-gray-800">Studies</div>
@@ -182,6 +215,38 @@ export function Hero({ stats }: HeroProps) {
               <div className="text-xs font-semibold text-gray-800">Scored</div>
             </Link>
           </div>
+
+          {/* Study Subject Breakdown - Mobile */}
+          {(stats.studySubjectDistribution.human > 0 || stats.studySubjectDistribution.review > 0) && (
+            <div className="bg-gray-50 rounded-lg p-3 mb-4">
+              <div className="grid grid-cols-4 gap-2 text-center">
+                {stats.studySubjectDistribution.human > 0 && (
+                  <div>
+                    <div className="text-sm font-bold text-blue-600">👤 {stats.studySubjectDistribution.human}</div>
+                    <div className="text-[9px] text-gray-600">Human</div>
+                  </div>
+                )}
+                {stats.studySubjectDistribution.review > 0 && (
+                  <div>
+                    <div className="text-sm font-bold text-teal-600">📚 {stats.studySubjectDistribution.review}</div>
+                    <div className="text-[9px] text-gray-600">Reviews</div>
+                  </div>
+                )}
+                {stats.studySubjectDistribution.animal > 0 && (
+                  <div>
+                    <div className="text-sm font-bold text-orange-600">🐭 {stats.studySubjectDistribution.animal}</div>
+                    <div className="text-[9px] text-gray-600">Preclinical</div>
+                  </div>
+                )}
+                {stats.studySubjectDistribution.in_vitro > 0 && (
+                  <div>
+                    <div className="text-sm font-bold text-purple-600">🧫 {stats.studySubjectDistribution.in_vitro}</div>
+                    <div className="text-[9px] text-gray-600">In Vitro</div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
 
           {/* Supporting Stats - Mobile */}
           <div className={`grid ${stats.humanParticipants > 0 ? 'grid-cols-4' : 'grid-cols-3'} gap-2 text-center border-t border-gray-200 pt-4`}>

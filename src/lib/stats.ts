@@ -1,5 +1,12 @@
 import { createClient } from '@/lib/supabase/server';
 
+export interface StudySubjectDistribution {
+  human: number;
+  review: number;
+  animal: number;
+  in_vitro: number;
+}
+
 export interface HomePageStats {
   // Primary impressive stats
   researchStudies: number;
@@ -10,6 +17,9 @@ export interface HomePageStats {
   glossaryTerms: number;
   yearsOfResearch: number;
   yearRange: string;
+
+  // Study subject distribution
+  studySubjectDistribution: StudySubjectDistribution;
 
   // Secondary stats
   animalStudyCount: number;
@@ -39,6 +49,7 @@ export async function getHomePageStats(): Promise<HomePageStats> {
     animalStudiesResult,
     expertAnalysesResult,
     yearResult,
+    studySubjectResult,
   ] = await Promise.all([
     // Total approved research studies
     supabase
@@ -98,6 +109,12 @@ export async function getHomePageStats(): Promise<HomePageStats> {
       .select('year')
       .eq('status', 'approved')
       .not('year', 'is', null),
+
+    // Study subject distribution
+    supabase
+      .from('kb_research_queue')
+      .select('study_subject')
+      .eq('status', 'approved'),
   ]);
 
   // Calculate unique health topics
@@ -131,6 +148,20 @@ export async function getHomePageStats(): Promise<HomePageStats> {
   const yearRange = `${minYear}–${maxYear}`;
   const yearsOfResearch = maxYear - minYear;
 
+  // Calculate study subject distribution
+  const studySubjectDistribution: StudySubjectDistribution = {
+    human: 0,
+    review: 0,
+    animal: 0,
+    in_vitro: 0,
+  };
+  studySubjectResult.data?.forEach(study => {
+    const subject = study.study_subject as keyof StudySubjectDistribution;
+    if (subject && subject in studySubjectDistribution) {
+      studySubjectDistribution[subject]++;
+    }
+  });
+
   return {
     researchStudies: studiesResult.count || 0,
     humanParticipants,
@@ -140,6 +171,7 @@ export async function getHomePageStats(): Promise<HomePageStats> {
     glossaryTerms: glossaryResult.count || 0,
     yearsOfResearch,
     yearRange,
+    studySubjectDistribution,
     animalStudyCount: animalStudiesResult.count || 0,
     articles: articlesResult.count || 0,
     brandReviews: brandsResult.count || 0,
