@@ -22,30 +22,27 @@ export async function GET() {
       }, { status: 500 });
     }
 
-    // Test 2: Select with all fields used in useResearchQueue
+    // Test 2: Get actual columns first
+    const { data: sampleRow, error: sampleError } = await supabase
+      .from('kb_research_queue')
+      .select('*')
+      .limit(1)
+      .single();
+
+    if (sampleError) {
+      return NextResponse.json({
+        test: 'sample',
+        error: sampleError.message,
+        code: sampleError.code
+      }, { status: 500 });
+    }
+
+    const columns = sampleRow ? Object.keys(sampleRow).sort() : [];
+
+    // Test 3: Simple select with only columns that exist
     const { data: items, error: selectError } = await supabase
       .from('kb_research_queue')
-      .select(`
-        id,
-        title,
-        authors,
-        publication,
-        year,
-        abstract,
-        url,
-        doi,
-        source_site,
-        search_term_matched,
-        relevance_score,
-        relevant_topics,
-        status,
-        study_subject,
-        job_id,
-        created_at,
-        updated_at,
-        reviewed_at,
-        reviewed_by
-      `)
+      .select('id, title, status, study_subject, relevance_score, created_at')
       .eq('status', 'pending')
       .in('study_subject', ['human', 'review'])
       .order('created_at', { ascending: false })
@@ -59,15 +56,6 @@ export async function GET() {
         details: selectError.details
       }, { status: 500 });
     }
-
-    // Test 3: Check table columns
-    const { data: sampleRow, error: sampleError } = await supabase
-      .from('kb_research_queue')
-      .select('*')
-      .limit(1)
-      .single();
-
-    const columns = sampleRow ? Object.keys(sampleRow) : [];
 
     return NextResponse.json({
       success: true,
