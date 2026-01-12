@@ -361,7 +361,7 @@ const SEARCH_TERMS = [
   'nabiximols trial'
 ];
 
-const TOPIC_KEYWORDS: Record<string, string[]> = {
+export const TOPIC_KEYWORDS: Record<string, string[]> = {
   // === NEUROLOGICAL & MENTAL HEALTH ===
   'anxiety': ['anxiety', 'anxiolytic', 'GAD', 'social anxiety', 'panic disorder', 'generalized anxiety', 'anxiety disorder', 'panic attack', 'anxious'],
   'depression': ['depression', 'antidepressant', 'mood disorder', 'MDD', 'major depressive', 'dysthymia', 'depressive'],
