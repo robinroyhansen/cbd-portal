@@ -16,7 +16,6 @@ export interface ResearchItem {
   searchTermMatched?: string;
   relevanceScore: number;
   relevantTopics: string[];
-  categories: string[];
   status: 'pending' | 'approved' | 'rejected';
   studySubject?: 'human' | 'animal' | 'in_vitro' | 'review' | null;
   jobId?: string;
@@ -88,7 +87,6 @@ export function useResearchQueue(
             search_term_matched,
             relevance_score,
             relevant_topics,
-            categories,
             status,
             study_subject,
             job_id,
@@ -114,7 +112,7 @@ export function useResearchQueue(
     }
 
     if (filters.category) {
-      query = query.contains('categories', [filters.category]);
+      query = query.contains('relevant_topics', [filters.category]);
     }
 
     if (filters.minRelevanceScore) {
@@ -150,7 +148,6 @@ export function useResearchQueue(
     searchTermMatched: item.search_term_matched,
     relevanceScore: item.relevance_score,
     relevantTopics: item.relevant_topics || [],
-    categories: item.categories || [],
     status: item.status,
     studySubject: item.study_subject,
     jobId: item.job_id,
@@ -270,7 +267,7 @@ export function useResearchQueue(
             shouldAdd = false;
           }
 
-          if (filters.category && !newItem.categories.includes(filters.category)) {
+          if (filters.category && !newItem.relevantTopics.includes(filters.category)) {
             shouldAdd = false;
           }
 
