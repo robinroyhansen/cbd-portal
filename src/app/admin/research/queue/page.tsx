@@ -670,9 +670,6 @@ export default function ResearchQueuePage() {
                     {item.searchTermMatched && (
                       <span>Matched: "{item.searchTermMatched}"</span>
                     )}
-                    {item.jobId && (
-                      <span className="text-blue-500">Scan Job: {item.jobId.slice(0, 8)}...</span>
-                    )}
                   </div>
 
                   {item.url && (

@@ -18,9 +18,8 @@ export interface ResearchItem {
   relevantTopics: string[];
   status: 'pending' | 'approved' | 'rejected';
   studySubject?: 'human' | 'animal' | 'in_vitro' | 'review' | null;
-  jobId?: string;
   createdAt: string;
-  updatedAt?: string;
+  discoveredAt?: string;
   reviewedAt?: string;
   reviewedBy?: string;
 }
@@ -36,7 +35,6 @@ export interface ResearchQueueState {
 
 export interface QueueFilters {
   status?: 'pending' | 'approved' | 'rejected' | 'all';
-  jobId?: string;
   sourceSite?: string;
   category?: string;
   minRelevanceScore?: number;
@@ -89,9 +87,8 @@ export function useResearchQueue(
             relevant_topics,
             status,
             study_subject,
-            job_id,
             created_at,
-            updated_at,
+            discovered_at,
             reviewed_at,
             reviewed_by
           `,
@@ -101,10 +98,6 @@ export function useResearchQueue(
     // Apply filters
     if (filters.status && filters.status !== 'all') {
       query = query.eq('status', filters.status);
-    }
-
-    if (filters.jobId) {
-      query = query.eq('job_id', filters.jobId);
     }
 
     if (filters.sourceSite) {
@@ -146,13 +139,12 @@ export function useResearchQueue(
     doi: item.doi,
     sourceSite: item.source_site,
     searchTermMatched: item.search_term_matched,
-    relevanceScore: item.relevance_score,
+    relevanceScore: item.relevance_score || 0,
     relevantTopics: item.relevant_topics || [],
     status: item.status,
     studySubject: item.study_subject,
-    jobId: item.job_id,
     createdAt: item.created_at,
-    updatedAt: item.updated_at,
+    discoveredAt: item.discovered_at,
     reviewedAt: item.reviewed_at,
     reviewedBy: item.reviewed_by
   });
@@ -261,10 +253,6 @@ export function useResearchQueue(
             shouldAdd = false;
           }
 
-          if (filters.jobId && newItem.jobId !== filters.jobId) {
-            shouldAdd = false;
-          }
-
           if (filters.sourceSite && newItem.sourceSite !== filters.sourceSite) {
             shouldAdd = false;
           }
@@ -334,7 +322,6 @@ export function useResearchQueue(
 
   }, [
     filters.status,
-    filters.jobId,
     filters.sourceSite,
     filters.category,
     filters.minRelevanceScore,
