@@ -1,419 +1,123 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import Link from 'next/link';
-
-// Helper function to extract sentences containing a keyword
-function getKeywordContext(text: string, keyword: string, maxSentences: number = 5): string[] {
-  if (!text || !keyword) return [];
-
-  // Split into sentences (rough split on . ! ?)
-  const sentences = text.split(/(?<=[.!?])\s+/);
-
-  // Find sentences containing the keyword (case-insensitive)
-  const keywordLower = keyword.toLowerCase();
-  const matchingSentences = sentences.filter(sentence =>
-    sentence.toLowerCase().includes(keywordLower)
-  );
-
-  // Return up to maxSentences
-  return matchingSentences.slice(0, maxSentences);
-}
-
-// Collapsible keyword context component
-function KeywordContextPreview({ text, keyword }: { text: string; keyword: string }) {
-  const [expanded, setExpanded] = useState(false);
-  const sentences = getKeywordContext(text, keyword, 5);
-
-  if (sentences.length === 0) return null;
-
-  // Function to highlight keyword in sentence
-  const highlightKeyword = (sentence: string, kw: string) => {
-    const regex = new RegExp(`(${kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-    const parts = sentence.split(regex);
-
-    return parts.map((part, i) =>
-      part.toLowerCase() === kw.toLowerCase()
-        ? <strong key={i} className="text-amber-700 bg-amber-100 px-0.5 rounded">{part}</strong>
-        : <span key={i}>{part}</span>
-    );
-  };
-
-  return (
-    <div className="mt-2">
-      <button
-        onClick={() => setExpanded(!expanded)}
-        className="text-xs text-blue-600 hover:text-blue-800 flex items-center gap-1"
-      >
-        <span>{expanded ? '▼' : '▶'}</span>
-        <span>Show {sentences.length} keyword match{sentences.length > 1 ? 'es' : ''}</span>
-      </button>
-
-      {expanded && (
-        <div className="mt-2 space-y-1.5 text-sm text-gray-600 bg-gray-50 rounded-lg p-3 border-l-2 border-amber-300">
-          {sentences.map((sentence, i) => (
-            <p key={i} className="leading-relaxed">
-              <span className="text-gray-400 mr-1 text-xs">[{i + 1}]</span>
-              {highlightKeyword(
-                sentence.trim().length > 250 ? sentence.trim().slice(0, 250) + '...' : sentence.trim(),
-                keyword
-              )}
-            </p>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
-interface ResearchItem {
-  id: string;
-  title: string;
-  authors?: string;
-  publication?: string;
-  year?: number;
-  abstract?: string;
-  url: string;
-  doi?: string;
-  source_site: string;
-  quality_score?: number;
-  quality_breakdown?: {
-    studyDesign: number;
-    methodologyQuality: number;
-    relevance: number;
-    sampleSize: number;
-    recency: number;
-  };
-  relevance_score?: number;
-  relevance_signals?: string[];
-  relevant_topics: string[];
-  search_term_matched?: string;
-  status: 'pending' | 'approved' | 'rejected';
-  reviewed_at?: string;
-  reviewed_by?: string;
-  rejection_reason?: string;
-  discovered_at: string;
-  detected_language?: string;
-  original_title?: string;
-  original_abstract?: string;
-}
-
-// Language badge component
-function LanguageBadge({ language }: { language?: string }) {
-  if (!language || language === 'english') return null;
-
-  const flags: Record<string, string> = {
-    french: '🇫🇷',
-    german: '🇩🇪',
-    spanish: '🇪🇸',
-    portuguese: '🇵🇹',
-    italian: '🇮🇹',
-    chinese: '🇨🇳',
-    japanese: '🇯🇵',
-    korean: '🇰🇷',
-    russian: '🇷🇺',
-    arabic: '🇸🇦',
-  };
-
-  return (
-    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-blue-100 text-blue-800 text-xs rounded-full">
-      {flags[language] || '🌐'} {language.charAt(0).toUpperCase() + language.slice(1)}
-    </span>
-  );
-}
-
-// Translate button component
-function TranslateButton({
-  study,
-  onTranslated
-}: {
-  study: ResearchItem;
-  onTranslated: (data: { translated_title: string; translated_abstract: string; original_title: string; original_abstract: string }) => void;
-}) {
-  const [translating, setTranslating] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  // Already translated
-  if (study.original_title) {
-    return <span className="text-xs text-green-600 font-medium">✓ Translated</span>;
-  }
-
-  // English or no language detected - no translation needed
-  if (!study.detected_language || study.detected_language === 'english') {
-    return null;
-  }
-
-  async function handleTranslate() {
-    setTranslating(true);
-    setError(null);
-
-    try {
-      const res = await fetch('/api/admin/research/translate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ studyId: study.id })
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.error || 'Translation failed');
-      }
-
-      if (data.translated_title) {
-        onTranslated(data);
-      }
-    } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Unknown error';
-      setError(message);
-    } finally {
-      setTranslating(false);
-    }
-  }
-
-  return (
-    <div className="inline-flex items-center gap-2">
-      <button
-        onClick={handleTranslate}
-        disabled={translating}
-        className="px-2 py-1 bg-blue-600 text-white text-xs rounded hover:bg-blue-700 disabled:opacity-50"
-      >
-        {translating ? 'Translating...' : '🌐 Translate'}
-      </button>
-      {error && <span className="text-xs text-red-600">{error}</span>}
-    </div>
-  );
-}
+import { useResearchQueue, useQueueStats } from '@/hooks/useResearchQueue';
+import { useActiveScanJobs } from '@/hooks/useScanProgress';
 
 export default function ResearchQueuePage() {
-  const [research, setResearch] = useState<ResearchItem[]>([]);
-  const [loading, setLoading] = useState(true);
+  // Filter state
   const [selectedStatus, setSelectedStatus] = useState<string>('pending');
   const [selectedTopic, setSelectedTopic] = useState<string>('');
   const [selectedSource, setSelectedSource] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [sortBy, setSortBy] = useState<string>('relevance_score');
+  const [sortBy, setSortBy] = useState<string>('discovered_at');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
-  const [relevanceFilter, setRelevanceFilter] = useState<string>('');
-  const [qualityFilter, setQualityFilter] = useState<string>('');
+  const [minRelevanceScore, setMinRelevanceScore] = useState<number>(0);
   const [yearFilter, setYearFilter] = useState<string>('');
+  const [includeAnimalStudies, setIncludeAnimalStudies] = useState<boolean>(false);
   const [bulkSelected, setBulkSelected] = useState<string[]>([]);
-  const [newItemIds, setNewItemIds] = useState<Set<string>>(new Set());
-  const [rejectingId, setRejectingId] = useState<string | null>(null);
-  const [selectedReason, setSelectedReason] = useState<string>('');
+  const [showNewItemNotification, setShowNewItemNotification] = useState<string | null>(null);
+
+  // Real-time data hooks
+  const {
+    items: research,
+    totalCount,
+    loading,
+    error: queueError,
+    isConnected,
+    lastAdded,
+    updateItemStatus,
+    refetch
+  } = useResearchQueue(
+    {
+      status: selectedStatus === '' ? 'all' : selectedStatus as 'pending' | 'approved' | 'rejected',
+      sourceSite: selectedSource || undefined,
+      category: selectedTopic || undefined,
+      minRelevanceScore: minRelevanceScore || undefined,
+      includeAnimalStudies
+    },
+    { limit: 50, offset: 0 }
+  );
+
+  const { jobs: activeJobs } = useActiveScanJobs();
+  const {
+    totalItems,
+    pendingCount,
+    approvedCount,
+    rejectedCount,
+    todayAdded,
+    loading: statsLoading
+  } = useQueueStats();
+
+  // Show notification for new items
+  useEffect(() => {
+    if (lastAdded && !loading) {
+      setShowNewItemNotification(lastAdded.id);
+      setTimeout(() => setShowNewItemNotification(null), 5000); // Hide after 5 seconds
+    }
+  }, [lastAdded, loading]);
+
   const supabase = createClient();
 
-  const REJECTION_REASONS = [
-    'Not relevant',
-    'Duplicate',
-    'Low quality',
-    'Not CBD/cannabis related',
-    'Non-therapeutic focus',
-    'Insufficient data',
-    'Other'
-  ];
-
-  // Fetch research with useCallback for stability
-  const fetchResearch = useCallback(async () => {
-    setLoading(true);
-    const { data, error } = await supabase
-      .from('kb_research_queue')
-      .select('*')
-      .order('discovered_at', { ascending: false });
-
-    if (!error) {
-      setResearch(data || []);
-    } else {
-      console.error('Error fetching research:', error);
-    }
-    setLoading(false);
-  }, [supabase]);
-
-  // Initial fetch and real-time subscription
-  useEffect(() => {
-    fetchResearch();
-
-    // Subscribe to new research items
-    const channel = supabase
-      .channel('queue_changes')
-      .on(
-        'postgres_changes',
-        {
-          event: 'INSERT',
-          schema: 'public',
-          table: 'kb_research_queue'
-        },
-        (payload) => {
-          const newItem = payload.new as ResearchItem;
-          setResearch(prev => [newItem, ...prev]);
-          // Mark as new for highlight animation
-          setNewItemIds(prev => new Set([...prev, newItem.id]));
-          // Remove highlight after 5 seconds
-          setTimeout(() => {
-            setNewItemIds(prev => {
-              const updated = new Set(prev);
-              updated.delete(newItem.id);
-              return updated;
-            });
-          }, 5000);
-        }
-      )
-      .on(
-        'postgres_changes',
-        {
-          event: 'UPDATE',
-          schema: 'public',
-          table: 'kb_research_queue'
-        },
-        (payload) => {
-          const updatedItem = payload.new as ResearchItem;
-          setResearch(prev =>
-            prev.map(item => item.id === updatedItem.id ? updatedItem : item)
-          );
-        }
-      )
-      .on(
-        'postgres_changes',
-        {
-          event: 'DELETE',
-          schema: 'public',
-          table: 'kb_research_queue'
-        },
-        (payload) => {
-          const deletedId = payload.old.id;
-          setResearch(prev => prev.filter(item => item.id !== deletedId));
-        }
-      )
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  }, [supabase, fetchResearch]);
-
-  const updateResearchStatus = async (id: string, status: 'approved' | 'rejected', rejectionReason?: string) => {
-    const { error } = await supabase
-      .from('kb_research_queue')
-      .update({
-        status,
-        reviewed_at: new Date().toISOString(),
-        reviewed_by: 'admin', // Replace with actual user ID when auth is implemented
-        rejection_reason: rejectionReason || null
-      })
-      .eq('id', id);
-
-    if (!error) {
-      fetchResearch();
-    } else {
-      console.error('Failed to update research status:', error);
-    }
-  };
-
   const approveResearch = async (id: string) => {
-    // Approve study and generate SEO-friendly slug
     try {
-      const response = await fetch('/api/admin/research/approve', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ studyId: id })
-      });
+      // Update status using the real-time hook
+      await updateItemStatus(id, 'approved');
 
-      if (!response.ok) {
-        const error = await response.json();
-        console.error('Failed to approve study:', error);
-        return;
+      // Integrate into articles
+      try {
+        const response = await fetch('/api/admin/integrate-research', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ researchId: id })
+        });
+
+        const result = await response.json();
+
+        if (result.addedTo && result.addedTo.length > 0) {
+          alert(`✅ Approved and added as citation to:\n${result.addedTo.join('\n')}`);
+        } else {
+          alert('✅ Approved (no matching articles found for automatic citation)');
+        }
+      } catch (error) {
+        console.error('Failed to integrate research:', error);
+        alert('✅ Approved, but failed to auto-add citations. Please check manually.');
       }
     } catch (error) {
-      console.error('Failed to approve study:', error);
-      return;
-    }
-
-    // Refresh the list
-    fetchResearch();
-
-    // Generate plain language summary (silent)
-    try {
-      await fetch('/api/admin/generate-summary', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ studyId: id })
-      });
-    } catch (error) {
-      console.error('Failed to generate summary:', error);
-    }
-
-    // Integrate into articles (silent)
-    try {
-      await fetch('/api/admin/integrate-research', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ researchId: id })
-      });
-    } catch (error) {
-      console.error('Failed to integrate research:', error);
+      console.error('Error approving research:', error);
+      alert('Failed to approve research. Please try again.');
     }
   };
 
-  const rejectResearch = (id: string) => {
-    setRejectingId(id);
-    setSelectedReason('');
-  };
-
-  const confirmReject = () => {
-    if (rejectingId) {
-      updateResearchStatus(rejectingId, 'rejected', selectedReason || undefined);
-      setRejectingId(null);
-      setSelectedReason('');
+  const rejectResearch = async (id: string) => {
+    const reason = prompt('Reason for rejection (optional):');
+    if (reason !== null) { // User didn't cancel
+      try {
+        await updateItemStatus(id, 'rejected');
+      } catch (error) {
+        console.error('Error rejecting research:', error);
+        alert('Failed to reject research. Please try again.');
+      }
     }
   };
 
-  const cancelReject = () => {
-    setRejectingId(null);
-    setSelectedReason('');
-  };
-
-  // Enhanced filtering and search
-  const allTopics = [...new Set(research.flatMap(r => r.relevant_topics || []))].sort();
-  const allSources = [...new Set(research.map(r => r.source_site))].sort();
+  // Enhanced filtering and search (now client-side on real-time data)
+  const allTopics = [...new Set(research.flatMap(r => r.relevantTopics || []))].sort();
+  const allSources = [...new Set(research.map(r => r.sourceSite))].sort();
   const allYears = [...new Set(research.map(r => r.year).filter(Boolean))].sort((a, b) => b! - a!);
 
   const filteredResearch = research
     .filter(item => {
-      // Status filter
-      const statusMatch = selectedStatus ? item.status === selectedStatus : true;
+      // Topic filter (if not already filtered by hook)
+      const topicMatch = selectedTopic ? item.relevantTopics?.includes(selectedTopic) : true;
 
-      // Topic filter
-      const topicMatch = selectedTopic ? item.relevant_topics?.includes(selectedTopic) : true;
-
-      // Source filter
-      const sourceMatch = selectedSource ? item.source_site === selectedSource : true;
+      // Source filter (if not already filtered by hook)
+      const sourceMatch = selectedSource ? item.sourceSite === selectedSource : true;
 
       // Year filter
       const yearMatch = yearFilter ? item.year === parseInt(yearFilter) : true;
-
-      // Relevance score filter
-      let relevanceMatch = true;
-      if (relevanceFilter) {
-        const score = item.relevance_score ?? 0;
-        switch (relevanceFilter) {
-          case 'high': relevanceMatch = score >= 70; break;
-          case 'medium': relevanceMatch = score >= 40 && score < 70; break;
-          case 'low': relevanceMatch = score >= 20 && score < 40; break;
-          case 'irrelevant': relevanceMatch = score < 20; break;
-        }
-      }
-
-      // Quality score filter
-      let qualityMatch = true;
-      if (qualityFilter) {
-        const score = item.quality_score ?? 0;
-        switch (qualityFilter) {
-          case 'high': qualityMatch = score >= 70; break;
-          case 'medium': qualityMatch = score >= 40 && score < 70; break;
-          case 'low': qualityMatch = score < 40; break;
-        }
-      }
 
       // Text search across title, authors, abstract, and publication
       const searchMatch = !searchQuery || [
@@ -421,12 +125,12 @@ export default function ResearchQueuePage() {
         item.authors,
         item.abstract,
         item.publication,
-        item.relevant_topics?.join(' ')
+        item.relevantTopics?.join(' ')
       ].some(field =>
         field?.toLowerCase().includes(searchQuery.toLowerCase())
       );
 
-      return statusMatch && topicMatch && sourceMatch && yearMatch && relevanceMatch && qualityMatch && searchMatch;
+      return topicMatch && sourceMatch && yearMatch && searchMatch;
     })
     .sort((a, b) => {
       let aValue: any;
@@ -434,12 +138,8 @@ export default function ResearchQueuePage() {
 
       switch (sortBy) {
         case 'relevance_score':
-          aValue = a.relevance_score ?? 0;
-          bValue = b.relevance_score ?? 0;
-          break;
-        case 'quality_score':
-          aValue = a.quality_score ?? 0;
-          bValue = b.quality_score ?? 0;
+          aValue = a.relevanceScore;
+          bValue = b.relevanceScore;
           break;
         case 'year':
           aValue = a.year || 0;
@@ -450,12 +150,12 @@ export default function ResearchQueuePage() {
           bValue = b.title.toLowerCase();
           break;
         case 'source_site':
-          aValue = a.source_site;
-          bValue = b.source_site;
+          aValue = a.sourceSite;
+          bValue = b.sourceSite;
           break;
         default: // discovered_at
-          aValue = new Date(a.discovered_at);
-          bValue = new Date(b.discovered_at);
+          aValue = new Date(a.createdAt);
+          bValue = new Date(b.createdAt);
       }
 
       if (sortOrder === 'asc') {
@@ -469,29 +169,33 @@ export default function ResearchQueuePage() {
   const handleBulkApprove = async () => {
     if (bulkSelected.length === 0) return;
 
-    // Process approvals sequentially to avoid race conditions with slug generation
+    const confirmMsg = `Approve ${bulkSelected.length} research items?`;
+    if (!confirm(confirmMsg)) return;
+
     for (const id of bulkSelected) {
-      await approveResearch(id);
+      try {
+        await updateItemStatus(id, 'approved');
+      } catch (error) {
+        console.error(`Error approving item ${id}:`, error);
+      }
     }
     setBulkSelected([]);
-    fetchResearch();
   };
-
-  const [bulkRejectReason, setBulkRejectReason] = useState<string>('');
-  const [showBulkRejectModal, setShowBulkRejectModal] = useState(false);
 
   const handleBulkReject = async () => {
     if (bulkSelected.length === 0) return;
-    setShowBulkRejectModal(true);
-  };
 
-  const confirmBulkReject = async () => {
+    const reason = prompt(`Rejection reason for ${bulkSelected.length} items:`);
+    if (reason === null) return;
+
     for (const id of bulkSelected) {
-      await updateResearchStatus(id, 'rejected', bulkRejectReason || undefined);
+      try {
+        await updateItemStatus(id, 'rejected');
+      } catch (error) {
+        console.error(`Error rejecting item ${id}:`, error);
+      }
     }
     setBulkSelected([]);
-    setShowBulkRejectModal(false);
-    setBulkRejectReason('');
   };
 
   const toggleBulkSelect = (id: string) => {
@@ -513,19 +217,10 @@ export default function ResearchQueuePage() {
     setBulkSelected([]);
   };
 
-  const getRelevanceColor = (score: number | undefined) => {
-    if (score === undefined) return 'bg-gray-100 text-gray-600';
-    if (score >= 70) return 'bg-green-100 text-green-800';
-    if (score >= 40) return 'bg-amber-100 text-amber-800';
-    if (score >= 20) return 'bg-orange-100 text-orange-800';
-    return 'bg-red-100 text-red-800';
-  };
-
-  const getQualityColor = (score: number | undefined) => {
-    if (score === undefined) return 'bg-gray-100 text-gray-600';
-    if (score >= 70) return 'bg-blue-100 text-blue-800';
-    if (score >= 40) return 'bg-gray-100 text-gray-700';
-    return 'bg-gray-100 text-gray-500';
+  const getPriorityColor = (score: number) => {
+    if (score >= 50) return 'bg-red-100 text-red-800 border-red-200';
+    if (score >= 30) return 'bg-yellow-100 text-yellow-800 border-yellow-200';
+    return 'bg-green-100 text-green-800 border-green-200';
   };
 
   const getStatusColor = (status: string) => {
@@ -536,32 +231,86 @@ export default function ResearchQueuePage() {
     }
   };
 
+  const getStudyTypeBadge = (studySubject: string | null | undefined) => {
+    switch (studySubject) {
+      case 'human':
+        return { icon: '👤', label: 'Human', className: 'bg-blue-100 text-blue-800' };
+      case 'animal':
+        return { icon: '🐭', label: 'Animal', className: 'bg-orange-100 text-orange-800' };
+      case 'in_vitro':
+        return { icon: '🧫', label: 'In Vitro', className: 'bg-purple-100 text-purple-800' };
+      case 'review':
+        return { icon: '📚', label: 'Review', className: 'bg-teal-100 text-teal-800' };
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="p-8">
+      {/* New Item Notification */}
+      {lastAdded && showNewItemNotification && (
+        <div className="fixed top-4 right-4 z-50 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-lg max-w-md">
+          <div className="flex items-center">
+            <div className="flex-1">
+              <p className="font-medium">📄 New Research Found!</p>
+              <p className="text-sm text-green-600 mt-1">
+                {lastAdded.title.substring(0, 60)}...
+              </p>
+            </div>
+            <button
+              onClick={() => setShowNewItemNotification(null)}
+              className="ml-2 text-green-500 hover:text-green-700"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Research Queue</h1>
-          <p className="text-gray-600 mt-2">Review and manage discovered research papers</p>
+          <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
+            Research Queue
+            {isConnected ? (
+              <span className="inline-flex items-center text-green-600 text-sm font-normal">
+                🟢 Live Updates
+              </span>
+            ) : (
+              <span className="inline-flex items-center text-gray-500 text-sm font-normal">
+                🔴 Offline
+              </span>
+            )}
+          </h1>
+          <div className="text-gray-600 mt-2 flex items-center gap-4">
+            <span>Review and manage discovered research papers</span>
+            {activeJobs.length > 0 && (
+              <span className="inline-flex items-center text-blue-600 text-sm">
+                ⚡ {activeJobs.length} scan{activeJobs.length > 1 ? 's' : ''} active
+              </span>
+            )}
+            {todayAdded > 0 && (
+              <span className="inline-flex items-center text-green-600 text-sm">
+                📈 {todayAdded} new today
+              </span>
+            )}
+          </div>
         </div>
         <div className="flex gap-4">
-          <Link
-            href="/admin/research/rejected"
-            className="bg-red-100 text-red-700 px-4 py-2 rounded-lg hover:bg-red-200 transition-colors"
-          >
-            🚫 Rejected ({research.filter(r => r.status === 'rejected').length})
-          </Link>
           <Link
             href="/admin/research"
             className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
           >
-            🔍 Manual Scan
+            🔍 Research Scanner
           </Link>
-          <button
-            onClick={fetchResearch}
-            className="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
-          >
-            🔄 Refresh
-          </button>
+          {queueError && (
+            <button
+              onClick={refetch}
+              className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
+            >
+              ⚠️ Retry Connection
+            </button>
+          )}
         </div>
       </div>
 
@@ -590,7 +339,7 @@ export default function ResearchQueuePage() {
         </div>
 
         {/* Filters Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
           {/* Status Filter */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
@@ -599,41 +348,10 @@ export default function ResearchQueuePage() {
               onChange={(e) => setSelectedStatus(e.target.value)}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
             >
-              <option value="">All ({research.length})</option>
-              <option value="pending">Pending ({research.filter(r => r.status === 'pending').length})</option>
-              <option value="approved">Approved ({research.filter(r => r.status === 'approved').length})</option>
-              <option value="rejected">Rejected ({research.filter(r => r.status === 'rejected').length})</option>
-            </select>
-          </div>
-
-          {/* Relevance Filter */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Relevance</label>
-            <select
-              value={relevanceFilter}
-              onChange={(e) => setRelevanceFilter(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
-            >
-              <option value="">All</option>
-              <option value="high">High (70+)</option>
-              <option value="medium">Medium (40-69)</option>
-              <option value="low">Low (20-39)</option>
-              <option value="irrelevant">Irrelevant (&lt;20)</option>
-            </select>
-          </div>
-
-          {/* Quality Filter */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Quality</label>
-            <select
-              value={qualityFilter}
-              onChange={(e) => setQualityFilter(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
-            >
-              <option value="">All</option>
-              <option value="high">High (70+)</option>
-              <option value="medium">Medium (40-69)</option>
-              <option value="low">Low (&lt;40)</option>
+              <option value="">All ({totalItems})</option>
+              <option value="pending">⏳ Pending ({pendingCount})</option>
+              <option value="approved">✅ Approved ({approvedCount})</option>
+              <option value="rejected">❌ Rejected ({rejectedCount})</option>
             </select>
           </div>
 
@@ -653,10 +371,7 @@ export default function ResearchQueuePage() {
               ))}
             </select>
           </div>
-        </div>
 
-        {/* Second Row Filters */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Source Filter */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Source</label>
@@ -699,12 +414,11 @@ export default function ResearchQueuePage() {
               onChange={(e) => setSortBy(e.target.value)}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
             >
-              <option value="relevance_score">Relevance Score</option>
-              <option value="quality_score">Quality Score</option>
-              <option value="discovered_at">Date Found</option>
-              <option value="year">Publication Year</option>
-              <option value="title">Title</option>
-              <option value="source_site">Source</option>
+              <option value="discovered_at">📅 Date Found</option>
+              <option value="relevance_score">⭐ Relevance</option>
+              <option value="year">📊 Publication Year</option>
+              <option value="title">📝 Title</option>
+              <option value="source_site">🏢 Source</option>
             </select>
           </div>
 
@@ -716,14 +430,40 @@ export default function ResearchQueuePage() {
               onChange={(e) => setSortOrder(e.target.value as 'asc' | 'desc')}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
             >
-              <option value="desc">Descending</option>
-              <option value="asc">Ascending</option>
+              <option value="desc">⬇️ Descending</option>
+              <option value="asc">⬆️ Ascending</option>
             </select>
           </div>
         </div>
 
-        {/* Filter Status Bar */}
+        {/* Advanced Filters */}
         <div className="flex gap-4 items-center flex-wrap bg-gray-50 p-3 rounded-lg">
+          <div className="flex items-center gap-2">
+            <label className="text-sm font-medium text-gray-700">Min Relevance:</label>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={minRelevanceScore}
+              onChange={(e) => setMinRelevanceScore(parseInt(e.target.value))}
+              className="w-20"
+            />
+            <span className="text-sm text-gray-600 w-8">{minRelevanceScore}</span>
+          </div>
+
+          {/* Animal Studies Toggle */}
+          <label className="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-lg border border-gray-300 bg-white hover:bg-gray-50">
+            <input
+              type="checkbox"
+              checked={includeAnimalStudies}
+              onChange={(e) => setIncludeAnimalStudies(e.target.checked)}
+              className="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
+            />
+            <span className="text-sm font-medium text-gray-700">
+              🐭 Include preclinical & animal studies
+            </span>
+          </label>
+
           <div className="text-sm text-gray-600">
             Showing {filteredResearch.length} of {research.length} items
           </div>
@@ -732,18 +472,18 @@ export default function ResearchQueuePage() {
           <button
             onClick={() => {
               setSearchQuery('');
-              setSelectedStatus('pending');
+              setSelectedStatus('');
               setSelectedTopic('');
               setSelectedSource('');
               setYearFilter('');
-              setRelevanceFilter('');
-              setQualityFilter('');
-              setSortBy('relevance_score');
+              setMinRelevanceScore(0);
+              setIncludeAnimalStudies(false);
+              setSortBy('discovered_at');
               setSortOrder('desc');
             }}
             className="text-sm text-blue-600 hover:text-blue-700 font-medium"
           >
-            Clear All Filters
+            🔄 Clear All Filters
           </button>
         </div>
       </div>
@@ -791,23 +531,39 @@ export default function ResearchQueuePage() {
         </div>
       )}
 
-      {/* Stats */}
-      <div className="mb-6 grid grid-cols-1 md:grid-cols-4 gap-4">
+      {/* Live Statistics */}
+      <div className="mb-6 grid grid-cols-1 md:grid-cols-5 gap-4">
         <div className="bg-white rounded-lg shadow p-4">
-          <div className="text-2xl font-bold text-orange-600">{research.filter(r => r.status === 'pending').length}</div>
+          <div className={`text-2xl font-bold ${statsLoading ? 'text-gray-400' : 'text-orange-600'} flex items-center gap-2`}>
+            {statsLoading ? '...' : pendingCount}
+            {!statsLoading && pendingCount > 0 && <span className="animate-pulse">📄</span>}
+          </div>
           <div className="text-sm text-gray-600">Pending Review</div>
         </div>
         <div className="bg-white rounded-lg shadow p-4">
-          <div className="text-2xl font-bold text-green-600">{research.filter(r => r.status === 'approved').length}</div>
+          <div className={`text-2xl font-bold ${statsLoading ? 'text-gray-400' : 'text-green-600'}`}>
+            {statsLoading ? '...' : approvedCount}
+          </div>
           <div className="text-sm text-gray-600">Approved</div>
         </div>
         <div className="bg-white rounded-lg shadow p-4">
-          <div className="text-2xl font-bold text-red-600">{research.filter(r => r.status === 'rejected').length}</div>
+          <div className={`text-2xl font-bold ${statsLoading ? 'text-gray-400' : 'text-red-600'}`}>
+            {statsLoading ? '...' : rejectedCount}
+          </div>
           <div className="text-sm text-gray-600">Rejected</div>
         </div>
         <div className="bg-white rounded-lg shadow p-4">
-          <div className="text-2xl font-bold text-blue-600">{research.length}</div>
-          <div className="text-sm text-gray-600">Total</div>
+          <div className={`text-2xl font-bold ${statsLoading ? 'text-gray-400' : 'text-blue-600'}`}>
+            {statsLoading ? '...' : totalItems}
+          </div>
+          <div className="text-sm text-gray-600">Total Items</div>
+        </div>
+        <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg shadow p-4 border border-green-200">
+          <div className={`text-2xl font-bold ${statsLoading ? 'text-gray-400' : 'text-green-700'} flex items-center gap-2`}>
+            {statsLoading ? '...' : todayAdded}
+            {!statsLoading && todayAdded > 0 && <span className="text-green-600">✨</span>}
+          </div>
+          <div className="text-sm text-green-700 font-medium">Added Today</div>
         </div>
       </div>
 
@@ -822,8 +578,10 @@ export default function ResearchQueuePage() {
           {filteredResearch.map((item) => (
             <div
               key={item.id}
-              className={`bg-white rounded-lg shadow p-6 hover:shadow-md transition-all ${
-                newItemIds.has(item.id) ? 'ring-2 ring-green-400 animate-pulse-once' : ''
+              className={`rounded-lg shadow p-6 hover:shadow-md transition-all ${
+                showNewItemNotification === item.id
+                  ? 'bg-green-50 border-2 border-green-200 animate-pulse'
+                  : 'bg-white'
               }`}
             >
               <div className="flex justify-between items-start mb-4">
@@ -840,46 +598,28 @@ export default function ResearchQueuePage() {
                   )}
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2 flex-wrap">
-                    {newItemIds.has(item.id) && (
-                      <span className="px-2 py-1 text-xs font-bold bg-green-500 text-white rounded-full animate-bounce">
-                        NEW
-                      </span>
-                    )}
-                    {/* Relevance Score */}
-                    <span className={`px-2 py-0.5 text-xs font-medium rounded-full ${getRelevanceColor(item.relevance_score)}`}>
-                      Rel: {item.relevance_score ?? 'N/A'}
+                    <span className={`px-2 py-1 text-xs font-medium rounded-full border ${getPriorityColor(item.relevanceScore)}`}>
+                      Score: {item.relevanceScore}
                     </span>
-                    {/* Quality Score */}
-                    <span className={`px-2 py-0.5 text-xs font-medium rounded-full ${getQualityColor(item.quality_score)}`}>
-                      Qual: {item.quality_score ?? 'N/A'}
-                    </span>
-                    {/* Low relevance warning */}
-                    {item.relevance_score !== undefined && item.relevance_score < 40 && (
-                      <span className="text-xs text-red-600">Check relevance</span>
-                    )}
                     <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(item.status)}`}>
                       {item.status.toUpperCase()}
                     </span>
                     <span className="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">
-                      {item.source_site}
+                      {item.sourceSite}
                     </span>
-                    <LanguageBadge language={item.detected_language} />
-                    <TranslateButton
-                      study={item}
-                      onTranslated={(data) => {
-                        setResearch(prev => prev.map(r =>
-                          r.id === item.id
-                            ? {
-                                ...r,
-                                title: data.translated_title,
-                                abstract: data.translated_abstract,
-                                original_title: data.original_title,
-                                original_abstract: data.original_abstract
-                              }
-                            : r
-                        ));
-                      }}
-                    />
+                    {(() => {
+                      const badge = getStudyTypeBadge(item.studySubject);
+                      return badge ? (
+                        <span className={`px-2 py-1 text-xs font-medium rounded-full ${badge.className}`}>
+                          {badge.icon} {badge.label}
+                        </span>
+                      ) : null;
+                    })()}
+                    {showNewItemNotification === item.id && (
+                      <span className="px-2 py-1 text-xs bg-green-100 text-green-800 rounded-full border border-green-300">
+                        🆕 NEW
+                      </span>
+                    )}
                   </div>
 
                   <h3 className="font-semibold text-gray-900 mb-2 text-lg">
@@ -902,10 +642,10 @@ export default function ResearchQueuePage() {
                     )}
                   </div>
 
-                  {item.relevant_topics && item.relevant_topics.length > 0 && (
+                  {item.relevantTopics && item.relevantTopics.length > 0 && (
                     <div className="flex flex-wrap gap-1 mb-3">
                       <span className="text-sm font-medium text-gray-700 mr-2">Topics:</span>
-                      {item.relevant_topics.map((topic) => (
+                      {item.relevantTopics.map((topic) => (
                         <span
                           key={topic}
                           className="px-2 py-1 text-xs bg-purple-100 text-purple-800 rounded-full"
@@ -925,57 +665,15 @@ export default function ResearchQueuePage() {
                     </div>
                   )}
 
-                  {/* Relevance signals */}
-                  {item.relevance_signals && item.relevance_signals.length > 0 && (
-                    <details className="mt-2 text-sm mb-3">
-                      <summary className="text-gray-500 cursor-pointer hover:text-gray-700">
-                        Relevance signals ({item.relevance_signals.length})
-                      </summary>
-                      <ul className="mt-1 pl-4 text-xs text-gray-600 space-y-0.5">
-                        {item.relevance_signals.map((signal: string, i: number) => (
-                          <li key={i} className={signal.includes('CBD') || signal.includes('Health') || signal.includes('Treatment') || signal.includes('Clinical') ? 'text-green-700' : 'text-orange-700'}>
-                            {signal}
-                          </li>
-                        ))}
-                      </ul>
-                    </details>
-                  )}
-
-                  {/* Show original text if translated */}
-                  {item.original_title && (
-                    <details className="mb-3">
-                      <summary className="text-xs text-blue-600 hover:text-blue-800 cursor-pointer">
-                        Show original ({item.detected_language})
-                      </summary>
-                      <div className="mt-2 p-3 bg-gray-50 rounded border-l-2 border-blue-300 text-sm">
-                        <p className="font-medium text-gray-600 mb-2">{item.original_title}</p>
-                        {item.original_abstract && (
-                          <p className="text-gray-500 italic line-clamp-4">{item.original_abstract}</p>
-                        )}
-                      </div>
-                    </details>
-                  )}
-
-                  <div className="flex items-center gap-4 text-xs text-gray-500">
-                    <span>Discovered: {new Date(item.discovered_at).toLocaleDateString()}</span>
-                    {item.search_term_matched && (
-                      <span>Matched: &quot;{item.search_term_matched}&quot;</span>
+                  <div className="flex items-center gap-4 text-xs text-gray-500 mb-3">
+                    <span>Discovered: {new Date(item.createdAt).toLocaleDateString()}</span>
+                    {item.searchTermMatched && (
+                      <span>Matched: "{item.searchTermMatched}"</span>
+                    )}
+                    {item.jobId && (
+                      <span className="text-blue-500">Scan Job: {item.jobId.slice(0, 8)}...</span>
                     )}
                   </div>
-
-                  {/* Keyword context preview */}
-                  {item.search_term_matched && (item.abstract || item.title) && (
-                    <KeywordContextPreview
-                      text={`${item.title || ''} ${item.abstract || ''}`}
-                      keyword={item.search_term_matched}
-                    />
-                  )}
-
-                  {item.rejection_reason && (
-                    <div className="mt-2 p-2 bg-red-50 border border-red-200 rounded text-sm text-red-800">
-                      <strong>Rejection reason:</strong> {item.rejection_reason}
-                    </div>
-                  )}
 
                   {item.url && (
                     <a
@@ -1023,93 +721,6 @@ export default function ResearchQueuePage() {
       )}
 
       {/* Pagination would go here for large datasets */}
-
-      {/* Single Rejection Modal */}
-      {rejectingId && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-xl p-6 max-w-md w-full mx-4">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Reject Study</h3>
-            <p className="text-sm text-gray-600 mb-4">
-              Select a reason for rejecting this study (optional):
-            </p>
-            <select
-              value={selectedReason}
-              onChange={(e) => setSelectedReason(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 mb-4"
-            >
-              <option value="">No reason specified</option>
-              {REJECTION_REASONS.map(reason => (
-                <option key={reason} value={reason}>{reason}</option>
-              ))}
-            </select>
-            <div className="flex justify-end gap-3">
-              <button
-                onClick={cancelReject}
-                className="px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={confirmReject}
-                className="px-4 py-2 text-white bg-red-600 rounded-lg hover:bg-red-700"
-              >
-                Reject
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Bulk Rejection Modal */}
-      {showBulkRejectModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-xl p-6 max-w-md w-full mx-4">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Reject {bulkSelected.length} Studies
-            </h3>
-            <p className="text-sm text-gray-600 mb-4">
-              Select a reason for rejecting these studies (optional):
-            </p>
-            <select
-              value={bulkRejectReason}
-              onChange={(e) => setBulkRejectReason(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 mb-4"
-            >
-              <option value="">No reason specified</option>
-              {REJECTION_REASONS.map(reason => (
-                <option key={reason} value={reason}>{reason}</option>
-              ))}
-            </select>
-            <div className="flex justify-end gap-3">
-              <button
-                onClick={() => {
-                  setShowBulkRejectModal(false);
-                  setBulkRejectReason('');
-                }}
-                className="px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={confirmBulkReject}
-                className="px-4 py-2 text-white bg-red-600 rounded-lg hover:bg-red-700"
-              >
-                Reject {bulkSelected.length} Studies
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <style jsx>{`
-        @keyframes pulse-once {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.7; }
-        }
-        .animate-pulse-once {
-          animation: pulse-once 1s ease-in-out 3;
-        }
-      `}</style>
     </div>
   );
 }
