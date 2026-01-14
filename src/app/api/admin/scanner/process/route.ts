@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
 
     // 1. Find oldest job with status 'queued' or 'running'
     const { data: jobs, error: jobsError } = await supabase
-      .from('scanner_jobs')
+      .from('kb_scan_jobs')
       .select('*')
       .in('status', ['queued', 'running', 'cancelling'])
       .order('created_at', { ascending: true })
@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
     // 2. If job.status === 'cancelling', mark it 'cancelled' and return
     if (job.status === 'cancelling') {
       await supabase
-        .from('scanner_jobs')
+        .from('kb_scan_jobs')
         .update({
           status: 'cancelled',
           completed_at: new Date().toISOString(),
@@ -101,7 +101,7 @@ export async function POST(request: NextRequest) {
     // 3. Mark job as 'running', update started_at if null
     if (job.status === 'queued' || !job.started_at) {
       await supabase
-        .from('scanner_jobs')
+        .from('kb_scan_jobs')
         .update({
           status: 'running',
           started_at: job.started_at || new Date().toISOString(),
@@ -115,7 +115,7 @@ export async function POST(request: NextRequest) {
     if (!currentSource) {
       // All sources completed
       await supabase
-        .from('scanner_jobs')
+        .from('kb_scan_jobs')
         .update({
           status: 'completed',
           completed_at: new Date().toISOString(),
@@ -200,7 +200,7 @@ export async function POST(request: NextRequest) {
     }
 
     await supabase
-      .from('scanner_jobs')
+      .from('kb_scan_jobs')
       .update(updateData)
       .eq('id', job.id);
 
@@ -591,7 +591,7 @@ export async function GET() {
     );
 
     const { data: activeJobs } = await supabase
-      .from('scanner_jobs')
+      .from('kb_scan_jobs')
       .select('id, status, current_source_index, sources, items_found, items_added')
       .in('status', ['queued', 'running'])
       .limit(1);

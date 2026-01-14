@@ -20,7 +20,7 @@ export async function POST(
 
     // Get current job status
     const { data: job, error: fetchError } = await supabase
-      .from('scanner_jobs')
+      .from('kb_scan_jobs')
       .select('id, status')
       .eq('id', id)
       .single();
@@ -43,7 +43,7 @@ export async function POST(
 
     // Set status to 'cancelling' - the worker will see this and stop
     const { data: updatedJob, error: updateError } = await supabase
-      .from('scanner_jobs')
+      .from('kb_scan_jobs')
       .update({
         status: 'cancelling',
         updated_at: new Date().toISOString()

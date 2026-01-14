@@ -19,7 +19,7 @@ export async function GET(
     );
 
     const { data: job, error } = await supabase
-      .from('scanner_jobs')
+      .from('kb_scan_jobs')
       .select('*')
       .eq('id', id)
       .single();

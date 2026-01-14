@@ -20,7 +20,7 @@ export async function POST(
 
     // Get current job status
     const { data: job, error: fetchError } = await supabase
-      .from('scanner_jobs')
+      .from('kb_scan_jobs')
       .select('*')
       .eq('id', id)
       .single();
@@ -47,7 +47,7 @@ export async function POST(
 
     // Check if there's already an active job
     const { data: activeJobs } = await supabase
-      .from('scanner_jobs')
+      .from('kb_scan_jobs')
       .select('id, status')
       .in('status', ['queued', 'running'])
       .neq('id', id)
@@ -63,7 +63,7 @@ export async function POST(
 
     // Resume the job by setting status back to 'queued'
     const { data: updatedJob, error: updateError } = await supabase
-      .from('scanner_jobs')
+      .from('kb_scan_jobs')
       .update({
         status: 'queued',
         error_message: null,

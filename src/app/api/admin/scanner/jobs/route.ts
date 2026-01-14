@@ -47,7 +47,7 @@ export async function GET(request: NextRequest) {
     );
 
     let query = supabase
-      .from('scanner_jobs')
+      .from('kb_scan_jobs')
       .select('*')
       .order('created_at', { ascending: false })
       .limit(limit);
@@ -119,7 +119,7 @@ export async function POST(request: NextRequest) {
 
     // Check for existing queued/running jobs
     const { data: activeJobs } = await supabase
-      .from('scanner_jobs')
+      .from('kb_scan_jobs')
       .select('id, status')
       .in('status', ['queued', 'running'])
       .limit(1);
@@ -134,7 +134,7 @@ export async function POST(request: NextRequest) {
 
     // Create the job
     const { data: job, error } = await supabase
-      .from('scanner_jobs')
+      .from('kb_scan_jobs')
       .insert({
         status: 'queued',
         sources,
@@ -182,8 +182,8 @@ export async function POST(request: NextRequest) {
 
 function getMigrationSQL(): string {
   return `
--- Create scanner_jobs table
-CREATE TABLE IF NOT EXISTS scanner_jobs (
+-- Create kb_scan_jobs table
+CREATE TABLE IF NOT EXISTS kb_scan_jobs (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   status TEXT NOT NULL DEFAULT 'queued' CHECK (status IN ('queued', 'running', 'completed', 'failed', 'cancelled', 'cancelling', 'paused')),
 
@@ -219,7 +219,7 @@ CREATE TABLE IF NOT EXISTS scanner_jobs (
 );
 
 -- Index for finding active jobs
-CREATE INDEX IF NOT EXISTS idx_scanner_jobs_status ON scanner_jobs(status);
-CREATE INDEX IF NOT EXISTS idx_scanner_jobs_created_at ON scanner_jobs(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_kb_scan_jobs_status ON kb_scan_jobs(status);
+CREATE INDEX IF NOT EXISTS idx_kb_scan_jobs_created_at ON kb_scan_jobs(created_at DESC);
 `;
 }
