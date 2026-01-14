@@ -1,50 +1,23 @@
 'use client';
 
-import { useEffect, useState, useCallback, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import Link from 'next/link';
-
-// Types
-interface ScannerJob {
-  id: string;
-  status: 'queued' | 'running' | 'completed' | 'failed' | 'cancelled' | 'cancelling' | 'paused';
-  sources: string[];
-  search_terms: string[];
-  date_range_start: string | null;
-  date_range_end: string | null;
-  chunk_size: number;
-  delay_ms: number;
-  current_source_index: number;
-  current_year: number | null;
-  current_page: number;
-  items_found: number;
-  items_added: number;
-  items_skipped: number;
-  items_rejected: number;
-  checkpoint: Record<string, any> | null;
-  started_at: string | null;
-  completed_at: string | null;
-  created_at: string;
-  updated_at: string;
-  error_message: string | null;
-}
-
-interface RecentResearchItem {
-  id: string;
-  title: string;
-  source_site: string;
-  relevance_score: number;
-  discovered_at: string;
-}
+import {
+  useScannerJob,
+  useElapsedTime,
+  useTimeSince,
+  ScannerJob,
+} from '@/hooks/useScannerJob';
 
 // Source definitions
 const SOURCES = [
-  { id: 'pubmed', name: 'PubMed', desc: '33M+ biomedical literature', available: true },
-  { id: 'clinicaltrials', name: 'ClinicalTrials.gov', desc: 'Clinical trial database', available: true },
-  { id: 'pmc', name: 'PMC', desc: 'Full-text research articles', available: true },
-  { id: 'europepmc', name: 'Europe PMC', desc: 'European biomedical literature', available: false },
-  { id: 'biorxiv', name: 'bioRxiv/medRxiv', desc: 'Preprints (not peer-reviewed)', available: false },
-  { id: 'semanticscholar', name: 'Semantic Scholar', desc: 'AI-powered citation network', available: false },
+  { id: 'pubmed', name: 'PubMed', desc: '33M+ biomedical literature', available: true, icon: '📚' },
+  { id: 'clinicaltrials', name: 'ClinicalTrials.gov', desc: 'Clinical trial database', available: true, icon: '🏥' },
+  { id: 'pmc', name: 'PMC', desc: 'Full-text research articles', available: true, icon: '📄' },
+  { id: 'europepmc', name: 'Europe PMC', desc: 'European biomedical literature', available: false, icon: '🇪🇺' },
+  { id: 'biorxiv', name: 'bioRxiv', desc: 'Preprints (not peer-reviewed)', available: false, icon: '🧬' },
+  { id: 'semanticscholar', name: 'Semantic Scholar', desc: 'AI-powered research', available: false, icon: '🤖' },
 ];
 
 const SOURCE_NAMES: Record<string, string> = {
@@ -52,7 +25,7 @@ const SOURCE_NAMES: Record<string, string> = {
   pmc: 'PMC',
   clinicaltrials: 'ClinicalTrials.gov',
   europepmc: 'Europe PMC',
-  biorxiv: 'bioRxiv/medRxiv',
+  biorxiv: 'bioRxiv',
   semanticscholar: 'Semantic Scholar',
 };
 
@@ -64,24 +37,22 @@ const SCAN_DEPTHS = [
   { value: 'all', label: 'All time', years: null },
 ];
 
-// Utility functions
-function formatElapsedTime(startedAt: string | null): string {
-  if (!startedAt) return '0s';
-  const start = new Date(startedAt).getTime();
-  const now = Date.now();
-  const seconds = Math.floor((now - start) / 1000);
+const STATUS_BADGES: Record<string, { color: string; icon: string; label: string }> = {
+  completed: { color: 'bg-green-100 text-green-800', icon: '🟢', label: 'Completed' },
+  failed: { color: 'bg-red-100 text-red-800', icon: '🔴', label: 'Failed' },
+  running: { color: 'bg-blue-100 text-blue-800', icon: '🟡', label: 'Running' },
+  queued: { color: 'bg-yellow-100 text-yellow-800', icon: '⚪', label: 'Queued' },
+  cancelled: { color: 'bg-gray-100 text-gray-800', icon: '⬛', label: 'Cancelled' },
+  cancelling: { color: 'bg-orange-100 text-orange-800', icon: '🟠', label: 'Stopping' },
+  paused: { color: 'bg-purple-100 text-purple-800', icon: '🟣', label: 'Paused' },
+};
 
-  if (seconds < 60) return `${seconds}s`;
-  const minutes = Math.floor(seconds / 60);
-  const remainingSeconds = seconds % 60;
-  if (minutes < 60) return `${minutes}m ${remainingSeconds}s`;
-  const hours = Math.floor(minutes / 60);
-  const remainingMinutes = minutes % 60;
-  return `${hours}h ${remainingMinutes}m`;
-}
-
-function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleString();
+interface RecentResearchItem {
+  id: string;
+  title: string;
+  source_site: string;
+  relevance_score: number;
+  discovered_at: string;
 }
 
 function getDateRange(depth: string): { start: string | null; end: string | null } {
@@ -100,237 +71,340 @@ function getDateRange(depth: string): { start: string | null; end: string | null
   };
 }
 
+function formatDuration(startedAt: string | null, completedAt: string | null): string {
+  if (!startedAt) return '-';
+  const start = new Date(startedAt).getTime();
+  const end = completedAt ? new Date(completedAt).getTime() : Date.now();
+  const seconds = Math.floor((end - start) / 1000);
+
+  if (seconds < 60) return `${seconds}s`;
+  if (seconds < 3600) {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}m ${secs}s`;
+  }
+  const hours = Math.floor(seconds / 3600);
+  const mins = Math.floor((seconds % 3600) / 60);
+  return `${hours}h ${mins}m`;
+}
+
+function formatDate(dateStr: string): string {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+}
+
+// Toast notification component
+function Toast({ message, type, onClose }: { message: string; type: 'success' | 'error' | 'info'; onClose: () => void }) {
+  useEffect(() => {
+    const timer = setTimeout(onClose, 5000);
+    return () => clearTimeout(timer);
+  }, [onClose]);
+
+  const colors = {
+    success: 'bg-green-500',
+    error: 'bg-red-500',
+    info: 'bg-blue-500',
+  };
+
+  return (
+    <div className={`fixed bottom-4 right-4 ${colors[type]} text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3 animate-slideIn z-50`}>
+      <span>{message}</span>
+      <button onClick={onClose} className="hover:opacity-80">
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  );
+}
+
+// Active Job Panel Component
+function ActiveJobPanel({
+  job,
+  progress,
+  isProcessing,
+  isCancelling,
+  lastActivity,
+  onCancel,
+}: {
+  job: ScannerJob;
+  progress: { percent: number; currentSource: string | null; sourcesCompleted: number; sourcesTotal: number } | null;
+  isProcessing: boolean;
+  isCancelling: boolean;
+  lastActivity: Date | null;
+  onCancel: () => void;
+}) {
+  const elapsed = useElapsedTime(job.started_at);
+  const timeSinceActivity = useTimeSince(lastActivity);
+  const isActive = ['queued', 'running'].includes(job.status);
+
+  // Calculate estimated remaining items
+  const itemsProcessed = job.items_added + job.items_skipped + job.items_rejected;
+  const estimatedRemaining = job.items_found > 0
+    ? Math.round((job.items_found / Math.max(job.current_source_index + 1, 1)) * (job.sources.length - job.current_source_index - 1))
+    : 0;
+
+  return (
+    <div className={`mb-6 rounded-xl border-2 overflow-hidden ${
+      job.status === 'completed' ? 'border-green-300 bg-green-50' :
+      job.status === 'failed' ? 'border-red-300 bg-red-50' :
+      job.status === 'cancelled' ? 'border-gray-300 bg-gray-50' :
+      job.status === 'cancelling' ? 'border-orange-300 bg-orange-50' :
+      'border-blue-300 bg-blue-50'
+    }`}>
+      {/* Header */}
+      <div className="px-6 py-4 flex justify-between items-center border-b border-opacity-20 border-gray-400">
+        <div className="flex items-center gap-3">
+          {isActive && (
+            <div className="relative">
+              <div className="animate-spin h-6 w-6 border-3 border-blue-600 border-t-transparent rounded-full"></div>
+              {isProcessing && (
+                <div className="absolute inset-0 animate-ping h-6 w-6 border border-blue-400 rounded-full opacity-50"></div>
+              )}
+            </div>
+          )}
+          <div>
+            <h3 className="text-lg font-bold">
+              {job.status === 'completed' && <span className="text-green-700">Scan Complete</span>}
+              {job.status === 'failed' && <span className="text-red-700">Scan Failed</span>}
+              {job.status === 'cancelled' && <span className="text-gray-700">Scan Cancelled</span>}
+              {job.status === 'cancelling' && <span className="text-orange-700">Stopping Scan...</span>}
+              {job.status === 'running' && (
+                <span className="text-blue-700">
+                  Scanning {SOURCE_NAMES[job.sources[job.current_source_index]] || job.sources[job.current_source_index]}...
+                </span>
+              )}
+              {job.status === 'queued' && <span className="text-yellow-700">Starting Scan...</span>}
+            </h3>
+            <p className="text-sm text-gray-600">Elapsed: {elapsed}</p>
+          </div>
+        </div>
+
+        {isActive && (
+          <button
+            onClick={onCancel}
+            disabled={isCancelling || job.status === 'cancelling'}
+            className="px-5 py-2.5 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 font-medium shadow-sm"
+          >
+            {isCancelling || job.status === 'cancelling' ? (
+              <>
+                <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
+                Stopping...
+              </>
+            ) : (
+              <>
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <rect x="5" y="5" width="10" height="10" rx="1" />
+                </svg>
+                Stop Scan
+              </>
+            )}
+          </button>
+        )}
+      </div>
+
+      {/* Progress Bar */}
+      <div className="px-6 py-4">
+        <div className="flex justify-between text-sm text-gray-600 mb-2">
+          <span className="font-medium">
+            {progress?.sourcesCompleted || 0} / {progress?.sourcesTotal || job.sources.length} sources
+          </span>
+          <span className="font-bold text-lg">{progress?.percent || 0}%</span>
+        </div>
+        <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden shadow-inner">
+          <div
+            className={`h-4 rounded-full transition-all duration-700 ${
+              job.status === 'completed' ? 'bg-gradient-to-r from-green-400 to-green-600' :
+              job.status === 'failed' ? 'bg-gradient-to-r from-red-400 to-red-600' :
+              job.status === 'cancelled' ? 'bg-gradient-to-r from-gray-400 to-gray-600' :
+              'bg-gradient-to-r from-blue-400 to-blue-600'
+            }`}
+            style={{ width: `${progress?.percent || 0}%` }}
+          />
+        </div>
+      </div>
+
+      {/* Current Progress Info */}
+      <div className="px-6 pb-4">
+        <div className="flex flex-wrap gap-4 text-sm text-gray-700">
+          <div className="flex items-center gap-2">
+            <span className="font-semibold">Source:</span>
+            <span>{SOURCE_NAMES[progress?.currentSource || ''] || progress?.currentSource || '-'}</span>
+            <span className="text-gray-400">({job.current_source_index + 1}/{job.sources.length})</span>
+          </div>
+          {job.current_year && (
+            <div className="flex items-center gap-2">
+              <span className="font-semibold">Year:</span>
+              <span>{job.current_year}</span>
+            </div>
+          )}
+          <div className="flex items-center gap-2">
+            <span className="font-semibold">Page:</span>
+            <span>{job.current_page + 1}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Stats Grid */}
+      <div className="grid grid-cols-4 divide-x divide-gray-200 bg-white bg-opacity-60">
+        <div className="p-4 text-center">
+          <div className="text-3xl font-bold text-blue-600">{job.items_found.toLocaleString()}</div>
+          <div className="text-xs text-gray-500 font-medium uppercase tracking-wide mt-1">Found</div>
+        </div>
+        <div className="p-4 text-center">
+          <div className="text-3xl font-bold text-green-600">{job.items_added.toLocaleString()}</div>
+          <div className="text-xs text-gray-500 font-medium uppercase tracking-wide mt-1">Added</div>
+        </div>
+        <div className="p-4 text-center">
+          <div className="text-3xl font-bold text-yellow-600">{job.items_skipped.toLocaleString()}</div>
+          <div className="text-xs text-gray-500 font-medium uppercase tracking-wide mt-1">Skipped</div>
+        </div>
+        <div className="p-4 text-center">
+          <div className="text-3xl font-bold text-gray-500">~{estimatedRemaining.toLocaleString()}</div>
+          <div className="text-xs text-gray-500 font-medium uppercase tracking-wide mt-1">Remaining</div>
+        </div>
+      </div>
+
+      {/* Last Activity */}
+      {isActive && (
+        <div className="px-6 py-3 bg-gray-100 bg-opacity-50 text-sm text-gray-600 flex items-center gap-2">
+          <span className={`w-2 h-2 rounded-full ${isProcessing ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`}></span>
+          Last activity: {timeSinceActivity}
+        </div>
+      )}
+
+      {/* Error Message */}
+      {job.error_message && (
+        <div className="px-6 py-4 bg-red-100 border-t border-red-200 text-red-800">
+          <strong>Error:</strong> {job.error_message}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Job History Table Component
+function JobHistoryTable({
+  jobs,
+  onResume,
+}: {
+  jobs: ScannerJob[];
+  onResume: (jobId: string) => void;
+}) {
+  const historyJobs = jobs.filter(j => !['queued', 'running', 'cancelling'].includes(j.status));
+
+  if (historyJobs.length === 0) return null;
+
+  return (
+    <div className="bg-white rounded-xl shadow border overflow-hidden">
+      <div className="px-6 py-4 border-b bg-gray-50">
+        <h3 className="text-lg font-semibold text-gray-900">Scan History</h3>
+      </div>
+      <div className="overflow-x-auto">
+        <table className="w-full">
+          <thead className="bg-gray-50 text-xs uppercase text-gray-500">
+            <tr>
+              <th className="px-4 py-3 text-left font-semibold">Status</th>
+              <th className="px-4 py-3 text-left font-semibold">Sources</th>
+              <th className="px-4 py-3 text-right font-semibold">Found</th>
+              <th className="px-4 py-3 text-right font-semibold">Added</th>
+              <th className="px-4 py-3 text-right font-semibold">Duration</th>
+              <th className="px-4 py-3 text-left font-semibold">Date</th>
+              <th className="px-4 py-3 text-right font-semibold">Actions</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-100">
+            {historyJobs.map(job => {
+              const badge = STATUS_BADGES[job.status] || STATUS_BADGES.cancelled;
+              return (
+                <tr key={job.id} className="hover:bg-gray-50 transition-colors">
+                  <td className="px-4 py-3">
+                    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${badge.color}`}>
+                      <span>{badge.icon}</span>
+                      {badge.label}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3">
+                    <div className="flex flex-wrap gap-1">
+                      {job.sources.slice(0, 3).map(s => (
+                        <span key={s} className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs">
+                          {SOURCE_NAMES[s] || s}
+                        </span>
+                      ))}
+                      {job.sources.length > 3 && (
+                        <span className="px-2 py-0.5 bg-gray-100 text-gray-500 rounded text-xs">
+                          +{job.sources.length - 3}
+                        </span>
+                      )}
+                    </div>
+                  </td>
+                  <td className="px-4 py-3 text-right font-medium">{job.items_found.toLocaleString()}</td>
+                  <td className="px-4 py-3 text-right font-medium text-green-600">{job.items_added.toLocaleString()}</td>
+                  <td className="px-4 py-3 text-right text-gray-500">{formatDuration(job.started_at, job.completed_at)}</td>
+                  <td className="px-4 py-3 text-sm text-gray-500">{formatDate(job.created_at)}</td>
+                  <td className="px-4 py-3 text-right">
+                    {(job.status === 'paused' || job.status === 'failed') && (
+                      <button
+                        onClick={() => onResume(job.id)}
+                        className="px-3 py-1.5 bg-blue-100 text-blue-700 rounded-lg text-sm font-medium hover:bg-blue-200 transition-colors"
+                      >
+                        Resume
+                      </button>
+                    )}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+// Main Scanner Page
 export default function ScannerPage() {
-  // State
+  // Form state
   const [selectedSources, setSelectedSources] = useState<string[]>(['pubmed', 'clinicaltrials', 'pmc']);
   const [scanDepth, setScanDepth] = useState('1year');
+  const [showAdvanced, setShowAdvanced] = useState(false);
   const [chunkSize, setChunkSize] = useState(50);
   const [delayMs, setDelayMs] = useState(1000);
-  const [showAdvanced, setShowAdvanced] = useState(false);
 
-  const [activeJob, setActiveJob] = useState<ScannerJob | null>(null);
-  const [jobHistory, setJobHistory] = useState<ScannerJob[]>([]);
+  // Scanner job hook
+  const {
+    job,
+    jobs,
+    progress,
+    isLoading,
+    isProcessing,
+    isCancelling,
+    error,
+    lastActivity,
+    createJob,
+    cancelJob,
+    resumeJob,
+    clearError,
+  } = useScannerJob();
+
+  // Toast state
+  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' | 'info' } | null>(null);
+
+  // Recent research items
   const [recentItems, setRecentItems] = useState<RecentResearchItem[]>([]);
-
-  const [isCreating, setIsCreating] = useState(false);
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [isCancelling, setIsCancelling] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [elapsedTime, setElapsedTime] = useState('0s');
-
-  const processingRef = useRef(false);
   const supabase = createClient();
 
-  // Fetch jobs list
-  const fetchJobs = useCallback(async () => {
-    try {
-      const response = await fetch('/api/admin/scanner/jobs?limit=10');
-      const data = await response.json();
+  // Creating state
+  const [isCreating, setIsCreating] = useState(false);
 
-      if (data.jobs) {
-        // Find active job
-        const active = data.jobs.find((j: ScannerJob) =>
-          ['queued', 'running', 'cancelling'].includes(j.status)
-        );
-        setActiveJob(active || null);
-
-        // Set history (completed/failed/cancelled jobs)
-        const history = data.jobs.filter((j: ScannerJob) =>
-          ['completed', 'failed', 'cancelled', 'paused'].includes(j.status)
-        );
-        setJobHistory(history);
-      }
-    } catch (err) {
-      console.error('Failed to fetch jobs:', err);
-    }
-  }, []);
-
-  // Fetch single job details
-  const fetchJobDetails = useCallback(async (jobId: string) => {
-    try {
-      const response = await fetch(`/api/admin/scanner/jobs/${jobId}`);
-      const data = await response.json();
-
-      if (data.job) {
-        if (['queued', 'running', 'cancelling'].includes(data.job.status)) {
-          setActiveJob(data.job);
-        } else {
-          setActiveJob(null);
-          fetchJobs(); // Refresh history
-        }
-      }
-    } catch (err) {
-      console.error('Failed to fetch job details:', err);
-    }
-  }, [fetchJobs]);
-
-  // Process one chunk
-  const processChunk = useCallback(async () => {
-    if (processingRef.current) return;
-    processingRef.current = true;
-    setIsProcessing(true);
-
-    try {
-      const response = await fetch('/api/admin/scanner/process', { method: 'POST' });
-      const data = await response.json();
-
-      if (data.jobId) {
-        await fetchJobDetails(data.jobId);
-
-        // Continue processing if there's more
-        if (data.hasMore && data.status === 'running') {
-          // Small delay before next chunk
-          setTimeout(() => {
-            processingRef.current = false;
-            processChunk();
-          }, 500);
-          return;
-        }
-      }
-
-      // No more work or job completed
-      if (data.status === 'completed' || data.status === 'cancelled' || !data.hasMore) {
-        await fetchJobs();
-      }
-    } catch (err) {
-      console.error('Failed to process chunk:', err);
-      setError(err instanceof Error ? err.message : 'Processing failed');
-    } finally {
-      processingRef.current = false;
-      setIsProcessing(false);
-    }
-  }, [fetchJobDetails, fetchJobs]);
-
-  // Create new job
-  const createJob = async () => {
-    if (selectedSources.length === 0) {
-      setError('Please select at least one source');
-      return;
-    }
-
-    setIsCreating(true);
-    setError(null);
-
-    try {
-      const dateRange = getDateRange(scanDepth);
-
-      const response = await fetch('/api/admin/scanner/jobs', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          sources: selectedSources,
-          searchTerms: ['CBD', 'cannabidiol', 'cannabis', 'cannabinoid'],
-          dateRangeStart: dateRange.start,
-          dateRangeEnd: dateRange.end,
-          chunkSize,
-          delayMs,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (data.error) {
-        if (data.existingJobId) {
-          setError(`A job is already ${data.existingStatus}. Wait for it to complete or cancel it.`);
-          await fetchJobDetails(data.existingJobId);
-        } else {
-          setError(data.error);
-        }
-        return;
-      }
-
-      if (data.job) {
-        setActiveJob(data.job);
-        // Start processing
-        processChunk();
-      }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to create job');
-    } finally {
-      setIsCreating(false);
-    }
-  };
-
-  // Cancel job
-  const cancelJob = async () => {
-    if (!activeJob) return;
-
-    setIsCancelling(true);
-    try {
-      const response = await fetch(`/api/admin/scanner/jobs/${activeJob.id}/cancel`, {
-        method: 'POST',
-      });
-      const data = await response.json();
-
-      if (data.job) {
-        setActiveJob(data.job);
-      }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to cancel job');
-    } finally {
-      setIsCancelling(false);
-    }
-  };
-
-  // Resume job
-  const resumeJob = async (jobId: string) => {
-    try {
-      const response = await fetch(`/api/admin/scanner/jobs/${jobId}/resume`, {
-        method: 'POST',
-      });
-      const data = await response.json();
-
-      if (data.error) {
-        setError(data.error);
-        return;
-      }
-
-      if (data.job) {
-        setActiveJob(data.job);
-        processChunk();
-      }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to resume job');
-    }
-  };
-
-  // Initial load
+  // Fetch recent items and subscribe to updates
   useEffect(() => {
-    fetchJobs();
-  }, [fetchJobs]);
-
-  // Poll for updates when job is active
-  useEffect(() => {
-    if (!activeJob || !['queued', 'running'].includes(activeJob.status)) return;
-
-    const interval = setInterval(() => {
-      fetchJobDetails(activeJob.id);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [activeJob?.id, activeJob?.status, fetchJobDetails]);
-
-  // Auto-process when job is queued
-  useEffect(() => {
-    if (activeJob?.status === 'queued' && !processingRef.current) {
-      processChunk();
-    }
-  }, [activeJob?.status, processChunk]);
-
-  // Update elapsed time
-  useEffect(() => {
-    if (!activeJob || !['running', 'queued'].includes(activeJob.status)) return;
-
-    const interval = setInterval(() => {
-      setElapsedTime(formatElapsedTime(activeJob.started_at));
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [activeJob?.id, activeJob?.status, activeJob?.started_at]);
-
-  // Subscribe to new research items
-  useEffect(() => {
-    const fetchRecentItems = async () => {
+    const fetchRecent = async () => {
       const { data } = await supabase
         .from('kb_research_queue')
         .select('id, title, source_site, relevance_score, discovered_at')
@@ -340,10 +414,10 @@ export default function ScannerPage() {
       if (data) setRecentItems(data);
     };
 
-    fetchRecentItems();
+    fetchRecent();
 
     const channel = supabase
-      .channel('scanner_research_queue')
+      .channel('scanner_queue_updates')
       .on('postgres_changes', {
         event: 'INSERT',
         schema: 'public',
@@ -359,370 +433,342 @@ export default function ScannerPage() {
     };
   }, [supabase]);
 
-  // Computed values
-  const isScanning = activeJob && ['queued', 'running'].includes(activeJob.status);
-  const progressPercent = activeJob && activeJob.sources.length > 0
-    ? Math.round((activeJob.current_source_index / activeJob.sources.length) * 100)
-    : 0;
+  // Show error toast when error changes
+  useEffect(() => {
+    if (error) {
+      setToast({ message: error, type: 'error' });
+    }
+  }, [error]);
+
+  // Handle start scan
+  const handleStartScan = async () => {
+    if (selectedSources.length === 0) {
+      setToast({ message: 'Please select at least one source', type: 'error' });
+      return;
+    }
+
+    setIsCreating(true);
+    const dateRange = getDateRange(scanDepth);
+
+    const newJob = await createJob({
+      sources: selectedSources,
+      dateRangeStart: dateRange.start,
+      dateRangeEnd: dateRange.end,
+      chunkSize,
+      delayMs,
+    });
+
+    setIsCreating(false);
+
+    if (newJob) {
+      setToast({ message: 'Scan started successfully!', type: 'success' });
+    }
+  };
+
+  // Handle cancel
+  const handleCancel = async () => {
+    const success = await cancelJob();
+    if (success) {
+      setToast({ message: 'Scan is being stopped...', type: 'info' });
+    }
+  };
+
+  // Handle resume
+  const handleResume = async (jobId: string) => {
+    const success = await resumeJob(jobId);
+    if (success) {
+      setToast({ message: 'Scan resumed!', type: 'success' });
+    }
+  };
+
+  const isScanning = job && ['queued', 'running'].includes(job.status);
+
+  if (isLoading) {
+    return (
+      <div className="p-8 flex items-center justify-center min-h-[400px]">
+        <div className="animate-spin h-10 w-10 border-4 border-blue-600 border-t-transparent rounded-full"></div>
+      </div>
+    );
+  }
 
   return (
-    <div className="p-8">
+    <div className="p-8 max-w-6xl mx-auto">
+      {/* Toast */}
+      {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => {
+            setToast(null);
+            clearError();
+          }}
+        />
+      )}
+
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Research Scanner</h1>
-          <p className="text-gray-600 mt-2">Discover new CBD research from authoritative sources</p>
+          <p className="text-gray-600 mt-1">Discover new CBD research from authoritative sources</p>
         </div>
         <Link
           href="/admin/research/queue"
-          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+          className="bg-green-600 text-white px-5 py-2.5 rounded-lg hover:bg-green-700 transition-colors font-medium shadow-sm flex items-center gap-2"
         >
-          View Research Queue
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+          View Queue
         </Link>
       </div>
 
-      {/* Error Display */}
-      {error && (
-        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800 flex justify-between items-center">
-          <span><strong>Error:</strong> {error}</span>
-          <button onClick={() => setError(null)} className="text-red-600 hover:text-red-800">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-      )}
-
       {/* Active Job Panel */}
-      {activeJob && (
-        <div className={`mb-6 p-6 rounded-lg border-2 ${
-          activeJob.status === 'completed' ? 'bg-green-50 border-green-300' :
-          activeJob.status === 'failed' ? 'bg-red-50 border-red-300' :
-          activeJob.status === 'cancelled' ? 'bg-gray-50 border-gray-300' :
-          activeJob.status === 'cancelling' ? 'bg-yellow-50 border-yellow-300' :
-          'bg-blue-50 border-blue-300'
-        }`}>
-          {/* Header */}
-          <div className="flex justify-between items-start mb-4">
-            <div className="flex-1">
-              <h3 className="text-lg font-semibold flex items-center gap-2">
-                {isScanning && (
-                  <div className="animate-spin h-5 w-5 border-2 border-blue-600 border-t-transparent rounded-full"></div>
-                )}
-                {activeJob.status === 'completed' && <span className="text-green-600">Scan Complete</span>}
-                {activeJob.status === 'failed' && <span className="text-red-600">Scan Failed</span>}
-                {activeJob.status === 'cancelled' && <span className="text-gray-600">Scan Cancelled</span>}
-                {activeJob.status === 'cancelling' && <span className="text-yellow-600">Cancelling...</span>}
-                {activeJob.status === 'running' && (
-                  <span className="text-blue-600">
-                    Scanning {SOURCE_NAMES[activeJob.sources[activeJob.current_source_index]] || activeJob.sources[activeJob.current_source_index]}...
-                  </span>
-                )}
-                {activeJob.status === 'queued' && <span className="text-yellow-600">Starting...</span>}
-              </h3>
-
-              <div className="mt-2 text-sm text-gray-600 space-y-1">
-                <p><strong>Source:</strong> {activeJob.current_source_index + 1} of {activeJob.sources.length}</p>
-                <p><strong>Page:</strong> {activeJob.current_page + 1}</p>
-                <p><strong>Elapsed:</strong> {elapsedTime}</p>
-              </div>
-            </div>
-
-            {/* Cancel Button */}
-            {isScanning && (
-              <button
-                onClick={cancelJob}
-                disabled={isCancelling || activeJob.status === 'cancelling'}
-                className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50 flex items-center gap-2"
-              >
-                {isCancelling || activeJob.status === 'cancelling' ? (
-                  <>
-                    <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
-                    Stopping...
-                  </>
-                ) : (
-                  <>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <rect x="6" y="6" width="12" height="12" strokeWidth="2" />
-                    </svg>
-                    Stop Scan
-                  </>
-                )}
-              </button>
-            )}
-          </div>
-
-          {/* Progress Bar */}
-          <div className="mb-4">
-            <div className="flex justify-between text-sm text-gray-600 mb-1">
-              <span>Progress: {activeJob.current_source_index} / {activeJob.sources.length} sources</span>
-              <span>{progressPercent}%</span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
-              <div
-                className={`h-3 rounded-full transition-all duration-500 ${
-                  activeJob.status === 'completed' ? 'bg-green-500' :
-                  activeJob.status === 'failed' ? 'bg-red-500' :
-                  activeJob.status === 'cancelled' ? 'bg-gray-500' :
-                  'bg-blue-500'
-                }`}
-                style={{ width: `${progressPercent}%` }}
-              />
-            </div>
-          </div>
-
-          {/* Source Status Pills */}
-          <div className="flex flex-wrap gap-2 mb-4">
-            {activeJob.sources.map((source, index) => {
-              const isCompleted = index < activeJob.current_source_index;
-              const isCurrent = index === activeJob.current_source_index;
-
-              return (
-                <span
-                  key={source}
-                  className={`px-3 py-1 text-xs rounded-full flex items-center gap-1.5 font-medium ${
-                    isCompleted ? 'bg-green-100 text-green-800' :
-                    isCurrent ? 'bg-blue-100 text-blue-800' :
-                    'bg-gray-100 text-gray-500'
-                  }`}
-                >
-                  {isCompleted && (
-                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  )}
-                  {isCurrent && isScanning && (
-                    <span className="animate-spin h-3 w-3 border border-blue-600 border-t-transparent rounded-full"></span>
-                  )}
-                  {index + 1}. {SOURCE_NAMES[source] || source}
-                </span>
-              );
-            })}
-          </div>
-
-          {/* Stats Grid */}
-          <div className="grid grid-cols-4 gap-4 text-center">
-            <div className="bg-white rounded p-3 shadow-sm">
-              <div className="text-2xl font-bold text-blue-600">{activeJob.items_found}</div>
-              <div className="text-xs text-gray-500">Found</div>
-            </div>
-            <div className="bg-white rounded p-3 shadow-sm">
-              <div className="text-2xl font-bold text-green-600">{activeJob.items_added}</div>
-              <div className="text-xs text-gray-500">Added</div>
-            </div>
-            <div className="bg-white rounded p-3 shadow-sm">
-              <div className="text-2xl font-bold text-yellow-600">{activeJob.items_skipped}</div>
-              <div className="text-xs text-gray-500">Duplicates</div>
-            </div>
-            <div className="bg-white rounded p-3 shadow-sm">
-              <div className="text-2xl font-bold text-red-600">{activeJob.items_rejected}</div>
-              <div className="text-xs text-gray-500">Filtered</div>
-            </div>
-          </div>
-
-          {/* Error Message */}
-          {activeJob.error_message && (
-            <div className="mt-4 p-3 bg-red-100 border border-red-200 rounded text-red-800 text-sm">
-              <strong>Error:</strong> {activeJob.error_message}
-            </div>
-          )}
-        </div>
+      {job && ['queued', 'running', 'cancelling', 'completed', 'failed'].includes(job.status) && (
+        <ActiveJobPanel
+          job={job}
+          progress={progress}
+          isProcessing={isProcessing}
+          isCancelling={isCancelling}
+          lastActivity={lastActivity}
+          onCancel={handleCancel}
+        />
       )}
 
-      {/* Real-time Feed */}
+      {/* Recently Discovered Feed */}
       {(isScanning || recentItems.length > 0) && (
-        <div className="mb-6 p-4 bg-white rounded-lg shadow border">
-          <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+        <div className="mb-6 bg-white rounded-xl shadow border overflow-hidden">
+          <div className="px-6 py-4 border-b bg-gray-50 flex items-center gap-3">
             {isScanning && (
               <span className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
               </span>
             )}
-            Recently Discovered Research
-          </h3>
-          <div className="space-y-2 max-h-64 overflow-y-auto">
+            <h3 className="text-lg font-semibold text-gray-900">Recently Discovered Research</h3>
+          </div>
+          <div className="max-h-64 overflow-y-auto divide-y divide-gray-100">
             {recentItems.map(item => (
-              <div key={item.id} className="flex items-center gap-2 p-2 bg-gray-50 rounded text-sm">
-                <div className="flex-1 min-w-0">
-                  <span className="font-medium block truncate" title={item.title}>{item.title}</span>
-                </div>
-                <div className="flex items-center gap-1.5 text-xs shrink-0">
-                  <span className="px-1.5 py-0.5 bg-blue-100 text-blue-700 rounded whitespace-nowrap">
-                    {item.source_site}
-                  </span>
-                  <span className="px-1.5 py-0.5 bg-purple-100 text-purple-700 rounded">
-                    {item.relevance_score}
-                  </span>
+              <div key={item.id} className="px-6 py-3 hover:bg-gray-50 transition-colors">
+                <div className="flex items-center gap-3">
+                  <div className="flex-1 min-w-0">
+                    <p className="font-medium text-gray-900 truncate" title={item.title}>{item.title}</p>
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">
+                      {item.source_site}
+                    </span>
+                    <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-medium">
+                      {item.relevance_score}
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}
             {recentItems.length === 0 && (
-              <p className="text-gray-500 text-sm">No recent items. Start a scan to discover research.</p>
+              <div className="px-6 py-8 text-center text-gray-500">
+                No recent items. Start a scan to discover research.
+              </div>
             )}
           </div>
         </div>
       )}
 
-      {/* Job Creation Panel */}
+      {/* Job Creation Panel - Only show when not scanning */}
       {!isScanning && (
         <div className="space-y-6">
           {/* Source Selection */}
-          <div className="p-6 bg-white rounded-lg shadow border">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Research Sources</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-              {SOURCES.map(source => (
-                <label
-                  key={source.id}
-                  className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${
-                    !source.available ? 'opacity-50 cursor-not-allowed bg-gray-50' :
-                    selectedSources.includes(source.id) ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-gray-300'
-                  }`}
-                >
-                  <input
-                    type="checkbox"
-                    checked={selectedSources.includes(source.id)}
-                    onChange={(e) => {
-                      if (!source.available) return;
-                      if (e.target.checked) {
-                        setSelectedSources([...selectedSources, source.id]);
-                      } else {
-                        setSelectedSources(selectedSources.filter(s => s !== source.id));
-                      }
-                    }}
-                    disabled={!source.available}
-                    className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-0.5"
-                  />
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2">
-                      <span className="font-medium text-gray-900">{source.name}</span>
-                      {!source.available && (
-                        <span className="text-xs px-1.5 py-0.5 bg-gray-200 text-gray-600 rounded">Coming Soon</span>
+          <div className="bg-white rounded-xl shadow border overflow-hidden">
+            <div className="px-6 py-4 border-b bg-gray-50">
+              <h3 className="text-lg font-semibold text-gray-900">Research Sources</h3>
+              <p className="text-sm text-gray-500 mt-1">Select which databases to scan for CBD research</p>
+            </div>
+            <div className="p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {SOURCES.map(source => (
+                  <label
+                    key={source.id}
+                    className={`relative flex items-start gap-4 p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                      !source.available
+                        ? 'opacity-50 cursor-not-allowed bg-gray-50 border-gray-200'
+                        : selectedSources.includes(source.id)
+                        ? 'border-blue-500 bg-blue-50 shadow-sm'
+                        : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={selectedSources.includes(source.id)}
+                      onChange={(e) => {
+                        if (!source.available) return;
+                        setSelectedSources(prev =>
+                          e.target.checked
+                            ? [...prev, source.id]
+                            : prev.filter(s => s !== source.id)
+                        );
+                      }}
+                      disabled={!source.available}
+                      className="sr-only"
+                    />
+                    <div className={`w-6 h-6 rounded-md border-2 flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
+                      selectedSources.includes(source.id) && source.available
+                        ? 'bg-blue-600 border-blue-600'
+                        : 'border-gray-300'
+                    }`}>
+                      {selectedSources.includes(source.id) && source.available && (
+                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
                       )}
                     </div>
-                    <p className="text-xs text-gray-500 mt-0.5">{source.desc}</p>
-                  </div>
-                </label>
-              ))}
-            </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xl">{source.icon}</span>
+                        <span className="font-semibold text-gray-900">{source.name}</span>
+                        {!source.available && (
+                          <span className="px-2 py-0.5 bg-gray-200 text-gray-600 rounded text-xs font-medium">
+                            Coming Soon
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-sm text-gray-500 mt-1">{source.desc}</p>
+                    </div>
+                  </label>
+                ))}
+              </div>
 
-            {/* Quick Select Buttons */}
-            <div className="mt-4 pt-4 border-t flex gap-2">
-              <button
-                onClick={() => setSelectedSources(SOURCES.filter(s => s.available).map(s => s.id))}
-                className="px-3 py-1.5 text-sm bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-colors"
-              >
-                Select All Available
-              </button>
-              <button
-                onClick={() => setSelectedSources(['pubmed', 'clinicaltrials', 'pmc'])}
-                className="px-3 py-1.5 text-sm bg-green-100 text-green-700 rounded-lg hover:bg-green-200 transition-colors"
-              >
-                Core Medical
-              </button>
-              <button
-                onClick={() => setSelectedSources([])}
-                className="px-3 py-1.5 text-sm bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
-              >
-                Clear
-              </button>
+              {/* Quick Select */}
+              <div className="mt-6 pt-6 border-t flex flex-wrap gap-3">
+                <button
+                  onClick={() => setSelectedSources(SOURCES.filter(s => s.available).map(s => s.id))}
+                  className="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg text-sm font-medium hover:bg-blue-200 transition-colors"
+                >
+                  Select All Available
+                </button>
+                <button
+                  onClick={() => setSelectedSources(['pubmed', 'clinicaltrials', 'pmc'])}
+                  className="px-4 py-2 bg-green-100 text-green-700 rounded-lg text-sm font-medium hover:bg-green-200 transition-colors"
+                >
+                  Core Medical Only
+                </button>
+                <button
+                  onClick={() => setSelectedSources([])}
+                  className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors"
+                >
+                  Clear All
+                </button>
+              </div>
             </div>
           </div>
 
           {/* Scan Depth */}
-          <div className="p-6 bg-white rounded-lg shadow border">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Scan Depth</h3>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-              {SCAN_DEPTHS.map(depth => (
-                <label
-                  key={depth.value}
-                  className={`flex items-center justify-center p-3 rounded-lg border cursor-pointer transition-colors ${
-                    scanDepth === depth.value ? 'border-blue-500 bg-blue-50 text-blue-700' : 'border-gray-200 hover:border-gray-300'
-                  }`}
-                >
-                  <input
-                    type="radio"
-                    name="scanDepth"
-                    value={depth.value}
-                    checked={scanDepth === depth.value}
-                    onChange={() => setScanDepth(depth.value)}
-                    className="sr-only"
-                  />
-                  <span className="font-medium text-sm">{depth.label}</span>
-                </label>
-              ))}
+          <div className="bg-white rounded-xl shadow border overflow-hidden">
+            <div className="px-6 py-4 border-b bg-gray-50">
+              <h3 className="text-lg font-semibold text-gray-900">Scan Depth</h3>
+              <p className="text-sm text-gray-500 mt-1">How far back to search for research papers</p>
             </div>
-            <p className="mt-3 text-sm text-gray-500">
-              Scans will automatically skip studies already in the database.
-            </p>
+            <div className="p-6">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                {SCAN_DEPTHS.map(depth => (
+                  <button
+                    key={depth.value}
+                    onClick={() => setScanDepth(depth.value)}
+                    className={`px-4 py-3 rounded-xl border-2 text-center font-medium transition-all ${
+                      scanDepth === depth.value
+                        ? 'border-blue-500 bg-blue-50 text-blue-700'
+                        : 'border-gray-200 text-gray-700 hover:border-gray-300 hover:bg-gray-50'
+                    }`}
+                  >
+                    {depth.label}
+                  </button>
+                ))}
+              </div>
+              <p className="mt-4 text-sm text-gray-500 flex items-center gap-2">
+                <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                Automatically skips papers already in your database
+              </p>
+            </div>
           </div>
 
           {/* Advanced Options */}
-          <details className="p-6 bg-white rounded-lg shadow border" open={showAdvanced}>
-            <summary
-              className="text-lg font-semibold text-gray-900 cursor-pointer"
-              onClick={(e) => {
-                e.preventDefault();
-                setShowAdvanced(!showAdvanced);
-              }}
+          <div className="bg-white rounded-xl shadow border overflow-hidden">
+            <button
+              onClick={() => setShowAdvanced(!showAdvanced)}
+              className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
             >
-              Advanced Options
-            </summary>
-            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Chunk Size (items per request)
-                </label>
-                <input
-                  type="number"
-                  value={chunkSize}
-                  onChange={(e) => setChunkSize(Math.max(10, Math.min(100, parseInt(e.target.value) || 50)))}
-                  min={10}
-                  max={100}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                />
-                <p className="text-xs text-gray-500 mt-1">10-100 items per API request</p>
+                <h3 className="text-lg font-semibold text-gray-900">Advanced Options</h3>
+                <p className="text-sm text-gray-500 mt-1">Configure chunk size and rate limiting</p>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Delay Between Requests (ms)
-                </label>
-                <input
-                  type="number"
-                  value={delayMs}
-                  onChange={(e) => setDelayMs(Math.max(500, parseInt(e.target.value) || 1000))}
-                  min={500}
-                  step={100}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                />
-                <p className="text-xs text-gray-500 mt-1">Minimum 500ms to respect rate limits</p>
+              <svg
+                className={`w-5 h-5 text-gray-400 transition-transform ${showAdvanced ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            {showAdvanced && (
+              <div className="px-6 pb-6 border-t">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Chunk Size (items per request)
+                    </label>
+                    <input
+                      type="number"
+                      value={chunkSize}
+                      onChange={(e) => setChunkSize(Math.max(10, Math.min(100, parseInt(e.target.value) || 50)))}
+                      min={10}
+                      max={100}
+                      className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                    <p className="mt-2 text-xs text-gray-500">10-100 items fetched per API call</p>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Delay Between Requests (ms)
+                    </label>
+                    <input
+                      type="number"
+                      value={delayMs}
+                      onChange={(e) => setDelayMs(Math.max(500, parseInt(e.target.value) || 1000))}
+                      min={500}
+                      step={100}
+                      className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                    <p className="mt-2 text-xs text-gray-500">Minimum 500ms to respect API rate limits</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </details>
+            )}
+          </div>
 
           {/* Start Button */}
-          <div className="flex justify-center">
+          <div className="flex justify-center pt-4">
             <button
-              onClick={createJob}
+              onClick={handleStartScan}
               disabled={isCreating || selectedSources.length === 0}
-              className={`px-8 py-4 rounded-lg text-lg font-semibold transition-all flex items-center gap-2 ${
+              className={`px-10 py-4 rounded-xl text-lg font-bold transition-all flex items-center gap-3 ${
                 isCreating
                   ? 'bg-gray-400 text-white cursor-not-allowed'
                   : selectedSources.length === 0
                   ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                  : 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl'
+                  : 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'
               }`}
             >
               {isCreating ? (
                 <>
-                  <div className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></div>
+                  <div className="animate-spin h-6 w-6 border-3 border-white border-t-transparent rounded-full"></div>
                   Creating Job...
                 </>
               ) : selectedSources.length === 0 ? (
                 'Select Sources to Scan'
               ) : (
                 <>
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                   Start Scan ({selectedSources.length} source{selectedSources.length > 1 ? 's' : ''})
@@ -734,53 +780,40 @@ export default function ScannerPage() {
       )}
 
       {/* Job History */}
-      {jobHistory.length > 0 && (
-        <div className="mt-8 p-6 bg-white rounded-lg shadow border">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Scan History</h3>
-          <div className="space-y-3">
-            {jobHistory.map(job => (
-              <div key={job.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2">
-                    <span className={`px-2 py-0.5 text-xs font-medium rounded ${
-                      job.status === 'completed' ? 'bg-green-100 text-green-800' :
-                      job.status === 'failed' ? 'bg-red-100 text-red-800' :
-                      job.status === 'paused' ? 'bg-yellow-100 text-yellow-800' :
-                      'bg-gray-100 text-gray-800'
-                    }`}>
-                      {job.status}
-                    </span>
-                    <span className="text-sm text-gray-600">
-                      {job.sources.map(s => SOURCE_NAMES[s] || s).join(', ')}
-                    </span>
-                  </div>
-                  <div className="mt-1 text-xs text-gray-500">
-                    {formatDate(job.created_at)} -
-                    Found: {job.items_found}, Added: {job.items_added}, Skipped: {job.items_skipped}
-                  </div>
-                </div>
-                <div className="flex gap-2">
-                  {(job.status === 'paused' || job.status === 'failed') && (
-                    <button
-                      onClick={() => resumeJob(job.id)}
-                      className="px-3 py-1.5 text-sm bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-colors"
-                    >
-                      Resume
-                    </button>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      <div className="mt-8">
+        <JobHistoryTable jobs={jobs} onResume={handleResume} />
+      </div>
 
       {/* Info Box */}
-      <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg text-sm text-blue-800">
-        <strong>How it works:</strong> The scanner fetches research from public APIs in chunks,
-        checking for duplicates and scoring relevance. Results are added to your review queue
-        where you can approve or reject them. Scans can be stopped and resumed at any time.
+      <div className="mt-8 p-5 bg-blue-50 border border-blue-200 rounded-xl text-sm text-blue-800">
+        <div className="flex gap-3">
+          <svg className="w-5 h-5 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div>
+            <strong>How it works:</strong> The scanner fetches research papers from public APIs in small chunks,
+            automatically checking for duplicates and scoring relevance. Results are added to your review queue
+            where you can approve or reject them. Scans can be stopped and resumed at any time - progress is saved automatically.
+          </div>
+        </div>
       </div>
+
+      {/* Animation styles */}
+      <style jsx global>{`
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-slideIn {
+          animation: slideIn 0.3s ease-out;
+        }
+      `}</style>
     </div>
   );
 }
