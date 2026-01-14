@@ -1,37 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
+// Interface matching actual kb_scan_jobs table schema
 export interface ScannerJob {
   id: string;
-  status: 'queued' | 'running' | 'completed' | 'failed' | 'cancelled' | 'cancelling' | 'paused';
+  status: 'pending' | 'queued' | 'running' | 'completed' | 'failed' | 'cancelled' | 'cancelling' | 'paused';
   sources: string[];
-  search_terms: string[];
+  search_terms: string[] | null;
   date_range_start: string | null;
   date_range_end: string | null;
-  chunk_size: number;
-  delay_ms: number;
-
-  // Progress tracking
+  current_source: string | null;
   current_source_index: number;
-  current_year: number | null;
-  current_page: number;
   items_found: number;
   items_added: number;
   items_skipped: number;
   items_rejected: number;
-
-  // Checkpoint for resumption
-  checkpoint: Record<string, any> | null;
-
-  // Timestamps
+  error_message: string | null;
   started_at: string | null;
   completed_at: string | null;
   created_at: string;
   updated_at: string;
-
-  // Error tracking
-  error_message: string | null;
-  last_error_at: string | null;
 }
 
 // GET - List all scan jobs
@@ -59,14 +47,14 @@ export async function GET(request: NextRequest) {
     const { data: jobs, error } = await query;
 
     if (error) {
-      // Table might not exist yet
       if (error.code === '42P01') {
         return NextResponse.json({
           jobs: [],
-          message: 'Scanner jobs table not created yet. Run the migration first.',
+          message: 'Scanner jobs table not created yet.',
           migrationNeeded: true
         });
       }
+      console.error('[Scanner Jobs GET] Error:', error);
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
@@ -76,6 +64,7 @@ export async function GET(request: NextRequest) {
     });
 
   } catch (error) {
+    console.error('[Scanner Jobs GET] Exception:', error);
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
@@ -93,21 +82,12 @@ export async function POST(request: NextRequest) {
       searchTerms = ['CBD', 'cannabidiol'],
       dateRangeStart = null,
       dateRangeEnd = null,
-      chunkSize = 50,
-      delayMs = 1000
     } = body;
 
     // Validate inputs
     if (!Array.isArray(sources) || sources.length === 0) {
       return NextResponse.json(
         { error: 'sources must be a non-empty array' },
-        { status: 400 }
-      );
-    }
-
-    if (!Array.isArray(searchTerms) || searchTerms.length === 0) {
-      return NextResponse.json(
-        { error: 'searchTerms must be a non-empty array' },
         { status: 400 }
       );
     }
@@ -121,7 +101,7 @@ export async function POST(request: NextRequest) {
     const { data: activeJobs } = await supabase
       .from('kb_scan_jobs')
       .select('id, status')
-      .in('status', ['queued', 'running'])
+      .in('status', ['pending', 'queued', 'running'])
       .limit(1);
 
     if (activeJobs && activeJobs.length > 0) {
@@ -132,37 +112,26 @@ export async function POST(request: NextRequest) {
       }, { status: 409 });
     }
 
-    // Create the job
+    // Create the job - only columns that exist in the actual table
     const { data: job, error } = await supabase
       .from('kb_scan_jobs')
       .insert({
-        status: 'queued',
-        sources,
-        search_terms: searchTerms,
+        status: 'pending',
+        sources: sources,
+        search_terms: Array.isArray(searchTerms) && searchTerms.length > 0 ? searchTerms : null,
         date_range_start: dateRangeStart,
         date_range_end: dateRangeEnd,
-        chunk_size: Math.min(chunkSize, 100), // Cap at 100
-        delay_ms: Math.max(delayMs, 500), // Minimum 500ms
         current_source_index: 0,
-        current_year: null,
-        current_page: 0,
         items_found: 0,
         items_added: 0,
         items_skipped: 0,
-        items_rejected: 0,
-        checkpoint: null
+        items_rejected: 0
       })
       .select()
       .single();
 
     if (error) {
-      // Table might not exist
-      if (error.code === '42P01') {
-        return NextResponse.json({
-          error: 'Scanner jobs table does not exist. Please run the migration.',
-          migrationSQL: getMigrationSQL()
-        }, { status: 500 });
-      }
+      console.error('[Scanner Jobs POST] Insert error:', error);
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
@@ -173,53 +142,10 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
+    console.error('[Scanner Jobs POST] Exception:', error);
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }
-}
-
-function getMigrationSQL(): string {
-  return `
--- Create kb_scan_jobs table
-CREATE TABLE IF NOT EXISTS kb_scan_jobs (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  status TEXT NOT NULL DEFAULT 'queued' CHECK (status IN ('queued', 'running', 'completed', 'failed', 'cancelled', 'cancelling', 'paused')),
-
-  -- Configuration
-  sources TEXT[] NOT NULL DEFAULT ARRAY['pubmed'],
-  search_terms TEXT[] NOT NULL DEFAULT ARRAY['CBD', 'cannabidiol'],
-  date_range_start DATE,
-  date_range_end DATE,
-  chunk_size INTEGER NOT NULL DEFAULT 50,
-  delay_ms INTEGER NOT NULL DEFAULT 1000,
-
-  -- Progress tracking
-  current_source_index INTEGER NOT NULL DEFAULT 0,
-  current_year INTEGER,
-  current_page INTEGER NOT NULL DEFAULT 0,
-  items_found INTEGER NOT NULL DEFAULT 0,
-  items_added INTEGER NOT NULL DEFAULT 0,
-  items_skipped INTEGER NOT NULL DEFAULT 0,
-  items_rejected INTEGER NOT NULL DEFAULT 0,
-
-  -- Checkpoint for resumption
-  checkpoint JSONB,
-
-  -- Timestamps
-  started_at TIMESTAMPTZ,
-  completed_at TIMESTAMPTZ,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-
-  -- Error tracking
-  error_message TEXT,
-  last_error_at TIMESTAMPTZ
-);
-
--- Index for finding active jobs
-CREATE INDEX IF NOT EXISTS idx_kb_scan_jobs_status ON kb_scan_jobs(status);
-CREATE INDEX IF NOT EXISTS idx_kb_scan_jobs_created_at ON kb_scan_jobs(created_at DESC);
-`;
 }

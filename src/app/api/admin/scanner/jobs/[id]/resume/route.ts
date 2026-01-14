@@ -83,9 +83,7 @@ export async function POST(
       job: updatedJob,
       resumePoint: {
         sourceIndex: job.current_source_index,
-        source: job.sources?.[job.current_source_index],
-        page: job.current_page,
-        year: job.current_year
+        source: job.sources?.[job.current_source_index] || job.current_source
       }
     });
 

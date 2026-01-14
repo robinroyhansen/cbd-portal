@@ -237,15 +237,9 @@ function ActiveJobPanel({
             <span>{SOURCE_NAMES[progress?.currentSource || ''] || progress?.currentSource || '-'}</span>
             <span className="text-gray-400">({job.current_source_index + 1}/{job.sources.length})</span>
           </div>
-          {job.current_year && (
-            <div className="flex items-center gap-2">
-              <span className="font-semibold">Year:</span>
-              <span>{job.current_year}</span>
-            </div>
-          )}
           <div className="flex items-center gap-2">
-            <span className="font-semibold">Page:</span>
-            <span>{job.current_page + 1}</span>
+            <span className="font-semibold">Items Found:</span>
+            <span>{job.items_found.toLocaleString()}</span>
           </div>
         </div>
       </div>
@@ -372,9 +366,6 @@ export default function ScannerPage() {
   // Form state
   const [selectedSources, setSelectedSources] = useState<string[]>(['pubmed', 'clinicaltrials', 'pmc']);
   const [scanDepth, setScanDepth] = useState('1year');
-  const [showAdvanced, setShowAdvanced] = useState(false);
-  const [chunkSize, setChunkSize] = useState(50);
-  const [delayMs, setDelayMs] = useState(1000);
 
   // Scanner job hook
   const {
@@ -454,8 +445,6 @@ export default function ScannerPage() {
       sources: selectedSources,
       dateRangeStart: dateRange.start,
       dateRangeEnd: dateRange.end,
-      chunkSize,
-      delayMs,
     });
 
     setIsCreating(false);
@@ -689,61 +678,6 @@ export default function ScannerPage() {
                 Automatically skips papers already in your database
               </p>
             </div>
-          </div>
-
-          {/* Advanced Options */}
-          <div className="bg-white rounded-xl shadow border overflow-hidden">
-            <button
-              onClick={() => setShowAdvanced(!showAdvanced)}
-              className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
-            >
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">Advanced Options</h3>
-                <p className="text-sm text-gray-500 mt-1">Configure chunk size and rate limiting</p>
-              </div>
-              <svg
-                className={`w-5 h-5 text-gray-400 transition-transform ${showAdvanced ? 'rotate-180' : ''}`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {showAdvanced && (
-              <div className="px-6 pb-6 border-t">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Chunk Size (items per request)
-                    </label>
-                    <input
-                      type="number"
-                      value={chunkSize}
-                      onChange={(e) => setChunkSize(Math.max(10, Math.min(100, parseInt(e.target.value) || 50)))}
-                      min={10}
-                      max={100}
-                      className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                    <p className="mt-2 text-xs text-gray-500">10-100 items fetched per API call</p>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Delay Between Requests (ms)
-                    </label>
-                    <input
-                      type="number"
-                      value={delayMs}
-                      onChange={(e) => setDelayMs(Math.max(500, parseInt(e.target.value) || 1000))}
-                      min={500}
-                      step={100}
-                      className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                    <p className="mt-2 text-xs text-gray-500">Minimum 500ms to respect API rate limits</p>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
 
           {/* Start Button */}

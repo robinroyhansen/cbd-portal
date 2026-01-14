@@ -5,24 +5,29 @@ import { detectLanguage } from '@/lib/utils/language-detection';
 
 export const maxDuration = 60; // 60 seconds max for Vercel
 
+// Constants for processing (not stored in DB)
+const CHUNK_SIZE = 20;
+const DELAY_MS = 100;
+
+// Interface matching actual kb_scan_jobs table schema
 interface ScannerJob {
   id: string;
   status: string;
   sources: string[];
-  search_terms: string[];
+  search_terms: string[] | null;
   date_range_start: string | null;
   date_range_end: string | null;
-  chunk_size: number;
-  delay_ms: number;
+  current_source: string | null;
   current_source_index: number;
-  current_year: number | null;
-  current_page: number;
   items_found: number;
   items_added: number;
   items_skipped: number;
   items_rejected: number;
-  checkpoint: Record<string, any> | null;
+  error_message: string | null;
   started_at: string | null;
+  completed_at: string | null;
+  created_at: string;
+  updated_at: string;
 }
 
 interface ResearchItem {
@@ -98,20 +103,23 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // 3. Mark job as 'running', update started_at if null
+    // 3. Get current source
+    const currentSource = job.sources[job.current_source_index];
+
+    // 4. Mark job as 'running', update started_at if null, set current_source
     if (job.status === 'queued' || !job.started_at) {
       await supabase
         .from('kb_scan_jobs')
         .update({
           status: 'running',
+          current_source: currentSource || null,
           started_at: job.started_at || new Date().toISOString(),
           updated_at: new Date().toISOString()
         })
         .eq('id', job.id);
     }
 
-    // 4. Get current source and search term
-    const currentSource = job.sources[job.current_source_index];
+    // 5. Check if all sources completed
     if (!currentSource) {
       // All sources completed
       await supabase
@@ -136,17 +144,18 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // 5. Process ONE chunk
+    // 6. Process ONE chunk (use defaults for search terms if null)
+    const searchTerms = job.search_terms || ['CBD', 'cannabidiol'];
     const results = await fetchChunk(
       currentSource,
-      job.search_terms,
-      job.current_page,
-      job.chunk_size,
+      searchTerms,
+      job.items_found, // Use items_found as offset
+      CHUNK_SIZE,
       job.date_range_start,
       job.date_range_end
     );
 
-    // 6. Process results - check duplicates, calculate scores, insert
+    // 7. Process results - check duplicates, calculate scores, insert
     let added = 0;
     let skipped = 0;
     let rejected = 0;
@@ -158,20 +167,18 @@ export async function POST(request: NextRequest) {
       else rejected++;
 
       // Add delay between items to avoid rate limits
-      if (job.delay_ms > 0 && results.items.indexOf(item) < results.items.length - 1) {
-        await new Promise(r => setTimeout(r, Math.min(job.delay_ms / 10, 100)));
+      if (DELAY_MS > 0 && results.items.indexOf(item) < results.items.length - 1) {
+        await new Promise(r => setTimeout(r, Math.min(DELAY_MS / 10, 100)));
       }
     }
 
-    // 7. Update job progress
+    // 8. Update job progress
     let newSourceIndex = job.current_source_index;
-    let newPage = job.current_page + 1;
     let isComplete = false;
 
     // If no more results for this source, move to next
     if (!results.hasMore || results.items.length === 0) {
       newSourceIndex++;
-      newPage = 0;
 
       // Check if all sources done
       if (newSourceIndex >= job.sources.length) {
@@ -179,18 +186,14 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    // Only use columns that exist in the actual database
     const updateData: Record<string, any> = {
       current_source_index: newSourceIndex,
-      current_page: newPage,
+      current_source: isComplete ? null : job.sources[newSourceIndex] || null,
       items_found: job.items_found + results.items.length,
       items_added: job.items_added + added,
       items_skipped: job.items_skipped + skipped,
       items_rejected: job.items_rejected + rejected,
-      checkpoint: {
-        lastProcessedAt: new Date().toISOString(),
-        lastSource: currentSource,
-        lastPage: job.current_page
-      },
       updated_at: new Date().toISOString()
     };
 
@@ -210,7 +213,6 @@ export async function POST(request: NextRequest) {
       jobId: job.id,
       status: isComplete ? 'completed' : 'running',
       source: currentSource,
-      page: job.current_page,
       processed: results.items.length,
       added,
       skipped,

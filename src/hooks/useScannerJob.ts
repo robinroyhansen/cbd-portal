@@ -2,29 +2,25 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 
-// Types
+// Types - matches actual kb_scan_jobs table schema
 export interface ScannerJob {
   id: string;
-  status: 'queued' | 'running' | 'completed' | 'failed' | 'cancelled' | 'cancelling' | 'paused';
+  status: 'pending' | 'queued' | 'running' | 'completed' | 'failed' | 'cancelled' | 'cancelling' | 'paused';
   sources: string[];
-  search_terms: string[];
+  search_terms: string[] | null;
   date_range_start: string | null;
   date_range_end: string | null;
-  chunk_size: number;
-  delay_ms: number;
+  current_source: string | null;
   current_source_index: number;
-  current_year: number | null;
-  current_page: number;
   items_found: number;
   items_added: number;
   items_skipped: number;
   items_rejected: number;
-  checkpoint: Record<string, unknown> | null;
+  error_message: string | null;
   started_at: string | null;
   completed_at: string | null;
   created_at: string;
   updated_at: string;
-  error_message: string | null;
 }
 
 export interface JobProgress {
@@ -39,7 +35,6 @@ export interface ProcessResult {
   jobId: string;
   status: string;
   source: string;
-  page: number;
   processed: number;
   added: number;
   skipped: number;
@@ -64,8 +59,6 @@ export interface CreateJobParams {
   searchTerms?: string[];
   dateRangeStart?: string | null;
   dateRangeEnd?: string | null;
-  chunkSize?: number;
-  delayMs?: number;
 }
 
 interface UseScannerJobReturn {
@@ -110,9 +103,9 @@ export function useScannerJob(): UseScannerJobReturn {
       if (data.jobs) {
         setJobs(data.jobs);
 
-        // Find active job (queued, running, or cancelling)
+        // Find active job (pending, queued, running, or cancelling)
         const activeJob = data.jobs.find((j: ScannerJob) =>
-          ['queued', 'running', 'cancelling'].includes(j.status)
+          ['pending', 'queued', 'running', 'cancelling'].includes(j.status)
         );
 
         if (activeJob) {
@@ -154,19 +147,18 @@ export function useScannerJob(): UseScannerJobReturn {
 
   // Update progress from job
   const updateProgress = (jobData: ScannerJob) => {
-    const sourcesTotal = jobData.sources.length;
-    const sourcesCompleted = jobData.current_source_index;
+    const sourcesTotal = jobData.sources?.length || 0;
+    const sourcesCompleted = jobData.current_source_index || 0;
     const percent = sourcesTotal > 0
-      ? Math.round((sourcesCompleted / sourcesTotal) * 100 +
-          (jobData.current_page / 100) * (100 / sourcesTotal))
+      ? Math.round((sourcesCompleted / sourcesTotal) * 100)
       : 0;
 
     setProgress({
       percent: Math.min(percent, 100),
-      currentSource: jobData.sources[jobData.current_source_index] || null,
+      currentSource: jobData.current_source || jobData.sources?.[jobData.current_source_index] || null,
       sourcesCompleted,
       sourcesTotal,
-      estimatedSecondsRemaining: null, // Could calculate based on rate
+      estimatedSecondsRemaining: null,
     });
   };
 
@@ -239,8 +231,6 @@ export function useScannerJob(): UseScannerJobReturn {
           searchTerms: params.searchTerms || ['CBD', 'cannabidiol', 'cannabis', 'cannabinoid'],
           dateRangeStart: params.dateRangeStart,
           dateRangeEnd: params.dateRangeEnd,
-          chunkSize: params.chunkSize || 50,
-          delayMs: params.delayMs || 1000,
         }),
       });
 
@@ -353,7 +343,7 @@ export function useScannerJob(): UseScannerJobReturn {
 
   // Polling for job status updates when job is active
   useEffect(() => {
-    if (!job || !['queued', 'running'].includes(job.status)) {
+    if (!job || !['pending', 'queued', 'running'].includes(job.status)) {
       if (pollingRef.current) {
         clearInterval(pollingRef.current);
         pollingRef.current = null;
@@ -374,9 +364,9 @@ export function useScannerJob(): UseScannerJobReturn {
     };
   }, [job?.id, job?.status, fetchJobDetails]);
 
-  // Start processing loop when there's a queued job
+  // Start processing loop when there's a pending/queued job
   useEffect(() => {
-    if (job?.status === 'queued' && !processLoopRef.current) {
+    if ((job?.status === 'pending' || job?.status === 'queued') && !processLoopRef.current) {
       startProcessingLoop();
     }
   }, [job?.status, startProcessingLoop]);
