@@ -12,7 +12,7 @@ export interface ScanJob {
   items_skipped: number;
   items_rejected: number;
   scan_depth: string;
-  custom_keywords: string[] | null;
+  search_terms: string[] | null;
   error_message: string | null;
   started_at: string | null;
   completed_at: string | null;

@@ -193,7 +193,7 @@ export interface ScanJob {
   items_skipped: number;
   items_rejected: number;
   scan_depth: string;
-  custom_keywords: string[] | null;
+  search_terms: string[] | null;
   error_message: string | null;
   started_at: string | null;
   completed_at: string | null;
@@ -215,7 +215,7 @@ export async function createScanJob(
       sources_total: sources,
       sources_completed: [],
       scan_depth: scanDepth,
-      custom_keywords: customKeywords.length > 0 ? customKeywords : null
+      search_terms: customKeywords.length > 0 ? customKeywords : null
     })
     .select('id')
     .single();
@@ -1667,7 +1667,7 @@ export async function runBackgroundScan(jobId: string): Promise<void> {
 
     const sources = job.sources_total;
     const scanDepth = job.scan_depth;
-    const customKeywords = job.custom_keywords || [];
+    const customKeywords = job.search_terms || [];
 
     // Mark job as running
     await updateScanJobProgress(supabase, jobId, {
