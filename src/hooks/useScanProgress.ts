@@ -5,8 +5,8 @@ export interface ScanJob {
   id: string;
   status: 'pending' | 'running' | 'completed' | 'failed' | 'cancelled';
   current_source: string | null;
-  sources_completed: string[];
-  sources_total: string[];
+  current_source_index: number;
+  sources: string[];
   items_found: number;
   items_added: number;
   items_skipped: number;

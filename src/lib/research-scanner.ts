@@ -186,8 +186,8 @@ export interface ScanJob {
   id: string;
   status: 'pending' | 'running' | 'completed' | 'failed' | 'cancelled';
   current_source: string | null;
-  sources_completed: string[];
-  sources_total: string[];
+  current_source_index: number;
+  sources: string[];
   items_found: number;
   items_added: number;
   items_skipped: number;
@@ -214,8 +214,8 @@ export async function createScanJob(
     .from('kb_scan_jobs')
     .insert({
       status: 'pending',
-      sources_total: sources,
-      sources_completed: [],
+      sources: sources,
+      current_source_index: 0,
       date_range_start: dateRangeStart,
       date_range_end: dateRangeEnd,
       search_terms: customKeywords.length > 0 ? customKeywords : null
@@ -1668,7 +1668,7 @@ export async function runBackgroundScan(jobId: string): Promise<void> {
     const job = await getScanJob(supabase, jobId);
     if (!job) throw new Error('Job not found');
 
-    const sources = job.sources_total;
+    const sources = job.sources;
     const dateRangeStart = job.date_range_start;
     const dateRangeEnd = job.date_range_end;
     const customKeywords = job.search_terms || [];
@@ -1767,7 +1767,7 @@ export async function runBackgroundScan(jobId: string): Promise<void> {
         // Still mark this source as completed since we saved partial results
         completedSources.push(source);
         await updateScanJobProgress(supabase, jobId, {
-          sources_completed: completedSources,
+          current_source_index: completedSources.length,
           items_found: totalFound,
           items_added: totalAdded,
           items_skipped: totalSkipped,
@@ -1781,7 +1781,7 @@ export async function runBackgroundScan(jobId: string): Promise<void> {
 
       // Update job progress
       await updateScanJobProgress(supabase, jobId, {
-        sources_completed: completedSources,
+        current_source_index: completedSources.length,
         items_found: totalFound,
         items_added: totalAdded,
         items_skipped: totalSkipped,

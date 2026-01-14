@@ -8,8 +8,8 @@ interface ScanJob {
   id: string;
   status: 'pending' | 'running' | 'completed' | 'failed' | 'cancelled';
   current_source: string | null;
-  sources_completed: string[];
-  sources_total: string[];
+  current_source_index: number;
+  sources: string[];
   items_found: number;
   items_added: number;
   items_skipped: number;
@@ -282,8 +282,8 @@ export default function AdminResearchPage() {
   };
 
   const isScanning = activeJob && ['pending', 'running'].includes(activeJob.status);
-  const progressPercent = activeJob && activeJob.sources_total.length > 0
-    ? Math.round((activeJob.sources_completed.length / activeJob.sources_total.length) * 100)
+  const progressPercent = activeJob && activeJob.sources.length > 0
+    ? Math.round((activeJob.current_source_index / activeJob.sources.length) * 100)
     : 0;
 
   // Source definitions with availability
@@ -342,7 +342,7 @@ export default function AdminResearchPage() {
               {/* Progress details */}
               <div className="mt-2 text-sm text-gray-600 space-y-1">
                 <p>
-                  <strong>Source:</strong> {activeJob.sources_completed.length + 1} of {activeJob.sources_total.length}
+                  <strong>Source:</strong> {activeJob.current_source_index + 1} of {activeJob.sources.length}
                   {activeJob.current_source && ` (${SOURCE_NAMES[activeJob.current_source] || activeJob.current_source})`}
                 </p>
                 <p>
@@ -378,7 +378,7 @@ export default function AdminResearchPage() {
           {/* Progress Bar */}
           <div className="mb-4">
             <div className="flex justify-between text-sm text-gray-600 mb-1">
-              <span>Progress: {activeJob.sources_completed.length} / {activeJob.sources_total.length} sources</span>
+              <span>Progress: {activeJob.current_source_index} / {activeJob.sources.length} sources</span>
               <span>{progressPercent}%</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
@@ -396,10 +396,10 @@ export default function AdminResearchPage() {
 
           {/* Source Status Pills */}
           <div className="flex flex-wrap gap-2 mb-4">
-            {activeJob.sources_total.map((source, index) => {
-              const isCompleted = activeJob.sources_completed.includes(source);
+            {activeJob.sources.map((source, index) => {
+              const isCompleted = index < activeJob.current_source_index;
               const isCurrent = activeJob.current_source === source;
-              const sourceIndex = activeJob.sources_total.indexOf(source) + 1;
+              const sourceIndex = index + 1;
 
               return (
                 <span
