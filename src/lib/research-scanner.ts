@@ -192,7 +192,8 @@ export interface ScanJob {
   items_added: number;
   items_skipped: number;
   items_rejected: number;
-  scan_depth: string;
+  date_range_start: string | null;
+  date_range_end: string | null;
   search_terms: string[] | null;
   error_message: string | null;
   started_at: string | null;
@@ -205,7 +206,8 @@ export interface ScanJob {
 export async function createScanJob(
   supabase: SupabaseClient,
   sources: string[],
-  scanDepth: string,
+  dateRangeStart: string | null,
+  dateRangeEnd: string | null,
   customKeywords: string[]
 ): Promise<string> {
   const { data, error } = await supabase
@@ -214,7 +216,8 @@ export async function createScanJob(
       status: 'pending',
       sources_total: sources,
       sources_completed: [],
-      scan_depth: scanDepth,
+      date_range_start: dateRangeStart,
+      date_range_end: dateRangeEnd,
       search_terms: customKeywords.length > 0 ? customKeywords : null
     })
     .select('id')
@@ -1666,7 +1669,8 @@ export async function runBackgroundScan(jobId: string): Promise<void> {
     if (!job) throw new Error('Job not found');
 
     const sources = job.sources_total;
-    const scanDepth = job.scan_depth;
+    const dateRangeStart = job.date_range_start;
+    const dateRangeEnd = job.date_range_end;
     const customKeywords = job.search_terms || [];
 
     // Mark job as running
@@ -1675,7 +1679,9 @@ export async function runBackgroundScan(jobId: string): Promise<void> {
       started_at: new Date().toISOString()
     });
 
-    console.log(`[Job ${jobId}] Starting background scan (depth: ${scanDepth}, sources: ${sources.join(', ')})...`);
+    // Calculate scan depth label for logging
+    const scanDepthLabel = dateRangeStart ? `${dateRangeStart} to ${dateRangeEnd || 'now'}` : 'all time';
+    console.log(`[Job ${jobId}] Starting background scan (range: ${scanDepthLabel}, sources: ${sources.join(', ')})...`);
 
     let totalAdded = 0;
     let totalSkipped = 0;

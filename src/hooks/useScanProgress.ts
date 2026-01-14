@@ -11,7 +11,8 @@ export interface ScanJob {
   items_added: number;
   items_skipped: number;
   items_rejected: number;
-  scan_depth: string;
+  date_range_start: string | null;
+  date_range_end: string | null;
   search_terms: string[] | null;
   error_message: string | null;
   started_at: string | null;
