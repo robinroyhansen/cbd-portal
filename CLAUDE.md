@@ -16,7 +16,8 @@ CBD educational portal built with Next.js 14, Supabase, and TailwindCSS. Feature
 
 ## CURRENT STATE (January 16, 2026)
 
-### Database Counts
+### Database Tables
+- **kb_conditions**: 39 medical conditions with SEO templates (foundation for programmatic pages)
 - **kb_research_queue**: Active research queue for scanner results
 - **kb_scan_jobs**: Scanner job tracking with pause/resume support
 - **kb_articles**: Knowledge base articles
@@ -118,6 +119,17 @@ CBD educational portal built with Next.js 14, Supabase, and TailwindCSS. Feature
 
 ### Database
 - `supabase/setup_research_scanner.sql` - Table setup script
+- `supabase/migrations/20260116_create_kb_conditions.sql` - Conditions table with SEO templates
+
+### Conditions API
+- `src/app/api/conditions/route.ts` - List/filter conditions
+- `src/app/api/conditions/[slug]/route.ts` - Single condition with related data
+
+### SEO & Article Production
+- `src/lib/seo/page-templates.ts` - Metadata & JSON-LD schema generators
+- `src/lib/glossary-linker.ts` - Auto-link glossary terms (server-side)
+- `src/lib/utils/glossary-autolink.ts` - Glossary term markers (client-side)
+- `src/components/research/ResearchCitations.tsx` - Display related studies
 
 ---
 
@@ -151,6 +163,10 @@ npm run lint
 
 ### Queue
 - `POST /api/admin/integrate-research` - Approve and integrate research
+
+### Conditions (Programmatic SEO)
+- `GET /api/conditions` - List all conditions (supports `?category=`, `?featured=true`)
+- `GET /api/conditions/[slug]` - Get single condition with related data (`?withResearch=true`, `?lang=`)
 
 ---
 
