@@ -65,11 +65,11 @@ export async function POST(request: NextRequest) {
       process.env.SUPABASE_SERVICE_ROLE_KEY!
     );
 
-    // 1. Find oldest job with status 'queued' or 'running' (also check cancelling/paused to handle state transitions)
+    // 1. Find oldest job with status 'pending', 'queued' or 'running' (also check cancelling/paused to handle state transitions)
     const { data: jobs, error: jobsError } = await supabase
       .from('kb_scan_jobs')
       .select('*')
-      .in('status', ['queued', 'running', 'cancelling', 'paused'])
+      .in('status', ['pending', 'queued', 'running', 'cancelling', 'paused'])
       .order('created_at', { ascending: true })
       .limit(1);
 
