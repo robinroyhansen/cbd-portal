@@ -3,8 +3,349 @@
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import Link from 'next/link';
-import { useResearchQueue, useQueueStats } from '@/hooks/useResearchQueue';
+import { useResearchQueue, useQueueStats, ResearchItem } from '@/hooks/useResearchQueue';
 import { useActiveScanJobs } from '@/hooks/useScanProgress';
+
+// Rejection reason categories
+const REJECTION_REASONS = [
+  { id: 'not_cbd', label: 'Not CBD/Cannabis focused', description: 'Study mentions CBD tangentially' },
+  { id: 'animal_only', label: 'Animal/Preclinical only', description: 'No human relevance' },
+  { id: 'low_quality', label: 'Low quality/rigor', description: 'Poor methodology or small sample' },
+  { id: 'duplicate', label: 'Duplicate study', description: 'Already have this or similar' },
+  { id: 'not_therapeutic', label: 'Not therapeutic', description: 'Agricultural, legal, or economic focus' },
+  { id: 'outdated', label: 'Outdated research', description: 'Superseded by newer studies' },
+  { id: 'other', label: 'Other', description: 'Custom reason' },
+];
+
+// Detail Modal Component
+function ResearchDetailModal({
+  item,
+  onClose,
+  onApprove,
+  onReject,
+}: {
+  item: ResearchItem;
+  onClose: () => void;
+  onApprove: (id: string) => void;
+  onReject: (id: string, reason: string) => void;
+}) {
+  const [selectedReason, setSelectedReason] = useState('');
+  const [customReason, setCustomReason] = useState('');
+
+  const handleReject = () => {
+    const reason = selectedReason === 'other' ? customReason :
+      REJECTION_REASONS.find(r => r.id === selectedReason)?.label || '';
+    onReject(item.id, reason);
+  };
+
+  // Parse signals into positive and negative
+  const positiveSignals = (item.relevanceSignals || []).filter(s =>
+    !s.toLowerCase().includes('without') &&
+    !s.toLowerCase().includes('only') &&
+    !s.toLowerCase().includes('tangential')
+  );
+  const negativeSignals = (item.relevanceSignals || []).filter(s =>
+    s.toLowerCase().includes('without') ||
+    s.toLowerCase().includes('only') ||
+    s.toLowerCase().includes('tangential')
+  );
+
+  // Determine approval confidence
+  const getConfidenceLevel = () => {
+    if (item.relevanceScore >= 70) return { level: 'high', color: 'green', label: 'High Confidence' };
+    if (item.relevanceScore >= 50) return { level: 'medium', color: 'yellow', label: 'Medium Confidence' };
+    if (item.relevanceScore >= 30) return { level: 'low', color: 'orange', label: 'Low Confidence' };
+    return { level: 'very_low', color: 'red', label: 'Review Carefully' };
+  };
+
+  const confidence = getConfidenceLevel();
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+        {/* Header */}
+        <div className="px-6 py-4 border-b bg-gray-50 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <h2 className="text-xl font-bold text-gray-900">Research Details</h2>
+            <span className={`px-3 py-1 text-sm font-medium rounded-full ${
+              confidence.color === 'green' ? 'bg-green-100 text-green-800' :
+              confidence.color === 'yellow' ? 'bg-yellow-100 text-yellow-800' :
+              confidence.color === 'orange' ? 'bg-orange-100 text-orange-800' :
+              'bg-red-100 text-red-800'
+            }`}>
+              {confidence.label}
+            </span>
+          </div>
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+        </div>
+
+        {/* Content */}
+        <div className="flex-1 overflow-y-auto p-6">
+          {/* Title and Meta */}
+          <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
+
+          <div className="flex flex-wrap gap-2 mb-4">
+            <span className="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">{item.sourceSite}</span>
+            {item.year && <span className="px-2 py-1 text-xs bg-gray-100 text-gray-800 rounded-full">{item.year}</span>}
+            {item.studySubject && (
+              <span className={`px-2 py-1 text-xs rounded-full ${
+                item.studySubject === 'human' ? 'bg-blue-100 text-blue-800' :
+                item.studySubject === 'animal' ? 'bg-orange-100 text-orange-800' :
+                item.studySubject === 'review' ? 'bg-teal-100 text-teal-800' :
+                'bg-purple-100 text-purple-800'
+              }`}>
+                {item.studySubject === 'human' ? '👤 Human' :
+                 item.studySubject === 'animal' ? '🐭 Animal' :
+                 item.studySubject === 'review' ? '📚 Review' :
+                 '🧫 In Vitro'}
+              </span>
+            )}
+          </div>
+
+          {item.authors && (
+            <p className="text-sm text-gray-600 mb-2"><strong>Authors:</strong> {item.authors}</p>
+          )}
+          {item.publication && (
+            <p className="text-sm text-gray-600 mb-2"><strong>Publication:</strong> {item.publication}</p>
+          )}
+          {item.doi && (
+            <p className="text-sm text-gray-600 mb-4"><strong>DOI:</strong> {item.doi}</p>
+          )}
+
+          {/* Relevance Score Section */}
+          <div className="bg-gray-50 rounded-lg p-4 mb-4">
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="font-semibold text-gray-900">Relevance Score</h4>
+              <div className="flex items-center gap-2">
+                <div className="w-32 h-3 bg-gray-200 rounded-full overflow-hidden">
+                  <div
+                    className={`h-full rounded-full ${
+                      item.relevanceScore >= 70 ? 'bg-green-500' :
+                      item.relevanceScore >= 50 ? 'bg-yellow-500' :
+                      item.relevanceScore >= 30 ? 'bg-orange-500' :
+                      'bg-red-500'
+                    }`}
+                    style={{ width: `${item.relevanceScore}%` }}
+                  />
+                </div>
+                <span className="text-2xl font-bold text-gray-900">{item.relevanceScore}</span>
+              </div>
+            </div>
+
+            {/* Signals */}
+            {(positiveSignals.length > 0 || negativeSignals.length > 0) && (
+              <div className="space-y-3">
+                {positiveSignals.length > 0 && (
+                  <div>
+                    <p className="text-xs font-medium text-green-700 mb-1">Positive Signals:</p>
+                    <div className="flex flex-wrap gap-1">
+                      {positiveSignals.map((signal, i) => (
+                        <span key={i} className="px-2 py-1 text-xs bg-green-100 text-green-800 rounded">
+                          + {signal}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {negativeSignals.length > 0 && (
+                  <div>
+                    <p className="text-xs font-medium text-red-700 mb-1">Negative Signals:</p>
+                    <div className="flex flex-wrap gap-1">
+                      {negativeSignals.map((signal, i) => (
+                        <span key={i} className="px-2 py-1 text-xs bg-red-100 text-red-800 rounded">
+                          - {signal}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* Topics */}
+          {item.relevantTopics && item.relevantTopics.length > 0 && (
+            <div className="mb-4">
+              <h4 className="font-semibold text-gray-900 mb-2">Relevant Topics</h4>
+              <div className="flex flex-wrap gap-2">
+                {item.relevantTopics.map((topic) => (
+                  <span key={topic} className="px-3 py-1 text-sm bg-purple-100 text-purple-800 rounded-full">
+                    {topic}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Abstract */}
+          {item.abstract && (
+            <div className="mb-4">
+              <h4 className="font-semibold text-gray-900 mb-2">Abstract</h4>
+              <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">
+                {item.abstract}
+              </p>
+            </div>
+          )}
+
+          {/* External Link */}
+          {item.url && (
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
+            >
+              📄 View Full Paper on {item.sourceSite} →
+            </a>
+          )}
+
+          {/* Rejection Reasons (only show for pending) */}
+          {item.status === 'pending' && (
+            <div className="mt-6 pt-6 border-t">
+              <h4 className="font-semibold text-gray-900 mb-3">Quick Rejection (if needed)</h4>
+              <div className="grid grid-cols-2 gap-2 mb-3">
+                {REJECTION_REASONS.map((reason) => (
+                  <label
+                    key={reason.id}
+                    className={`flex items-start gap-2 p-3 rounded-lg border cursor-pointer transition-colors ${
+                      selectedReason === reason.id
+                        ? 'border-red-500 bg-red-50'
+                        : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="rejection_reason"
+                      value={reason.id}
+                      checked={selectedReason === reason.id}
+                      onChange={(e) => setSelectedReason(e.target.value)}
+                      className="mt-1"
+                    />
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">{reason.label}</p>
+                      <p className="text-xs text-gray-500">{reason.description}</p>
+                    </div>
+                  </label>
+                ))}
+              </div>
+              {selectedReason === 'other' && (
+                <input
+                  type="text"
+                  placeholder="Enter custom reason..."
+                  value={customReason}
+                  onChange={(e) => setCustomReason(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                />
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* Footer Actions */}
+        {item.status === 'pending' && (
+          <div className="px-6 py-4 border-t bg-gray-50 flex justify-between items-center">
+            <button
+              onClick={onClose}
+              className="px-4 py-2 text-gray-700 hover:text-gray-900 font-medium"
+            >
+              Cancel
+            </button>
+            <div className="flex gap-3">
+              <button
+                onClick={handleReject}
+                disabled={!selectedReason || (selectedReason === 'other' && !customReason)}
+                className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Reject
+              </button>
+              <button
+                onClick={() => onApprove(item.id)}
+                className={`px-6 py-2 text-white rounded-lg transition-colors font-medium ${
+                  item.relevanceScore >= 70
+                    ? 'bg-green-600 hover:bg-green-700'
+                    : item.relevanceScore >= 50
+                    ? 'bg-yellow-600 hover:bg-yellow-700'
+                    : 'bg-orange-600 hover:bg-orange-700'
+                }`}
+              >
+                {item.relevanceScore >= 70 ? '✓ Approve (Recommended)' : '✓ Approve'}
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// Score Badge Component with expandable signals
+function ScoreBadge({
+  score,
+  signals,
+  onClick
+}: {
+  score: number;
+  signals: string[];
+  onClick?: () => void;
+}) {
+  const [showSignals, setShowSignals] = useState(false);
+
+  const getScoreColor = () => {
+    if (score >= 70) return 'bg-green-100 text-green-800 border-green-300';
+    if (score >= 50) return 'bg-yellow-100 text-yellow-800 border-yellow-300';
+    if (score >= 30) return 'bg-orange-100 text-orange-800 border-orange-300';
+    return 'bg-red-100 text-red-800 border-red-300';
+  };
+
+  const getScoreLabel = () => {
+    if (score >= 70) return 'High';
+    if (score >= 50) return 'Medium';
+    if (score >= 30) return 'Low';
+    return 'Very Low';
+  };
+
+  return (
+    <div className="relative">
+      <button
+        onClick={() => signals.length > 0 ? setShowSignals(!showSignals) : onClick?.()}
+        className={`px-3 py-1.5 text-sm font-semibold rounded-lg border flex items-center gap-2 transition-all hover:shadow ${getScoreColor()}`}
+      >
+        <span className="text-lg">{score}</span>
+        <span className="text-xs opacity-75">{getScoreLabel()}</span>
+        {signals.length > 0 && (
+          <svg className={`w-4 h-4 transition-transform ${showSignals ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        )}
+      </button>
+
+      {/* Signals Dropdown */}
+      {showSignals && signals.length > 0 && (
+        <div className="absolute top-full left-0 mt-1 z-10 bg-white rounded-lg shadow-lg border p-3 min-w-64">
+          <p className="text-xs font-semibold text-gray-500 mb-2">Why this score?</p>
+          <div className="space-y-1">
+            {signals.slice(0, 5).map((signal, i) => (
+              <div key={i} className={`text-xs px-2 py-1 rounded ${
+                signal.toLowerCase().includes('without') ||
+                signal.toLowerCase().includes('only') ||
+                signal.toLowerCase().includes('tangential')
+                  ? 'bg-red-50 text-red-700'
+                  : 'bg-green-50 text-green-700'
+              }`}>
+                {signal.toLowerCase().includes('without') ||
+                 signal.toLowerCase().includes('only') ||
+                 signal.toLowerCase().includes('tangential') ? '−' : '+'} {signal}
+              </div>
+            ))}
+            {signals.length > 5 && (
+              <p className="text-xs text-gray-500 pt-1">+{signals.length - 5} more signals</p>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function ResearchQueuePage() {
   // Filter state
@@ -12,13 +353,14 @@ export default function ResearchQueuePage() {
   const [selectedTopic, setSelectedTopic] = useState<string>('');
   const [selectedSource, setSelectedSource] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [sortBy, setSortBy] = useState<string>('discovered_at');
+  const [sortBy, setSortBy] = useState<string>('relevance_score');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
   const [minRelevanceScore, setMinRelevanceScore] = useState<number>(0);
   const [yearFilter, setYearFilter] = useState<string>('');
   const [includeAnimalStudies, setIncludeAnimalStudies] = useState<boolean>(false);
   const [bulkSelected, setBulkSelected] = useState<string[]>([]);
   const [showNewItemNotification, setShowNewItemNotification] = useState<string | null>(null);
+  const [selectedItem, setSelectedItem] = useState<ResearchItem | null>(null);
 
   // Real-time data hooks
   const {
@@ -55,7 +397,7 @@ export default function ResearchQueuePage() {
   useEffect(() => {
     if (lastAdded && !loading) {
       setShowNewItemNotification(lastAdded.id);
-      setTimeout(() => setShowNewItemNotification(null), 5000); // Hide after 5 seconds
+      setTimeout(() => setShowNewItemNotification(null), 5000);
     }
   }, [lastAdded, loading]);
 
@@ -63,10 +405,9 @@ export default function ResearchQueuePage() {
 
   const approveResearch = async (id: string) => {
     try {
-      // Update status using the real-time hook
       await updateItemStatus(id, 'approved');
+      setSelectedItem(null);
 
-      // Integrate into articles
       try {
         const response = await fetch('/api/admin/integrate-research', {
           method: 'POST',
@@ -91,35 +432,33 @@ export default function ResearchQueuePage() {
     }
   };
 
-  const rejectResearch = async (id: string) => {
-    const reason = prompt('Reason for rejection (optional):');
-    if (reason !== null) { // User didn't cancel
-      try {
-        await updateItemStatus(id, 'rejected');
-      } catch (error) {
-        console.error('Error rejecting research:', error);
-        alert('Failed to reject research. Please try again.');
+  const rejectResearch = async (id: string, reason?: string) => {
+    try {
+      // Update with reason if provided
+      if (reason) {
+        await supabase
+          .from('kb_research_queue')
+          .update({ status: 'rejected', rejection_reason: reason, reviewed_at: new Date().toISOString() })
+          .eq('id', id);
       }
+      await updateItemStatus(id, 'rejected');
+      setSelectedItem(null);
+    } catch (error) {
+      console.error('Error rejecting research:', error);
+      alert('Failed to reject research. Please try again.');
     }
   };
 
-  // Enhanced filtering and search (now client-side on real-time data)
+  // Enhanced filtering and search
   const allTopics = [...new Set(research.flatMap(r => r.relevantTopics || []))].sort();
   const allSources = [...new Set(research.map(r => r.sourceSite))].sort();
   const allYears = [...new Set(research.map(r => r.year).filter(Boolean))].sort((a, b) => b! - a!);
 
   const filteredResearch = research
     .filter(item => {
-      // Topic filter (if not already filtered by hook)
       const topicMatch = selectedTopic ? item.relevantTopics?.includes(selectedTopic) : true;
-
-      // Source filter (if not already filtered by hook)
       const sourceMatch = selectedSource ? item.sourceSite === selectedSource : true;
-
-      // Year filter
       const yearMatch = yearFilter ? item.year === parseInt(yearFilter) : true;
-
-      // Text search across title, authors, abstract, and publication
       const searchMatch = !searchQuery || [
         item.title,
         item.authors,
@@ -153,7 +492,7 @@ export default function ResearchQueuePage() {
           aValue = a.sourceSite;
           bValue = b.sourceSite;
           break;
-        default: // discovered_at
+        default:
           aValue = new Date(a.createdAt);
           bValue = new Date(b.createdAt);
       }
@@ -165,12 +504,14 @@ export default function ResearchQueuePage() {
       }
     });
 
+  // Smart counts
+  const highConfidenceCount = filteredResearch.filter(i => i.status === 'pending' && i.relevanceScore >= 70).length;
+  const lowRelevanceCount = filteredResearch.filter(i => i.status === 'pending' && i.relevanceScore < 30).length;
+
   // Bulk action handlers
   const handleBulkApprove = async () => {
     if (bulkSelected.length === 0) return;
-
-    const confirmMsg = `Approve ${bulkSelected.length} research items?`;
-    if (!confirm(confirmMsg)) return;
+    if (!confirm(`Approve ${bulkSelected.length} research items?`)) return;
 
     for (const id of bulkSelected) {
       try {
@@ -184,13 +525,12 @@ export default function ResearchQueuePage() {
 
   const handleBulkReject = async () => {
     if (bulkSelected.length === 0) return;
-
     const reason = prompt(`Rejection reason for ${bulkSelected.length} items:`);
     if (reason === null) return;
 
     for (const id of bulkSelected) {
       try {
-        await updateItemStatus(id, 'rejected');
+        await rejectResearch(id, reason);
       } catch (error) {
         console.error(`Error rejecting item ${id}:`, error);
       }
@@ -198,29 +538,29 @@ export default function ResearchQueuePage() {
     setBulkSelected([]);
   };
 
+  const handleSmartApprove = async () => {
+    const highConfidence = filteredResearch.filter(i => i.status === 'pending' && i.relevanceScore >= 70);
+    if (highConfidence.length === 0) return;
+    if (!confirm(`Approve ${highConfidence.length} high-confidence items (score >= 70)?`)) return;
+
+    for (const item of highConfidence) {
+      try {
+        await updateItemStatus(item.id, 'approved');
+      } catch (error) {
+        console.error(`Error approving item ${item.id}:`, error);
+      }
+    }
+  };
+
   const toggleBulkSelect = (id: string) => {
     setBulkSelected(prev =>
-      prev.includes(id)
-        ? prev.filter(itemId => itemId !== id)
-        : [...prev, id]
+      prev.includes(id) ? prev.filter(itemId => itemId !== id) : [...prev, id]
     );
   };
 
   const selectAllVisible = () => {
-    const visibleIds = filteredResearch
-      .filter(item => item.status === 'pending')
-      .map(item => item.id);
+    const visibleIds = filteredResearch.filter(item => item.status === 'pending').map(item => item.id);
     setBulkSelected(visibleIds);
-  };
-
-  const clearSelection = () => {
-    setBulkSelected([]);
-  };
-
-  const getPriorityColor = (score: number) => {
-    if (score >= 50) return 'bg-red-100 text-red-800 border-red-200';
-    if (score >= 30) return 'bg-yellow-100 text-yellow-800 border-yellow-200';
-    return 'bg-green-100 text-green-800 border-green-200';
   };
 
   const getStatusColor = (status: string) => {
@@ -246,8 +586,26 @@ export default function ResearchQueuePage() {
     }
   };
 
+  // Confidence indicator for item rows
+  const getConfidenceIndicator = (score: number) => {
+    if (score >= 70) return { color: 'border-l-green-500', bg: 'bg-green-50' };
+    if (score >= 50) return { color: 'border-l-yellow-500', bg: '' };
+    if (score >= 30) return { color: 'border-l-orange-500', bg: '' };
+    return { color: 'border-l-red-500', bg: 'bg-red-50' };
+  };
+
   return (
     <div className="p-8">
+      {/* Detail Modal */}
+      {selectedItem && (
+        <ResearchDetailModal
+          item={selectedItem}
+          onClose={() => setSelectedItem(null)}
+          onApprove={approveResearch}
+          onReject={rejectResearch}
+        />
+      )}
+
       {/* New Item Notification */}
       {lastAdded && showNewItemNotification && (
         <div className="fixed top-4 right-4 z-50 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-lg max-w-md">
@@ -274,7 +632,7 @@ export default function ResearchQueuePage() {
             Research Queue
             {isConnected ? (
               <span className="inline-flex items-center text-green-600 text-sm font-normal">
-                🟢 Live Updates
+                🟢 Live
               </span>
             ) : (
               <span className="inline-flex items-center text-gray-500 text-sm font-normal">
@@ -283,262 +641,202 @@ export default function ResearchQueuePage() {
             )}
           </h1>
           <div className="text-gray-600 mt-2 flex items-center gap-4">
-            <span>Review and manage discovered research papers</span>
+            <span>Review and approve research papers</span>
             {activeJobs.length > 0 && (
               <span className="inline-flex items-center text-blue-600 text-sm">
                 ⚡ {activeJobs.length} scan{activeJobs.length > 1 ? 's' : ''} active
-              </span>
-            )}
-            {todayAdded > 0 && (
-              <span className="inline-flex items-center text-green-600 text-sm">
-                📈 {todayAdded} new today
               </span>
             )}
           </div>
         </div>
         <div className="flex gap-4">
           <Link
-            href="/admin/research"
+            href="/admin/research/scanner"
             className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
           >
-            🔍 Research Scanner
+            🔍 Scanner
           </Link>
-          {queueError && (
-            <button
-              onClick={refetch}
-              className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
-            >
-              ⚠️ Retry Connection
-            </button>
-          )}
         </div>
       </div>
 
-      {/* Enhanced Search & Filters */}
+      {/* Search & Filters */}
       <div className="mb-6 space-y-4">
-        {/* Search Bar */}
         <div className="relative">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <span className="text-gray-400">🔍</span>
           </div>
           <input
             type="text"
-            placeholder="Search titles, authors, abstracts, or keywords..."
+            placeholder="Search titles, authors, abstracts..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="block w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
           />
-          {searchQuery && (
-            <button
-              onClick={() => setSearchQuery('')}
-              className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600"
-            >
-              ✕
-            </button>
-          )}
         </div>
 
-        {/* Filters Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
-          {/* Status Filter */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
-            <select
-              value={selectedStatus}
-              onChange={(e) => setSelectedStatus(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
-            >
-              <option value="">All ({totalItems})</option>
-              <option value="pending">⏳ Pending ({pendingCount})</option>
-              <option value="approved">✅ Approved ({approvedCount})</option>
-              <option value="rejected">❌ Rejected ({rejectedCount})</option>
-            </select>
-          </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          <select
+            value={selectedStatus}
+            onChange={(e) => setSelectedStatus(e.target.value)}
+            className="px-3 py-2 border border-gray-300 rounded-lg text-sm"
+          >
+            <option value="">All ({totalItems})</option>
+            <option value="pending">⏳ Pending ({pendingCount})</option>
+            <option value="approved">✅ Approved ({approvedCount})</option>
+            <option value="rejected">❌ Rejected ({rejectedCount})</option>
+          </select>
 
-          {/* Topic Filter */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Topic</label>
-            <select
-              value={selectedTopic}
-              onChange={(e) => setSelectedTopic(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
-            >
-              <option value="">All Topics</option>
-              {allTopics.map((topic) => (
-                <option key={topic} value={topic}>
-                  {topic.charAt(0).toUpperCase() + topic.slice(1)}
-                </option>
-              ))}
-            </select>
-          </div>
+          <select
+            value={selectedTopic}
+            onChange={(e) => setSelectedTopic(e.target.value)}
+            className="px-3 py-2 border border-gray-300 rounded-lg text-sm"
+          >
+            <option value="">All Topics</option>
+            {allTopics.map((topic) => (
+              <option key={topic} value={topic}>{topic}</option>
+            ))}
+          </select>
 
-          {/* Source Filter */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Source</label>
-            <select
-              value={selectedSource}
-              onChange={(e) => setSelectedSource(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
-            >
-              <option value="">All Sources</option>
-              {allSources.map((source) => (
-                <option key={source} value={source}>
-                  {source}
-                </option>
-              ))}
-            </select>
-          </div>
+          <select
+            value={selectedSource}
+            onChange={(e) => setSelectedSource(e.target.value)}
+            className="px-3 py-2 border border-gray-300 rounded-lg text-sm"
+          >
+            <option value="">All Sources</option>
+            {allSources.map((source) => (
+              <option key={source} value={source}>{source}</option>
+            ))}
+          </select>
 
-          {/* Year Filter */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Year</label>
-            <select
-              value={yearFilter}
-              onChange={(e) => setYearFilter(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
-            >
-              <option value="">All Years</option>
-              {allYears.map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
-            </select>
-          </div>
+          <select
+            value={yearFilter}
+            onChange={(e) => setYearFilter(e.target.value)}
+            className="px-3 py-2 border border-gray-300 rounded-lg text-sm"
+          >
+            <option value="">All Years</option>
+            {allYears.map((year) => (
+              <option key={year} value={year}>{year}</option>
+            ))}
+          </select>
 
-          {/* Sort Options */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Sort By</label>
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
-            >
-              <option value="discovered_at">📅 Date Found</option>
-              <option value="relevance_score">⭐ Relevance</option>
-              <option value="year">📊 Publication Year</option>
-              <option value="title">📝 Title</option>
-              <option value="source_site">🏢 Source</option>
-            </select>
-          </div>
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="px-3 py-2 border border-gray-300 rounded-lg text-sm"
+          >
+            <option value="relevance_score">⭐ Relevance</option>
+            <option value="discovered_at">📅 Date Found</option>
+            <option value="year">📊 Pub Year</option>
+          </select>
 
-          {/* Sort Order */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Order</label>
-            <select
-              value={sortOrder}
-              onChange={(e) => setSortOrder(e.target.value as 'asc' | 'desc')}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
-            >
-              <option value="desc">⬇️ Descending</option>
-              <option value="asc">⬆️ Ascending</option>
-            </select>
-          </div>
+          <select
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value as 'asc' | 'desc')}
+            className="px-3 py-2 border border-gray-300 rounded-lg text-sm"
+          >
+            <option value="desc">⬇️ High to Low</option>
+            <option value="asc">⬆️ Low to High</option>
+          </select>
         </div>
 
-        {/* Advanced Filters */}
         <div className="flex gap-4 items-center flex-wrap bg-gray-50 p-3 rounded-lg">
           <div className="flex items-center gap-2">
-            <label className="text-sm font-medium text-gray-700">Min Relevance:</label>
+            <label className="text-sm font-medium text-gray-700">Min Score:</label>
             <input
               type="range"
               min="0"
               max="100"
               value={minRelevanceScore}
               onChange={(e) => setMinRelevanceScore(parseInt(e.target.value))}
-              className="w-20"
+              className="w-24"
             />
             <span className="text-sm text-gray-600 w-8">{minRelevanceScore}</span>
           </div>
 
-          {/* Animal Studies Toggle */}
-          <label className="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-lg border border-gray-300 bg-white hover:bg-gray-50">
+          <label className="flex items-center gap-2 cursor-pointer">
             <input
               type="checkbox"
               checked={includeAnimalStudies}
               onChange={(e) => setIncludeAnimalStudies(e.target.checked)}
-              className="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
+              className="w-4 h-4"
             />
-            <span className="text-sm font-medium text-gray-700">
-              🐭 Include preclinical & animal studies
-            </span>
+            <span className="text-sm text-gray-700">🐭 Include animal studies</span>
           </label>
 
-          <div className="text-sm text-gray-600">
-            Showing {filteredResearch.length} of {research.length} items
-          </div>
-
-          {/* Clear Filters */}
-          <button
-            onClick={() => {
-              setSearchQuery('');
-              setSelectedStatus('');
-              setSelectedTopic('');
-              setSelectedSource('');
-              setYearFilter('');
-              setMinRelevanceScore(0);
-              setIncludeAnimalStudies(false);
-              setSortBy('discovered_at');
-              setSortOrder('desc');
-            }}
-            className="text-sm text-blue-600 hover:text-blue-700 font-medium"
-          >
-            🔄 Clear All Filters
-          </button>
+          <span className="text-sm text-gray-500">
+            {filteredResearch.length} results
+          </span>
         </div>
       </div>
 
-      {/* Bulk Actions */}
-      {filteredResearch.some(item => item.status === 'pending') && (
-        <div className="mb-6 bg-white rounded-lg shadow p-4 border-l-4 border-blue-500">
+      {/* Smart Actions Bar */}
+      {selectedStatus === 'pending' && filteredResearch.length > 0 && (
+        <div className="mb-6 bg-gradient-to-r from-blue-50 to-green-50 rounded-lg shadow p-4 border border-blue-200">
           <div className="flex items-center justify-between flex-wrap gap-4">
+            <div className="flex items-center gap-6">
+              <span className="text-sm font-semibold text-gray-700">Smart Actions:</span>
+
+              {highConfidenceCount > 0 && (
+                <button
+                  onClick={handleSmartApprove}
+                  className="px-4 py-2 bg-green-600 text-white text-sm rounded-lg hover:bg-green-700 transition-colors font-medium flex items-center gap-2"
+                >
+                  ✓ Approve High Confidence ({highConfidenceCount})
+                </button>
+              )}
+
+              <div className="flex items-center gap-2 text-sm">
+                <span className="px-2 py-1 bg-green-100 text-green-800 rounded">
+                  {highConfidenceCount} high (≥70)
+                </span>
+                <span className="px-2 py-1 bg-red-100 text-red-800 rounded">
+                  {lowRelevanceCount} low (&lt;30)
+                </span>
+              </div>
+            </div>
+
             <div className="flex items-center gap-4">
-              <span className="text-sm font-medium text-gray-700">
-                Bulk Actions ({bulkSelected.length} selected):
-              </span>
               <button
                 onClick={selectAllVisible}
                 className="text-sm text-blue-600 hover:text-blue-700 font-medium"
-                disabled={filteredResearch.filter(item => item.status === 'pending').length === 0}
               >
-                📝 Select All Pending ({filteredResearch.filter(item => item.status === 'pending').length})
+                Select All ({filteredResearch.filter(i => i.status === 'pending').length})
               </button>
-              <button
-                onClick={clearSelection}
-                className="text-sm text-gray-600 hover:text-gray-700 font-medium"
-              >
-                🔄 Clear Selection
-              </button>
+              {bulkSelected.length > 0 && (
+                <>
+                  <span className="text-sm text-gray-500">{bulkSelected.length} selected</span>
+                  <button
+                    onClick={handleBulkApprove}
+                    className="px-3 py-1.5 bg-green-600 text-white text-sm rounded hover:bg-green-700"
+                  >
+                    Approve
+                  </button>
+                  <button
+                    onClick={handleBulkReject}
+                    className="px-3 py-1.5 bg-red-600 text-white text-sm rounded hover:bg-red-700"
+                  >
+                    Reject
+                  </button>
+                  <button
+                    onClick={() => setBulkSelected([])}
+                    className="text-sm text-gray-500 hover:text-gray-700"
+                  >
+                    Clear
+                  </button>
+                </>
+              )}
             </div>
-
-            {bulkSelected.length > 0 && (
-              <div className="flex gap-2">
-                <button
-                  onClick={handleBulkApprove}
-                  className="px-4 py-2 bg-green-600 text-white text-sm rounded-lg hover:bg-green-700 transition-colors font-medium flex items-center gap-1"
-                >
-                  ✓ Approve {bulkSelected.length}
-                </button>
-                <button
-                  onClick={handleBulkReject}
-                  className="px-4 py-2 bg-red-600 text-white text-sm rounded-lg hover:bg-red-700 transition-colors font-medium flex items-center gap-1"
-                >
-                  ✗ Reject {bulkSelected.length}
-                </button>
-              </div>
-            )}
           </div>
         </div>
       )}
 
-      {/* Live Statistics */}
-      <div className="mb-6 grid grid-cols-1 md:grid-cols-5 gap-4">
+      {/* Stats */}
+      <div className="mb-6 grid grid-cols-2 md:grid-cols-5 gap-4">
         <div className="bg-white rounded-lg shadow p-4">
-          <div className={`text-2xl font-bold ${statsLoading ? 'text-gray-400' : 'text-orange-600'} flex items-center gap-2`}>
+          <div className={`text-2xl font-bold ${statsLoading ? 'text-gray-400' : 'text-orange-600'}`}>
             {statsLoading ? '...' : pendingCount}
-            {!statsLoading && pendingCount > 0 && <span className="animate-pulse">📄</span>}
           </div>
-          <div className="text-sm text-gray-600">Pending Review</div>
+          <div className="text-sm text-gray-600">Pending</div>
         </div>
         <div className="bg-white rounded-lg shadow p-4">
           <div className={`text-2xl font-bold ${statsLoading ? 'text-gray-400' : 'text-green-600'}`}>
@@ -556,168 +854,146 @@ export default function ResearchQueuePage() {
           <div className={`text-2xl font-bold ${statsLoading ? 'text-gray-400' : 'text-blue-600'}`}>
             {statsLoading ? '...' : totalItems}
           </div>
-          <div className="text-sm text-gray-600">Total Items</div>
+          <div className="text-sm text-gray-600">Total</div>
         </div>
         <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg shadow p-4 border border-green-200">
-          <div className={`text-2xl font-bold ${statsLoading ? 'text-gray-400' : 'text-green-700'} flex items-center gap-2`}>
-            {statsLoading ? '...' : todayAdded}
-            {!statsLoading && todayAdded > 0 && <span className="text-green-600">✨</span>}
+          <div className={`text-2xl font-bold ${statsLoading ? 'text-gray-400' : 'text-green-700'}`}>
+            {statsLoading ? '...' : todayAdded} ✨
           </div>
-          <div className="text-sm text-green-700 font-medium">Added Today</div>
+          <div className="text-sm text-green-700 font-medium">Today</div>
         </div>
       </div>
 
       {loading && (
         <div className="flex justify-center py-12">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
         </div>
       )}
 
       {!loading && (
-        <div className="space-y-4">
-          {filteredResearch.map((item) => (
-            <div
-              key={item.id}
-              className={`rounded-lg shadow p-6 hover:shadow-md transition-all ${
-                showNewItemNotification === item.id
-                  ? 'bg-green-50 border-2 border-green-200 animate-pulse'
-                  : 'bg-white'
-              }`}
-            >
-              <div className="flex justify-between items-start mb-4">
-                <div className="flex gap-3 flex-1">
-                  {item.status === 'pending' && (
-                    <div className="pt-1">
-                      <input
-                        type="checkbox"
-                        checked={bulkSelected.includes(item.id)}
-                        onChange={() => toggleBulkSelect(item.id)}
-                        className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                      />
+        <div className="space-y-3">
+          {filteredResearch.map((item) => {
+            const confidence = getConfidenceIndicator(item.relevanceScore);
+            const badge = getStudyTypeBadge(item.studySubject);
+
+            return (
+              <div
+                key={item.id}
+                className={`rounded-lg shadow hover:shadow-md transition-all border-l-4 ${confidence.color} ${confidence.bg} ${
+                  showNewItemNotification === item.id ? 'ring-2 ring-green-400' : ''
+                } bg-white cursor-pointer`}
+                onClick={() => setSelectedItem(item)}
+              >
+                <div className="p-4">
+                  <div className="flex justify-between items-start gap-4">
+                    {/* Left: Checkbox + Content */}
+                    <div className="flex gap-3 flex-1 min-w-0">
+                      {item.status === 'pending' && (
+                        <div className="pt-1" onClick={(e) => e.stopPropagation()}>
+                          <input
+                            type="checkbox"
+                            checked={bulkSelected.includes(item.id)}
+                            onChange={() => toggleBulkSelect(item.id)}
+                            className="w-4 h-4 text-blue-600 rounded"
+                          />
+                        </div>
+                      )}
+
+                      <div className="flex-1 min-w-0">
+                        {/* Badges Row */}
+                        <div className="flex items-center gap-2 mb-2 flex-wrap">
+                          <ScoreBadge
+                            score={item.relevanceScore}
+                            signals={item.relevanceSignals || []}
+                          />
+                          <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(item.status)}`}>
+                            {item.status.toUpperCase()}
+                          </span>
+                          <span className="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">
+                            {item.sourceSite}
+                          </span>
+                          {badge && (
+                            <span className={`px-2 py-1 text-xs font-medium rounded-full ${badge.className}`}>
+                              {badge.icon} {badge.label}
+                            </span>
+                          )}
+                          {item.year && (
+                            <span className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded-full">
+                              {item.year}
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Title */}
+                        <h3 className="font-semibold text-gray-900 mb-1 line-clamp-2">
+                          {item.title}
+                        </h3>
+
+                        {/* Authors & Publication */}
+                        <p className="text-sm text-gray-500 line-clamp-1 mb-2">
+                          {item.authors && <span>{item.authors}</span>}
+                          {item.authors && item.publication && <span> • </span>}
+                          {item.publication && <span>{item.publication}</span>}
+                        </p>
+
+                        {/* Topics */}
+                        {item.relevantTopics && item.relevantTopics.length > 0 && (
+                          <div className="flex flex-wrap gap-1">
+                            {item.relevantTopics.slice(0, 4).map((topic) => (
+                              <span key={topic} className="px-2 py-0.5 text-xs bg-purple-100 text-purple-700 rounded">
+                                {topic}
+                              </span>
+                            ))}
+                            {item.relevantTopics.length > 4 && (
+                              <span className="px-2 py-0.5 text-xs text-gray-500">
+                                +{item.relevantTopics.length - 4}
+                              </span>
+                            )}
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  )}
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2 flex-wrap">
-                    <span className={`px-2 py-1 text-xs font-medium rounded-full border ${getPriorityColor(item.relevanceScore)}`}>
-                      Score: {item.relevanceScore}
-                    </span>
-                    <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(item.status)}`}>
-                      {item.status.toUpperCase()}
-                    </span>
-                    <span className="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">
-                      {item.sourceSite}
-                    </span>
-                    {(() => {
-                      const badge = getStudyTypeBadge(item.studySubject);
-                      return badge ? (
-                        <span className={`px-2 py-1 text-xs font-medium rounded-full ${badge.className}`}>
-                          {badge.icon} {badge.label}
-                        </span>
-                      ) : null;
-                    })()}
-                    {showNewItemNotification === item.id && (
-                      <span className="px-2 py-1 text-xs bg-green-100 text-green-800 rounded-full border border-green-300">
-                        🆕 NEW
-                      </span>
-                    )}
-                  </div>
 
-                  <h3 className="font-semibold text-gray-900 mb-2 text-lg">
-                    {item.title}
-                  </h3>
-
-                  {item.authors && (
-                    <p className="text-sm text-gray-600 mb-1">
-                      <strong>Authors:</strong> {item.authors}
-                    </p>
-                  )}
-
-                  <div className="text-sm text-gray-500 space-x-4 mb-2">
-                    {item.publication && (
-                      <span><strong>Publication:</strong> {item.publication}</span>
-                    )}
-                    {item.year && <span><strong>Year:</strong> {item.year}</span>}
-                    {item.doi && (
-                      <span><strong>DOI:</strong> {item.doi}</span>
-                    )}
-                  </div>
-
-                  {item.relevantTopics && item.relevantTopics.length > 0 && (
-                    <div className="flex flex-wrap gap-1 mb-3">
-                      <span className="text-sm font-medium text-gray-700 mr-2">Topics:</span>
-                      {item.relevantTopics.map((topic) => (
-                        <span
-                          key={topic}
-                          className="px-2 py-1 text-xs bg-purple-100 text-purple-800 rounded-full"
+                    {/* Right: Actions */}
+                    {item.status === 'pending' && (
+                      <div className="flex gap-2 shrink-0" onClick={(e) => e.stopPropagation()}>
+                        <button
+                          onClick={() => approveResearch(item.id)}
+                          className={`px-4 py-2 text-white text-sm rounded-lg transition-colors font-medium ${
+                            item.relevanceScore >= 70
+                              ? 'bg-green-600 hover:bg-green-700'
+                              : 'bg-gray-500 hover:bg-gray-600'
+                          }`}
                         >
-                          {topic}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-
-                  {item.abstract && (
-                    <div className="mb-3">
-                      <strong className="text-sm text-gray-700">Abstract:</strong>
-                      <p className="text-sm text-gray-700 mt-1 line-clamp-4 leading-relaxed">
-                        {item.abstract}
-                      </p>
-                    </div>
-                  )}
-
-                  <div className="flex items-center gap-4 text-xs text-gray-500 mb-3">
-                    <span>Discovered: {new Date(item.createdAt).toLocaleDateString()}</span>
-                    {item.searchTermMatched && (
-                      <span>Matched: "{item.searchTermMatched}"</span>
+                          ✓
+                        </button>
+                        <button
+                          onClick={() => {
+                            setSelectedItem(item);
+                          }}
+                          className="px-4 py-2 bg-red-600 text-white text-sm rounded-lg hover:bg-red-700 transition-colors font-medium"
+                        >
+                          ✗
+                        </button>
+                      </div>
                     )}
-                  </div>
-
-                  {item.url && (
-                    <a
-                      href={item.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-primary-600 hover:text-primary-700 inline-block mt-2 font-medium"
-                    >
-                      📄 View Full Paper →
-                    </a>
-                  )}
                   </div>
                 </div>
-
-                {item.status === 'pending' && (
-                  <div className="flex gap-2 ml-4">
-                    <button
-                      onClick={() => approveResearch(item.id)}
-                      className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-green-700 transition-colors font-medium"
-                    >
-                      ✓ Approve
-                    </button>
-                    <button
-                      onClick={() => rejectResearch(item.id)}
-                      className="bg-red-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-red-700 transition-colors font-medium"
-                    >
-                      ✗ Reject
-                    </button>
-                  </div>
-                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
 
           {filteredResearch.length === 0 && (
             <div className="text-center py-12 bg-white rounded-lg">
               <p className="text-gray-500 text-lg">
                 {selectedStatus || selectedTopic || selectedSource
                   ? 'No research found with current filters'
-                  : 'No research found. Try running a manual scan!'}
+                  : 'No research found. Run a scan to discover papers!'}
               </p>
             </div>
           )}
         </div>
       )}
-
-      {/* Pagination would go here for large datasets */}
     </div>
   );
 }
