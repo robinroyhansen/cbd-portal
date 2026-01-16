@@ -39,79 +39,166 @@ const SCAN_DEPTHS = [
   { value: 'all', label: 'All time', years: null },
 ];
 
-// Comprehensive search terms used by the scanner (106 condition-specific queries)
-const DEFAULT_SEARCH_TERMS = [
-  // Primary clinical terms
-  'cannabidiol clinical trial',
-  'cannabidiol therapy',
-  'cannabidiol randomized controlled',
-  'CBD treatment efficacy',
-  'medical cannabis clinical trial',
-  // Mental health
-  'cannabidiol anxiety',
-  'cannabidiol depression',
-  'cannabidiol PTSD',
-  'cannabidiol sleep',
-  'CBD insomnia',
-  // Neurological
-  'cannabidiol epilepsy',
-  'Epidiolex Dravet',
-  'cannabidiol Parkinson',
-  'cannabidiol Alzheimer',
-  'cannabidiol autism',
-  // Pain
-  'cannabidiol chronic pain',
-  'CBD pain management',
-  'cannabidiol neuropathic pain',
-  'cannabidiol arthritis',
-  'cannabidiol fibromyalgia',
-  // MS & Inflammation
-  'Sativex spasticity',
-  'nabiximols MS',
-  'cannabidiol inflammation',
-  'CBD anti-inflammatory',
-  // GI & Cancer
-  'cannabidiol Crohn',
-  'CBD IBD',
-  'cannabidiol cancer',
-  'CBD palliative',
-  // Skin & Metabolic
-  'cannabidiol psoriasis',
-  'cannabidiol diabetes',
-  // Research types
-  'cannabidiol systematic review',
-  'CBD meta-analysis',
-];
-
-// Full list of 106 search terms (categories shown for reference)
-const ALL_SEARCH_CATEGORIES = {
-  clinical: ['cannabidiol clinical trial', 'cannabidiol randomized controlled', 'CBD treatment efficacy', 'medical cannabis clinical trial'],
-  anxiety: ['cannabidiol anxiety', 'CBD anxiety disorder', 'cannabis social anxiety', 'cannabidiol GAD'],
-  depression: ['cannabidiol depression', 'CBD antidepressant', 'cannabis mood disorder'],
-  ptsd: ['cannabidiol PTSD', 'CBD post-traumatic stress', 'cannabis trauma'],
-  sleep: ['cannabidiol sleep', 'CBD insomnia', 'cannabis sleep disorder'],
-  epilepsy: ['cannabidiol epilepsy', 'CBD seizure', 'Epidiolex Dravet', 'cannabidiol Lennox-Gastaut'],
-  parkinsons: ['cannabidiol Parkinson', 'CBD parkinsonian', 'cannabidiol dyskinesia'],
-  alzheimers: ['cannabidiol Alzheimer', 'CBD dementia', 'cannabidiol neuroprotective'],
-  autism: ['cannabidiol autism', 'CBD ASD'],
-  adhd: ['cannabidiol ADHD', 'CBD attention deficit'],
-  schizophrenia: ['cannabidiol schizophrenia', 'CBD psychosis'],
-  addiction: ['cannabidiol addiction', 'CBD substance use disorder', 'cannabis opioid withdrawal'],
-  chronic_pain: ['cannabidiol chronic pain', 'CBD pain management', 'cannabis analgesic'],
-  neuropathic: ['cannabidiol neuropathic pain', 'CBD neuropathy'],
-  arthritis: ['cannabidiol arthritis', 'CBD rheumatoid arthritis', 'cannabis osteoarthritis'],
-  fibromyalgia: ['cannabidiol fibromyalgia', 'CBD widespread pain'],
-  ms: ['cannabidiol multiple sclerosis', 'Sativex spasticity', 'nabiximols MS'],
-  inflammation: ['cannabidiol inflammation', 'CBD anti-inflammatory'],
-  migraine: ['cannabidiol migraine', 'CBD headache'],
-  gi: ['cannabidiol Crohn', 'CBD IBD', 'cannabidiol colitis', 'CBD IBS'],
-  cancer: ['cannabidiol cancer', 'CBD tumor', 'CBD palliative'],
-  skin: ['cannabidiol acne', 'cannabidiol psoriasis', 'CBD eczema'],
-  cardiovascular: ['cannabidiol cardiovascular', 'CBD blood pressure'],
-  metabolic: ['cannabidiol diabetes', 'cannabidiol obesity'],
-  products: ['Epidiolex', 'Sativex', 'nabiximols', 'dronabinol', 'nabilone'],
-  research: ['cannabidiol systematic review', 'CBD meta-analysis', 'cannabis randomized controlled trial'],
+// Full 106 search terms organized by category (matches research-scanner.ts)
+const SEARCH_TERM_CATEGORIES: Record<string, { label: string; icon: string; terms: string[] }> = {
+  clinical: {
+    label: 'Clinical Trials',
+    icon: '🔬',
+    terms: [
+      'cannabidiol clinical trial',
+      'cannabidiol therapy',
+      'cannabidiol randomized controlled',
+      'cannabidiol double-blind',
+      'cannabidiol placebo-controlled',
+      'CBD treatment efficacy',
+      'medical cannabis clinical trial',
+      'medical cannabis randomized',
+      'medicinal cannabis therapy',
+      'cannabis therapeutic',
+    ]
+  },
+  anxiety: {
+    label: 'Anxiety',
+    icon: '😰',
+    terms: ['cannabidiol anxiety', 'CBD anxiety disorder', 'cannabis social anxiety', 'cannabidiol GAD', 'CBD panic disorder']
+  },
+  depression: {
+    label: 'Depression',
+    icon: '😔',
+    terms: ['cannabidiol depression', 'CBD antidepressant', 'cannabis mood disorder', 'cannabidiol major depressive']
+  },
+  ptsd: {
+    label: 'PTSD',
+    icon: '🎖️',
+    terms: ['cannabidiol PTSD', 'CBD post-traumatic stress', 'cannabis trauma', 'cannabidiol veteran PTSD']
+  },
+  sleep: {
+    label: 'Sleep',
+    icon: '😴',
+    terms: ['cannabidiol sleep', 'CBD insomnia', 'cannabis sleep disorder', 'cannabidiol sleep quality', 'CBD circadian']
+  },
+  epilepsy: {
+    label: 'Epilepsy',
+    icon: '⚡',
+    terms: ['cannabidiol epilepsy', 'CBD seizure', 'Epidiolex Dravet', 'cannabidiol Lennox-Gastaut', 'CBD refractory epilepsy', 'cannabidiol anticonvulsant']
+  },
+  parkinsons: {
+    label: "Parkinson's",
+    icon: '🧠',
+    terms: ['cannabidiol Parkinson', 'CBD parkinsonian', 'cannabis tremor', 'cannabidiol dyskinesia']
+  },
+  alzheimers: {
+    label: "Alzheimer's",
+    icon: '🧓',
+    terms: ['cannabidiol Alzheimer', 'CBD dementia', 'cannabis cognitive decline', 'cannabidiol neuroprotective']
+  },
+  autism: {
+    label: 'Autism',
+    icon: '🧩',
+    terms: ['cannabidiol autism', 'CBD ASD', 'cannabis autism spectrum']
+  },
+  adhd: {
+    label: 'ADHD',
+    icon: '🎯',
+    terms: ['cannabidiol ADHD', 'CBD attention deficit']
+  },
+  schizophrenia: {
+    label: 'Schizophrenia',
+    icon: '🔮',
+    terms: ['cannabidiol schizophrenia', 'CBD psychosis', 'cannabidiol antipsychotic']
+  },
+  addiction: {
+    label: 'Addiction',
+    icon: '🚭',
+    terms: ['cannabidiol addiction', 'CBD substance use disorder', 'cannabis opioid withdrawal', 'cannabidiol alcohol dependence', 'CBD addiction treatment']
+  },
+  tourettes: {
+    label: "Tourette's",
+    icon: '🗣️',
+    terms: ['cannabidiol Tourette', 'cannabis tic disorder']
+  },
+  chronic_pain: {
+    label: 'Chronic Pain',
+    icon: '🩹',
+    terms: ['cannabidiol chronic pain', 'CBD pain management', 'cannabis analgesic', 'cannabidiol pain relief', 'CBD opioid-sparing']
+  },
+  neuropathic: {
+    label: 'Neuropathic Pain',
+    icon: '🔥',
+    terms: ['cannabidiol neuropathic pain', 'CBD neuropathy', 'cannabis nerve pain', 'cannabidiol diabetic neuropathy']
+  },
+  arthritis: {
+    label: 'Arthritis',
+    icon: '🦴',
+    terms: ['cannabidiol arthritis', 'CBD rheumatoid arthritis', 'cannabis osteoarthritis', 'cannabidiol joint pain']
+  },
+  fibromyalgia: {
+    label: 'Fibromyalgia',
+    icon: '💪',
+    terms: ['cannabidiol fibromyalgia', 'CBD widespread pain', 'cannabis fibromyalgia']
+  },
+  ms: {
+    label: 'Multiple Sclerosis',
+    icon: '🧬',
+    terms: ['cannabidiol multiple sclerosis', 'Sativex spasticity', 'nabiximols MS', 'cannabis demyelinating']
+  },
+  inflammation: {
+    label: 'Inflammation',
+    icon: '🔴',
+    terms: ['cannabidiol inflammation', 'CBD anti-inflammatory', 'cannabis cytokine', 'cannabidiol inflammatory']
+  },
+  migraine: {
+    label: 'Migraines',
+    icon: '🤕',
+    terms: ['cannabidiol migraine', 'CBD headache', 'cannabis cluster headache']
+  },
+  gi: {
+    label: 'GI/Digestive',
+    icon: '🫃',
+    terms: ['cannabidiol Crohn', 'CBD IBD', 'cannabis inflammatory bowel', 'cannabidiol colitis', 'CBD IBS', 'cannabis irritable bowel', 'cannabidiol nausea', 'CBD antiemetic', 'cannabis chemotherapy nausea']
+  },
+  cancer: {
+    label: 'Cancer',
+    icon: '🎗️',
+    terms: ['cannabidiol cancer', 'CBD tumor', 'cannabis oncology', 'cannabidiol chemotherapy', 'CBD palliative', 'cannabis cancer pain', 'cannabidiol apoptosis', 'CBD antitumor']
+  },
+  skin: {
+    label: 'Skin',
+    icon: '🧴',
+    terms: ['cannabidiol acne', 'CBD sebaceous', 'cannabidiol psoriasis', 'CBD eczema', 'cannabis dermatitis', 'cannabidiol topical skin', 'CBD atopic dermatitis']
+  },
+  cardiovascular: {
+    label: 'Cardiovascular',
+    icon: '❤️',
+    terms: ['cannabidiol cardiovascular', 'CBD blood pressure', 'cannabis hypertension', 'cannabidiol cardioprotective', 'CBD heart']
+  },
+  metabolic: {
+    label: 'Metabolic',
+    icon: '⚖️',
+    terms: ['cannabidiol diabetes', 'CBD glucose', 'cannabis metabolic syndrome', 'cannabidiol obesity', 'CBD weight']
+  },
+  other: {
+    label: 'Other Conditions',
+    icon: '📋',
+    terms: ['cannabidiol glaucoma', 'CBD intraocular pressure', 'cannabidiol athletic recovery', 'CBD sports medicine', 'cannabidiol COVID', 'CBD aging', 'cannabidiol elderly', 'CBD women health', 'cannabidiol menopause']
+  },
+  products: {
+    label: 'Products',
+    icon: '💊',
+    terms: ['Epidiolex', 'Epidiolex clinical', 'Sativex', 'Sativex clinical trial', 'nabiximols', 'nabiximols randomized', 'dronabinol', 'nabilone']
+  },
+  research: {
+    label: 'Research Types',
+    icon: '📚',
+    terms: ['cannabidiol systematic review', 'CBD meta-analysis', 'cannabis randomized controlled trial', 'cannabidiol human study', 'CBD clinical evidence']
+  },
 };
+
+// Flatten all terms into a single array (106 total)
+const ALL_SEARCH_TERMS = Object.values(SEARCH_TERM_CATEGORIES).flatMap(cat => cat.terms);
+
+// For backwards compatibility
+const DEFAULT_SEARCH_TERMS = ALL_SEARCH_TERMS;
 
 const STATUS_BADGES: Record<string, { color: string; icon: string; label: string }> = {
   completed: { color: 'bg-green-100 text-green-800', icon: '🟢', label: 'Completed' },
@@ -502,6 +589,7 @@ export default function ScannerPage() {
   const [customKeywords, setCustomKeywords] = useState<string[]>([]);
   const [newKeyword, setNewKeyword] = useState('');
   const [showKeywordsPanel, setShowKeywordsPanel] = useState(false);
+  const [showAllKeywords, setShowAllKeywords] = useState(false);
 
   // Scanner job hook
   const {
@@ -879,7 +967,7 @@ export default function ScannerPage() {
                 <div className="mb-6">
                   <div className="flex items-center justify-between mb-3">
                     <h4 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
-                      {useCustomKeywords ? 'Custom Keywords' : 'Default Keywords'}
+                      {useCustomKeywords ? 'Custom Keywords' : `Default Keywords (${ALL_SEARCH_TERMS.length} terms across ${Object.keys(SEARCH_TERM_CATEGORIES).length} categories)`}
                     </h4>
                     <label className="flex items-center gap-2 cursor-pointer">
                       <span className="text-sm text-gray-600">Use custom keywords</span>
@@ -899,21 +987,18 @@ export default function ScannerPage() {
                     </label>
                   </div>
 
-                  <div className="flex flex-wrap gap-2">
-                    {(useCustomKeywords ? customKeywords : DEFAULT_SEARCH_TERMS).map((term) => (
-                      <span
-                        key={term}
-                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium ${
-                          useCustomKeywords
-                            ? 'bg-blue-100 text-blue-800'
-                            : 'bg-green-100 text-green-800'
-                        }`}
-                      >
-                        <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
-                        </svg>
-                        {term}
-                        {useCustomKeywords && (
+                  {useCustomKeywords ? (
+                    /* Custom Keywords - simple list */
+                    <div className="flex flex-wrap gap-2">
+                      {customKeywords.map((term) => (
+                        <span
+                          key={term}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800"
+                        >
+                          <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+                          </svg>
+                          {term}
                           <button
                             onClick={() => handleRemoveKeyword(term)}
                             className="ml-1 hover:text-blue-600"
@@ -922,13 +1007,72 @@ export default function ScannerPage() {
                               <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                             </svg>
                           </button>
-                        )}
-                      </span>
-                    ))}
-                    {useCustomKeywords && customKeywords.length === 0 && (
-                      <span className="text-gray-500 text-sm italic">No custom keywords added yet. Add some below or disable to use defaults.</span>
-                    )}
-                  </div>
+                        </span>
+                      ))}
+                      {customKeywords.length === 0 && (
+                        <span className="text-gray-500 text-sm italic">No custom keywords added yet. Add some below or disable to use defaults.</span>
+                      )}
+                    </div>
+                  ) : (
+                    /* Default Keywords - categorized view */
+                    <div>
+                      {/* Category summary (always visible) */}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {Object.entries(SEARCH_TERM_CATEGORIES).map(([key, cat]) => (
+                          <span
+                            key={key}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700"
+                            title={cat.terms.join(', ')}
+                          >
+                            <span>{cat.icon}</span>
+                            <span>{cat.label}</span>
+                            <span className="text-xs bg-gray-200 text-gray-600 px-1.5 py-0.5 rounded-full">{cat.terms.length}</span>
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Show all toggle */}
+                      <button
+                        onClick={() => setShowAllKeywords(!showAllKeywords)}
+                        className="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1 mb-4"
+                      >
+                        {showAllKeywords ? 'Hide' : 'Show'} all {ALL_SEARCH_TERMS.length} search terms
+                        <svg
+                          className={`w-4 h-4 transition-transform ${showAllKeywords ? 'rotate-180' : ''}`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+
+                      {/* Full keyword list by category */}
+                      {showAllKeywords && (
+                        <div className="space-y-4 border-t pt-4">
+                          {Object.entries(SEARCH_TERM_CATEGORIES).map(([key, cat]) => (
+                            <div key={key} className="bg-gray-50 rounded-lg p-3">
+                              <h5 className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
+                                <span>{cat.icon}</span>
+                                {cat.label}
+                                <span className="text-xs font-normal text-gray-500">({cat.terms.length} terms)</span>
+                              </h5>
+                              <div className="flex flex-wrap gap-1.5">
+                                {cat.terms.map((term) => (
+                                  <span
+                                    key={term}
+                                    className="px-2 py-1 rounded text-xs bg-green-100 text-green-800"
+                                  >
+                                    {term}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 {/* Add Custom Keyword Input */}
@@ -957,7 +1101,7 @@ export default function ScannerPage() {
                     <div className="mt-4">
                       <p className="text-sm text-gray-500 mb-2">Quick add suggestions:</p>
                       <div className="flex flex-wrap gap-2">
-                        {Object.values(ALL_SEARCH_CATEGORIES).flat().filter(t => !customKeywords.includes(t)).slice(0, 8).map((term) => (
+                        {ALL_SEARCH_TERMS.filter(t => !customKeywords.includes(t)).slice(0, 8).map((term) => (
                           <button
                             key={term}
                             onClick={() => setCustomKeywords(prev => [...prev, term])}
