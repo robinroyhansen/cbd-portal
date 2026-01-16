@@ -61,13 +61,20 @@ export async function POST(
       }, { status: 409 });
     }
 
+    // Calculate how long the job was paused (if applicable)
+    const pauseDuration = job.paused_at
+      ? Math.round((Date.now() - new Date(job.paused_at).getTime()) / 1000)
+      : null;
+
     // Resume the job by setting status back to 'queued'
     const { data: updatedJob, error: updateError } = await supabase
       .from('kb_scan_jobs')
       .update({
         status: 'queued',
         error_message: null,
+        paused_at: null, // Clear paused timestamp
         updated_at: new Date().toISOString()
+        // Note: We keep resume_state intact so the processor knows where to continue
       })
       .eq('id', id)
       .select()
@@ -83,8 +90,12 @@ export async function POST(
       job: updatedJob,
       resumePoint: {
         sourceIndex: job.current_source_index,
-        source: job.sources?.[job.current_source_index] || job.current_source
-      }
+        source: job.sources?.[job.current_source_index] || job.current_source,
+        itemsFound: job.items_found,
+        itemsAdded: job.items_added
+      },
+      pauseDuration: pauseDuration ? `${pauseDuration} seconds` : null,
+      resumeState: job.resume_state || null
     });
 
   } catch (error) {

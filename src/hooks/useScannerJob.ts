@@ -69,12 +69,14 @@ interface UseScannerJobReturn {
   isLoading: boolean;
   isProcessing: boolean;
   isCancelling: boolean;
+  isPausing: boolean;
   error: string | null;
   lastActivity: Date | null;
 
   // Actions
   createJob: (params: CreateJobParams) => Promise<ScannerJob | null>;
   cancelJob: () => Promise<boolean>;
+  pauseJob: () => Promise<boolean>;
   resumeJob: (jobId: string) => Promise<boolean>;
   refreshJobs: () => Promise<void>;
   clearError: () => void;
@@ -87,6 +89,7 @@ export function useScannerJob(): UseScannerJobReturn {
   const [isLoading, setIsLoading] = useState(true);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isCancelling, setIsCancelling] = useState(false);
+  const [isPausing, setIsPausing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [lastActivity, setLastActivity] = useState<Date | null>(null);
 
@@ -298,6 +301,42 @@ export function useScannerJob(): UseScannerJobReturn {
     }
   }, [job, stopProcessingLoop]);
 
+  // Pause job (can be resumed later)
+  const pauseJob = useCallback(async (): Promise<boolean> => {
+    if (!job) return false;
+
+    setIsPausing(true);
+    setError(null);
+
+    try {
+      const response = await fetch(`/api/admin/scanner/jobs/${job.id}/pause`, {
+        method: 'POST',
+      });
+
+      const data = await response.json();
+
+      if (data.error) {
+        setError(data.error);
+        return false;
+      }
+
+      if (data.job) {
+        setJob(data.job);
+        // Stop the processing loop
+        stopProcessingLoop();
+        // Update jobs list
+        setJobs(prev => prev.map(j => j.id === job.id ? data.job : j));
+      }
+
+      return true;
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to pause job');
+      return false;
+    } finally {
+      setIsPausing(false);
+    }
+  }, [job, stopProcessingLoop]);
+
   // Resume job
   const resumeJob = useCallback(async (jobId: string): Promise<boolean> => {
     setError(null);
@@ -388,10 +427,12 @@ export function useScannerJob(): UseScannerJobReturn {
     isLoading,
     isProcessing,
     isCancelling,
+    isPausing,
     error,
     lastActivity,
     createJob,
     cancelJob,
+    pauseJob,
     resumeJob,
     refreshJobs: fetchJobs,
     clearError,

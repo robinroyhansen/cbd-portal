@@ -15,18 +15,20 @@ const SOURCES = [
   { id: 'pubmed', name: 'PubMed', desc: '33M+ biomedical literature', available: true, icon: '📚' },
   { id: 'clinicaltrials', name: 'ClinicalTrials.gov', desc: 'Clinical trial database', available: true, icon: '🏥' },
   { id: 'pmc', name: 'PMC', desc: 'Full-text research articles', available: true, icon: '📄' },
-  { id: 'europepmc', name: 'Europe PMC', desc: 'European biomedical literature', available: false, icon: '🇪🇺' },
-  { id: 'biorxiv', name: 'bioRxiv', desc: 'Preprints (not peer-reviewed)', available: false, icon: '🧬' },
-  { id: 'semanticscholar', name: 'Semantic Scholar', desc: 'AI-powered research', available: false, icon: '🤖' },
+  { id: 'openalex', name: 'OpenAlex', desc: '250M+ works, comprehensive', available: true, icon: '🔬' },
+  { id: 'europepmc', name: 'Europe PMC', desc: 'European biomedical literature', available: true, icon: '🇪🇺' },
+  { id: 'semanticscholar', name: 'Semantic Scholar', desc: 'AI-powered research discovery', available: true, icon: '🤖' },
+  { id: 'biorxiv', name: 'bioRxiv/medRxiv', desc: 'Preprints (newest research)', available: true, icon: '🧬' },
 ];
 
 const SOURCE_NAMES: Record<string, string> = {
   pubmed: 'PubMed',
   pmc: 'PMC',
   clinicaltrials: 'ClinicalTrials.gov',
+  openalex: 'OpenAlex',
   europepmc: 'Europe PMC',
-  biorxiv: 'bioRxiv',
   semanticscholar: 'Semantic Scholar',
+  biorxiv: 'bioRxiv/medRxiv',
 };
 
 const SCAN_DEPTHS = [
@@ -129,19 +131,26 @@ function ActiveJobPanel({
   progress,
   isProcessing,
   isCancelling,
+  isPausing,
   lastActivity,
   onCancel,
+  onPause,
+  onResume,
 }: {
   job: ScannerJob;
   progress: { percent: number; currentSource: string | null; sourcesCompleted: number; sourcesTotal: number } | null;
   isProcessing: boolean;
   isCancelling: boolean;
+  isPausing: boolean;
   lastActivity: Date | null;
   onCancel: () => void;
+  onPause: () => void;
+  onResume: () => void;
 }) {
   const elapsed = useElapsedTime(job.started_at);
   const timeSinceActivity = useTimeSince(lastActivity);
   const isActive = ['queued', 'running'].includes(job.status);
+  const isPaused = job.status === 'paused';
 
   // Calculate estimated remaining items
   const itemsProcessed = job.items_added + job.items_skipped + job.items_rejected;
@@ -155,6 +164,7 @@ function ActiveJobPanel({
       job.status === 'failed' ? 'border-red-300 bg-red-50' :
       job.status === 'cancelled' ? 'border-gray-300 bg-gray-50' :
       job.status === 'cancelling' ? 'border-orange-300 bg-orange-50' :
+      job.status === 'paused' ? 'border-purple-300 bg-purple-50' :
       'border-blue-300 bg-blue-50'
     }`}>
       {/* Header */}
@@ -174,6 +184,7 @@ function ActiveJobPanel({
               {job.status === 'failed' && <span className="text-red-700">Scan Failed</span>}
               {job.status === 'cancelled' && <span className="text-gray-700">Scan Cancelled</span>}
               {job.status === 'cancelling' && <span className="text-orange-700">Stopping Scan...</span>}
+              {job.status === 'paused' && <span className="text-purple-700">Scan Paused</span>}
               {job.status === 'running' && (
                 <span className="text-blue-700">
                   Scanning {SOURCE_NAMES[job.sources[job.current_source_index]] || job.sources[job.current_source_index]}...
@@ -185,25 +196,62 @@ function ActiveJobPanel({
           </div>
         </div>
 
+        {/* Action buttons for active jobs */}
         {isActive && (
+          <div className="flex items-center gap-2">
+            {/* Pause button */}
+            <button
+              onClick={onPause}
+              disabled={isPausing || isCancelling || job.status === 'cancelling'}
+              className="px-5 py-2.5 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 font-medium shadow-sm"
+            >
+              {isPausing ? (
+                <>
+                  <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
+                  Pausing...
+                </>
+              ) : (
+                <>
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
+                  </svg>
+                  Pause
+                </>
+              )}
+            </button>
+            {/* Stop button */}
+            <button
+              onClick={onCancel}
+              disabled={isCancelling || job.status === 'cancelling'}
+              className="px-5 py-2.5 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 font-medium shadow-sm"
+            >
+              {isCancelling || job.status === 'cancelling' ? (
+                <>
+                  <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
+                  Stopping...
+                </>
+              ) : (
+                <>
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <rect x="5" y="5" width="10" height="10" rx="1" />
+                  </svg>
+                  Stop
+                </>
+              )}
+            </button>
+          </div>
+        )}
+
+        {/* Resume button for paused jobs */}
+        {isPaused && (
           <button
-            onClick={onCancel}
-            disabled={isCancelling || job.status === 'cancelling'}
-            className="px-5 py-2.5 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 font-medium shadow-sm"
+            onClick={onResume}
+            className="px-5 py-2.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all flex items-center gap-2 font-medium shadow-sm"
           >
-            {isCancelling || job.status === 'cancelling' ? (
-              <>
-                <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
-                Stopping...
-              </>
-            ) : (
-              <>
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <rect x="5" y="5" width="10" height="10" rx="1" />
-                </svg>
-                Stop Scan
-              </>
-            )}
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+            </svg>
+            Resume Scan
           </button>
         )}
       </div>
@@ -375,10 +423,12 @@ export default function ScannerPage() {
     isLoading,
     isProcessing,
     isCancelling,
+    isPausing,
     error,
     lastActivity,
     createJob,
     cancelJob,
+    pauseJob,
     resumeJob,
     clearError,
   } = useScannerJob();
@@ -462,6 +512,14 @@ export default function ScannerPage() {
     }
   };
 
+  // Handle pause
+  const handlePause = async () => {
+    const success = await pauseJob();
+    if (success) {
+      setToast({ message: 'Scan paused. You can resume it later.', type: 'info' });
+    }
+  };
+
   // Handle resume
   const handleResume = async (jobId: string) => {
     const success = await resumeJob(jobId);
@@ -512,14 +570,17 @@ export default function ScannerPage() {
       </div>
 
       {/* Active Job Panel */}
-      {job && ['queued', 'running', 'cancelling', 'completed', 'failed'].includes(job.status) && (
+      {job && ['queued', 'running', 'cancelling', 'paused', 'completed', 'failed'].includes(job.status) && (
         <ActiveJobPanel
           job={job}
           progress={progress}
           isProcessing={isProcessing}
           isCancelling={isCancelling}
+          isPausing={isPausing}
           lastActivity={lastActivity}
           onCancel={handleCancel}
+          onPause={handlePause}
+          onResume={() => handleResume(job.id)}
         />
       )}
 

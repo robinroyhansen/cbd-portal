@@ -1673,6 +1673,21 @@ export async function runBackgroundScan(jobId: string): Promise<void> {
     const dateRangeEnd = job.date_range_end;
     const customKeywords = job.search_terms || [];
 
+    // Calculate scan depth from date range
+    let scanDepth = 'standard';
+    if (dateRangeStart) {
+      const startDate = new Date(dateRangeStart);
+      const now = new Date();
+      const daysDiff = Math.floor((now.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
+
+      if (daysDiff <= 30) scanDepth = 'quick';
+      else if (daysDiff <= 180) scanDepth = '6months';
+      else if (daysDiff <= 365) scanDepth = '1year';
+      else if (daysDiff <= 730) scanDepth = '2years';
+      else if (daysDiff <= 1825) scanDepth = '5years';
+      else scanDepth = 'comprehensive';
+    }
+
     // Mark job as running
     await updateScanJobProgress(supabase, jobId, {
       status: 'running',

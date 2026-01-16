@@ -1,199 +1,98 @@
-import { useEffect, useState, useCallback } from 'react';
+'use client';
+
+import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
 
-export interface ScanJob {
+interface ScanJob {
   id: string;
-  status: 'pending' | 'running' | 'completed' | 'failed' | 'cancelled';
+  status: string;
+  sources: string[];
   current_source: string | null;
   current_source_index: number;
-  sources: string[];
   items_found: number;
   items_added: number;
   items_skipped: number;
-  items_rejected: number;
-  date_range_start: string | null;
-  date_range_end: string | null;
-  search_terms: string[] | null;
-  error_message: string | null;
   started_at: string | null;
-  completed_at: string | null;
   created_at: string;
-  updated_at: string;
 }
 
 export function useActiveScanJobs() {
   const [jobs, setJobs] = useState<ScanJob[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
-  const fetchJobs = useCallback(async () => {
-    try {
-      const supabase = createClient();
-
-      const { data, error: fetchError } = await supabase
-        .from('kb_scan_jobs')
-        .select('*')
-        .in('status', ['pending', 'running'])
-        .order('created_at', { ascending: false })
-        .limit(10);
-
-      if (fetchError) {
-        throw fetchError;
-      }
-
-      setJobs(data || []);
-      setError(null);
-    } catch (err) {
-      console.error('[useScanProgress] Error fetching jobs:', err);
-      setError(err instanceof Error ? err.message : 'Failed to fetch scan jobs');
-    } finally {
-      setLoading(false);
-    }
-  }, []);
+  const supabase = createClient();
 
   useEffect(() => {
-    fetchJobs();
+    async function fetchActiveJobs() {
+      try {
+        const { data, error } = await supabase
+          .from('kb_scan_jobs')
+          .select('*')
+          .in('status', ['queued', 'running', 'paused'])
+          .order('created_at', { ascending: false })
+          .limit(5);
 
-    // Set up realtime subscription for scan job updates
-    const supabase = createClient();
+        if (error) throw error;
+        setJobs(data || []);
+      } catch (err) {
+        console.error('Failed to fetch active scan jobs:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
 
-    const channel = supabase
-      .channel('scan-jobs-changes')
-      .on(
-        'postgres_changes',
-        {
-          event: '*',
-          schema: 'public',
-          table: 'kb_scan_jobs'
-        },
-        () => {
-          // Refetch on any change
-          fetchJobs();
-        }
-      )
-      .subscribe();
+    fetchActiveJobs();
 
-    // Poll every 5 seconds as backup
-    const interval = setInterval(fetchJobs, 5000);
+    // Poll for updates every 5 seconds
+    const interval = setInterval(fetchActiveJobs, 5000);
 
-    return () => {
-      supabase.removeChannel(channel);
-      clearInterval(interval);
-    };
-  }, [fetchJobs]);
+    return () => clearInterval(interval);
+  }, [supabase]);
 
-  return { jobs, loading, error, refetch: fetchJobs };
+  return { jobs, loading };
 }
 
-export function useScanJob(jobId: string | null) {
+export function useScanProgress(jobId: string | null) {
   const [job, setJob] = useState<ScanJob | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
-  const fetchJob = useCallback(async () => {
+  const supabase = createClient();
+
+  useEffect(() => {
     if (!jobId) {
       setJob(null);
       setLoading(false);
       return;
     }
 
-    try {
-      const supabase = createClient();
-
-      const { data, error: fetchError } = await supabase
-        .from('kb_scan_jobs')
-        .select('*')
-        .eq('id', jobId)
-        .single();
-
-      if (fetchError) {
-        throw fetchError;
-      }
-
-      setJob(data);
-      setError(null);
-    } catch (err) {
-      console.error('[useScanJob] Error fetching job:', err);
-      setError(err instanceof Error ? err.message : 'Failed to fetch scan job');
-    } finally {
-      setLoading(false);
-    }
-  }, [jobId]);
-
-  useEffect(() => {
-    fetchJob();
-
-    if (!jobId) return;
-
-    // Set up realtime subscription for this specific job
-    const supabase = createClient();
-
-    const channel = supabase
-      .channel(`scan-job-${jobId}`)
-      .on(
-        'postgres_changes',
-        {
-          event: '*',
-          schema: 'public',
-          table: 'kb_scan_jobs',
-          filter: `id=eq.${jobId}`
-        },
-        (payload) => {
-          if (payload.new) {
-            setJob(payload.new as ScanJob);
-          }
-        }
-      )
-      .subscribe();
-
-    // Poll every 2 seconds for active jobs
-    const interval = setInterval(() => {
-      if (job?.status === 'running' || job?.status === 'pending') {
-        fetchJob();
-      }
-    }, 2000);
-
-    return () => {
-      supabase.removeChannel(channel);
-      clearInterval(interval);
-    };
-  }, [jobId, fetchJob, job?.status]);
-
-  return { job, loading, error, refetch: fetchJob };
-}
-
-export function useScanHistory(limit = 20) {
-  const [jobs, setJobs] = useState<ScanJob[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    async function fetchHistory() {
+    async function fetchJob() {
       try {
-        const supabase = createClient();
-
-        const { data, error: fetchError } = await supabase
+        const { data, error } = await supabase
           .from('kb_scan_jobs')
           .select('*')
-          .order('created_at', { ascending: false })
-          .limit(limit);
+          .eq('id', jobId)
+          .single();
 
-        if (fetchError) {
-          throw fetchError;
-        }
-
-        setJobs(data || []);
-        setError(null);
+        if (error) throw error;
+        setJob(data);
       } catch (err) {
-        console.error('[useScanHistory] Error:', err);
-        setError(err instanceof Error ? err.message : 'Failed to fetch scan history');
+        console.error('Failed to fetch scan job:', err);
       } finally {
         setLoading(false);
       }
     }
 
-    fetchHistory();
-  }, [limit]);
+    fetchJob();
 
-  return { jobs, loading, error };
+    // Poll for updates every 2 seconds while job is active
+    const interval = setInterval(() => {
+      if (job && ['queued', 'running'].includes(job.status)) {
+        fetchJob();
+      }
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [jobId, job?.status, supabase]);
+
+  return { job, loading };
 }
