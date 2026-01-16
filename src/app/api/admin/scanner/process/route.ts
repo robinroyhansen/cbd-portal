@@ -174,14 +174,18 @@ export async function POST(request: NextRequest) {
 
     // 6. Process ONE chunk (use defaults for search terms if null)
     const searchTerms = job.search_terms || ['CBD', 'cannabidiol'];
+    console.log(`[Scanner] Processing job ${job.id}: source=${currentSource}, offset=${job.items_found}, terms=${searchTerms.join(',')}`);
+
     const results = await fetchChunk(
       currentSource,
       searchTerms,
-      job.items_found, // Use items_found as offset
+      job.items_found, // Use items_found as offset for current source
       CHUNK_SIZE,
       job.date_range_start,
       job.date_range_end
     );
+
+    console.log(`[Scanner] Fetch results: ${results.items.length} items, hasMore=${results.hasMore}, error=${results.error || 'none'}`);
 
     // 7. Process results - check duplicates, calculate scores, insert
     let added = 0;
@@ -247,6 +251,7 @@ export async function POST(request: NextRequest) {
       rejected,
       hasMore: !isComplete,
       elapsedMs,
+      fetchError: results.error || null,
       progress: {
         sourceIndex: newSourceIndex,
         totalSources: job.sources.length,
@@ -273,17 +278,17 @@ export async function POST(request: NextRequest) {
 async function fetchChunk(
   source: string,
   searchTerms: string[],
-  page: number,
+  offset: number,
   chunkSize: number,
   dateStart: string | null,
   dateEnd: string | null
-): Promise<{ items: ResearchItem[]; hasMore: boolean }> {
-  const items: ResearchItem[] = [];
-  const offset = page * chunkSize;
-
+): Promise<{ items: ResearchItem[]; hasMore: boolean; error?: string }> {
   // Use first search term for this chunk (rotate through terms on different pages)
-  const termIndex = page % searchTerms.length;
+  const pageNum = Math.floor(offset / chunkSize);
+  const termIndex = pageNum % searchTerms.length;
   const searchTerm = searchTerms[termIndex];
+
+  console.log(`[Scanner] Fetching from ${source}: offset=${offset}, term="${searchTerm}", dateStart=${dateStart}, dateEnd=${dateEnd}`);
 
   try {
     switch (source) {
@@ -310,11 +315,12 @@ async function fetchChunk(
 
       default:
         console.log(`[Scanner] Unknown source: ${source}`);
-        return { items: [], hasMore: false };
+        return { items: [], hasMore: false, error: `Unknown source: ${source}` };
     }
   } catch (error) {
-    console.error(`[Scanner] Error fetching from ${source}:`, error);
-    return { items: [], hasMore: false };
+    const errorMsg = error instanceof Error ? error.message : String(error);
+    console.error(`[Scanner] Error fetching from ${source}:`, errorMsg);
+    return { items: [], hasMore: false, error: errorMsg };
   }
 }
 
@@ -326,16 +332,20 @@ async function fetchPubMedChunk(
   dateStart: string | null,
   dateEnd: string | null
 ): Promise<{ items: ResearchItem[]; hasMore: boolean }> {
+  // Build date filter - PubMed uses YYYY/MM/DD format
   let dateFilter = '';
   if (dateStart) {
-    const start = new Date(dateStart);
-    const end = dateEnd ? new Date(dateEnd) : new Date();
-    dateFilter = ` AND ("${start.getFullYear()}/${String(start.getMonth() + 1).padStart(2, '0')}/${String(start.getDate()).padStart(2, '0')}"[PDat] : "${end.getFullYear()}/${String(end.getMonth() + 1).padStart(2, '0')}/${String(end.getDate()).padStart(2, '0')}"[PDat])`;
+    // Parse date strings directly without Date object to avoid timezone issues
+    const startParts = dateStart.split('T')[0].split('-');
+    const endDate = dateEnd ? dateEnd.split('T')[0] : new Date().toISOString().split('T')[0];
+    const endParts = endDate.split('-');
+    dateFilter = ` AND ("${startParts[0]}/${startParts[1]}/${startParts[2]}"[PDat] : "${endParts[0]}/${endParts[1]}/${endParts[2]}"[PDat])`;
   }
 
+  const fullQuery = `${searchTerm}${dateFilter}`;
   const searchParams = new URLSearchParams({
     db: 'pubmed',
-    term: `${searchTerm}${dateFilter}`,
+    term: fullQuery,
     retmax: String(limit),
     retstart: String(offset),
     retmode: 'json',
@@ -343,9 +353,13 @@ async function fetchPubMedChunk(
   });
 
   const searchUrl = `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?${searchParams}`;
+  console.log(`[PubMed] Search URL: ${searchUrl}`);
+
   const searchResponse = await fetch(searchUrl);
 
   if (!searchResponse.ok) {
+    const errorText = await searchResponse.text();
+    console.error(`[PubMed] Search failed: ${searchResponse.status}`, errorText);
     throw new Error(`PubMed search failed: ${searchResponse.status}`);
   }
 
@@ -353,7 +367,13 @@ async function fetchPubMedChunk(
   const ids = searchData.esearchresult?.idlist || [];
   const totalCount = parseInt(searchData.esearchresult?.count || '0');
 
+  console.log(`[PubMed] Query "${fullQuery}" returned ${ids.length} IDs (total: ${totalCount})`);
+
   if (ids.length === 0) {
+    // Check if there was an error in the response
+    if (searchData.esearchresult?.errorlist) {
+      console.error(`[PubMed] Search errors:`, searchData.esearchresult.errorlist);
+    }
     return { items: [], hasMore: false };
   }
 
@@ -403,22 +423,36 @@ async function fetchClinicalTrialsChunk(
   limit: number,
   offset: number
 ): Promise<{ items: ResearchItem[]; hasMore: boolean }> {
-  const url = 'https://clinicaltrials.gov/api/v2/studies?' + new URLSearchParams({
+  // ClinicalTrials.gov API v2 doesn't support numeric offsets - only page tokens
+  // For now, we'll just fetch the first page on offset=0 and skip otherwise
+  // TODO: Implement proper cursor-based pagination by storing nextPageToken
+  if (offset > 0) {
+    console.log(`[ClinicalTrials] Skipping pagination (offset=${offset}) - cursor pagination not implemented`);
+    return { items: [], hasMore: false };
+  }
+
+  const params = new URLSearchParams({
     'query.term': searchTerm,
     'filter.overallStatus': 'COMPLETED',
     'sort': 'LastUpdatePostDate:desc',
-    'pageSize': String(limit),
-    'pageToken': offset > 0 ? String(offset) : ''
+    'pageSize': String(limit)
   });
+
+  const url = `https://clinicaltrials.gov/api/v2/studies?${params}`;
+  console.log(`[ClinicalTrials] Search URL: ${url}`);
 
   const response = await fetch(url);
 
   if (!response.ok) {
+    const errorText = await response.text();
+    console.error(`[ClinicalTrials] Failed: ${response.status}`, errorText);
     throw new Error(`ClinicalTrials.gov failed: ${response.status}`);
   }
 
   const data = await response.json();
   const studies = data.studies || [];
+  console.log(`[ClinicalTrials] Found ${studies.length} studies`);
+
   const items: ResearchItem[] = [];
 
   for (const study of studies) {
@@ -453,25 +487,32 @@ async function fetchPMCChunk(
   dateStart: string | null,
   dateEnd: string | null
 ): Promise<{ items: ResearchItem[]; hasMore: boolean }> {
+  // Build date filter - PMC uses YYYY/MM/DD format
   let dateFilter = '';
   if (dateStart) {
-    const start = new Date(dateStart);
-    const end = dateEnd ? new Date(dateEnd) : new Date();
-    dateFilter = ` AND ("${start.getFullYear()}/${String(start.getMonth() + 1).padStart(2, '0')}/${String(start.getDate()).padStart(2, '0')}"[PDat] : "${end.getFullYear()}/${String(end.getMonth() + 1).padStart(2, '0')}/${String(end.getDate()).padStart(2, '0')}"[PDat])`;
+    const startParts = dateStart.split('T')[0].split('-');
+    const endDate = dateEnd ? dateEnd.split('T')[0] : new Date().toISOString().split('T')[0];
+    const endParts = endDate.split('-');
+    dateFilter = ` AND ("${startParts[0]}/${startParts[1]}/${startParts[2]}"[PDat] : "${endParts[0]}/${endParts[1]}/${endParts[2]}"[PDat])`;
   }
 
+  const fullQuery = `${searchTerm}${dateFilter}`;
   const searchParams = new URLSearchParams({
     db: 'pmc',
-    term: `${searchTerm}${dateFilter}`,
+    term: fullQuery,
     retmax: String(limit),
     retstart: String(offset),
     retmode: 'json'
   });
 
   const searchUrl = `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?${searchParams}`;
+  console.log(`[PMC] Search URL: ${searchUrl}`);
+
   const searchResponse = await fetch(searchUrl);
 
   if (!searchResponse.ok) {
+    const errorText = await searchResponse.text();
+    console.error(`[PMC] Search failed: ${searchResponse.status}`, errorText);
     throw new Error(`PMC search failed: ${searchResponse.status}`);
   }
 
@@ -479,7 +520,12 @@ async function fetchPMCChunk(
   const ids = searchData.esearchresult?.idlist || [];
   const totalCount = parseInt(searchData.esearchresult?.count || '0');
 
+  console.log(`[PMC] Query "${fullQuery}" returned ${ids.length} IDs (total: ${totalCount})`);
+
   if (ids.length === 0) {
+    if (searchData.esearchresult?.errorlist) {
+      console.error(`[PMC] Search errors:`, searchData.esearchresult.errorlist);
+    }
     return { items: [], hasMore: false };
   }
 

@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .article-content {
+    @apply prose prose-lg prose-green max-w-none;
+  }
+  
+  .article-content h2 {
+    @apply mt-12 mb-4 text-2xl font-bold text-gray-900;
+  }
+  
+  .article-content h3 {
+    @apply mt-8 mb-3 text-xl font-semibold text-gray-800;
+  }
+  
+  .article-content p {
+    @apply mb-4 leading-relaxed text-gray-700;
+  }
+  
+  .article-content ul, .article-content ol {
+    @apply my-4 pl-6;
+  }
+  
+  .article-content blockquote {
+    @apply border-l-4 border-primary-500 pl-4 italic text-gray-600;
+  }
+  
+  .article-content a {
+    @apply text-primary-600 underline hover:text-primary-800;
+  }
+  
+  .citation {
+    @apply text-sm text-gray-500 bg-gray-50 p-4 rounded-lg border-l-4 border-primary-300;
+  }
+
+  /* Glossary term styling */
+  .article-content .glossary-term {
+    border-bottom: 1px dotted #22c55e;
+    cursor: help;
+    color: #15803d;
+  }
+
+  .article-content .glossary-term:hover {
+    background-color: #f0fdf4;
+  }
+
+  /* Mobile touch improvements */
+  @media (max-width: 768px) {
+    /* Larger touch targets */
+    button, a {
+      min-height: 44px;
+    }
+
+    /* Prevent zoom on input focus (iOS) */
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+
+    /* Hide scrollbar in mobile menu but allow scroll */
+    .mobile-menu-scroll {
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .mobile-menu-scroll::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  /* Prevent text selection during menu interactions */
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+@media print {
+  /* Hide non-essential elements */
+  header, footer, nav,
+  .reading-progress,
+  .share-buttons,
+  .related-articles,
+  .you-might-like,
+  .comments-section,
+  .newsletter-signup,
+  .breadcrumbs,
+  button {
+    display: none !important;
+  }
+
+  /* Optimize article for print */
+  article {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Show URLs for links */
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  /* Avoid page breaks in bad places */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+
+  img {
+    page-break-inside: avoid;
+    max-width: 100%;
+  }
+
+  /* Print-specific styling */
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+
+  .author-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+  }
+
+  .citations {
+    font-size: 10pt;
+  }
+}
