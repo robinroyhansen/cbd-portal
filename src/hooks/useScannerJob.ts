@@ -12,6 +12,7 @@ export interface ScannerJob {
   date_range_end: string | null;
   current_source: string | null;
   current_source_index: number;
+  current_source_offset: number; // Offset within current source for pagination
   items_found: number;
   items_added: number;
   items_skipped: number;
@@ -41,8 +42,10 @@ export interface ProcessResult {
   rejected: number;
   hasMore: boolean;
   elapsedMs: number;
+  fetchError?: string | null;
   progress: {
     sourceIndex: number;
+    sourceOffset: number;
     totalSources: number;
     nextSource: string | null;
   };
@@ -106,17 +109,24 @@ export function useScannerJob(): UseScannerJobReturn {
       if (data.jobs) {
         setJobs(data.jobs);
 
-        // Find active job (pending, queued, running, or cancelling)
+        // Find active job (pending, queued, running, cancelling, or paused)
         const activeJob = data.jobs.find((j: ScannerJob) =>
-          ['pending', 'queued', 'running', 'cancelling'].includes(j.status)
+          ['pending', 'queued', 'running', 'cancelling', 'paused'].includes(j.status)
         );
 
         if (activeJob) {
           setJob(activeJob);
           updateProgress(activeJob);
         } else {
-          setJob(null);
-          setProgress(null);
+          // If no active job, show the most recent completed/failed job briefly
+          const recentJob = data.jobs[0];
+          if (recentJob && ['completed', 'failed', 'cancelled'].includes(recentJob.status)) {
+            setJob(recentJob);
+            updateProgress(recentJob);
+          } else {
+            setJob(null);
+            setProgress(null);
+          }
         }
       }
     } catch (err) {
@@ -201,8 +211,14 @@ export function useScannerJob(): UseScannerJobReturn {
       const result = await processChunk();
 
       // Continue if there's more work and job is still running
-      if (result?.hasMore && result?.status === 'running') {
-        processLoopRef.current = setTimeout(loop, 2000); // 2 second delay between chunks
+      if (result?.hasMore && (result?.status === 'running' || result?.status === 'queued')) {
+        // Shorter delay if we're actively processing, longer if we hit an error
+        const delay = result?.fetchError ? 5000 : 2000;
+        processLoopRef.current = setTimeout(loop, delay);
+      } else if (result?.status === 'paused') {
+        // Job was paused, stop the loop
+        processLoopRef.current = null;
+        await fetchJobs();
       } else {
         processLoopRef.current = null;
         // Refresh jobs to get final state
@@ -403,9 +419,10 @@ export function useScannerJob(): UseScannerJobReturn {
     };
   }, [job?.id, job?.status, fetchJobDetails]);
 
-  // Start processing loop when there's a pending/queued job
+  // Start processing loop when there's an active job (pending, queued, or running)
+  // This handles page refreshes where a job was already running
   useEffect(() => {
-    if ((job?.status === 'pending' || job?.status === 'queued') && !processLoopRef.current) {
+    if ((job?.status === 'pending' || job?.status === 'queued' || job?.status === 'running') && !processLoopRef.current) {
       startProcessingLoop();
     }
   }, [job?.status, startProcessingLoop]);

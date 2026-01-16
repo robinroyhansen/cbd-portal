@@ -28,6 +28,7 @@ interface ScannerJob {
   date_range_end: string | null;
   current_source: string | null;
   current_source_index: number;
+  current_source_offset: number; // Offset within current source for pagination
   items_found: number;
   items_added: number;
   items_skipped: number;
@@ -174,12 +175,13 @@ export async function POST(request: NextRequest) {
 
     // 6. Process ONE chunk (use defaults for search terms if null)
     const searchTerms = job.search_terms || ['CBD', 'cannabidiol'];
-    console.log(`[Scanner] Processing job ${job.id}: source=${currentSource}, offset=${job.items_found}, terms=${searchTerms.join(',')}`);
+    const currentOffset = job.current_source_offset || 0;
+    console.log(`[Scanner] Processing job ${job.id}: source=${currentSource}, offset=${currentOffset}, terms=${searchTerms.join(',')}`);
 
     const results = await fetchChunk(
       currentSource,
       searchTerms,
-      job.items_found, // Use items_found as offset for current source
+      currentOffset, // Use per-source offset, not cumulative items_found
       CHUNK_SIZE,
       job.date_range_start,
       job.date_range_end
@@ -206,11 +208,13 @@ export async function POST(request: NextRequest) {
 
     // 8. Update job progress
     let newSourceIndex = job.current_source_index;
+    let newSourceOffset = currentOffset + results.items.length;
     let isComplete = false;
 
     // If no more results for this source, move to next
     if (!results.hasMore || results.items.length === 0) {
       newSourceIndex++;
+      newSourceOffset = 0; // Reset offset for new source
 
       // Check if all sources done
       if (newSourceIndex >= job.sources.length) {
@@ -221,6 +225,7 @@ export async function POST(request: NextRequest) {
     // Only use columns that exist in the actual database
     const updateData: Record<string, any> = {
       current_source_index: newSourceIndex,
+      current_source_offset: newSourceOffset,
       current_source: isComplete ? null : job.sources[newSourceIndex] || null,
       items_found: job.items_found + results.items.length,
       items_added: job.items_added + added,
@@ -254,6 +259,7 @@ export async function POST(request: NextRequest) {
       fetchError: results.error || null,
       progress: {
         sourceIndex: newSourceIndex,
+        sourceOffset: newSourceOffset,
         totalSources: job.sources.length,
         nextSource: isComplete ? null : job.sources[newSourceIndex]
       },
