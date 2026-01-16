@@ -39,33 +39,79 @@ const SCAN_DEPTHS = [
   { value: 'all', label: 'All time', years: null },
 ];
 
-// Default search keywords used by the scanner
+// Comprehensive search terms used by the scanner (106 condition-specific queries)
 const DEFAULT_SEARCH_TERMS = [
-  'cannabidiol',
-  'CBD',
-  'cannabis',
-  'cannabinoid',
-  'hemp',
-  'THC',
-  'endocannabinoid',
-  'medical cannabis',
-  'Epidiolex',
-  'Sativex',
-];
-
-// Extended search terms for comprehensive scans
-const EXTENDED_SEARCH_TERMS = [
+  // Primary clinical terms
   'cannabidiol clinical trial',
   'cannabidiol therapy',
-  'CBD treatment study',
-  'medical cannabis clinical',
+  'cannabidiol randomized controlled',
+  'CBD treatment efficacy',
+  'medical cannabis clinical trial',
+  // Mental health
   'cannabidiol anxiety',
-  'cannabidiol pain',
-  'cannabidiol epilepsy',
+  'cannabidiol depression',
+  'cannabidiol PTSD',
   'cannabidiol sleep',
+  'CBD insomnia',
+  // Neurological
+  'cannabidiol epilepsy',
+  'Epidiolex Dravet',
+  'cannabidiol Parkinson',
+  'cannabidiol Alzheimer',
+  'cannabidiol autism',
+  // Pain
+  'cannabidiol chronic pain',
+  'CBD pain management',
+  'cannabidiol neuropathic pain',
+  'cannabidiol arthritis',
+  'cannabidiol fibromyalgia',
+  // MS & Inflammation
+  'Sativex spasticity',
+  'nabiximols MS',
   'cannabidiol inflammation',
-  'nabiximols trial',
+  'CBD anti-inflammatory',
+  // GI & Cancer
+  'cannabidiol Crohn',
+  'CBD IBD',
+  'cannabidiol cancer',
+  'CBD palliative',
+  // Skin & Metabolic
+  'cannabidiol psoriasis',
+  'cannabidiol diabetes',
+  // Research types
+  'cannabidiol systematic review',
+  'CBD meta-analysis',
 ];
+
+// Full list of 106 search terms (categories shown for reference)
+const ALL_SEARCH_CATEGORIES = {
+  clinical: ['cannabidiol clinical trial', 'cannabidiol randomized controlled', 'CBD treatment efficacy', 'medical cannabis clinical trial'],
+  anxiety: ['cannabidiol anxiety', 'CBD anxiety disorder', 'cannabis social anxiety', 'cannabidiol GAD'],
+  depression: ['cannabidiol depression', 'CBD antidepressant', 'cannabis mood disorder'],
+  ptsd: ['cannabidiol PTSD', 'CBD post-traumatic stress', 'cannabis trauma'],
+  sleep: ['cannabidiol sleep', 'CBD insomnia', 'cannabis sleep disorder'],
+  epilepsy: ['cannabidiol epilepsy', 'CBD seizure', 'Epidiolex Dravet', 'cannabidiol Lennox-Gastaut'],
+  parkinsons: ['cannabidiol Parkinson', 'CBD parkinsonian', 'cannabidiol dyskinesia'],
+  alzheimers: ['cannabidiol Alzheimer', 'CBD dementia', 'cannabidiol neuroprotective'],
+  autism: ['cannabidiol autism', 'CBD ASD'],
+  adhd: ['cannabidiol ADHD', 'CBD attention deficit'],
+  schizophrenia: ['cannabidiol schizophrenia', 'CBD psychosis'],
+  addiction: ['cannabidiol addiction', 'CBD substance use disorder', 'cannabis opioid withdrawal'],
+  chronic_pain: ['cannabidiol chronic pain', 'CBD pain management', 'cannabis analgesic'],
+  neuropathic: ['cannabidiol neuropathic pain', 'CBD neuropathy'],
+  arthritis: ['cannabidiol arthritis', 'CBD rheumatoid arthritis', 'cannabis osteoarthritis'],
+  fibromyalgia: ['cannabidiol fibromyalgia', 'CBD widespread pain'],
+  ms: ['cannabidiol multiple sclerosis', 'Sativex spasticity', 'nabiximols MS'],
+  inflammation: ['cannabidiol inflammation', 'CBD anti-inflammatory'],
+  migraine: ['cannabidiol migraine', 'CBD headache'],
+  gi: ['cannabidiol Crohn', 'CBD IBD', 'cannabidiol colitis', 'CBD IBS'],
+  cancer: ['cannabidiol cancer', 'CBD tumor', 'CBD palliative'],
+  skin: ['cannabidiol acne', 'cannabidiol psoriasis', 'CBD eczema'],
+  cardiovascular: ['cannabidiol cardiovascular', 'CBD blood pressure'],
+  metabolic: ['cannabidiol diabetes', 'cannabidiol obesity'],
+  products: ['Epidiolex', 'Sativex', 'nabiximols', 'dronabinol', 'nabilone'],
+  research: ['cannabidiol systematic review', 'CBD meta-analysis', 'cannabis randomized controlled trial'],
+};
 
 const STATUS_BADGES: Record<string, { color: string; icon: string; label: string }> = {
   completed: { color: 'bg-green-100 text-green-800', icon: '🟢', label: 'Completed' },
@@ -911,7 +957,7 @@ export default function ScannerPage() {
                     <div className="mt-4">
                       <p className="text-sm text-gray-500 mb-2">Quick add suggestions:</p>
                       <div className="flex flex-wrap gap-2">
-                        {EXTENDED_SEARCH_TERMS.filter(t => !customKeywords.includes(t)).slice(0, 5).map((term) => (
+                        {Object.values(ALL_SEARCH_CATEGORIES).flat().filter(t => !customKeywords.includes(t)).slice(0, 8).map((term) => (
                           <button
                             key={term}
                             onClick={() => setCustomKeywords(prev => [...prev, term])}

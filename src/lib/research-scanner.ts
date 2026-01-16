@@ -332,36 +332,188 @@ const REQUIRED_KEYWORDS = [
   'nabilone'
 ];
 
-// Search terms - more focused
+// Search terms - comprehensive condition-specific searches
 const SEARCH_TERMS = [
-  // Primary CBD terms
+  // === PRIMARY CBD/CANNABIS CLINICAL TERMS ===
   'cannabidiol clinical trial',
   'cannabidiol therapy',
-  'CBD treatment study',
-  'cannabidiol randomized',
+  'cannabidiol randomized controlled',
+  'cannabidiol double-blind',
+  'cannabidiol placebo-controlled',
+  'CBD treatment efficacy',
+  'medical cannabis clinical trial',
+  'medical cannabis randomized',
+  'medicinal cannabis therapy',
+  'cannabis therapeutic',
 
-  // Cannabis medical
-  'medical cannabis clinical',
-  'cannabis therapy trial',
-  'medicinal cannabis study',
-
-  // Specific conditions + CBD
+  // === NEUROLOGICAL & MENTAL HEALTH ===
+  // Anxiety
   'cannabidiol anxiety',
-  'cannabidiol pain',
-  'cannabidiol epilepsy',
-  'cannabidiol sleep',
+  'CBD anxiety disorder',
+  'cannabis social anxiety',
+  'cannabidiol GAD',
+  'CBD panic disorder',
+  // Depression
   'cannabidiol depression',
-  'cannabidiol inflammation',
-  'cannabidiol addiction',
+  'CBD antidepressant',
+  'cannabis mood disorder',
+  'cannabidiol major depressive',
+  // PTSD
   'cannabidiol PTSD',
-  'cannabidiol arthritis',
-  'cannabidiol cancer',
+  'CBD post-traumatic stress',
+  'cannabis trauma',
+  'cannabidiol veteran PTSD',
+  // Sleep
+  'cannabidiol sleep',
+  'CBD insomnia',
+  'cannabis sleep disorder',
+  'cannabidiol sleep quality',
+  'CBD circadian',
+  // Epilepsy
+  'cannabidiol epilepsy',
+  'CBD seizure',
+  'Epidiolex Dravet',
+  'cannabidiol Lennox-Gastaut',
+  'CBD refractory epilepsy',
+  'cannabidiol anticonvulsant',
+  // Parkinson's
+  'cannabidiol Parkinson',
+  'CBD parkinsonian',
+  'cannabis tremor',
+  'cannabidiol dyskinesia',
+  // Alzheimer's/Dementia
+  'cannabidiol Alzheimer',
+  'CBD dementia',
+  'cannabis cognitive decline',
   'cannabidiol neuroprotective',
+  // Autism
+  'cannabidiol autism',
+  'CBD ASD',
+  'cannabis autism spectrum',
+  // ADHD
+  'cannabidiol ADHD',
+  'CBD attention deficit',
+  // Schizophrenia
+  'cannabidiol schizophrenia',
+  'CBD psychosis',
+  'cannabidiol antipsychotic',
+  // Addiction
+  'cannabidiol addiction',
+  'CBD substance use disorder',
+  'cannabis opioid withdrawal',
+  'cannabidiol alcohol dependence',
+  'CBD addiction treatment',
+  // Tourette's
+  'cannabidiol Tourette',
+  'cannabis tic disorder',
 
-  // Products
+  // === PAIN & INFLAMMATION ===
+  // Chronic Pain
+  'cannabidiol chronic pain',
+  'CBD pain management',
+  'cannabis analgesic',
+  'cannabidiol pain relief',
+  'CBD opioid-sparing',
+  // Neuropathic Pain
+  'cannabidiol neuropathic pain',
+  'CBD neuropathy',
+  'cannabis nerve pain',
+  'cannabidiol diabetic neuropathy',
+  // Arthritis
+  'cannabidiol arthritis',
+  'CBD rheumatoid arthritis',
+  'cannabis osteoarthritis',
+  'cannabidiol joint pain',
+  // Fibromyalgia
+  'cannabidiol fibromyalgia',
+  'CBD widespread pain',
+  'cannabis fibromyalgia',
+  // Multiple Sclerosis
+  'cannabidiol multiple sclerosis',
+  'Sativex spasticity',
+  'nabiximols MS',
+  'cannabis demyelinating',
+  // Inflammation
+  'cannabidiol inflammation',
+  'CBD anti-inflammatory',
+  'cannabis cytokine',
+  'cannabidiol inflammatory',
+  // Migraines
+  'cannabidiol migraine',
+  'CBD headache',
+  'cannabis cluster headache',
+
+  // === GASTROINTESTINAL ===
+  'cannabidiol Crohn',
+  'CBD IBD',
+  'cannabis inflammatory bowel',
+  'cannabidiol colitis',
+  'CBD IBS',
+  'cannabis irritable bowel',
+  'cannabidiol nausea',
+  'CBD antiemetic',
+  'cannabis chemotherapy nausea',
+
+  // === CANCER ===
+  'cannabidiol cancer',
+  'CBD tumor',
+  'cannabis oncology',
+  'cannabidiol chemotherapy',
+  'CBD palliative',
+  'cannabis cancer pain',
+  'cannabidiol apoptosis',
+  'CBD antitumor',
+
+  // === SKIN CONDITIONS ===
+  'cannabidiol acne',
+  'CBD sebaceous',
+  'cannabidiol psoriasis',
+  'CBD eczema',
+  'cannabis dermatitis',
+  'cannabidiol topical skin',
+  'CBD atopic dermatitis',
+
+  // === CARDIOVASCULAR ===
+  'cannabidiol cardiovascular',
+  'CBD blood pressure',
+  'cannabis hypertension',
+  'cannabidiol cardioprotective',
+  'CBD heart',
+
+  // === METABOLIC ===
+  'cannabidiol diabetes',
+  'CBD glucose',
+  'cannabis metabolic syndrome',
+  'cannabidiol obesity',
+  'CBD weight',
+
+  // === OTHER CONDITIONS ===
+  'cannabidiol glaucoma',
+  'CBD intraocular pressure',
+  'cannabidiol athletic recovery',
+  'CBD sports medicine',
+  'cannabidiol COVID',
+  'CBD aging',
+  'cannabidiol elderly',
+  'CBD women health',
+  'cannabidiol menopause',
+
+  // === PRODUCTS & FORMULATIONS ===
   'Epidiolex',
-  'Sativex clinical',
-  'nabiximols trial'
+  'Epidiolex clinical',
+  'Sativex',
+  'Sativex clinical trial',
+  'nabiximols',
+  'nabiximols randomized',
+  'dronabinol',
+  'nabilone',
+
+  // === RESEARCH TYPES ===
+  'cannabidiol systematic review',
+  'CBD meta-analysis',
+  'cannabis randomized controlled trial',
+  'cannabidiol human study',
+  'CBD clinical evidence'
 ];
 
 export const TOPIC_KEYWORDS: Record<string, string[]> = {
