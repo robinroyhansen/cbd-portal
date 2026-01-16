@@ -3,7 +3,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
 
-interface ResearchItem {
+// Database row type (snake_case)
+interface ResearchItemDB {
   id: string;
   title: string;
   authors: string | null;
@@ -11,11 +12,61 @@ interface ResearchItem {
   year: number | null;
   abstract: string | null;
   url: string;
+  doi: string | null;
   source_site: string;
   status: 'pending' | 'approved' | 'rejected';
   relevance_score: number | null;
+  relevance_signals: string[] | null;
   relevant_topics: string[] | null;
-  discovered_at: string;
+  detected_language: string | null;
+  search_term_matched: string | null;
+  study_subject: string | null;
+  discovered_at: string | null;
+  created_at: string;
+}
+
+// Transformed type for components (camelCase)
+export interface ResearchItem {
+  id: string;
+  title: string;
+  authors: string | null;
+  publication: string | null;
+  year: number | null;
+  abstract: string | null;
+  url: string;
+  doi: string | null;
+  sourceSite: string;
+  status: 'pending' | 'approved' | 'rejected';
+  relevanceScore: number;
+  relevanceSignals: string[];
+  relevantTopics: string[];
+  detectedLanguage: string | null;
+  searchTermMatched: string | null;
+  studySubject: string | null;
+  createdAt: string;
+}
+
+// Transform DB row to component format
+function transformItem(item: ResearchItemDB): ResearchItem {
+  return {
+    id: item.id,
+    title: item.title,
+    authors: item.authors,
+    publication: item.publication,
+    year: item.year,
+    abstract: item.abstract,
+    url: item.url,
+    doi: item.doi,
+    sourceSite: item.source_site,
+    status: item.status,
+    relevanceScore: item.relevance_score ?? 0,
+    relevanceSignals: item.relevance_signals ?? [],
+    relevantTopics: item.relevant_topics ?? [],
+    detectedLanguage: item.detected_language,
+    searchTermMatched: item.search_term_matched,
+    studySubject: item.study_subject,
+    createdAt: item.discovered_at || item.created_at,
+  };
 }
 
 interface UseResearchQueueFilters {
@@ -62,14 +113,16 @@ export function useResearchQueue(
       }
 
       query = query
-        .order('discovered_at', { ascending: false })
+        .order('created_at', { ascending: false })
         .range(options.offset || 0, (options.offset || 0) + (options.limit || 50) - 1);
 
       const { data, error: queryError, count } = await query;
 
       if (queryError) throw queryError;
 
-      setItems(data || []);
+      // Transform database rows to component format
+      const transformedItems = (data || []).map(transformItem);
+      setItems(transformedItems);
       setTotalCount(count || 0);
       setError(null);
     } catch (err) {
@@ -109,7 +162,7 @@ export function useResearchQueue(
         schema: 'public',
         table: 'kb_research_queue'
       }, (payload) => {
-        const newItem = payload.new as ResearchItem;
+        const newItem = transformItem(payload.new as ResearchItemDB);
         setLastAdded(newItem);
         setItems(prev => [newItem, ...prev].slice(0, options.limit || 50));
         setTotalCount(prev => prev + 1);
@@ -178,7 +231,7 @@ export function useQueueStats() {
         const { count: todayAdded } = await supabase
           .from('kb_research_queue')
           .select('*', { count: 'exact', head: true })
-          .gte('discovered_at', today);
+          .gte('created_at', today);
 
         // Get average relevance score
         const { data: avgData } = await supabase
