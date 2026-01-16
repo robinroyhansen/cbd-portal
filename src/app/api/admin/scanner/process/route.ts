@@ -586,12 +586,12 @@ async function fetchOpenAlexChunk(
   dateStart: string | null,
   dateEnd: string | null
 ): Promise<{ items: ResearchItem[]; hasMore: boolean }> {
-  // Build date filter if provided
+  // Build date filter if provided - OpenAlex uses from_publication_date and to_publication_date
   let dateFilter = '';
   if (dateStart) {
     const start = dateStart.split('T')[0];
     const end = dateEnd ? dateEnd.split('T')[0] : new Date().toISOString().split('T')[0];
-    dateFilter = `,publication_date:${start}-${end}`;
+    dateFilter = `,from_publication_date:${start},to_publication_date:${end}`;
   }
 
   const url = `https://api.openalex.org/works?filter=title.search:${encodeURIComponent(searchTerm)}${dateFilter}&per-page=${limit}&page=${Math.floor(offset / limit) + 1}&mailto=admin@cbdportal.com`;
