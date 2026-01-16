@@ -11,6 +11,12 @@ import {
   normalizePmid,
   normalizePmcId
 } from '@/lib/utils/deduplication';
+import {
+  cleanTitle,
+  cleanAbstract,
+  cleanText,
+  validateYear
+} from '@/lib/utils/text-cleanup';
 
 export const maxDuration = 60; // 60 seconds max for Vercel
 
@@ -822,6 +828,13 @@ async function processItem(
   item: ResearchItem
 ): Promise<'added' | 'skipped' | 'rejected'> {
   try {
+    // 0. Clean text fields (strip HTML, decode entities, fix years)
+    const cleanedTitle = cleanTitle(item.title) || item.title;
+    const cleanedAbstract = cleanAbstract(item.abstract);
+    const cleanedAuthors = cleanText(item.authors);
+    const cleanedPublication = cleanText(item.publication);
+    const validatedYear = validateYear(item.year, item.doi, null);
+
     // 1. Quick check for duplicate by URL first
     const urlCheck = await isUrlDuplicate(supabase, item.url);
     if (urlCheck.isDuplicate) {
@@ -830,11 +843,11 @@ async function processItem(
 
     // 2. Cross-source deduplication check (DOI, PMID, PMC ID, fuzzy title)
     const duplicateCheck = await isDuplicate(supabase, {
-      title: item.title,
+      title: cleanedTitle,
       doi: item.doi,
       pmid: item.pmid,
       pmcId: item.pmcId,
-      year: item.year,
+      year: validatedYear,
       source: item.source_site.toLowerCase().replace(/[^a-z]/g, ''),
       sourceId: item.sourceId
     });
@@ -850,14 +863,14 @@ async function processItem(
       );
       await updateSourceIds(supabase, duplicateCheck.existingId, sourceIds);
 
-      console.log(`[Scanner] Duplicate (${duplicateCheck.matchType}): "${item.title.substring(0, 50)}..."`);
+      console.log(`[Scanner] Duplicate (${duplicateCheck.matchType}): "${cleanedTitle.substring(0, 50)}..."`);
       return 'skipped';
     }
 
-    // 3. Calculate relevance score
+    // 3. Calculate relevance score (use cleaned text)
     const relevance = calculateRelevanceScore({
-      title: item.title,
-      abstract: item.abstract
+      title: cleanedTitle,
+      abstract: cleanedAbstract || undefined
     });
 
     // Auto-reject if relevance is too low
@@ -865,12 +878,16 @@ async function processItem(
       return 'rejected';
     }
 
-    // 4. Detect language
-    const textForLang = `${item.title} ${item.abstract || ''}`;
-    const langResult = detectLanguage(textForLang, item.title);
+    // 4. Detect language (use cleaned text)
+    const textForLang = `${cleanedTitle} ${cleanedAbstract || ''}`;
+    const langResult = detectLanguage(textForLang, cleanedTitle);
 
-    // 5. Calculate topics
-    const topics = extractTopics(item);
+    // 5. Calculate topics (use cleaned text)
+    const topics = extractTopics({
+      ...item,
+      title: cleanedTitle,
+      abstract: cleanedAbstract
+    });
 
     // 6. Build source_ids for this item
     const sourceIds = buildSourceIds(
@@ -881,15 +898,15 @@ async function processItem(
       item.doi
     );
 
-    // 7. Insert into kb_research_queue with all deduplication fields
+    // 7. Insert into kb_research_queue with cleaned data
     const { error } = await supabase
       .from('kb_research_queue')
       .insert({
-        title: item.title,
-        authors: item.authors,
-        publication: item.publication,
-        year: item.year,
-        abstract: item.abstract,
+        title: cleanedTitle,
+        authors: cleanedAuthors,
+        publication: cleanedPublication,
+        year: validatedYear,
+        abstract: cleanedAbstract,
         url: item.url,
         doi: normalizeDoi(item.doi),
         pmid: normalizePmid(item.pmid),

@@ -39,6 +39,34 @@ const SCAN_DEPTHS = [
   { value: 'all', label: 'All time', years: null },
 ];
 
+// Default search keywords used by the scanner
+const DEFAULT_SEARCH_TERMS = [
+  'cannabidiol',
+  'CBD',
+  'cannabis',
+  'cannabinoid',
+  'hemp',
+  'THC',
+  'endocannabinoid',
+  'medical cannabis',
+  'Epidiolex',
+  'Sativex',
+];
+
+// Extended search terms for comprehensive scans
+const EXTENDED_SEARCH_TERMS = [
+  'cannabidiol clinical trial',
+  'cannabidiol therapy',
+  'CBD treatment study',
+  'medical cannabis clinical',
+  'cannabidiol anxiety',
+  'cannabidiol pain',
+  'cannabidiol epilepsy',
+  'cannabidiol sleep',
+  'cannabidiol inflammation',
+  'nabiximols trial',
+];
+
 const STATUS_BADGES: Record<string, { color: string; icon: string; label: string }> = {
   completed: { color: 'bg-green-100 text-green-800', icon: '🟢', label: 'Completed' },
   failed: { color: 'bg-red-100 text-red-800', icon: '🔴', label: 'Failed' },
@@ -290,6 +318,16 @@ function ActiveJobPanel({
             <span>{job.items_found.toLocaleString()}</span>
           </div>
         </div>
+        {/* Search terms display */}
+        {job.search_terms && job.search_terms.length > 0 && (
+          <div className="mt-3 pt-3 border-t border-gray-200 border-opacity-50">
+            <span className="font-semibold text-sm text-gray-700">Search terms: </span>
+            <span className="text-sm text-gray-600">
+              {job.search_terms.slice(0, 5).join(', ')}
+              {job.search_terms.length > 5 && ` +${job.search_terms.length - 5} more`}
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Stats Grid */}
@@ -414,6 +452,10 @@ export default function ScannerPage() {
   // Form state
   const [selectedSources, setSelectedSources] = useState<string[]>(['pubmed', 'clinicaltrials', 'pmc']);
   const [scanDepth, setScanDepth] = useState('1year');
+  const [useCustomKeywords, setUseCustomKeywords] = useState(false);
+  const [customKeywords, setCustomKeywords] = useState<string[]>([]);
+  const [newKeyword, setNewKeyword] = useState('');
+  const [showKeywordsPanel, setShowKeywordsPanel] = useState(false);
 
   // Scanner job hook
   const {
@@ -481,6 +523,25 @@ export default function ScannerPage() {
     }
   }, [error]);
 
+  // Handle adding custom keyword
+  const handleAddKeyword = () => {
+    const keyword = newKeyword.trim();
+    if (keyword && !customKeywords.includes(keyword)) {
+      setCustomKeywords(prev => [...prev, keyword]);
+      setNewKeyword('');
+    }
+  };
+
+  // Handle removing custom keyword
+  const handleRemoveKeyword = (keyword: string) => {
+    setCustomKeywords(prev => prev.filter(k => k !== keyword));
+  };
+
+  // Get active search terms
+  const activeSearchTerms = useCustomKeywords && customKeywords.length > 0
+    ? customKeywords
+    : DEFAULT_SEARCH_TERMS;
+
   // Handle start scan
   const handleStartScan = async () => {
     if (selectedSources.length === 0) {
@@ -495,6 +556,7 @@ export default function ScannerPage() {
       sources: selectedSources,
       dateRangeStart: dateRange.start,
       dateRangeEnd: dateRange.end,
+      searchTerms: useCustomKeywords && customKeywords.length > 0 ? customKeywords : undefined,
     });
 
     setIsCreating(false);
@@ -739,6 +801,144 @@ export default function ScannerPage() {
                 Automatically skips papers already in your database
               </p>
             </div>
+          </div>
+
+          {/* Search Keywords Section */}
+          <div className="bg-white rounded-xl shadow border overflow-hidden">
+            <button
+              onClick={() => setShowKeywordsPanel(!showKeywordsPanel)}
+              className="w-full px-6 py-4 border-b bg-gray-50 flex items-center justify-between hover:bg-gray-100 transition-colors"
+            >
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 text-left">Search Keywords</h3>
+                <p className="text-sm text-gray-500 mt-1 text-left">
+                  {useCustomKeywords && customKeywords.length > 0
+                    ? `Using ${customKeywords.length} custom keyword${customKeywords.length > 1 ? 's' : ''}`
+                    : `Using ${DEFAULT_SEARCH_TERMS.length} default CBD-related terms`}
+                </p>
+              </div>
+              <svg
+                className={`w-5 h-5 text-gray-400 transition-transform ${showKeywordsPanel ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {showKeywordsPanel && (
+              <div className="p-6">
+                {/* Active Keywords Display */}
+                <div className="mb-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <h4 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
+                      {useCustomKeywords ? 'Custom Keywords' : 'Default Keywords'}
+                    </h4>
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <span className="text-sm text-gray-600">Use custom keywords</span>
+                      <button
+                        type="button"
+                        onClick={() => setUseCustomKeywords(!useCustomKeywords)}
+                        className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+                          useCustomKeywords ? 'bg-blue-600' : 'bg-gray-200'
+                        }`}
+                      >
+                        <span
+                          className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
+                            useCustomKeywords ? 'translate-x-5' : 'translate-x-0'
+                          }`}
+                        />
+                      </button>
+                    </label>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {(useCustomKeywords ? customKeywords : DEFAULT_SEARCH_TERMS).map((term) => (
+                      <span
+                        key={term}
+                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium ${
+                          useCustomKeywords
+                            ? 'bg-blue-100 text-blue-800'
+                            : 'bg-green-100 text-green-800'
+                        }`}
+                      >
+                        <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+                        </svg>
+                        {term}
+                        {useCustomKeywords && (
+                          <button
+                            onClick={() => handleRemoveKeyword(term)}
+                            className="ml-1 hover:text-blue-600"
+                          >
+                            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                            </svg>
+                          </button>
+                        )}
+                      </span>
+                    ))}
+                    {useCustomKeywords && customKeywords.length === 0 && (
+                      <span className="text-gray-500 text-sm italic">No custom keywords added yet. Add some below or disable to use defaults.</span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Add Custom Keyword Input */}
+                {useCustomKeywords && (
+                  <div className="pt-4 border-t">
+                    <h4 className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Add Custom Keyword</h4>
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        value={newKeyword}
+                        onChange={(e) => setNewKeyword(e.target.value)}
+                        onKeyDown={(e) => e.key === 'Enter' && handleAddKeyword()}
+                        placeholder="e.g., CBD anxiety, cannabidiol treatment"
+                        className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      />
+                      <button
+                        onClick={handleAddKeyword}
+                        disabled={!newKeyword.trim()}
+                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed font-medium"
+                      >
+                        Add
+                      </button>
+                    </div>
+
+                    {/* Quick Add Suggestions */}
+                    <div className="mt-4">
+                      <p className="text-sm text-gray-500 mb-2">Quick add suggestions:</p>
+                      <div className="flex flex-wrap gap-2">
+                        {EXTENDED_SEARCH_TERMS.filter(t => !customKeywords.includes(t)).slice(0, 5).map((term) => (
+                          <button
+                            key={term}
+                            onClick={() => setCustomKeywords(prev => [...prev, term])}
+                            className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors"
+                          >
+                            + {term}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Info about keywords */}
+                <div className="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800">
+                  <div className="flex gap-2">
+                    <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p>
+                      <strong>Note:</strong> All results are validated to ensure they contain CBD/cannabis-related content,
+                      regardless of search terms. Non-relevant studies are automatically filtered out.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Start Button */}
