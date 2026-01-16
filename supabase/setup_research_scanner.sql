@@ -131,7 +131,7 @@ BEGIN
     DROP POLICY IF EXISTS "Public read access" ON kb_article_research;
     CREATE POLICY "Public read access" ON kb_article_research FOR SELECT USING (true);
     DROP POLICY IF EXISTS "Admin write access" ON kb_article_research;
-    CREATE POLICY "Admin write access" ON kb_article_research FOR INSERT USING (true);
+    CREATE POLICY "Admin write access" ON kb_article_research FOR INSERT WITH CHECK (true);
   END IF;
 END $$;
 
