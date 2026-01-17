@@ -37,28 +37,48 @@ function escapeRegex(str: string): string {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-function matchesBlacklist(text: string, blacklist: BlacklistTerm[]): string | null {
-  for (const bl of blacklist) {
-    const searchText = bl.case_sensitive ? text : text.toLowerCase();
-    const searchTerm = bl.case_sensitive ? bl.term : bl.term.toLowerCase();
+// Normalize text for matching: lowercase, normalize unicode dashes/quotes, collapse whitespace
+function normalizeForMatching(text: string): string {
+  return text
+    .toLowerCase()
+    // Normalize various unicode dashes to regular hyphen
+    .replace(/[\u2010\u2011\u2012\u2013\u2014\u2015\u2212]/g, '-')
+    // Normalize various unicode quotes
+    .replace(/[\u2018\u2019\u201A\u201B]/g, "'")
+    .replace(/[\u201C\u201D\u201E\u201F]/g, '"')
+    // Collapse multiple spaces
+    .replace(/\s+/g, ' ')
+    .trim();
+}
 
+function matchesBlacklist(text: string, blacklist: BlacklistTerm[]): string | null {
+  // Always normalize text for matching (case-insensitive, unicode normalized)
+  const normalizedText = normalizeForMatching(text);
+
+  for (const bl of blacklist) {
+    const normalizedTerm = normalizeForMatching(bl.term);
     let matches = false;
 
     if (bl.match_type === 'contains') {
-      matches = searchText.includes(searchTerm);
+      // Always case-insensitive for contains
+      matches = normalizedText.includes(normalizedTerm);
     } else if (bl.match_type === 'exact') {
-      const regex = new RegExp(`\\b${escapeRegex(searchTerm)}\\b`, bl.case_sensitive ? '' : 'i');
-      matches = regex.test(text);
+      // Word boundary match, always case-insensitive
+      const regex = new RegExp(`\\b${escapeRegex(normalizedTerm)}\\b`, 'i');
+      matches = regex.test(normalizedText);
     } else if (bl.match_type === 'regex') {
       try {
-        const regex = new RegExp(bl.term, bl.case_sensitive ? '' : 'i');
-        matches = regex.test(text);
+        // For regex, respect case_sensitive flag but still normalize unicode
+        const flags = bl.case_sensitive ? '' : 'i';
+        const regex = new RegExp(bl.term, flags);
+        matches = regex.test(bl.case_sensitive ? text : normalizedText);
       } catch {
         continue;
       }
     }
 
     if (matches) {
+      console.log(`[Blacklist] Match found: "${bl.term}" (${bl.match_type}) in text`);
       return bl.term;
     }
   }
@@ -1561,6 +1581,15 @@ export async function runDailyResearchScan(
   let rejected = 0;
 
   for (const study of uniqueResults) {
+    // BLACKLIST CHECK - Run FIRST before any other processing
+    // Checks both title AND abstract, case-insensitive, unicode-normalized
+    const blacklistedTerm = await isBlacklisted(supabase, study);
+    if (blacklistedTerm) {
+      console.log(`[Blacklist] Rejected: "${study.title?.substring(0, 50)}..." (matched: "${blacklistedTerm}")`);
+      rejected++;
+      continue;
+    }
+
     // STRICT VALIDATION - Must be about cannabis/CBD
     if (!isRelevantToCannabis(study)) {
       rejected++;
@@ -1595,14 +1624,6 @@ export async function runDailyResearchScan(
 
     // Calculate QUALITY score (research rigor)
     const { score: qualityScore, topics, breakdown } = calculateQualityScore(study);
-
-    // Check blacklist
-    const blacklistedTerm = await isBlacklisted(supabase, study);
-    if (blacklistedTerm) {
-      console.log(`[Blacklist] Rejected: "${study.title?.substring(0, 50)}..." (matched: "${blacklistedTerm}")`);
-      rejected++;
-      continue;
-    }
 
     // Detect language (pass title separately for better detection)
     const textForLang = `${study.title} ${study.abstract || ''}`;
@@ -1664,6 +1685,15 @@ async function saveSourceResults(
     }
 
     const titleShort = study.title?.substring(0, 50) || 'Untitled';
+
+    // BLACKLIST CHECK - Run FIRST before any other processing
+    // Checks both title AND abstract, case-insensitive, unicode-normalized
+    const blacklistedTerm = await isBlacklisted(supabase, study);
+    if (blacklistedTerm) {
+      console.log(`[Blacklist] Rejected: "${titleShort}..." (matched: "${blacklistedTerm}")`);
+      rejected++;
+      continue;
+    }
 
     // STRICT VALIDATION - Must be about cannabis/CBD
     if (!isRelevantToCannabis(study)) {
@@ -1751,14 +1781,6 @@ async function saveSourceResults(
 
     // Calculate QUALITY score (research rigor)
     const { score: qualityScore, topics, breakdown } = calculateQualityScore(study);
-
-    // Check blacklist
-    const blacklistedTerm = await isBlacklisted(supabase, study);
-    if (blacklistedTerm) {
-      console.log(`[Blacklist] Rejected: "${titleShort}..." (matched: "${blacklistedTerm}")`);
-      rejected++;
-      continue;
-    }
 
     // Try to extract country from authors if not already set
     const country = study.country || extractCountryFromAuthors(study.authors);
