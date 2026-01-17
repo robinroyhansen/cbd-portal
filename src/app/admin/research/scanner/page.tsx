@@ -474,6 +474,9 @@ export default function ScannerPage() {
   const [conditions, setConditions] = useState<ConfigItem[]>([]);
   const [configLoading, setConfigLoading] = useState(true);
 
+  // Search mode: 'broad' or 'targeted'
+  const [searchMode, setSearchMode] = useState<'broad' | 'targeted'>('broad');
+
   // Selection state
   const [selectedCannabinoids, setSelectedCannabinoids] = useState<Set<string>>(new Set(['cannabidiol']));
   const [selectedConditions, setSelectedConditions] = useState<Set<string>>(new Set());
@@ -573,26 +576,41 @@ export default function ScannerPage() {
     const selectedCannabinoidItems = cannabinoids.filter(c => selectedCannabinoids.has(c.term_key));
     const selectedConditionItems = conditions.filter(c => selectedConditions.has(c.term_key));
 
-    // If conditions are selected, create cannabinoid + condition combinations
-    if (selectedConditionItems.length > 0) {
+    if (searchMode === 'broad') {
+      // Broad mode: cannabinoid terms only (finds ALL cannabinoid research)
+      // Conditions are auto-detected from title/abstract during validation
       for (const cannabinoid of selectedCannabinoidItems) {
-        for (const condition of selectedConditionItems) {
-          // Use primary synonyms for search
-          const cannabinoidTerm = cannabinoid.synonyms[0] || cannabinoid.term_key;
-          const conditionTerm = condition.synonyms[0] || condition.term_key;
-          terms.push(`${cannabinoidTerm} ${conditionTerm}`);
+        // Add primary synonym
+        if (cannabinoid.synonyms[0]) {
+          terms.push(cannabinoid.synonyms[0]);
         }
+        // Add clinical/therapeutic variants
+        const primaryTerm = cannabinoid.synonyms[0] || cannabinoid.term_key;
+        terms.push(`${primaryTerm} clinical trial`);
+        terms.push(`${primaryTerm} therapeutic`);
       }
     } else {
-      // Just cannabinoid terms
-      for (const cannabinoid of selectedCannabinoidItems) {
-        for (const synonym of cannabinoid.synonyms.slice(0, 2)) {
-          terms.push(synonym);
+      // Targeted mode: cannabinoid × condition combinations
+      if (selectedConditionItems.length > 0) {
+        for (const cannabinoid of selectedCannabinoidItems) {
+          for (const condition of selectedConditionItems) {
+            const cannabinoidTerm = cannabinoid.synonyms[0] || cannabinoid.term_key;
+            const conditionTerm = condition.synonyms[0] || condition.term_key;
+            terms.push(`${cannabinoidTerm} ${conditionTerm}`);
+          }
+        }
+      } else {
+        // No conditions selected in targeted mode - fall back to cannabinoid terms
+        for (const cannabinoid of selectedCannabinoidItems) {
+          for (const synonym of cannabinoid.synonyms.slice(0, 2)) {
+            terms.push(synonym);
+          }
         }
       }
     }
 
-    return terms;
+    // Remove duplicates
+    return [...new Set(terms)];
   };
 
   // Handle start scan
@@ -783,6 +801,69 @@ export default function ScannerPage() {
       {/* Job Creation Panel - Only show when not scanning */}
       {!isScanning && (
         <div className="space-y-6">
+          {/* Search Mode Toggle */}
+          <div className="bg-white rounded-xl shadow border overflow-hidden">
+            <div className="px-6 py-4 border-b bg-gray-50">
+              <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                <span>🔍</span>
+                Search Mode
+              </h3>
+              <p className="text-sm text-gray-500 mt-1">Choose how to discover research</p>
+            </div>
+            <div className="p-4">
+              <div className="grid grid-cols-2 gap-4">
+                <button
+                  onClick={() => setSearchMode('broad')}
+                  className={`p-4 rounded-xl border-2 text-left transition-all ${
+                    searchMode === 'broad'
+                      ? 'border-green-500 bg-green-50'
+                      : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
+                  }`}
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-2xl">🌐</span>
+                    <span className={`font-bold text-lg ${searchMode === 'broad' ? 'text-green-700' : 'text-gray-900'}`}>
+                      Broad Search
+                    </span>
+                    {searchMode === 'broad' && (
+                      <span className="px-2 py-0.5 bg-green-200 text-green-800 text-xs rounded-full font-medium">
+                        Active
+                      </span>
+                    )}
+                  </div>
+                  <p className={`text-sm ${searchMode === 'broad' ? 'text-green-600' : 'text-gray-500'}`}>
+                    Find ALL cannabinoid research. Conditions are auto-detected from results.
+                    Best for comprehensive research collection.
+                  </p>
+                </button>
+                <button
+                  onClick={() => setSearchMode('targeted')}
+                  className={`p-4 rounded-xl border-2 text-left transition-all ${
+                    searchMode === 'targeted'
+                      ? 'border-blue-500 bg-blue-50'
+                      : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
+                  }`}
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-2xl">🎯</span>
+                    <span className={`font-bold text-lg ${searchMode === 'targeted' ? 'text-blue-700' : 'text-gray-900'}`}>
+                      Targeted Search
+                    </span>
+                    {searchMode === 'targeted' && (
+                      <span className="px-2 py-0.5 bg-blue-200 text-blue-800 text-xs rounded-full font-medium">
+                        Active
+                      </span>
+                    )}
+                  </div>
+                  <p className={`text-sm ${searchMode === 'targeted' ? 'text-blue-600' : 'text-gray-500'}`}>
+                    Search for specific cannabinoid + condition combinations.
+                    Best for researching known conditions.
+                  </p>
+                </button>
+              </div>
+            </div>
+          </div>
+
           {/* Cannabinoids Selection */}
           <CheckboxList
             title="Cannabinoids"
@@ -793,15 +874,25 @@ export default function ScannerPage() {
             icon="🌿"
           />
 
-          {/* Conditions Selection */}
-          <CheckboxList
-            title="Health Conditions"
-            description="Optional: Filter by specific health conditions (leave empty for general search)"
-            items={conditions}
-            selectedIds={selectedConditions}
-            onSelectionChange={setSelectedConditions}
-            icon="🏥"
-          />
+          {/* Conditions Selection - Greyed out in Broad mode */}
+          <div className={`transition-opacity ${searchMode === 'broad' ? 'opacity-50' : ''}`}>
+            <CheckboxList
+              title="Health Conditions"
+              description={searchMode === 'broad'
+                ? "Disabled in Broad mode - conditions are auto-detected from results"
+                : "Select specific conditions to search for with each cannabinoid"}
+              items={conditions}
+              selectedIds={searchMode === 'broad' ? new Set() : selectedConditions}
+              onSelectionChange={searchMode === 'broad' ? () => {} : setSelectedConditions}
+              icon="🏥"
+            />
+            {searchMode === 'broad' && (
+              <div className="mt-2 px-4 py-2 bg-green-50 border border-green-200 rounded-lg text-sm text-green-700">
+                <strong>Broad mode:</strong> Conditions will be automatically detected and tagged from study titles and abstracts.
+                This helps discover research about conditions you may not have considered.
+              </div>
+            )}
+          </div>
 
           {/* Source Selection */}
           <div className="bg-white rounded-xl shadow border overflow-hidden">
@@ -897,16 +988,27 @@ export default function ScannerPage() {
           </div>
 
           {/* Search Summary & Start Button */}
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200 p-6">
+          <div className={`rounded-xl border p-6 ${
+            searchMode === 'broad'
+              ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-green-200'
+              : 'bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200'
+          }`}>
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">Search Configuration</h3>
+                <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                  {searchMode === 'broad' ? '🌐' : '🎯'}
+                  {searchMode === 'broad' ? 'Broad Search' : 'Targeted Search'} Configuration
+                </h3>
                 <p className="text-sm text-gray-600 mt-1">
-                  {searchTermCount} search term{searchTermCount !== 1 ? 's' : ''} will be generated from your selections
+                  {searchMode === 'broad'
+                    ? `${searchTermCount} search queries to find all cannabinoid research`
+                    : `${searchTermCount} search term${searchTermCount !== 1 ? 's' : ''} from cannabinoid × condition combinations`}
                 </p>
               </div>
               <div className="text-right">
-                <div className="text-3xl font-bold text-blue-600">{searchTermCount}</div>
+                <div className={`text-3xl font-bold ${searchMode === 'broad' ? 'text-green-600' : 'text-blue-600'}`}>
+                  {searchTermCount}
+                </div>
                 <div className="text-xs text-gray-500 uppercase tracking-wide">Queries</div>
               </div>
             </div>
@@ -915,10 +1017,21 @@ export default function ScannerPage() {
               <span className="px-2 py-1 bg-green-100 text-green-700 rounded">
                 {selectedCannabinoids.size} cannabinoid{selectedCannabinoids.size !== 1 ? 's' : ''}
               </span>
-              <span className="text-gray-400">×</span>
-              <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded">
-                {selectedConditions.size || 'all'} condition{selectedConditions.size !== 1 ? 's' : ''}
-              </span>
+              {searchMode === 'broad' ? (
+                <>
+                  <span className="text-gray-400">→</span>
+                  <span className="px-2 py-1 bg-yellow-100 text-yellow-700 rounded">
+                    conditions auto-detected
+                  </span>
+                </>
+              ) : (
+                <>
+                  <span className="text-gray-400">×</span>
+                  <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded">
+                    {selectedConditions.size || 'all'} condition{selectedConditions.size !== 1 ? 's' : ''}
+                  </span>
+                </>
+              )}
               <span className="text-gray-400">→</span>
               <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded">
                 {selectedSources.length} source{selectedSources.length !== 1 ? 's' : ''}
@@ -933,6 +1046,8 @@ export default function ScannerPage() {
                   ? 'bg-gray-400 text-white cursor-not-allowed'
                   : selectedSources.length === 0 || selectedCannabinoids.size === 0
                   ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  : searchMode === 'broad'
+                  ? 'bg-gradient-to-r from-green-600 to-green-700 text-white hover:from-green-700 hover:to-green-800 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'
                   : 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'
               }`}
             >
@@ -970,13 +1085,17 @@ export default function ScannerPage() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           <div>
-            <strong>Scanner V2 Features:</strong>
+            <strong>Scanner V2 Search Modes:</strong>
             <ul className="mt-2 space-y-1 list-disc list-inside">
-              <li>Configurable cannabinoids and conditions from database</li>
-              <li>Multi-stage validation pipeline with confirmation scoring</li>
+              <li><strong>Broad Search (recommended):</strong> Finds ALL cannabinoid research regardless of condition. Conditions are auto-detected and tagged. Best for comprehensive collection and discovering new research areas.</li>
+              <li><strong>Targeted Search:</strong> Searches for specific cannabinoid + condition pairs. Best when researching known conditions with focused results.</li>
+            </ul>
+            <strong className="block mt-3">Features:</strong>
+            <ul className="mt-1 space-y-1 list-disc list-inside">
+              <li>Multi-stage validation with confirmation scoring</li>
               <li>Automatic blacklist filtering for false positives</li>
               <li>Study type detection (RCT, clinical trial, review, etc.)</li>
-              <li>Matched terms tagging for easy filtering</li>
+              <li>Auto-tagging of cannabinoids and conditions found</li>
             </ul>
           </div>
         </div>
