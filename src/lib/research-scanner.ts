@@ -593,6 +593,34 @@ export const TOPIC_KEYWORDS: Record<string, string[]> = {
   'womens': ['women', 'menstrual', 'pregnancy', 'menopause', 'gynecological']
 };
 
+// Cannabis context words - prove "CBD" means cannabidiol, not something else
+const CANNABIS_CONTEXT_WORDS = [
+  'cannabidiol',    // spelled out = unambiguous
+  'cannabis',
+  'cannabinoid',
+  'cannabinoids',
+  'hemp',
+  'marijuana',
+  'thc',
+  'tetrahydrocannabinol',
+  'endocannabinoid',
+  'phytocannabinoid',
+  'cb1 receptor',
+  'cb2 receptor',
+  'epidiolex',
+  'sativex',
+  'nabiximols',
+  'dronabinol',
+  'nabilone',
+  'terpene',
+  'full spectrum',
+  'broad spectrum',
+  'hemp extract',
+  'cannabis extract',
+  'hemp oil',
+  'cannabis oil'
+];
+
 // VALIDATION FUNCTION - Must pass to be added
 function isRelevantToCannabis(study: ResearchItem): boolean {
   const text = `${study.title || ''} ${study.abstract || ''}`.toLowerCase();
@@ -606,6 +634,24 @@ function isRelevantToCannabis(study: ResearchItem): boolean {
   if (!hasRequiredKeyword) {
     console.log(`REJECTED (no cannabis keyword): ${study.title?.substring(0, 50)}`);
     return false;
+  }
+
+  // AMBIGUOUS CBD CHECK: If study has "CBD" but NOT "cannabidiol" spelled out,
+  // it MUST contain additional cannabis context to prove it's about cannabidiol
+  // (not Central Business District, Common Bile Duct, etc.)
+  const hasCBDAbbreviation = /\bcbd\b/i.test(text);
+  const hasCannabidiolSpelledOut = text.includes('cannabidiol');
+
+  if (hasCBDAbbreviation && !hasCannabidiolSpelledOut) {
+    // CBD abbreviation found without "cannabidiol" - require cannabis context
+    const hasCannabisContext = CANNABIS_CONTEXT_WORDS.some(word =>
+      text.includes(word.toLowerCase())
+    );
+
+    if (!hasCannabisContext) {
+      console.log(`REJECTED (ambiguous CBD - no cannabis context): ${study.title?.substring(0, 50)}`);
+      return false;
+    }
   }
 
   // Reject if it's about cannabis but not therapeutic
