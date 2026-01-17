@@ -39,167 +39,6 @@ const SCAN_DEPTHS = [
   { value: 'all', label: 'All time', years: null },
 ];
 
-// Full 106 search terms organized by category (matches research-scanner.ts)
-const SEARCH_TERM_CATEGORIES: Record<string, { label: string; icon: string; terms: string[] }> = {
-  clinical: {
-    label: 'Clinical Trials',
-    icon: '🔬',
-    terms: [
-      'cannabidiol clinical trial',
-      'cannabidiol therapy',
-      'cannabidiol randomized controlled',
-      'cannabidiol double-blind',
-      'cannabidiol placebo-controlled',
-      'CBD treatment efficacy',
-      'medical cannabis clinical trial',
-      'medical cannabis randomized',
-      'medicinal cannabis therapy',
-      'cannabis therapeutic',
-    ]
-  },
-  anxiety: {
-    label: 'Anxiety',
-    icon: '😰',
-    terms: ['cannabidiol anxiety', 'CBD anxiety disorder', 'cannabis social anxiety', 'cannabidiol GAD', 'CBD panic disorder']
-  },
-  depression: {
-    label: 'Depression',
-    icon: '😔',
-    terms: ['cannabidiol depression', 'CBD antidepressant', 'cannabis mood disorder', 'cannabidiol major depressive']
-  },
-  ptsd: {
-    label: 'PTSD',
-    icon: '🎖️',
-    terms: ['cannabidiol PTSD', 'CBD post-traumatic stress', 'cannabis trauma', 'cannabidiol veteran PTSD']
-  },
-  sleep: {
-    label: 'Sleep',
-    icon: '😴',
-    terms: ['cannabidiol sleep', 'CBD insomnia', 'cannabis sleep disorder', 'cannabidiol sleep quality', 'CBD circadian']
-  },
-  epilepsy: {
-    label: 'Epilepsy',
-    icon: '⚡',
-    terms: ['cannabidiol epilepsy', 'CBD seizure', 'Epidiolex Dravet', 'cannabidiol Lennox-Gastaut', 'CBD refractory epilepsy', 'cannabidiol anticonvulsant']
-  },
-  parkinsons: {
-    label: "Parkinson's",
-    icon: '🧠',
-    terms: ['cannabidiol Parkinson', 'CBD parkinsonian', 'cannabis tremor', 'cannabidiol dyskinesia']
-  },
-  alzheimers: {
-    label: "Alzheimer's",
-    icon: '🧓',
-    terms: ['cannabidiol Alzheimer', 'CBD dementia', 'cannabis cognitive decline', 'cannabidiol neuroprotective']
-  },
-  autism: {
-    label: 'Autism',
-    icon: '🧩',
-    terms: ['cannabidiol autism', 'CBD ASD', 'cannabis autism spectrum']
-  },
-  adhd: {
-    label: 'ADHD',
-    icon: '🎯',
-    terms: ['cannabidiol ADHD', 'CBD attention deficit']
-  },
-  schizophrenia: {
-    label: 'Schizophrenia',
-    icon: '🔮',
-    terms: ['cannabidiol schizophrenia', 'CBD psychosis', 'cannabidiol antipsychotic']
-  },
-  addiction: {
-    label: 'Addiction',
-    icon: '🚭',
-    terms: ['cannabidiol addiction', 'CBD substance use disorder', 'cannabis opioid withdrawal', 'cannabidiol alcohol dependence', 'CBD addiction treatment']
-  },
-  tourettes: {
-    label: "Tourette's",
-    icon: '🗣️',
-    terms: ['cannabidiol Tourette', 'cannabis tic disorder']
-  },
-  chronic_pain: {
-    label: 'Chronic Pain',
-    icon: '🩹',
-    terms: ['cannabidiol chronic pain', 'CBD pain management', 'cannabis analgesic', 'cannabidiol pain relief', 'CBD opioid-sparing']
-  },
-  neuropathic: {
-    label: 'Neuropathic Pain',
-    icon: '🔥',
-    terms: ['cannabidiol neuropathic pain', 'CBD neuropathy', 'cannabis nerve pain', 'cannabidiol diabetic neuropathy']
-  },
-  arthritis: {
-    label: 'Arthritis',
-    icon: '🦴',
-    terms: ['cannabidiol arthritis', 'CBD rheumatoid arthritis', 'cannabis osteoarthritis', 'cannabidiol joint pain']
-  },
-  fibromyalgia: {
-    label: 'Fibromyalgia',
-    icon: '💪',
-    terms: ['cannabidiol fibromyalgia', 'CBD widespread pain', 'cannabis fibromyalgia']
-  },
-  ms: {
-    label: 'Multiple Sclerosis',
-    icon: '🧬',
-    terms: ['cannabidiol multiple sclerosis', 'Sativex spasticity', 'nabiximols MS', 'cannabis demyelinating']
-  },
-  inflammation: {
-    label: 'Inflammation',
-    icon: '🔴',
-    terms: ['cannabidiol inflammation', 'CBD anti-inflammatory', 'cannabis cytokine', 'cannabidiol inflammatory']
-  },
-  migraine: {
-    label: 'Migraines',
-    icon: '🤕',
-    terms: ['cannabidiol migraine', 'CBD headache', 'cannabis cluster headache']
-  },
-  gi: {
-    label: 'GI/Digestive',
-    icon: '🫃',
-    terms: ['cannabidiol Crohn', 'CBD IBD', 'cannabis inflammatory bowel', 'cannabidiol colitis', 'CBD IBS', 'cannabis irritable bowel', 'cannabidiol nausea', 'CBD antiemetic', 'cannabis chemotherapy nausea']
-  },
-  cancer: {
-    label: 'Cancer',
-    icon: '🎗️',
-    terms: ['cannabidiol cancer', 'CBD tumor', 'cannabis oncology', 'cannabidiol chemotherapy', 'CBD palliative', 'cannabis cancer pain', 'cannabidiol apoptosis', 'CBD antitumor']
-  },
-  skin: {
-    label: 'Skin',
-    icon: '🧴',
-    terms: ['cannabidiol acne', 'CBD sebaceous', 'cannabidiol psoriasis', 'CBD eczema', 'cannabis dermatitis', 'cannabidiol topical skin', 'CBD atopic dermatitis']
-  },
-  cardiovascular: {
-    label: 'Cardiovascular',
-    icon: '❤️',
-    terms: ['cannabidiol cardiovascular', 'CBD blood pressure', 'cannabis hypertension', 'cannabidiol cardioprotective', 'CBD heart']
-  },
-  metabolic: {
-    label: 'Metabolic',
-    icon: '⚖️',
-    terms: ['cannabidiol diabetes', 'CBD glucose', 'cannabis metabolic syndrome', 'cannabidiol obesity', 'CBD weight']
-  },
-  other: {
-    label: 'Other Conditions',
-    icon: '📋',
-    terms: ['cannabidiol glaucoma', 'CBD intraocular pressure', 'cannabidiol athletic recovery', 'CBD sports medicine', 'cannabidiol COVID', 'CBD aging', 'cannabidiol elderly', 'CBD women health', 'cannabidiol menopause']
-  },
-  products: {
-    label: 'Products',
-    icon: '💊',
-    terms: ['Epidiolex', 'Epidiolex clinical', 'Sativex', 'Sativex clinical trial', 'nabiximols', 'nabiximols randomized', 'dronabinol', 'nabilone']
-  },
-  research: {
-    label: 'Research Types',
-    icon: '📚',
-    terms: ['cannabidiol systematic review', 'CBD meta-analysis', 'cannabis randomized controlled trial', 'cannabidiol human study', 'CBD clinical evidence']
-  },
-};
-
-// Flatten all terms into a single array (106 total)
-const ALL_SEARCH_TERMS = Object.values(SEARCH_TERM_CATEGORIES).flatMap(cat => cat.terms);
-
-// For backwards compatibility
-const DEFAULT_SEARCH_TERMS = ALL_SEARCH_TERMS;
-
 const STATUS_BADGES: Record<string, { color: string; icon: string; label: string }> = {
   completed: { color: 'bg-green-100 text-green-800', icon: '🟢', label: 'Completed' },
   failed: { color: 'bg-red-100 text-red-800', icon: '🔴', label: 'Failed' },
@@ -210,11 +49,25 @@ const STATUS_BADGES: Record<string, { color: string; icon: string; label: string
   paused: { color: 'bg-purple-100 text-purple-800', icon: '🟣', label: 'Paused' },
 };
 
+// Config item from database
+interface ConfigItem {
+  id: string;
+  category: string;
+  term_key: string;
+  display_name: string;
+  synonyms: string[];
+  enabled: boolean;
+}
+
 interface RecentResearchItem {
   id: string;
   title: string;
-  source_site: string;
+  source: string;
   relevance_score: number;
+  confirmation_score: number | null;
+  matched_cannabinoids: string[] | null;
+  matched_conditions: string[] | null;
+  study_type: string | null;
   discovered_at: string;
 }
 
@@ -286,6 +139,97 @@ function Toast({ message, type, onClose }: { message: string; type: 'success' | 
   );
 }
 
+// Checkbox List Component with Select All
+function CheckboxList({
+  title,
+  description,
+  items,
+  selectedIds,
+  onSelectionChange,
+  icon,
+}: {
+  title: string;
+  description: string;
+  items: ConfigItem[];
+  selectedIds: Set<string>;
+  onSelectionChange: (ids: Set<string>) => void;
+  icon: string;
+}) {
+  const allSelected = items.length > 0 && items.every(item => selectedIds.has(item.term_key));
+  const noneSelected = items.every(item => !selectedIds.has(item.term_key));
+
+  const handleSelectAll = () => {
+    if (allSelected) {
+      onSelectionChange(new Set());
+    } else {
+      onSelectionChange(new Set(items.map(i => i.term_key)));
+    }
+  };
+
+  const handleToggle = (termKey: string) => {
+    const newSet = new Set(selectedIds);
+    if (newSet.has(termKey)) {
+      newSet.delete(termKey);
+    } else {
+      newSet.add(termKey);
+    }
+    onSelectionChange(newSet);
+  };
+
+  return (
+    <div className="bg-white rounded-xl shadow border overflow-hidden">
+      <div className="px-6 py-4 border-b bg-gray-50 flex items-center justify-between">
+        <div>
+          <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+            <span>{icon}</span>
+            {title}
+            <span className="text-sm font-normal text-gray-500">
+              ({selectedIds.size}/{items.length} selected)
+            </span>
+          </h3>
+          <p className="text-sm text-gray-500 mt-1">{description}</p>
+        </div>
+        <div className="flex gap-2">
+          <button
+            onClick={handleSelectAll}
+            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+              allSelected
+                ? 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
+            }`}
+          >
+            {allSelected ? 'Deselect All' : 'Select All'}
+          </button>
+        </div>
+      </div>
+      <div className="p-4 max-h-64 overflow-y-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+          {items.map(item => (
+            <label
+              key={item.term_key}
+              className={`flex items-center gap-2 p-2 rounded-lg cursor-pointer transition-colors ${
+                selectedIds.has(item.term_key)
+                  ? 'bg-blue-50 border border-blue-200'
+                  : 'hover:bg-gray-50 border border-transparent'
+              }`}
+            >
+              <input
+                type="checkbox"
+                checked={selectedIds.has(item.term_key)}
+                onChange={() => handleToggle(item.term_key)}
+                className="w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+              />
+              <span className={`text-sm ${selectedIds.has(item.term_key) ? 'text-blue-800 font-medium' : 'text-gray-700'}`}>
+                {item.display_name}
+              </span>
+            </label>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Active Job Panel Component
 function ActiveJobPanel({
   job,
@@ -313,7 +257,6 @@ function ActiveJobPanel({
   const isActive = ['queued', 'running'].includes(job.status);
   const isPaused = job.status === 'paused';
 
-  // Calculate estimated remaining items
   const itemsProcessed = job.items_added + job.items_skipped + job.items_rejected;
   const estimatedRemaining = job.items_found > 0
     ? Math.round((job.items_found / Math.max(job.current_source_index + 1, 1)) * (job.sources.length - job.current_source_index - 1))
@@ -357,61 +300,30 @@ function ActiveJobPanel({
           </div>
         </div>
 
-        {/* Action buttons for active jobs */}
         {isActive && (
           <div className="flex items-center gap-2">
-            {/* Pause button */}
             <button
               onClick={onPause}
               disabled={isPausing || isCancelling || job.status === 'cancelling'}
               className="px-5 py-2.5 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 font-medium shadow-sm"
             >
-              {isPausing ? (
-                <>
-                  <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
-                  Pausing...
-                </>
-              ) : (
-                <>
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
-                  </svg>
-                  Pause
-                </>
-              )}
+              {isPausing ? 'Pausing...' : 'Pause'}
             </button>
-            {/* Stop button */}
             <button
               onClick={onCancel}
               disabled={isCancelling || job.status === 'cancelling'}
               className="px-5 py-2.5 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 font-medium shadow-sm"
             >
-              {isCancelling || job.status === 'cancelling' ? (
-                <>
-                  <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
-                  Stopping...
-                </>
-              ) : (
-                <>
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <rect x="5" y="5" width="10" height="10" rx="1" />
-                  </svg>
-                  Stop
-                </>
-              )}
+              {isCancelling || job.status === 'cancelling' ? 'Stopping...' : 'Stop'}
             </button>
           </div>
         )}
 
-        {/* Resume button for paused jobs */}
         {isPaused && (
           <button
             onClick={onResume}
             className="px-5 py-2.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all flex items-center gap-2 font-medium shadow-sm"
           >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-            </svg>
             Resume Scan
           </button>
         )}
@@ -438,31 +350,6 @@ function ActiveJobPanel({
         </div>
       </div>
 
-      {/* Current Progress Info */}
-      <div className="px-6 pb-4">
-        <div className="flex flex-wrap gap-4 text-sm text-gray-700">
-          <div className="flex items-center gap-2">
-            <span className="font-semibold">Source:</span>
-            <span>{SOURCE_NAMES[progress?.currentSource || ''] || progress?.currentSource || '-'}</span>
-            <span className="text-gray-400">({job.current_source_index + 1}/{job.sources.length})</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="font-semibold">Items Found:</span>
-            <span>{job.items_found.toLocaleString()}</span>
-          </div>
-        </div>
-        {/* Search terms display */}
-        {job.search_terms && job.search_terms.length > 0 && (
-          <div className="mt-3 pt-3 border-t border-gray-200 border-opacity-50">
-            <span className="font-semibold text-sm text-gray-700">Search terms: </span>
-            <span className="text-sm text-gray-600">
-              {job.search_terms.slice(0, 5).join(', ')}
-              {job.search_terms.length > 5 && ` +${job.search_terms.length - 5} more`}
-            </span>
-          </div>
-        )}
-      </div>
-
       {/* Stats Grid */}
       <div className="grid grid-cols-4 divide-x divide-gray-200 bg-white bg-opacity-60">
         <div className="p-4 text-center">
@@ -478,12 +365,11 @@ function ActiveJobPanel({
           <div className="text-xs text-gray-500 font-medium uppercase tracking-wide mt-1">Skipped</div>
         </div>
         <div className="p-4 text-center">
-          <div className="text-3xl font-bold text-gray-500">~{estimatedRemaining.toLocaleString()}</div>
-          <div className="text-xs text-gray-500 font-medium uppercase tracking-wide mt-1">Remaining</div>
+          <div className="text-3xl font-bold text-red-500">{job.items_rejected.toLocaleString()}</div>
+          <div className="text-xs text-gray-500 font-medium uppercase tracking-wide mt-1">Rejected</div>
         </div>
       </div>
 
-      {/* Last Activity */}
       {isActive && (
         <div className="px-6 py-3 bg-gray-100 bg-opacity-50 text-sm text-gray-600 flex items-center gap-2">
           <span className={`w-2 h-2 rounded-full ${isProcessing ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`}></span>
@@ -491,7 +377,6 @@ function ActiveJobPanel({
         </div>
       )}
 
-      {/* Error Message */}
       {job.error_message && (
         <div className="px-6 py-4 bg-red-100 border-t border-red-200 text-red-800">
           <strong>Error:</strong> {job.error_message}
@@ -582,14 +467,18 @@ function JobHistoryTable({
 
 // Main Scanner Page
 export default function ScannerPage() {
-  // Form state
+  const supabase = createClient();
+
+  // Config state (loaded from database)
+  const [cannabinoids, setCannabinoids] = useState<ConfigItem[]>([]);
+  const [conditions, setConditions] = useState<ConfigItem[]>([]);
+  const [configLoading, setConfigLoading] = useState(true);
+
+  // Selection state
+  const [selectedCannabinoids, setSelectedCannabinoids] = useState<Set<string>>(new Set(['cannabidiol']));
+  const [selectedConditions, setSelectedConditions] = useState<Set<string>>(new Set());
   const [selectedSources, setSelectedSources] = useState<string[]>(['pubmed', 'clinicaltrials', 'pmc']);
   const [scanDepth, setScanDepth] = useState('1year');
-  const [useCustomKeywords, setUseCustomKeywords] = useState(false);
-  const [customKeywords, setCustomKeywords] = useState<string[]>([]);
-  const [newKeyword, setNewKeyword] = useState('');
-  const [showKeywordsPanel, setShowKeywordsPanel] = useState(false);
-  const [showAllKeywords, setShowAllKeywords] = useState(false);
 
   // Scanner job hook
   const {
@@ -614,17 +503,38 @@ export default function ScannerPage() {
 
   // Recent research items
   const [recentItems, setRecentItems] = useState<RecentResearchItem[]>([]);
-  const supabase = createClient();
 
   // Creating state
   const [isCreating, setIsCreating] = useState(false);
+
+  // Load config from database
+  useEffect(() => {
+    const fetchConfig = async () => {
+      const { data, error } = await supabase
+        .from('research_scanner_config')
+        .select('*')
+        .eq('enabled', true)
+        .order('sort_order');
+
+      if (error) {
+        console.error('Error loading config:', error);
+        setToast({ message: 'Failed to load scanner configuration', type: 'error' });
+      } else if (data) {
+        setCannabinoids(data.filter(d => d.category === 'cannabinoid'));
+        setConditions(data.filter(d => d.category === 'condition'));
+      }
+      setConfigLoading(false);
+    };
+
+    fetchConfig();
+  }, [supabase]);
 
   // Fetch recent items and subscribe to updates
   useEffect(() => {
     const fetchRecent = async () => {
       const { data } = await supabase
         .from('kb_research_queue')
-        .select('id, title, source_site, relevance_score, discovered_at')
+        .select('id, title, source, relevance_score, confirmation_score, matched_cannabinoids, matched_conditions, study_type, discovered_at')
         .order('discovered_at', { ascending: false })
         .limit(10);
 
@@ -657,24 +567,33 @@ export default function ScannerPage() {
     }
   }, [error]);
 
-  // Handle adding custom keyword
-  const handleAddKeyword = () => {
-    const keyword = newKeyword.trim();
-    if (keyword && !customKeywords.includes(keyword)) {
-      setCustomKeywords(prev => [...prev, keyword]);
-      setNewKeyword('');
+  // Generate search terms from selected cannabinoids and conditions
+  const generateSearchTerms = (): string[] => {
+    const terms: string[] = [];
+    const selectedCannabinoidItems = cannabinoids.filter(c => selectedCannabinoids.has(c.term_key));
+    const selectedConditionItems = conditions.filter(c => selectedConditions.has(c.term_key));
+
+    // If conditions are selected, create cannabinoid + condition combinations
+    if (selectedConditionItems.length > 0) {
+      for (const cannabinoid of selectedCannabinoidItems) {
+        for (const condition of selectedConditionItems) {
+          // Use primary synonyms for search
+          const cannabinoidTerm = cannabinoid.synonyms[0] || cannabinoid.term_key;
+          const conditionTerm = condition.synonyms[0] || condition.term_key;
+          terms.push(`${cannabinoidTerm} ${conditionTerm}`);
+        }
+      }
+    } else {
+      // Just cannabinoid terms
+      for (const cannabinoid of selectedCannabinoidItems) {
+        for (const synonym of cannabinoid.synonyms.slice(0, 2)) {
+          terms.push(synonym);
+        }
+      }
     }
-  };
 
-  // Handle removing custom keyword
-  const handleRemoveKeyword = (keyword: string) => {
-    setCustomKeywords(prev => prev.filter(k => k !== keyword));
+    return terms;
   };
-
-  // Get active search terms
-  const activeSearchTerms = useCustomKeywords && customKeywords.length > 0
-    ? customKeywords
-    : DEFAULT_SEARCH_TERMS;
 
   // Handle start scan
   const handleStartScan = async () => {
@@ -683,20 +602,26 @@ export default function ScannerPage() {
       return;
     }
 
+    if (selectedCannabinoids.size === 0) {
+      setToast({ message: 'Please select at least one cannabinoid', type: 'error' });
+      return;
+    }
+
     setIsCreating(true);
     const dateRange = getDateRange(scanDepth);
+    const searchTerms = generateSearchTerms();
 
     const newJob = await createJob({
       sources: selectedSources,
       dateRangeStart: dateRange.start,
       dateRangeEnd: dateRange.end,
-      searchTerms: useCustomKeywords && customKeywords.length > 0 ? customKeywords : undefined,
+      searchTerms: searchTerms,
     });
 
     setIsCreating(false);
 
     if (newJob) {
-      setToast({ message: 'Scan started successfully!', type: 'success' });
+      setToast({ message: `Scan started with ${searchTerms.length} search terms!`, type: 'success' });
     }
   };
 
@@ -725,8 +650,9 @@ export default function ScannerPage() {
   };
 
   const isScanning = job && ['queued', 'running'].includes(job.status);
+  const searchTermCount = generateSearchTerms().length;
 
-  if (isLoading) {
+  if (isLoading || configLoading) {
     return (
       <div className="p-8 flex items-center justify-center min-h-[400px]">
         <div className="animate-spin h-10 w-10 border-4 border-blue-600 border-t-transparent rounded-full"></div>
@@ -751,18 +677,30 @@ export default function ScannerPage() {
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Research Scanner</h1>
-          <p className="text-gray-600 mt-1">Discover new CBD research from authoritative sources</p>
+          <h1 className="text-3xl font-bold text-gray-900">Research Scanner V2</h1>
+          <p className="text-gray-600 mt-1">Discover new CBD research with configurable search terms</p>
         </div>
-        <Link
-          href="/admin/research/queue"
-          className="bg-green-600 text-white px-5 py-2.5 rounded-lg hover:bg-green-700 transition-colors font-medium shadow-sm flex items-center gap-2"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-          </svg>
-          View Queue
-        </Link>
+        <div className="flex gap-3">
+          <Link
+            href="/admin/research/scanner/config"
+            className="bg-gray-100 text-gray-700 px-4 py-2.5 rounded-lg hover:bg-gray-200 transition-colors font-medium flex items-center gap-2"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            Config
+          </Link>
+          <Link
+            href="/admin/research/queue"
+            className="bg-green-600 text-white px-5 py-2.5 rounded-lg hover:bg-green-700 transition-colors font-medium shadow-sm flex items-center gap-2"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+            View Queue
+          </Link>
+        </div>
       </div>
 
       {/* Active Job Panel */}
@@ -780,7 +718,7 @@ export default function ScannerPage() {
         />
       )}
 
-      {/* Recently Discovered Feed */}
+      {/* Recently Discovered Feed with V2 metadata */}
       {(isScanning || recentItems.length > 0) && (
         <div className="mb-6 bg-white rounded-xl shadow border overflow-hidden">
           <div className="px-6 py-4 border-b bg-gray-50 flex items-center gap-3">
@@ -792,20 +730,43 @@ export default function ScannerPage() {
             )}
             <h3 className="text-lg font-semibold text-gray-900">Recently Discovered Research</h3>
           </div>
-          <div className="max-h-64 overflow-y-auto divide-y divide-gray-100">
+          <div className="max-h-80 overflow-y-auto divide-y divide-gray-100">
             {recentItems.map(item => (
               <div key={item.id} className="px-6 py-3 hover:bg-gray-50 transition-colors">
-                <div className="flex items-center gap-3">
+                <div className="flex items-start gap-3">
                   <div className="flex-1 min-w-0">
                     <p className="font-medium text-gray-900 truncate" title={item.title}>{item.title}</p>
+                    <div className="flex flex-wrap gap-1 mt-1">
+                      {item.matched_cannabinoids?.map(c => (
+                        <span key={c} className="px-1.5 py-0.5 bg-green-100 text-green-700 rounded text-xs">
+                          {c}
+                        </span>
+                      ))}
+                      {item.matched_conditions?.map(c => (
+                        <span key={c} className="px-1.5 py-0.5 bg-blue-100 text-blue-700 rounded text-xs">
+                          {c}
+                        </span>
+                      ))}
+                      {item.study_type && (
+                        <span className="px-1.5 py-0.5 bg-purple-100 text-purple-700 rounded text-xs">
+                          {item.study_type}
+                        </span>
+                      )}
+                    </div>
                   </div>
                   <div className="flex items-center gap-2 shrink-0">
-                    <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">
-                      {item.source_site}
+                    <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">
+                      {item.source}
                     </span>
-                    <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-medium">
-                      {item.relevance_score}
-                    </span>
+                    {item.confirmation_score !== null && (
+                      <span className={`px-2 py-1 rounded text-xs font-medium ${
+                        item.confirmation_score >= 65 ? 'bg-green-100 text-green-700' :
+                        item.confirmation_score >= 50 ? 'bg-yellow-100 text-yellow-700' :
+                        'bg-red-100 text-red-700'
+                      }`}>
+                        {item.confirmation_score}
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -822,24 +783,64 @@ export default function ScannerPage() {
       {/* Job Creation Panel - Only show when not scanning */}
       {!isScanning && (
         <div className="space-y-6">
+          {/* Cannabinoids Selection */}
+          <CheckboxList
+            title="Cannabinoids"
+            description="Select which cannabinoids to search for"
+            items={cannabinoids}
+            selectedIds={selectedCannabinoids}
+            onSelectionChange={setSelectedCannabinoids}
+            icon="🌿"
+          />
+
+          {/* Conditions Selection */}
+          <CheckboxList
+            title="Health Conditions"
+            description="Optional: Filter by specific health conditions (leave empty for general search)"
+            items={conditions}
+            selectedIds={selectedConditions}
+            onSelectionChange={setSelectedConditions}
+            icon="🏥"
+          />
+
           {/* Source Selection */}
           <div className="bg-white rounded-xl shadow border overflow-hidden">
-            <div className="px-6 py-4 border-b bg-gray-50">
-              <h3 className="text-lg font-semibold text-gray-900">Research Sources</h3>
-              <p className="text-sm text-gray-500 mt-1">Select which databases to scan for CBD research</p>
+            <div className="px-6 py-4 border-b bg-gray-50 flex items-center justify-between">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                  <span>📚</span>
+                  Research Sources
+                  <span className="text-sm font-normal text-gray-500">
+                    ({selectedSources.length}/{SOURCES.length} selected)
+                  </span>
+                </h3>
+                <p className="text-sm text-gray-500 mt-1">Select which databases to scan</p>
+              </div>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => setSelectedSources(SOURCES.filter(s => s.available).map(s => s.id))}
+                  className="px-3 py-1.5 bg-blue-100 text-blue-700 rounded-lg text-sm font-medium hover:bg-blue-200 transition-colors"
+                >
+                  Select All
+                </button>
+                <button
+                  onClick={() => setSelectedSources([])}
+                  className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors"
+                >
+                  Clear
+                </button>
+              </div>
             </div>
-            <div className="p-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="p-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
                 {SOURCES.map(source => (
                   <label
                     key={source.id}
-                    className={`relative flex items-start gap-4 p-4 rounded-xl border-2 cursor-pointer transition-all ${
-                      !source.available
-                        ? 'opacity-50 cursor-not-allowed bg-gray-50 border-gray-200'
-                        : selectedSources.includes(source.id)
-                        ? 'border-blue-500 bg-blue-50 shadow-sm'
-                        : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
-                    }`}
+                    className={`flex items-center gap-2 p-3 rounded-lg cursor-pointer transition-colors ${
+                      selectedSources.includes(source.id)
+                        ? 'bg-blue-50 border border-blue-200'
+                        : 'hover:bg-gray-50 border border-transparent'
+                    } ${!source.available ? 'opacity-50 cursor-not-allowed' : ''}`}
                   >
                     <input
                       type="checkbox"
@@ -853,55 +854,16 @@ export default function ScannerPage() {
                         );
                       }}
                       disabled={!source.available}
-                      className="sr-only"
+                      className="w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
                     />
-                    <div className={`w-6 h-6 rounded-md border-2 flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
-                      selectedSources.includes(source.id) && source.available
-                        ? 'bg-blue-600 border-blue-600'
-                        : 'border-gray-300'
-                    }`}>
-                      {selectedSources.includes(source.id) && source.available && (
-                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                        </svg>
-                      )}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xl">{source.icon}</span>
-                        <span className="font-semibold text-gray-900">{source.name}</span>
-                        {!source.available && (
-                          <span className="px-2 py-0.5 bg-gray-200 text-gray-600 rounded text-xs font-medium">
-                            Coming Soon
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-sm text-gray-500 mt-1">{source.desc}</p>
+                    <div className="flex items-center gap-1.5">
+                      <span>{source.icon}</span>
+                      <span className={`text-sm ${selectedSources.includes(source.id) ? 'text-blue-800 font-medium' : 'text-gray-700'}`}>
+                        {source.name}
+                      </span>
                     </div>
                   </label>
                 ))}
-              </div>
-
-              {/* Quick Select */}
-              <div className="mt-6 pt-6 border-t flex flex-wrap gap-3">
-                <button
-                  onClick={() => setSelectedSources(SOURCES.filter(s => s.available).map(s => s.id))}
-                  className="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg text-sm font-medium hover:bg-blue-200 transition-colors"
-                >
-                  Select All Available
-                </button>
-                <button
-                  onClick={() => setSelectedSources(['pubmed', 'clinicaltrials', 'pmc'])}
-                  className="px-4 py-2 bg-green-100 text-green-700 rounded-lg text-sm font-medium hover:bg-green-200 transition-colors"
-                >
-                  Core Medical Only
-                </button>
-                <button
-                  onClick={() => setSelectedSources([])}
-                  className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors"
-                >
-                  Clear All
-                </button>
               </div>
             </div>
           </div>
@@ -909,10 +871,13 @@ export default function ScannerPage() {
           {/* Scan Depth */}
           <div className="bg-white rounded-xl shadow border overflow-hidden">
             <div className="px-6 py-4 border-b bg-gray-50">
-              <h3 className="text-lg font-semibold text-gray-900">Scan Depth</h3>
+              <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                <span>📅</span>
+                Scan Depth
+              </h3>
               <p className="text-sm text-gray-500 mt-1">How far back to search for research papers</p>
             </div>
-            <div className="p-6">
+            <div className="p-4">
               <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
                 {SCAN_DEPTHS.map(depth => (
                   <button
@@ -928,218 +893,45 @@ export default function ScannerPage() {
                   </button>
                 ))}
               </div>
-              <p className="mt-4 text-sm text-gray-500 flex items-center gap-2">
-                <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                Automatically skips papers already in your database
-              </p>
             </div>
           </div>
 
-          {/* Search Keywords Section */}
-          <div className="bg-white rounded-xl shadow border overflow-hidden">
-            <button
-              onClick={() => setShowKeywordsPanel(!showKeywordsPanel)}
-              className="w-full px-6 py-4 border-b bg-gray-50 flex items-center justify-between hover:bg-gray-100 transition-colors"
-            >
+          {/* Search Summary & Start Button */}
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200 p-6">
+            <div className="flex items-center justify-between mb-4">
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 text-left">Search Keywords</h3>
-                <p className="text-sm text-gray-500 mt-1 text-left">
-                  {useCustomKeywords && customKeywords.length > 0
-                    ? `Using ${customKeywords.length} custom keyword${customKeywords.length > 1 ? 's' : ''}`
-                    : `Using ${DEFAULT_SEARCH_TERMS.length} default CBD-related terms`}
+                <h3 className="text-lg font-semibold text-gray-900">Search Configuration</h3>
+                <p className="text-sm text-gray-600 mt-1">
+                  {searchTermCount} search term{searchTermCount !== 1 ? 's' : ''} will be generated from your selections
                 </p>
               </div>
-              <svg
-                className={`w-5 h-5 text-gray-400 transition-transform ${showKeywordsPanel ? 'rotate-180' : ''}`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-
-            {showKeywordsPanel && (
-              <div className="p-6">
-                {/* Active Keywords Display */}
-                <div className="mb-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
-                      {useCustomKeywords ? 'Custom Keywords' : `Default Keywords (${ALL_SEARCH_TERMS.length} terms across ${Object.keys(SEARCH_TERM_CATEGORIES).length} categories)`}
-                    </h4>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <span className="text-sm text-gray-600">Use custom keywords</span>
-                      <button
-                        type="button"
-                        onClick={() => setUseCustomKeywords(!useCustomKeywords)}
-                        className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
-                          useCustomKeywords ? 'bg-blue-600' : 'bg-gray-200'
-                        }`}
-                      >
-                        <span
-                          className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
-                            useCustomKeywords ? 'translate-x-5' : 'translate-x-0'
-                          }`}
-                        />
-                      </button>
-                    </label>
-                  </div>
-
-                  {useCustomKeywords ? (
-                    /* Custom Keywords - simple list */
-                    <div className="flex flex-wrap gap-2">
-                      {customKeywords.map((term) => (
-                        <span
-                          key={term}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800"
-                        >
-                          <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
-                          </svg>
-                          {term}
-                          <button
-                            onClick={() => handleRemoveKeyword(term)}
-                            className="ml-1 hover:text-blue-600"
-                          >
-                            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                            </svg>
-                          </button>
-                        </span>
-                      ))}
-                      {customKeywords.length === 0 && (
-                        <span className="text-gray-500 text-sm italic">No custom keywords added yet. Add some below or disable to use defaults.</span>
-                      )}
-                    </div>
-                  ) : (
-                    /* Default Keywords - categorized view */
-                    <div>
-                      {/* Category summary (always visible) */}
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {Object.entries(SEARCH_TERM_CATEGORIES).map(([key, cat]) => (
-                          <span
-                            key={key}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700"
-                            title={cat.terms.join(', ')}
-                          >
-                            <span>{cat.icon}</span>
-                            <span>{cat.label}</span>
-                            <span className="text-xs bg-gray-200 text-gray-600 px-1.5 py-0.5 rounded-full">{cat.terms.length}</span>
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Show all toggle */}
-                      <button
-                        onClick={() => setShowAllKeywords(!showAllKeywords)}
-                        className="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1 mb-4"
-                      >
-                        {showAllKeywords ? 'Hide' : 'Show'} all {ALL_SEARCH_TERMS.length} search terms
-                        <svg
-                          className={`w-4 h-4 transition-transform ${showAllKeywords ? 'rotate-180' : ''}`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </button>
-
-                      {/* Full keyword list by category */}
-                      {showAllKeywords && (
-                        <div className="space-y-4 border-t pt-4">
-                          {Object.entries(SEARCH_TERM_CATEGORIES).map(([key, cat]) => (
-                            <div key={key} className="bg-gray-50 rounded-lg p-3">
-                              <h5 className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
-                                <span>{cat.icon}</span>
-                                {cat.label}
-                                <span className="text-xs font-normal text-gray-500">({cat.terms.length} terms)</span>
-                              </h5>
-                              <div className="flex flex-wrap gap-1.5">
-                                {cat.terms.map((term) => (
-                                  <span
-                                    key={term}
-                                    className="px-2 py-1 rounded text-xs bg-green-100 text-green-800"
-                                  >
-                                    {term}
-                                  </span>
-                                ))}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
-
-                {/* Add Custom Keyword Input */}
-                {useCustomKeywords && (
-                  <div className="pt-4 border-t">
-                    <h4 className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Add Custom Keyword</h4>
-                    <div className="flex gap-2">
-                      <input
-                        type="text"
-                        value={newKeyword}
-                        onChange={(e) => setNewKeyword(e.target.value)}
-                        onKeyDown={(e) => e.key === 'Enter' && handleAddKeyword()}
-                        placeholder="e.g., CBD anxiety, cannabidiol treatment"
-                        className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      />
-                      <button
-                        onClick={handleAddKeyword}
-                        disabled={!newKeyword.trim()}
-                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed font-medium"
-                      >
-                        Add
-                      </button>
-                    </div>
-
-                    {/* Quick Add Suggestions */}
-                    <div className="mt-4">
-                      <p className="text-sm text-gray-500 mb-2">Quick add suggestions:</p>
-                      <div className="flex flex-wrap gap-2">
-                        {ALL_SEARCH_TERMS.filter(t => !customKeywords.includes(t)).slice(0, 8).map((term) => (
-                          <button
-                            key={term}
-                            onClick={() => setCustomKeywords(prev => [...prev, term])}
-                            className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors"
-                          >
-                            + {term}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* Info about keywords */}
-                <div className="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800">
-                  <div className="flex gap-2">
-                    <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <p>
-                      <strong>Note:</strong> All results are validated to ensure they contain CBD/cannabis-related content,
-                      regardless of search terms. Non-relevant studies are automatically filtered out.
-                    </p>
-                  </div>
-                </div>
+              <div className="text-right">
+                <div className="text-3xl font-bold text-blue-600">{searchTermCount}</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wide">Queries</div>
               </div>
-            )}
-          </div>
+            </div>
 
-          {/* Start Button */}
-          <div className="flex justify-center pt-4">
+            <div className="flex flex-wrap gap-2 mb-4 text-sm">
+              <span className="px-2 py-1 bg-green-100 text-green-700 rounded">
+                {selectedCannabinoids.size} cannabinoid{selectedCannabinoids.size !== 1 ? 's' : ''}
+              </span>
+              <span className="text-gray-400">×</span>
+              <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded">
+                {selectedConditions.size || 'all'} condition{selectedConditions.size !== 1 ? 's' : ''}
+              </span>
+              <span className="text-gray-400">→</span>
+              <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded">
+                {selectedSources.length} source{selectedSources.length !== 1 ? 's' : ''}
+              </span>
+            </div>
+
             <button
               onClick={handleStartScan}
-              disabled={isCreating || selectedSources.length === 0}
-              className={`px-10 py-4 rounded-xl text-lg font-bold transition-all flex items-center gap-3 ${
+              disabled={isCreating || selectedSources.length === 0 || selectedCannabinoids.size === 0}
+              className={`w-full px-6 py-4 rounded-xl text-lg font-bold transition-all flex items-center justify-center gap-3 ${
                 isCreating
                   ? 'bg-gray-400 text-white cursor-not-allowed'
-                  : selectedSources.length === 0
+                  : selectedSources.length === 0 || selectedCannabinoids.size === 0
                   ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                   : 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'
               }`}
@@ -1151,12 +943,14 @@ export default function ScannerPage() {
                 </>
               ) : selectedSources.length === 0 ? (
                 'Select Sources to Scan'
+              ) : selectedCannabinoids.size === 0 ? (
+                'Select Cannabinoids to Scan'
               ) : (
                 <>
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
-                  Start Scan ({selectedSources.length} source{selectedSources.length > 1 ? 's' : ''})
+                  Start Scan ({selectedSources.length} source{selectedSources.length > 1 ? 's' : ''}, {searchTermCount} queries)
                 </>
               )}
             </button>
@@ -1176,9 +970,14 @@ export default function ScannerPage() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           <div>
-            <strong>How it works:</strong> The scanner fetches research papers from public APIs in small chunks,
-            automatically checking for duplicates and scoring relevance. Results are added to your review queue
-            where you can approve or reject them. Scans can be stopped and resumed at any time - progress is saved automatically.
+            <strong>Scanner V2 Features:</strong>
+            <ul className="mt-2 space-y-1 list-disc list-inside">
+              <li>Configurable cannabinoids and conditions from database</li>
+              <li>Multi-stage validation pipeline with confirmation scoring</li>
+              <li>Automatic blacklist filtering for false positives</li>
+              <li>Study type detection (RCT, clinical trial, review, etc.)</li>
+              <li>Matched terms tagging for easy filtering</li>
+            </ul>
           </div>
         </div>
       </div>
