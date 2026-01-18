@@ -125,7 +125,7 @@ export function Hero({ stats }: HeroProps) {
                     )}
                     {stats.countryCount > 0 && (
                       <div>
-                        <div className="text-lg font-bold text-green-600">🌍 {stats.countryCount}+</div>
+                        <div className="text-lg font-bold text-green-600">🌍 {stats.countryCount}</div>
                         <div className="text-[10px] text-gray-600">Countries</div>
                       </div>
                     )}
@@ -252,7 +252,7 @@ export function Hero({ stats }: HeroProps) {
                 )}
                 {stats.countryCount > 0 && (
                   <div>
-                    <div className="text-sm font-bold text-green-600">🌍 {stats.countryCount}+</div>
+                    <div className="text-sm font-bold text-green-600">🌍 {stats.countryCount}</div>
                     <div className="text-[9px] text-gray-600">Countries</div>
                   </div>
                 )}

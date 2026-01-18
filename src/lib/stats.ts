@@ -120,11 +120,10 @@ export async function getHomePageStats(): Promise<HomePageStats> {
       .select('study_subject')
       .eq('status', 'approved'),
 
-    // Distinct countries (from pending queue)
+    // Distinct countries (from all studies with country data)
     supabase
       .from('kb_research_queue')
       .select('country')
-      .eq('status', 'pending')
       .not('country', 'is', null),
   ]);
 
