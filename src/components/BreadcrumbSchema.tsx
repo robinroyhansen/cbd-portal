@@ -26,11 +26,14 @@ export function BreadcrumbSchema({ items }: { items: BreadcrumbItem[] }) {
 interface BreadcrumbsProps {
   items: BreadcrumbItem[];
   skipSchema?: boolean; // Skip schema output if already rendered elsewhere
+  variant?: 'light' | 'dark'; // light = dark text on light bg, dark = light text on dark bg
 }
 
-export function Breadcrumbs({ items, skipSchema = false }: BreadcrumbsProps) {
+export function Breadcrumbs({ items, skipSchema = false, variant = 'light' }: BreadcrumbsProps) {
   // Get the parent item (second to last) for mobile back link
   const parentItem = items.length > 1 ? items[items.length - 2] : null;
+
+  const isDark = variant === 'dark';
 
   return (
     <>
@@ -41,7 +44,11 @@ export function Breadcrumbs({ items, skipSchema = false }: BreadcrumbsProps) {
         <nav aria-label="Back" className="sm:hidden mb-4">
           <a
             href={parentItem.url}
-            className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-green-600"
+            className={`inline-flex items-center gap-1 text-sm ${
+              isDark
+                ? 'text-white/70 hover:text-white'
+                : 'text-gray-500 hover:text-green-600'
+            }`}
           >
             <svg
               className="w-4 h-4"
@@ -64,14 +71,14 @@ export function Breadcrumbs({ items, skipSchema = false }: BreadcrumbsProps) {
 
       {/* Desktop: Full breadcrumb path */}
       <nav aria-label="Breadcrumb" className="hidden sm:block mb-6">
-        <ol className="flex items-center gap-2 text-sm text-gray-500">
+        <ol className={`flex items-center gap-2 text-sm ${isDark ? 'text-white/70' : 'text-gray-500'}`}>
           {items.map((item, index) => (
             <li key={item.url} className="flex items-center gap-2">
-              {index > 0 && <span className="text-gray-300">/</span>}
+              {index > 0 && <span className={isDark ? 'text-white/40' : 'text-gray-300'}>/</span>}
               {index === items.length - 1 ? (
-                <span className="text-gray-700">{item.name}</span>
+                <span className={isDark ? 'text-white' : 'text-gray-700'}>{item.name}</span>
               ) : (
-                <a href={item.url} className="hover:text-green-600">{item.name}</a>
+                <a href={item.url} className={isDark ? 'hover:text-white' : 'hover:text-green-600'}>{item.name}</a>
               )}
             </li>
           ))}

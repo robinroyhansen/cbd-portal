@@ -276,7 +276,7 @@ export default async function GlossaryCategoryPage({ params }: Props) {
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white py-12">
           <div className="max-w-6xl mx-auto px-4">
-            <Breadcrumbs items={breadcrumbs} />
+            <Breadcrumbs items={breadcrumbs} variant="dark" />
 
             <div className="flex items-center gap-4 mt-6 mb-4">
               <span className="text-5xl" aria-hidden="true">{categoryInfo.icon}</span>

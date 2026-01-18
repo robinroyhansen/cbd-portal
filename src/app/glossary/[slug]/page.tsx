@@ -308,7 +308,7 @@ export default async function GlossaryTermPage({ params }: Props) {
         {/* Header */}
         <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white py-8">
           <div className="max-w-4xl mx-auto px-4">
-            <Breadcrumbs items={breadcrumbs} />
+            <Breadcrumbs items={breadcrumbs} variant="dark" />
           </div>
         </div>
 
