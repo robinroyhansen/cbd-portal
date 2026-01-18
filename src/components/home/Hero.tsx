@@ -98,7 +98,7 @@ export function Hero({ stats }: HeroProps) {
               {(stats.studySubjectDistribution.human > 0 || stats.studySubjectDistribution.review > 0) && (
                 <div className="bg-gray-50 rounded-lg p-4 mb-6">
                   <div className="text-xs text-gray-500 uppercase tracking-wide mb-3 text-center">Research Breakdown</div>
-                  <div className="grid grid-cols-4 gap-3 text-center">
+                  <div className="grid grid-cols-5 gap-3 text-center">
                     {stats.studySubjectDistribution.human > 0 && (
                       <div>
                         <div className="text-lg font-bold text-blue-600">👤 {stats.studySubjectDistribution.human}</div>
@@ -121,6 +121,12 @@ export function Hero({ stats }: HeroProps) {
                       <div>
                         <div className="text-lg font-bold text-purple-600">🧫 {stats.studySubjectDistribution.in_vitro}</div>
                         <div className="text-[10px] text-gray-600">In Vitro</div>
+                      </div>
+                    )}
+                    {stats.countryCount > 0 && (
+                      <div>
+                        <div className="text-lg font-bold text-green-600">🌍 {stats.countryCount}+</div>
+                        <div className="text-[10px] text-gray-600">Countries</div>
                       </div>
                     )}
                   </div>
@@ -219,7 +225,7 @@ export function Hero({ stats }: HeroProps) {
           {/* Study Subject Breakdown - Mobile */}
           {(stats.studySubjectDistribution.human > 0 || stats.studySubjectDistribution.review > 0) && (
             <div className="bg-gray-50 rounded-lg p-3 mb-4">
-              <div className="grid grid-cols-4 gap-2 text-center">
+              <div className="grid grid-cols-5 gap-2 text-center">
                 {stats.studySubjectDistribution.human > 0 && (
                   <div>
                     <div className="text-sm font-bold text-blue-600">👤 {stats.studySubjectDistribution.human}</div>
@@ -242,6 +248,12 @@ export function Hero({ stats }: HeroProps) {
                   <div>
                     <div className="text-sm font-bold text-purple-600">🧫 {stats.studySubjectDistribution.in_vitro}</div>
                     <div className="text-[9px] text-gray-600">In Vitro</div>
+                  </div>
+                )}
+                {stats.countryCount > 0 && (
+                  <div>
+                    <div className="text-sm font-bold text-green-600">🌍 {stats.countryCount}+</div>
+                    <div className="text-[9px] text-gray-600">Countries</div>
                   </div>
                 )}
               </div>

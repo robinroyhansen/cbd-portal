@@ -21,6 +21,9 @@ export interface HomePageStats {
   // Study subject distribution
   studySubjectDistribution: StudySubjectDistribution;
 
+  // Geographic reach
+  countryCount: number;
+
   // Secondary stats
   animalStudyCount: number;
   articles: number;
@@ -50,6 +53,7 @@ export async function getHomePageStats(): Promise<HomePageStats> {
     expertAnalysesResult,
     yearResult,
     studySubjectResult,
+    countryResult,
   ] = await Promise.all([
     // Total approved research studies
     supabase
@@ -115,6 +119,13 @@ export async function getHomePageStats(): Promise<HomePageStats> {
       .from('kb_research_queue')
       .select('study_subject')
       .eq('status', 'approved'),
+
+    // Distinct countries
+    supabase
+      .from('kb_research_queue')
+      .select('country')
+      .eq('status', 'approved')
+      .not('country', 'is', null),
   ]);
 
   // Calculate unique health topics
@@ -162,6 +173,15 @@ export async function getHomePageStats(): Promise<HomePageStats> {
     }
   });
 
+  // Calculate distinct country count
+  const uniqueCountries = new Set<string>();
+  countryResult.data?.forEach(study => {
+    if (study.country) {
+      uniqueCountries.add(study.country);
+    }
+  });
+  const countryCount = uniqueCountries.size;
+
   return {
     researchStudies: studiesResult.count || 0,
     humanParticipants,
@@ -172,6 +192,7 @@ export async function getHomePageStats(): Promise<HomePageStats> {
     yearsOfResearch,
     yearRange,
     studySubjectDistribution,
+    countryCount,
     animalStudyCount: animalStudiesResult.count || 0,
     articles: articlesResult.count || 0,
     brandReviews: brandsResult.count || 0,
