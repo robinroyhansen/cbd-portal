@@ -46,7 +46,7 @@ export function Breadcrumbs({ items, skipSchema = false, variant = 'light' }: Br
             href={parentItem.url}
             className={`inline-flex items-center gap-1 text-sm ${
               isDark
-                ? 'text-white/70 hover:text-white'
+                ? 'text-white opacity-70 hover:opacity-100'
                 : 'text-gray-500 hover:text-green-600'
             }`}
           >
@@ -71,14 +71,14 @@ export function Breadcrumbs({ items, skipSchema = false, variant = 'light' }: Br
 
       {/* Desktop: Full breadcrumb path */}
       <nav aria-label="Breadcrumb" className="hidden sm:block mb-6">
-        <ol className={`flex items-center gap-2 text-sm ${isDark ? 'text-white/70' : 'text-gray-500'}`}>
+        <ol className={`flex items-center gap-2 text-sm ${isDark ? 'text-white opacity-70' : 'text-gray-500'}`}>
           {items.map((item, index) => (
             <li key={item.url} className="flex items-center gap-2">
-              {index > 0 && <span className={isDark ? 'text-white/40' : 'text-gray-300'}>/</span>}
+              {index > 0 && <span className={isDark ? 'text-white opacity-40' : 'text-gray-300'}>/</span>}
               {index === items.length - 1 ? (
-                <span className={isDark ? 'text-white' : 'text-gray-700'}>{item.name}</span>
+                <span className={isDark ? 'text-white opacity-100' : 'text-gray-700'}>{item.name}</span>
               ) : (
-                <a href={item.url} className={isDark ? 'hover:text-white' : 'hover:text-green-600'}>{item.name}</a>
+                <a href={item.url} className={isDark ? 'text-white opacity-70 hover:opacity-100' : 'hover:text-green-600'}>{item.name}</a>
               )}
             </li>
           ))}
