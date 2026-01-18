@@ -46,6 +46,16 @@ interface ScannerJob {
   updated_at: string;
 }
 
+// Raw term captured from professional taxonomies
+interface RawTerm {
+  source: 'mesh' | 'openalex' | 'ctgov' | 'keyword' | 'title' | 'ai';
+  term: string;
+  termId?: string;           // External ID (MeSH ID, OpenAlex concept ID)
+  confidence?: number;       // Confidence score (0-1)
+  isHealthRelated?: boolean; // Filter out non-health concepts
+  metadata?: Record<string, unknown>; // Additional data (tree numbers, parent concepts, etc.)
+}
+
 interface ResearchItem {
   title: string;
   authors?: string;
@@ -59,6 +69,7 @@ interface ResearchItem {
   sourceId?: string;  // ID in the source system
   source_site: string;
   search_term_matched?: string;
+  rawTerms?: RawTerm[]; // Professional taxonomy terms from source
 }
 
 // POST - Process one chunk of the oldest queued/running job
@@ -473,6 +484,53 @@ async function fetchClinicalTrialsChunk(
 
     if (title) {
       const nctId = protocol?.identificationModule?.nctId;
+
+      // Extract conditions from ClinicalTrials.gov conditionsModule
+      const rawTerms: RawTerm[] = [];
+
+      // Add conditions (primary conditions studied)
+      const conditions = protocol?.conditionsModule?.conditions || [];
+      for (const condition of conditions) {
+        if (condition) {
+          rawTerms.push({
+            source: 'ctgov',
+            term: condition,
+            confidence: 1.0, // Primary conditions have high confidence
+            isHealthRelated: true
+          });
+        }
+      }
+
+      // Add keywords if available
+      const keywords = protocol?.conditionsModule?.keywords || [];
+      for (const keyword of keywords) {
+        if (keyword) {
+          rawTerms.push({
+            source: 'keyword',
+            term: keyword,
+            confidence: 0.9,
+            isHealthRelated: true
+          });
+        }
+      }
+
+      // Add interventions (what's being studied) - useful for cannabinoid detection
+      const interventions = protocol?.armsInterventionsModule?.interventions || [];
+      for (const intervention of interventions) {
+        if (intervention?.name) {
+          rawTerms.push({
+            source: 'ctgov',
+            term: intervention.name,
+            confidence: 0.8,
+            isHealthRelated: true,
+            metadata: {
+              type: 'intervention',
+              interventionType: intervention.type
+            }
+          });
+        }
+      }
+
       items.push({
         title,
         authors: protocol?.contactsLocationsModule?.overallOfficials?.map((o: any) => o.name).join(', '),
@@ -482,7 +540,8 @@ async function fetchClinicalTrialsChunk(
         url: `https://clinicaltrials.gov/study/${nctId}`,
         sourceId: nctId, // NCT ID for tracking
         source_site: 'ClinicalTrials.gov',
-        search_term_matched: searchTerm
+        search_term_matched: searchTerm,
+        rawTerms: rawTerms.length > 0 ? rawTerms : undefined
       });
     }
   }
@@ -584,6 +643,18 @@ async function fetchPMCChunk(
   return { items, hasMore };
 }
 
+// Health-related OpenAlex domains (level 0 concepts)
+// See: https://docs.openalex.org/api-entities/concepts
+const HEALTH_RELATED_DOMAINS = new Set([
+  'https://openalex.org/C71924100',  // Medicine
+  'https://openalex.org/C86803240',  // Biology
+  'https://openalex.org/C185592680', // Chemistry
+  'https://openalex.org/C142362112', // Biochemistry
+  'https://openalex.org/C54355233',  // Psychology
+  'https://openalex.org/C126322002', // Neuroscience
+  'https://openalex.org/C55493867',  // Pharmacology
+]);
+
 // Fetch from OpenAlex (250M+ works, excellent DOI/PMID coverage)
 async function fetchOpenAlexChunk(
   searchTerm: string,
@@ -600,7 +671,8 @@ async function fetchOpenAlexChunk(
     dateFilter = `,from_publication_date:${start},to_publication_date:${end}`;
   }
 
-  const url = `https://api.openalex.org/works?filter=title.search:${encodeURIComponent(searchTerm)}${dateFilter}&per-page=${limit}&page=${Math.floor(offset / limit) + 1}&mailto=admin@cbdportal.com`;
+  // Request concepts field to capture professional taxonomy terms
+  const url = `https://api.openalex.org/works?filter=title.search:${encodeURIComponent(searchTerm)}${dateFilter}&per-page=${limit}&page=${Math.floor(offset / limit) + 1}&select=id,title,authorships,publication_year,abstract_inverted_index,primary_location,ids,doi,concepts,keywords&mailto=admin@cbdportal.com`;
 
   const response = await fetch(url, {
     headers: {
@@ -623,6 +695,51 @@ async function fetchOpenAlexChunk(
       const pmid = work.ids?.pmid?.replace('https://pubmed.ncbi.nlm.nih.gov/', '');
       const pmcId = work.ids?.pmcid?.replace('https://www.ncbi.nlm.nih.gov/pmc/articles/', '');
 
+      // Extract OpenAlex concepts as raw terms
+      const rawTerms: RawTerm[] = [];
+
+      // Add concepts (OpenAlex's classification system)
+      if (work.concepts && Array.isArray(work.concepts)) {
+        for (const concept of work.concepts) {
+          // Filter: only include concepts with score >= 0.3 to reduce noise
+          if (concept.score >= 0.3 && concept.display_name) {
+            // Check if concept is health-related by checking ancestors
+            const ancestors = concept.ancestors || [];
+            const isHealthRelated = ancestors.some((a: any) =>
+              HEALTH_RELATED_DOMAINS.has(a.id)
+            ) || HEALTH_RELATED_DOMAINS.has(concept.id);
+
+            rawTerms.push({
+              source: 'openalex',
+              term: concept.display_name,
+              termId: concept.id?.replace('https://openalex.org/', ''),
+              confidence: concept.score,
+              isHealthRelated,
+              metadata: {
+                level: concept.level,
+                wikidata: concept.wikidata,
+                ancestors: ancestors.map((a: any) => a.display_name)
+              }
+            });
+          }
+        }
+      }
+
+      // Add author keywords if available
+      if (work.keywords && Array.isArray(work.keywords)) {
+        for (const keyword of work.keywords) {
+          if (keyword.display_name) {
+            rawTerms.push({
+              source: 'keyword',
+              term: keyword.display_name,
+              termId: keyword.id?.replace('https://openalex.org/', ''),
+              confidence: keyword.score || 1.0,
+              isHealthRelated: true // Assume keywords are relevant
+            });
+          }
+        }
+      }
+
       items.push({
         title: work.title,
         authors: work.authorships?.slice(0, 5).map((a: any) => a.author?.display_name).filter(Boolean).join(', '),
@@ -635,7 +752,8 @@ async function fetchOpenAlexChunk(
         pmcId: pmcId,
         sourceId: work.id?.split('/').pop(),
         source_site: 'OpenAlex',
-        search_term_matched: searchTerm
+        search_term_matched: searchTerm,
+        rawTerms: rawTerms.length > 0 ? rawTerms : undefined
       });
     }
   }
@@ -691,6 +809,61 @@ async function fetchEuropePMCChunk(
 
   for (const article of results) {
     if (article.title) {
+      // Extract MeSH terms from Europe PMC
+      const rawTerms: RawTerm[] = [];
+
+      // Add MeSH descriptors if available
+      if (article.meshHeadingList?.meshHeading) {
+        for (const mesh of article.meshHeadingList.meshHeading) {
+          if (mesh.descriptorName) {
+            rawTerms.push({
+              source: 'mesh',
+              term: mesh.descriptorName,
+              termId: mesh.meshId || undefined,
+              confidence: mesh.majorTopic_YN === 'Y' ? 1.0 : 0.8,
+              isHealthRelated: true,
+              metadata: {
+                majorTopic: mesh.majorTopic_YN === 'Y',
+                qualifiers: mesh.meshQualifierList?.meshQualifier?.map((q: any) => q.qualifierName) || []
+              }
+            });
+          }
+        }
+      }
+
+      // Add keywords if available
+      if (article.keywordList?.keyword) {
+        for (const keyword of article.keywordList.keyword) {
+          if (keyword) {
+            rawTerms.push({
+              source: 'keyword',
+              term: keyword,
+              confidence: 0.9,
+              isHealthRelated: true
+            });
+          }
+        }
+      }
+
+      // Add chemical substances if available (useful for cannabinoid detection)
+      if (article.chemicalList?.chemical) {
+        for (const chemical of article.chemicalList.chemical) {
+          if (chemical.name) {
+            rawTerms.push({
+              source: 'mesh',
+              term: chemical.name,
+              termId: chemical.registryNumber || undefined,
+              confidence: 0.95,
+              isHealthRelated: true,
+              metadata: {
+                type: 'chemical',
+                registryNumber: chemical.registryNumber
+              }
+            });
+          }
+        }
+      }
+
       items.push({
         title: article.title,
         authors: article.authorString,
@@ -703,7 +876,8 @@ async function fetchEuropePMCChunk(
         pmcId: article.pmcid,
         sourceId: article.id,
         source_site: 'Europe PMC',
-        search_term_matched: searchTerm
+        search_term_matched: searchTerm,
+        rawTerms: rawTerms.length > 0 ? rawTerms : undefined
       });
     }
   }
@@ -898,8 +1072,8 @@ async function processItem(
       item.doi
     );
 
-    // 7. Insert into kb_research_queue with cleaned data
-    const { error } = await supabase
+    // 7. Insert into kb_research_queue with cleaned data and get the ID back
+    const { data: insertedStudy, error } = await supabase
       .from('kb_research_queue')
       .insert({
         title: cleanedTitle,
@@ -920,7 +1094,9 @@ async function processItem(
         relevant_topics: topics,
         detected_language: langResult.language,
         status: 'pending'
-      });
+      })
+      .select('id')
+      .single();
 
     if (error) {
       if (error.code === '23505') {
@@ -930,10 +1106,66 @@ async function processItem(
       return 'rejected';
     }
 
+    // 8. Store raw terms in study_raw_terms table for Condition Intelligence System
+    if (insertedStudy?.id && item.rawTerms && item.rawTerms.length > 0) {
+      await storeRawTerms(supabase, insertedStudy.id, item.rawTerms);
+    }
+
     return 'added';
   } catch (error) {
     console.error('[Scanner] Process item error:', error);
     return 'rejected';
+  }
+}
+
+// Store raw terms captured from professional taxonomies
+async function storeRawTerms(
+  supabase: SupabaseClient,
+  studyId: string,
+  rawTerms: RawTerm[]
+): Promise<void> {
+  if (rawTerms.length === 0) return;
+
+  // Deduplicate terms by source + lowercase term before inserting
+  const seen = new Set<string>();
+  const uniqueTerms = rawTerms.filter(term => {
+    const key = `${term.source}:${term.term.toLowerCase()}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+
+  // Prepare batch insert data
+  const termsToInsert = uniqueTerms.map(term => ({
+    study_id: studyId,
+    source: term.source,
+    term: term.term,
+    term_id: term.termId || null,
+    confidence: term.confidence ?? 1.0,
+    is_health_related: term.isHealthRelated ?? true,
+    metadata: term.metadata || null
+  }));
+
+  // Insert in batches of 50 to avoid hitting limits
+  const BATCH_SIZE = 50;
+  for (let i = 0; i < termsToInsert.length; i += BATCH_SIZE) {
+    const batch = termsToInsert.slice(i, i + BATCH_SIZE);
+
+    // Use insert with ignoreDuplicates - PostgreSQL unique index will prevent duplicates
+    const { error } = await supabase
+      .from('study_raw_terms')
+      .insert(batch);
+
+    if (error) {
+      // 23505 is unique constraint violation - expected for duplicates
+      if (error.code !== '23505') {
+        console.error(`[Scanner] Failed to store raw terms for study ${studyId}:`, error.message);
+      }
+      // For duplicates or other errors, try inserting one by one
+      for (const term of batch) {
+        await supabase.from('study_raw_terms').insert(term);
+      }
+    }
   }
 }
 
