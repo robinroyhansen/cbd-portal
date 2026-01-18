@@ -5,19 +5,6 @@ import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 
 const SITE_URL = 'https://cbd-portal.vercel.app';
 
-// Popular/Featured terms that most users want to learn about
-const POPULAR_TERM_SLUGS = [
-  'cbd',
-  'thc',
-  'endocannabinoid-system',
-  'full-spectrum',
-  'broad-spectrum',
-  'isolate',
-  'terpenes',
-  'bioavailability',
-  'coa',
-  'entourage-effect',
-];
 
 interface GlossaryTerm {
   id: string;
@@ -100,16 +87,14 @@ export default async function GlossaryPage() {
   const allTerms: GlossaryTerm[] = terms || [];
   const totalTerms = allTerms.length;
 
-  // Fetch popular terms
+  // Fetch latest 15 terms (most recently updated)
   const { data: popularTermsData } = await supabase
     .from('kb_glossary')
     .select('id, term, display_name, slug, short_definition, category, synonyms, pronunciation')
-    .in('slug', POPULAR_TERM_SLUGS);
+    .order('updated_at', { ascending: false, nullsFirst: false })
+    .limit(15);
 
-  // Sort popular terms to match the order in POPULAR_TERM_SLUGS
-  const popularTerms = POPULAR_TERM_SLUGS
-    .map(slug => popularTermsData?.find(t => t.slug === slug))
-    .filter((t): t is GlossaryTerm => t !== undefined);
+  const popularTerms: GlossaryTerm[] = popularTermsData || [];
 
   // Breadcrumbs data
   const breadcrumbs = [

@@ -45,6 +45,7 @@ export async function getHomePageStats(): Promise<HomePageStats> {
   // Run all queries in parallel for performance
   const [
     studiesResult,
+    totalScannedResult,
     topicsResult,
     glossaryResult,
     articlesResult,
@@ -61,6 +62,11 @@ export async function getHomePageStats(): Promise<HomePageStats> {
       .from('kb_research_queue')
       .select('*', { count: 'exact', head: true })
       .eq('status', 'approved'),
+
+    // Total scanned studies (all statuses - entire queue)
+    supabase
+      .from('kb_research_queue')
+      .select('*', { count: 'exact', head: true }),
 
     // Get unique health topics
     supabase
@@ -183,6 +189,7 @@ export async function getHomePageStats(): Promise<HomePageStats> {
   const countryCount = uniqueCountries.size;
 
   return {
+    totalScannedStudies: totalScannedResult.count || 0,
     researchStudies: studiesResult.count || 0,
     humanParticipants,
     humanParticipantsDisplay,

@@ -71,18 +71,18 @@ export function Hero({ stats }: HeroProps) {
               <div className="grid grid-cols-3 gap-6 mb-6">
                 <Link href="/research" className="text-center group">
                   <div className="text-5xl font-bold text-green-600 group-hover:text-green-700 transition-colors">
-                    {stats.researchStudies}
+                    {stats.totalScannedStudies.toLocaleString()}
                   </div>
-                  <div className="text-sm font-semibold text-gray-800 mt-1">Studies Analyzed</div>
+                  <div className="text-sm font-semibold text-gray-800 mt-1">Studies Scanned</div>
                   <div className="text-xs text-gray-500">From peer-reviewed sources</div>
                 </Link>
 
                 <Link href="/research" className="text-center group">
                   <div className="text-5xl font-bold text-blue-600 group-hover:text-blue-700 transition-colors">
-                    {stats.expertAnalyses}
+                    {stats.researchStudies}
                   </div>
-                  <div className="text-sm font-semibold text-gray-800 mt-1">Expert Summaries</div>
-                  <div className="text-xs text-gray-500">Written for real people</div>
+                  <div className="text-sm font-semibold text-gray-800 mt-1">Studies Published</div>
+                  <div className="text-xs text-gray-500">Curated for our database</div>
                 </Link>
 
                 <Link href="/research/methodology" className="text-center group">
@@ -209,12 +209,12 @@ export function Hero({ stats }: HeroProps) {
           {/* Primary Stats - Mobile */}
           <div className="grid grid-cols-3 gap-4 mb-4">
             <Link href="/research" className="text-center">
-              <div className="text-3xl font-bold text-green-600">{stats.researchStudies}</div>
-              <div className="text-xs font-semibold text-gray-800">Studies</div>
+              <div className="text-3xl font-bold text-green-600">{stats.totalScannedStudies.toLocaleString()}</div>
+              <div className="text-xs font-semibold text-gray-800">Scanned</div>
             </Link>
             <Link href="/research" className="text-center">
-              <div className="text-3xl font-bold text-blue-600">{stats.expertAnalyses}</div>
-              <div className="text-xs font-semibold text-gray-800">Summaries</div>
+              <div className="text-3xl font-bold text-blue-600">{stats.researchStudies}</div>
+              <div className="text-xs font-semibold text-gray-800">Published</div>
             </Link>
             <Link href="/research/methodology" className="text-center">
               <div className="text-3xl font-bold text-purple-600">100%</div>
