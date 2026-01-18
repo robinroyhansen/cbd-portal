@@ -119,9 +119,44 @@ async function fetchPubMedAffiliations(pmid: string): Promise<string | null> {
   }
 }
 
+async function fetchPmcAffiliations(pmcId: string): Promise<string | null> {
+  try {
+    // Use Europe PMC API (returns JSON with affiliations)
+    const url = `https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=PMCID:${pmcId}&format=json&resultType=core`;
+    const response = await fetch(url);
+
+    if (!response.ok) return null;
+
+    const data = await response.json();
+    const article = data.resultList?.result?.[0];
+
+    if (article?.affiliation) {
+      return extractCountryFromText(article.affiliation);
+    }
+
+    // Try author affiliations
+    if (article?.authorList?.author) {
+      const affiliations = article.authorList.author
+        .map((a: { affiliation?: string }) => a.affiliation)
+        .filter(Boolean)
+        .join(' ');
+      if (affiliations) return extractCountryFromText(affiliations);
+    }
+
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 function extractPmidFromUrl(url: string): string | null {
   const match = url.match(/pubmed\.ncbi\.nlm\.nih\.gov\/(\d+)/);
   return match ? match[1] : null;
+}
+
+function extractPmcIdFromUrl(url: string): string | null {
+  const match = url.match(/PMC(\d+)/);
+  return match ? `PMC${match[1]}` : null;
 }
 
 export async function POST(request: Request) {
@@ -147,7 +182,9 @@ export async function POST(request: Request) {
     if (sourceFilter === 'openalex') {
       query = query.eq('source_site', 'OpenAlex');
     } else if (sourceFilter === 'pubmed') {
-      query = query.in('source_site', ['PubMed', 'PMC']);
+      query = query.eq('source_site', 'PubMed');
+    } else if (sourceFilter === 'pmc') {
+      query = query.eq('source_site', 'PMC');
     }
 
     const { data: studies, error: fetchError } = await query;
@@ -183,8 +220,8 @@ export async function POST(request: Request) {
         await new Promise(resolve => setTimeout(resolve, 100));
       }
 
-      // Strategy 2: PubMed efetch for PubMed/PMC studies
-      if (!detectedCountry && (study.source_site === 'PubMed' || study.source_site === 'PMC')) {
+      // Strategy 2: PubMed efetch for PubMed studies
+      if (!detectedCountry && study.source_site === 'PubMed') {
         const pmid = extractPmidFromUrl(study.url);
         if (pmid) {
           detectedCountry = await fetchPubMedAffiliations(pmid);
@@ -197,7 +234,20 @@ export async function POST(request: Request) {
         }
       }
 
-      // Strategy 3: Text pattern matching fallback
+      // Strategy 3: Europe PMC API for PMC studies
+      if (!detectedCountry && study.source_site === 'PMC') {
+        const pmcId = extractPmcIdFromUrl(study.url);
+        if (pmcId) {
+          detectedCountry = await fetchPmcAffiliations(pmcId);
+          if (detectedCountry) {
+            matchSource = 'europepmc-api';
+            results.apiMatches++;
+          }
+          await new Promise(resolve => setTimeout(resolve, 200));
+        }
+      }
+
+      // Strategy 4: Text pattern matching fallback
       if (!detectedCountry) {
         const text = `${study.authors || ''} ${study.title || ''} ${study.abstract || ''}`;
         detectedCountry = extractCountryFromText(text);
@@ -260,15 +310,22 @@ export async function POST(request: Request) {
 export async function GET() {
   return NextResponse.json({
     message: 'POST to this endpoint to backfill country data for research studies',
-    description: 'Fetches country from OpenAlex API (via DOI), PubMed efetch (via PMID), or text pattern matching',
+    description: 'Fetches country from OpenAlex API (via DOI), PubMed efetch (via PMID), Europe PMC API (via PMC ID), or text pattern matching',
+    strategies: [
+      '1. OpenAlex API - uses DOI to fetch author country codes',
+      '2. PubMed efetch - uses PMID to fetch author affiliations',
+      '3. Europe PMC API - uses PMC ID to fetch affiliations',
+      '4. Text pattern matching - fallback using authors/title/abstract'
+    ],
     usage: {
-      dryRun: 'GET ?dryRun=true - Preview matches without updating',
-      source: 'GET ?source=openalex|pubmed|all - Filter by source',
-      limit: 'GET ?limit=100 - Max records to process'
+      dryRun: '?dryRun=true - Preview matches without updating',
+      source: '?source=openalex|pubmed|pmc|all - Filter by source',
+      limit: '?limit=100 - Max records to process (default: 100)'
     },
     examples: [
       'POST ?dryRun=true&source=openalex&limit=10',
       'POST ?source=pubmed&limit=50',
+      'POST ?source=pmc&limit=100',
       'POST ?limit=200'
     ]
   });
