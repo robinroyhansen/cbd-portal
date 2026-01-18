@@ -87,11 +87,12 @@ export default async function GlossaryPage() {
   const allTerms: GlossaryTerm[] = terms || [];
   const totalTerms = allTerms.length;
 
-  // Fetch latest 15 terms (most recently updated)
+  // Fetch top 15 most viewed terms (popular based on clicks)
   const { data: popularTermsData } = await supabase
     .from('kb_glossary')
-    .select('id, term, display_name, slug, short_definition, category, synonyms, pronunciation')
-    .order('updated_at', { ascending: false, nullsFirst: false })
+    .select('id, term, display_name, slug, short_definition, category, synonyms, pronunciation, view_count')
+    .order('view_count', { ascending: false, nullsFirst: false })
+    .gt('view_count', 0)
     .limit(15);
 
   const popularTerms: GlossaryTerm[] = popularTermsData || [];

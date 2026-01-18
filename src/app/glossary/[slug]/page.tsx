@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { LinkedDefinition } from '@/lib/glossary-definition-linker';
+import { GlossaryViewTracker } from '@/components/GlossaryViewTracker';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -299,6 +300,9 @@ export default async function GlossaryTermPage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
+
+      {/* Track page view for popularity */}
+      <GlossaryViewTracker slug={slug} />
 
       <div className="min-h-screen bg-gray-50">
         {/* Header */}
