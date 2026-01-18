@@ -30,8 +30,9 @@ export default function EditArticlePage({
     featured_image: '',
     meta_title: '',
     meta_description: '',
-    status: 'draft' as 'draft' | 'published' | 'archived',
+    status: 'draft' as 'draft' | 'published' | 'scheduled' | 'archived',
     author: '',
+    scheduled_publish_at: '',
   });
 
   useEffect(() => {
@@ -58,6 +59,9 @@ export default function EditArticlePage({
         meta_description: data.meta_description || '',
         status: data.status,
         author: data.author || 'Robin Roy Krigslund-Hansen',
+        scheduled_publish_at: data.scheduled_publish_at
+          ? new Date(data.scheduled_publish_at).toISOString().slice(0, 16)
+          : '',
       });
     }
   };
@@ -89,21 +93,31 @@ export default function EditArticlePage({
     setLoading(true);
 
     try {
-      const updateData: Partial<Article> = {
-        ...formData,
+      const { scheduled_publish_at, ...restFormData } = formData;
+      const updateData: Partial<Article> & { scheduled_publish_at?: string | null } = {
+        ...restFormData,
         reading_time: calculateReadingTime(formData.content),
         updated_at: new Date().toISOString(),
       };
 
-      // Only update published_at if status changed to published
-      const { data: currentArticle } = await supabase
-        .from('kb_articles')
-        .select('status, published_at')
-        .eq('id', params.id)
-        .single<Pick<Article, 'status' | 'published_at'>>();
+      // Handle scheduled_publish_at
+      if (formData.status === 'scheduled' && scheduled_publish_at) {
+        updateData.scheduled_publish_at = new Date(scheduled_publish_at).toISOString();
+        updateData.published_at = null; // Clear published_at for scheduled articles
+      } else if (formData.status === 'published') {
+        // Only update published_at if status changed to published
+        const { data: currentArticle } = await supabase
+          .from('kb_articles')
+          .select('status, published_at')
+          .eq('id', params.id)
+          .single<Pick<Article, 'status' | 'published_at'>>();
 
-      if (currentArticle && currentArticle.status !== 'published' && formData.status === 'published') {
-        updateData.published_at = new Date().toISOString();
+        if (currentArticle && currentArticle.status !== 'published') {
+          updateData.published_at = new Date().toISOString();
+        }
+        updateData.scheduled_publish_at = null; // Clear scheduled date
+      } else {
+        updateData.scheduled_publish_at = null; // Clear for draft/archived
       }
 
       const { error } = await (supabase as any)
@@ -272,13 +286,34 @@ export default function EditArticlePage({
           </label>
           <select
             value={formData.status}
-            onChange={(e) => setFormData({ ...formData, status: e.target.value as 'draft' | 'published' | 'archived' })}
+            onChange={(e) => setFormData({ ...formData, status: e.target.value as 'draft' | 'published' | 'scheduled' | 'archived' })}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-primary-500 focus:border-primary-500"
           >
             <option value="draft">Draft</option>
+            <option value="scheduled">Scheduled</option>
             <option value="published">Published</option>
           </select>
         </div>
+
+        {/* Scheduled Publish Date */}
+        {formData.status === 'scheduled' && (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Publish Date & Time
+            </label>
+            <input
+              type="datetime-local"
+              required
+              value={formData.scheduled_publish_at}
+              onChange={(e) => setFormData({ ...formData, scheduled_publish_at: e.target.value })}
+              min={new Date().toISOString().slice(0, 16)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+            />
+            <p className="mt-1 text-sm text-gray-500">
+              Article will be automatically published at this time
+            </p>
+          </div>
+        )}
 
         {/* Author */}
         <div>

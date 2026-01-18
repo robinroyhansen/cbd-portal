@@ -19,6 +19,7 @@ export default function NewArticlePage() {
   const [excerpt, setExcerpt] = useState('');
   const [sectionData, setSectionData] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
+  const [scheduledDate, setScheduledDate] = useState('');
 
   useEffect(() => {
     fetchCategories();
@@ -69,8 +70,12 @@ export default function NewArticlePage() {
     return introContent.substring(0, 200).trim() + (introContent.length > 200 ? '...' : '');
   };
 
-  const handleSave = async (status: 'draft' | 'published') => {
+  const handleSave = async (status: 'draft' | 'published' | 'scheduled') => {
     if (!selectedType || !title.trim()) return;
+    if (status === 'scheduled' && !scheduledDate) {
+      alert('Please select a publish date for scheduled articles.');
+      return;
+    }
 
     setLoading(true);
 
@@ -79,7 +84,7 @@ export default function NewArticlePage() {
       const finalExcerpt = generateExcerpt();
       const readingTime = calculateReadingTime(content);
 
-      const articleData = {
+      const articleData: Record<string, unknown> = {
         title: title.trim(),
         slug: slug.trim(),
         content,
@@ -91,6 +96,7 @@ export default function NewArticlePage() {
         status,
         author: 'Robin Roy Krigslund-Hansen',
         published_at: status === 'published' ? new Date().toISOString() : null,
+        scheduled_publish_at: status === 'scheduled' ? new Date(scheduledDate).toISOString() : null,
         meta_title: title.trim(),
         meta_description: finalExcerpt
       };
@@ -234,6 +240,33 @@ export default function NewArticlePage() {
           </div>
         )}
 
+        {/* Schedule Options */}
+        <div className="bg-white border rounded-lg p-6 mb-6">
+          <h2 className="text-lg font-semibold mb-4">Schedule Publication (Optional)</h2>
+          <div className="flex items-center gap-4">
+            <input
+              type="datetime-local"
+              value={scheduledDate}
+              onChange={(e) => setScheduledDate(e.target.value)}
+              min={new Date().toISOString().slice(0, 16)}
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+            {scheduledDate && (
+              <button
+                onClick={() => setScheduledDate('')}
+                className="text-sm text-gray-500 hover:text-gray-700"
+              >
+                Clear
+              </button>
+            )}
+          </div>
+          {scheduledDate && (
+            <p className="mt-2 text-sm text-blue-600">
+              Article will be automatically published on {new Date(scheduledDate).toLocaleString()}
+            </p>
+          )}
+        </div>
+
         {/* Actions */}
         <div className="flex gap-4">
           <button
@@ -243,13 +276,23 @@ export default function NewArticlePage() {
           >
             {loading ? 'Saving...' : 'Save as Draft'}
           </button>
-          <button
-            onClick={() => handleSave('published')}
-            disabled={loading || !isFormValid}
-            className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {loading ? 'Publishing...' : 'Publish Article'}
-          </button>
+          {scheduledDate ? (
+            <button
+              onClick={() => handleSave('scheduled')}
+              disabled={loading || !isFormValid}
+              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? 'Scheduling...' : 'Schedule Publication'}
+            </button>
+          ) : (
+            <button
+              onClick={() => handleSave('published')}
+              disabled={loading || !isFormValid}
+              className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? 'Publishing...' : 'Publish Now'}
+            </button>
+          )}
           <button
             onClick={() => setStep('select')}
             disabled={loading}

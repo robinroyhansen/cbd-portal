@@ -22,9 +22,41 @@ export async function GET(request: NextRequest) {
     const supabase = createServiceClient();
     const now = new Date().toISOString();
     const results = {
+      articles: { published: 0, errors: 0 },
       brands: { published: 0, errors: 0 },
       reviews: { published: 0, errors: 0 }
     };
+
+    // Publish scheduled articles
+    const { data: scheduledArticles, error: articlesError } = await supabase
+      .from('kb_articles')
+      .select('id, title')
+      .eq('status', 'scheduled')
+      .not('scheduled_publish_at', 'is', null)
+      .lte('scheduled_publish_at', now);
+
+    if (articlesError) {
+      console.error('Error fetching scheduled articles:', articlesError);
+    } else if (scheduledArticles && scheduledArticles.length > 0) {
+      for (const article of scheduledArticles) {
+        const { error: updateError } = await supabase
+          .from('kb_articles')
+          .update({
+            status: 'published',
+            published_at: now,
+            scheduled_publish_at: null
+          })
+          .eq('id', article.id);
+
+        if (updateError) {
+          console.error(`Error publishing article ${article.title}:`, updateError);
+          results.articles.errors++;
+        } else {
+          console.log(`Auto-published article: ${article.title}`);
+          results.articles.published++;
+        }
+      }
+    }
 
     // Publish scheduled brands
     const { data: scheduledBrands, error: brandsError } = await supabase
@@ -105,8 +137,8 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    const totalPublished = results.brands.published + results.reviews.published;
-    const totalErrors = results.brands.errors + results.reviews.errors;
+    const totalPublished = results.articles.published + results.brands.published + results.reviews.published;
+    const totalErrors = results.articles.errors + results.brands.errors + results.reviews.errors;
 
     return NextResponse.json({
       success: true,
