@@ -1,0 +1,18 @@
+{
+  "total_studies": 9273,
+  "validated_so_far": 0,
+  "percent_complete": 0,
+  "batches_completed": 0,
+  "phase": "approved",
+  "phase_offset": 0,
+  "running_accuracy": {
+    "approved_correct": 0,
+    "approved_incorrect": 0,
+    "rejected_correct": 0,
+    "rejected_incorrect": 0,
+    "pending_correct": 0,
+    "pending_incorrect": 0
+  },
+  "last_updated": "2026-01-18T00:00:00.000Z",
+  "start_time": "2026-01-18T00:00:00.000Z"
+}

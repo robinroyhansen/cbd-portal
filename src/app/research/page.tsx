@@ -109,24 +109,52 @@ export default async function ResearchPage() {
     // Ignore errors, lastUpdated will remain null
   }
 
-  // Calculate study type statistics for hero cards
-  const studyStats = {
-    total: allResearch.length,
+  // Get accurate stats from study_subject column
+  let studyStats = {
+    total: 0,
     human: 0,
+    reviews: 0,
     preclinical: 0
   };
 
-  // Animal/preclinical keywords
-  const preclinicalPatterns = /\b(mice|mouse|rat|rats|rodent|animal model|in vivo|in vitro|cell culture|cell line|preclinical|murine)\b/i;
+  try {
+    // Get total count
+    const { count: totalCount } = await supabase
+      .from('kb_research_queue')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'approved');
 
-  allResearch.forEach(r => {
-    const text = `${r.title || ''} ${r.abstract || ''}`.toLowerCase();
-    if (preclinicalPatterns.test(text)) {
-      studyStats.preclinical++;
-    } else {
-      studyStats.human++;
-    }
-  });
+    // Get human studies count
+    const { count: humanCount } = await supabase
+      .from('kb_research_queue')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'approved')
+      .eq('study_subject', 'human');
+
+    // Get review count
+    const { count: reviewCount } = await supabase
+      .from('kb_research_queue')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'approved')
+      .eq('study_subject', 'review');
+
+    // Get preclinical count (animal + in_vitro)
+    const { count: animalCount } = await supabase
+      .from('kb_research_queue')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'approved')
+      .in('study_subject', ['animal', 'in_vitro']);
+
+    studyStats = {
+      total: totalCount || allResearch.length,
+      human: humanCount || 0,
+      reviews: reviewCount || 0,
+      preclinical: animalCount || 0
+    };
+  } catch (e) {
+    // Fallback to array length if count queries fail
+    studyStats.total = allResearch.length;
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
@@ -146,34 +174,44 @@ export default async function ResearchPage() {
         )}
       </header>
 
-      {/* Study Statistics - 3 Simple Cards */}
-      <div className="grid grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
+      {/* Study Statistics - 4 Cards */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8 max-w-3xl mx-auto">
         <Link
           href="/research"
-          className="bg-gradient-to-br from-slate-50 to-slate-100 px-4 py-5 rounded-xl text-center border border-slate-200 hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
+          className="bg-gradient-to-br from-slate-50 to-slate-100 px-4 py-4 rounded-xl text-center border border-slate-200 hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
         >
-          <div className="text-3xl font-bold text-slate-700">{studyStats.total}</div>
-          <div className="text-sm text-slate-600 font-medium mt-1">Total Studies</div>
+          <div className="text-2xl md:text-3xl font-bold text-slate-700">{studyStats.total}</div>
+          <div className="text-xs md:text-sm text-slate-600 font-medium mt-1">Total Studies</div>
         </Link>
         <Link
           href="/research?subject=human"
-          className="bg-gradient-to-br from-green-50 to-green-100 px-4 py-5 rounded-xl text-center border border-green-200 hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
+          className="bg-gradient-to-br from-green-50 to-green-100 px-4 py-4 rounded-xl text-center border border-green-200 hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
         >
-          <div className="flex items-center justify-center gap-2">
-            <span className="text-xl">👥</span>
-            <span className="text-3xl font-bold text-green-700">{studyStats.human}</span>
+          <div className="flex items-center justify-center gap-1.5">
+            <span className="text-lg">👥</span>
+            <span className="text-2xl md:text-3xl font-bold text-green-700">{studyStats.human}</span>
           </div>
-          <div className="text-sm text-green-600 font-medium mt-1">Human Studies</div>
+          <div className="text-xs md:text-sm text-green-600 font-medium mt-1">Human Studies</div>
+        </Link>
+        <Link
+          href="/research?subject=review"
+          className="bg-gradient-to-br from-blue-50 to-blue-100 px-4 py-4 rounded-xl text-center border border-blue-200 hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
+        >
+          <div className="flex items-center justify-center gap-1.5">
+            <span className="text-lg">📊</span>
+            <span className="text-2xl md:text-3xl font-bold text-blue-700">{studyStats.reviews}</span>
+          </div>
+          <div className="text-xs md:text-sm text-blue-600 font-medium mt-1">Reviews</div>
         </Link>
         <Link
           href="/research?subject=animal"
-          className="bg-gradient-to-br from-purple-50 to-purple-100 px-4 py-5 rounded-xl text-center border border-purple-200 hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
+          className="bg-gradient-to-br from-purple-50 to-purple-100 px-4 py-4 rounded-xl text-center border border-purple-200 hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
         >
-          <div className="flex items-center justify-center gap-2">
-            <span className="text-xl">🧪</span>
-            <span className="text-3xl font-bold text-purple-700">{studyStats.preclinical}</span>
+          <div className="flex items-center justify-center gap-1.5">
+            <span className="text-lg">🧪</span>
+            <span className="text-2xl md:text-3xl font-bold text-purple-700">{studyStats.preclinical}</span>
           </div>
-          <div className="text-sm text-purple-600 font-medium mt-1">Preclinical</div>
+          <div className="text-xs md:text-sm text-purple-600 font-medium mt-1">Preclinical</div>
         </Link>
       </div>
 
