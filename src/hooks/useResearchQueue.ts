@@ -141,9 +141,9 @@ export function useResearchQueue(
 
       if (updateError) throw updateError;
 
-      setItems(prev => prev.map(item =>
-        item.id === id ? { ...item, status } : item
-      ));
+      // Remove the item from the list (since status changed, it no longer matches current filter)
+      setItems(prev => prev.filter(item => item.id !== id));
+      setTotalCount(prev => Math.max(0, prev - 1));
     } catch (err) {
       console.error('Failed to update item status:', err);
     }
