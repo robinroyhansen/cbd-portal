@@ -3,112 +3,249 @@ import { createClient } from '@supabase/supabase-js';
 
 /**
  * Backfill country data for research studies
- * - Sets country = 'US' for ClinicalTrials.gov studies
- * - Extracts country from text for other studies
  *
- * Run with: curl -X POST https://cbd-portal.vercel.app/api/admin/research/backfill-countries
+ * Strategies:
+ * 1. OpenAlex studies: Fetch from API using DOI
+ * 2. PubMed studies: Fetch affiliations via efetch API
+ * 3. Fallback: Pattern matching on text (title, abstract, authors)
+ *
+ * Query params:
+ * - source: Filter by source (openalex, pubmed, all)
+ * - limit: Max records to process (default: 100)
+ * - dryRun: Preview only, don't update (default: false)
  */
 
-const countryPatterns = [
-  { pattern: /\bClinicalTrials\.gov\b/i, code: 'US' },
-  { pattern: /\b(United States|USA|U\.S\.A?\.?|American)\b/i, code: 'US' },
-  { pattern: /\b(United Kingdom|UK|Britain|British|England|Scotland|Wales)\b/i, code: 'GB' },
-  { pattern: /\b(Germany|German|Deutschland|Berlin|Munich)\b/i, code: 'DE' },
-  { pattern: /\b(Australia|Australian|Sydney|Melbourne)\b/i, code: 'AU' },
-  { pattern: /\b(Canada|Canadian|Toronto|Vancouver)\b/i, code: 'CA' },
-  { pattern: /\b(France|French|Paris)\b/i, code: 'FR' },
-  { pattern: /\b(Italy|Italian|Rome|Milan)\b/i, code: 'IT' },
-  { pattern: /\b(Spain|Spanish|Madrid|Barcelona)\b/i, code: 'ES' },
-  { pattern: /\b(Netherlands|Dutch|Amsterdam)\b/i, code: 'NL' },
-  { pattern: /\b(Switzerland|Swiss|Zurich|Geneva)\b/i, code: 'CH' },
-  { pattern: /\b(Israel|Israeli|Tel Aviv)\b/i, code: 'IL' },
-  { pattern: /\b(Japan|Japanese|Tokyo)\b/i, code: 'JP' },
-  { pattern: /\b(China|Chinese|Beijing|Shanghai)\b/i, code: 'CN' },
-  { pattern: /\b(Brazil|Brazilian|Sao Paulo)\b/i, code: 'BR' },
-  { pattern: /\b(Poland|Polish|Warsaw)\b/i, code: 'PL' },
-  { pattern: /\b(Sweden|Swedish|Stockholm)\b/i, code: 'SE' },
-  { pattern: /\b(Denmark|Danish|Copenhagen)\b/i, code: 'DK' },
-  { pattern: /\b(Norway|Norwegian|Oslo)\b/i, code: 'NO' },
-  { pattern: /\b(Finland|Finnish|Helsinki)\b/i, code: 'FI' },
-  { pattern: /\b(Austria|Austrian|Vienna)\b/i, code: 'AT' },
-  { pattern: /\b(Belgium|Belgian|Brussels)\b/i, code: 'BE' },
-  { pattern: /\b(Ireland|Irish|Dublin)\b/i, code: 'IE' },
-  { pattern: /\b(New Zealand|Kiwi|Auckland)\b/i, code: 'NZ' },
-  { pattern: /\b(South Korea|Korean|Seoul)\b/i, code: 'KR' },
-  { pattern: /\b(India|Indian|Mumbai|Delhi)\b/i, code: 'IN' },
+const COUNTRY_PATTERNS: { pattern: RegExp; code: string }[] = [
+  { pattern: /\b(United States|USA|U\.S\.A?\.?)\b/i, code: 'US' },
+  { pattern: /\b(United Kingdom|Britain|England|Scotland|Wales)\b/i, code: 'GB' },
+  { pattern: /\bUK\b/, code: 'GB' }, // Case sensitive to avoid false positives
+  { pattern: /\b(Germany|Deutschland)\b/i, code: 'DE' },
+  { pattern: /\bGerman\b/i, code: 'DE' },
+  { pattern: /\b(Australia|Australian)\b/i, code: 'AU' },
+  { pattern: /\b(Canada|Canadian)\b/i, code: 'CA' },
+  { pattern: /\b(France|French)\b/i, code: 'FR' },
+  { pattern: /\b(Italy|Italian)\b/i, code: 'IT' },
+  { pattern: /\b(Spain|Spanish)\b/i, code: 'ES' },
+  { pattern: /\b(Netherlands|Dutch)\b/i, code: 'NL' },
+  { pattern: /\b(Switzerland|Swiss)\b/i, code: 'CH' },
+  { pattern: /\b(Israel|Israeli)\b/i, code: 'IL' },
+  { pattern: /\b(Japan|Japanese)\b/i, code: 'JP' },
+  { pattern: /\b(China|Chinese)\b/i, code: 'CN' },
+  { pattern: /\b(Brazil|Brazilian)\b/i, code: 'BR' },
+  { pattern: /\b(Poland|Polish)\b/i, code: 'PL' },
+  { pattern: /\b(Sweden|Swedish)\b/i, code: 'SE' },
+  { pattern: /\b(Denmark|Danish)\b/i, code: 'DK' },
+  { pattern: /\b(Norway|Norwegian)\b/i, code: 'NO' },
+  { pattern: /\b(Finland|Finnish)\b/i, code: 'FI' },
+  { pattern: /\b(Austria|Austrian)\b/i, code: 'AT' },
+  { pattern: /\b(Belgium|Belgian)\b/i, code: 'BE' },
+  { pattern: /\b(Ireland|Irish)\b/i, code: 'IE' },
+  { pattern: /\bNew Zealand\b/i, code: 'NZ' },
+  { pattern: /\b(South Korea|Korean)\b/i, code: 'KR' },
+  { pattern: /\b(India|Indian)\b/i, code: 'IN' },
+  { pattern: /\bPortugal\b/i, code: 'PT' },
+  { pattern: /\bGreece\b/i, code: 'GR' },
+  { pattern: /\b(Czech|Czechia)\b/i, code: 'CZ' },
+  { pattern: /\b(Hungary|Hungarian)\b/i, code: 'HU' },
+  { pattern: /\b(Romania|Romanian)\b/i, code: 'RO' },
+  { pattern: /\b(Turkey|Turkish)\b/i, code: 'TR' },
+  { pattern: /\b(Russia|Russian)\b/i, code: 'RU' },
+  { pattern: /\b(Mexico|Mexican)\b/i, code: 'MX' },
+  { pattern: /\b(Argentina|Argentine)\b/i, code: 'AR' },
+  { pattern: /\b(Colombia|Colombian)\b/i, code: 'CO' },
+  { pattern: /\bSouth Africa\b/i, code: 'ZA' },
 ];
 
-export async function POST() {
+function extractCountryFromText(text: string): string | null {
+  for (const { pattern, code } of COUNTRY_PATTERNS) {
+    if (pattern.test(text)) {
+      return code;
+    }
+  }
+  return null;
+}
+
+async function fetchOpenAlexCountry(doi: string): Promise<string | null> {
   try {
+    const url = `https://api.openalex.org/works/doi:${doi}`;
+    const response = await fetch(url, {
+      headers: {
+        'Accept': 'application/json',
+        'User-Agent': 'CBD-Portal/1.0 (mailto:contact@cbdportal.com)'
+      }
+    });
+
+    if (!response.ok) return null;
+
+    const work = await response.json();
+
+    // Extract country from authorships
+    for (const authorship of (work.authorships || [])) {
+      if (authorship.countries?.length > 0) {
+        return authorship.countries[0];
+      }
+      if (authorship.institutions?.[0]?.country_code) {
+        return authorship.institutions[0].country_code;
+      }
+    }
+
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+async function fetchPubMedAffiliations(pmid: string): Promise<string | null> {
+  try {
+    const url = `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=${pmid}&retmode=xml&rettype=abstract`;
+    const response = await fetch(url);
+
+    if (!response.ok) return null;
+
+    const xml = await response.text();
+
+    // Extract affiliations from XML
+    const affiliationMatches = xml.match(/<Affiliation>([^<]+)<\/Affiliation>/g);
+    if (affiliationMatches) {
+      const affiliationText = affiliationMatches
+        .map(m => m.replace(/<\/?Affiliation>/g, ''))
+        .join(' ');
+      return extractCountryFromText(affiliationText);
+    }
+
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+function extractPmidFromUrl(url: string): string | null {
+  const match = url.match(/pubmed\.ncbi\.nlm\.nih\.gov\/(\d+)/);
+  return match ? match[1] : null;
+}
+
+export async function POST(request: Request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const sourceFilter = searchParams.get('source') || 'all';
+    const limit = parseInt(searchParams.get('limit') || '100', 10);
+    const dryRun = searchParams.get('dryRun') === 'true';
+
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.SUPABASE_SERVICE_ROLE_KEY!
     );
 
-    // Get all approved studies
-    const { data: studies, error: fetchError } = await supabase
+    // Build query for studies missing country
+    let query = supabase
       .from('kb_research_queue')
-      .select('id, title, abstract, source_site, country')
-      .eq('status', 'approved');
+      .select('id, title, abstract, authors, source_site, doi, url, country')
+      .is('country', null)
+      .limit(limit);
+
+    // Filter by source if specified
+    if (sourceFilter === 'openalex') {
+      query = query.eq('source_site', 'OpenAlex');
+    } else if (sourceFilter === 'pubmed') {
+      query = query.in('source_site', ['PubMed', 'PMC']);
+    }
+
+    const { data: studies, error: fetchError } = await query;
 
     if (fetchError) {
       console.error('[Backfill Countries] Fetch error:', fetchError);
       return NextResponse.json({ error: fetchError.message }, { status: 500 });
     }
 
-    const results = { updated: 0, skipped: 0, noMatch: 0 };
-    const updates: { id: string; country: string }[] = [];
+    const results = {
+      processed: 0,
+      updated: 0,
+      apiMatches: 0,
+      textMatches: 0,
+      noMatch: 0,
+      errors: 0,
+      updates: [] as { id: string; title: string; country: string; source: string }[]
+    };
 
     for (const study of studies || []) {
-      // Skip if already has country
-      if (study.country) {
-        results.skipped++;
-        continue;
+      results.processed++;
+      let detectedCountry: string | null = null;
+      let matchSource = '';
+
+      // Strategy 1: OpenAlex API for studies with DOI
+      if (study.doi && (study.source_site === 'OpenAlex' || sourceFilter === 'all')) {
+        detectedCountry = await fetchOpenAlexCountry(study.doi);
+        if (detectedCountry) {
+          matchSource = 'openalex-api';
+          results.apiMatches++;
+        }
+        // Rate limit
+        await new Promise(resolve => setTimeout(resolve, 100));
       }
 
-      let detectedCountry: string | null = null;
-
-      // Check source first (ClinicalTrials.gov = US)
-      if (study.source_site?.toLowerCase().includes('clinicaltrials')) {
-        detectedCountry = 'US';
-      } else {
-        // Check title + abstract for country patterns
-        const text = `${study.title || ''} ${study.abstract || ''} ${study.source_site || ''}`;
-
-        for (const { pattern, code } of countryPatterns) {
-          if (pattern.test(text)) {
-            detectedCountry = code;
-            break;
+      // Strategy 2: PubMed efetch for PubMed/PMC studies
+      if (!detectedCountry && (study.source_site === 'PubMed' || study.source_site === 'PMC')) {
+        const pmid = extractPmidFromUrl(study.url);
+        if (pmid) {
+          detectedCountry = await fetchPubMedAffiliations(pmid);
+          if (detectedCountry) {
+            matchSource = 'pubmed-api';
+            results.apiMatches++;
           }
+          // Rate limit - NCBI requires max 3 req/sec without API key
+          await new Promise(resolve => setTimeout(resolve, 400));
+        }
+      }
+
+      // Strategy 3: Text pattern matching fallback
+      if (!detectedCountry) {
+        const text = `${study.authors || ''} ${study.title || ''} ${study.abstract || ''}`;
+        detectedCountry = extractCountryFromText(text);
+        if (detectedCountry) {
+          matchSource = 'text-pattern';
+          results.textMatches++;
         }
       }
 
       if (detectedCountry) {
-        updates.push({ id: study.id, country: detectedCountry });
+        results.updates.push({
+          id: study.id,
+          title: study.title?.substring(0, 60) || 'Unknown',
+          country: detectedCountry,
+          source: matchSource
+        });
         results.updated++;
+
+        if (!dryRun) {
+          const { error: updateError } = await supabase
+            .from('kb_research_queue')
+            .update({ country: detectedCountry })
+            .eq('id', study.id);
+
+          if (updateError) {
+            console.error(`[Backfill] Update error for ${study.id}:`, updateError);
+            results.errors++;
+          }
+        }
       } else {
         results.noMatch++;
       }
     }
 
-    // Batch update
-    for (const { id, country } of updates) {
-      const { error: updateError } = await supabase
-        .from('kb_research_queue')
-        .update({ country })
-        .eq('id', id);
-
-      if (updateError) {
-        console.error(`[Backfill Countries] Update error for ${id}:`, updateError);
-      }
-    }
-
-    console.log('[Backfill Countries] Complete:', results);
+    console.log('[Backfill Countries] Complete:', {
+      processed: results.processed,
+      updated: results.updated,
+      apiMatches: results.apiMatches,
+      textMatches: results.textMatches,
+      noMatch: results.noMatch,
+      dryRun
+    });
 
     return NextResponse.json({
       success: true,
-      ...results,
-      total: studies?.length || 0,
+      dryRun,
+      sourceFilter,
+      ...results
     });
 
   } catch (error) {
@@ -123,6 +260,16 @@ export async function POST() {
 export async function GET() {
   return NextResponse.json({
     message: 'POST to this endpoint to backfill country data for research studies',
-    description: 'Sets country = US for ClinicalTrials.gov studies, extracts country from text for others',
+    description: 'Fetches country from OpenAlex API (via DOI), PubMed efetch (via PMID), or text pattern matching',
+    usage: {
+      dryRun: 'GET ?dryRun=true - Preview matches without updating',
+      source: 'GET ?source=openalex|pubmed|all - Filter by source',
+      limit: 'GET ?limit=100 - Max records to process'
+    },
+    examples: [
+      'POST ?dryRun=true&source=openalex&limit=10',
+      'POST ?source=pubmed&limit=50',
+      'POST ?limit=200'
+    ]
   });
 }

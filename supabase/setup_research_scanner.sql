@@ -10,10 +10,12 @@
 CREATE TABLE IF NOT EXISTS kb_research_queue (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   title TEXT NOT NULL,
+  title_english TEXT,
   authors TEXT,
   publication TEXT,
   year INT,
   abstract TEXT,
+  abstract_english TEXT,
   url TEXT NOT NULL UNIQUE,
   doi TEXT,
   source_site TEXT,
@@ -38,6 +40,7 @@ CREATE INDEX IF NOT EXISTS idx_research_queue_score ON kb_research_queue(relevan
 CREATE INDEX IF NOT EXISTS idx_research_queue_topics ON kb_research_queue USING gin(relevant_topics);
 CREATE INDEX IF NOT EXISTS idx_research_queue_doi ON kb_research_queue(doi);
 CREATE INDEX IF NOT EXISTS idx_research_queue_url ON kb_research_queue(url);
+CREATE INDEX IF NOT EXISTS idx_research_queue_language ON kb_research_queue(detected_language);
 
 -- Enable RLS
 ALTER TABLE kb_research_queue ENABLE ROW LEVEL SECURITY;

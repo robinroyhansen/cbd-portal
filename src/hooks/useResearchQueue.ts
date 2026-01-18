@@ -7,10 +7,12 @@ import { createClient } from '@/lib/supabase/client';
 interface ResearchItemDB {
   id: string;
   title: string;
+  title_english: string | null;
   authors: string | null;
   publication: string | null;
   year: number | null;
   abstract: string | null;
+  abstract_english: string | null;
   url: string;
   doi: string | null;
   source_site: string;
@@ -29,10 +31,12 @@ interface ResearchItemDB {
 export interface ResearchItem {
   id: string;
   title: string;
+  titleEnglish: string | null;
   authors: string | null;
   publication: string | null;
   year: number | null;
   abstract: string | null;
+  abstractEnglish: string | null;
   url: string;
   doi: string | null;
   sourceSite: string;
@@ -51,10 +55,12 @@ function transformItem(item: ResearchItemDB): ResearchItem {
   return {
     id: item.id,
     title: item.title,
+    titleEnglish: item.title_english,
     authors: item.authors,
     publication: item.publication,
     year: item.year,
     abstract: item.abstract,
+    abstractEnglish: item.abstract_english,
     url: item.url,
     doi: item.doi,
     sourceSite: item.source_site,

@@ -95,10 +95,12 @@ async function isBlacklisted(supabase: SupabaseClient, study: ResearchItem): Pro
 
 interface ResearchItem {
   title: string;
+  title_english?: string;
   authors?: string;
   publication?: string;
   year?: number;
   abstract?: string;
+  abstract_english?: string;
   url: string;
   doi?: string;
   source_site: string;
@@ -782,6 +784,37 @@ function assignCategories(study: ResearchItem): string[] {
   return [...new Set(categories)];
 }
 
+// Helper to parse PubMed XML response for abstract and language info
+function parsePubMedXml(xmlText: string, ids: string[]): Map<string, { abstract?: string; vernacularTitle?: string; language?: string }> {
+  const result = new Map<string, { abstract?: string; vernacularTitle?: string; language?: string }>();
+
+  // Simple XML parsing without external dependencies
+  for (const id of ids) {
+    const articlePattern = new RegExp(`<PubmedArticle>.*?<PMID[^>]*>${id}</PMID>.*?</PubmedArticle>`, 's');
+    const articleMatch = xmlText.match(articlePattern);
+
+    if (articleMatch) {
+      const articleXml = articleMatch[0];
+
+      // Extract abstract - look for AbstractText tags
+      const abstractMatch = articleXml.match(/<Abstract>[\s\S]*?<AbstractText[^>]*>([\s\S]*?)<\/AbstractText>/);
+      const abstract = abstractMatch ? abstractMatch[1].replace(/<[^>]+>/g, '').trim() : undefined;
+
+      // Extract VernacularTitle (original non-English title)
+      const vernacularMatch = articleXml.match(/<VernacularTitle>([\s\S]*?)<\/VernacularTitle>/);
+      const vernacularTitle = vernacularMatch ? vernacularMatch[1].replace(/<[^>]+>/g, '').trim() : undefined;
+
+      // Extract language
+      const languageMatch = articleXml.match(/<Language>(\w+)<\/Language>/);
+      const language = languageMatch ? languageMatch[1].toLowerCase() : undefined;
+
+      result.set(id, { abstract, vernacularTitle, language });
+    }
+  }
+
+  return result;
+}
+
 export async function scanPubMed(scanDepth: string = 'standard', customKeywords: string[] = []): Promise<ResearchItem[]> {
   const results: ResearchItem[] = [];
   const dateFilter = getDateRangeFilter(scanDepth);
@@ -815,9 +848,11 @@ export async function scanPubMed(scanDepth: string = 'standard', customKeywords:
       const searchData = await searchResponse.json();
 
       if (searchData.esearchresult?.idlist?.length > 0) {
-        const ids = searchData.esearchresult.idlist.join(',');
-        console.log(`[PubMed] Found ${searchData.esearchresult.idlist.length} results for "${term}"`);
+        const idList = searchData.esearchresult.idlist;
+        const ids = idList.join(',');
+        console.log(`[PubMed] Found ${idList.length} results for "${term}"`);
 
+        // Fetch summary data
         const summaryParams = new URLSearchParams({
           db: 'pubmed',
           id: ids,
@@ -835,14 +870,45 @@ export async function scanPubMed(scanDepth: string = 'standard', customKeywords:
 
         const summaryData = await summaryResponse.json();
 
-        for (const id of searchData.esearchresult.idlist) {
+        // Fetch detailed data with abstracts using efetch (XML format)
+        const fetchParams = new URLSearchParams({
+          db: 'pubmed',
+          id: ids,
+          retmode: 'xml',
+          rettype: 'abstract'
+        });
+
+        const fetchResponse = await fetch(
+          `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?${fetchParams}`
+        );
+
+        let detailedData = new Map<string, { abstract?: string; vernacularTitle?: string; language?: string }>();
+        if (fetchResponse.ok) {
+          const xmlText = await fetchResponse.text();
+          detailedData = parsePubMedXml(xmlText, idList);
+        }
+
+        for (const id of idList) {
           const article = summaryData.result?.[id];
           if (article && article.title) {
+            const details = detailedData.get(id);
+            const language = details?.language;
+            const vernacularTitle = details?.vernacularTitle;
+            const abstract = details?.abstract;
+
+            // Determine if we have an English translation scenario
+            // If the article has a vernacular title, the main title from API is usually English
+            const isNonEnglish = language && language !== 'eng' && language !== 'en';
+
             results.push({
-              title: article.title,
+              title: vernacularTitle || article.title, // Use vernacular title as main if available
+              title_english: vernacularTitle ? article.title : undefined, // Original API title is English
               authors: article.authors?.map((a: any) => a.name).join(', '),
               publication: article.source,
               year: parseInt(article.pubdate?.split(' ')[0]) || new Date().getFullYear(),
+              abstract: abstract,
+              // PubMed abstracts are almost always in English, even for non-English articles
+              abstract_english: isNonEnglish && abstract ? abstract : undefined,
               url: `https://pubmed.ncbi.nlm.nih.gov/${id}/`,
               doi: article.elocationid?.replace('doi: ', ''),
               source_site: 'PubMed',
@@ -1066,12 +1132,22 @@ export async function scanEuropePMC(scanDepth: string = 'standard', customKeywor
 
       for (const article of articles) {
         if (article.title) {
+          // Europe PMC provides language info
+          const language = article.language?.toLowerCase();
+          const isNonEnglish = language && language !== 'eng' && language !== 'en' && language !== 'english';
+
+          // Europe PMC abstracts are typically provided in English even for non-English articles
           results.push({
             title: article.title,
+            // Europe PMC doesn't typically have separate English translations in API
+            // but abstracts are often in English
+            title_english: undefined,
             authors: article.authorString,
             publication: article.journalTitle || 'Europe PMC',
             year: parseInt(article.pubYear) || new Date().getFullYear(),
             abstract: article.abstractText,
+            // Mark abstract as English translation if article is non-English but has abstract
+            abstract_english: isNonEnglish && article.abstractText ? article.abstractText : undefined,
             url: article.doi ? `https://doi.org/${article.doi}` : `https://europepmc.org/article/${article.source}/${article.id}`,
             doi: article.doi,
             source_site: 'Europe PMC',
@@ -1327,6 +1403,18 @@ export async function scanOpenAlex(scanDepth: string = 'standard', customKeyword
       for (const work of works) {
         if (work.title) {
           const doi = work.doi?.replace('https://doi.org/', '');
+          // Extract country from authorships - try countries array first, then institutions
+          let country: string | undefined;
+          for (const authorship of (work.authorships || [])) {
+            if (authorship.countries?.length > 0) {
+              country = authorship.countries[0];
+              break;
+            }
+            if (authorship.institutions?.[0]?.country_code) {
+              country = authorship.institutions[0].country_code;
+              break;
+            }
+          }
           results.push({
             title: work.title,
             authors: work.authorships?.map((a: any) => a.author?.display_name).filter(Boolean).join(', '),
@@ -1336,7 +1424,8 @@ export async function scanOpenAlex(scanDepth: string = 'standard', customKeyword
             url: work.doi || work.id,
             doi: doi,
             source_site: 'OpenAlex',
-            search_term_matched: term
+            search_term_matched: term,
+            country: country
           });
         }
       }
@@ -1840,10 +1929,12 @@ async function saveSourceResults(
       .from('kb_research_queue')
       .insert({
         title: study.title,
+        title_english: study.title_english,
         authors: study.authors,
         publication: study.publication,
         year: study.year,
         abstract: study.abstract,
+        abstract_english: study.abstract_english,
         url: study.url,
         doi: study.doi,
         source_site: study.source_site,

@@ -82,10 +82,22 @@ function ResearchDetailModal({
         {/* Content */}
         <div className="flex-1 overflow-y-auto p-6">
           {/* Title and Meta */}
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">
+            {item.titleEnglish || item.title}
+          </h3>
+          {item.titleEnglish && item.title !== item.titleEnglish && (
+            <p className="text-sm text-gray-500 mb-3 italic">
+              Original: {item.title}
+            </p>
+          )}
 
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">{item.sourceSite}</span>
+            {item.detectedLanguage && item.detectedLanguage !== 'en' && (
+              <span className="px-2 py-1 text-xs bg-amber-100 text-amber-800 rounded-full">
+                Language: {item.detectedLanguage.toUpperCase()}
+              </span>
+            )}
             {item.year && <span className="px-2 py-1 text-xs bg-gray-100 text-gray-800 rounded-full">{item.year}</span>}
             {item.studySubject && (
               <span className={`px-2 py-1 text-xs rounded-full ${
@@ -178,11 +190,16 @@ function ResearchDetailModal({
           )}
 
           {/* Abstract */}
-          {item.abstract && (
+          {(item.abstract || item.abstractEnglish) && (
             <div className="mb-4">
-              <h4 className="font-semibold text-gray-900 mb-2">Abstract</h4>
+              <h4 className="font-semibold text-gray-900 mb-2">
+                Abstract
+                {item.abstractEnglish && item.detectedLanguage && item.detectedLanguage !== 'en' && (
+                  <span className="text-xs text-blue-600 font-normal ml-2">(English translation)</span>
+                )}
+              </h4>
               <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">
-                {item.abstract}
+                {item.abstractEnglish || item.abstract}
               </p>
             </div>
           )}
@@ -389,7 +406,7 @@ export default function ResearchQueuePage() {
       minRelevanceScore: minRelevanceScore || undefined,
       includeAnimalStudies
     },
-    { limit: 50, offset: 0 }
+    { limit: 100, offset: 0 }
   );
 
   const { jobs: activeJobs } = useActiveScanJobs();
@@ -952,7 +969,10 @@ export default function ResearchQueuePage() {
 
                         {/* Title */}
                         <h3 className="font-semibold text-gray-900 mb-1 line-clamp-2">
-                          {item.title}
+                          {item.titleEnglish || item.title}
+                          {item.titleEnglish && item.detectedLanguage && item.detectedLanguage !== 'en' && (
+                            <span className="text-xs text-blue-600 font-normal ml-2">(translated)</span>
+                          )}
                         </h3>
 
                         {/* Authors & Publication */}
@@ -961,6 +981,22 @@ export default function ResearchQueuePage() {
                           {item.authors && item.publication && <span> • </span>}
                           {item.publication && <span>{item.publication}</span>}
                         </p>
+
+                        {/* Abstract/Summary */}
+                        {item.abstract && (
+                          <p className="text-sm text-gray-600 line-clamp-2 mb-2 leading-relaxed">
+                            {item.abstractEnglish ? (
+                              <>
+                                {item.abstractEnglish}
+                                {item.detectedLanguage && item.detectedLanguage !== 'en' && (
+                                  <span className="text-xs text-blue-600 ml-1">(translated from {item.detectedLanguage})</span>
+                                )}
+                              </>
+                            ) : (
+                              item.abstract
+                            )}
+                          </p>
+                        )}
 
                         {/* Topics */}
                         {item.relevantTopics && item.relevantTopics.length > 0 && (
