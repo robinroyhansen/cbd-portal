@@ -1,18 +1,32 @@
 {
   "total_studies": 9273,
-  "validated_so_far": 0,
-  "percent_complete": 0,
-  "batches_completed": 0,
+  "validated_so_far": 50,
+  "percent_complete": 0.54,
+  "batches_completed": 2,
   "phase": "approved",
-  "phase_offset": 0,
+  "phase_offset": 50,
   "running_accuracy": {
-    "approved_correct": 0,
-    "approved_incorrect": 0,
+    "approved_correct": 43,
+    "approved_incorrect": 7,
     "rejected_correct": 0,
     "rejected_incorrect": 0,
     "pending_correct": 0,
     "pending_incorrect": 0
   },
-  "last_updated": "2026-01-18T00:00:00.000Z",
-  "start_time": "2026-01-18T00:00:00.000Z"
+  "last_updated": "2026-01-18T12:35:00.000Z",
+  "start_time": "2026-01-18T12:00:00.000Z",
+  "incorrect_approved_ids": [
+    "003f5780-3d8e-4dfe-84c5-d1b87e51b5f9",
+    "006b72f3-99e0-4bbc-ba63-e4afaaa1a7c9",
+    "00af1e99-3eb6-4d44-8d64-b1862a48263c",
+    "01f24607-872a-4bed-9edf-ba008e084bbc",
+    "02029dad-3501-440c-90f0-fc40ba3cf99f",
+    "0220271b-0418-4c49-999d-a541bd0b7fae",
+    "02c34362-37e8-4c4c-9a2f-3ee955ac3135"
+  ],
+  "error_categories": {
+    "no_cannabinoid_focus": 4,
+    "prevalence_patterns_study": 2,
+    "not_cannabinoid_research": 1
+  }
 }

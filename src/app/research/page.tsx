@@ -48,11 +48,13 @@ export default async function ResearchPage() {
 
   try {
     // Query approved research from kb_research_queue
+    // Note: Supabase defaults to 1000 row limit, so we need to specify a higher limit
     const { data: researchData, error: researchError } = await supabase
       .from('kb_research_queue')
       .select('*')
       .eq('status', 'approved')
-      .order('year', { ascending: false });
+      .order('year', { ascending: false })
+      .limit(10000);
 
     if (researchError) {
       console.error('Error fetching research:', researchError);

@@ -1,0 +1,257 @@
+{
+  "batch_number": 2,
+  "studies_validated": 30,
+  "timestamp": "2026-01-18T12:30:00.000Z",
+  "results": [
+    {
+      "id": "0163f62c-dcf5-4adb-836a-92715f309bca",
+      "title": "Cannabis, schizophrenia genetic risk, and psychotic experiences",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Health research - cannabis and psychosis risk"
+    },
+    {
+      "id": "018dcda7-da54-4784-b49b-80b5edd5a764",
+      "title": "Impact of cannabidiol on brain glucose metabolism...previously exposed to cocaine",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "CBD effects on brain in addiction context"
+    },
+    {
+      "id": "019f9237-5c02-455b-926e-c9ad31a1cd97",
+      "title": "A pilot safety, tolerability and pharmacokinetic study of...cannabidiol-dominant anti-inflammatory formulation",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Clinical trial - CBD safety and PK"
+    },
+    {
+      "id": "01ab9bbe-fe43-4a54-8144-66e8e102b0ad",
+      "title": "Vasorelaxant effects of oleamide...novel cannabinoid receptor",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Mechanism study - cannabinoid receptor effects on blood vessels"
+    },
+    {
+      "id": "01b38701-d7cb-4150-b7d0-e5d5fb72a3fe",
+      "title": "Substance Misuse To Psychiatric Disorders-Repetitive Transcranial Magnetic Stimulation to People With Cannabis Use Disorder",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Treatment study for cannabis use disorder"
+    },
+    {
+      "id": "01c26e81-92ff-4cd8-bc99-82784363f090",
+      "title": "Cannabidiol and Alzheimer Disease: A Comprehensive Review",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Review - CBD for Alzheimer's"
+    },
+    {
+      "id": "01cfdb57-6c55-4e36-bc55-df62ac646169",
+      "title": "Valorization of Thyme Combined with Phytocannabinoids as Anti-Inflammatory Agents for Skin",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Cannabinoids for skin inflammation"
+    },
+    {
+      "id": "01d4a756-c124-4b9e-b641-3ea45b30f38b",
+      "title": "Hippocampal Cannabinoid Transmission Modulates Dopamine Neuron Activity",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Mechanism research - cannabinoid and brain function"
+    },
+    {
+      "id": "01f24607-872a-4bed-9edf-ba008e084bbc",
+      "title": "A comparison of the latent class structure of cannabis problems among adult men and women",
+      "current_status": "approved",
+      "correct_status": "rejected",
+      "is_correct": false,
+      "notes": "Prevalence/patterns study - classifying cannabis abuse patterns, not health research"
+    },
+    {
+      "id": "02029dad-3501-440c-90f0-fc40ba3cf99f",
+      "title": "Association between opioid prescription profiles and adverse health outcomes...",
+      "current_status": "approved",
+      "correct_status": "rejected",
+      "is_correct": false,
+      "notes": "About opioids and sleep - no cannabinoid research"
+    },
+    {
+      "id": "02160deb-102a-4b74-9b34-530e36432a21",
+      "title": "Targeting the Endocannabinoid System: CB2 Activation Modulates Outcomes in Influenza",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "CB2 receptor and infection outcomes"
+    },
+    {
+      "id": "0220271b-0418-4c49-999d-a541bd0b7fae",
+      "title": "Management of isopropyl nitrate-induced methaemoglobinaemia in pregnancy",
+      "current_status": "approved",
+      "correct_status": "rejected",
+      "is_correct": false,
+      "notes": "No cannabinoid content - about chemical poisoning in pregnancy"
+    },
+    {
+      "id": "0220997d-99e9-4de1-bd4a-3e739d732e47",
+      "title": "Cannabinoids: The Lows and the Highs of Chemotherapy-Induced Nausea and Vomiting",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Review - cannabinoids for chemo nausea"
+    },
+    {
+      "id": "02254e98-948a-40ce-8e01-2e689a0b2f8f",
+      "title": "Two-center experience of cannabidiol use in adults with Dravet syndrome",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "CBD for epilepsy"
+    },
+    {
+      "id": "02508e95-23fb-43a4-8f07-93735cf4dc8c",
+      "title": "Oral Cannabidiol Treatment in Two Postmenopausal Women with Osteopenia",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Clinical case series - CBD and bone health"
+    },
+    {
+      "id": "02519d90-b7fa-4798-9413-aa1e5e0de7d2",
+      "title": "Potential of CBD to overcome extensively drug-resistant Acinetobacter baumannii",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "CBD as antimicrobial"
+    },
+    {
+      "id": "026a2ca3-8403-4880-9cf2-2ab595a96e6e",
+      "title": "The cannabinoid receptor gene (CNR1) is not affected in German i.v. drug users",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Genetics of cannabinoid receptor and addiction"
+    },
+    {
+      "id": "02746b1e-e5cd-4671-815b-32c404bbbdbc",
+      "title": "CB1 Cannabinoid Receptor Ligands",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Review - CB1 ligands for therapeutic applications"
+    },
+    {
+      "id": "0287fe44-1353-4590-b8b4-70d2b9fe0730",
+      "title": "Perioperative cannabis use on postoperative pain in breast reconstruction",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Cannabis and pain outcomes"
+    },
+    {
+      "id": "02a40247-05ea-4b33-bfa9-59df6e6ddd1f",
+      "title": "CB2R-cAMP-Epac1 pathway...in atopic dermatitis",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "CB2 mechanism in skin disease"
+    },
+    {
+      "id": "02c09c84-6a51-48f5-8cbb-3c6b79d430ed",
+      "title": "Le Rêve 3.0...CBD...Influences Sleep Physiology",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "RCT - CBD for insomnia"
+    },
+    {
+      "id": "02c2e5f2-3a47-476f-879e-a9a4c5391ca6",
+      "title": "Synthesis of (+)-cannabidiol and evaluation of its anxiolytic effect",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Synthesis and pharmacological testing for anxiety"
+    },
+    {
+      "id": "02c34362-37e8-4c4c-9a2f-3ee955ac3135",
+      "title": "Alpha-Synuclein Neurobiology in Parkinson's Disease",
+      "current_status": "approved",
+      "correct_status": "rejected",
+      "is_correct": false,
+      "notes": "No cannabinoid content - general Parkinson's alpha-synuclein research"
+    },
+    {
+      "id": "02ed22ca-ddc1-4f62-b584-2253131c3c44",
+      "title": "Unleashing the therapeutic role of cannabidiol in dentistry",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Review - CBD for oral health"
+    },
+    {
+      "id": "02fa38a6-d2dd-4e9b-acd1-3845fc8d63e1",
+      "title": "Cannabidiol as adjunctive treatment of seizures...LGS and Dravet syndrome",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Review - CBD for epilepsy"
+    },
+    {
+      "id": "0300838f-4ab5-46e6-af72-e680a814bdea",
+      "title": "Use of Biopsies...CB1R on Adipocyte Glucolipid Metabolism",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "CB1 receptor and metabolism in obesity"
+    },
+    {
+      "id": "03038ebf-c155-49c2-b701-1afe70adbcdb",
+      "title": "The cannabinoid CB1 antagonists...suppress food intake",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "CB1 antagonists as appetite suppressants"
+    },
+    {
+      "id": "0305a83d-7bbf-43e3-9329-034165e3e003",
+      "title": "...GW842166X, a Non-Cannabinoid CB2 Receptor Agonist, on Pain",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "ECS-targeting drug for pain"
+    },
+    {
+      "id": "030faabe-06d9-4d73-b0c8-c04412eaaa6a",
+      "title": "Assessing Cannabidiol as a Therapeutic Agent for...Alzheimer's Disease",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "CBD for Alzheimer's"
+    },
+    {
+      "id": "031be6cd-8c6c-47f8-b86f-e83b492a55e1",
+      "title": "Effects of Repeated Cannabis Administration on Experimental Pain and Abuse Liability",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Clinical trial - cannabis and pain"
+    }
+  ],
+  "batch_summary": {
+    "correct": 26,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "01f24607-872a-4bed-9edf-ba008e084bbc",
+      "02029dad-3501-440c-90f0-fc40ba3cf99f",
+      "0220271b-0418-4c49-999d-a541bd0b7fae",
+      "02c34362-37e8-4c4c-9a2f-3ee955ac3135"
+    ]
+  }
+}

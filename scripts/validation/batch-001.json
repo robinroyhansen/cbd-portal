@@ -1,0 +1,176 @@
+{
+  "batch_number": 1,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T12:00:00.000Z",
+  "results": [
+    {
+      "id": "00256cb9-a728-48c0-8c9b-000452a8b073",
+      "title": "Cannabinoids-Promising Antimicrobial Drugs or Intoxicants with Benefits?",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Health research - cannabinoids' antimicrobial activity against MRSA"
+    },
+    {
+      "id": "003f5780-3d8e-4dfe-84c5-d1b87e51b5f9",
+      "title": "Antipsychotic drugs at 75: the past, present, and future of psychosis management",
+      "current_status": "approved",
+      "correct_status": "rejected",
+      "is_correct": false,
+      "notes": "No abstract. Title about antipsychotic drugs generally - no clear cannabinoid focus"
+    },
+    {
+      "id": "00565ba1-0378-4313-b105-a75bbb83e652",
+      "title": "Cannabidiol Administration Prevents Hypoxia-Ischemia-Induced Hypomyelination in Newborn Rats",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Mechanistic study - CBD neuroprotection in newborn rats"
+    },
+    {
+      "id": "005bd375-1365-426f-91f9-fe01571cedd6",
+      "title": "Quantification of Endo- and Phytocannabinoids With Comparison to Pain Medication Requirements",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Health research - cannabis effects on surgical outcomes and pain"
+    },
+    {
+      "id": "006b72f3-99e0-4bbc-ba63-e4afaaa1a7c9",
+      "title": "Nutritional Impact on Breast Cancer in Menopausal and Post-Menopausal Patients",
+      "current_status": "approved",
+      "correct_status": "rejected",
+      "is_correct": false,
+      "notes": "No abstract. Title about nutrition and breast cancer - no cannabinoid focus"
+    },
+    {
+      "id": "00724dc2-5dfd-4288-9278-8cce262bc94e",
+      "title": "Identification of Novel Cannabinoid CB1 Receptor Antagonists by Using Virtual Screening",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Drug development research - CB1 antagonists for obesity treatment"
+    },
+    {
+      "id": "00745f1e-5c95-471b-823f-4c28081b365b",
+      "title": "Cannabinoid CB1 Receptors Are Expressed in a Subset of Dopamine Neurons",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Mechanism research - CB1 receptors in dopamine neurons, anxiety effects"
+    },
+    {
+      "id": "0095ec9b-a326-48a0-8a5b-4c0401240c23",
+      "title": "The motivation for exercise over palatable food is dictated by cannabinoid type-1 receptors",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Mechanism research - endocannabinoid system and behavior"
+    },
+    {
+      "id": "00a70c1f-f359-4028-9a44-7859df66ab9d",
+      "title": "The Role of Cannabinoid System on Immune Modulation: Therapeutic Implications on CNS Inflammation",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Review - cannabinoids for CNS inflammation, multiple sclerosis"
+    },
+    {
+      "id": "00acf3bc-fbce-48d3-ac32-157ad2b146ae",
+      "title": "The dose-dependent effect of a stabilized cannabidiol nanoemulsion on ocular surface inflammation",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Therapeutic research - CBD for eye inflammation"
+    },
+    {
+      "id": "00af1e99-3eb6-4d44-8d64-b1862a48263c",
+      "title": "Latent Classes of Substance Use in Young Adult Survivors of Child Maltreatment",
+      "current_status": "approved",
+      "correct_status": "rejected",
+      "is_correct": false,
+      "notes": "Prevalence/patterns study - substance use epidemiology, cannabis only mentioned as one substance"
+    },
+    {
+      "id": "00b80601-e397-4855-a0b7-dc99903a4235",
+      "title": "Parasitic pharmacology: A plausible mechanism of action for cannabidiol",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Pharmacology - CBD mechanism for epilepsy, drug interactions"
+    },
+    {
+      "id": "00caadd5-bbfb-456d-9966-441ddc24db3d",
+      "title": "Cannabinoids: A new hope for breast cancer therapy?",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Cancer research - cannabinoids for breast cancer"
+    },
+    {
+      "id": "00e04122-f482-4d73-b4e1-30a6f58195f6",
+      "title": "Cannabidiol attenuates lipid metabolism and induces CB1 receptor-mediated ER stress in ovarian cancer",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Cancer mechanism research - CBD effects on ovarian cancer cells"
+    },
+    {
+      "id": "00e15eae-cf21-4bc2-bfb4-acee9250a2f6",
+      "title": "Preliminary Investigation of the Safety of Escalating Cannabinoid Doses in Healthy Dogs",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Safety research - cannabinoid dose escalation (veterinary but translational value)"
+    },
+    {
+      "id": "00f43310-2050-46b1-a3fb-8edd22761a4d",
+      "title": "Acute Effects of Cannabidiol on Maximal Aerobic Capacity and Time to Exhaustion",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Clinical trial - CBD effects on exercise performance in humans"
+    },
+    {
+      "id": "0105ee23-8f69-448d-8312-bf8f913db126",
+      "title": "A systematic review of adverse events arising from the use of synthetic cannabinoids",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Safety review - adverse events from synthetic cannabinoids"
+    },
+    {
+      "id": "012d7c2f-e36c-42bd-bb5c-2f3dfd2cf55d",
+      "title": "The Cannabinoid Receptor CB1 Modulates the Signaling Properties of GPR55",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Mechanism research - CB1 and GPR55 receptor interactions"
+    },
+    {
+      "id": "013b085a-94a0-4452-ab25-905811d92804",
+      "title": "CB2 cannabinoid receptor activation promotes colon cancer progression via AKT/GSK3β",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Cancer mechanism research - CB2 effects on colon cancer"
+    },
+    {
+      "id": "015eb8bc-878d-4428-a6dc-51aaebbbb722",
+      "title": "The Polypharmacological Effects of Cannabidiol",
+      "current_status": "approved",
+      "correct_status": "approved",
+      "is_correct": true,
+      "notes": "Review - CBD mechanisms for epilepsy, pain, neuropsychiatric disorders"
+    }
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "003f5780-3d8e-4dfe-84c5-d1b87e51b5f9",
+      "006b72f3-99e0-4bbc-ba63-e4afaaa1a7c9",
+      "00af1e99-3eb6-4d44-8d64-b1862a48263c"
+    ]
+  }
+}
