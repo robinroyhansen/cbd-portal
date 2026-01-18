@@ -361,6 +361,15 @@ export default function ResearchQueuePage() {
   const [bulkSelected, setBulkSelected] = useState<string[]>([]);
   const [showNewItemNotification, setShowNewItemNotification] = useState<string | null>(null);
   const [selectedItem, setSelectedItem] = useState<ResearchItem | null>(null);
+  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+
+  // Auto-dismiss toast after 3 seconds
+  useEffect(() => {
+    if (toast) {
+      const timer = setTimeout(() => setToast(null), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [toast]);
 
   // Real-time data hooks
   const {
@@ -418,17 +427,17 @@ export default function ResearchQueuePage() {
         const result = await response.json();
 
         if (result.addedTo && result.addedTo.length > 0) {
-          alert(`✅ Approved and added as citation to:\n${result.addedTo.join('\n')}`);
+          setToast({ message: `Approved + added to ${result.addedTo.length} article(s)`, type: 'success' });
         } else {
-          alert('✅ Approved (no matching articles found for automatic citation)');
+          setToast({ message: 'Approved', type: 'success' });
         }
       } catch (error) {
         console.error('Failed to integrate research:', error);
-        alert('✅ Approved, but failed to auto-add citations. Please check manually.');
+        setToast({ message: 'Approved (citation integration failed)', type: 'success' });
       }
     } catch (error) {
       console.error('Error approving research:', error);
-      alert('Failed to approve research. Please try again.');
+      setToast({ message: 'Failed to approve', type: 'error' });
     }
   };
 
@@ -443,9 +452,10 @@ export default function ResearchQueuePage() {
       }
       await updateItemStatus(id, 'rejected');
       setSelectedItem(null);
+      setToast({ message: 'Rejected', type: 'success' });
     } catch (error) {
       console.error('Error rejecting research:', error);
-      alert('Failed to reject research. Please try again.');
+      setToast({ message: 'Failed to reject', type: 'error' });
     }
   };
 
@@ -513,6 +523,7 @@ export default function ResearchQueuePage() {
     if (bulkSelected.length === 0) return;
     if (!confirm(`Approve ${bulkSelected.length} research items?`)) return;
 
+    const count = bulkSelected.length;
     for (const id of bulkSelected) {
       try {
         await updateItemStatus(id, 'approved');
@@ -521,6 +532,7 @@ export default function ResearchQueuePage() {
       }
     }
     setBulkSelected([]);
+    setToast({ message: `Approved ${count} items`, type: 'success' });
   };
 
   const handleBulkReject = async () => {
@@ -528,6 +540,7 @@ export default function ResearchQueuePage() {
     const reason = prompt(`Rejection reason for ${bulkSelected.length} items:`);
     if (reason === null) return;
 
+    const count = bulkSelected.length;
     for (const id of bulkSelected) {
       try {
         await rejectResearch(id, reason);
@@ -536,6 +549,7 @@ export default function ResearchQueuePage() {
       }
     }
     setBulkSelected([]);
+    setToast({ message: `Rejected ${count} items`, type: 'success' });
   };
 
   const handleSmartApprove = async () => {
@@ -543,6 +557,7 @@ export default function ResearchQueuePage() {
     if (highConfidence.length === 0) return;
     if (!confirm(`Approve ${highConfidence.length} high-confidence items (score >= 70)?`)) return;
 
+    const count = highConfidence.length;
     for (const item of highConfidence) {
       try {
         await updateItemStatus(item.id, 'approved');
@@ -550,6 +565,7 @@ export default function ResearchQueuePage() {
         console.error(`Error approving item ${item.id}:`, error);
       }
     }
+    setToast({ message: `Approved ${count} high-confidence items`, type: 'success' });
   };
 
   const toggleBulkSelect = (id: string) => {
@@ -604,6 +620,16 @@ export default function ResearchQueuePage() {
           onApprove={approveResearch}
           onReject={rejectResearch}
         />
+      )}
+
+      {/* Toast Notification */}
+      {toast && (
+        <div className={`fixed bottom-4 right-4 z-50 px-4 py-3 rounded-lg shadow-lg flex items-center gap-2 ${
+          toast.type === 'success' ? 'bg-green-600 text-white' : 'bg-red-600 text-white'
+        }`}>
+          <span>{toast.type === 'success' ? '✓' : '✕'}</span>
+          <span>{toast.message}</span>
+        </div>
       )}
 
       {/* New Item Notification */}
