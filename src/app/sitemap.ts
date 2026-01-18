@@ -49,16 +49,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  // Glossary terms (~262)
+  // Glossary terms (~262) with last modified dates
   const { data: glossaryTerms } = await supabase
     .from('kb_glossary')
-    .select('slug');
+    .select('slug, updated_at');
 
   const glossaryPages: MetadataRoute.Sitemap = (glossaryTerms || []).map(term => ({
     url: `${SITE_URL}/glossary/${term.slug}`,
-    lastModified: new Date(),
+    lastModified: term.updated_at ? new Date(term.updated_at) : new Date(),
     changeFrequency: 'monthly',
     priority: 0.6,
+  }));
+
+  // Glossary category pages (high SEO value)
+  const glossaryCategories = [
+    'cannabinoids', 'terpenes', 'products', 'extraction', 'science',
+    'research', 'side-effects', 'conditions', 'testing', 'legal', 'dosing', 'plant'
+  ];
+  const glossaryCategoryPages: MetadataRoute.Sitemap = glossaryCategories.map(category => ({
+    url: `${SITE_URL}/glossary/category/${category}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.7,
   }));
 
   // Brand reviews (published brands)
@@ -149,6 +161,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...staticPages,
     ...studyPages,
     ...glossaryPages,
+    ...glossaryCategoryPages,
     ...reviewPages,
     ...articlePages,
     ...categoryPages,

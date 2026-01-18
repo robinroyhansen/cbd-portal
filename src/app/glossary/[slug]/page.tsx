@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
+import { createClient as createServiceClient } from '@supabase/supabase-js';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
@@ -6,6 +7,22 @@ import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 
 interface Props {
   params: Promise<{ slug: string }>;
+}
+
+// Generate static params for all glossary terms at build time
+export async function generateStaticParams() {
+  const supabase = createServiceClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+
+  const { data: terms } = await supabase
+    .from('kb_glossary')
+    .select('slug');
+
+  return (terms || []).map((term) => ({
+    slug: term.slug,
+  }));
 }
 
 interface FAQ {
@@ -473,5 +490,5 @@ export default async function GlossaryTermPage({ params }: Props) {
   );
 }
 
-// Force dynamic rendering for individual term pages
-export const dynamic = 'force-dynamic';
+// Revalidate pages every hour (ISR)
+export const revalidate = 3600;
