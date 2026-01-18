@@ -17,6 +17,7 @@ import {
   cleanText,
   validateYear
 } from '@/lib/utils/text-cleanup';
+import { resolveStudyById } from '@/lib/scanner/term-resolver';
 
 export const maxDuration = 60; // 60 seconds max for Vercel
 
@@ -1109,6 +1110,14 @@ async function processItem(
     // 8. Store raw terms in study_raw_terms table for Condition Intelligence System
     if (insertedStudy?.id && item.rawTerms && item.rawTerms.length > 0) {
       await storeRawTerms(supabase, insertedStudy.id, item.rawTerms);
+
+      // 9. Resolve terms to conditions immediately
+      try {
+        await resolveStudyById(supabase, insertedStudy.id);
+      } catch (resolveError) {
+        // Don't fail the insert if resolution fails - can be retried later
+        console.error(`[Scanner] Failed to resolve conditions for ${insertedStudy.id}:`, resolveError);
+      }
     }
 
     return 'added';

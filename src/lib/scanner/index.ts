@@ -5,3 +5,4 @@
 export * from './query-builder';
 export * from './validation-pipeline';
 export * from './metadata-extractor';
+export * from './term-resolver';
