@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { HomePageStats } from '@/lib/stats';
+import { SearchBar } from './SearchBar';
 
 interface HeroProps {
   stats: HomePageStats;
@@ -30,9 +31,9 @@ export function Hero({ stats }: HeroProps) {
               The world&apos;s largest CBD information resource featuring the latest research, comprehensive guides,
               expert articles, product reviews, and evidence-based insights to help you understand CBD&apos;s potential.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 mb-8">
               <Link
-                href="/categories/conditions"
+                href="/conditions"
                 className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors"
               >
                 Explore Health Topics
@@ -50,6 +51,11 @@ export function Hero({ stats }: HeroProps) {
               >
                 View Research
               </Link>
+            </div>
+
+            {/* Search Bar */}
+            <div className="hidden md:block">
+              <SearchBar />
             </div>
           </div>
 

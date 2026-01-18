@@ -1,7 +1,9 @@
 import { Hero } from '@/components/home/Hero';
+import { TrendingTopics } from '@/components/home/TrendingTopics';
 import { BrowseByCondition } from '@/components/home/BrowseByCondition';
 import { FeaturedArticles } from '@/components/home/FeaturedArticles';
 import { LatestResearch } from '@/components/home/LatestResearch';
+import { GlossaryTeaser } from '@/components/home/GlossaryTeaser';
 import { BrowseByProduct } from '@/components/home/BrowseByProduct';
 import { AuthorTrust } from '@/components/home/AuthorTrust';
 import { NewsletterSignup } from '@/components/home/NewsletterSignup';
@@ -16,10 +18,12 @@ export default async function HomePage() {
   return (
     <>
       <Hero stats={stats} />
+      <TrendingTopics />
       <BrowseByCondition />
       <FeaturedArticles />
-      <BrowseByProduct />
       <LatestResearch />
+      <GlossaryTeaser />
+      <BrowseByProduct />
       <AuthorTrust />
       <NewsletterSignup />
     </>

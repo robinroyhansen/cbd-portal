@@ -1,0 +1,126 @@
+import Link from 'next/link';
+import { createClient } from '@/lib/supabase/server';
+
+export async function GlossaryTeaser() {
+  const supabase = await createClient();
+
+  // Get recently updated glossary terms
+  const { data: recentTerms } = await supabase
+    .from('kb_glossary')
+    .select('term, slug, short_definition, category')
+    .order('updated_at', { ascending: false })
+    .limit(8);
+
+  // Get total count
+  const { count: totalTerms } = await supabase
+    .from('kb_glossary')
+    .select('*', { count: 'exact', head: true });
+
+  // Get category distribution
+  const { data: categories } = await supabase
+    .from('kb_glossary')
+    .select('category')
+    .not('category', 'is', null);
+
+  const categoryCounts = categories?.reduce((acc, item) => {
+    if (item.category) {
+      acc[item.category] = (acc[item.category] || 0) + 1;
+    }
+    return acc;
+  }, {} as Record<string, number>) || {};
+
+  const topCategories = Object.entries(categoryCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5);
+
+  if (!recentTerms || recentTerms.length === 0) {
+    return null;
+  }
+
+  return (
+    <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="grid md:grid-cols-3 gap-12">
+          {/* Left side - info */}
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-3xl">📖</span>
+              <h2 className="text-3xl font-bold text-gray-900">CBD Glossary</h2>
+            </div>
+            <p className="text-gray-600 mb-6">
+              Understand CBD terminology with our comprehensive glossary. From cannabinoids to
+              terpenes, we explain the science in plain language.
+            </p>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 mb-6">
+              <div className="text-4xl font-bold text-green-600 mb-1">{totalTerms || 0}</div>
+              <div className="text-gray-600 mb-4">Terms Defined</div>
+
+              {topCategories.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {topCategories.map(([category, count]) => (
+                    <Link
+                      key={category}
+                      href={`/glossary/category/${category.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="text-xs px-2 py-1 bg-gray-100 hover:bg-green-100 text-gray-600 hover:text-green-700 rounded-full transition-colors"
+                    >
+                      {category} ({count})
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="/glossary"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors"
+            >
+              Browse Full Glossary
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+
+          {/* Right side - term cards */}
+          <div className="md:col-span-2">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide">
+                Recently Updated Terms
+              </h3>
+              <Link
+                href="/glossary"
+                className="text-sm text-green-600 hover:text-green-700"
+              >
+                View all →
+              </Link>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {recentTerms.map((term) => (
+                <Link
+                  key={term.slug}
+                  href={`/glossary/${term.slug}`}
+                  className="group bg-white p-4 rounded-lg border border-gray-100 hover:border-green-200 hover:shadow-md transition-all"
+                >
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <h4 className="font-semibold text-gray-900 group-hover:text-green-700">
+                      {term.term}
+                    </h4>
+                    {term.category && (
+                      <span className="text-[10px] px-2 py-0.5 bg-gray-100 text-gray-500 rounded-full whitespace-nowrap">
+                        {term.category}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm text-gray-600 line-clamp-2">
+                    {term.short_definition}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
