@@ -79,7 +79,7 @@ export async function BrowseByProduct() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
           {productTypes.map((product) => {
             // Link to glossary if term exists, otherwise to search
             const href = existingGlossarySlugs.has(product.glossarySlug)
@@ -90,48 +90,48 @@ export async function BrowseByProduct() {
               <Link
                 key={product.slug}
                 href={href}
-                className="group bg-white p-5 rounded-xl shadow-sm hover:shadow-lg transition-all text-center border border-gray-100 hover:border-green-200"
+                className="group bg-white p-3 md:p-5 rounded-xl shadow-sm hover:shadow-lg transition-all text-center border border-gray-100 hover:border-green-200"
               >
-                <span className="text-4xl block mb-3">{product.icon}</span>
-                <h3 className="font-semibold text-gray-900 group-hover:text-green-700 mb-1 text-sm">
+                <span className="text-3xl md:text-4xl block mb-2 md:mb-3">{product.icon}</span>
+                <h3 className="font-semibold text-gray-900 group-hover:text-green-700 mb-0.5 md:mb-1 text-xs md:text-sm">
                   {product.name}
                 </h3>
-                <p className="text-xs text-gray-500 line-clamp-2">{product.description}</p>
+                <p className="text-[10px] md:text-xs text-gray-500 line-clamp-2 hidden sm:block">{product.description}</p>
               </Link>
             );
           })}
         </div>
 
-        {/* Additional resources */}
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
+        {/* Additional resources - scrollable on mobile */}
+        <div className="mt-6 md:mt-10 flex overflow-x-auto pb-2 md:pb-0 md:flex-wrap md:justify-center gap-3 md:gap-4 scrollbar-hide">
           <Link
             href="/glossary/bioavailability"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-600 hover:border-green-300 hover:text-green-700 transition-colors"
+            className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-600 hover:border-green-300 hover:text-green-700 transition-colors whitespace-nowrap flex-shrink-0"
           >
             <span>📊</span>
-            Bioavailability Guide
+            Bioavailability
           </Link>
           <Link
             href="/tools/dosage-calculator"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-600 hover:border-green-300 hover:text-green-700 transition-colors"
+            className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-600 hover:border-green-300 hover:text-green-700 transition-colors whitespace-nowrap flex-shrink-0"
           >
             <span>💊</span>
             Dosage Calculator
           </Link>
           <Link
             href="/glossary/full-spectrum"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-600 hover:border-green-300 hover:text-green-700 transition-colors"
+            className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-600 hover:border-green-300 hover:text-green-700 transition-colors whitespace-nowrap flex-shrink-0"
           >
             <span>🌿</span>
-            Full vs Broad Spectrum
+            Full vs Broad
           </Link>
           {brandCount && brandCount > 0 && (
             <Link
               href="/brands"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 border border-green-200 rounded-lg text-sm text-green-700 hover:bg-green-100 transition-colors"
+              className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-green-50 border border-green-200 rounded-lg text-sm text-green-700 hover:bg-green-100 transition-colors whitespace-nowrap flex-shrink-0"
             >
               <span>⭐</span>
-              {brandCount} Brand Reviews
+              {brandCount} Reviews
             </Link>
           )}
         </div>

@@ -48,37 +48,37 @@ export async function BrowseByCondition() {
   }
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-10 md:py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Browse by Health Condition</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 md:mb-4">Browse by Health Condition</h2>
+          <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
             Explore CBD research for {totalConditions || 39} health conditions with evidence-based summaries
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
           {conditions.map((condition) => (
             <Link
               key={condition.slug}
               href={`/conditions/${condition.slug}`}
-              className={`group p-6 rounded-xl border transition-all shadow-sm hover:shadow-md ${categoryColors[condition.category] || categoryColors.other}`}
+              className={`group p-3 md:p-6 rounded-xl border transition-all shadow-sm hover:shadow-md ${categoryColors[condition.category] || categoryColors.other}`}
             >
-              <div className="flex items-start gap-4">
-                <span className="text-3xl">{categoryIcons[condition.category] || '🏥'}</span>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-lg text-gray-900 group-hover:text-green-700 mb-1">
+              <div className="flex flex-col md:flex-row md:items-start gap-2 md:gap-4">
+                <span className="text-2xl md:text-3xl">{categoryIcons[condition.category] || '🏥'}</span>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-sm md:text-lg text-gray-900 group-hover:text-green-700 mb-1 line-clamp-2">
                     {condition.display_name || condition.name}
                   </h3>
-                  <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                  <p className="text-xs md:text-sm text-gray-600 mb-2 md:mb-3 line-clamp-2 hidden sm:block">
                     {condition.short_description}
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-medium text-green-600 bg-green-100 px-2 py-1 rounded-full">
+                    <span className="text-[10px] md:text-xs font-medium text-green-600 bg-green-100 px-1.5 md:px-2 py-0.5 md:py-1 rounded-full">
                       {condition.research_count || 0} studies
                     </span>
-                    <span className="text-xs text-gray-400 group-hover:text-green-600 transition-colors">
-                      View research →
+                    <span className="text-[10px] md:text-xs text-gray-400 group-hover:text-green-600 transition-colors hidden sm:inline">
+                      View →
                     </span>
                   </div>
                 </div>
@@ -87,10 +87,10 @@ export async function BrowseByCondition() {
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-6 md:mt-10">
           <Link
             href="/conditions"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors"
+            className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors text-sm md:text-base"
           >
             View All {totalConditions || 39} Conditions
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

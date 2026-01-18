@@ -31,30 +31,31 @@ export function Hero({ stats }: HeroProps) {
               The world&apos;s largest CBD information resource featuring the latest research, comprehensive guides,
               expert articles, product reviews, and evidence-based insights to help you understand CBD&apos;s potential.
             </p>
-            <div className="flex flex-wrap gap-4 mb-8">
+            {/* CTA Buttons - full width on mobile */}
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-6">
               <Link
                 href="/conditions"
-                className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors"
+                className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors text-center"
               >
                 Explore Health Topics
               </Link>
               <Link
                 href="/tools/dosage-calculator"
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center gap-2"
+                className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
               >
                 <span>💊</span>
                 Calculate My Dose
               </Link>
               <Link
                 href="/research"
-                className="px-6 py-3 border-2 border-green-600 text-green-600 rounded-lg font-semibold hover:bg-green-50 transition-colors"
+                className="px-6 py-3 border-2 border-green-600 text-green-600 rounded-lg font-semibold hover:bg-green-50 transition-colors text-center"
               >
                 View Research
               </Link>
             </div>
 
-            {/* Search Bar */}
-            <div className="hidden md:block">
+            {/* Search Bar - visible on all screens */}
+            <div className="w-full">
               <SearchBar />
             </div>
           </div>

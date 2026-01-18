@@ -30,17 +30,18 @@ export async function TrendingTopics() {
   ];
 
   return (
-    <section className="py-8 bg-white border-b border-gray-100">
+    <section className="py-4 md:py-6 bg-white border-b border-gray-100">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex flex-wrap items-center gap-3">
-          <span className="text-sm font-medium text-gray-500">Popular:</span>
+        {/* Mobile: horizontal scroll */}
+        <div className="flex items-center gap-2 md:gap-3 overflow-x-auto pb-2 md:pb-0 scrollbar-hide md:flex-wrap">
+          <span className="text-sm font-medium text-gray-500 whitespace-nowrap flex-shrink-0">Popular:</span>
 
           {/* Trending conditions */}
           {trendingConditions?.slice(0, 4).map((condition) => (
             <Link
               key={condition.slug}
               href={`/conditions/${condition.slug}`}
-              className="inline-flex items-center gap-1 px-3 py-1.5 bg-green-50 hover:bg-green-100 text-green-700 text-sm rounded-full transition-colors"
+              className="inline-flex items-center gap-1 px-3 py-1.5 bg-green-50 hover:bg-green-100 text-green-700 text-sm rounded-full transition-colors whitespace-nowrap flex-shrink-0"
             >
               <span>{condition.display_name || condition.name}</span>
               <span className="text-xs text-green-500">({condition.research_count})</span>
@@ -48,14 +49,14 @@ export async function TrendingTopics() {
           ))}
 
           {/* Divider */}
-          <span className="hidden sm:block w-px h-5 bg-gray-200" />
+          <span className="hidden md:block w-px h-5 bg-gray-200 flex-shrink-0" />
 
           {/* Popular searches */}
           {popularSearches.slice(0, 3).map((search) => (
             <Link
               key={search.label}
               href={search.href}
-              className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-600 text-sm rounded-full transition-colors"
+              className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-600 text-sm rounded-full transition-colors whitespace-nowrap flex-shrink-0"
             >
               {search.label}
             </Link>
@@ -66,7 +67,7 @@ export async function TrendingTopics() {
             <Link
               key={term.slug}
               href={`/glossary/${term.slug}`}
-              className="hidden lg:inline-block px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-600 text-sm rounded-full transition-colors"
+              className="hidden lg:inline-block px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-600 text-sm rounded-full transition-colors whitespace-nowrap flex-shrink-0"
             >
               📖 {term.term}
             </Link>

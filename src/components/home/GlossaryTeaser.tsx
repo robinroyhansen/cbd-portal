@@ -38,11 +38,28 @@ export async function GlossaryTeaser() {
   }
 
   return (
-    <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-10 md:py-16 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-12">
-          {/* Left side - info */}
-          <div>
+        {/* Mobile: Header and stats inline */}
+        <div className="flex flex-col md:hidden mb-6">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <span className="text-2xl">📖</span>
+              <h2 className="text-xl font-bold text-gray-900">CBD Glossary</h2>
+            </div>
+            <div className="text-right">
+              <div className="text-2xl font-bold text-green-600">{totalTerms || 0}</div>
+              <div className="text-xs text-gray-500">Terms</div>
+            </div>
+          </div>
+          <p className="text-sm text-gray-600 mb-4">
+            CBD terminology explained in plain language.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 md:gap-12">
+          {/* Left side - info (hidden on mobile, shown above) */}
+          <div className="hidden md:block">
             <div className="flex items-center gap-2 mb-4">
               <span className="text-3xl">📖</span>
               <h2 className="text-3xl font-bold text-gray-900">CBD Glossary</h2>
@@ -84,39 +101,52 @@ export async function GlossaryTeaser() {
 
           {/* Right side - term cards */}
           <div className="md:col-span-2">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide">
-                Recently Updated Terms
+            <div className="flex items-center justify-between mb-3 md:mb-4">
+              <h3 className="text-xs md:text-sm font-medium text-gray-500 uppercase tracking-wide">
+                Recently Updated
               </h3>
               <Link
                 href="/glossary"
-                className="text-sm text-green-600 hover:text-green-700"
+                className="text-xs md:text-sm text-green-600 hover:text-green-700"
               >
                 View all →
               </Link>
             </div>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {recentTerms.map((term) => (
+            <div className="grid grid-cols-2 gap-2 md:gap-4">
+              {recentTerms.slice(0, 6).map((term) => (
                 <Link
                   key={term.slug}
                   href={`/glossary/${term.slug}`}
-                  className="group bg-white p-4 rounded-lg border border-gray-100 hover:border-green-200 hover:shadow-md transition-all"
+                  className="group bg-white p-3 md:p-4 rounded-lg border border-gray-100 hover:border-green-200 hover:shadow-md transition-all"
                 >
-                  <div className="flex items-start justify-between gap-2 mb-2">
-                    <h4 className="font-semibold text-gray-900 group-hover:text-green-700">
+                  <div className="flex items-start justify-between gap-1 mb-1 md:mb-2">
+                    <h4 className="font-semibold text-sm md:text-base text-gray-900 group-hover:text-green-700 line-clamp-1">
                       {term.term}
                     </h4>
                     {term.category && (
-                      <span className="text-[10px] px-2 py-0.5 bg-gray-100 text-gray-500 rounded-full whitespace-nowrap">
+                      <span className="hidden sm:inline text-[10px] px-2 py-0.5 bg-gray-100 text-gray-500 rounded-full whitespace-nowrap">
                         {term.category}
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-gray-600 line-clamp-2">
+                  <p className="text-xs md:text-sm text-gray-600 line-clamp-2">
                     {term.short_definition}
                   </p>
                 </Link>
               ))}
+            </div>
+
+            {/* Mobile CTA */}
+            <div className="mt-4 text-center md:hidden">
+              <Link
+                href="/glossary"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors text-sm"
+              >
+                Browse All {totalTerms || 0} Terms
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
             </div>
           </div>
         </div>
