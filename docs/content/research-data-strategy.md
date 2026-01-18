@@ -1,8 +1,7 @@
 # CBD Portal - Research Data Strategy Addendum
 
-**Addendum to:** CBD Portal Master Plan v6
-**Created:** January 12, 2026
-**Last Updated:** January 16, 2026
+**Addendum to:** CBD Portal Master Plan v6  
+**Created:** January 12, 2026  
 **Purpose:** Detailed technical specifications for research database management and content integration
 
 ---
@@ -17,81 +16,16 @@ This addendum defines the data quality architecture, topic taxonomy, and researc
 
 ## 1. RESEARCH DATABASE ARCHITECTURE
 
-### 1.1 Current State (as of January 16, 2026)
+### 1.1 Current State (as of January 12, 2026)
 
 | Metric | Value |
 |--------|-------|
-| Total Studies | 1,400+ (and growing) |
-| Data Sources | 7 (see below) |
-| Search Keywords | 106 condition-specific queries |
-| Topic Categories | 28 |
+| Total Approved Studies | 771 |
+| Topics Covered | 37 |
 | Quality Score Range | 0-100 |
 | Relevance Score Range | 0-100 |
-| Cross-Source Deduplication | DOI → PMID → PMC ID → Fuzzy Title |
-
-### 1.2 Data Sources (7 Integrated)
-
-| Source | Description | Status |
-|--------|-------------|--------|
-| **PubMed** | 33M+ biomedical literature | ✅ Active |
-| **PMC** | Full-text research articles | ✅ Active |
-| **ClinicalTrials.gov** | Clinical trial database | ✅ Active |
-| **OpenAlex** | 250M+ works, comprehensive | ✅ Active |
-| **Europe PMC** | European biomedical literature | ✅ Active |
-| **Semantic Scholar** | AI-powered research discovery | ✅ Active |
-| **bioRxiv/medRxiv** | Preprints (newest research) | ✅ Active |
-
-### 1.3 Search Keywords (106 Terms, 28 Categories)
-
-The scanner uses 106 condition-specific search queries organized into categories:
-
-| Category | Terms | Examples |
-|----------|-------|----------|
-| Clinical Trials | 10 | cannabidiol clinical trial, CBD randomized controlled |
-| Anxiety | 5 | cannabidiol anxiety, CBD panic disorder |
-| Depression | 4 | cannabidiol depression, CBD antidepressant |
-| PTSD | 4 | cannabidiol PTSD, cannabis trauma |
-| Sleep | 5 | cannabidiol sleep, CBD insomnia |
-| Epilepsy | 6 | Epidiolex Dravet, CBD seizure |
-| Parkinson's | 4 | cannabidiol Parkinson, CBD parkinsonian |
-| Alzheimer's | 4 | cannabidiol Alzheimer, CBD dementia |
-| Autism | 3 | cannabidiol autism, CBD ASD |
-| ADHD | 2 | cannabidiol ADHD, CBD attention deficit |
-| Schizophrenia | 3 | cannabidiol schizophrenia, CBD psychosis |
-| Addiction | 5 | cannabidiol addiction, cannabis opioid withdrawal |
-| Tourette's | 2 | cannabidiol Tourette, cannabis tic disorder |
-| Chronic Pain | 5 | cannabidiol chronic pain, CBD pain management |
-| Neuropathic Pain | 4 | cannabidiol neuropathic pain, CBD neuropathy |
-| Arthritis | 4 | cannabidiol arthritis, CBD rheumatoid arthritis |
-| Fibromyalgia | 3 | cannabidiol fibromyalgia, CBD widespread pain |
-| Multiple Sclerosis | 4 | Sativex spasticity, nabiximols MS |
-| Inflammation | 4 | cannabidiol inflammation, CBD anti-inflammatory |
-| Migraines | 3 | cannabidiol migraine, CBD headache |
-| GI/Digestive | 9 | cannabidiol Crohn, CBD IBD, CBD IBS |
-| Cancer | 8 | cannabidiol cancer, CBD tumor, CBD palliative |
-| Skin | 7 | cannabidiol acne, cannabidiol psoriasis |
-| Cardiovascular | 5 | cannabidiol cardiovascular, CBD blood pressure |
-| Metabolic | 5 | cannabidiol diabetes, cannabidiol obesity |
-| Other Conditions | 9 | cannabidiol glaucoma, CBD sports medicine |
-| Products | 8 | Epidiolex, Sativex, nabiximols, dronabinol |
-| Research Types | 5 | cannabidiol systematic review, CBD meta-analysis |
-
-### 1.4 Cross-Source Deduplication
-
-Studies are deduplicated using a waterfall matching strategy:
-
-```
-1. DOI Match (exact)           → Highest confidence
-2. PMID Match (exact)          → High confidence
-3. PMC ID Match (exact)        → High confidence
-4. Title Similarity (≥90%)     → Medium confidence (fuzzy match)
-```
-
-**Database columns for dedup:**
-- `doi` - Digital Object Identifier
-- `pmid` - PubMed ID
-- `pmc_id` - PubMed Central ID
-- `source_ids` - JSONB storing IDs from each source
+| Studies with Meta Content | ~43% |
+| Non-English Studies | ~13% |
 
 ### 1.2 Study Subject Classification
 
@@ -407,16 +341,12 @@ async function getRelatedResearch(articleTopics: string[]) {
 | `/api/admin/research/translate` | POST | Translate non-English study |
 | `/api/admin/research/fix-future-years` | POST | Fix studies with year > current |
 
-### Scanner (Updated January 16, 2026)
+### Scanner
 
 | Endpoint | Method | Purpose |
 |----------|--------|---------|
-| `/api/admin/scanner/start` | POST | Create new scan job |
-| `/api/admin/scanner/process` | POST | Process scan job (called automatically) |
-| `/api/admin/scanner/jobs/[id]/pause` | POST | Pause running job |
-| `/api/admin/scanner/jobs/[id]/resume` | POST | Resume paused job |
-| `/api/admin/scanner/jobs/[id]/cancel` | POST | Cancel job |
-| `/api/admin/scanner/cleanup?dryRun=true` | GET | Preview/run data cleanup |
+| `/api/admin/trigger-scan` | POST | Run PubMed scan for new studies |
+| `/api/admin/scanner/status` | GET | Check scanner status |
 
 ### Queue Management
 
@@ -430,7 +360,7 @@ async function getRelatedResearch(articleTopics: string[]) {
 
 ## 6. DATABASE SCHEMA ADDITIONS
 
-### Added Columns (January 12-16, 2026)
+### Added Columns (January 12, 2026)
 
 ```sql
 -- Study subject classification
@@ -439,25 +369,13 @@ ADD COLUMN study_subject TEXT DEFAULT 'human';
 -- Values: 'human', 'animal', 'in_vitro', 'review'
 
 -- Dual scoring system
--- quality_score (methodology quality)
--- relevance_score (CBD health topic relevance)
+-- quality_score (renamed from relevance_score - methodology quality)
+-- relevance_score (NEW - CBD health topic relevance)
 
 -- Language handling
 -- detected_language TEXT
 -- original_title TEXT (stores pre-translation)
 -- original_abstract TEXT (stores pre-translation)
-
--- Cross-source deduplication (January 16, 2026)
-ALTER TABLE kb_research_queue
-ADD COLUMN pmid TEXT,                    -- PubMed ID
-ADD COLUMN pmc_id TEXT,                  -- PubMed Central ID
-ADD COLUMN source_ids JSONB DEFAULT '{}'; -- IDs from each source
-
--- Scanner job controls (January 16, 2026)
-ALTER TABLE kb_scan_jobs
-ADD COLUMN current_source_offset INT DEFAULT 0,  -- Resume position within source
-ADD COLUMN resume_state JSONB,                    -- Full resume state
-ADD COLUMN paused_at TIMESTAMPTZ;                -- When job was paused
 ```
 
 ### Indexes
@@ -468,9 +386,6 @@ CREATE INDEX idx_research_relevance ON kb_research_queue(relevance_score);
 CREATE INDEX idx_research_quality ON kb_research_queue(quality_score);
 CREATE INDEX idx_research_language ON kb_research_queue(detected_language);
 CREATE INDEX idx_research_primary_topic ON kb_research_queue(primary_topic);
-CREATE INDEX idx_research_pmid ON kb_research_queue(pmid);
-CREATE INDEX idx_research_pmc_id ON kb_research_queue(pmc_id);
-CREATE INDEX idx_research_doi ON kb_research_queue(doi);
 ```
 
 ---
@@ -523,29 +438,16 @@ https://cbd-portal.vercel.app/admin/research/scanner
 | Jan 12, 2026 | 37 topics is sufficient | Matches article categories; more granularity has diminishing returns |
 | Jan 12, 2026 | Veterinary studies feed Pets section | Different audience needs different presentation |
 | Jan 12, 2026 | All content based on research | Evidence-first approach ensures credibility |
-| Jan 16, 2026 | Expand to 7 data sources | PubMed alone misses significant research; diversify for completeness |
-| Jan 16, 2026 | 106 search keywords | Condition-specific queries find more relevant studies than generic terms |
-| Jan 16, 2026 | DOI → PMID → PMC ID → Title dedup | Multiple sources = many duplicates; need reliable deduplication |
-| Jan 16, 2026 | Add pause/resume to scanner | Long scans need interruptibility; state preservation critical |
-| Jan 16, 2026 | HTML cleanup functions | APIs return inconsistent formatting; clean on import |
-| Jan 16, 2026 | Year validation via DOI | Some sources report incorrect years; DOI often contains correct year |
 
 ---
 
 ## 9. NEXT STEPS CHECKLIST
 
-### Completed (January 16, 2026)
-- [x] Expand from 1 source (PubMed) to 7 sources
-- [x] Implement cross-source deduplication
-- [x] Add pause/resume/cancel job controls
-- [x] Create 106 condition-specific search keywords
-- [x] Add HTML cleanup and year validation
-- [x] Improve queue UI with scores, signals, abstracts
-
 ### Immediate (Before Article Production)
-- [ ] Complete "All time" scan across all sources
-- [ ] Complete meta content generation
+- [ ] Complete meta content generation (57% remaining)
 - [ ] Translate non-English studies
+- [ ] Run deduplication check
+- [ ] Verify study_subject classification accuracy
 - [ ] Build topic → category mapping
 
 ### Before Launch
@@ -555,29 +457,12 @@ https://cbd-portal.vercel.app/admin/research/scanner
 - [ ] Create research citation component for articles
 
 ### Post-Launch
-- [ ] Set up automated weekly scans
+- [ ] Set up automated weekly PubMed scans
 - [ ] Monitor topic distribution as new studies import
 - [ ] Refine study_subject auto-detection based on errors
 
 ---
 
-## 10. DATA CLEANUP FUNCTIONS
-
-### HTML Entity Cleanup
-Located in `src/lib/utils/text-cleanup.ts`:
-- `cleanTitle()` - Strips HTML, decodes entities, normalizes whitespace
-- `cleanAbstract()` - Same as title but preserves paragraph breaks
-- `decodeHtmlEntities()` - Handles 60+ named entities and numeric codes
-- `stripHtmlTags()` - Removes tags, converts `<br>` to newlines
-
-### Year Validation
-- `validateYear()` - Cross-references reported year with DOI patterns
-- `extractYearFromDoi()` - Extracts year from DOI format (e.g., `10.xxxx/journal.2024.xxxxx`)
-- Rejects future years, corrects obvious errors
-
----
-
-*Document Version: 1.1*
-*Created: January 12, 2026*
-*Updated: January 16, 2026*
+*Document Version: 1.0*  
+*Created: January 12, 2026*  
 *For: CBD Portal Research Data Management*
