@@ -59,7 +59,7 @@ export function Hero({ stats }: HeroProps) {
               {/* Trust Headline */}
               <div className="text-center mb-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                  We Analyze the Research. We Present the Facts.
+                  We Analyze Global Research and Present the Facts.
                 </h2>
                 <p className="text-gray-600">
                   Every CBD study summarized in plain language, scored for quality,
@@ -199,7 +199,7 @@ export function Hero({ stats }: HeroProps) {
           {/* Trust Headline */}
           <div className="text-center mb-6">
             <h2 className="text-xl font-bold text-gray-900 mb-2">
-              We Analyze the Research. We Present the Facts.
+              We Analyze Global Research and Present the Facts.
             </h2>
             <p className="text-sm text-gray-600">
               Every CBD study summarized in plain language and scored for quality.
