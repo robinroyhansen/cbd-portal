@@ -4,6 +4,8 @@
 
 CBD educational portal built with Next.js 14, Supabase, and TailwindCSS. Features a comprehensive knowledge base, research scanner, glossary system, and admin tools.
 
+**Live Site:** https://cbd-portal.vercel.app
+
 ## Tech Stack
 
 - **Framework**: Next.js 14 (App Router)
@@ -14,92 +16,123 @@ CBD educational portal built with Next.js 14, Supabase, and TailwindCSS. Feature
 
 ---
 
-## CURRENT STATE (January 16, 2026)
+## IMPORTANT: DOCUMENTATION RULES
 
-### Database Tables
-- **kb_conditions**: 39 medical conditions with SEO templates (foundation for programmatic pages)
-- **kb_research_queue**: Active research queue for scanner results
-- **kb_scan_jobs**: Scanner job tracking with pause/resume support
-- **kb_articles**: Knowledge base articles
-- **kb_glossary_terms**: Glossary definitions
+### Before Writing Condition Articles
 
-### In Progress
-- Full "All time" scan running across all 7 sources
-- Collecting research across 106 condition-specific search terms
+**ALWAYS read these files FIRST before writing any "CBD and [Condition]" article:**
 
-### Recent Deployments
-- Scanner UI with 106 keywords display
-- Queue improvements with score breakdowns
-- Cross-source deduplication
+1. **`/docs/content/condition-article-spec.md`** — Complete specification (evidence tiers, structure, citations, E-E-A-T)
+2. **`/docs/claude-instructions/condition-article-generator.md`** — Condensed execution instructions
+
+**MANDATORY PROCESS:**
+1. Query ALL approved studies for the condition from `kb_research_queue`
+2. Complete the evidence analysis (counts, categories, stats)
+3. Determine evidence level (Strong/Moderate/Limited/Insufficient)
+4. Set article length based on evidence depth
+5. THEN write the article following the spec
+
+### Documentation Reference
+
+| Task | Read First |
+|------|------------|
+| Writing condition articles | `condition-article-spec.md` + `condition-article-generator.md` |
+| Writing other article types | `/docs/content/writing-guidelines.md` |
+| Working with research database | `/docs/content/research-data-strategy.md` |
+| Strategic/planning decisions | `/docs/cbd-portal-master-plan.md` |
+
+### Documentation Locations
+
+```
+/docs/
+├── cbd-portal-master-plan.md           # Strategy, content plan, all article types
+├── content/
+│   ├── writing-guidelines.md           # General writing rules, SEO, voice
+│   ├── research-data-strategy.md       # Research database architecture
+│   └── condition-article-spec.md       # Condition article specification
+└── claude-instructions/
+    └── condition-article-generator.md  # Claude Code instruction for conditions
+```
 
 ---
 
-## SESSION LOG
+## CURRENT STATE (January 18, 2026)
 
-### January 16, 2026 - Research Scanner Completion
+### Research Database
+- **771 approved studies** in `kb_research_queue`
+- **37 topics** covered (anxiety, pain, sleep, epilepsy, etc.)
+- **7 data sources** integrated (PubMed, PMC, ClinicalTrials.gov, OpenAlex, Europe PMC, Semantic Scholar, bioRxiv/medRxiv)
+- **106 search keywords** across all therapeutic areas
 
-**Scanner System - Fully Operational:**
-- 7 data sources integrated:
-  - PubMed (33M+ articles)
-  - PMC (full-text research)
-  - ClinicalTrials.gov (clinical trials)
-  - OpenAlex (250M+ works)
-  - Europe PMC (European literature)
-  - Semantic Scholar (AI-powered discovery)
-  - bioRxiv/medRxiv (preprints)
+### Content Production
+- **39 medical conditions** in `kb_conditions` with SEO templates
+- **251 glossary terms** in `kb_glossary_terms`
+- **Condition article spec v1.1** — Ready for article production
+- **Evidence-tiered system** — Article length (600-2,400 words) based on research depth
 
-**106 Search Keywords** covering all therapeutic areas:
-- Clinical Trials (10 terms)
-- Mental Health: Anxiety (5), Depression (4), PTSD (4), Sleep (5)
-- Neurological: Epilepsy (6), Parkinson's (4), Alzheimer's (4), Autism (3), ADHD (2), Schizophrenia (3), Tourette's (2)
-- Addiction (5)
-- Pain: Chronic (5), Neuropathic (4), Arthritis (4), Fibromyalgia (3)
-- Multiple Sclerosis (4)
-- Inflammation (4), Migraines (3)
-- GI/Digestive (9)
-- Cancer (8)
-- Skin (7)
-- Cardiovascular (5)
-- Metabolic (5)
-- Other conditions (9)
-- Products: Epidiolex, Sativex, etc. (8)
-- Research Types (5)
+### Database Tables
+- **kb_conditions**: Medical conditions with SEO templates (foundation for programmatic pages)
+- **kb_articles**: Articles linked to conditions with FAQ schema, RLS policies, full-text search
+- **kb_research_queue**: Research studies with quality/relevance scores, topics, study_subject
+- **kb_scan_jobs**: Scanner job tracking with pause/resume support
+- **kb_glossary_terms**: Glossary definitions for auto-linking
 
-**Cross-Source Deduplication:**
-- DOI matching (primary)
-- PMID matching
-- PMC ID matching
-- Title similarity (90%+ threshold)
+### Recent Updates
+- Added condition article documentation system (v1.1)
+- Hybrid citation strategy (internal links + PubMed/DOI)
+- Evidence strength rating methodology
+- "My Take" author perspective section for E-E-A-T
 
-**Job Controls:**
-- Pause/Resume support with state preservation
-- Cancel running jobs
-- Per-source progress tracking
-- Real-time UI updates via Supabase subscriptions
+---
 
-**Data Quality:**
-- HTML entity cleanup (titles, abstracts)
-- Year validation using DOI patterns
-- Language detection
-- Relevance scoring with signals
+## CONDITION ARTICLE QUICK REFERENCE
 
-**Queue UI Improvements:**
-- ResearchDetailModal for full paper review
-- ScoreBadge with expandable relevance signals
-- Categorized rejection reasons (7 options)
-- "Approve High Confidence" bulk action (score >= 70)
-- Color-coded confidence indicators
-- Visual score progress bars
+### Evidence Levels & Article Length
 
-**Scanner UI Updates:**
-- Shows all 106 keywords organized by 28 categories
-- "Show all" toggle to expand full term list
-- Category badges with term counts
-- Custom keyword support
+| Level | Criteria | Word Count |
+|-------|----------|------------|
+| **Strong** | 20+ studies, 3+ RCTs or meta-analysis, 200+ participants | 1,800-2,400 |
+| **Moderate** | 10-20 studies, 1-2 RCTs, 5+ human studies | 1,300-1,800 |
+| **Limited** | 5-10 studies, no RCTs, mostly animal | 900-1,300 |
+| **Insufficient** | <5 studies, only animal/in-vitro | 600-900 |
+
+### Required Query Before Writing
+
+```sql
+SELECT 
+  id, title, year, study_type, study_subject, 
+  sample_size, quality_score, abstract, plain_summary,
+  doi, pmid, slug
+FROM kb_research_queue
+WHERE status = 'approved'
+AND (
+  primary_topic = '[condition]' 
+  OR '[condition]' = ANY(relevant_topics)
+)
+ORDER BY quality_score DESC;
+```
+
+### Citation Strategy (Hybrid - Strategy C)
+
+- **Inline claims** → Link to internal study summary: `/research/study/[slug]`
+- **References section** → Internal summary + PubMed link + DOI
+
+### Author for All Condition Articles
+
+- **Name:** Robin Roy Krigslund-Hansen
+- **Title:** Founder & Editor
+- **Experience:** 12+ years in CBD industry
+- **Byline:** "By Robin Roy Krigslund-Hansen | 12+ years in CBD industry"
 
 ---
 
 ## KEY FILES
+
+### Content Production
+- `/docs/content/condition-article-spec.md` - Complete condition article specification
+- `/docs/claude-instructions/condition-article-generator.md` - Claude Code instruction
+- `/docs/content/writing-guidelines.md` - General writing guidelines
+- `/docs/content/research-data-strategy.md` - Research database strategy
 
 ### Scanner System
 - `src/lib/research-scanner.ts` - Main scanner with 7 source adapters
@@ -120,16 +153,25 @@ CBD educational portal built with Next.js 14, Supabase, and TailwindCSS. Feature
 ### Database
 - `supabase/setup_research_scanner.sql` - Table setup script
 - `supabase/migrations/20260116_create_kb_conditions.sql` - Conditions table with SEO templates
-
-### Conditions API
-- `src/app/api/conditions/route.ts` - List/filter conditions
-- `src/app/api/conditions/[slug]/route.ts` - Single condition with related data
+- `supabase/migrations/20260116_create_kb_articles.sql` - Articles table with RLS and full-text search
 
 ### SEO & Article Production
 - `src/lib/seo/page-templates.ts` - Metadata & JSON-LD schema generators
-- `src/lib/glossary-linker.ts` - Auto-link glossary terms (server-side)
+- `src/lib/glossary.ts` - Glossary term fetching with Next.js caching
 - `src/lib/utils/glossary-autolink.ts` - Glossary term markers (client-side)
 - `src/components/research/ResearchCitations.tsx` - Display related studies
+- `src/components/ArticleContent.tsx` - Markdown rendering with glossary auto-linking
+- `src/lib/kb-data.ts` - Data fetching with React cache() deduplication
+
+### Shared Utilities
+- `src/lib/types/database.ts` - TypeScript definitions for all KB tables
+- `src/lib/api-response.ts` - API error handling utilities
+- `src/lib/constants/categories.ts` - Condition & article category configuration
+
+### Page Routes (Programmatic SEO)
+- `src/app/conditions/page.tsx` - Conditions list with categories
+- `src/app/conditions/[slug]/page.tsx` - Condition page with research & articles
+- `src/app/kb/articles/[slug]/page.tsx` - KB article page (uses kb_articles table)
 
 ---
 
@@ -168,6 +210,9 @@ npm run lint
 - `GET /api/conditions` - List all conditions (supports `?category=`, `?featured=true`)
 - `GET /api/conditions/[slug]` - Get single condition with related data (`?withResearch=true`, `?lang=`)
 
+### Articles
+- `POST /api/admin/articles/generate` - Generate article drafts from research
+
 ---
 
 ## ENVIRONMENT VARIABLES
@@ -177,4 +222,67 @@ Required in `.env.local`:
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
+ADMIN_API_SECRET=
 ```
+
+---
+
+## RESEARCH DATABASE QUICK REFERENCE
+
+### Study Subject Types
+- `human` - Human clinical trials, observational studies (shown by default)
+- `review` - Systematic reviews, meta-analyses (shown by default)
+- `animal` - Preclinical animal studies (hidden by default)
+- `in_vitro` - Cell culture, lab studies (hidden by default)
+
+### Key Topics (37 total)
+Anxiety, depression, PTSD, sleep, epilepsy, chronic_pain, neuropathic_pain, arthritis, fibromyalgia, inflammation, migraines, cancer, skin conditions (acne, psoriasis, eczema), cardiovascular, diabetes, and more.
+
+### Quality Thresholds
+- **High quality:** score ≥ 70
+- **Medium quality:** score 50-69
+- **Lower quality:** score < 50
+- **Publication gate:** relevance_score ≥ 40 required for public display
+
+---
+
+## SESSION LOG
+
+### January 18, 2026 - Content Documentation System
+
+**Added:**
+- Condition Article Specification v1.1
+- Condition Article Generator instruction
+- Updated Master Plan to v7
+- Updated Writing Guidelines to v1.1
+- Updated Research Data Strategy to v1.1
+
+**Key Features:**
+- Evidence-tiered article length (600-2,400 words)
+- Hybrid citation strategy (internal + external)
+- Quotable stats for journalists (Key Numbers box)
+- "My Take" author perspective section
+- Mandatory research analysis before writing
+- Medical review requirements
+- Content freshness triggers
+
+### January 16, 2026 - Research Scanner Completion
+
+**Scanner System - Fully Operational:**
+- 7 data sources integrated
+- 106 search keywords across all therapeutic areas
+- Cross-source deduplication (DOI, PMID, PMC ID, title similarity)
+- Job controls (pause/resume/cancel)
+- Real-time UI updates via Supabase subscriptions
+
+**Code Quality Improvements:**
+- Database indexes for kb_articles, kb_research_queue, kb_scan_jobs
+- Centralized type definitions in `src/lib/types/database.ts`
+- API utilities with consistent error handling
+- N+1 query fix with React `cache()`
+
+**Production Readiness:**
+- Sitemap with 39 condition pages
+- Admin API authentication (token-based)
+- Image optimization with Next.js Image component
+- AI article generation endpoint
