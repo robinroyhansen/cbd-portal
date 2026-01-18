@@ -1,8 +1,23 @@
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { GlossaryClient } from './GlossaryClient';
+import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 
 const SITE_URL = 'https://cbd-portal.vercel.app';
+
+// Popular/Featured terms that most users want to learn about
+const POPULAR_TERM_SLUGS = [
+  'cbd',
+  'thc',
+  'endocannabinoid-system',
+  'full-spectrum',
+  'broad-spectrum',
+  'isolate',
+  'terpenes',
+  'bioavailability',
+  'coa',
+  'entourage-effect',
+];
 
 interface GlossaryTerm {
   id: string;
@@ -85,6 +100,23 @@ export default async function GlossaryPage() {
   const allTerms: GlossaryTerm[] = terms || [];
   const totalTerms = allTerms.length;
 
+  // Fetch popular terms
+  const { data: popularTermsData } = await supabase
+    .from('kb_glossary')
+    .select('id, term, display_name, slug, short_definition, category, synonyms, pronunciation')
+    .in('slug', POPULAR_TERM_SLUGS);
+
+  // Sort popular terms to match the order in POPULAR_TERM_SLUGS
+  const popularTerms = POPULAR_TERM_SLUGS
+    .map(slug => popularTermsData?.find(t => t.slug === slug))
+    .filter((t): t is GlossaryTerm => t !== undefined);
+
+  // Breadcrumbs data
+  const breadcrumbs = [
+    { name: 'Home', url: SITE_URL },
+    { name: 'Glossary', url: `${SITE_URL}/glossary` },
+  ];
+
   // Group terms by first letter for SEO-friendly rendering
   const termsByLetter: Record<string, GlossaryTerm[]> = {};
   allTerms.forEach(term => {
@@ -148,9 +180,17 @@ export default async function GlossaryPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
       />
 
+      {/* Breadcrumbs - Server rendered for SEO */}
+      <div className="bg-gradient-to-r from-green-600 to-emerald-600">
+        <div className="max-w-6xl mx-auto px-4 pt-4">
+          <Breadcrumbs items={breadcrumbs} />
+        </div>
+      </div>
+
       {/* Client component handles interactivity, but HTML is server-rendered */}
       <GlossaryClient
         initialTerms={allTerms}
+        popularTerms={popularTerms}
         categoryCounts={categoryCounts}
         availableLetters={availableLetters}
         totalTerms={totalTerms}

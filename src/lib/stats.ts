@@ -9,7 +9,8 @@ export interface StudySubjectDistribution {
 
 export interface HomePageStats {
   // Primary impressive stats
-  researchStudies: number;
+  totalScannedStudies: number;  // All studies ever scanned (queue total)
+  researchStudies: number;      // Approved/published studies
   humanParticipants: number;
   humanParticipantsDisplay: string;
   expertAnalyses: number;

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
+import { LinkedDefinition } from '@/lib/glossary-definition-linker';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -222,6 +223,17 @@ export default async function GlossaryTermPage({ params }: Props) {
     researchCount = count || 0;
   }
 
+  // Fetch all glossary terms for auto-linking definitions
+  const { data: allTermsData } = await supabase
+    .from('kb_glossary')
+    .select('term, display_name, slug, synonyms');
+
+  const allTermsForLinking = allTermsData || [];
+
+  // Check if this term should show dosage calculator link
+  const DOSING_RELATED_SLUGS = ['bioavailability', 'titration', 'microdosing', 'sublingual', 'half-life', 'onset-time'];
+  const showDosageCalculator = term.category === 'dosing' || DOSING_RELATED_SLUGS.includes(slug);
+
   const displayTitle = term.display_name || term.term;
   const categoryInfo = CATEGORY_INFO[term.category] || { label: term.category, icon: '📖', color: 'gray' };
   const categoryColors = CATEGORY_COLORS[term.category] || { bg: 'bg-gray-100', text: 'text-gray-700' };
@@ -350,14 +362,41 @@ export default async function GlossaryTermPage({ params }: Props) {
             <p className="text-lg text-gray-800 font-medium">{term.short_definition}</p>
           </div>
 
-          {/* Full Definition */}
+          {/* Full Definition with Auto-Linked Terms */}
           <div className="prose prose-lg prose-green max-w-none mb-10">
             {definitionParagraphs.map((paragraph: string, index: number) => (
               <p key={index} className="text-gray-700 leading-relaxed mb-4">
-                {paragraph}
+                <LinkedDefinition
+                  definition={paragraph}
+                  allTerms={allTermsForLinking}
+                  currentSlug={slug}
+                />
               </p>
             ))}
           </div>
+
+          {/* Dosage Calculator CTA */}
+          {showDosageCalculator && (
+            <div className="mb-8 p-4 bg-cyan-50 border border-cyan-200 rounded-xl">
+              <div className="flex items-center gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-gray-900 mb-1">Calculate Your CBD Dosage</h3>
+                  <p className="text-sm text-gray-600">Get personalized dosage recommendations based on your needs.</p>
+                </div>
+                <Link
+                  href="/tools/dosage-calculator"
+                  className="flex-shrink-0 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition-colors font-medium text-sm"
+                >
+                  Try Calculator →
+                </Link>
+              </div>
+            </div>
+          )}
 
           {/* View Research Link */}
           {researchLink && researchCount > 0 && (
