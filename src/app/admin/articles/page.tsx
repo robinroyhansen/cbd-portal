@@ -19,10 +19,10 @@ export default function AdminArticlesPage() {
 
   const fetchArticles = async () => {
     const { data } = await supabase
-      .from('articles')
+      .from('kb_articles')
       .select(`
         *,
-        category:categories(name)
+        category:kb_categories(name)
       `)
       .order('created_at', { ascending: false });
 

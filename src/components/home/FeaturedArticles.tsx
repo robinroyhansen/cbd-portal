@@ -5,13 +5,13 @@ export async function FeaturedArticles() {
   const supabase = await createClient();
 
   const { data: articles } = await supabase
-    .from('articles')
+    .from('kb_articles')
     .select(`
-      slug, title, meta_description, read_time, updated_at,
-      category:categories(name, slug)
+      slug, title, meta_description, reading_time, updated_at,
+      category:kb_categories(name, slug)
     `)
-    .eq('published', true)
-    .order('published_date', { ascending: false })
+    .eq('status', 'published')
+    .order('published_at', { ascending: false })
     .limit(6);
 
   if (!articles || articles.length === 0) return null;

@@ -15,7 +15,7 @@ export default function AdminCategoriesPage() {
 
   const fetchCategories = async () => {
     const { data } = await supabase
-      .from('categories')
+      .from('kb_categories')
       .select('*')
       .order('name');
 
@@ -27,7 +27,7 @@ export default function AdminCategoriesPage() {
     if (!confirm('Are you sure? This will affect all articles in this category.')) return;
 
     const { error } = await supabase
-      .from('categories')
+      .from('kb_categories')
       .delete()
       .eq('id', id);
 

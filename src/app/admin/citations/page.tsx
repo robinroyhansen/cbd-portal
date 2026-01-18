@@ -18,14 +18,14 @@ export default function AdminCitationsPage() {
   const fetchData = async () => {
     const [citationsRes, articlesRes] = await Promise.all([
       supabase
-        .from('citations')
+        .from('kb_citations')
         .select(`
           *,
-          article:articles(title, slug)
+          article:kb_articles(title, slug)
         `)
         .order('accessed_at', { ascending: false }),
       supabase
-        .from('articles')
+        .from('kb_articles')
         .select('id, title')
         .order('title')
     ]);
@@ -39,7 +39,7 @@ export default function AdminCitationsPage() {
     if (!confirm('Are you sure you want to delete this citation?')) return;
 
     const { error } = await supabase
-      .from('citations')
+      .from('kb_citations')
       .delete()
       .eq('id', id);
 

@@ -81,7 +81,7 @@ export async function getHomePageStats(): Promise<HomePageStats> {
 
     // Published articles
     supabase
-      .from('articles')
+      .from('kb_articles')
       .select('*', { count: 'exact', head: true })
       .eq('status', 'published'),
 
