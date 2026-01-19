@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { generateStudySlug } from '@/lib/utils/slug-generator';
 import { extractSampleSize } from '@/lib/utils/extract-sample-size';
 
@@ -14,6 +15,10 @@ interface Study {
 }
 
 export async function POST(request: NextRequest) {
+  // Require admin authentication
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   try {
     const { studyId } = await request.json();
 

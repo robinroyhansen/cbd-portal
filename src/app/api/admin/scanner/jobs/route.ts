@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 
 // Interface matching actual kb_scan_jobs table schema
 export interface ScannerJob {
@@ -24,6 +25,10 @@ export interface ScannerJob {
 
 // GET - List all scan jobs
 export async function GET(request: NextRequest) {
+  // Require admin authentication
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   try {
     const { searchParams } = new URL(request.url);
     const limit = parseInt(searchParams.get('limit') || '20');
@@ -74,6 +79,10 @@ export async function GET(request: NextRequest) {
 
 // POST - Create a new scan job
 export async function POST(request: NextRequest) {
+  // Require admin authentication
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   try {
     const body = await request.json().catch(() => ({}));
 

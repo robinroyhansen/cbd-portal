@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { requireAdminOrInternal } from '@/lib/admin-api-auth';
 import { calculateRelevanceScore } from '@/lib/utils/relevance-scorer';
 import { detectLanguage } from '@/lib/utils/language-detection';
 import {
@@ -75,6 +76,10 @@ interface ResearchItem {
 
 // POST - Process one chunk of the oldest queued/running job
 export async function POST(request: NextRequest) {
+  // Require admin auth or internal request (cron jobs)
+  const authError = requireAdminOrInternal(request);
+  if (authError) return authError;
+
   const startTime = Date.now();
 
   try {
@@ -291,6 +296,39 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('[Scanner Process] Error:', error);
+
+    // Try to mark job as failed
+    try {
+      const supabase = createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.SUPABASE_SERVICE_ROLE_KEY!
+      );
+
+      // Find the job that was being processed
+      const { data: runningJobs } = await supabase
+        .from('kb_scan_jobs')
+        .select('id')
+        .eq('status', 'running')
+        .order('updated_at', { ascending: false })
+        .limit(1);
+
+      if (runningJobs && runningJobs.length > 0) {
+        await supabase
+          .from('kb_scan_jobs')
+          .update({
+            status: 'failed',
+            error_message: error instanceof Error ? error.message : 'Unknown error during processing',
+            completed_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          })
+          .eq('id', runningJobs[0].id);
+
+        console.log(`[Scanner] Marked job ${runningJobs[0].id} as failed`);
+      }
+    } catch (updateError) {
+      console.error('[Scanner] Failed to update job status:', updateError);
+    }
+
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }

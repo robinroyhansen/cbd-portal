@@ -21,10 +21,13 @@
     }
   ],
   "functions": {
-    "app/api/cron/research-scan/route.ts": {
+    "src/app/api/cron/research-scan/route.ts": {
       "maxDuration": 300
     },
-    "app/api/admin/trigger-scan/route.ts": {
+    "src/app/api/admin/trigger-scan/route.ts": {
+      "maxDuration": 300
+    },
+    "src/app/api/admin/scanner/process/route.ts": {
       "maxDuration": 300
     }
   }

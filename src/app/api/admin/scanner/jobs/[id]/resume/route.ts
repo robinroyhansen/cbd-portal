@@ -1,11 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 
 // POST - Resume a paused or failed job
 export async function POST(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  // Require admin authentication
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   try {
     const { id } = await params;
 

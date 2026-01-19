@@ -1,5 +1,6 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import {
   cleanTitle,
   cleanAbstract,
@@ -34,7 +35,11 @@ interface ResearchQueueRecord {
  * - batchSize: Number of records to process per batch (default: 100)
  * - dryRun: If "true", shows what would change without updating (default: false)
  */
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
+  // Require admin authentication
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   const url = new URL(request.url);
   const batchSize = parseInt(url.searchParams.get('batchSize') || '100', 10);
   const dryRun = url.searchParams.get('dryRun') === 'true';
@@ -200,7 +205,10 @@ export async function POST(request: Request) {
  *
  * Returns info about the cleanup endpoint
  */
-export async function GET() {
+export async function GET(request: NextRequest) {
+  // Require admin authentication
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
   // Get count of records that might need cleaning
   const { count: totalCount } = await supabase
     .from('kb_research_queue')

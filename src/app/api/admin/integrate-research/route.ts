@@ -1,5 +1,6 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 
 // Map topics to article slugs
 const TOPIC_TO_SLUGS: Record<string, string[]> = {
@@ -26,7 +27,11 @@ const TOPIC_TO_SLUGS: Record<string, string[]> = {
   'glaucoma': ['cbd-and-glaucoma']
 };
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
+  // Require admin authentication
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   try {
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,

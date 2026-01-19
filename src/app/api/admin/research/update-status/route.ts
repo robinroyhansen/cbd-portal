@@ -1,7 +1,12 @@
 import { createServiceClient } from '@/lib/supabase/server';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
+  // Require admin authentication
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   try {
     const { id, status, rejection_reason } = await request.json();
 
