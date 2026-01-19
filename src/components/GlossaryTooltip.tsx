@@ -63,7 +63,7 @@ export function GlossaryTooltip({ term, slug, definition, children }: GlossaryTo
               {definition}
             </p>
             <Link
-              href={`/glossary?q=${encodeURIComponent(term)}`}
+              href={`/glossary/${slug}`}
               className="text-xs text-green-600 hover:text-green-700 font-medium inline-flex items-center gap-1"
               onClick={(e) => e.stopPropagation()}
             >
