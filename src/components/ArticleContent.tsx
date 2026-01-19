@@ -148,9 +148,14 @@ export function ArticleContent({ content, glossaryTerms = [], excludeSlugs = [],
   }
 
   // Strip Medical/Veterinary Disclaimer from content (we have one in the page template)
-  // Matches: **Medical Disclaimer:** ..., Medical Disclaimer: ..., **Veterinary Disclaimer:** ...
+  // Matches various disclaimer formats at the end of articles
   processedContent = processedContent.replace(
-    /\n*\*{0,2}(?:Medical|Veterinary|Disclaimer)\s*(?:Disclaimer)?:?\*{0,2}:?\s*This (?:article|information|content) is for informational purposes only[\s\S]*?(?:health (?:regimen|care|professional)|veterinary care|veterinarian|medical advice)\.?\n*/gi,
+    /\n*-{3,}\n*\*{0,2}(?:Medical|Veterinary)\s*Disclaimer:?\*{0,2}:?[\s\S]*?(?:medications?|health regimen|veterinary care|veterinarian|medical advice|healthcare professional)\.?\*?\n*/gi,
+    '\n'
+  );
+  // Also match disclaimers without the --- separator
+  processedContent = processedContent.replace(
+    /\n+\*{0,2}(?:Medical|Veterinary)\s*Disclaimer:?\*{0,2}:?\s*This (?:article|information|content) is for informational purposes only[\s\S]*?(?:medications?|health regimen|veterinary care|veterinarian|medical advice|healthcare professional)\.?\*?\n*/gi,
     '\n'
   );
 

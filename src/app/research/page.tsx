@@ -261,31 +261,42 @@ export default async function ResearchPage() {
               <h3 className="text-sm font-semibold text-gray-700">Publication Trends ({minYear}–{maxYear})</h3>
               <span className="text-xs text-gray-500">{studyStats.total} studies indexed</span>
             </div>
-            <div className="flex items-end gap-px h-20" aria-label="Research publications by year">
+            {/* Chart bars */}
+            <div className="flex items-end gap-px" style={{ height: '80px' }} aria-label="Research publications by year">
               {years.map(year => {
                 const count = yearDistribution[year] || 0;
-                const height = count > 0 ? Math.max((count / maxCount) * 100, 3) : 0;
+                const heightPx = count > 0 ? Math.max(Math.round((count / maxCount) * 80), 3) : 0;
                 const isRecent = year >= currentYear - 2;
 
                 return (
-                  <div key={year} className="flex-1 flex flex-col items-center group relative">
+                  <div
+                    key={year}
+                    className="flex-1 group relative"
+                    title={`${year}: ${count} studies`}
+                  >
                     <div
                       className={`w-full rounded-t transition-colors ${
                         isRecent ? 'bg-green-500 hover:bg-green-600' : 'bg-blue-400 hover:bg-blue-500'
                       }`}
-                      style={{ height: `${height}%` }}
-                      title={`${year}: ${count} studies`}
+                      style={{ height: `${heightPx}px` }}
                     />
-                    {year % 5 === 0 && (
-                      <span className="text-[9px] text-gray-400 mt-1">{year}</span>
-                    )}
                     {/* Tooltip on hover */}
-                    <div className="absolute bottom-full mb-1 hidden group-hover:block bg-gray-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap z-10">
+                    <div className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block bg-gray-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap z-10">
                       {year}: {count} studies
                     </div>
                   </div>
                 );
               })}
+            </div>
+            {/* Year labels */}
+            <div className="flex gap-px mt-1">
+              {years.map(year => (
+                <div key={year} className="flex-1 text-center">
+                  {year % 5 === 0 && (
+                    <span className="text-[9px] text-gray-400">{year}</span>
+                  )}
+                </div>
+              ))}
             </div>
             <p className="text-xs text-gray-400 mt-2 text-center">
               CBD research has grown significantly since 2000, with a surge following the 2018 Farm Bill
