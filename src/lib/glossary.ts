@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
-import { unstable_cache } from 'next/cache';
+import { cache } from 'react';
 
 export interface GlossaryTermForLinking {
   term: string;
@@ -8,8 +8,8 @@ export interface GlossaryTermForLinking {
   synonyms: string[];
 }
 
-// Cache glossary terms for 1 hour to avoid repeated DB calls
-export const getGlossaryTermsForLinking = unstable_cache(
+// Use React cache() for request-level deduplication (avoids dynamic data issues with unstable_cache)
+export const getGlossaryTermsForLinking = cache(
   async (): Promise<GlossaryTermForLinking[]> => {
     const supabase = await createClient();
 
@@ -29,7 +29,5 @@ export const getGlossaryTermsForLinking = unstable_cache(
       short_definition: t.short_definition,
       synonyms: t.synonyms || []
     }));
-  },
-  ['glossary-terms-for-linking'],
-  { revalidate: 3600 } // Cache for 1 hour
+  }
 );
