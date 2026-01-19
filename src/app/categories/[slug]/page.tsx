@@ -106,6 +106,7 @@ export default async function CategoryPage({ params }: Props) {
                 className="block rounded-lg px-4 py-2 text-sm text-gray-600 hover:bg-gray-100"
               >
                 All Topics
+                <span className="ml-2 text-xs text-gray-400">({articleCounts?.length || 0})</span>
               </Link>
               {allCategories?.map((cat) => {
                 const count = countMap[cat.id] || 0;
