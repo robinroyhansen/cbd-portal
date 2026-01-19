@@ -32,11 +32,13 @@ export function GlossaryTooltip({ term, slug, definition, children }: GlossaryTo
     : 'top-[-6px] border-t border-l';
 
   return (
-    <span className="relative inline">
+    <span
+      className="relative inline"
+      onMouseEnter={() => setIsVisible(true)}
+      onMouseLeave={() => setIsVisible(false)}
+    >
       <span
         ref={triggerRef}
-        onMouseEnter={() => setIsVisible(true)}
-        onMouseLeave={() => setIsVisible(false)}
         className="glossary-term border-b border-dotted border-green-500 text-green-700 cursor-help hover:text-green-800 hover:border-green-700 transition-colors"
       >
         {children}
@@ -45,8 +47,6 @@ export function GlossaryTooltip({ term, slug, definition, children }: GlossaryTo
       {isVisible && (
         <div
           className={`absolute z-50 w-72 p-3 bg-white rounded-lg shadow-lg border border-gray-200 text-sm ${positionClasses} left-1/2 -translate-x-1/2`}
-          onMouseEnter={() => setIsVisible(true)}
-          onMouseLeave={() => setIsVisible(false)}
         >
           {/* Arrow */}
           <div
