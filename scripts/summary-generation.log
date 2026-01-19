@@ -1,0 +1,35 @@
+[dotenv@17.2.3] injecting env (7) from .env.local -- tip: ✅ audit secrets and track compliance: https://dotenvx.com/ops
+
+========================================
+  Research Study Summary Generator
+========================================
+
+Studies needing summaries: 4211
+Already processed this run: 17
+Failed this run: 0
+Batch size: 50
+Delay between studies: 4000ms
+
+Estimated time remaining: 5h 15m
+
+Starting in 3 seconds... (Ctrl+C to cancel)
+
+--- Batch 1 (50 studies) ---
+  [18] Chitosan-Modified Biodegradable Polymeric Nanopart...... OK
+  [19] Influences of cannabidiol on fetal human astrocyte...... OK
+  [20] Cannabidiol Inhibits Melanoma Progression by Regul...... OK
+  [21] Defining the Intestinal eCBome and Oxylipin Signal...... OK
+  [22] Phytocannabinoids influence phospholipid metabolis...... retrying in 10s...
+OK
+  [23] Cannabidiol as a Prophylactic Agent Against Gliobl...... retrying in 10s...
+OK
+  [24] Development and In vitro kinetic evaluation of PEG...... FAILED: API error 529: {"type":"error","error":{"type":"overloaded_error","message":"Overloaded"},"request_id":"req_011CXHNVLasL236K3jK5QUXa"}
+  [25] Evaluation of Anti-arthritic Activity of ArthoCan ...... OK
+  [26] Ageing, Neurodegeneration and the Endocannabinoid ...... OK
+  [27] Chronic cannabidiol treatment effects on contextua...... retrying in 10s...
+OK
+  [28] Species differences in pregnane X receptor activat...... retrying in 10s...
+OK
+  [29] Safety Assessment on the Safety of Cannabidiol (CB...... OK
+  [30] Genetic Tools in Rodents to Study Cannabinoid Func...... retrying in 10s...
+OK

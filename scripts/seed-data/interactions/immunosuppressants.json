@@ -1,0 +1,201 @@
+{
+  "category": "immunosuppressant",
+  "drugs": [
+    {
+      "generic_name": "cyclosporine",
+      "display_name": "Cyclosporine",
+      "brand_names": ["Sandimmune", "Neoral", "Gengraf"],
+      "synonyms": ["transplant medication", "immunosuppressant"],
+      "drug_class": "Calcineurin inhibitor",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["organ transplant rejection", "rheumatoid arthritis", "psoriasis", "ulcerative colitis"],
+      "interaction": {
+        "severity": "major",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Cyclosporine is extensively metabolized by CYP3A4. CBD's strong inhibition of this enzyme can significantly increase cyclosporine blood levels, potentially causing toxicity.",
+        "clinical_effects": ["Significantly elevated cyclosporine levels", "Risk of nephrotoxicity", "Risk of neurotoxicity", "Increased immunosuppression"],
+        "potential_outcomes": "Serious adverse effects including kidney damage, high blood pressure, tremor, and increased susceptibility to infections.",
+        "recommendation": "Avoid CBD or use only under strict medical supervision with frequent cyclosporine level monitoring. Dose adjustments will likely be required.",
+        "monitoring_parameters": ["Cyclosporine trough levels", "Serum creatinine", "Blood pressure", "Potassium levels", "Signs of infection"],
+        "dose_adjustment_guidance": "Cyclosporine dose reduction of 25-50% may be necessary. Monitor trough levels twice weekly when starting CBD.",
+        "onset_timeframe": "Effects may be seen within 3-7 days",
+        "evidence_level": "Moderate",
+        "special_populations_notes": "Transplant patients should avoid CBD unless specifically approved by their transplant team."
+      }
+    },
+    {
+      "generic_name": "tacrolimus",
+      "display_name": "Tacrolimus",
+      "brand_names": ["Prograf", "Envarsus XR", "Astagraf XL"],
+      "synonyms": ["FK506", "transplant medication", "immunosuppressant"],
+      "drug_class": "Calcineurin inhibitor",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["organ transplant rejection", "eczema"],
+      "interaction": {
+        "severity": "major",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Tacrolimus is a sensitive CYP3A4 substrate. CBD inhibition can dramatically increase tacrolimus levels, leading to serious toxicity.",
+        "clinical_effects": ["Dramatically elevated tacrolimus levels", "Nephrotoxicity risk", "Neurotoxicity risk", "Hyperkalemia"],
+        "potential_outcomes": "Potentially life-threatening toxicity including kidney failure, seizures, and serious infections due to over-immunosuppression.",
+        "recommendation": "Avoid CBD in transplant patients on tacrolimus. If CBD is medically necessary, use only with intensive monitoring by transplant team.",
+        "monitoring_parameters": ["Tacrolimus trough levels", "Serum creatinine", "Potassium", "Blood glucose", "Neurological status"],
+        "dose_adjustment_guidance": "Tacrolimus dose reduction of 50% or more may be needed. Requires intensive therapeutic drug monitoring.",
+        "evidence_level": "Moderate",
+        "special_populations_notes": "Organ transplant patients are at highest risk. Topical tacrolimus for eczema is less concerning."
+      }
+    },
+    {
+      "generic_name": "sirolimus",
+      "display_name": "Sirolimus",
+      "brand_names": ["Rapamune"],
+      "synonyms": ["rapamycin", "transplant medication", "immunosuppressant"],
+      "drug_class": "mTOR inhibitor",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["organ transplant rejection", "lymphangioleiomyomatosis"],
+      "interaction": {
+        "severity": "major",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Sirolimus is metabolized by CYP3A4. CBD inhibition can significantly increase sirolimus exposure.",
+        "clinical_effects": ["Elevated sirolimus levels", "Increased immunosuppression", "Risk of infections", "Delayed wound healing"],
+        "potential_outcomes": "Increased risk of infections, impaired wound healing, hyperlipidemia, and bone marrow suppression.",
+        "recommendation": "Avoid CBD or use with extreme caution and close monitoring of sirolimus levels.",
+        "monitoring_parameters": ["Sirolimus trough levels", "Complete blood count", "Lipid panel", "Signs of infection"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "everolimus",
+      "display_name": "Everolimus",
+      "brand_names": ["Zortress", "Afinitor", "Certican"],
+      "synonyms": ["transplant medication", "cancer medication", "immunosuppressant"],
+      "drug_class": "mTOR inhibitor",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["organ transplant rejection", "breast cancer", "kidney cancer", "neuroendocrine tumors"],
+      "interaction": {
+        "severity": "major",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Everolimus is a CYP3A4 substrate. CBD can increase everolimus levels significantly.",
+        "clinical_effects": ["Elevated everolimus levels", "Increased toxicity risk", "Stomatitis", "Infections"],
+        "potential_outcomes": "Mouth sores, increased infections, metabolic abnormalities, and potential organ toxicity.",
+        "recommendation": "Avoid CBD or use with careful monitoring. Discuss with your transplant team or oncologist.",
+        "monitoring_parameters": ["Everolimus levels", "Complete blood count", "Liver function", "Glucose"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "mycophenolate",
+      "display_name": "Mycophenolate",
+      "brand_names": ["CellCept", "Myfortic"],
+      "synonyms": ["MMF", "mycophenolate mofetil", "transplant medication"],
+      "drug_class": "Antimetabolite immunosuppressant",
+      "primary_cyp_enzymes": [],
+      "secondary_cyp_enzymes": ["UGT"],
+      "common_uses": ["organ transplant rejection", "lupus nephritis"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Mycophenolate is primarily metabolized by glucuronidation, not CYP enzymes. CBD's effect on UGT enzymes is not well characterized, but additive immunosuppressive effects may occur.",
+        "clinical_effects": ["Possible increased immunosuppression", "GI effects"],
+        "potential_outcomes": "Potential for increased susceptibility to infections or GI side effects.",
+        "recommendation": "Use with caution. Monitor for increased side effects. Inform your transplant team about CBD use.",
+        "monitoring_parameters": ["Complete blood count", "Signs of infection", "GI symptoms"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "azathioprine",
+      "display_name": "Azathioprine",
+      "brand_names": ["Imuran", "Azasan"],
+      "synonyms": ["immunosuppressant", "transplant medication"],
+      "drug_class": "Purine antimetabolite",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["organ transplant rejection", "rheumatoid arthritis", "Crohn's disease", "ulcerative colitis"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Azathioprine is not metabolized by CYP enzymes but by xanthine oxidase and TPMT. No direct pharmacokinetic interaction expected, but additive immunosuppressive effects possible.",
+        "clinical_effects": ["Possible additive immunosuppression"],
+        "potential_outcomes": "Potential increased risk of infections.",
+        "recommendation": "Generally lower risk than CYP-metabolized immunosuppressants. Monitor for signs of infection. Inform your doctor.",
+        "monitoring_parameters": ["Complete blood count", "Signs of infection"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "methotrexate",
+      "display_name": "Methotrexate",
+      "brand_names": ["Trexall", "Otrexup", "Rasuvo"],
+      "synonyms": ["MTX", "chemotherapy", "immunosuppressant"],
+      "drug_class": "Antimetabolite",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["rheumatoid arthritis", "psoriasis", "cancer", "ectopic pregnancy"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Methotrexate is primarily renally eliminated. Both CBD and methotrexate can affect liver function, so additive hepatotoxicity is a theoretical concern.",
+        "clinical_effects": ["Possible additive liver effects", "Increased hepatotoxicity risk"],
+        "potential_outcomes": "Potential for increased liver stress when combined.",
+        "recommendation": "Monitor liver function tests more frequently if using CBD with methotrexate. Watch for signs of liver problems.",
+        "monitoring_parameters": ["Liver function tests", "Complete blood count", "Kidney function"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "prednisone",
+      "display_name": "Prednisone",
+      "brand_names": ["Deltasone", "Rayos"],
+      "synonyms": ["steroid", "corticosteroid", "immunosuppressant"],
+      "drug_class": "Corticosteroid",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["inflammation", "autoimmune diseases", "asthma", "allergies", "transplant"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Prednisone is converted to prednisolone and metabolized by CYP3A4. CBD inhibition could potentially increase steroid exposure.",
+        "clinical_effects": ["Potentially elevated steroid levels", "Enhanced steroid side effects"],
+        "potential_outcomes": "Possible increased steroid side effects including weight gain, blood sugar changes, and mood changes.",
+        "recommendation": "Use with caution. Monitor for increased steroid side effects. Do not adjust prednisone dose without consulting your doctor.",
+        "monitoring_parameters": ["Blood glucose", "Blood pressure", "Mood changes", "Weight"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "hydroxychloroquine",
+      "display_name": "Hydroxychloroquine",
+      "brand_names": ["Plaquenil"],
+      "synonyms": ["antimalarial", "immunomodulator"],
+      "drug_class": "Disease-modifying antirheumatic drug",
+      "primary_cyp_enzymes": ["CYP2D6", "CYP3A4"],
+      "common_uses": ["lupus", "rheumatoid arthritis", "malaria prevention"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "multiple",
+        "mechanism_description": "Hydroxychloroquine is metabolized by CYP2D6 and CYP3A4. CBD inhibition of these enzymes may increase hydroxychloroquine levels.",
+        "clinical_effects": ["Potentially elevated hydroxychloroquine levels", "Increased toxicity risk"],
+        "potential_outcomes": "Possible increased risk of QT prolongation, retinal toxicity with long-term use.",
+        "recommendation": "Use with caution. Inform your rheumatologist about CBD use. Regular eye exams are important.",
+        "monitoring_parameters": ["ECG for QT interval", "Regular eye exams", "Signs of toxicity"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "leflunomide",
+      "display_name": "Leflunomide",
+      "brand_names": ["Arava"],
+      "synonyms": ["DMARD", "immunosuppressant"],
+      "drug_class": "Disease-modifying antirheumatic drug",
+      "primary_cyp_enzymes": ["CYP2C19", "CYP1A2"],
+      "common_uses": ["rheumatoid arthritis", "psoriatic arthritis"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2c19_inhibition",
+        "mechanism_description": "Leflunomide's active metabolite is metabolized by CYP2C19 and CYP1A2. CBD inhibition may affect drug levels.",
+        "clinical_effects": ["Potentially altered leflunomide levels", "Possible increased toxicity"],
+        "potential_outcomes": "Increased risk of liver toxicity, blood cell changes.",
+        "recommendation": "Monitor liver function tests regularly. Inform your rheumatologist about CBD use.",
+        "monitoring_parameters": ["Liver function tests", "Complete blood count", "Blood pressure"],
+        "evidence_level": "Limited"
+      }
+    }
+  ]
+}

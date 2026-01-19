@@ -1,0 +1,389 @@
+{
+  "category": "antidepressant",
+  "drugs": [
+    {
+      "generic_name": "sertraline",
+      "display_name": "Sertraline",
+      "brand_names": ["Zoloft"],
+      "synonyms": ["SSRI", "antidepressant", "anxiety medication"],
+      "drug_class": "Selective serotonin reuptake inhibitor",
+      "primary_cyp_enzymes": ["CYP2C19", "CYP2D6"],
+      "common_uses": ["depression", "anxiety", "OCD", "PTSD", "panic disorder"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "multiple",
+        "mechanism_description": "Sertraline is metabolized by CYP2C19 and CYP2D6. CBD inhibition of these enzymes may increase sertraline levels.",
+        "clinical_effects": ["Elevated sertraline levels", "Increased serotonergic effects", "Enhanced side effects"],
+        "potential_outcomes": "Increased risk of serotonin-related side effects including nausea, dizziness, insomnia, or in rare cases serotonin syndrome.",
+        "recommendation": "Use with caution. Start CBD at low doses. Monitor for increased side effects. Discuss with your prescriber.",
+        "monitoring_parameters": ["Mood changes", "Anxiety levels", "GI symptoms", "Sleep quality", "Signs of serotonin syndrome"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "fluoxetine",
+      "display_name": "Fluoxetine",
+      "brand_names": ["Prozac", "Sarafem"],
+      "synonyms": ["SSRI", "antidepressant"],
+      "drug_class": "Selective serotonin reuptake inhibitor",
+      "primary_cyp_enzymes": ["CYP2D6", "CYP2C9"],
+      "common_uses": ["depression", "OCD", "bulimia", "panic disorder", "PMDD"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2d6_inhibition",
+        "mechanism_description": "Fluoxetine is metabolized by CYP2D6 and is itself a potent CYP2D6 inhibitor. CBD's additional CYP inhibition may compound effects.",
+        "clinical_effects": ["Elevated fluoxetine levels", "Enhanced serotonergic effects", "Prolonged half-life"],
+        "potential_outcomes": "Increased side effects, potential for QT prolongation, and enhanced serotonergic effects.",
+        "recommendation": "Use with caution. Both CBD and fluoxetine have long half-lives. Monitor for increased side effects.",
+        "monitoring_parameters": ["Mood", "Anxiety", "Tremor", "Sleep", "Heart rhythm if high doses"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "paroxetine",
+      "display_name": "Paroxetine",
+      "brand_names": ["Paxil", "Pexeva", "Brisdelle"],
+      "synonyms": ["SSRI", "antidepressant", "anxiety medication"],
+      "drug_class": "Selective serotonin reuptake inhibitor",
+      "primary_cyp_enzymes": ["CYP2D6"],
+      "common_uses": ["depression", "anxiety", "OCD", "panic disorder", "PTSD", "hot flashes"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2d6_inhibition",
+        "mechanism_description": "Paroxetine is metabolized by and inhibits CYP2D6. CBD may further increase paroxetine levels through enzyme inhibition.",
+        "clinical_effects": ["Elevated paroxetine levels", "Enhanced anticholinergic effects", "Increased sedation"],
+        "potential_outcomes": "Increased side effects including drowsiness, dry mouth, constipation, and sexual dysfunction.",
+        "recommendation": "Use with caution. Paroxetine has notable discontinuation effects - never stop suddenly. Monitor for increased sedation.",
+        "monitoring_parameters": ["Sedation", "Anticholinergic symptoms", "Weight", "Sexual function"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "citalopram",
+      "display_name": "Citalopram",
+      "brand_names": ["Celexa"],
+      "synonyms": ["SSRI", "antidepressant"],
+      "drug_class": "Selective serotonin reuptake inhibitor",
+      "primary_cyp_enzymes": ["CYP2C19", "CYP3A4"],
+      "common_uses": ["depression", "anxiety"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "multiple",
+        "mechanism_description": "Citalopram is metabolized by CYP2C19 and CYP3A4. CBD inhibition can increase citalopram levels, which may enhance QT prolongation risk.",
+        "clinical_effects": ["Elevated citalopram levels", "Increased QT prolongation risk", "Enhanced side effects"],
+        "potential_outcomes": "Higher doses increase risk of dangerous heart rhythm changes. Monitor for increased side effects.",
+        "recommendation": "Use with caution, especially at higher citalopram doses. The FDA limits citalopram to 40mg daily. Discuss with your doctor.",
+        "monitoring_parameters": ["Heart rhythm/ECG if risk factors", "Electrolytes", "Mood", "Side effects"],
+        "evidence_level": "Moderate",
+        "special_populations_notes": "Elderly patients are at higher risk of QT prolongation. Maximum dose is 20mg in patients over 60."
+      }
+    },
+    {
+      "generic_name": "escitalopram",
+      "display_name": "Escitalopram",
+      "brand_names": ["Lexapro"],
+      "synonyms": ["SSRI", "antidepressant", "anxiety medication"],
+      "drug_class": "Selective serotonin reuptake inhibitor",
+      "primary_cyp_enzymes": ["CYP2C19", "CYP3A4"],
+      "common_uses": ["depression", "generalized anxiety disorder"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2c19_inhibition",
+        "mechanism_description": "Escitalopram is primarily metabolized by CYP2C19. CBD inhibition may increase escitalopram levels.",
+        "clinical_effects": ["Elevated escitalopram levels", "Enhanced serotonergic effects", "Possible QT effects at higher levels"],
+        "potential_outcomes": "Increased side effects. Some QT prolongation risk at elevated levels.",
+        "recommendation": "Use with caution. Monitor for increased side effects. Discuss CBD use with your prescriber.",
+        "monitoring_parameters": ["Mood", "Sleep", "Nausea", "Sexual function"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "venlafaxine",
+      "display_name": "Venlafaxine",
+      "brand_names": ["Effexor", "Effexor XR"],
+      "synonyms": ["SNRI", "antidepressant", "anxiety medication"],
+      "drug_class": "Serotonin-norepinephrine reuptake inhibitor",
+      "primary_cyp_enzymes": ["CYP2D6", "CYP3A4"],
+      "common_uses": ["depression", "anxiety", "panic disorder", "social anxiety"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2d6_inhibition",
+        "mechanism_description": "Venlafaxine is converted to its active metabolite by CYP2D6. CBD inhibition may alter the parent drug to metabolite ratio.",
+        "clinical_effects": ["Altered venlafaxine metabolism", "Potentially elevated parent drug levels", "Changed efficacy/side effect profile"],
+        "potential_outcomes": "Higher venlafaxine levels relative to its active metabolite. May increase blood pressure and other side effects.",
+        "recommendation": "Use with caution. Monitor blood pressure. Watch for increased side effects or changes in effectiveness.",
+        "monitoring_parameters": ["Blood pressure", "Heart rate", "Mood", "Discontinuation symptoms if stopping"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "duloxetine",
+      "display_name": "Duloxetine",
+      "brand_names": ["Cymbalta", "Irenka"],
+      "synonyms": ["SNRI", "antidepressant", "nerve pain medication"],
+      "drug_class": "Serotonin-norepinephrine reuptake inhibitor",
+      "primary_cyp_enzymes": ["CYP1A2", "CYP2D6"],
+      "common_uses": ["depression", "anxiety", "fibromyalgia", "diabetic neuropathy", "chronic pain"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2d6_inhibition",
+        "mechanism_description": "Duloxetine is metabolized by CYP1A2 and CYP2D6. CBD's CYP2D6 inhibition may increase duloxetine levels.",
+        "clinical_effects": ["Elevated duloxetine levels", "Increased side effects", "Enhanced hepatotoxicity risk"],
+        "potential_outcomes": "Increased nausea, constipation, dry mouth. Rare risk of liver injury may be enhanced.",
+        "recommendation": "Use with caution. Duloxetine already carries liver warnings. Monitor for increased side effects.",
+        "monitoring_parameters": ["Liver function if prolonged use", "Blood pressure", "GI symptoms", "Urinary function"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "bupropion",
+      "display_name": "Bupropion",
+      "brand_names": ["Wellbutrin", "Zyban", "Aplenzin"],
+      "synonyms": ["antidepressant", "smoking cessation"],
+      "drug_class": "Norepinephrine-dopamine reuptake inhibitor",
+      "primary_cyp_enzymes": ["CYP2B6"],
+      "common_uses": ["depression", "smoking cessation", "seasonal affective disorder", "ADHD"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "unknown",
+        "mechanism_description": "Bupropion is primarily metabolized by CYP2B6, which CBD may weakly inhibit. Both compounds lower seizure threshold.",
+        "clinical_effects": ["Potentially elevated bupropion levels", "Additive seizure risk lowering"],
+        "potential_outcomes": "Possible increased seizure risk, especially at higher bupropion doses. Enhanced stimulant-like effects.",
+        "recommendation": "Use with caution. Bupropion has dose-related seizure risk. Do not exceed recommended bupropion doses.",
+        "monitoring_parameters": ["Seizure risk factors", "Anxiety/agitation", "Sleep", "Blood pressure"],
+        "evidence_level": "Limited",
+        "special_populations_notes": "Those with seizure history should be especially cautious."
+      }
+    },
+    {
+      "generic_name": "mirtazapine",
+      "display_name": "Mirtazapine",
+      "brand_names": ["Remeron"],
+      "synonyms": ["antidepressant", "sleep aid"],
+      "drug_class": "Tetracyclic antidepressant",
+      "primary_cyp_enzymes": ["CYP1A2", "CYP2D6", "CYP3A4"],
+      "common_uses": ["depression", "insomnia", "appetite stimulation"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "multiple",
+        "mechanism_description": "Mirtazapine is metabolized by multiple CYP enzymes. CBD inhibition may increase mirtazapine levels and its sedating effects.",
+        "clinical_effects": ["Elevated mirtazapine levels", "Enhanced sedation", "Increased appetite effects"],
+        "potential_outcomes": "Increased drowsiness, weight gain, and sedation.",
+        "recommendation": "Use with caution. CBD may enhance mirtazapine's sedating effects. Avoid driving until you know how combination affects you.",
+        "monitoring_parameters": ["Sedation", "Weight", "Appetite", "Morning grogginess"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "trazodone",
+      "display_name": "Trazodone",
+      "brand_names": ["Desyrel", "Oleptro"],
+      "synonyms": ["antidepressant", "sleep aid"],
+      "drug_class": "Serotonin antagonist and reuptake inhibitor",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["depression", "insomnia", "anxiety"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Trazodone is metabolized by CYP3A4. CBD inhibition can increase trazodone levels and its sedating effects.",
+        "clinical_effects": ["Elevated trazodone levels", "Enhanced sedation", "Increased hypotension risk"],
+        "potential_outcomes": "Excessive sedation, dizziness, and low blood pressure, especially when standing.",
+        "recommendation": "Use with caution. Start with lower trazodone doses if combining. Be careful when standing up.",
+        "monitoring_parameters": ["Sedation", "Blood pressure", "Dizziness", "Priapism (rare but serious)"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "amitriptyline",
+      "display_name": "Amitriptyline",
+      "brand_names": ["Elavil"],
+      "synonyms": ["tricyclic antidepressant", "TCA", "nerve pain medication"],
+      "drug_class": "Tricyclic antidepressant",
+      "primary_cyp_enzymes": ["CYP2D6", "CYP2C19"],
+      "common_uses": ["depression", "nerve pain", "migraines", "fibromyalgia", "insomnia"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "multiple",
+        "mechanism_description": "Amitriptyline is metabolized by CYP2D6 and CYP2C19. CBD inhibition can significantly increase amitriptyline levels.",
+        "clinical_effects": ["Elevated amitriptyline levels", "Enhanced anticholinergic effects", "Increased sedation", "QT prolongation risk"],
+        "potential_outcomes": "Increased drowsiness, dry mouth, constipation, urinary retention, and cardiac effects at high levels.",
+        "recommendation": "Use with significant caution. TCAs have narrow therapeutic windows. Monitor closely for side effects.",
+        "monitoring_parameters": ["Sedation", "Anticholinergic symptoms", "Heart rhythm", "Blood pressure"],
+        "evidence_level": "Moderate",
+        "special_populations_notes": "Elderly patients are more sensitive to anticholinergic and cardiac effects."
+      }
+    },
+    {
+      "generic_name": "nortriptyline",
+      "display_name": "Nortriptyline",
+      "brand_names": ["Pamelor"],
+      "synonyms": ["tricyclic antidepressant", "TCA", "nerve pain medication"],
+      "drug_class": "Tricyclic antidepressant",
+      "primary_cyp_enzymes": ["CYP2D6"],
+      "common_uses": ["depression", "nerve pain", "migraines"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2d6_inhibition",
+        "mechanism_description": "Nortriptyline is metabolized by CYP2D6. CBD inhibition can increase nortriptyline levels.",
+        "clinical_effects": ["Elevated nortriptyline levels", "Increased side effects", "Cardiac effects"],
+        "potential_outcomes": "Enhanced sedation, anticholinergic effects, and potential cardiac conduction changes.",
+        "recommendation": "Use with caution. Nortriptyline levels can be monitored by blood test if needed.",
+        "monitoring_parameters": ["Nortriptyline blood levels", "Sedation", "Heart rhythm", "Anticholinergic effects"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "doxepin",
+      "display_name": "Doxepin",
+      "brand_names": ["Sinequan", "Silenor"],
+      "synonyms": ["tricyclic antidepressant", "TCA", "sleep aid"],
+      "drug_class": "Tricyclic antidepressant",
+      "primary_cyp_enzymes": ["CYP2D6", "CYP2C19"],
+      "common_uses": ["depression", "anxiety", "insomnia", "itching"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "multiple",
+        "mechanism_description": "Doxepin is metabolized by CYP2D6 and CYP2C19. CBD inhibition may increase doxepin levels.",
+        "clinical_effects": ["Elevated doxepin levels", "Enhanced sedation", "Increased anticholinergic effects"],
+        "potential_outcomes": "Excessive sedation, especially with higher doses used for depression.",
+        "recommendation": "Use with caution. Lower-dose Silenor for sleep may be less concerning but still monitor for excess sedation.",
+        "monitoring_parameters": ["Sedation", "Anticholinergic effects", "Morning alertness"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "desvenlafaxine",
+      "display_name": "Desvenlafaxine",
+      "brand_names": ["Pristiq", "Khedezla"],
+      "synonyms": ["SNRI", "antidepressant"],
+      "drug_class": "Serotonin-norepinephrine reuptake inhibitor",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["depression"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Desvenlafaxine has minimal CYP metabolism but CYP3A4 plays some role. Interaction potential is lower than venlafaxine.",
+        "clinical_effects": ["Potentially elevated desvenlafaxine levels", "Enhanced side effects"],
+        "potential_outcomes": "Possible increased blood pressure, nausea, and other side effects.",
+        "recommendation": "Use with caution. Monitor blood pressure and side effects.",
+        "monitoring_parameters": ["Blood pressure", "Nausea", "Dizziness", "Sweating"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "vilazodone",
+      "display_name": "Vilazodone",
+      "brand_names": ["Viibryd"],
+      "synonyms": ["antidepressant"],
+      "drug_class": "SSRI + partial 5-HT1A agonist",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["depression"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Vilazodone is primarily metabolized by CYP3A4. CBD inhibition can increase vilazodone levels.",
+        "clinical_effects": ["Elevated vilazodone levels", "Enhanced serotonergic effects"],
+        "potential_outcomes": "Increased GI side effects, diarrhea, and nausea.",
+        "recommendation": "Use with caution. Monitor for increased side effects. Take with food as directed.",
+        "monitoring_parameters": ["GI symptoms", "Mood", "Serotonin syndrome signs"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "vortioxetine",
+      "display_name": "Vortioxetine",
+      "brand_names": ["Trintellix"],
+      "synonyms": ["antidepressant"],
+      "drug_class": "Multimodal antidepressant",
+      "primary_cyp_enzymes": ["CYP2D6"],
+      "common_uses": ["depression"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2d6_inhibition",
+        "mechanism_description": "Vortioxetine is primarily metabolized by CYP2D6. CBD inhibition can increase vortioxetine levels.",
+        "clinical_effects": ["Elevated vortioxetine levels", "Enhanced side effects"],
+        "potential_outcomes": "Increased nausea, constipation, and other side effects.",
+        "recommendation": "Use with caution. Consider lower vortioxetine doses if combining. Standard max is 20mg but 10mg may be more appropriate.",
+        "monitoring_parameters": ["Nausea", "Constipation", "Mood", "Sexual function"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "fluvoxamine",
+      "display_name": "Fluvoxamine",
+      "brand_names": ["Luvox"],
+      "synonyms": ["SSRI", "antidepressant", "OCD medication"],
+      "drug_class": "Selective serotonin reuptake inhibitor",
+      "primary_cyp_enzymes": ["CYP2D6"],
+      "common_uses": ["OCD", "social anxiety", "depression"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "multiple",
+        "mechanism_description": "Fluvoxamine is a potent CYP1A2 inhibitor and is metabolized by CYP2D6. CBD inhibition of CYP2D6 may increase fluvoxamine levels.",
+        "clinical_effects": ["Elevated fluvoxamine levels", "Enhanced side effects"],
+        "potential_outcomes": "Increased nausea, somnolence, and potential for drug interactions since fluvoxamine itself is a strong enzyme inhibitor.",
+        "recommendation": "Use with caution. This combination involves multiple enzyme interactions. Monitor closely.",
+        "monitoring_parameters": ["GI symptoms", "Sedation", "Anxiety levels"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "imipramine",
+      "display_name": "Imipramine",
+      "brand_names": ["Tofranil"],
+      "synonyms": ["tricyclic antidepressant", "TCA"],
+      "drug_class": "Tricyclic antidepressant",
+      "primary_cyp_enzymes": ["CYP2D6", "CYP2C19"],
+      "common_uses": ["depression", "bedwetting", "panic disorder"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "multiple",
+        "mechanism_description": "Imipramine is metabolized by CYP2D6 and CYP2C19. CBD inhibition can increase imipramine levels.",
+        "clinical_effects": ["Elevated imipramine levels", "Enhanced side effects", "Cardiac risk"],
+        "potential_outcomes": "Increased sedation, anticholinergic effects, and cardiac conduction changes.",
+        "recommendation": "Use with significant caution. TCAs have narrow therapeutic indices. Consider therapeutic drug monitoring.",
+        "monitoring_parameters": ["Heart rhythm", "Blood pressure", "Sedation", "Anticholinergic symptoms"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "clomipramine",
+      "display_name": "Clomipramine",
+      "brand_names": ["Anafranil"],
+      "synonyms": ["tricyclic antidepressant", "TCA", "OCD medication"],
+      "drug_class": "Tricyclic antidepressant",
+      "primary_cyp_enzymes": ["CYP2D6", "CYP2C19", "CYP3A4"],
+      "common_uses": ["OCD", "depression", "panic disorder"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "multiple",
+        "mechanism_description": "Clomipramine is metabolized by multiple CYP enzymes. CBD inhibition can significantly increase clomipramine levels.",
+        "clinical_effects": ["Elevated clomipramine levels", "Enhanced side effects", "Seizure risk", "Cardiac effects"],
+        "potential_outcomes": "Increased sedation, seizure risk (clomipramine lowers threshold), and cardiac effects.",
+        "recommendation": "Use with significant caution. Clomipramine has notable seizure risk. Do not exceed recommended doses.",
+        "monitoring_parameters": ["Seizure activity", "Heart rhythm", "Sedation", "Anticholinergic effects"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "phenelzine",
+      "display_name": "Phenelzine",
+      "brand_names": ["Nardil"],
+      "synonyms": ["MAOI", "antidepressant"],
+      "drug_class": "Monoamine oxidase inhibitor",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["depression", "anxiety", "panic disorder"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "MAOIs are not primarily CYP metabolized, but combining with CBD may have theoretical serotonergic concerns and limited safety data.",
+        "clinical_effects": ["Unknown interaction", "Theoretical serotonergic effects"],
+        "potential_outcomes": "Limited data. Theoretical risk of serotonin-related effects.",
+        "recommendation": "MAOIs have many dietary and drug restrictions. Consult your psychiatrist before using CBD with any MAOI.",
+        "monitoring_parameters": ["Blood pressure", "Signs of serotonin syndrome", "Dietary compliance"],
+        "evidence_level": "Limited",
+        "special_populations_notes": "MAOIs require strict dietary restrictions. Be extremely cautious with any new substances."
+      }
+    }
+  ]
+}

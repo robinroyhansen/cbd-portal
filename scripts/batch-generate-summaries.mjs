@@ -38,9 +38,9 @@ if (!ANTHROPIC_API_KEY) {
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // Configuration
-const BATCH_SIZE = parseInt(process.argv.find(a => a.startsWith('--batch-size='))?.split('=')[1] || '10');
-const DELAY_BETWEEN_STUDIES = 1200; // 1.2 seconds between each study
-const DELAY_BETWEEN_BATCHES = 5000; // 5 seconds between batches
+const BATCH_SIZE = parseInt(process.argv.find(a => a.startsWith('--batch-size='))?.split('=')[1] || '50');
+const DELAY_BETWEEN_STUDIES = 4000; // 4 seconds between each study (15/min to stay under rate limits)
+const DELAY_BETWEEN_BATCHES = 2000; // 2 seconds between batches
 const PROGRESS_FILE = path.join(process.cwd(), 'scripts', '.summary-progress.json');
 
 // System prompt for summary generation

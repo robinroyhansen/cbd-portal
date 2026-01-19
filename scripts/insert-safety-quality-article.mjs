@@ -8,342 +8,433 @@ const supabase = createClient(
 const CATEGORY_ID = '2d7e1eac-f000-433c-8fca-e8bd3d4b9477';
 
 const article = {
-  title: 'CBD and Alcohol: Is It Safe to Mix Them?',
-  slug: 'cbd-and-alcohol',
-  excerpt: "Can you take CBD with alcohol? Understanding the interactions between CBD and alcohol, potential risks, and what the research actually shows about combining them.",
-  content: `People increasingly use CBD for relaxation — the same reason many reach for alcohol. This raises natural questions: Can you use CBD and alcohol together? Does CBD make alcohol stronger or weaker? Could CBD help with hangovers or alcohol reduction? Here's what we actually know.
+  title: 'Who Should Not Take CBD: Contraindications & Precautions',
+  slug: 'who-should-not-take-cbd',
+  excerpt: "While CBD is generally well tolerated, certain groups should avoid it or use it only under medical supervision. Learn who should not take CBD and why.",
+  content: `CBD is generally considered safe and well tolerated by most adults. But "generally safe" doesn't mean "safe for everyone." Certain conditions, medications, and circumstances mean CBD should be avoided entirely or used only with careful medical supervision. Here's who should be cautious — and who should skip CBD altogether.
 
 ## Quick Answer
 
-**Mixing CBD and alcohol appears relatively safe for most people, but both substances can amplify each other's sedative effects.** Research is limited, but the available studies suggest combining them may increase feelings of relaxation while also potentially increasing impairment. CBD won't protect you from alcohol's effects, and you shouldn't rely on it to sober you up. Use both with caution if combining, and never drive or operate machinery.
+**Most healthy adults can use CBD safely, but it's not appropriate for everyone.** Pregnant and breastfeeding women should avoid CBD. Those taking certain medications — especially blood thinners, some heart medications, and drugs metabolised by CYP450 liver enzymes — need medical guidance. People with severe liver disease, certain mental health conditions, or scheduled for surgery should also be cautious or avoid CBD entirely.
 
 ## Key Takeaways
 
-- CBD and alcohol both have relaxing/sedating effects
-- Combining them may amplify these effects
-- No severe interactions reported, but research is limited
-- Both affect the central nervous system
-- Don't use CBD expecting it to counteract alcohol
-- CBD isn't a hangover cure
-- Some research suggests CBD may protect against certain alcohol-related damage
-- CBD may help some people reduce alcohol consumption
-- Never drive or operate machinery when using both
+- CBD is safe for most healthy adults
+- Pregnant and breastfeeding women should avoid it
+- Multiple medication categories interact with CBD
+- Liver disease is a significant contraindication
+- Pre-surgery patients should stop CBD temporarily
+- Some psychiatric conditions require extra caution
+- Children should only use CBD under medical supervision
+- "Natural" doesn't mean "safe for everyone"
+- When in doubt, consult your doctor
+- Many people can use CBD safely with proper precautions
+
+## Absolute Contraindications
+
+These groups should avoid CBD entirely unless under direct medical supervision:
+
+### Pregnant Women
+
+**Why to avoid:**
+- CBD crosses the placental barrier
+- Unknown effects on fetal development
+- Animal studies show some concerning signals
+- No safety data exists for human pregnancy
+- FDA specifically warns against CBD during pregnancy
+
+**The science:**
+Animal research suggests CBD may affect fetal brain development and reproductive system development. While we can't directly study this in pregnant humans, the precautionary principle applies strongly here.
+
+**Bottom line:**
+Do not use CBD if pregnant. The potential risks are unknown, and no benefit justifies exposing a developing fetus to an unstudied compound.
+
+### Breastfeeding Women
+
+**Why to avoid:**
+- CBD transfers into breast milk
+- Unknown effects on nursing infants
+- Infants cannot metabolise cannabinoids effectively
+- No safety data for breastfed babies
+
+**The concern:**
+CBD's effects on an infant's developing brain are unknown. The endocannabinoid system plays a role in neurodevelopment, and external cannabinoids could theoretically interfere with this process.
+
+**Bottom line:**
+Do not use CBD while breastfeeding. Wait until you've finished nursing to consider CBD.
+
+### People with Severe Liver Disease
+
+**Why problematic:**
+- CBD is extensively metabolised by the liver
+- Damaged livers process CBD poorly
+- Blood levels can become unpredictably high
+- Risk of further liver damage
+
+**Conditions of concern:**
+- Cirrhosis
+- Severe hepatitis
+- Liver failure
+- Decompensated liver disease
+
+**What happens:**
+When the liver can't properly metabolise CBD, it accumulates in the body. This can lead to higher-than-expected blood levels and potentially worsen liver function.
+
+**Note:** Mild liver issues may not preclude CBD use, but require medical guidance and possible dose adjustments.
+
+## Medications That Interact with CBD
+
+CBD affects the CYP450 enzyme system in the liver — the same system that metabolises many medications. This can change how drugs work in your body.
+
+### Blood Thinners (Critical Interaction)
+
+**Affected medications:**
+- Warfarin (most significant)
+- Apixaban, rivaroxaban, dabigatran
+- Clopidogrel
+
+**What happens:**
+CBD can increase warfarin blood levels, increasing bleeding risk. This is a serious interaction that has caused clinically significant problems.
+
+**If you take blood thinners:**
+- Do not start CBD without medical supervision
+- If using CBD and warfarin, INR must be monitored closely
+- Dose adjustments to warfarin may be needed
+
+### Anti-Epileptic Medications
+
+**Affected medications:**
+- Clobazam (increases sedation)
+- Valproate (may increase liver toxicity risk)
+- Phenytoin, carbamazepine (complex interactions)
+
+**Irony:**
+CBD is approved for epilepsy (Epidiolex), but its interactions with other seizure medications require careful management by specialists.
+
+**If you take anti-epileptics:**
+- Only use CBD under neurologist supervision
+- Medication levels may need monitoring
+- Dosage adjustments may be required
+
+### Benzodiazepines and Sedatives
+
+**Affected medications:**
+- Diazepam, lorazepam, alprazolam
+- Zolpidem, zopiclone
+- Other sedative-hypnotics
+
+**What happens:**
+CBD may enhance sedation, increasing drowsiness and potentially fall risk. The combination can cause excessive sedation.
+
+**If you take sedatives:**
+- Use CBD cautiously if at all
+- Start with very low doses
+- Be alert for excessive drowsiness
+- Don't drive or operate machinery
+
+### Heart Medications
+
+**Beta-blockers:**
+- CBD may enhance blood pressure-lowering effects
+- Potential for excessive hypotension
+
+**Calcium channel blockers:**
+- Similar concern with blood pressure
+- Interaction potential
+
+**Antiarrhythmics:**
+- Some may have interactions
+- Amiodarone particularly concerning
+
+**If you take heart medications:**
+- Consult cardiologist before using CBD
+- Monitor blood pressure when starting
+- Watch for dizziness, especially when standing
+
+### Immunosuppressants
+
+**Affected medications:**
+- Tacrolimus
+- Cyclosporine
+- Everolimus, sirolimus
+
+**Why concerning:**
+These drugs have narrow therapeutic windows — small changes in blood levels can cause toxicity or rejection (in transplant patients).
+
+**If you take immunosuppressants:**
+- Avoid CBD unless approved by your transplant team
+- Blood level monitoring is essential if used
+- Risk may outweigh any benefit
+
+### Chemotherapy Drugs
+
+**Concern:**
+Many chemotherapy agents are metabolised by CYP450 enzymes.
+
+**Potential problems:**
+- Changed drug levels
+- Altered efficacy or toxicity
+- Unpredictable interactions
+
+**If undergoing chemotherapy:**
+- Do not use CBD without oncologist approval
+- Inform your cancer care team about any CBD use
+- Timing relative to treatment matters
+
+### Antidepressants and Antipsychotics
+
+**SSRIs (sertraline, fluoxetine, etc.):**
+- Some interactions possible
+- Generally less severe than above categories
+- May affect drug levels
+
+**Tricyclics:**
+- Potential for interaction
+- May increase sedation
+
+**Antipsychotics:**
+- Complex interactions possible
+- Some evidence CBD may help, but needs medical supervision
+
+**If you take psychiatric medications:**
+- Discuss with your psychiatrist
+- Don't adjust medications based on CBD effects without guidance
+- Monitor for changes in mood or symptoms
+
+## Health Conditions Requiring Caution
+
+### Low Blood Pressure (Hypotension)
+
+**Why concerning:**
+CBD can lower blood pressure. If your blood pressure is already low, this could cause:
+- Dizziness
+- Lightheadedness
+- Fainting
+- Falls (especially in elderly)
+
+**If you have hypotension:**
+- Start with very low doses
+- Monitor blood pressure
+- Rise slowly from sitting or lying
+- Consider if CBD is appropriate for you
+
+### Parkinson's Disease
+
+**The complexity:**
+Research on CBD and Parkinson's is mixed:
+- Some studies suggest potential benefits
+- Others show worsening of tremors at high doses
 - Individual responses vary significantly
 
-## How CBD and Alcohol Interact
+**If you have Parkinson's:**
+- Only use under neurologist supervision
+- Start very low and increase cautiously
+- Monitor symptoms carefully
+- Be prepared to discontinue if symptoms worsen
 
-### Pharmacological Overlap
+### Psychotic Disorders
 
-CBD and alcohol both affect the central nervous system (CNS):
+**The nuance:**
+- Some research suggests CBD may have antipsychotic properties
+- But cannabinoids are contraindicated in psychosis risk
+- Individual responses unpredictable
+- Full-spectrum products contain THC, which can worsen psychosis
 
-**Alcohol:**
-- CNS depressant
-- Enhances GABA activity (inhibitory)
-- Reduces inhibition and anxiety
-- Impairs coordination and cognition
-- Sedating at higher doses
+**If you have schizophrenia or psychotic symptoms:**
+- Do not self-treat with CBD
+- Only use under psychiatric supervision
+- Avoid full-spectrum products entirely
+- CBD isolate only, if at all
 
-**CBD:**
-- Modulates various receptors including serotonin
-- May interact with GABA system
-- Anxiolytic (anti-anxiety) effects
-- Generally non-sedating at typical doses
-- Can cause drowsiness at higher doses
+### History of Addiction
 
-### Potential Interaction Mechanisms
+**The consideration:**
+- CBD itself has low addiction potential
+- But rituals around substance use can trigger relapse
+- Some in recovery avoid all psychoactive substances
 
-When combined:
+**If you're in recovery:**
+- Consider your personal triggers
+- Discuss with addiction counsellor
+- Know that CBD isn't intoxicating
+- Make informed choice based on your situation
 
-**Enhanced sedation:**
-Both substances promote relaxation. Together, they may produce more pronounced calming or sedating effects than either alone.
+## Situational Cautions
 
-**Liver metabolism:**
-Both CBD and alcohol are processed by the liver. CBD can inhibit certain liver enzymes (CYP450), potentially affecting how quickly alcohol is metabolised.
+### Pre-Surgery
 
-**Blood alcohol levels:**
-One small study found CBD didn't affect blood alcohol levels when taken with alcohol. However, subjective impairment may still increase.
+**Why to stop CBD before surgery:**
+- May interact with anaesthesia
+- Could affect bleeding
+- May interact with post-operative pain medications
+- Surgeons prefer a "clean" baseline
 
-## What Research Shows
+**Recommendation:**
+Stop CBD at least 1-2 weeks before scheduled surgery. Inform your surgical team about any CBD use.
 
-### Limited but Informative Studies
+### Before Medical Tests
 
-**1979 Study (Consroe et al.):**
-- Small study with CBD + alcohol vs alcohol alone
-- Blood alcohol levels similar in both groups
-- Combined group showed impaired motor performance and time perception
-- Suggests CBD doesn't reduce alcohol's intoxicating effects
+**Certain tests may require stopping CBD:**
+- Liver function tests (CBD can elevate liver enzymes)
+- Drug tests (full-spectrum may cause positive THC results)
+- Tests requiring fasting
 
-**Animal studies:**
-- Some suggest CBD may reduce alcohol intake in alcohol-preferring animals
-- Others show potential protective effects against alcohol-induced liver damage
-- Animal findings don't always translate to humans
+### When Starting New Medications
 
-**Clinical observation:**
-- No significant adverse events reported from combining CBD and alcohol
-- Most CBD users who drink alcohol haven't reported problems
-- Individual experiences vary widely
+**Best practice:**
+- Establish baseline on new medication first
+- Wait until stable before introducing CBD
+- Makes it easier to identify what's causing any effects
 
-### What We Don't Know
+## Age-Related Considerations
 
-- Optimal timing if using both
-- Whether CBD affects hangover severity
-- Long-term effects of regular combined use
-- How dosage ratios affect outcomes
-- Individual variation factors
+### Children
 
-## Effects of Combining CBD and Alcohol
+**General rule:**
+Children should not use over-the-counter CBD products. Medical CBD (Epidiolex) is approved for specific paediatric conditions under specialist supervision.
 
-### Potential Enhanced Effects
+**Why caution:**
+- Developing brains may be affected differently
+- Dosing is more critical and complex
+- Limited safety data in children
+- Should be reserved for specific medical needs
 
-**Sedation:**
-- Both can cause relaxation
-- Combined effect may be more pronounced
-- Some people report excessive drowsiness
-- May affect next-day alertness if used in evening
+**When appropriate:**
+Under specialist supervision for:
+- Treatment-resistant epilepsy
+- Certain other conditions with medical oversight
 
-**Lowered inhibitions:**
-- Alcohol lowers inhibitions
-- CBD reduces social anxiety
-- Combined effect may increase these effects
+### Elderly
 
-**Impaired coordination:**
-- Alcohol impairs motor skills
-- CBD at high doses can cause drowsiness
-- Combined impairment may be greater
+**Not contraindicated, but requires adjustment:**
+- Lower starting doses needed
+- More sensitive to side effects
+- More likely to have interacting medications
+- Fall risk concerns
 
-### Side Effect Considerations
+See our article on CBD for seniors for detailed guidance.
 
-| Effect | Alcohol | CBD | Combined |
-|--------|---------|-----|----------|
-| Sedation | Yes | Possible | Potentially increased |
-| Impaired coordination | Yes | Minimal | Potentially increased |
-| Lowered inhibitions | Yes | Some | Potentially increased |
-| Nausea | Possible | Rare | May vary |
-| Headache | Common (hangover) | Rare | Unknown |
-| Dehydration | Yes | No | Same as alcohol |
+## When to Consult a Doctor First
 
-## Does CBD Reduce Alcohol Effects?
+Always consult a healthcare provider before using CBD if you:
 
-### Common Myths
+| Category | Reason |
+|----------|--------|
+| Take any prescription medications | Interaction screening |
+| Have liver disease | Processing concerns |
+| Have a heart condition | BP and heart rhythm considerations |
+| Have a psychiatric diagnosis | Complex interactions |
+| Are pregnant or breastfeeding | Safety unknown |
+| Have had organ transplant | Immunosuppressant interactions |
+| Are preparing for surgery | Pre-operative concerns |
+| Are elderly with multiple medications | Complex interaction potential |
+| Have low blood pressure | Hypotension risk |
 
-**"CBD can sober you up"**
-- FALSE: CBD doesn't reduce blood alcohol levels
-- FALSE: CBD doesn't reverse intoxication
-- FALSE: CBD doesn't make you safe to drive after drinking
+## What If My Doctor Doesn't Know About CBD?
 
-**"CBD protects against alcohol damage"**
-- PARTIALLY TRUE: Some animal research suggests hepatoprotective effects
-- UNPROVEN: Not demonstrated in humans at consumer doses
-- NOT A REASON: To drink more or recklessly
+This is common. Many physicians haven't been trained on cannabinoids.
 
-### What CBD Doesn't Do
+**Options:**
+1. Bring information to share (reputable sources, not marketing)
+2. Ask for a referral to someone with cannabinoid knowledge
+3. Seek an integrative medicine specialist
+4. Find a cannabis-trained clinician
 
-- Reduce blood alcohol concentration
-- Reverse alcohol intoxication
-- Prevent hangovers (despite marketing claims)
-- Make it safe to drive after drinking
-- Eliminate alcohol's health risks
+**What not to do:**
+- Use CBD secretly while on medications
+- Dismiss legitimate medical concerns
+- Stop prescription medications to use CBD instead
 
-## CBD and Hangovers
+## Risk Assessment Framework
 
-### The Claims
+Use this to assess your situation:
 
-Many CBD products are marketed for hangover relief. What does the evidence say?
+### Low Risk (Most can use CBD safely)
+- No chronic medications
+- No liver or heart disease
+- Not pregnant/breastfeeding
+- No psychiatric history
+- Not elderly
 
-**What might help:**
-- CBD's anti-inflammatory properties could theoretically help with inflammation-related symptoms
-- CBD may help with nausea (some evidence for this effect)
-- CBD's calming effect might ease anxiety that sometimes accompanies hangovers
+### Moderate Risk (Use with caution/consultation)
+- One or two medications (non-interacting)
+- Well-controlled chronic conditions
+- Elderly but otherwise healthy
+- History of anxiety/depression (stable)
 
-**What doesn't work:**
-- CBD won't rehydrate you (drink water)
-- CBD won't replace electrolytes
-- CBD won't speed up alcohol metabolism
-- CBD won't eliminate hangover symptoms
-
-### My Assessment
-
-While CBD might provide some comfort for certain hangover symptoms, it's not a hangover cure. Prevention (drinking less) and basics (hydration, rest, nutrition) remain the only reliable approaches.
-
-## CBD as an Alcohol Alternative
-
-### Growing Trend
-
-Many people are using CBD as a substitute for alcohol:
-
-**Reasons:**
-- Relaxation without intoxication
-- No hangover
-- No impairment
-- No calories (oil form)
-- No addiction risk
-
-**How it compares:**
-
-| Factor | Alcohol | CBD |
-|--------|---------|-----|
-| Relaxation | Yes | Yes |
-| Intoxication | Yes | No |
-| Impairment | Yes | Minimal |
-| Hangover | Common | No |
-| Calories | High | Low/None |
-| Addiction risk | Yes | No |
-| Liver impact | Damaging | Minimal at typical doses |
-| Social acceptability | High | Growing |
-
-### Using CBD to Reduce Alcohol
-
-Some people use CBD to help reduce alcohol consumption:
-
-**Potential mechanisms (theoretical):**
-- Reduces anxiety that drives drinking
-- Provides alternative relaxation method
-- May reduce alcohol craving (animal studies suggest)
-- Supports better sleep (common trigger for drinking)
-
-**What research suggests:**
-- Early animal studies show reduced alcohol intake
-- Human studies are limited but promising
-- Not a treatment for alcohol addiction
-- May be useful as part of broader reduction strategy
-
-**Important caveats:**
-- CBD is not a treatment for alcohol use disorder
-- Severe alcohol dependency requires medical treatment
-- Withdrawal from heavy alcohol use can be dangerous
-- See a doctor if you struggle with alcohol
-
-## Safety Guidelines for Combining
-
-### If You Choose to Use Both
-
-**General precautions:**
-1. Use lower doses of both than you normally would
-2. Start with CBD first, wait, then add alcohol
-3. Avoid driving or operating machinery
-4. Stay in a safe environment
-5. Have someone with you who can monitor
-6. Stay hydrated
-
-**Timing considerations:**
-- Don't take CBD expecting it to counteract planned alcohol consumption
-- If using both in an evening, start with CBD earlier
-- Allow effects of each to be assessed before adding more
-
-### Red Lines
-
-**Never:**
-- Drive or operate machinery
-- Combine with other sedating substances
-- Use to "enable" heavier drinking
-- Rely on CBD to prevent alcohol problems
-- Assume you're less impaired than you are
-
-## Who Should Be Especially Cautious
-
-### Higher Risk Groups
-
-**Those with:**
-- Liver conditions (both are liver-metabolised)
-- History of alcohol problems
-- Medication that interacts with either
-- Balance or coordination issues
-- Mental health conditions affected by alcohol
-
-### Medication Considerations
-
-Both CBD and alcohol are metabolised by the liver. If you take medications processed by CYP450 enzymes, adding both CBD and alcohol creates more complexity:
-
+### High Risk (Medical supervision required)
+- Multiple medications
 - Blood thinners
-- Benzodiazepines
-- Antidepressants
-- Many other medications
+- Heart disease
+- Liver issues
+- Psychiatric conditions
+- Immunosuppression
 
-Consult your doctor if you take medications and want to combine CBD and alcohol.
-
-## The Social Aspect
-
-### CBD in Social Settings
-
-**Growing trend:**
-- CBD beverages at bars and events
-- CBD cocktails
-- Non-alcoholic CBD drinks
-
-**Social considerations:**
-- CBD allows participation in drinking culture without intoxication
-- Useful for designated drivers
-- Alternative for those reducing alcohol
-- Less social stigma than refusing drinks entirely
-
-### Practical Tips
-
-**At social events:**
-- CBD beverages offer a middle ground
-- You can hold and sip something
-- Explains why you're not drinking alcohol
-- Provides some relaxation without impairment
+### Very High Risk (Generally avoid)
+- Pregnant or breastfeeding
+- Severe liver disease
+- Multiple high-risk factors
+- Transplant recipients
+- Active psychosis
 
 ## Frequently Asked Questions
 
-### Can I drink alcohol after taking CBD oil?
+### Can I use CBD if I take blood pressure medication?
 
-You can, but both substances may have enhanced effects. Take a lower dose of both than you normally would, don't drive, and pay attention to how you feel. There's no major safety concern for healthy adults having a drink after CBD, but combined sedation is possible.
+It depends on the medication and your blood pressure control. CBD may lower blood pressure, potentially enhancing your medication's effects. This could be beneficial or problematic depending on your situation. Consult your cardiologist, monitor blood pressure when starting CBD, and watch for dizziness.
 
-### Does CBD help with hangovers?
+### Is CBD safe during pregnancy if I have severe nausea?
 
-CBD may provide some relief from specific hangover symptoms like nausea or anxiety, but it won't cure a hangover. It doesn't rehydrate you, replace electrolytes, or speed up alcohol metabolism. The only reliable hangover prevention is drinking less alcohol and staying hydrated.
+No. While CBD may help nausea in some people, it has not been studied for safety during pregnancy and should not be used. The FDA specifically warns against CBD use during pregnancy. Discuss safe anti-nausea options with your obstetrician.
 
-### Can CBD reduce alcohol cravings?
+### My doctor doesn't know much about CBD. Should I still ask?
 
-Early research (mostly in animals) suggests CBD might help reduce alcohol seeking behaviour. Some people use CBD to help manage anxiety and stress that otherwise triggers drinking. However, CBD is not an approved treatment for alcohol addiction, and anyone with serious alcohol problems should seek medical help.
+Yes. Even doctors unfamiliar with CBD can help by reviewing your medications for potential interactions, monitoring relevant health parameters, and referring you to someone with more knowledge if needed. It's better to have this conversation than to use CBD secretly.
 
-### Is it safe to take CBD before going out drinking?
+### Can children with anxiety use CBD?
 
-It's not unsafe in terms of severe adverse reactions, but it may increase the sedating effects of alcohol. If you plan to drink, either skip the CBD or use much less of both. Never drive or engage in activities requiring coordination when using both substances.
+Not without medical supervision. Over-the-counter CBD products aren't appropriate for children. While some research suggests CBD may help anxiety in adolescents, this should only be considered under specialist guidance, with appropriate dosing and monitoring.
 
-### Will CBD make me more drunk?
+### I take warfarin. Is CBD absolutely off-limits?
 
-CBD doesn't appear to increase blood alcohol levels, but it may increase subjective feelings of intoxication and sedation. Some people feel more relaxed or drowsy when combining them. Others notice little difference. Your response may vary from someone else's.
+Not absolutely, but it requires careful medical management. CBD increases warfarin levels, which increases bleeding risk. If you and your doctor decide CBD is worth trying, your INR must be monitored closely, and warfarin doses may need adjustment. Never start CBD while on warfarin without medical supervision.
 
-### Can I use CBD instead of alcohol for relaxation?
+### What if I have both low blood pressure and anxiety?
 
-Many people do exactly this. CBD provides relaxation without intoxication, impairment, hangovers, or calories. It's not a perfect alcohol substitute in terms of the "buzz," but for those seeking to relax in the evening without alcohol's downsides, CBD can be a reasonable alternative.
+This requires careful consideration. CBD might help anxiety but could worsen low blood pressure. If you proceed, start with very low doses, monitor blood pressure, and be alert for dizziness. Lifestyle measures for blood pressure may be needed. This is a case where medical guidance is particularly valuable.
 
 ## Summary
 
-CBD and alcohol can be combined without major safety concerns for most healthy adults, but both substances may have enhanced effects when used together. The key interaction is increased sedation and potential impairment — not a dangerous reaction, but something requiring caution.
+While CBD is safe for most healthy adults, it's not for everyone. Pregnant and breastfeeding women should avoid it completely. Those with severe liver disease, on blood thinners, or taking medications metabolised by CYP450 enzymes need medical guidance. Various health conditions require caution, and the elderly need adjusted dosing.
 
-CBD doesn't counteract alcohol's effects, won't prevent hangovers, and won't make you safe to drive after drinking. Anyone combining them should use lower doses of both, never drive, and monitor their response carefully.
+The key principle is informed decision-making. If you fall into any risk category, don't simply avoid CBD — but don't use it without appropriate medical consultation either. Many people with chronic conditions can use CBD safely with proper oversight.
 
-For those looking to reduce alcohol consumption, CBD offers an interesting option. It provides relaxation without intoxication and may help manage anxiety that drives drinking. However, it's not a treatment for alcohol addiction.
-
-The bottom line: combining CBD and alcohol is relatively safe but not risk-free. Use both responsibly, never drive, and don't expect CBD to counteract alcohol's effects. For many people, CBD offers a compelling alternative to alcohol rather than a companion to it.
+When in doubt, consult a healthcare provider. "Natural" doesn't mean universally safe, and CBD is a biologically active compound that interacts with your body's systems. Respect its potential while recognising that for most people, CBD can be used safely with appropriate precautions.
 
 ---
 
 ## Sources
 
-1. Consroe P, et al. (1979). Interaction of cannabidiol and alcohol in humans. *Psychopharmacology*, 66(1), 45-50.
+1. FDA. (2019). What You Should Know About Using Cannabis, Including CBD, When Pregnant or Breastfeeding. U.S. Food and Drug Administration.
 
-2. Turna J, et al. (2019). Cannabidiol as a Novel Candidate Alcohol Use Disorder Pharmacotherapy. *Alcoholism: Clinical and Experimental Research*, 43(9), 1840-1854.
+2. Brown JD, Winterstein AG. (2019). Potential Adverse Drug Events and Drug-Drug Interactions with Medical and Consumer Cannabidiol (CBD) Use. *Journal of Clinical Medicine*, 8(7), 989.
 
-3. Wang Y, et al. (2017). Cannabidiol attenuates alcohol-induced liver steatosis, metabolic dysregulation, inflammation and neutrophil-mediated injury. *Scientific Reports*, 7, 12064.
+3. Epidiolex (cannabidiol) Prescribing Information. Greenwich Biosciences, Inc.
 
-4. Gonzalez-Cuevas G, et al. (2018). Unique treatment potential of cannabidiol for the prevention of relapse to drug use. *Neuropsychopharmacology*, 43(10), 2036-2045.
+4. Nasrin S, et al. (2021). Cannabinoid Metabolites as Inhibitors of Major Hepatic CYP450 Enzymes. *Drug Metabolism and Disposition*, 49(4), 261-268.
 
-5. De Aquino JP, et al. (2018). Cannabidiol for the Treatment of Drug Use Disorders. *Current Treatment Options in Psychiatry*, 5(4), 475-487.
+5. Chesney E, et al. (2020). Adverse effects of cannabidiol: a systematic review and meta-analysis. *Neuropsychopharmacology*, 45(11), 1799-1806.
 
 ---
 
 *Last updated: January 2026*`,
   article_type: 'educational-guide',
   category_id: CATEGORY_ID,
-  reading_time: 10,
+  reading_time: 12,
   status: 'published',
   published_at: new Date().toISOString(),
-  meta_title: "CBD and Alcohol: Is It Safe to Combine Them? (2026 Guide)",
-  meta_description: "Can you mix CBD with alcohol? Learn about interactions, safety concerns, whether CBD helps hangovers, and using CBD as an alcohol alternative.",
+  meta_title: "Who Should Not Take CBD: Contraindications & Safety Guide (2026)",
+  meta_description: "Not everyone should use CBD. Learn who should avoid CBD, medication interactions, health conditions requiring caution, and when to consult a doctor.",
   language: 'en'
 };
 

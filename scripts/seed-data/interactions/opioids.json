@@ -1,0 +1,244 @@
+{
+  "category": "opioid",
+  "drugs": [
+    {
+      "generic_name": "oxycodone",
+      "display_name": "Oxycodone",
+      "brand_names": ["OxyContin", "Roxicodone", "Oxaydo"],
+      "synonyms": ["painkiller", "opioid", "narcotic"],
+      "drug_class": "Opioid analgesic",
+      "primary_cyp_enzymes": ["CYP3A4", "CYP2D6"],
+      "common_uses": ["moderate to severe pain", "chronic pain"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "multiple",
+        "mechanism_description": "Oxycodone is metabolized by CYP3A4 and CYP2D6. CBD inhibition can increase oxycodone levels. Additionally, both have CNS depressant effects.",
+        "clinical_effects": ["Elevated oxycodone levels", "Enhanced sedation", "Increased respiratory depression risk", "Prolonged effects"],
+        "potential_outcomes": "Excessive sedation, respiratory depression, increased overdose risk.",
+        "recommendation": "Use with significant caution. Enhanced CNS depression is expected. Never take more oxycodone than prescribed. Discuss with your pain specialist.",
+        "monitoring_parameters": ["Respiratory rate", "Sedation level", "Pain control", "Signs of overdose"],
+        "dose_adjustment_guidance": "Oxycodone dose reduction may be needed when starting CBD. Do not adjust without medical guidance.",
+        "evidence_level": "Moderate",
+        "special_populations_notes": "Elderly and those with respiratory conditions are at higher risk. Opioid-naive patients are particularly vulnerable."
+      }
+    },
+    {
+      "generic_name": "hydrocodone",
+      "display_name": "Hydrocodone",
+      "brand_names": ["Vicodin", "Norco", "Lortab"],
+      "synonyms": ["painkiller", "opioid", "narcotic"],
+      "drug_class": "Opioid analgesic",
+      "primary_cyp_enzymes": ["CYP3A4", "CYP2D6"],
+      "common_uses": ["moderate to severe pain", "cough"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "multiple",
+        "mechanism_description": "Hydrocodone is converted to hydromorphone by CYP2D6 and metabolized by CYP3A4. CBD inhibition affects both pathways.",
+        "clinical_effects": ["Altered hydrocodone metabolism", "Enhanced sedation", "Increased CNS depression"],
+        "potential_outcomes": "Enhanced sedation, respiratory depression, changes in pain control effectiveness.",
+        "recommendation": "Use with caution. Monitor for increased sedation and respiratory effects. Do not exceed prescribed doses.",
+        "monitoring_parameters": ["Sedation", "Respiratory rate", "Pain control", "Constipation"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "codeine",
+      "display_name": "Codeine",
+      "brand_names": ["Tylenol with Codeine"],
+      "synonyms": ["painkiller", "opioid", "cough suppressant"],
+      "drug_class": "Opioid analgesic",
+      "primary_cyp_enzymes": ["CYP2D6"],
+      "common_uses": ["mild to moderate pain", "cough"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2d6_inhibition",
+        "mechanism_description": "Codeine is a prodrug converted to morphine by CYP2D6. CBD inhibition of CYP2D6 may reduce codeine's conversion to morphine, potentially decreasing its effectiveness.",
+        "clinical_effects": ["Reduced conversion to active morphine", "Potentially decreased pain relief", "Additive CNS depression"],
+        "potential_outcomes": "Codeine may be less effective for pain relief. However, CNS depressant effects remain a concern.",
+        "recommendation": "Use with caution. Codeine effectiveness varies widely based on genetics. Monitor pain control and sedation.",
+        "monitoring_parameters": ["Pain control", "Sedation", "Respiratory rate"],
+        "evidence_level": "Moderate",
+        "special_populations_notes": "CYP2D6 ultra-rapid metabolizers convert more codeine to morphine and may still experience enhanced effects."
+      }
+    },
+    {
+      "generic_name": "tramadol",
+      "display_name": "Tramadol",
+      "brand_names": ["Ultram", "ConZip"],
+      "synonyms": ["painkiller", "opioid"],
+      "drug_class": "Atypical opioid analgesic",
+      "primary_cyp_enzymes": ["CYP2D6", "CYP3A4"],
+      "common_uses": ["moderate pain"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "multiple",
+        "mechanism_description": "Tramadol is a prodrug activated by CYP2D6. CBD inhibition may reduce tramadol's effectiveness. Tramadol also has serotonergic effects, creating theoretical serotonin concerns.",
+        "clinical_effects": ["Reduced tramadol activation", "Decreased pain relief", "Possible serotonergic effects", "Seizure risk"],
+        "potential_outcomes": "Reduced pain control. Tramadol lowers seizure threshold - CBD may compound this risk.",
+        "recommendation": "Use with caution. Tramadol has serotonergic effects and lowers seizure threshold. Monitor pain control and watch for seizure risk.",
+        "monitoring_parameters": ["Pain control", "Seizure activity", "Serotonin syndrome signs", "Sedation"],
+        "evidence_level": "Moderate",
+        "special_populations_notes": "Those with seizure disorders should be especially cautious."
+      }
+    },
+    {
+      "generic_name": "morphine",
+      "display_name": "Morphine",
+      "brand_names": ["MS Contin", "Kadian", "Avinza"],
+      "synonyms": ["painkiller", "opioid", "narcotic"],
+      "drug_class": "Opioid analgesic",
+      "primary_cyp_enzymes": [],
+      "secondary_cyp_enzymes": ["UGT2B7"],
+      "common_uses": ["severe pain", "chronic pain", "cancer pain"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Morphine is primarily glucuronidated, not CYP metabolized. However, additive CNS depressant effects with CBD are the main concern.",
+        "clinical_effects": ["Additive CNS depression", "Enhanced sedation", "Respiratory depression risk"],
+        "potential_outcomes": "Increased sedation and respiratory depression risk through pharmacodynamic interaction.",
+        "recommendation": "Use with caution. While pharmacokinetic interaction is limited, CNS depression is additive. Never exceed prescribed morphine doses.",
+        "monitoring_parameters": ["Respiratory rate", "Sedation", "Pain control", "Oxygen saturation"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "fentanyl",
+      "display_name": "Fentanyl",
+      "brand_names": ["Duragesic", "Actiq", "Subsys", "Fentora"],
+      "synonyms": ["painkiller", "opioid", "narcotic", "patch"],
+      "drug_class": "Opioid analgesic",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["severe pain", "chronic pain", "cancer pain", "anesthesia"],
+      "interaction": {
+        "severity": "major",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Fentanyl is primarily metabolized by CYP3A4. CBD's strong inhibition can significantly increase fentanyl levels, which is extremely dangerous given fentanyl's potency.",
+        "clinical_effects": ["Significantly elevated fentanyl levels", "Severe respiratory depression risk", "Overdose risk"],
+        "potential_outcomes": "Life-threatening respiratory depression and overdose. Fentanyl has an extremely narrow margin of safety.",
+        "recommendation": "Avoid this combination if possible. Fentanyl is extremely potent and even small increases in levels can be fatal. Use only under strict medical supervision.",
+        "monitoring_parameters": ["Respiratory rate", "Oxygen saturation", "Sedation", "Signs of overdose"],
+        "evidence_level": "Moderate",
+        "special_populations_notes": "This interaction is particularly dangerous. Even experienced opioid users can overdose from elevated fentanyl levels."
+      }
+    },
+    {
+      "generic_name": "methadone",
+      "display_name": "Methadone",
+      "brand_names": ["Dolophine", "Methadose"],
+      "synonyms": ["opioid", "addiction treatment", "painkiller"],
+      "drug_class": "Opioid analgesic",
+      "primary_cyp_enzymes": ["CYP3A4", "CYP2B6", "CYP2D6"],
+      "common_uses": ["opioid addiction treatment", "chronic pain"],
+      "interaction": {
+        "severity": "major",
+        "mechanism": "multiple",
+        "mechanism_description": "Methadone is metabolized by multiple CYP enzymes including CYP3A4. CBD inhibition can increase methadone levels. Methadone also prolongs QT interval.",
+        "clinical_effects": ["Elevated methadone levels", "QT prolongation risk", "Enhanced sedation", "Respiratory depression"],
+        "potential_outcomes": "Increased methadone toxicity risk including dangerous heart rhythm changes (QT prolongation) and respiratory depression.",
+        "recommendation": "Use with extreme caution. Methadone has a long half-life and QT prolongation risk. Inform your methadone clinic about CBD use.",
+        "monitoring_parameters": ["Heart rhythm/ECG", "Sedation", "Respiratory rate", "QT interval"],
+        "evidence_level": "Moderate",
+        "special_populations_notes": "Patients on methadone maintenance should inform their clinic before using CBD."
+      }
+    },
+    {
+      "generic_name": "buprenorphine",
+      "display_name": "Buprenorphine",
+      "brand_names": ["Suboxone", "Subutex", "Belbuca", "Butrans"],
+      "synonyms": ["opioid", "addiction treatment", "painkiller"],
+      "drug_class": "Partial opioid agonist",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["opioid addiction treatment", "chronic pain"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Buprenorphine is metabolized by CYP3A4. CBD inhibition can increase buprenorphine levels.",
+        "clinical_effects": ["Elevated buprenorphine levels", "Enhanced sedation", "Increased side effects"],
+        "potential_outcomes": "Increased sedation and opioid effects. Buprenorphine has a ceiling effect which provides some safety margin.",
+        "recommendation": "Use with caution. Inform your prescriber about CBD use. Monitor for increased sedation.",
+        "monitoring_parameters": ["Sedation", "Respiratory status", "Withdrawal symptoms", "Side effects"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "hydromorphone",
+      "display_name": "Hydromorphone",
+      "brand_names": ["Dilaudid", "Exalgo"],
+      "synonyms": ["painkiller", "opioid", "narcotic"],
+      "drug_class": "Opioid analgesic",
+      "primary_cyp_enzymes": [],
+      "secondary_cyp_enzymes": ["UGT"],
+      "common_uses": ["severe pain", "cancer pain"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Hydromorphone is primarily glucuronidated, not CYP metabolized. The main concern is additive CNS depression.",
+        "clinical_effects": ["Additive CNS depression", "Enhanced sedation", "Respiratory depression risk"],
+        "potential_outcomes": "Increased sedation and respiratory depression through pharmacodynamic interaction.",
+        "recommendation": "Use with caution. While pharmacokinetic interaction is minimal, CNS effects are additive.",
+        "monitoring_parameters": ["Respiratory rate", "Sedation", "Pain control"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "oxymorphone",
+      "display_name": "Oxymorphone",
+      "brand_names": ["Opana"],
+      "synonyms": ["painkiller", "opioid", "narcotic"],
+      "drug_class": "Opioid analgesic",
+      "primary_cyp_enzymes": [],
+      "secondary_cyp_enzymes": ["UGT"],
+      "common_uses": ["moderate to severe pain"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Oxymorphone is glucuronidated, not CYP metabolized. Additive CNS depression is the primary concern.",
+        "clinical_effects": ["Additive CNS depression", "Enhanced sedation"],
+        "potential_outcomes": "Increased sedation and respiratory depression risk.",
+        "recommendation": "Use with caution due to additive CNS effects. Monitor for excessive sedation.",
+        "monitoring_parameters": ["Respiratory rate", "Sedation", "Pain control"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "tapentadol",
+      "display_name": "Tapentadol",
+      "brand_names": ["Nucynta"],
+      "synonyms": ["painkiller", "opioid"],
+      "drug_class": "Atypical opioid analgesic",
+      "primary_cyp_enzymes": [],
+      "secondary_cyp_enzymes": ["UGT"],
+      "common_uses": ["moderate to severe pain", "diabetic neuropathy"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Tapentadol is glucuronidated and has both opioid and norepinephrine reuptake inhibition properties. Additive CNS effects and serotonergic concerns exist.",
+        "clinical_effects": ["Additive CNS depression", "Possible serotonergic effects"],
+        "potential_outcomes": "Increased sedation. Theoretical serotonergic interaction given tapentadol's mechanism.",
+        "recommendation": "Use with caution. Monitor for excessive sedation and any serotonergic symptoms.",
+        "monitoring_parameters": ["Sedation", "Pain control", "Signs of serotonin syndrome"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "meperidine",
+      "display_name": "Meperidine",
+      "brand_names": ["Demerol"],
+      "synonyms": ["painkiller", "opioid", "narcotic"],
+      "drug_class": "Opioid analgesic",
+      "primary_cyp_enzymes": ["CYP3A4", "CYP2B6"],
+      "common_uses": ["acute pain", "labor pain", "procedural sedation"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Meperidine is metabolized by CYP3A4 and CYP2B6. CBD inhibition may increase meperidine and its neurotoxic metabolite normeperidine.",
+        "clinical_effects": ["Elevated meperidine levels", "Increased normeperidine (neurotoxic)", "Seizure risk"],
+        "potential_outcomes": "Accumulation of neurotoxic metabolite normeperidine can cause seizures, especially with repeated dosing.",
+        "recommendation": "Use with caution. Meperidine is generally not preferred for repeated dosing due to normeperidine accumulation.",
+        "monitoring_parameters": ["Seizure activity", "CNS excitation", "Tremor", "Myoclonus"],
+        "evidence_level": "Limited",
+        "special_populations_notes": "Meperidine is avoided in patients with renal impairment due to normeperidine accumulation."
+      }
+    }
+  ]
+}
