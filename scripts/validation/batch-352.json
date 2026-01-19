@@ -1,0 +1,40 @@
+{
+  "batch_number": 352,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T06:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "86837421-49ca-4e4c-a5e4-def0476d5229", "title": "Effects of cannabidiol on bones of ovariectomized rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD bone/osteoporosis therapeutic"},
+    {"id": "8693575b-1095-4315-9179-f37861cfe12d", "title": "Discovery and characterization of endogenous cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS mechanism research"},
+    {"id": "86958d56-0088-469a-97bd-ba2ae48d3601", "title": "Silver nanoparticles for crude oil remediation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "86abdf8f-6380-483a-b2a3-e3edaa6c336b", "title": "CB2 repolarization inflammatory macrophages for lung injury/ARDS", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 ARDS/lung injury therapeutic"},
+    {"id": "86ae8546-2be2-4af4-8caf-3ebc4c772ba6", "title": "Prevalence Substance Use Hospitalization Heart Failure", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "86b89e96-98d5-4016-9d30-c9cd77c2d4f2", "title": "Cannabis and Cardiotoxicity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "86ca2cb8-ac5b-4f7b-9667-8ac6dc15040d", "title": "Cannabis use patterns at the dawn of US cannabis reform", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "86d8e69f-719e-4587-b06a-29b93aa0992b", "title": "Parking, Transit, and Employment in a CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "86da16df-5ee7-47ab-9b38-cbae6dbd2ef6", "title": "SR 141716A Acts as an Inverse Agonist CB1 Cannabinoid Receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research"},
+    {"id": "86fe4c57-0864-46fc-8d56-14ff5cec42e8", "title": "Characterization of CBD oils Belgian market infrared spectroscopy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "8737f75b-d9d1-4d3f-ba62-23de9af14628", "title": "Personal Attitudes Cannabis Legalization Stigma", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "87403b4f-6e7a-442f-9258-2fe329296ec4", "title": "Towards Explainable Computational Toxicology", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "87635e49-e9fd-4601-85c2-f0787312defb", "title": "Influence of Δ9 and cannabidiol on photically evoked after-discharge potentials", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD neurological mechanism"},
+    {"id": "876d6300-2f98-4d66-b250-5f5b6cdc7aef", "title": "Variation in cannabis potency and prices Washington state", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market analysis correctly rejected"},
+    {"id": "8771c7dc-ad91-4625-898e-cc3ea255dac2", "title": "Real World Evidence in Medical Cannabis Research", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Methodology/editorial correctly rejected"},
+    {"id": "8792b95d-bd7f-44f6-972e-95553c207765", "title": "Cannabidiol attenuates LPS/D-Galactosamine-induced acute liver injury", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD liver protective mechanism"},
+    {"id": "87a27bb0-57f2-4e61-aed4-50e6dec3a908", "title": "Driving under the influence of synthetic cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "87b93ef5-9375-445a-a182-ff9255c0056d", "title": "Gender differences in QoL among cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "87c26e7f-ceaf-4b4a-9e62-bb13395f1456", "title": "Cannabinoids in Oral Fluid: CBD Conversion to THC", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods/forensic correctly rejected"},
+    {"id": "87c58c08-e222-49d4-b308-92807ac3a525", "title": "α-glucosidase inhibitory oligopeptides from hemp seed protein", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Non-cannabinoid hemp correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "86837421-49ca-4e4c-a5e4-def0476d5229",
+      "8693575b-1095-4315-9179-f37861cfe12d",
+      "86abdf8f-6380-483a-b2a3-e3edaa6c336b",
+      "86da16df-5ee7-47ab-9b38-cbae6dbd2ef6",
+      "87635e49-e9fd-4601-85c2-f0787312defb",
+      "8792b95d-bd7f-44f6-972e-95553c207765"
+    ]
+  }
+}

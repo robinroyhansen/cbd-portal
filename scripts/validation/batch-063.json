@@ -1,0 +1,42 @@
+{
+  "batch_number": 63,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T05:30:00.000Z",
+  "results": [
+    {"id": "465a154c-58e5-46d5-9f11-b4387652c74a", "title": "Fewer specialists support using medical marijuana and CBD in treating epilepsy patients compared with other medical professionals and patients: Result of Epilepsia's survey", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/cannabis epilepsy therapeutic survey"},
+    {"id": "465bdfaf-d32e-45fa-b2cd-36ddf0cce8ac", "title": "Anandamide, an Endogenous Cannabinoid, Has a Very Low Physical Dependence Potential", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid safety research"},
+    {"id": "466d72e2-3e88-4056-9c35-46b45c73d601", "title": "The anti-hyperalgesic actions of the cannabinoid anandamide and the putative CB2 receptor agonist palmitoylethanolamide in visceral and somatic inflammatory pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid/PEA pain therapeutic mechanism"},
+    {"id": "466f216d-b06b-411c-a715-e4042b09f5d9", "title": "Cannabidiol for treatment of Irritability and Aggressive Behavior in Children and Adolescents with ASD: Background and Methods of the CAnnabidiol Study in Children with Autism Spectrum DisordEr (CASCADE) Study.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism CASCADE therapeutic trial"},
+    {"id": "467aacd0-f6bc-470d-ab10-36a662f4293b", "title": "Efficacy and acceptability of cannabinoids for anxiety disorders in adults: A systematic review & meta-analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anxiety meta-analysis"},
+    {"id": "468dca01-91ae-4ea8-befa-254d9915689a", "title": "CB1 and CB2 Receptor Expression and Promoter Methylation in Patients with Cannabis Dependence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD STUDY - receptor changes in cannabis dependence"},
+    {"id": "46aa3321-d323-44db-b7b1-d2ed2daff989", "title": "Commentary on the Role of Medicinal Cannabis in Healthy Aging and Neuroprotection.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - commentary, not original research"},
+    {"id": "46cab432-f4eb-4002-8c2f-127fb95eda1c", "title": "Cannabis use disorder and perioperative outcomes in vascular surgery", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD STUDY - surgical outcomes in CUD patients"},
+    {"id": "46ccce3d-a072-421a-8bc4-f901424015dd", "title": "Cannabidiol reduced frequency of convulsive seizures in drug resistant Dravet syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Dravet syndrome therapeutic RCT"},
+    {"id": "46d01c6c-0f99-4c8c-b72b-fc466e585ec8", "title": "Correlates and trajectories of alcohol and cannabis misuse in the early phase of psychosis: Do we need substance specific interventions?", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - substance use patterns in psychosis"},
+    {"id": "46d2b0ac-9bcc-4cf1-810b-518be937d472", "title": "A Randomized, Double-Blind, Parallel Group, Placebo-Controlled Study, Evaluating the Efficacy, Safety, and Tolerability of Cannabidiol Oral Solution in Subjects With Social Anxiety Disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD social anxiety therapeutic RCT"},
+    {"id": "46e2d4a5-1df9-4d88-912e-7ba4bbfba9a5", "title": "Full spectrum cannabidiol-rich extract reduced propofol dosage required for anesthetic induction in dogs—a pilot study", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - CBD for dogs anesthesia"},
+    {"id": "46e3e513-dfe1-478b-8a57-333df895025a", "title": "Faculty Opinions recommendation of Exploring cannabidiol effects on inflammatory markers in individuals with cocaine use disorder: a randomized controlled trial.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cocaine addiction inflammatory therapeutic"},
+    {"id": "46f765c8-d06f-432c-bf8f-ea44b41273d7", "title": "A systematic review and meta-analysis of delay discounting and cannabis use.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - behavioral patterns of cannabis use"},
+    {"id": "46ffc182-8a5f-40e2-b1cb-bc3228f4d88b", "title": "Cannabis and Cannabinoids: Pharmacology and Rationale for Clinical Use", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid clinical pharmacology review"},
+    {"id": "4705d61d-4243-4806-8b62-c45b4038d151", "title": "Sleep-wake cycle disturbances and NeuN-altered expression in adult rats after cannabidiol treatments during adolescence", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD sleep mechanism research"},
+    {"id": "47100888-2e1b-4b0b-a2df-44f90f238c4f", "title": "Cannabidiol Pharmacotherapy for Comorbid Opioid Addiction and Chronic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD opioid addiction pain therapeutic"},
+    {"id": "4710cc43-71fe-4360-903c-d26dba7c0e58", "title": "Healthcare professionals' knowledge and attitudes on termination of pregnancy in eThekwini.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - pregnancy termination survey"},
+    {"id": "4750c263-7947-457c-ace1-080ce74c57eb", "title": "Cannabis use and acute coronary syndrome", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - cardiovascular/ACS risk"},
+    {"id": "4757c8c4-1f7c-41d5-a979-5f9094c4babe", "title": "Cannabis use and psychotic-like experiences in the All of Us Research Program.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - psychosis risk"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "468dca01-91ae-4ea8-befa-254d9915689a",
+      "46aa3321-d323-44db-b7b1-d2ed2daff989",
+      "46cab432-f4eb-4002-8c2f-127fb95eda1c",
+      "46d01c6c-0f99-4c8c-b72b-fc466e585ec8",
+      "46e2d4a5-1df9-4d88-912e-7ba4bbfba9a5",
+      "46f765c8-d06f-432c-bf8f-ea44b41273d7",
+      "4710cc43-71fe-4360-903c-d26dba7c0e58",
+      "4750c263-7947-457c-ace1-080ce74c57eb",
+      "4757c8c4-1f7c-41d5-a979-5f9094c4babe"
+    ]
+  }
+}

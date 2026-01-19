@@ -1,0 +1,42 @@
+{
+  "batch_number": 386,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T14:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "ab301230-7ee4-489a-8f74-9e85ca38d84c", "title": "The Effect of Traffic Conditions on Office Rent (The Case of CBD, Kangnam and Yoido)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "ab4d5623-6e93-4f3c-ae3c-904a2c6c5b52", "title": "Characterizing individuals with elevated sweat chloride results in the absence of CFTR variants", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "ab7f2abc-022f-4640-8ec8-4d8d41011d8f", "title": "Oral Cannabidiol for Opioid Withdrawal", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic for opioid withdrawal"},
+    {"id": "ab838984-f2ee-4da6-aca8-d1715f8e6af8", "title": "Elucidation of human metabolism of ADB-FUBIATA for population exposure assessment.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid forensic correctly rejected"},
+    {"id": "ab9ab4bd-eb65-4df3-bb11-7d1e39c25de1", "title": "Cannabis Smoke Condensate I: The Effect of Different Preparation Methods on Tetrahydrocannabinol Levels", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "aba14641-fb31-43fa-a11c-d70010f759ab", "title": "Psychobiological responses to unpleasant emotions in cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm/psychology correctly rejected"},
+    {"id": "abaa93ac-b79d-43f0-b78d-70aac4b28575", "title": "Cannabidiol-mediated regulation of behavioural and brain gene expression alterations in a model of alcohol withdrawal", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic for alcohol withdrawal"},
+    {"id": "abd9dd9e-348f-4419-9bda-2c225dccaad8", "title": "Identification of cannabinoid-sensitive and -resistant oral bacteria", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antimicrobial research"},
+    {"id": "abf6f1c8-ab9a-470c-84a8-e1e4009a126f", "title": "\"I Couldn't Just Say 'Can You Go Home Please'\": Exploring UK Adults' Freedom to Negotiate Alcohol- and Drug-Involved Sexual Experiences.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "abfa95ee-9576-4d47-8196-45cd59399f2c", "title": "Design, synthesis, and structure–activity relationships of indole-3-carboxamides as novel water soluble cannabinoid CB1 receptor agonists", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 agonist pharmaceutical development"},
+    {"id": "ac01003d-1d1e-4133-9c37-48d8a776b9f1", "title": "Understanding cannabis use and car crashes: Insights from a randomized trial using a driving simulator on THC blood levels and subjective measures of sleepiness and performance.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment study correctly rejected"},
+    {"id": "ac0a3659-ac08-4091-913a-165384a04663", "title": "Prevalence and reasons for using cannabidiol, delta-8 tetrahydrocannabinol, cannabinol, cannabigerol, and hexahydrocannabinol among US adults.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "ac16878c-2615-42f3-898f-fcea93f55272", "title": "Analysis of the week current tension of the electric field of the atmosphere for the territory of the CBD according to the network of four sensors EFM550", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (regional territory) correctly rejected"},
+    {"id": "ac196393-c5d2-4dce-ba8d-ccb373023679", "title": "CBD acutes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Insufficient information correctly rejected"},
+    {"id": "ac1c363a-30dc-448c-9fba-e8726d204821", "title": "Soil bacterial responses to experimental warming and drought across winter wheat growth stages in the North China Plain", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "ac2e4aad-055c-44d1-8b38-442796e524a2", "title": "Research on the Construction Effect Evaluation System of Smart CBD: A Case Study in Jiangbei New District, Nanjing, China", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "ac62ff4f-b041-4eb3-aa9c-b82441016f37", "title": "Large Receptor Reserve for Cannabinoid Actions in the Central Nervous System", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research"},
+    {"id": "ac6622ec-a0c1-4d55-b591-9da98bf04c8d", "title": "THC, CBD and minor cannabinoid CBDV differently modulate hippocampal neurons firing.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neuronal mechanism research"},
+    {"id": "ac810739-2a04-4e41-91ad-3591c8747f9b", "title": "Author response for \"Virtual Screening and In Vitro Experiments Highlight Cannabidiol as a Drug‐like Phosphodiesterase 9 Inhibitor\"", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD mechanism research (PDE9 inhibitor)"},
+    {"id": "aca0d04d-aa0c-45f9-8cb0-4de26f29b6c6", "title": "Proof of concept for high-dose Cannabidiol pretreatment to antagonize opioid induced persistent apnea in mice.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic for opioid-related apnea"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "ab7f2abc-022f-4640-8ec8-4d8d41011d8f",
+      "abaa93ac-b79d-43f0-b78d-70aac4b28575",
+      "abd9dd9e-348f-4419-9bda-2c225dccaad8",
+      "abfa95ee-9576-4d47-8196-45cd59399f2c",
+      "ac62ff4f-b041-4eb3-aa9c-b82441016f37",
+      "ac6622ec-a0c1-4d55-b591-9da98bf04c8d",
+      "ac810739-2a04-4e41-91ad-3591c8747f9b",
+      "aca0d04d-aa0c-45f9-8cb0-4de26f29b6c6"
+    ]
+  }
+}

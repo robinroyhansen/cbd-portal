@@ -1,0 +1,39 @@
+{
+  "batch_number": 332,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T01:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "6f210535-a339-4281-b02b-b66caf2c53ea", "title": "3.210 PHYTOCANNABINOIDS TETRAHYDROCANNABINOL AND CANNABIDIOL ACT AGAINST ROTENONE INDUCED DAMAGES IN MURINE CELL CULTURES", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC/CBD neuroprotection mechanism"},
+    {"id": "6f3a3bf8-a305-4062-8061-e6cdad901352", "title": "Rare Manifestation of ATP1A3 Mutation with Clinical Response to Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD clinical case report"},
+    {"id": "6f403317-2d61-44d2-aca1-39be543527a0", "title": "THC and CBD effects on alcohol use among alcohol and cannabis co-users.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "6f4473ad-c654-4138-80ed-e61312209bc2", "title": "Quantitative analysis of cannabinoids and metabolites in oral fluid by volumetric absorptive microsampling combined with UHPLC-HRMS.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "6f530c86-5016-4320-9825-05406fa58bd2", "title": "Diagnosis of PBM and CBD by MRCP", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "6f74be58-4b39-4b1f-8474-c14297596163", "title": "Increasing Inflorescence Dry Weight and Cannabinoid Content in Medical Cannabis Using Controlled Drought Stress", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "6f7fae74-354d-45c7-914b-ea87a4203b76", "title": "Indoloditerpenes from a Marine-Derived Fungal Strain of Dichotomomyces cejpii with Antagonistic Activity at GPR18 and Cannabinoid Receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1/CB2/GPR18 receptor ligand discovery"},
+    {"id": "6f869d77-b763-4f75-b347-8932a23f3705", "title": "Cannabinoid chemistry: an overview", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry correctly rejected"},
+    {"id": "6f8bc73d-a186-41b8-a8ac-45d91aab3834", "title": "Copper localization in Cannabis sativa L. grown in a copper-rich solution", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "6f8fc5e2-0a16-466a-949c-a197006cecd3", "title": "Elixinol releases plant-based CBD sports gel", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Commercial news correctly rejected"},
+    {"id": "6fa1f673-77fa-49a4-8209-1a015fb5f404", "title": "De actualiteit van taxonomie voor de CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "6fbc7bb6-3b7b-485d-bf2e-8fdfc7f1d746", "title": "30-day prevalence of CBD use (hbsc.ch - Standard table)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "6fc30e4c-ea4a-4032-a271-095cf7c69223", "title": "63 Cannabidiol in adults with lennox gastaut syndrome: real-world experience", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy real-world evidence"},
+    {"id": "6fc99841-4dda-46fa-9ce1-091fb9e29cdc", "title": "Novel sterically hindered cannabinoid CB1 receptor ligands", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor pharmacology"},
+    {"id": "6fcdf581-b021-41ef-8575-d89994182f2a", "title": "Evaluating cannabis substitution for alcohol within the context of a canadian managed alcohol program.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm reduction program correctly rejected"},
+    {"id": "6fdf7004-003b-4b66-8b0f-346f150e30f8", "title": "Identification of candidate genes affecting Δ9-tetrahydrocannabinol biosynthesis in Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "6fe2eea2-90b4-433d-935c-0da47de65c57", "title": "Analysis of CBD Products (2022-23)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product testing correctly rejected"},
+    {"id": "6fe5f39f-e57d-43dc-a0cf-15729ba81d2e", "title": "Knowledge and practices of traditional treatment of chicken diseases using medicinal plants by indigenous communities", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "6ff8ee7a-ac47-4dc7-919b-2c2f70fb336f", "title": "Content Analysis of Derived Intoxicating Cannabis Vape Product Attributes and Marketing In an Online Retail Environment.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Marketing correctly rejected"},
+    {"id": "700f981f-e852-4989-af48-d2a294637318", "title": "The identification of synthetic cannabinoids in English prisons", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "6f210535-a339-4281-b02b-b66caf2c53ea",
+      "6f3a3bf8-a305-4062-8061-e6cdad901352",
+      "6f7fae74-354d-45c7-914b-ea87a4203b76",
+      "6fc30e4c-ea4a-4032-a271-095cf7c69223",
+      "6fc99841-4dda-46fa-9ce1-091fb9e29cdc"
+    ]
+  }
+}

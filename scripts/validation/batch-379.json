@@ -1,0 +1,46 @@
+{
+  "batch_number": 379,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T12:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "a3ce2ccb-2e1d-4a6b-8536-848f3a3c8ae1", "title": "Childhood exposure to cannabidiol and lung function: A pilot study.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD lung function research"},
+    {"id": "a3d12982-edef-4630-b6cf-fe1ee4ef257d", "title": "Cannabinoid Receptor Signaling", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor signaling mechanism"},
+    {"id": "a3d575ca-e810-44e9-ac3d-34c395ce710c", "title": "Cannabidiol/naloxone", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug interaction research"},
+    {"id": "a3dd1d4f-15c2-4f82-9813-9cc664a23761", "title": "CBD at Work: The Impact of Cannabidiol Access on Workplace Health", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD workplace health research"},
+    {"id": "a3e0ba5f-86d8-4204-97e8-0965f38e94b7", "title": "Cannabinoids increase lung cancer cell lysis by lymphokine-activated killer cells via upregulation of ICAM-1", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cancer mechanism research"},
+    {"id": "a3e8e1db-e4d0-4c40-9997-70f189ef8fda", "title": "Endoscopic Management of Patients with Suspected Choledocholithiasis (CBDS) and a Normal Cholangiogram", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct Stones) correctly rejected"},
+    {"id": "a3f46298-0db1-4df2-adea-fad0158891df", "title": "Cannabidiol 13956‐29‐1", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemical reference correctly rejected"},
+    {"id": "a405155c-3d73-42af-8660-9999b562d280", "title": "Off-label use of cannabidiol in genetic epileptic and developmental encephalopathies: A case report.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy clinical case"},
+    {"id": "a40569a1-f3cb-40dc-9a61-ce83604bb430", "title": "Cannabinoid CB2/CB1 Selectivity. Receptor Modeling and Automated Docking Analysis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor modeling research"},
+    {"id": "a413fc34-42cc-4ea2-a15a-f4cf9c79de42", "title": "Sex differences in behavioral effects of cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism research"},
+    {"id": "a42d222a-c5f7-41db-aaef-e90cdd966506", "title": "Adapted motivational interviewing reduces substance use and sexual risk taking among partnered sexual minority men aged 18 to 35: Results of the PARTNER study.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Non-cannabinoid intervention correctly rejected"},
+    {"id": "a4328fa7-4d1b-4595-870f-de07516e5216", "title": "连良桂：滨海CBD第一个吃螃蟹者", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "a43c0b0a-5d69-4cf2-8f39-44fe79fa7493", "title": "Developing a pricing model for general medical consultation services among private consulting rooms in Harare, Zimbabwe", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a461efbd-9c3d-4954-a72b-23fbf3cd5f1c", "title": "2-Arachidonoylglycerol, a Putative Endogenous Cannabinoid Receptor Ligand, Induces Rapid, Transient Elevation of Intracellular Free Ca2+in Neuroblastoma × Glioma Hybrid NG108-15 Cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid mechanism research"},
+    {"id": "a467026d-5320-448e-aaab-3bc8b3df0eab", "title": "Pelican CBD Male Enhancement Gummies (NEW 2023!) Does It Work Or Just Scam?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "a4694b5f-de4e-465a-bb42-54ba5b8f6c55", "title": "Administration of cannabidiol reduced reinforcement, motivation and relapse to alcohol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD addiction therapeutic research"},
+    {"id": "a4a0bb4a-3790-47a4-b695-7e68ca8d9bab", "title": "Pain, Depression, and Functional Outcomes Among Older Adults Who Use Cannabis or Opioid Analgesics for Chronic Pain Conditions.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis pain therapeutic outcomes"},
+    {"id": "a4a3a5b9-0989-417c-a11b-ce3ec8196fa8", "title": "Novel Intravenous Nanoemulsions Based on Cannabidiol-Enriched Hemp Oil—Development and Validation of an HPLC-DAD Method for Cannabidiol Determination", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Formulation/lab methods correctly rejected"},
+    {"id": "a4afbbfb-7e47-4c66-931d-61007c1c64d5", "title": "Cannabinoid Markers in Biological Fluids and Tissues: Revealing Intake", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "a4b7d015-a974-4429-9529-9882ebf3ee51", "title": "Should cannabis be used in the management of endometriosis?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis endometriosis therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 7,
+    "incorrect": 13,
+    "incorrect_ids": [
+      "a3ce2ccb-2e1d-4a6b-8536-848f3a3c8ae1",
+      "a3d12982-edef-4630-b6cf-fe1ee4ef257d",
+      "a3d575ca-e810-44e9-ac3d-34c395ce710c",
+      "a3dd1d4f-15c2-4f82-9813-9cc664a23761",
+      "a3e0ba5f-86d8-4204-97e8-0965f38e94b7",
+      "a405155c-3d73-42af-8660-9999b562d280",
+      "a40569a1-f3cb-40dc-9a61-ce83604bb430",
+      "a413fc34-42cc-4ea2-a15a-f4cf9c79de42",
+      "a461efbd-9c3d-4954-a72b-23fbf3cd5f1c",
+      "a4694b5f-de4e-465a-bb42-54ba5b8f6c55",
+      "a4a0bb4a-3790-47a4-b695-7e68ca8d9bab",
+      "a4b7d015-a974-4429-9529-9882ebf3ee51"
+    ]
+  }
+}

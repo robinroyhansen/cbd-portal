@@ -1,0 +1,40 @@
+{
+  "batch_number": 94,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T13:15:00.000Z",
+  "results": [
+    {"id": "69384234-5e5e-4aa1-8585-0b715616c4a6", "title": "Marijuana Purchase Task validity meta-analysis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID THERAPEUTIC - demand methodology"},
+    {"id": "694815db-d8ad-4440-8ea6-beb5b91ae9be", "title": "Cannabis activity THC content", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Classic cannabinoid pharmacology"},
+    {"id": "694c1988-baa2-4861-ac23-63cd57aea62b", "title": "CBD Muscle Recovery Balm Oil Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING - product review"},
+    {"id": "6972638d-8c6a-4fd4-954b-8b8863df89e1", "title": "CB1 CB2 sensory nerve fibers human skin", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor distribution"},
+    {"id": "697fa2f7-4e76-4fd2-9e7a-9088c633dcd0", "title": "Cannabis risks benefits umbrella review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Comprehensive therapeutic/safety review"},
+    {"id": "69802dfc-959a-4a98-ad48-0c0e9fcfdb22", "title": "tDCS decrease cannabis use MS CUD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - reducing cannabis use"},
+    {"id": "69aa4065-eef1-44aa-865c-cd434c4ae355", "title": "Cannabinoids Huntington's Phase 2 RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid HD therapeutic trial"},
+    {"id": "69c2b15d-236f-4503-a795-52b74f27c10d", "title": "CBD pediatric refractory epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "69d54234-1954-441e-bf78-e726d1679110", "title": "CBD safety systematic mapping", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety research"},
+    {"id": "69d6aa9b-b61d-4c43-bbbf-150059565abe", "title": "CB1 endocytic dwell times functional selectivity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor mechanism"},
+    {"id": "69da3309-6c2b-4c4a-8667-7dd3ef61b5ef", "title": "CB1 guinea-pig ileum transmission", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 GI mechanism"},
+    {"id": "69e288ac-fc8e-492e-b46d-4963b447ead0", "title": "CBD working memory N-back performance", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cognitive safety"},
+    {"id": "69ef1ee4-82a0-437d-a02a-5e038444e666", "title": "Cannabis vaping THC CBD youth mental health", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - youth vaping mental health"},
+    {"id": "69f0ee52-35a1-4255-8ace-597d32c619f5", "title": "CB1 blockade mitochondrial biogenesis adipocytes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 metabolism mechanism"},
+    {"id": "69f1b80a-f0f2-4b73-8832-7f3082680f97", "title": "CBD liver enzyme drug interactions clinical", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety clinical study"},
+    {"id": "69f933a2-d15f-42a1-a554-34e434cf6e34", "title": "CBD Alzheimer's neuroinflammation systematic review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD AD therapeutic review"},
+    {"id": "69fc25dc-aa12-4aba-acfa-caaedaf2a620", "title": "Barrier products topical delivery skin", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general dermatology"},
+    {"id": "69ff6fda-a217-435b-9a3d-e89034589a5b", "title": "Racial ethnic cannabis use CUD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - racial/ethnic cannabis use"},
+    {"id": "6a13674c-872a-4af0-9dcc-40e428bdba8e", "title": "Mitochondrial bioenergetics T2DM oxidative stress", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - diabetes mitochondria"},
+    {"id": "6a669c90-56ed-4821-90ff-ff3eef2b5033", "title": "CBD autism severe behavioral retrospective", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "69384234-5e5e-4aa1-8585-0b715616c4a6",
+      "694c1988-baa2-4861-ac23-63cd57aea62b",
+      "69802dfc-959a-4a98-ad48-0c0e9fcfdb22",
+      "69ef1ee4-82a0-437d-a02a-5e038444e666",
+      "69fc25dc-aa12-4aba-acfa-caaedaf2a620",
+      "69ff6fda-a217-435b-9a3d-e89034589a5b",
+      "6a13674c-872a-4af0-9dcc-40e428bdba8e"
+    ]
+  }
+}

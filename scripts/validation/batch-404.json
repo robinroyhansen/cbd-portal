@@ -1,0 +1,40 @@
+{
+  "batch_number": 404,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T19:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "bf93df20-912b-4f68-a0e4-3819299eef21", "title": "Cannabidiol Lacks Direct Effect on Cortical Excitability: A Randomized, Double Blind, Placebo Controlled, 3‐Way Crossover Trial", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD clinical trial on brain excitability"},
+    {"id": "bf96b9cb-eb69-49d0-a41a-d2253bab94a0", "title": "CB1 and CB2 cannabinoid receptor expression during development and in epileptogenic developmental pathologies", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1/CB2 epilepsy mechanism research"},
+    {"id": "bfa03b20-a6b7-48e2-be0b-6aee8e6e4f0d", "title": "Cannabidiol promotes neurogenesis in the dentate gyrus during an abstinence period in rats following chronic exposure to methamphetamine", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD neurogenesis mechanism"},
+    {"id": "bfa9dc9e-5f31-490d-a83b-136d250b325b", "title": "Study of Optical band gap and microstrain of ZnS nanomaterials prepared by CBD method", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "bfbb9b31-cbfc-40f1-b914-1bf724d0f3f9", "title": "Contrasting cannabinoid receptor 2 (CB2R)-mediated responses in two different models of Blood Brain Barrier in the context of HIV", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor BBB HIV research"},
+    {"id": "bfc1be47-56ac-44ac-bee5-286cbcad9489", "title": "Enhanced physical properties of CBD-deposited samarium-doped nanostructured cadmium sulphide thin films", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "bfd5a3d2-fd22-4b7c-bb07-cd16c8a8e00c", "title": "Cannabinoids in the treatment of glioblastoma", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cancer therapeutic"},
+    {"id": "bfd68d0c-883f-4f13-aa4c-349ed09643dc", "title": "Impact of Long-Term Cannabidiol (CBD) Treatment on Mouse Kidney Transcriptome", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD kidney safety/mechanism research"},
+    {"id": "bfdbc174-6b17-479a-8522-35ba6b35803e", "title": "Articles You Might Have Missed", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correctly rejected"},
+    {"id": "bfe496e3-c770-4c94-856c-1041b257f93e", "title": "Simultaneous determination of five naphthoylindole-based synthetic cannabinoids and metabolites and their deposition in human and rat hair", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "bfef2dc9-2463-4dbf-b5fd-4c9cc096998f", "title": "Trips and biotechnology Vs CBD and biodiversity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "c00fa410-66a7-412f-94b7-55a445cccffe", "title": "Managing Dual Diagnosis Patients and the Importance of Assessing Capacity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Clinical management correctly rejected"},
+    {"id": "c01052a1-e2fc-4260-a443-42cc5164e53e", "title": "Relationships between increases in Canadian cannabis stores, sales, and prevalence", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market analysis correctly rejected"},
+    {"id": "c01383e0-9fdb-477e-b681-9a6d63a472d3", "title": "National survey identifying community pharmacist preceptors' experience, knowledge, attitudes, and behaviors influencing intent to recommend cannabidiol products", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Pharmacist survey correctly rejected"},
+    {"id": "c01d35c6-687f-4186-949f-08d71e360290", "title": "PHYTOPHAGOUS INSECTS ASSOCIATED WITH CULTIVATED MARIJUANA, CANNABIS SATIVA, IN NORTHERN MISSISSIPPI", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/entomology correctly rejected"},
+    {"id": "c032a4e7-6dc4-40cd-912b-2b523cabac06", "title": "Is hemp (Cannabis sativa) safe to feed pregnant sheep?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "c0359e0e-db33-4941-bf03-79bb24228a40", "title": "CBDS : constraint based diagnostic system for malfunction identification in the nuclear power plant", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "c04180b9-df2d-4b7d-a00d-7762d0748aaf", "title": "Machine learning (ML) algorithms and artificial neural network for optimizing in vitro germination and growth indices of industrial hemp", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "c0436430-7fb1-4d88-bcb9-020a1e470fe8", "title": "Validation and Application of an Analytical Method for Determination of Cbd, Cbn and Thc in Mct Oil", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "c04c4bb7-44e0-43f0-b0c8-3b0ab9b8b350", "title": "Planning Challenges facing the provision of Public Parking Facilities: A Case Study of Kiambu Town CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "bf93df20-912b-4f68-a0e4-3819299eef21",
+      "bf96b9cb-eb69-49d0-a41a-d2253bab94a0",
+      "bfa03b20-a6b7-48e2-be0b-6aee8e6e4f0d",
+      "bfbb9b31-cbfc-40f1-b914-1bf724d0f3f9",
+      "bfd5a3d2-fd22-4b7c-bb07-cd16c8a8e00c",
+      "bfd68d0c-883f-4f13-aa4c-349ed09643dc"
+    ]
+  }
+}

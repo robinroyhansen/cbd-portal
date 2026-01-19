@@ -1,0 +1,40 @@
+{
+  "batch_number": 28,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T20:45:00.000Z",
+  "results": [
+    {"id": "2038a850-a115-4e80-96c9-989257226f21", "title": "CBD Reduces Anxiety in Social Phobia Patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for social anxiety"},
+    {"id": "204a614f-0e5d-4516-9fdd-dbf9b9285e92", "title": "Targeting the endocannabinoid system with receptor agonists", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid therapeutic applications review"},
+    {"id": "2058e561-b80e-4c1a-a409-63073dcbcade", "title": "Epigenetic Regulation of Cannabinoid-Mediated Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid autoimmune mechanisms"},
+    {"id": "205c2354-d734-4c68-a988-ea07e087a77c", "title": "Tocilizumab-coated CBD nanoparticles for COVID-19", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for COVID-19 treatment"},
+    {"id": "205f0985-2e7f-4cb4-922e-73fe616f87b0", "title": "CBD-rich Extract Alleviates Neuroinflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroinflammation research"},
+    {"id": "2060ffe7-01ca-4b44-b7d0-79cdabd57496", "title": "Suicidality Trends With Cannabis Use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE as risk factor - not therapeutic"},
+    {"id": "20831f30-d671-4207-a03c-3947c71a7c08", "title": "CBD modulates METH-induced conditioned place preference", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for meth addiction"},
+    {"id": "2084f110-2ee1-4713-99a8-2a196563ed28", "title": "Are cannabis users less likely to gain weight?", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE patterns and weight - not therapeutic research"},
+    {"id": "20863b29-e031-4552-9889-ee95dea454b0", "title": "The Orexin System in Addiction", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - orexin system research"},
+    {"id": "20aea8c9-a237-43f0-aa6c-6fce8977f482", "title": "LOX-1 Receptor Inhibitors including Cannabinol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinol therapeutic potential"},
+    {"id": "20bb0531-a7c8-4bb0-9011-dabb15a0873d", "title": "Parkinsonian disorders diagnostic accuracy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - Parkinson's diagnostics"},
+    {"id": "20c02675-0c1a-4e04-b171-ae289544065a", "title": "Psychedelics and cannabis co-use and prostate cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE association - not therapeutic"},
+    {"id": "20ca4888-bbdf-4a83-bc2b-29e5e57224af", "title": "CBD modulates schizophrenia-like bio-phenotype", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia research"},
+    {"id": "20ddee03-c5e1-4993-a783-8cfec4e8fb22", "title": "Oral Cannabis for Taxane-Induced Neuropathy - RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for chemo neuropathy"},
+    {"id": "20e40b5d-f937-4b83-aed7-e957fca765a1", "title": "Cannabinoid Uptake and Metabolism in Zebrafish Larvae", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology model"},
+    {"id": "20f24412-e854-479a-bf29-45407fe3075f", "title": "CANNABIDIOL AS AN ANTIPSYCHOTIC DRUG", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antipsychotic research"},
+    {"id": "2100a1f0-18d7-4241-bf90-a772c6e0518e", "title": "Clinical rationale for CBD on mood, depression, anxiety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic rationale"},
+    {"id": "2105272d-d5ad-4e47-b1a6-04f65e64ca6f", "title": "CBD Dual Modulatory Role in Schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia research"},
+    {"id": "210eb961-da73-43d3-bb88-cc3d7e3190a8", "title": "Risk factors for using more cannabis than intended", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE patterns - not therapeutic research"},
+    {"id": "21351e66-7767-48d7-9ba1-b884e4e01a20", "title": "Atypical antipsychotics for autism - network meta-analysis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general antipsychotics for autism"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "2060ffe7-01ca-4b44-b7d0-79cdabd57496",
+      "2084f110-2ee1-4713-99a8-2a196563ed28",
+      "20863b29-e031-4552-9889-ee95dea454b0",
+      "20bb0531-a7c8-4bb0-9011-dabb15a0873d",
+      "20c02675-0c1a-4e04-b171-ae289544065a",
+      "210eb961-da73-43d3-bb88-cc3d7e3190a8",
+      "21351e66-7767-48d7-9ba1-b884e4e01a20"
+    ]
+  }
+}

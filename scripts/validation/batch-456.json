@@ -1,0 +1,45 @@
+{
+  "batch_number": 456,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T07:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "f767d78e-8d47-49c8-84f6-eeea688b83e3", "title": "Indazolylketones as new multitarget cannabinoid drugs", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid drug development research"},
+    {"id": "f76c376c-2fee-4fef-a30a-86e8f9b37a2a", "title": "The cannabinoid antagonist AM251 attenuates nicotine self-administration and nicotine-seeking behaviour in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 antagonist addiction therapeutic research"},
+    {"id": "f778ad6d-d841-4547-8bf4-9b19bff54f6f", "title": "Cannabinoid modulation of wide dynamic range neurons in the lumbar dorsal horn of the rat by spinally administered WIN55,212-2", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pain mechanism research"},
+    {"id": "f7880830-4089-4303-8f86-e6226488f2e9", "title": "A comparative study of physico-chemical properties of CBD and SILAR grown ZnO thin films", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "f7973657-2576-4c90-a258-7fca2bb86a8a", "title": "Therapeutic potential of opioid/cannabinoid combinations in humans: Review of the evidence", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic review"},
+    {"id": "f7cd1386-8bd9-4e14-8765-8e1703d744cf", "title": "Enhancement Of Photovoltaic Properties Of CBD Grown Pr: Cds/Pbs Solar Cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "f7e5d6a7-ac81-470a-a4d8-cdd5a6a9263f", "title": "Cannabidiol-loaded hydrogel contact lenses for on-demand pH regulation and enhanced corneal alkali burn repair.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD ocular drug delivery/therapeutic research"},
+    {"id": "f7fd09d4-5226-42bb-80bf-5ee1c7b732c1", "title": "Joint Association of Methamphetamine and Cannabis Use as Risk Factors for Asthma Exacerbations Requiring Hospitalization: A Retrospective Analysis.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "f80d3478-2ee1-4e53-af4a-85a3616e6f38", "title": "Modelling post-emergent hemp phenology (Cannabis sativa L.): Theory and evaluation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "f818560b-960b-47f4-96e1-3858d3ba32d5", "title": "Motives for Cannabis Use and Readiness to Change Among Users of the \"Stop-Cannabis\" Mobile App: Cluster Analysis.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD/cessation correctly rejected"},
+    {"id": "f830cc1b-bca2-442a-9cc5-22af8aacb68e", "title": "On the Adjustability of Regulatory Planning—A Case Study of Adjustment of Regulatory Detailed Planning of CBD of West Zhuji City", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "f84816fe-9f5b-4b86-ade4-3781e59fb580", "title": "Maternal high-fat diet impairs leptin signaling and up-regulates type-1 cannabinoid receptor with sex-specific epigenetic changes in the hypothalamus of newborn rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 metabolic mechanism research"},
+    {"id": "f853aa96-7fde-4719-9eb1-4606d580596a", "title": "Cannabis Prices and Dynamics of Cannabis Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "f85e6056-fad0-4b0b-bc03-a4e36ad23bc1", "title": "The effect of cannabidiol on simulated car driving performance: A randomised, double‐blind, placebo‐controlled, crossover, dose‐ranging clinical trial protocol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD clinical trial/safety research"},
+    {"id": "f86044ae-7a0b-46df-9ba8-d14d5c899664", "title": "Do recreational cannabis users, unlicensed and licensed medical cannabis users form distinct groups?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "f86cfbf0-32b0-446b-9f45-73b0d8d2f7c5", "title": "In Vitro and in Vivo Pharmacological Characterization of JTE-907, a Novel Selective Ligand for Cannabinoid CB2 Receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor pharmacology research"},
+    {"id": "f8727ba1-df4f-46b2-b17f-6d03f358e625", "title": "Cannabis Use and Post-operative Complications in Patients Undergoing Pancreatic Resection", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "f87a5b19-3852-4147-a86f-a18d51c2be13", "title": "Oral Cannabidiol for Acute Post-Extraction Pain: A Randomized Pilot Study.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pain clinical trial"},
+    {"id": "f887fc83-34ff-4d8e-992e-d24fce8f6ce5", "title": "The Individual and Interactive Effects of Alpha-Pinene and Delta-9-Tetrahydrocannabinol in Healthy Adults.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid/terpene entourage effect research"},
+    {"id": "f890888c-7ff4-4c2e-9aba-c04663307d9e", "title": "Cannabinoid inhibition of adenylate cyclase: Relative activity of constituents and metabolites of marihuana", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism research"}
+  ],
+  "batch_summary": {
+    "correct": 9,
+    "incorrect": 11,
+    "incorrect_ids": [
+      "f767d78e-8d47-49c8-84f6-eeea688b83e3",
+      "f76c376c-2fee-4fef-a30a-86e8f9b37a2a",
+      "f778ad6d-d841-4547-8bf4-9b19bff54f6f",
+      "f7973657-2576-4c90-a258-7fca2bb86a8a",
+      "f7e5d6a7-ac81-470a-a4d8-cdd5a6a9263f",
+      "f84816fe-9f5b-4b86-ade4-3781e59fb580",
+      "f85e6056-fad0-4b0b-bc03-a4e36ad23bc1",
+      "f86cfbf0-32b0-446b-9f45-73b0d8d2f7c5",
+      "f87a5b19-3852-4147-a86f-a18d51c2be13",
+      "f887fc83-34ff-4d8e-992e-d24fce8f6ce5",
+      "f890888c-7ff4-4c2e-9aba-c04663307d9e"
+    ]
+  }
+}

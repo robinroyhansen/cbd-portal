@@ -1,0 +1,41 @@
+{
+  "batch_number": 18,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T18:15:00.000Z",
+  "results": [
+    {"id": "151fee29-3648-48ce-936a-cdf219c11503", "title": "Association of cannabis use with prodromal symptoms of psychosis in adolescence", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis and psychosis risk - safety research"},
+    {"id": "154d3127-47b8-406a-9394-d9bb62fd7ba1", "title": "The Effect of Cannabis on Perception of Time: A Critical Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cognitive effects review"},
+    {"id": "156edb35-4eea-4516-8fbc-b4d0c394034f", "title": "Anemoside B4 Rectal Thermosensitive In Situ Gel for Ulcerative Colitis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - Anemoside B4 is triterpenoid saponin from Pulsatilla"},
+    {"id": "15927d09-cd6f-4092-8bec-4d27d1937fea", "title": "Cannabis use and dependence in a New Zealand birth cohort", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Prevalence/patterns study - use patterns, not therapeutics"},
+    {"id": "15a67f1d-df43-4868-af63-667e3d54c114", "title": "Cannabis Certifications for Severe Chronic and Intractable Pain: Geographic Patterns", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Policy/access patterns - geographic distribution, not therapeutic"},
+    {"id": "15ae8fe6-bb03-42ec-b08f-5ef3ac1c8a02", "title": "The Determinant of Tau Spreading in Alzheimer's Disease", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - tau protein pathology in AD"},
+    {"id": "15c69b2e-5782-4df5-983f-5d13d004ee71", "title": "Neuroprotective effects of Cannabidiol in acute pilocarpine model of seizure", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection in seizures"},
+    {"id": "15d4180d-8b57-41ee-9d82-edd7f487d474", "title": "THC:CBD Oromucosal Spray for MS Spasticity: Newest Evidence", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Sativex for MS - conference proceedings"},
+    {"id": "15d59388-c7d2-4a34-8ee2-b1c1e6d56607", "title": "Antidepressant-like Effects of Cannabis sativa L. Extract in LPS Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for depression"},
+    {"id": "15e12e91-2429-44bb-aa38-441a2489bcbb", "title": "Psychopharmacological effects of cannabis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis adverse effects - safety research"},
+    {"id": "15e2f1dc-f060-4976-90e0-186fa8884073", "title": "The Natural Defense: Anti-Aging Potential of Plant-Derived Substances", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "General plant compounds review - no cannabinoid focus"},
+    {"id": "16013f70-b093-45f0-95e0-992377a75681", "title": "Opioids, cocaine, cannabis and illicit drugs", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "General drug overview - no therapeutic focus"},
+    {"id": "160dae97-1f81-40d3-bbe7-6241c032667c", "title": "Cannabidiol: Antioxidant Effect, Cellular Protection, Cognitive Performance", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD mechanism/therapeutic review"},
+    {"id": "161daec6-fcd7-42af-a9f3-d879e34dc981", "title": "Pharmacokinetics of cannabidiol by 3 delivery methods in healthy dogs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics"},
+    {"id": "16297b2e-d39b-4983-a349-d7f12e7d873e", "title": "8 Good Reasons Why Twine CBD Oil is One of the Best Oils", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - Twine CBD product marketing with promotional links"},
+    {"id": "1633ef26-8fe2-4938-815b-806b6e8bd59d", "title": "Experiences with Cannabidiol in Patients with NCL Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for neuronal ceroid lipofuscinosis"},
+    {"id": "1639b90c-1da8-4e20-b28c-29a3d5cf3d20", "title": "Therapeutic Claims in CBD Marketing Messages on Twitter", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Marketing surveillance meta-study - not therapeutic research"},
+    {"id": "1641808a-f5cf-487e-ba2f-2a403c8db4af", "title": "Short-term effects of cannabis on cognitive performance in medical patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cognitive effects in patients"},
+    {"id": "165b408b-e629-4bac-a653-78b4a1dac25b", "title": "RCT of Cannabis Based Medicine for MS Detrusor Overactivity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Sativex for MS bladder - clinical trial"},
+    {"id": "16739211-a7d9-426a-bcd3-c235ff3db923", "title": "Anandamide induces COX-2-dependent cell death in colon cancer cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid for colon cancer"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "156edb35-4eea-4516-8fbc-b4d0c394034f",
+      "15927d09-cd6f-4092-8bec-4d27d1937fea",
+      "15a67f1d-df43-4868-af63-667e3d54c114",
+      "15ae8fe6-bb03-42ec-b08f-5ef3ac1c8a02",
+      "15e2f1dc-f060-4976-90e0-186fa8884073",
+      "16013f70-b093-45f0-95e0-992377a75681",
+      "16297b2e-d39b-4983-a349-d7f12e7d873e",
+      "1639b90c-1da8-4e20-b28c-29a3d5cf3d20"
+    ]
+  }
+}

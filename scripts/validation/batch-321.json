@@ -1,0 +1,41 @@
+{
+  "batch_number": 321,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T22:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "626a02a4-9d0f-4dbc-8e81-abf190de5c59", "title": "CB1-cannabinoid and μ-opioid receptor co-localization on postsynaptic target in the rat dorsal horn", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1/mu-opioid colocalization pain mechanism"},
+    {"id": "626a5790-fc3c-4e7f-a288-30349d0a43b6", "title": "Review of detection frequency and type of synthetic cannabinoids in herbal compounds analyzed by Istanbul Narcotic Department of the Council of Forensic Medicine, Turkey", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "626d1083-fb50-4927-aebd-9ad2369dc927", "title": "A Constructing Method of Artificial-CBD Based on Complex Adaptive System", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District simulation) correctly rejected"},
+    {"id": "626f3b8f-2fc3-467e-a8ee-35aff35a59e6", "title": "Social inequities in the transition to environmentally optimized commuting", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "627a97e0-65a6-4afd-be29-ec73ce33e396", "title": "High-CBD Cannabis Vapor Attenuates Opioid Reward and Partially Modulates Nociception in Female Rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD opioid reward/nociception mechanism"},
+    {"id": "628bbad5-840d-4397-a811-4ae96803387d", "title": "Cannabidiol Alters Circulating Lymphocytes Composition in a Concentration-Dependent Manner: A Single-Cell Study in Humans", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD human immune modulation"},
+    {"id": "62915551-f6cb-4753-8e98-556041947a62", "title": "Self-Reported and Biologic Assessments of Prenatal Cannabis Use: Ancillary Analysis of a Prospective Observational Cohort.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "62949414-2d8c-426b-a727-f74563b02c0a", "title": "Developmental consequences of prenatal cannabidiol exposure.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prenatal exposure harm correctly rejected"},
+    {"id": "6299f25f-267a-4190-a172-76e4162b976c", "title": "Ecological dimensions of cannabis regulation in the Rif, Morocco.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/agriculture correctly rejected"},
+    {"id": "629b49f5-fa48-49dd-8d49-9d68bcea5f11", "title": "Using ecological momentary assessment to quantify Δ-9-tetrahydrocannabinol and cannabidiol use across different forms of cannabis: Feasibility in a sample of Canadian young adults reporting frequent cannabis use.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns methodology correctly rejected"},
+    {"id": "62be98ef-104f-43e4-8b0c-396168eeb3eb", "title": "Mehr Lebensqualität und weniger Krampfanfälle unter Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy quality of life/seizure reduction"},
+    {"id": "62c4165e-3f1d-4366-9cb3-d10279c55aae", "title": "Testicular degeneration and necrosis induced by chronic administration of cannabis extract in dogs.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary harm correctly rejected"},
+    {"id": "62e07d5a-aad4-4b35-8d83-3a311ea27d7c", "title": "How does cannabidiol (CBD) influence the acute effects of delta-9-tetrahydrocannabinol (THC) in humans? A systematic review", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC interaction systematic review in humans"},
+    {"id": "62f1effe-b14e-4a47-9b14-7aaacf9d03d2", "title": "Boosting accumulation of neutral lipids in Rhodosporidium kratochvilovae HIMPA1 grown on hemp (Cannabis sativa Linn) seed aqueous extract as feedstock for biodiesel production", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Biofuel correctly rejected"},
+    {"id": "630f7298-2930-4ba7-bc48-966c3b0f038d", "title": "Cannabidiol and Tetrahydrocannabinol Antinociceptive Activity is Mediated by Distinct Receptors in Caenorhabditis elegans", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC antinociceptive receptor mechanism"},
+    {"id": "631078a8-c590-42f4-9517-4e170734b8f1", "title": "The office market: a lemon market? A study of the Malmö CBD office market", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "63125b2e-5e82-487f-8485-61a701c05cb9", "title": "Measuring commercial cannabis availability: findings from a multi-state surveillance study in the US.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market surveillance correctly rejected"},
+    {"id": "631e2b97-f725-4bec-a4e2-0bc6562e32de", "title": "Boxing Day trading ban lift could help energise Wollongong CBD retail", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "633108f1-716b-4e99-8b1b-e22e8e262e7f", "title": "Bilateral Spontaneous Pneumothorax in a Cannabis Smoker", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "63411cb8-9977-4a5d-bb57-0dc7ad7cfb02", "title": "Cannabinoid and opioid modulation of social play behavior in adolescent rats: Differential behavioral mechanisms", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid/opioid behavioral mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "626a02a4-9d0f-4dbc-8e81-abf190de5c59",
+      "627a97e0-65a6-4afd-be29-ec73ce33e396",
+      "628bbad5-840d-4397-a811-4ae96803387d",
+      "62be98ef-104f-43e4-8b0c-396168eeb3eb",
+      "62e07d5a-aad4-4b35-8d83-3a311ea27d7c",
+      "630f7298-2930-4ba7-bc48-966c3b0f038d",
+      "63411cb8-9977-4a5d-bb57-0dc7ad7cfb02"
+    ]
+  }
+}

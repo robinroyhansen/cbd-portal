@@ -1,0 +1,43 @@
+{
+  "batch_number": 371,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T10:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "9b5b218b-8203-4b5a-a0a2-89b7eb2a2267", "title": "Effects of cannabinoid CB1 receptor antagonist rimonabant on acquisition and reinstatement of psychostimulant reward memory in mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research"},
+    {"id": "9b6d2be2-6f18-47df-aad4-0000141707af", "title": "CBDの復権-リッチモンド (インディアナ州) プロムナード (III)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "9b803e7f-bdcd-4c65-b99e-13136b6910d9", "title": "Opioid, cannabinoid and vanilloid receptor localization on porcine cultured myenteric neurons", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor localization research"},
+    {"id": "9b83c02f-f942-4574-9a50-c472fa00fefa", "title": "Application of two-dimensional zeolitic imidazolate framework-L (Co)/multi-walled carbon nanotube nanocomposite modified electrode as a sensitive voltammetric sensor for determination of cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods/detection correctly rejected"},
+    {"id": "9b8874fe-1f6e-45f1-b276-f2ae3c4bb7fa", "title": "Cannabinoid Receptors and Cholecystokinin in Feeding Inhibition", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor appetite mechanism research"},
+    {"id": "9b9421c3-d089-4a73-91be-1783c3580f06", "title": "An Assessment of Property Maintenance in high rise buildings in Gabrone (CBD)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "9b9ef581-0e5b-4174-b6b1-37f03cec0d52", "title": "STUDI POTENSI KORIDOR DI APARTEMEN CBD SURABAYA MENJADI RUANG SOSIAL ANAK", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "9bb6945c-56ff-4348-83c7-d46fe8ae0f03", "title": "Cannabis: From Cultivar to Chemovar II—A Metabolomics Approach to Cannabis Classification", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - metabolomics for medical cannabis classification"},
+    {"id": "9bb890ce-895b-40e7-88bd-904e911b42f6", "title": "EXPRESSION OF CANNABINOID RECEPTOR 1 IN MOUSE TESTES", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research"},
+    {"id": "9be2eda5-b789-4d80-9b32-1731dd913477", "title": "The Changing CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "9be6cedc-1aea-42ad-aa94-cfab7ca2b377", "title": "Evaluation of urban sustainability and adaptive reuse of built heritage areas: a case study on conservation in Hong Kong's CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "9bf01049-b440-40bf-b896-314f4fc3bee9", "title": "Adult Neurogenesis Is Regulated by the Endocannabinoid and Kisspeptin Systems.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS neurogenesis mechanism research"},
+    {"id": "9c0aa601-8b74-4cbd-aebe-b40b13c6a1e9", "title": "Neutralization theory and the denial of risk: some evidence from cannabis use among French adolescents*", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/sociology correctly rejected"},
+    {"id": "9c1b090d-63fd-4992-a445-79a404c621f5", "title": "CITES and the CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "9c210dda-5f6a-4878-aa31-aaea1944d7b9", "title": "Alcohol use, risk of suicide, and access to firearms among youth in Colorado", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "9c4f16d8-4eab-4f28-a4fe-f0f0a6f12fd1", "title": "The Kinetics of Cannabinoid Distribution and Storage With Special Reference to the Brain and Testis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacokinetics research"},
+    {"id": "9c57b59e-b4cd-4f4d-ad5d-b8fd3d774413", "title": "Pharmacological characterization of GPR55, a putative cannabinoid receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - GPR55 cannabinoid receptor research"},
+    {"id": "9c70370b-b848-4a4a-8fa0-af982bc3b46d", "title": "Role of cyclic AMP in the actions of cannabinoid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor signaling mechanism"},
+    {"id": "9c71cdbe-fb4a-4e57-8c15-dda3abc3a1d6", "title": "实现CBD的创新、智慧、品质、共享发展——CBD功能区十三五规划解读", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "9c7bcd8c-c6c1-4e7e-b60c-32e47cc2a57f", "title": "CBD理論에서 본 韓國獨立運動의 評價", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "9b5b218b-8203-4b5a-a0a2-89b7eb2a2267",
+      "9b803e7f-bdcd-4c65-b99e-13136b6910d9",
+      "9b8874fe-1f6e-45f1-b276-f2ae3c4bb7fa",
+      "9bb6945c-56ff-4348-83c7-d46fe8ae0f03",
+      "9bb890ce-895b-40e7-88bd-904e911b42f6",
+      "9bf01049-b440-40bf-b896-314f4fc3bee9",
+      "9c4f16d8-4eab-4f28-a4fe-f0f0a6f12fd1",
+      "9c57b59e-b4cd-4f4d-ad5d-b8fd3d774413",
+      "9c70370b-b848-4a4a-8fa0-af982bc3b46d"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "batch_number": 99,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T14:30:00.000Z",
+  "results": [
+    {"id": "6ec52920-3d83-4300-b142-2fe6b072376b", "title": "Cannabis cannabinoids sleep review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis sleep therapeutic review"},
+    {"id": "6ececd2c-60b8-4a0f-ab5d-36c5c1b03dc0", "title": "Cannabinoids exercise brain review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neurological review"},
+    {"id": "6ed39eaf-59e1-4333-afd9-9ae6cd82e951", "title": "CBD gummies therapeutic pharmacological", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacology research"},
+    {"id": "6ee9bb6a-6e0d-46e7-963e-ac9348342934", "title": "CBD CBDA hemp extract Amazon parrots", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - parrot pharmacokinetics"},
+    {"id": "6eef3afd-b5fb-475f-8c73-c3ce1495aaee", "title": "Cannabis Dependence: List of Contributors", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - contributor list only"},
+    {"id": "6ef9d104-c170-4376-bb1a-6d06bbef7227", "title": "CB1 antagonist 3,4-diarylpyrazolines synthesis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 drug development"},
+    {"id": "6f2677b8-ec50-4275-91e3-20ad70bdfd06", "title": "CBD caffeine simultaneous effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety research"},
+    {"id": "6f2e89ee-ac7b-41ed-8263-e4fa99d791d3", "title": "Microglia neuroinflammatory neuropathic pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general neuroscience"},
+    {"id": "6f373784-daf0-45d4-9a5c-e0e897abafb6", "title": "Sex gender problematic cannabis use CUD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE/CUD - use disorder epidemiology"},
+    {"id": "6f39e0cb-f47c-44ee-b443-15e7150fc9cf", "title": "CB1 biased allosteric modulator glaucoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 glaucoma therapeutic"},
+    {"id": "6f5b2645-e041-4aad-aaca-e77065d9c06f", "title": "CBD THC TLR7 TLR8 inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anti-inflammatory"},
+    {"id": "6f62a40d-6903-434f-ad7f-2f2052a43b00", "title": "Tom Selleck CBD Gummies", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING"},
+    {"id": "6f780251-2c8c-4ed7-a1db-4dd1ff81cae4", "title": "Cannabinoid Hyperemesis Syndrome pregnancy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - CHS case report"},
+    {"id": "6fa7ddfe-574e-4a55-92e8-6fc63018b461", "title": "CBD sensory neurons inhibition", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain mechanism"},
+    {"id": "6fabf39a-12e7-4830-b71b-d388c1ed1e13", "title": "CBD molecule chemical properties", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD computational chemistry"},
+    {"id": "6fb38647-9e6b-42f9-a47e-31be7a6eccd5", "title": "Lifestyle behavioral sleep enhancement review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID FOCUS - general sleep review"},
+    {"id": "6fc30db6-809d-4dcd-8dcf-78f4ce1aabb3", "title": "CBD SARS-CoV-2 interferon apoptosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD COVID-19 antiviral"},
+    {"id": "6fc3dd46-12c6-405b-a137-4c89f002b8c0", "title": "Pharmacotherapy CUD treatment", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - treating cannabis addiction"},
+    {"id": "6fc58b48-a68c-4330-9f3a-b271601eb389", "title": "CBD Alzheimer's molecular targets", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD AD therapeutic"},
+    {"id": "6fd1bda9-4f4d-4435-a431-241c1a760765", "title": "THC withdrawal lateral habenula aversion", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - withdrawal neuroscience"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "6ee9bb6a-6e0d-46e7-963e-ac9348342934",
+      "6eef3afd-b5fb-475f-8c73-c3ce1495aaee",
+      "6f2e89ee-ac7b-41ed-8263-e4fa99d791d3",
+      "6f373784-daf0-45d4-9a5c-e0e897abafb6",
+      "6f62a40d-6903-434f-ad7f-2f2052a43b00",
+      "6f780251-2c8c-4ed7-a1db-4dd1ff81cae4",
+      "6fb38647-9e6b-42f9-a47e-31be7a6eccd5",
+      "6fc3dd46-12c6-405b-a137-4c89f002b8c0",
+      "6fd1bda9-4f4d-4435-a431-241c1a760765"
+    ]
+  }
+}

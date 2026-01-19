@@ -1,0 +1,39 @@
+{
+  "batch_number": 258,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T06:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "1c676d67-3381-4b19-9246-7f0b5efd977c", "title": "Early Detection of Sex and Cannabinoid Chemotypes in Cannabis sativa: SCAR Marker", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics/breeding correctly rejected"},
+    {"id": "1c6b26bf-35da-4a22-a6b8-38dafe2f8e1b", "title": "Cannabis and the developing brain: Insights from behavior", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm/development correctly rejected"},
+    {"id": "1c80bfb6-43e3-492f-9626-b1bb38b418eb", "title": "Enzymatic hydrolysis of THC-O, HHC-O by pooled human liver microsomes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabinoid metabolism/forensic correctly rejected"},
+    {"id": "1c977121-c633-498f-afc4-4e61460331f8", "title": "Identifying and Quantifying Cannabinoids in Biological Matrices", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical/forensic methods correctly rejected"},
+    {"id": "1ca7bdd8-6791-4278-b05b-d523239b6cd8", "title": "Lasting Increases in Neuronal Activity Following Gestational Chlorpyrifos Exposure", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "1ccc3eba-7a38-4e29-a587-423433272e6a", "title": "Cannabis in the Treatment of Traumatic Brain Injury: A Primer for Clinicians", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis therapeutic for TBI"},
+    {"id": "1cd4bc25-e410-4967-9918-5b0d640903e9", "title": "Facilitator perspectives on remedial intervention for impaired drivers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "DUI intervention correctly rejected"},
+    {"id": "1ce7372c-2882-4630-858f-17b098016c35", "title": "Systematic review of built environment and walking in older adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "1cec7c06-73bb-4a2a-a6a2-8efc9dcfffd6", "title": "Arrival Distribution Fitting of Early Peak Elevator Passenger Flow in CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "1d013e9b-e581-4e22-b2c8-0bea50aafd2a", "title": "In vivo characterization of cannabinoid receptor antagonist SR141716A", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor pharmacology"},
+    {"id": "1d07a425-710e-44ca-a994-bf462fb1b380", "title": "Effects of cannabinoids on catecholamine uptake and release in synaptosomes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism"},
+    {"id": "1d28acc0-f4a5-4ef2-9799-dd9f26ee4978", "title": "Is periampullary diverticulum associated with failed CBD cannulation?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "1d37fa31-43dd-40cb-9225-97a8b8bca906", "title": "Elucidating the Mechanism of Metabolism of Cannabichromene by Human P450s", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBC metabolism research"},
+    {"id": "1d47a7ce-a61b-4b18-805a-9bc8c718a192", "title": "Synthetic Cannabinoids: Crisis of The Decade", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid abuse correctly rejected"},
+    {"id": "1d4f558d-d25c-4cce-976f-5f063d409679", "title": "Doctors' and pharmacists' perspectives on clinical use of medicinal Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Healthcare provider attitudes correctly rejected"},
+    {"id": "1d5400dc-ef50-43b6-8fe6-8bd898a0c71b", "title": "Sensitive UHPLC/MS Method for Analysis of Phytocannabinoids and Endocannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical method correctly rejected"},
+    {"id": "1d566ebc-b7b9-4392-90b3-cb73354a8d04", "title": "Constituents of Cannabis sativa: Propyl Homologs of Cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant chemistry correctly rejected"},
+    {"id": "1d69f506-9bbf-4867-8762-b920d7abb7bc", "title": "Cannabidiol-Loaded EVs Protect Oxidatively Stressed ARPE-19 Cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic for retinal/eye disease"},
+    {"id": "1d71cc90-48f6-4a96-9a9b-2924d948d5dd", "title": "Digital Medical Cannabis as Market Differentiator: AI Systems", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market/business correctly rejected"},
+    {"id": "1d74e4f2-034a-4aa2-b52e-f8c43c62e137", "title": "Cannabis and aggression in animals", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis behavioral effects correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "1ccc3eba-7a38-4e29-a587-423433272e6a",
+      "1d013e9b-e581-4e22-b2c8-0bea50aafd2a",
+      "1d07a425-710e-44ca-a994-bf462fb1b380",
+      "1d37fa31-43dd-40cb-9225-97a8b8bca906",
+      "1d69f506-9bbf-4867-8762-b920d7abb7bc"
+    ]
+  }
+}

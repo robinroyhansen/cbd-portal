@@ -1,0 +1,41 @@
+{
+  "batch_number": 382,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T13:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "a6e39b5c-d8f2-49a1-bc8e-6a1148f2fd29", "title": "Quality Characteristics of Poultry Products Containing Plant Components with Enhanced Health Benefits", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a70e3ba8-a76e-464e-98af-26a6b9f48f77", "title": "Cannabis in Veterinary Medicine: Cannabinoid Therapies for Animals", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "a7208bf4-6a71-4036-84e3-d7588942cb33", "title": "Value of cannabidiol as adjunctive treatment for Lennox Gastaut syndrome: cost-effectiveness and budget impact analysis.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy therapeutic research"},
+    {"id": "a7273549-4b68-48ac-aaf2-16dee9668ec1", "title": "Cannabidiol inhibits the hyperlocomotion induced by psychotomimetic drugs in mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antipsychotic mechanism"},
+    {"id": "a735b041-7b98-4b76-81a0-73c66a968306", "title": "Life Cycle Assessment of Residual Hemp Waste from Cannabidiol Production", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industrial correctly rejected"},
+    {"id": "a7390765-6445-403d-bd26-21616cb5cf54", "title": "A Rare Case of Chronic Pancreatitis With Giant Branching Pancreatic Calculi and Large Pancreatic Pseudocysts: Diagnostic and Surgical Challenges", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a74a5f05-bd1a-4f34-8ce7-a62770bcc749", "title": "Local Protein Synthesis at Synapses: A Driver for Synapse Diversification", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a752df19-2334-4467-892b-01d11fc9da0a", "title": "Changes in Cannabis Consumption Among College Students During COVID-19", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "a756f8c7-0fb3-4b49-bb24-a1e02484fff8", "title": "Methods for quantification of cannabinoids: a narrative review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "a76abe5d-b63a-496d-b761-9801dfa2a164", "title": "Cannabidiol oil-an uncommon cause of exogenous lipoid pneumonia.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CBD adverse event correctly rejected"},
+    {"id": "a770a48c-86df-436b-ac83-a02d289c87fc", "title": "Cannabidiol (Cbd) Elicits Contagious Yawning in the Domestic Cat, a Non-Social Species Lacking Spontaneous Contagious Yawning", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "a775aa9f-8d15-44f6-82b6-4b6dbfe7b436", "title": "Exposure to cannabis in popular music and cannabis use among adolescents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "a77e369a-fc21-4573-ab95-4ec275d426d9", "title": "The curious origins of a high-stress training technique mainlining: its molecular, biochemical, and agronomic perspectives for the cultivation of Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "a79eb16c-ae10-451e-8aad-f7f505be623d", "title": "Genome-wide analysis of screen behaviors among adolescents identifies novel loci and overlap with educational attainment and mental disorders.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a7a90997-6357-4af0-a4e8-38175f1590eb", "title": "Blocking cannabinoid activation of FAK and ERK1/2 compromises synaptic integrity in hippocampus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid synaptic mechanism"},
+    {"id": "a7cdf13c-28df-421f-81ae-32fcc03b8f82", "title": "Acute exposure to vaporized cannabidiol remodels coding and noncoding transcriptomes in the mouse striatum.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD brain mechanism research"},
+    {"id": "a7e18d7a-cd45-4ef8-9eb7-b9abdfa52a6c", "title": "0756 Cannabidiol as a potential sunscreen additive: A survey of peer-reviewed literature", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD skin protection research"},
+    {"id": "a7e3b960-472d-4933-b690-973bde9734c7", "title": "Nanochannel delivery system for CBD: Sustained low level plasma levels without liver toxicity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmacokinetics/safety research"},
+    {"id": "a7f38ff6-94f2-4315-9786-27314303f5ac", "title": "Do Delta-9-tetrahydrocannabinol and Cannabidiol have opposed effects on male fertility?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid fertility mechanism"},
+    {"id": "a7f9ed3d-855c-43d3-a6eb-8756d0c9ef8f", "title": "Selective recovery of cannabidiol from biomass and inflorescences of Cannabis sativa L. using hydrofluorocarbons and hydrofluoroolefins as extracting solvents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "a7208bf4-6a71-4036-84e3-d7588942cb33",
+      "a7273549-4b68-48ac-aaf2-16dee9668ec1",
+      "a7a90997-6357-4af0-a4e8-38175f1590eb",
+      "a7cdf13c-28df-421f-81ae-32fcc03b8f82",
+      "a7e18d7a-cd45-4ef8-9eb7-b9abdfa52a6c",
+      "a7e3b960-472d-4933-b690-973bde9734c7",
+      "a7f38ff6-94f2-4315-9786-27314303f5ac"
+    ]
+  }
+}

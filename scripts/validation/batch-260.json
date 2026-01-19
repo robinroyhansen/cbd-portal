@@ -1,0 +1,40 @@
+{
+  "batch_number": 260,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T07:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "1e66f2d7-fd0a-4199-9883-856a98d787c0", "title": "Cannabis use among U.S. adolescents in the era of marijuana legalization", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use patterns/harm correctly rejected"},
+    {"id": "1e6a0965-f9e1-475a-aa66-907387b5af43", "title": "Arachidonylsulfonyl derivatives as CB1 receptor and FAAH inhibitors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1/FAAH inhibitor drug development"},
+    {"id": "1e797ff3-a3e1-4e43-a263-8888f03a88c9", "title": "Elaboración de bebida fermentada añadiendo Cannabidiol (CBD)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food/beverage development correctly rejected"},
+    {"id": "1e85d3c3-2c36-4a6d-b736-edb287f3d9eb", "title": "What Are the Benefits of Ultra CBD Gummies?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "1e9bd7c5-272b-4f24-8dd1-ad0d365f0fbc", "title": "Nigrostriatal damage after rotenone and the effect of cannabis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis neuroprotection Parkinsons model"},
+    {"id": "1eab8230-9bd9-4982-a363-0b7dfc5261b6", "title": "Can we make cannabis safer?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General/editorial correctly rejected"},
+    {"id": "1ebb82cd-3adc-42a8-ac6e-d9a65645c39a", "title": "Lesiones y muertes en motociclistas: revisión paraguas", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "1ebe8d92-4860-4f1f-8c01-7c6f72399bb6", "title": "The Use of Plant-Derived Extracellular Vesicles in Regenerative Medicine", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "1effa1ed-d5a5-4646-a8a4-25a2b2d486a3", "title": "Tricyclic Pyrazoles: Synthesis of Novel Ligands for CB1 and CB2 Receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1/CB2 ligand development"},
+    {"id": "1f4c8bc7-a3c4-480d-9985-7efe765af466", "title": "Human metabolites of synthetic cannabinoids JWH-018 and JWH-073 bind CB2", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid correctly rejected"},
+    {"id": "1f7beedb-ad4c-4890-8f32-75faec2d1749", "title": "Natures Boost CBD Gummies Review- Shark Tank", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "1fd6f35f-ba2d-4286-8f9e-1db41793d499", "title": "HASCH - high-throughput SNP-platform for cannabis genotyping", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "1fdb05e4-29fc-4a34-b260-988d46a6dac2", "title": "Effects of Cannabis and CBD on Brain and Plasma Neurotransmitters in Mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD neurotransmitter mechanism"},
+    {"id": "2001c1e6-4cd0-4eda-be88-39603af80442", "title": "Effects of Microbial Biostimulant on Cannabis sativa Bud Yield", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "200274cd-350b-46e2-92b9-d148ebea9f3d", "title": "Effects of acute administration of cannabidiol on food intake in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD appetite/feeding mechanism"},
+    {"id": "2006e5ff-72b2-4e68-9f36-d210772f7bd6", "title": "Prolonged sedation after intoxication with HHC-C8", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid toxicity correctly rejected"},
+    {"id": "200b2aed-042c-4b9f-8388-5c30bf5040f2", "title": "Vad kan förklara skillnader i direktavkastningskrav? Stockholm CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "200d5f1c-3d77-4036-aa55-dd927862ed52", "title": "Nicotine and cannabis vaping among U.S. emerging young adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "20293e27-7877-49b5-a0c2-3d4acb4b578d", "title": "Central functional response to the novel peptide cannabinoid, hemopressin", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid mechanism"},
+    {"id": "20668c1f-f92b-4bb4-9337-2d1f2d51de00", "title": "Molecular characterization of edestin gene family in Cannabis sativa L.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "1e6a0965-f9e1-475a-aa66-907387b5af43",
+      "1e9bd7c5-272b-4f24-8dd1-ad0d365f0fbc",
+      "1effa1ed-d5a5-4646-a8a4-25a2b2d486a3",
+      "1fdb05e4-29fc-4a34-b260-988d46a6dac2",
+      "200274cd-350b-46e2-92b9-d148ebea9f3d",
+      "20293e27-7877-49b5-a0c2-3d4acb4b578d"
+    ]
+  }
+}

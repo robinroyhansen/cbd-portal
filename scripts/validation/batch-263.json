@@ -1,0 +1,37 @@
+{
+  "batch_number": 263,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T07:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "226adcc1-ed9d-44f9-9969-3a77b36e77e5", "title": "Constituents of Cannabis sativa L. IX: Stability of Synthetic and Naturally Occurring Cannabinoids in Chloroform", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical chemistry correctly rejected"},
+    {"id": "226c86db-56ee-4130-935b-b27deb364cc3", "title": "From pixels to pores: 3D-(im)printed hierarchically porous polymer monoliths", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2275e696-1b0f-479d-930e-96673b4041b2", "title": "The Effect of Cannabidiol in Learning and Memory of Adults", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD cognitive effects in healthy humans"},
+    {"id": "22a9d4ae-3f45-4b9e-ab7c-ceb32d631957", "title": "浅析城市副中心商务区——以西安CBD发展过程中小寨Sub—CBD的建设为例", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "22b0a5bd-fdfa-4dd1-886d-a7a5209a55bb", "title": "Controlled delivery of HIF-1α via extracellular vesicles with collagen-binding activity for enhanced wound healing", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "22bdcdea-7547-48c0-be3c-2c0aa0efe54f", "title": "A Quantitative Approach to the Development of the Sendai CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "22d259ce-e4a0-4d91-b519-4960b51632f7", "title": "Differentiating Cannabis Products: Drugs, Food, and Supplements", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Regulatory/testing overview correctly rejected"},
+    {"id": "22e7bae1-394f-4622-a76b-2f9919c8bb50", "title": "Optimization and simulation study on central urban CBD intersection in group city", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "231671ea-ce9c-4c5b-9740-5f802861b2c5", "title": "Cannabinoid physiology and pharmacology: 30 years of progress", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacology review"},
+    {"id": "2318aa24-689e-4fe6-9edb-093a21dec96e", "title": "CRN rebukes FDA for agency's \"alarmist\" Consumer Update on CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Regulatory news correctly rejected"},
+    {"id": "232c5761-62d7-4608-9624-ec313a2e5771", "title": "Disposition of Cannabichromene, Cannabidiol, and 9-Tetrahydrocannabinol and its Metabolites in Mouse Brain following Marijuana Inhalation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical methodology correctly rejected"},
+    {"id": "23330082-fdcf-4b8c-91f5-0bc66df34537", "title": "Front Cover: Chemometric Optimization of BF3·OEt2‐Mediated Cyclization of Cannabidiol to Rare Δ⁴‐ and Iso‐THC Isomers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic chemistry correctly rejected"},
+    {"id": "2364b827-7b14-4475-9b5b-4350e6f82bd2", "title": "Clozapine's Molecular Signature: Selective 5-HT2A Receptor Downregulation and Signalling in Rat Brain Cortical Regions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "237a8380-0258-4482-a6d7-7932bc0d21ef", "title": "CBDとatypical PSP:症候,検査,鑑別診断", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "237d5393-fd75-40f0-a3b3-f4ae64df21e3", "title": "Adolescent Vaping: Revisiting developmental perspectives on adolescent substance use in the digital age", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use patterns correctly rejected"},
+    {"id": "2382d024-223f-4de7-8c6f-96e06f1d6964", "title": "Evidence for the existence of specific cannabinoid binding sites", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - foundational cannabinoid receptor research"},
+    {"id": "2382d743-02e7-43fc-9111-c85f24b2204b", "title": "Method development for simultaneous determination of amphetamine type stimulants and cannabinoids in urine using GC–MS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "23973a01-a6c9-48e9-9e88-143a6e4b85e7", "title": "Usability requirements for architectural analysis tool to support CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "2399b924-aa5b-462e-b6b0-de7185ba26f7", "title": "Effects of Cannabinoids on Emotional States and Alcohol Use Among Underrepresented Groups: Moderation by Perceived Discrimination", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use patterns correctly rejected"},
+    {"id": "23a1a75e-9eb7-414a-8b4f-c4850fe13304", "title": "Biodegradable semiconducting polymer nanoparticles for phototheranostics", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "2275e696-1b0f-479d-930e-96673b4041b2",
+      "231671ea-ce9c-4c5b-9740-5f802861b2c5",
+      "2382d024-223f-4de7-8c6f-96e06f1d6964"
+    ]
+  }
+}

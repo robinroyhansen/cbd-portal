@@ -1,0 +1,38 @@
+{
+  "batch_number": 175,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T09:45:00.000Z",
+  "results": [
+    {"id": "c3fdf294-f6c2-4972-93a3-90c16020aea3", "title": "Cannabis Cannabinoids PTSD Literature Review Polish Clinics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis PTSD therapeutic review"},
+    {"id": "c402028c-ca51-4760-9ba2-98cc9bfd24f4", "title": "CBD Science Marketing Legal Perspectives", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD regulatory safety review"},
+    {"id": "c40594dd-116f-401a-aebe-433f9b306dff", "title": "CBD Dominant Cannabis Long COVID Feasibility", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD long COVID trial"},
+    {"id": "c405b4e8-d271-49db-8e61-f2507f442f08", "title": "Rodent Behavior Pain DMM Meniscus Injury Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - arthritis model review"},
+    {"id": "c40e9790-cf87-4bbf-91ed-738d02bc99fc", "title": "Intractable Vomiting GLP-1 Agonist Cannabis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - vomiting interaction"},
+    {"id": "c40ed3d3-dc84-44df-8ed1-e4a419bf73e0", "title": "Computational Drug Repositioning Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Epilepsy drug repositioning"},
+    {"id": "c42824d3-08ae-413d-9a55-3c773584b5d3", "title": "Cannabis Palliative Care Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis palliative care review"},
+    {"id": "c4424425-e52b-487d-bd42-6d89b93e0e7c", "title": "Cannabis Use Risk SUDs Mood Anxiety Disorders", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - mental health risk"},
+    {"id": "c443c878-5d8e-40f3-aeb3-75663175e7d4", "title": "CBG Acute Effects Anxiety Stress Mood RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG anxiety clinical trial"},
+    {"id": "c4646246-fe99-4233-a2e9-a6ca66955ad1", "title": "CBD Therapeutic Actions Ketamine Schizophrenia Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia preclinical"},
+    {"id": "c4688194-56b9-4407-b4d0-620ec3c866ef", "title": "CBD Secobarbital Plasma Kinetics Interaction", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interaction study"},
+    {"id": "c46a6f35-29c9-40dd-b94f-cce2de4b2d32", "title": "Medicinal Cannabis Tics Adolescents Tourette", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis Tourette's therapeutic"},
+    {"id": "c46eb653-c5d1-4afb-932a-65bc488c0670", "title": "Efferocytosis Prognostic Model Cervical Cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - cancer prognostic model"},
+    {"id": "c46fba55-d9d2-4262-8b73-6dca0f81389d", "title": "Sativex Robotic-Rehabilitation Motor MS SARR", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis MS rehabilitation"},
+    {"id": "c47159f5-5710-478c-9485-9d13143c1d2f", "title": "Cannabinoids Therapeutic Neuroinflammatory Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neurological therapeutic"},
+    {"id": "c475633a-5a13-4e40-a557-4a622c89d5f7", "title": "Cannabis Use Older Women With Without HIV", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use patterns"},
+    {"id": "c493cd3c-619c-468e-9544-6703a519a8a2", "title": "CBD Formulations Sleep Safety Effectiveness RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD sleep clinical trial"},
+    {"id": "c4967ab6-eaa4-4a25-8d78-6f230dee1ada", "title": "DEC2-SCN2A Axis CBD Anticonvulsant Effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism"},
+    {"id": "c499311a-80bb-4e55-9936-9ef9fdb7bfa7", "title": "CBD Oil Products Stress Relief Quasi-Experimental", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD stress therapeutic"},
+    {"id": "c4b130ff-b651-4373-906f-c3aa089a416d", "title": "CBD Delivery Water Solubility Phospholipid Complex", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD formulation drug delivery"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "c405b4e8-d271-49db-8e61-f2507f442f08",
+      "c40e9790-cf87-4bbf-91ed-738d02bc99fc",
+      "c4424425-e52b-487d-bd42-6d89b93e0e7c",
+      "c46eb653-c5d1-4afb-932a-65bc488c0670",
+      "c475633a-5a13-4e40-a557-4a622c89d5f7"
+    ]
+  }
+}

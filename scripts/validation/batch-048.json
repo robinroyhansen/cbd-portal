@@ -1,0 +1,38 @@
+{
+  "batch_number": 48,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T01:45:00.000Z",
+  "results": [
+    {"id": "366b165a-5935-4ce8-8fdb-27889cfd52a3", "title": "Reasons for Cannabis use in Psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Prevalence study - cannabis self-medication patterns in psychosis"},
+    {"id": "367bf18f-aa1f-4245-826c-5eeca24e6da5", "title": "Using a PBPK Model to Predict Cannabidiol Pharmacokinetics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics research"},
+    {"id": "36836f3b-3462-4248-b941-9c188acb40e4", "title": "Unraveling Cannabidiol's Dual Modulatory Role in Schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia therapeutic research"},
+    {"id": "368f31ae-1906-4920-9d41-530a79667bd5", "title": "Agmatine: Identification and inhibition of cannabinoid withdrawal in planarians", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - treating cannabinoid withdrawal"},
+    {"id": "3696d553-f2f8-4c20-8673-8116a3d63512", "title": "If cannabis caused schizophrenia—how many cannabis users may need to be prevented", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - NNP calculations for schizophrenia prevention"},
+    {"id": "36a2fe88-1173-469f-b61f-61284f62c0e5", "title": "Selective anti-cancer effects of CBD and THC in ovarian cancer cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anticancer research"},
+    {"id": "36a4a6a0-6cf0-4758-9402-62c89100c3f5", "title": "Role of CBD and THCV on Paclitaxel-induced neuropathic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid CIPN therapeutic research"},
+    {"id": "36cc3e2c-fdea-4041-950b-5f751f7afee0", "title": "Cannabinoid-like compounds exhibit antiseizure activity in genetic mouse models", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid-like epilepsy research"},
+    {"id": "36d0aef1-9ee5-4be1-8ae8-9422f7702620", "title": "CB2 cannabinoid receptor-mediated peripheral antinociception", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 pain therapeutic research"},
+    {"id": "36e07e3a-4d6c-4e8f-a741-e73b315b93e6", "title": "Therapeutic use of cannabidiol in endometriosis: literature review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD endometriosis therapeutic review"},
+    {"id": "36e95b90-b138-4694-bfd6-8463fd7d2879", "title": "Pharmacological Evaluation of a Novel CB2 Ligand PF-03550096 in Visceral Hypersensitivity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 pain drug development"},
+    {"id": "36f4535b-f5de-4cc8-8322-ae84ad7bf5a7", "title": "CB2 cannabinoid receptor and its agonists mediate hematopoiesis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 bone marrow therapeutic research"},
+    {"id": "37055f9d-925f-422a-91c2-25d4ee6ab072", "title": "Arvanil-induced inhibition of spasticity and persistent pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid/vanilloid hybrid for pain"},
+    {"id": "37138792-fd9f-4002-b8d4-04d85a707c08", "title": "Deficits in striatal dopamine release in cannabis dependence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - brain deficits from dependence"},
+    {"id": "372fead5-86ce-456c-8786-ec401cf1e2c7", "title": "Cannabis-based products for pediatric epilepsy: An updated systematic review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis epilepsy therapeutic review"},
+    {"id": "374ea9d5-1720-48b6-b132-3f87f6e8e518", "title": "CBD and Other Cannabinoids as a Promising Alternative Antibacterial Agent", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antibacterial research"},
+    {"id": "375286f2-375d-4308-bc7c-a36d0cd9cb4d", "title": "Activation of the Endocannabinoid System and Cognition in PTSD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC PTSD therapeutic research"},
+    {"id": "37540f8d-f4bc-46a0-946d-7612ae2a078b", "title": "THC, CBD and CBN Effects on the Immune Response of Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid immunology research"},
+    {"id": "376e96e4-bebe-407a-a646-650b8ee94406", "title": "Cannabis: a rare trigger of premature myocardial infarction", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - causes myocardial infarction"},
+    {"id": "37764cc5-dc01-407f-9a94-228e61b6bf4c", "title": "EFFICACY OF CBD IN THE TREATMENT OF ALZHEIMER'S DISEASE", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's therapeutic review"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "366b165a-5935-4ce8-8fdb-27889cfd52a3",
+      "368f31ae-1906-4920-9d41-530a79667bd5",
+      "3696d553-f2f8-4c20-8673-8116a3d63512",
+      "37138792-fd9f-4002-b8d4-04d85a707c08",
+      "376e96e4-bebe-407a-a646-650b8ee94406"
+    ]
+  }
+}

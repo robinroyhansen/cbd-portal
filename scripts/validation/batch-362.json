@@ -1,0 +1,40 @@
+{
+  "batch_number": 362,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T08:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "91fda90c-af60-4331-be84-ca5901063a56", "title": "Cannabidivarin mitigates motor and cognitive impairments in a female mouse model of Rett syndrome", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBDV therapeutic for Rett syndrome"},
+    {"id": "91ff1239-c9b0-4366-b07a-ed47b5333e33", "title": "Effects of Inhaled Tobacco and Cannabis Co-Use on Respiratory Health and Tobacco Cessation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "92009d4d-6093-40f9-9f4a-74924f6e3cfa", "title": "Cannabisgebrauch bei Jugendlichen (German - adolescent cannabis use)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/policy correctly rejected"},
+    {"id": "9203d121-8e96-4d01-a8d9-8eca4bde1303", "title": "Elucidating cannabinoid biology in zebrafish (Danio rerio)", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid biology mechanism research"},
+    {"id": "9207931c-02d8-42b0-998a-2cdc68516d51", "title": "Patterns and correlates of cannabis dependence among long-term users in an Australian rural area", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD/use patterns correctly rejected"},
+    {"id": "9212fd83-4265-470a-9baa-c2bdf906faea", "title": "Corryong CBD Streetscape", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "922840c0-02ed-41f4-aa36-1dfe2a8b5067", "title": "Cannabinoids—Multifunctional Compounds, Applications and Challenges—Mini Review", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid applications review"},
+    {"id": "922ffb3f-c38a-459b-85c9-8a6da24e9103", "title": "Neurofilament light chain as a diagnostic and prognostic biomarker in atypical parkinsonisms", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "923925ba-9628-48cc-958d-a4e86d3f4586", "title": "Investigation of chloroplast regions rps16 and clpP for determination of Cannabis sativa crop type and biogeographical origin", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/agriculture correctly rejected"},
+    {"id": "923df56b-4361-4dd8-ae27-0b4df5842d84", "title": "Trichomes of Cannabis sativa L. (Cannabaceae)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "9259023f-ed2f-4fd4-8709-29e224b740d3", "title": "An Integrated Tool Model for the Management of Process and Artifact Management on CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Component-Based Development) correctly rejected"},
+    {"id": "926fc610-b251-4626-b7ab-bad3ec67527f", "title": "Persistent Hepatocellular Secretory Failure Secondary to Flucloxacillin-Induced Liver Injury", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "928cd85e-9fa2-4c49-8989-223306c10b12", "title": "The effect of cannabidiol in the immature brain", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD brain mechanism/safety research"},
+    {"id": "928fbe02-0fcd-4a5e-8a03-74e418f86dcf", "title": "Antagonism of cannabinoid CB1 receptors in the paraventricular nucleus of male rats induces penile erection", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 sexual function mechanism research"},
+    {"id": "9293af95-0ffd-4527-9017-2e18bfac001b", "title": "Use of cannabidiol (CBD) in dogs and cats", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "92a945c6-1481-43ed-b750-a7f7d47ffcdf", "title": "Cannabis Use and Risk of Chronic Rhinosinusitis and Sinus Surgery", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "92bdd4be-d2bf-4178-825c-2057636abe40", "title": "KSM CBD Male Enhancement Gummies...Does KSM CBD Certified By FDA?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "92c4b0d2-b027-4810-941d-08e6c5120357", "title": "Intra-CBD Secondary Travel Patterns of Downtown Workers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "92c96002-c93c-44cc-be01-434413048e0b", "title": "Cannabis Use Among Adults in Cigarette Smoking Cessation Treatment in Ontario, Canada", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "92d505d1-d7d0-448b-a848-c785e3655959", "title": "Investigation of cannabidiol-induced cytotoxicity in human hepatic cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD hepatotoxicity safety research"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "91fda90c-af60-4331-be84-ca5901063a56",
+      "9203d121-8e96-4d01-a8d9-8eca4bde1303",
+      "922840c0-02ed-41f4-aa36-1dfe2a8b5067",
+      "928cd85e-9fa2-4c49-8989-223306c10b12",
+      "928fbe02-0fcd-4a5e-8a03-74e418f86dcf",
+      "92d505d1-d7d0-448b-a848-c785e3655959"
+    ]
+  }
+}

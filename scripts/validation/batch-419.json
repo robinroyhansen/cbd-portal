@@ -1,0 +1,37 @@
+{
+  "batch_number": 419,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T22:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "d01ffb64-f545-4d40-9833-710542cd169b", "title": "Male Enhancement CBD Gummies Reviews Alert Must Read Before Buying!", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Commercial spam correctly rejected"},
+    {"id": "d0237891-51a1-450a-996c-4ec90beb3c3f", "title": "Municipal support mechanisms for street traders: a case study undertaken in the CBD OF Ethekwini Municipality", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "d02b6f6e-3b2d-4b15-99d2-f3111ba08eca", "title": "Cannabidiol Enhances SIRT1 and Autophagy for the Maintenance of Human Mesenchymal Stem Cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD stem cell mechanism research"},
+    {"id": "d0388930-7f97-459f-8180-ba6fe3b89032", "title": "Urbanization level associated with age-standardized CBD Morality", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "d03cc444-5ab5-481c-b3bd-6e1177d86592", "title": "Optimal condition of cannabis maceration to obtain the high cannabidiol and Δ9-tetrahydrocannabinol content", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "d0623c88-2298-49d4-a16a-261cd158b1f4", "title": "A late unusual complication after an open cholecystectomy: Amputation neuroma of the CBD causing obstructive jaundice", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "d06a444e-d62d-41db-96e0-e297621f6c55", "title": "The value of real world evidence: The case of medical cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/methodology correctly rejected"},
+    {"id": "d06c2b46-9cd5-4d58-bb09-09974cfc26fc", "title": "Permanent suppression of cortical oscillations in mice after adolescent exposure to cannabinoids: Receptor mechanisms", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "d0805853-5eb0-45b7-b64c-53408cbcc315", "title": "Les magasins de CBD, chanvre et cannabis interdits d'inscription au registre du commerce", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "d0a737b1-555d-4bb0-ab11-1b50a6c53924", "title": "Regular cannabis use modulates gamma functional connectivity with V1 during visual processing", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis effects correctly rejected"},
+    {"id": "d0acf64c-8590-49cf-b49f-dca06a00f225", "title": "Letter to the Editor: The Controversial Cannabidiol Cyclization: Its Conceptual Origin", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correctly rejected"},
+    {"id": "d0b7f9a4-2552-4cdd-990a-12bd573d1fca", "title": "Cannabis use and educational achievement: Findings from three Australasian cohort studies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "d0c06f36-6fd6-46c1-9303-f9d9c8917f23", "title": "Cannabis Use, Affect, and Emotion Regulation in Daily Life: A 3-Week Experience Sampling Method Study in People Who Smoke Cannabis Almost Daily", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "d0d5e293-7b27-4948-8db2-cf179f89095b", "title": "Structural characterization and pharmacological evaluation of the new synthetic cannabinoid CUMYL-PEGACLONE", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid forensic correctly rejected"},
+    {"id": "d0e03681-fecb-43df-a017-ea7de28cf3e8", "title": "Driving under the influence of alcohol and cannabis: Associations with substance use and behavioral health characteristics", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment correctly rejected"},
+    {"id": "d0e567f7-7db7-4a3a-a7e0-47ed5d98ada3", "title": "Pharmacology of Valinate andtert-Leucinate Synthetic Cannabinoids 5F-AMBICA, 5F-AMB, 5F-ADB, AMB-FUBINACA, MDMB-FUBINACA, MDMB-CHMICA, and Their Analogues", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid harm correctly rejected"},
+    {"id": "d0fd7479-7fe4-4301-b4eb-92218d9577e3", "title": "Cannabinoid receptor agonist and antagonist effects on motor function in normal and 1-methyl-4-phenyl-1,2,5,6-tetrahydropyridine (MPTP)-treated non-human primates", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid Parkinson's motor function therapeutic research"},
+    {"id": "d131b410-a44b-48d4-8e04-8740583f79a0", "title": "Le cannabidiol est-il un produit dopant ?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "d131d28f-d7cd-430d-845c-12f353006c99", "title": "UV induced changes in profile and structure of protein in rats plasma are retained by topically applied cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD skin UV protection mechanism research"},
+    {"id": "d1409e3c-c829-4739-a476-886a44dc6ca6", "title": "Stated Travel Response to On-street Motorcycle Parking Charge: A Case of Taipei CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "d02b6f6e-3b2d-4b15-99d2-f3111ba08eca",
+      "d0fd7479-7fe4-4301-b4eb-92218d9577e3",
+      "d131d28f-d7cd-430d-845c-12f353006c99"
+    ]
+  }
+}

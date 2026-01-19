@@ -1,0 +1,39 @@
+{
+  "batch_number": 329,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T00:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "6be425ff-ab95-460d-9bf5-0634deb8b215", "title": "Psychometric properties of the Cannabis Abuse Screening Test (CAST) in a French sample of adolescents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD screening tool correctly rejected"},
+    {"id": "6bfad7c6-bfc9-4f5c-be23-9aa18dca9670", "title": "Activation of phosphoinositide 3-kinase/PKB pathway by CB1 and CB2 cannabinoid receptors expressed in prostate PC-3 cells. Involvement in Raf-1 stimulation and NGF induction", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1/CB2 prostate cancer signaling mechanism"},
+    {"id": "6bfe625b-1499-472c-8518-37b00d46cbcb", "title": "컴포넌트 기반 개발 (CBD) 설계의 서비스 지향 아키텍처 (SOA) 설계로의 실용적인 변환 기법", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Component-Based Development) correctly rejected"},
+    {"id": "6c3d69bb-72c5-4522-a26d-ca451b3bf4fc", "title": "ORDER@ https=supplementsonlinestore.com/open-eye-cbd-gummies/", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "6c48aaf5-f17a-4886-a3c5-3461e73b9d44", "title": "High transmission risk in HIV-1 molecular transmission network among MSM is related to unsafe sexual behavior and adverse childhood experiences: a case-control study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "6c49eb19-9a4e-482b-a1e2-3059a5739d10", "title": "Post-weaning exposure to cannabidiol disrupts testicular cytoarchitecture and sperm quality in mice.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "6c4aede0-0757-46df-867d-7fb5fb6e218c", "title": "Medical cannabis legalization and the use of illicit drugs, alcohol, and tobacco.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "6c4f4bd6-3a60-4a1b-87c5-4a5d188158d0", "title": "Sex determination in hemp (Cannabis sativa L.)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "6c5c3627-2818-48ac-920f-be7021ebf2d4", "title": "CBD Capsules Doctor Formulated 25% OFF | BURMAN'S HEALTH SHOP", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "6c629cc8-6c1b-4646-817f-e2290829151b", "title": "Cannabinoid signaling system", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neurodevelopment mechanism"},
+    {"id": "6c62f371-a053-48ab-9bf4-8bf3b81b6a8d", "title": "LED lighting affects the composition and biological activity of Cannabis sativa secondary metabolites", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "6c633a6e-21e8-45c6-b8ec-b82322070fc2", "title": "Cannabidiol treatment of keratinocytes, before and after hydrogen peroxide exposure, reduces protein adducts formation with lipid peroxidation products in membrane proteome", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD skin protective mechanism"},
+    {"id": "6c6cbc50-8611-4af5-8194-e1fde5a6cac8", "title": "Response inhibition and elevated parietal-cerebellar correlations in chronic adolescent cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment correctly rejected"},
+    {"id": "6c7e3fdc-79bf-4464-84fe-00771a051d11", "title": "Buddha CBD TEAS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "6c894653-2a8e-4f05-894f-cac2ab5b31bf", "title": "A Study on the Determining Factors of Shopping District Management Fees - Based on the comparison between the GBD and the CBD -", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "6c93be7e-a49f-4ac0-93f2-b01c5b5ecf24", "title": "Early Onset Cannabis Use and Progression to other Drug Use in a Sample of Dutch Twins", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Gateway study correctly rejected"},
+    {"id": "6c9655a9-7da3-4784-a3db-f43718a447ae", "title": "On-line Solid Phase Extraction High Performance Liquid Chromatography Method Coupled with Tandem Mass Spectrometry for the Therapeutic Monitoring of Cannabidiol and 7-Hydroxy-cannabidiol in Human Serum and Saliva", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic drug monitoring for epilepsy patients"},
+    {"id": "6cab2cf1-98fe-468a-adb7-160f489311c0", "title": "The prevalence and incidence of medicinal cannabis on prescription in The Netherlands", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Epidemiology correctly rejected"},
+    {"id": "6cc9fe99-f1e8-41c9-8bad-9d14729ab4fe", "title": "Multi-omics integrated analysis reveals the impact of cytokinin on sex differentiation in industrial hemp.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "6cd305f4-44e8-4a6b-8fac-00bc38b97d62", "title": "PGC-1α-Mediated Mitochondrial Biogenesis is Involved in Cannabinoid Receptor 2 Agonist AM1241-Induced Microglial Phenotype Amelioration", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 agonist microglial neuroprotection mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "6bfad7c6-bfc9-4f5c-be23-9aa18dca9670",
+      "6c629cc8-6c1b-4646-817f-e2290829151b",
+      "6c633a6e-21e8-45c6-b8ec-b82322070fc2",
+      "6c9655a9-7da3-4784-a3db-f43718a447ae",
+      "6cd305f4-44e8-4a6b-8fac-00bc38b97d62"
+    ]
+  }
+}

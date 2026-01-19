@@ -1,0 +1,44 @@
+{
+  "batch_number": 381,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T13:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "a5b740c6-f47a-457c-a8a0-e8b026bb649b", "title": "Traffic impact analysis of Jiefangbei CBD(I)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "a5be3fed-45ad-4d3b-be18-53f08ece4b7e", "title": "Cannabinoids, the Heart of the Matter", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cardiovascular research"},
+    {"id": "a5be6462-22bc-42e9-898b-eb87fa39a61e", "title": "Signaling Mechanism of Cannabinoid Receptor-2 Activation-Induced β-Endorphin Release", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor signaling mechanism"},
+    {"id": "a5c30025-728d-4fda-93ed-ef0424f7699d", "title": "Absence of Relevant Thermal Conversion of Cannabidiol (CBD) to Tetrahydrocannabinol (THC) in E-Cigarette Vapor and Low-THC Cannabis Smoke", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research"},
+    {"id": "a5cc7b62-747f-4510-8dda-fc72a8b9974b", "title": "Wavelengths of LED light affect the growth and cannabidiol content in Cannabis sativa L", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "a5cd9eba-cd0c-427d-8f5b-91395790a744", "title": "Cannabinoids in traumatic brain injury and related neuropathologies: preclinical and clinical research on endogenous, plant-derived, and synthetic compounds", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid TBI therapeutic research"},
+    {"id": "a5d8357a-54d9-4670-bdd2-fa170b080828", "title": "Investigating the spatial effects of zonal factors on road traffic speed variability during peak hour", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a5ed7731-1d00-4889-b991-ddb6a5a6fd94", "title": "Sigma 1 Receptor and Its Pivotal Role in Neurological Disorders", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a5effbd5-e265-42b5-95d1-108734591cba", "title": "Single Incision Laparoscopic Cholecystectomy and Choledotholithotomy in Patients with GB and CBD Stone", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "a5f22902-2dcb-4661-988e-0141ec537ef7", "title": "Cannabinoids inhibit pre- and postjunctionally sympathetic neurotransmission in rat mesenteric arteries", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cardiovascular mechanism"},
+    {"id": "a6015d2a-62c0-4412-a810-ef7b8986692e", "title": "The Anti-proliferative Effects of Anandamide and Oleamide in Glioblastoma Cell Lines Recruit Mitochondrial and PPAR-γ Receptor Modulation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid cancer mechanism"},
+    {"id": "a6113bd4-c78f-40a2-b2b7-b13c97d391b2", "title": "Exploratory analysis of United States-based cannabis product health benefit claims on online marketplaces.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market analysis correctly rejected"},
+    {"id": "a62de041-5f3e-479f-bb00-252bc32c7747", "title": "Cannabidiol Inhibited Reproductive Ability of Zebrafish (Danio Rerio) with Gender-Dependent Manner", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CBD toxicity study correctly rejected"},
+    {"id": "a646fedb-4da3-4850-8d15-e77dfb8af653", "title": "Dihydrostilbenes of Thailand cannabis.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Phytochemistry correctly rejected"},
+    {"id": "a660091b-d5a0-4da6-8eea-77836546b03f", "title": "Synthetic Cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid research"},
+    {"id": "a67cd9b2-a68c-4f13-a5e6-ceb559db9fd2", "title": "Antimicrobial Denture Material Synthesized from Poly(methyl methacrylate) Enriched with Cannabidiol Isolates", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antimicrobial therapeutic"},
+    {"id": "a68612d3-edeb-4d88-8db4-cfd1008daebe", "title": "Chapter 7 Cannabinoid Receptor CB1 Antagonists", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor research"},
+    {"id": "a68a15bc-f9ae-405a-98fa-7d3f05218cf2", "title": "Different mechanisms for dopaminergic excitation induced by opiates and cannabinoids in the rat midbrain", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism research"},
+    {"id": "a69b3627-2bb0-465f-b018-c86103351636", "title": "Effect of Hormonal Treatments on Cannabinoid Content Levels in Female Hemp (Cannabis sativa L.) Inflorescences.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "a6a9dd20-8399-47a9-8740-fbdc43c0538d", "title": "Rough Set-CBD Method of Stamping Die*", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Case-Based Design) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 10,
+    "incorrect": 10,
+    "incorrect_ids": [
+      "a5be3fed-45ad-4d3b-be18-53f08ece4b7e",
+      "a5be6462-22bc-42e9-898b-eb87fa39a61e",
+      "a5c30025-728d-4fda-93ed-ef0424f7699d",
+      "a5cd9eba-cd0c-427d-8f5b-91395790a744",
+      "a5f22902-2dcb-4661-988e-0141ec537ef7",
+      "a6015d2a-62c0-4412-a810-ef7b8986692e",
+      "a660091b-d5a0-4da6-8eea-77836546b03f",
+      "a67cd9b2-a68c-4f13-a5e6-ceb559db9fd2",
+      "a68612d3-edeb-4d88-8db4-cfd1008daebe",
+      "a68a15bc-f9ae-405a-98fa-7d3f05218cf2"
+    ]
+  }
+}

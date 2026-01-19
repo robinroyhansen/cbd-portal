@@ -1,0 +1,40 @@
+{
+  "batch_number": 383,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T13:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "a7f9f5ba-36ed-4e2b-896c-543dbe27c651", "title": "Pesticides and trace elements in cannabis: Analytical and environmental challenges and opportunities", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "a7fa866c-22a3-4ac4-913f-de88585072f8", "title": "Capsaicin Protects Against Cisplatin Ototoxicity by Changing the STAT3/STAT1 Ratio and Activating Cannabinoid (CB2) Receptors in the Cochlea", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor oto-protection mechanism"},
+    {"id": "a8000a5f-8dd5-43aa-a508-da1b054f8cfc", "title": "Role of Fatty Acid Amide Hydrolase in the Transport of the Endogenous Cannabinoid Anandamide", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS mechanism research"},
+    {"id": "a8134314-9e0a-402c-a61d-58e85ed719cb", "title": "The impact of stigma on health care-seeking behavior in military personnel with mental health challenges", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a81ecc65-3bd7-46d7-8854-db8b58ac13ba", "title": "The cGAS-STING Pathway in Pulmonary Diseases: Mechanisms and Therapeutic Potential", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a8378cb9-8cac-4f08-9438-1366d9b205c7", "title": "The Influence of Cannabis and Nicotine Co-use on Neuromaturation: A Systematic Review of Adolescent and Young Adult Studies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "a8423f0a-a9db-4db2-b4ff-0c37c66a77ca", "title": "Characterisation of cannabinoid 1 receptor expression in the perikarya, and peripheral and spinal processes of primary sensory neurons", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research"},
+    {"id": "a847a362-e89e-478b-a003-b155181507f3", "title": "Research on Space-time Characteristics and Reasons of Idle Taxi Based on FCD——Case in Shenzhen Guomao CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "a8555aee-99c3-4d81-b9c8-53db12be1a7c", "title": "Improving social determinants of health documentation in French electronic health records using large language models", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a863c4d9-8103-4f23-9bfe-1de875d6cba5", "title": "32. Cannabis indica. Part X. The essential oil from Egyptian hashish", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry correctly rejected"},
+    {"id": "a87ccc6e-a248-4200-86e9-5fe32b230232", "title": "Association of Gender, Sexual Orientation, Socioeconomic Factors, and Sexual Violence with Hazardous Alcohol and Cannabis Use in University Students from Spain.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "a88fa6fb-0181-4a2a-a090-2bbd50f85c09", "title": "[Edible cannabis: Safe food? About a series of 5 cases].", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Safety cases correctly rejected"},
+    {"id": "a892c4ed-5089-4b37-98b7-0f67fc674cf8", "title": "The cannabidiol and marijuana research expansion act: Promotion of scientific knowledge to prevent a national health crisis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "a89b626f-25a5-4f20-b29f-7557de4bffa7", "title": "Genotoxic properties of representatives of alkylindazoles and aminoalkyl-indoles which are consumed as synthetic cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Toxicity correctly rejected"},
+    {"id": "a8ab4cc8-1a6d-410d-91ae-b575610fc603", "title": "Sex differences in the capacity of minor phytocannabinoids to attenuate nociceptive insults in HIV-1 Tat-expressing mice.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pain therapeutic for HIV"},
+    {"id": "a8b1b2fd-edaa-4bf8-8f6e-4dcefca847a7", "title": "Fabrication and Evaluation of Felodipine Push-Pull Osmotic Pump Capsule.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a8ba1995-54c4-433f-b012-a05914233dfc", "title": "Surface Reconstruction Drives Highly Efficient Carrier Management in Antimony Selenosulfide Solar Cells.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a8cfbb3c-1aa6-48bc-8778-a0803b98f744", "title": "Inhibition of hippocampal acetylcholine release by cannabinoids: reversal by SR 141716A", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism research"},
+    {"id": "a8dbce5b-d5a9-4214-8117-6aef87c306da", "title": "Plasma cannabinoid concentrations and transference during long-term industrial hemp administration in cattle.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "a8e09507-0912-4ce7-8027-c5349a6aca82", "title": "Temporal characterization of changes in hippocampal cannabinoid CB1 receptor expression following pilocarpine-induced status epilepticus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 epilepsy mechanism research"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "a7fa866c-22a3-4ac4-913f-de88585072f8",
+      "a8000a5f-8dd5-43aa-a508-da1b054f8cfc",
+      "a8423f0a-a9db-4db2-b4ff-0c37c66a77ca",
+      "a8ab4cc8-1a6d-410d-91ae-b575610fc603",
+      "a8cfbb3c-1aa6-48bc-8778-a0803b98f744",
+      "a8e09507-0912-4ce7-8027-c5349a6aca82"
+    ]
+  }
+}

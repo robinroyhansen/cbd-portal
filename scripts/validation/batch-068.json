@@ -1,0 +1,37 @@
+{
+  "batch_number": 68,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T06:45:00.000Z",
+  "results": [
+    {"id": "4ad409b6-2831-44f3-93e0-00cfa034a5f5", "title": "Gone Too Soon: Higher Pretreatment and Treatment Dropout Among Emerging Adults in a Women‐Specific Outpatient Treatment Service for Substance Use Disorders in Brazil", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general SUD treatment dropout"},
+    {"id": "4ada791c-5140-4f88-baac-931dddb7f054", "title": "Cannabinoids for epilepsy: What do we know and where do we go?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid epilepsy therapeutic review"},
+    {"id": "4ade8272-18ca-493f-a313-5675a2507612", "title": "Cannabis, Vulnerability, and the Onset of Schizophrenia: An Epidemiological Perspective", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - schizophrenia onset/vulnerability"},
+    {"id": "4ae858be-1b99-428f-b78b-dd95d836c15c", "title": "The effects of cannabidiol and its synergism with bortezomib in multiple myeloma cell lines. A role for transient receptor potential vanilloid type‐2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD multiple myeloma cancer therapeutic"},
+    {"id": "4af8145a-7bed-418d-85a1-48c7a97e004e", "title": "Role of GABRA2 on risk for alcohol, nicotine, and cannabis dependence in the Iowa Adoption Studies", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - GABRA2 addiction genetics"},
+    {"id": "4afc2d5c-b650-4c1f-84c0-1013c359288e", "title": "Cannabinoids for the treatment of mental disorders and symptoms of mental disorders: a systematic review and meta-analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mental disorders therapeutic meta-analysis"},
+    {"id": "4b135c45-17a9-4561-a0c6-fb9756a25422", "title": "Beyond CBD: Inhibitory effects of lesser studied phytocannabinoids on human voltage-gated sodium channels", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Phytocannabinoid sodium channel epilepsy mechanism"},
+    {"id": "4b1d35af-3a4e-466b-bce9-a73e577d87d0", "title": "Medicinal Chemistry and Pharmacology Focused on Cannabidiol, a Major Component of the Fiber-Type Cannabis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD medicinal chemistry pharmacology"},
+    {"id": "4b32972d-8bcb-4527-9b1e-87509532a2e9", "title": "Role of Cannabidiol for Improvement of the Quality of Life in Cancer Patients: Potential and Challenges", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer quality of life therapeutic"},
+    {"id": "4b6baa49-48b9-4426-85e3-28418612ddff", "title": "A cannabidiol (CBD) lipid-based nanoemulsion induces anxiolytic- and panicolytic-like effects and increases FosB/deltaFosB immunoreactivity in serotonergic cells of the dorsal raphe.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety/panic therapeutic mechanism"},
+    {"id": "4b70d732-15b1-4ea5-b564-2cd888e0543b", "title": "A systematic review of the effect of cannabidiol on cognitive function: Relevance to schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cognition schizophrenia systematic review"},
+    {"id": "4b8ce11b-721c-432e-b5f5-1f5c74d50a3a", "title": "In vivo Evidence for Therapeutic Properties of Cannabidiol (CBD) for Alzheimer's Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's therapeutic"},
+    {"id": "4b8e5997-e43e-465d-9a7d-f1ed1b4a93af", "title": "Exploring the synergistic effects of physical exercise and cannabidiol treatment in a mouse model of Down syndrome using positron emission tomography", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Down syndrome therapeutic"},
+    {"id": "4ba58a75-ef6d-4f60-83b6-25bc685a5b0a", "title": "Cannabinoid-induced apoptosis in immune cells as a pathway to immunosuppression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid immunosuppression mechanism"},
+    {"id": "4bb658fd-e6aa-47df-9b89-d4dfbb866030", "title": "Cannabichromene, a key non-psychotropic phytocannabinoid in treatment of major depressive disorder: in silico and in vivo explorations.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBC depression therapeutic"},
+    {"id": "4bc31106-3cbc-478f-a1f8-51731ce0caff", "title": "FDA approves its first cannabis based medicine", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Epidiolex FDA approval news"},
+    {"id": "4bd1361c-0b07-49e3-a32f-c6d8aae00970", "title": "Cannabidiol and fluorinated derivative anti-cancer properties against glioblastoma multiforme cell lines, and synergy with imidazotetrazine agents.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD glioblastoma cancer therapeutic"},
+    {"id": "4bdbd04d-8100-44dd-914f-325ba3e030dc", "title": "Wonder Leaf CBD Oil Reviews: Negative Side Effects or Real Work (2022 Update) v1", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING - Wonder Leaf CBD Oil product review"},
+    {"id": "4be765ea-2705-4ed5-aaa6-9b5333d0e4d0", "title": "Analgesic Effect of delta-9-Tetrahydrocannabinol Alone and of a 1:1 delta-9-Tetrahydrocannabinol: Cannabidiol Formulation in Chronic Neuropathic Pain: Two Pilot Studies", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD neuropathic pain therapeutic"},
+    {"id": "4be7c7de-176f-4704-95e2-041d736311ee", "title": "A Phase 2, Double‐Blind, Placebo‐Controlled Trial to Investigate Potential Drug‐Drug Interactions Between Cannabidiol and Clobazam", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD clobazam drug interaction safety trial"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "4ad409b6-2831-44f3-93e0-00cfa034a5f5",
+      "4ade8272-18ca-493f-a313-5675a2507612",
+      "4af8145a-7bed-418d-85a1-48c7a97e004e",
+      "4bdbd04d-8100-44dd-914f-325ba3e030dc"
+    ]
+  }
+}

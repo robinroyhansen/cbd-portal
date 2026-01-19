@@ -1,0 +1,37 @@
+{
+  "batch_number": 304,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T18:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "4f1ec3bf-dfb5-4c95-988f-f45fcf64fd0d", "title": "Systematic review of structural and functional neuroimaging studies of cannabis use in adolescence and emerging adulthood: evidence from 90 studies and 9441 participants", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm neuroimaging correctly rejected"},
+    {"id": "4f1fa78c-bd00-4e43-ae51-85f814b17bc5", "title": "New Ethological and Morphological Perspectives for the Investigation of Panicolytic-Like Effects of Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anti-panic mechanism"},
+    {"id": "4f290632-faa9-4dff-bb8e-8c2425eae098", "title": "Δ1-3,4-cis-tetrahydrocannabinol in Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "THC isomer chemistry correctly rejected"},
+    {"id": "4f2f38a5-96be-4ad6-92a1-f4ab905e4c9e", "title": "Cannabidiol and terpenes from hemp – ingredients for future foods and processing technologies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food science correctly rejected"},
+    {"id": "4f49b9a0-65a8-4973-8e0b-28108699e4c1", "title": "Cross-Reactivity of Selected Compounds in the Abbott TDx® Cannabinoid Assay", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic immunoassay correctly rejected"},
+    {"id": "4f580d20-c3bd-480f-8e85-78fa3940a9ba", "title": "Chemotaxonomy of Cannabis I. Crossbreeding between Cannabis sativa and C. ruderalis, with analysis of cannabinoid content", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant taxonomy correctly rejected"},
+    {"id": "4f59ddfc-c360-4c9b-a152-ec280cfd3fe8", "title": "Distribution of tetrahydrocannabinol and cannabidiol in several different postmortem matrices", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic postmortem correctly rejected"},
+    {"id": "4f915349-b20a-4038-bafd-0c576c8e0dde", "title": "Lifecourse SEP and tobacco and cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns epidemiology correctly rejected"},
+    {"id": "4fc494fa-e610-404c-8141-5002bfbe4d1e", "title": "Minor Cannabinoids as Inhibitors of Skin Inflammation: Chemical Synthesis and Biological Evaluation.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - minor cannabinoid skin anti-inflammatory"},
+    {"id": "4fcd8e7d-355e-4e0d-b778-0d7f0871b03d", "title": "Evaluation of cannabinoid (CBD and THC) content of four different strains of cannabis grown in four different regions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Content analysis correctly rejected"},
+    {"id": "4fcde852-d82e-4f1e-abbe-304532bce583", "title": "Dwarf germplasm: the key to giant Cannabis hempseed and cannabinoid crops", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "4fdd7965-5fff-41f5-8c97-3b84f67cf5a4", "title": "Comprehensive cannabinoid profiling of acid-treated CBD samples and Δ8-THC-infused edibles", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical profiling correctly rejected"},
+    {"id": "4fe94366-0372-4feb-9b70-da7eb175aa2d", "title": "TRPV2 modulation by endogenous lipid and exogenous ligand (CBD)", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD TRPV2 receptor mechanism"},
+    {"id": "4ff93ba3-0afa-4ca1-b8e9-f687e278ab69", "title": "Land Transformation and Redevelopment Plan in CBD (A GIS based Study of Lal Chowk, J&K, India)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "50013aa4-17a5-47a8-a3a3-95139a741f10", "title": "Cannabidiol Content and In Vitro Biological Activities of Commercial Cannabidiol Oils and Hemp Seed Oils", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product characterization correctly rejected"},
+    {"id": "5006ecc1-1fc4-4b25-ac5a-d952a804543a", "title": "Parental alcohol dependence, socioeconomic disadvantage and alcohol and cannabis dependence among young adults in the community", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Dependence epidemiology correctly rejected"},
+    {"id": "5007f96d-4d9a-49d0-a92c-5b1d5d90fc64", "title": "Retarding the Growth Kinetics of Chemical Bath Deposited Nickel Oxide Films for Efficient Inverted Perovskite Solar Cells and Minimodules.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "5009f323-9725-4cf4-8fcb-ed738049b227", "title": "Antibacterial, anti-biofilm and anti-virulence activity of biosynthesized silver nanoparticles against drug-resistant Staphylococcus aureus.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "500bab93-1d00-4b3b-a1ad-cabe13be21f5", "title": "In het groot Karren 510 van de Verstuiver Krt Patroon Cbd Pen Vape Draad", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Commercial/SPAM (Dutch) correctly rejected"},
+    {"id": "501f9b20-450e-42cb-923d-f210e8ff8b3f", "title": "Alcohol and Drug Use Among Injured Drivers: Insights From an Emergency Room Study at an Institute of National Importance in India.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "4f1fa78c-bd00-4e43-ae51-85f814b17bc5",
+      "4fc494fa-e610-404c-8141-5002bfbe4d1e",
+      "4fe94366-0372-4feb-9b70-da7eb175aa2d"
+    ]
+  }
+}

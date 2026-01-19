@@ -1,0 +1,46 @@
+{
+  "batch_number": 210,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T18:30:00.000Z",
+  "results": [
+    {"id": "e8f84764-8923-4353-8078-c985948128ac", "title": "Cannabis Psychosis Course Mechanisms", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychotogenic effects"},
+    {"id": "e8fe0f8d-ff82-468c-91e5-ce0c9c0599a8", "title": "Cannabis Mental Health Harms Older Adults", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - harm review"},
+    {"id": "e8fed0ef-693c-4b40-8649-54bf20683619", "title": "Sporting Activity Drug Use Athletes", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - substance use athletes"},
+    {"id": "e921d37c-a427-444c-9687-ab1f2f7accb9", "title": "CBD Glioblastoma γ-Radiation Signaling", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer glioblastoma radiosensitization"},
+    {"id": "e944ccdd-1618-4dfb-8f43-98615f048966", "title": "Cannabinoid Modulation Heroin Reinforcement", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid heroin addiction mechanism"},
+    {"id": "e962b9fe-f7a9-4c0d-ad4f-6fdaa213c326", "title": "Leaf Variation Cannabis Species Garden", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - plant morphology taxonomy"},
+    {"id": "e9694c61-b2a4-4aa8-81b9-207b1519cec9", "title": "Medical Cannabis Flower Insomnia Naturalistic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis insomnia therapeutic"},
+    {"id": "e97e2696-e5e7-40bb-a2b4-b1b29951b359", "title": "Cannabis Use Association Psychological Disorders", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychiatric associations"},
+    {"id": "e9823740-8c7c-4b54-9190-067c53a1701b", "title": "CBD Social Interaction Test Autism Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism therapeutic"},
+    {"id": "e9851946-bd9d-403b-ad83-47fbc45ad6af", "title": "Synthetic Cannabinoid-Induced Psychosis Schizophrenia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - synthetic cannabinoid psychosis"},
+    {"id": "e98a0db2-7e82-474b-b2d1-07541b375c43", "title": "Cannabis Memory Deficits Hippocampal Differences", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cognitive memory deficits"},
+    {"id": "e9970fba-ff81-487b-b69f-0a5c8ad28576", "title": "CBD Oral Opioid Withdrawal Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD opioid withdrawal therapeutic"},
+    {"id": "e9cdc3c6-0e50-44c9-a7c8-50348584e673", "title": "Restless Legs Syndrome Treatment Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general sleep disorder review"},
+    {"id": "e9d61f00-e876-463a-a374-4636d741c1a4", "title": "Cortical Bone Trajectory Screws Scoliosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - spinal surgery"},
+    {"id": "e9ebcbd2-41b8-418e-bdd7-772874ce5a0a", "title": "Cannabinoids and Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain therapeutic"},
+    {"id": "e9eee70f-9bd3-40e8-9be5-cc9fd2c60b73", "title": "CBD Urinary Metabolites Dog PK", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dog pharmacokinetics"},
+    {"id": "e9f1279b-7241-4ad4-8b29-698ab72c3119", "title": "Natures One CBD Gummies Reviews Warning", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - CBD gummies advertisement"},
+    {"id": "ea1547fb-5ce8-4c0a-8e96-27df6451bd07", "title": "Prenatal THC CBD Birth Size Growth", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - prenatal exposure outcomes"},
+    {"id": "ea180671-5061-4feb-a619-1b1cb48013a9", "title": "Ketamine-Facilitated Treatment CUD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - ketamine non-cannabinoid"},
+    {"id": "ea2bf9c0-a380-4a30-9750-15f256a303d3", "title": "CBD Anticonvulsant THC 5-HT1A Neocortex", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 7,
+    "incorrect": 13,
+    "incorrect_ids": [
+      "e8f84764-8923-4353-8078-c985948128ac",
+      "e8fe0f8d-ff82-468c-91e5-ce0c9c0599a8",
+      "e8fed0ef-693c-4b40-8649-54bf20683619",
+      "e962b9fe-f7a9-4c0d-ad4f-6fdaa213c326",
+      "e97e2696-e5e7-40bb-a2b4-b1b29951b359",
+      "e9851946-bd9d-403b-ad83-47fbc45ad6af",
+      "e98a0db2-7e82-474b-b2d1-07541b375c43",
+      "e9cdc3c6-0e50-44c9-a7c8-50348584e673",
+      "e9d61f00-e876-463a-a374-4636d741c1a4",
+      "e9eee70f-9bd3-40e8-9be5-cc9fd2c60b73",
+      "e9f1279b-7241-4ad4-8b29-698ab72c3119",
+      "ea1547fb-5ce8-4c0a-8e96-27df6451bd07",
+      "ea180671-5061-4feb-a619-1b1cb48013a9"
+    ]
+  }
+}

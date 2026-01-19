@@ -1,0 +1,42 @@
+{
+  "batch_number": 141,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T01:00:00.000Z",
+  "results": [
+    {"id": "9cabdea9-a0c4-4c26-aaca-7f2df225a2bf", "title": "Super CBD Gummies Canada SCAM ALERT", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - massive marketing content"},
+    {"id": "9cc64461-b562-4f1c-b911-6166e35ce790", "title": "CBD Conversion Marihuana 1940 Adams Chemistry", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Foundational cannabis chemistry 1940"},
+    {"id": "9cde7924-eb7b-48e4-8bbe-c67e77158313", "title": "Structure CBD Minnesota Hemp 1940 Adams", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Foundational CBD structure 1940"},
+    {"id": "9cf05c1a-8b21-418b-a292-25a9db6568cf", "title": "CBD Reward Stress OUD Pilot Trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD opioid addiction therapeutic"},
+    {"id": "9cf91f89-895a-4c6f-b789-c37c97aafc5e", "title": "Consumer Contribution Cannabis Palliative Trials", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Medical cannabis trial design"},
+    {"id": "9d040bfb-8b7e-49ee-b6f0-0359bb0c46d7", "title": "Cannabinoids Epilepsy Efficacy Review Epidiolex", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic review"},
+    {"id": "9d37f411-44af-4094-8c01-a2ac1c29d737", "title": "Partitivirus Industrial Hemp Yunnan Genomic", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - hemp plant virology"},
+    {"id": "9d3a142b-0321-4f22-80df-45af140c2a80", "title": "CUD Trajectories Risk Factors Outcomes", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD epidemiology trajectories"},
+    {"id": "9d5c9a1d-0613-433f-8cc3-88eeaf6da0be", "title": "Cannabis Dronabinol Schizophrenia CUD Laboratory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology schizophrenia"},
+    {"id": "9d65be31-5f4f-4295-bc96-e020cf707bb2", "title": "rTMS Cannabis Use Cognitive Schizophrenia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - rTMS for CUD"},
+    {"id": "9d672e84-bbc4-47c1-9213-c6d86ff666db", "title": "Lemborexant Opioid Insomnia Orexin Protocol", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - orexin antagonist opioid"},
+    {"id": "9d8a9f06-0999-4779-8fdd-4f1118570432", "title": "Wolf-Hirschhorn Syndrome Epilepsy Pediatric", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - genetic syndrome epilepsy"},
+    {"id": "9d9c838a-fa6a-4547-864f-9f696c48a289", "title": "Chemical Probes Endocannabinoid System Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS pharmacology comprehensive review"},
+    {"id": "9da28468-a995-46f8-8816-192f667dae4b", "title": "CBD Alzheimer's APP/PS1 RNA-seq Hippocampus", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's therapeutic mechanism"},
+    {"id": "9db1284c-ca59-4e26-a8d6-1d5710819d17", "title": "Panax Notoginseng Ulcerative Colitis Multi-omics", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - ginseng IBD study"},
+    {"id": "9dbf6b56-4f7d-4986-9e60-23dfabfd195a", "title": "CB1 Locomotor Psychostimulants Cocaine Signaling", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor addiction mechanism"},
+    {"id": "9dc5eb6a-1b72-477e-bb02-2ae151fbe249", "title": "Non-psychotropic Cannabis Anti-inflammatory Chemotype", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD-rich cannabis therapeutic properties"},
+    {"id": "9dce13f0-784d-4890-9dac-0080a57eb827", "title": "Cannabis Frequency Emotion Dysregulation Opioid Pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - emotion dysregulation"},
+    {"id": "9dd7969a-1c6e-431c-9508-74c76a27a281", "title": "Stress Trauma Alcohol HIV Youth DEFINE", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - stress/alcohol/HIV focus"},
+    {"id": "9dd91edf-3440-486e-9860-aa8d207b3bf6", "title": "CBD Cutaneous Wound Healing IL-33 CTGF", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD wound healing therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "9cabdea9-a0c4-4c26-aaca-7f2df225a2bf",
+      "9d37f411-44af-4094-8c01-a2ac1c29d737",
+      "9d3a142b-0321-4f22-80df-45af140c2a80",
+      "9d65be31-5f4f-4295-bc96-e020cf707bb2",
+      "9d672e84-bbc4-47c1-9213-c6d86ff666db",
+      "9d8a9f06-0999-4779-8fdd-4f1118570432",
+      "9db1284c-ca59-4e26-a8d6-1d5710819d17",
+      "9dce13f0-784d-4890-9dac-0080a57eb827",
+      "9dd7969a-1c6e-431c-9508-74c76a27a281"
+    ]
+  }
+}

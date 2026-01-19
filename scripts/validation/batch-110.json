@@ -1,0 +1,37 @@
+{
+  "batch_number": 110,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T17:15:00.000Z",
+  "results": [
+    {"id": "7b12a337-ff8f-45f6-8e4c-4d55da7435b7", "title": "Epidiolex Anxiety Pediatric Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic epilepsy anxiety"},
+    {"id": "7b155b77-397a-44f6-9a61-6c94969af397", "title": "Cannabinoid Dosing Chronic Pain Commentary", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain dosing"},
+    {"id": "7b180161-5d76-49ab-b2b6-d7cbb5407b2f", "title": "Hydrogen-Rich Water Cannabinoid Analgesia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "7b209beb-0f49-48d3-b4f2-b12a95802ab1", "title": "Medical Cannabis Autism Anxiety Children", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis autism therapeutic"},
+    {"id": "7b271a85-19b8-4427-a3f5-35ea015c04a2", "title": "CBD Youth Alcohol Use Disorder RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction treatment therapeutic"},
+    {"id": "7b276209-134b-4179-bef2-19af393e6603", "title": "Synthetic Cannabinoids Prevalence Japan Scheduling", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - SC abuse patterns drug policy Japan"},
+    {"id": "7b324380-8998-4af6-bf78-94ed92d440bd", "title": "CBD mTOR BDNF Antidepressant Hippocampus", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antidepressant mechanism"},
+    {"id": "7b3cd20f-6c62-4248-94aa-699407e05726", "title": "Vaccine Pregnancy Canada Intervention", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - vaccine pregnancy study"},
+    {"id": "7b4a0367-7e6f-44e2-8a46-7fa4cca81b46", "title": "Liposomal CBD Goats Pharmacokinetics", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - goats"},
+    {"id": "7b4d13d9-37e2-4500-bd7c-17eddd153d0c", "title": "CBD Adverse Effects Toxicity Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety toxicology"},
+    {"id": "7b5693b1-ba1c-47c8-95dd-60e3d8ac7395", "title": "Oxytocin Vasopressin CBD Biomarkers EAE", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD mechanism biomarkers"},
+    {"id": "7b56ae2d-fbd5-435b-86cb-f59b20a07e6b", "title": "CBD Pediatric Epilepsy Thailand Cohort", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "7b6879c0-94ed-4250-a99a-4bfc5b3a0f57", "title": "Fetal THC Exposure Pregnancy Quantification", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis safety PK pregnancy"},
+    {"id": "7b9ee6d0-a38c-420f-8274-e6fc6f36453a", "title": "CBD Nausea Rats Lithium Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD nausea therapeutic mechanism"},
+    {"id": "7bab7273-78be-4318-99a5-93a2d511d95a", "title": "Endocannabinoid CB1 Cerebellum Motor Learning", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid mechanism"},
+    {"id": "7bacf156-9897-463d-a01d-76e8be88f1c6", "title": "CBD Rheumatoid Arthritis RCT Safety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD arthritis therapeutic RCT"},
+    {"id": "7bb2f518-6ac2-4923-9735-23342aec0374", "title": "Cannabinoid Colorectal Cancer 5-FU Synergism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer mechanism"},
+    {"id": "7bba5395-5e7f-4891-a6e1-a43caf36e75c", "title": "CBD Chronic Pelvic Pain Women Observational", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic women"},
+    {"id": "7bbf0e96-063b-4b9a-82cb-eb754048c4d3", "title": "Terpenes Flavors THC CBD Hemp Products", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING - commercial product pitch"},
+    {"id": "7bd84bd8-b8eb-43df-869f-23347bd1c23c", "title": "CBD Nanoformulations Glioma GADD45 Migration", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer nanoformulation mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "7b276209-134b-4179-bef2-19af393e6603",
+      "7b3cd20f-6c62-4248-94aa-699407e05726",
+      "7b4a0367-7e6f-44e2-8a46-7fa4cca81b46",
+      "7bbf0e96-063b-4b9a-82cb-eb754048c4d3"
+    ]
+  }
+}

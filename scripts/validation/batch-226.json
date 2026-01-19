@@ -1,0 +1,38 @@
+{
+  "batch_number": 226,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T22:30:00.000Z",
+  "results": [
+    {"id": "fa9a690f-97cb-4337-af2e-11124e8e0428", "title": "Cannabis Root Antioxidant Anti-inflammatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis root therapeutic properties"},
+    {"id": "fa9eed21-3fbb-48fb-a2f6-fc466c2af55c", "title": "Cannabinoids Cancer Causation Palliation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"},
+    {"id": "fabaa712-7ef0-46ac-b69d-bdec9995023c", "title": "CBD Genotoxicity Evaluation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD genotoxicity safety research"},
+    {"id": "fb000c20-22ba-4a8a-a25d-a821748aad8a", "title": "Cannabis Use Cancer Survivors US", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use patterns"},
+    {"id": "fb08e954-7727-4c2b-8ef1-d67df9e19f6b", "title": "Cannabis Epigenomic Aging Teratogenesis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - aging teratogenesis carcinogenesis"},
+    {"id": "fb3678fd-55da-4515-a31c-9a28d127e71c", "title": "Cannabinoids IBD Treating Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid IBD therapeutic review"},
+    {"id": "fb5bf044-774d-44c3-a407-b673aff8cb6e", "title": "Cannabis Tourette ADHD Driving", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis Tourette's therapeutic case"},
+    {"id": "fb601b67-07eb-4a01-88e9-2a2f8f35b5fb", "title": "EZ-SCREEN Cannabinoid Test Validity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "FORENSIC - drug test validation"},
+    {"id": "fb63e6eb-301c-4064-bcfa-a820d19cf300", "title": "CB1 Anandamide Antidepressant Targets", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid depression therapeutic"},
+    {"id": "fb6e3b3d-8041-40f2-8576-6ef8ac63d348", "title": "THC Dopamine D1 Correction", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC dopamine mechanism"},
+    {"id": "fb727649-a857-47f5-a362-82e8b987618a", "title": "Gut Microbiome Cancer Suppression", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - microbiome review"},
+    {"id": "fb89ac58-003e-444a-885c-1950545f8062", "title": "Cannabinoids Acute Pain Surgery Meta", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid postop pain meta-analysis"},
+    {"id": "fb920a5b-ee8d-40ab-8d6f-4019a240c42e", "title": "CBD Clobazam Stiripentol PK DDI", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy drug interaction PK"},
+    {"id": "fb952efc-20f6-411b-8bbf-501f749891d6", "title": "Cannabis Withdrawal Symptoms", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - withdrawal symptoms"},
+    {"id": "fba24791-329b-4a5d-8a2c-8af2f64a4e47", "title": "CBD Mexican Children Epilepsy Survey", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic survey"},
+    {"id": "fbacc8fd-919a-4b8f-b453-1b3d26fb5c28", "title": "CBD Anxiety Disorders Meta-analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety therapeutic meta-analysis"},
+    {"id": "fbb968b3-1831-4add-9e24-5678118d5612", "title": "Cannabis Pain Dropout ML Predicting", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic outcomes"},
+    {"id": "fbba0862-4668-4808-8fb4-d2485f323204", "title": "CBD CLN2 Disease Seizures Mouse", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD CLN2 epilepsy therapeutic"},
+    {"id": "fbd535a8-502f-4feb-a65a-f296646d40c1", "title": "Cannabinoid Receptor mRNA Brain Distribution", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor mechanism"},
+    {"id": "fc05671c-bded-4a2c-9580-ec1fbdebe874", "title": "CBD Chewing Gum IBS Pain RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD IBS therapeutic RCT"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "fb000c20-22ba-4a8a-a25d-a821748aad8a",
+      "fb08e954-7727-4c2b-8ef1-d67df9e19f6b",
+      "fb601b67-07eb-4a01-88e9-2a2f8f35b5fb",
+      "fb727649-a857-47f5-a362-82e8b987618a",
+      "fb952efc-20f6-411b-8bbf-501f749891d6"
+    ]
+  }
+}

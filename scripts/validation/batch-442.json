@@ -1,0 +1,39 @@
+{
+  "batch_number": 442,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T04:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "e8f4f59c-a378-4229-a4da-e654d86b121d", "title": "Nanoencapsulation of essential oils from industrial hemp by-products", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food science correctly rejected"},
+    {"id": "e947b4cf-7459-4853-aa8f-6db62aa06426", "title": "Age-Related Effects of THC", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm/intoxication correctly rejected"},
+    {"id": "e947ef17-15da-40f6-809b-9779646e28ac", "title": "Prevalence of Cannabidiol, THC and Metabolites in Workplace Drug Testing Urine Specimens", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic testing correctly rejected"},
+    {"id": "e94a4807-431f-443f-8132-6d8558828ad0", "title": "Cannabinol and cannabidiol in combination: Temperature, open-field activity, and vocalization", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBN/CBD mechanism research"},
+    {"id": "e95d67d7-82c6-4717-85ea-88e8dfb112c2", "title": "Interaction of Δ9-THC and CBD with phenobarbitone in protecting mice from convulsions", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid anticonvulsant research"},
+    {"id": "e97102ac-1ed4-4525-93f2-8fb2c12babce", "title": "Introduction to the Special Issue on Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial content correctly rejected"},
+    {"id": "e97c8553-fabb-48ee-b970-19db09f43901", "title": "A Phase 2a Study to Evaluate the Safety and Efficacy of CBD in Stable Autoimmune Hepatitis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD clinical trial"},
+    {"id": "e9833eba-ac41-4358-8bef-ca383143e43b", "title": "Autophagy and mitophagy in dermatological disease", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "e9886a33-a46e-4607-9e0c-d5a7656902e9", "title": "Antimicrobial zinc oxide nanoparticles through Cannabis and other plants", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Nanoparticle synthesis correctly rejected"},
+    {"id": "e9930270-788e-4306-b10e-837f8fe948aa", "title": "On Guangzhou CBD in the 21st Century (GCBD21)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "e99a2532-96f2-406b-8dd3-2304681194bc", "title": "Cannabis sativa extract and fertility: Preclinical evaluation in Wistar rats", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm/fertility correctly rejected"},
+    {"id": "e9a5996b-30f2-43e8-b09b-514157e4812f", "title": "Pharma GenRx Hemp CBD Gummies (Blueberry)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product listing correctly rejected"},
+    {"id": "e9ba4e7d-b391-42c5-8372-29669b58c4ae", "title": "Discrepancy between clinical and pathological diagnoses of CBD and PSP", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Corticobasal Degeneration) correctly rejected"},
+    {"id": "e9bad89d-dc70-499b-bc3a-16c67fe7b08c", "title": "Bionanocomposite Films from Resilin-CBD Bound to Cellulose Nanocrystals", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Cellulose Binding Domain) correctly rejected"},
+    {"id": "e9cd53bb-e399-4b50-944b-7b3d931af78c", "title": "Anonymity and Confidentiality in School Surveys on Cannabis Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Survey methodology correctly rejected"},
+    {"id": "e9d0d415-e196-478f-9557-010b5354da49", "title": "A Functional Platform for the Detection of JWH-073 Synthetic Cannabinoid", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "e9de5bd1-38bb-4693-b8e1-cbac0890af64", "title": "Natural Phenolics Disrupt Microbial Communication by Inhibiting Quorum Sensing", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "e9fcb949-d685-4978-af43-4256f8e68371", "title": "Harm Reduction Associated with Inhalation and Oral Administration of Cannabis and THC", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - therapeutic administration routes research"},
+    {"id": "ea0e3f9d-9ef0-41d1-9d1e-4b126d78d97f", "title": "Complete Mitochondrial Genome of Kwang-Yang Asian Frog", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "ea124739-a7d5-461f-a7fc-7ad47fc087c8", "title": "Cannabinoid CB1 receptor expression in trabecular meshwork and ciliary process tissues", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 eye/glaucoma mechanism research"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "e94a4807-431f-443f-8132-6d8558828ad0",
+      "e95d67d7-82c6-4717-85ea-88e8dfb112c2",
+      "e97c8553-fabb-48ee-b970-19db09f43901",
+      "e9fcb949-d685-4978-af43-4256f8e68371",
+      "ea124739-a7d5-461f-a7fc-7ad47fc087c8"
+    ]
+  }
+}

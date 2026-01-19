@@ -1,0 +1,40 @@
+{
+  "batch_number": 15,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T17:15:00.000Z",
+  "results": [
+    {"id": "12a73d13-29b4-458d-92a7-956cca3e71ce", "title": "Lymphatic Transport...Cannabidiol, Cannabigerol, Cannabichromene, and Cannabinol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacokinetics"},
+    {"id": "12ac737b-7f82-4f53-914b-87371188c2df", "title": "PACIFIC study - patient-centred clinical trials in rare epilepsy using CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for epilepsy trial methodology"},
+    {"id": "12aeea83-1bbf-401c-9934-878a72dd227b", "title": "Metabolic Engineering Strategies of Industrial Hemp", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Agriculture - genetic engineering of hemp plants"},
+    {"id": "12b9b63a-a4c4-46d2-b187-e96296283852", "title": "Hempseed Oil with Betamethasone for Atopic Dermatitis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Hempseed oil has no cannabinoids - active ingredient is steroid"},
+    {"id": "12c2b0c1-0fa0-40b2-82be-db1dc773d80d", "title": "Sleep in Lennox-Gastaut Syndrome: A Scoping Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Sleep in epilepsy syndrome - no cannabinoid focus"},
+    {"id": "1301fc59-3235-4955-9447-29981ec7d6b0", "title": "Effects of acute cannabidiol on behavior...in HIV-1 Tat transgenic mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for HIV"},
+    {"id": "1307dd7b-a58a-445b-95b1-49a100d0c6ff", "title": "Dronabinol increases ocular blood flow in patients with glaucoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC for glaucoma"},
+    {"id": "131183fa-ab34-4df5-b897-65d48fb87aec", "title": "Cannabinoids: New Promising Agents in the Treatment of Neurological Diseases", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid review for neurology"},
+    {"id": "1313211e-6b49-408f-898f-7d36fbf8f9b3", "title": "2-Arachidonoyl Glycerol Analog...Breast Cancer Cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "2-AG (endocannabinoid) for cancer"},
+    {"id": "132e8f48-8ea5-4e0d-b7d4-8ecab9777133", "title": "Cannabidiol potentiates phenobarbital effects in epileptic seizures", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for epilepsy"},
+    {"id": "133e8c02-ae70-421b-bb6d-2dddaac55268", "title": "Cannabidiol Supplementation Alleviates Anxiety, Mitigates Pain, Extends Endurance", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for anxiety/pain/exercise"},
+    {"id": "1340a234-00f8-48d0-8239-4cd02427d732", "title": "Endocannabinoid System Components in Episodic and Chronic Migraine", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS in migraines"},
+    {"id": "134553a9-863e-4baf-88cd-eb8f76a0208e", "title": "The CBD Mortality Indexes: Modeling and Applications", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "ACTUARIAL! CBD = Cairns-Blake-Dowd mortality model"},
+    {"id": "13477b96-8977-4916-8ddc-f898de96e78c", "title": "BILIARY METAL STENTS...CBD STRICTURE", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CBD = Common Bile Duct - gastroenterology"},
+    {"id": "13553508-be82-439c-a9cb-1303042d7264", "title": "Cannabis reinforcement and dependence: role of CB1 receptor", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor and addiction"},
+    {"id": "135c0f6b-885c-4930-86e4-ca035ed3ae93", "title": "Japanese version of UCLA scleroderma clinical trial...gastrointestinal tract instrument", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Scleroderma questionnaire - no cannabinoid"},
+    {"id": "136db03a-c3a9-477a-a8b2-c913750947d0", "title": "Enhancement of PDT for Cervical Cancer with Cannabidiol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for cervical cancer"},
+    {"id": "1377cf06-d695-4b74-801f-ecfdff15260e", "title": "Efficacy and Safety of Cannabidiol in Epilepsy: Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for epilepsy"},
+    {"id": "137a6340-0fbe-44cc-b955-c625e0f54074", "title": "Randomised controlled trial of clozapine in resistant schizophrenia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Clozapine trial - no cannabinoid content"},
+    {"id": "137f4719-978e-44d2-87c0-6f783ccd80e6", "title": "Monoacylglycerol Lipase for Alzheimer's Disease Therapy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS enzyme (MAGL) for Alzheimer's"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "12aeea83-1bbf-401c-9934-878a72dd227b",
+      "12b9b63a-a4c4-46d2-b187-e96296283852",
+      "12c2b0c1-0fa0-40b2-82be-db1dc773d80d",
+      "134553a9-863e-4baf-88cd-eb8f76a0208e",
+      "13477b96-8977-4916-8ddc-f898de96e78c",
+      "135c0f6b-885c-4930-86e4-ca035ed3ae93",
+      "137a6340-0fbe-44cc-b955-c625e0f54074"
+    ]
+  }
+}

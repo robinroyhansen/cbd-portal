@@ -1,0 +1,43 @@
+{
+  "batch_number": 227,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T22:45:00.000Z",
+  "results": [
+    {"id": "fc1b22cc-cc29-4b6c-a602-799bafe5dab4", "title": "Bibliometric Analysis Paediatric Epilepsy Treatment", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general epilepsy bibliometric"},
+    {"id": "fc2d486f-822c-4104-9b99-b9505fe485a6", "title": "Neurophysiology of cannabis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC neurophysiology mechanism"},
+    {"id": "fc351e4d-7bcd-44cf-84fd-f9871dba1c92", "title": "Medical Cannabis for Neuropathic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis neuropathic pain therapeutic"},
+    {"id": "fc3e6cc0-2230-46af-a5d6-0dad9ddd358c", "title": "Cannabis Psychosis: case report", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis case report"},
+    {"id": "fc413abd-de03-443c-80ea-3435e726b26c", "title": "CBD Mesoporous Carrier Buccal Delivery", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery formulation"},
+    {"id": "fc447a3a-dd45-4706-b038-3999c51eb793", "title": "Pediatric psychopharmacology autism ASD Part II", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general autism psychopharm"},
+    {"id": "fc5e3168-9acc-44a5-9122-d77c42c91ed6", "title": "Therapeutic potential of CBD for autism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism therapeutic"},
+    {"id": "fc715a88-6eb9-4685-8f17-8a194b974ace", "title": "CBD Barbiturate Sleep Enzymes Mechanism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD mechanism drug metabolism"},
+    {"id": "fc7ad0e2-425f-42b8-9965-6e5c96fb751e", "title": "Cannabis Drug Dependence Educational Attainment", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - substance use patterns education"},
+    {"id": "fc919fcd-e487-4e32-bf29-4f13f53e13af", "title": "Hepatic CB1 receptor energy food intake", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 obesity liver therapeutic mechanism"},
+    {"id": "fca0af80-c102-4e58-a5f4-9dde32a38853", "title": "Anxiety alcohol vs cannabis abuse adolescents", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD anxiety patterns"},
+    {"id": "fca83dbe-a011-4586-b311-8a965aef6175", "title": "Factors energy use Wellington CBD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Central Business District buildings"},
+    {"id": "fcb12d57-4b1a-4c2a-a3d6-196c8f976453", "title": "DAT1 Methylation Cannabis Use Disorder", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD STUDY - non-therapeutic genetics"},
+    {"id": "fcc96697-b717-48b9-9707-326604bd7e04", "title": "Cannabinoid receptor O-1918 hypotension anandamide", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid blood pressure mechanism"},
+    {"id": "fcd6eb96-8e39-449a-a8be-98d036ad6b02", "title": "Conflicts of Interest CBD Authors", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY META - COI analysis not research"},
+    {"id": "fcfb3836-9c00-446a-ae2a-f603b7f16981", "title": "CannTeen Study CUD depression anxiety psychotic", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - CUD adolescent vulnerability"},
+    {"id": "fd126d86-6e06-4cca-adc5-972c4f67f456", "title": "CBD Anti-Seizure Preclinical Evidence", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic review"},
+    {"id": "fd132b24-6408-46a6-aa02-9b6e01531433", "title": "CBD Mucoadhesive Buccal Film HME", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery formulation"},
+    {"id": "fd14460e-0b80-40ce-b404-854289007368", "title": "Hydrogel Oral Mucosal Lesions", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general hydrogel no CBD"},
+    {"id": "fd21ff9e-7ee3-445e-80ba-af63c338f05c", "title": "CBD fear conditioning anxiety disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 10,
+    "incorrect": 10,
+    "incorrect_ids": [
+      "fc1b22cc-cc29-4b6c-a602-799bafe5dab4",
+      "fc3e6cc0-2230-46af-a5d6-0dad9ddd358c",
+      "fc447a3a-dd45-4706-b038-3999c51eb793",
+      "fc7ad0e2-425f-42b8-9965-6e5c96fb751e",
+      "fca0af80-c102-4e58-a5f4-9dde32a38853",
+      "fca83dbe-a011-4586-b311-8a965aef6175",
+      "fcb12d57-4b1a-4c2a-a3d6-196c8f976453",
+      "fcd6eb96-8e39-449a-a8be-98d036ad6b02",
+      "fcfb3836-9c00-446a-ae2a-f603b7f16981",
+      "fd14460e-0b80-40ce-b404-854289007368"
+    ]
+  }
+}

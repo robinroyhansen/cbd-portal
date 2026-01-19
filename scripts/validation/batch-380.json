@@ -1,0 +1,43 @@
+{
+  "batch_number": 380,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T13:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "a4bf1298-44a9-453c-b7e5-35455f4c65cd", "title": "Time course of the effects of naturally occurring cannabinoids on morphine abstinence syndrome", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid opioid withdrawal therapeutic"},
+    {"id": "a4c24d0e-af43-4e41-af77-1dfaa52097fc", "title": "The Cannabinoid Acids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacology research"},
+    {"id": "a4cd44c0-578a-474c-a583-9f985e02dcd3", "title": "Incentives for smoking cessation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a4d4cc61-f2ed-41d2-89af-6579ce852785", "title": "Manajemen Lalu Lintas Di Central Bussiness District (CBD) Wonomulyo", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "a4e592d2-5e94-4e4e-95ea-beb8742cd9c9", "title": "Cannabinoid action on the eye as mediated through the central nervous system and local adrenergic activity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid ocular mechanism research"},
+    {"id": "a4f631df-31f4-4c41-aefb-1ef5a81e1186", "title": "Thermochemical pretreatments for enhancing succinic acid production from industrial hemp (Cannabis sativa L.)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industrial hemp correctly rejected"},
+    {"id": "a511c65c-ce1d-447e-9509-a9f68092e7c4", "title": "Burman's CBD WindBreaker", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "a51e6309-b788-457c-8114-bace812cb45f", "title": "Sweeteners in E-Cigarettes: A Minireview of Flavoring and Biological Action", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a52d6e79-0842-40cf-bc48-1ace86dd7449", "title": "Healthcare professionals' and budtenders' perceptions of perinatal cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/perception correctly rejected"},
+    {"id": "a530745e-1497-4101-a44b-58b521b8ea94", "title": "The interactive role of cannabinoid and vanilloid systems in hippocampal synaptic plasticity in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism research"},
+    {"id": "a5310db0-22f6-4382-a11e-9802f99db792", "title": "Endogenous cannabinoids in the brain and peripheral tissues: regulation of their levels and control of food intake", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS mechanism research"},
+    {"id": "a537060d-ef29-4b81-a88d-78befdc5ff03", "title": "SECRETORY CAVITY DEVELOPMENT IN GLANDULAR TRICHOMES OF CANNABIS SATIVA L. (CANNABACEAE)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant biology correctly rejected"},
+    {"id": "a55398a9-44dd-4ade-b3ec-371a1e0a0bab", "title": "ON THE THERAPEUTICAL USES AND TOXIC EFFECTS OF CANNABIS INDICA.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis therapeutic research"},
+    {"id": "a56370d7-e5d3-4de7-b480-5ded1182fda4", "title": "Exploring youths' beliefs towards cannabis and driving: A mixed method study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "a568e5d6-bf38-44e4-a80e-56ecc075c3ac", "title": "[Effects of hyperoxia on the expression of hippocampal N-methyl D-aspartate receptor 1 and its synapse-associated molecules in neonatal rats].", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a5762cb7-b80e-43d1-92bc-8b8bc70ead8a", "title": "Effects of Cannabis in Parkinson's Disease: A Systematic Review and Meta-Analysis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis Parkinson's therapeutic review"},
+    {"id": "a577a63d-f2ea-42e0-be41-05d6acca2a4c", "title": "Analysis of the Prevalence of Alcohol and Psychoactive Substances Among Drivers in the Material from the Department of Forensic Medicine at the Medical University of Bialystok in Poland", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "a59fce56-89be-4952-a829-addb9f088ce7", "title": "Therapeutic uses of cannabis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis therapeutic review"},
+    {"id": "a5b3e921-cd70-4b83-8592-c63795885c3a", "title": "Reconstruction of Iatrogenic Bile Duct Injuries following Laparoscopic Cholecystectomy.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a5b64cec-cfdc-4ff6-a163-93cfcfef2dc1", "title": "New treatments for OCD? Evidence for cannabinoids and psychedelics.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid OCD therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 10,
+    "incorrect": 10,
+    "incorrect_ids": [
+      "a4bf1298-44a9-453c-b7e5-35455f4c65cd",
+      "a4c24d0e-af43-4e41-af77-1dfaa52097fc",
+      "a4e592d2-5e94-4e4e-95ea-beb8742cd9c9",
+      "a530745e-1497-4101-a44b-58b521b8ea94",
+      "a5310db0-22f6-4382-a11e-9802f99db792",
+      "a55398a9-44dd-4ade-b3ec-371a1e0a0bab",
+      "a5762cb7-b80e-43d1-92bc-8b8bc70ead8a",
+      "a59fce56-89be-4952-a829-addb9f088ce7",
+      "a5b64cec-cfdc-4ff6-a163-93cfcfef2dc1"
+    ]
+  }
+}

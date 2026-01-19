@@ -1,0 +1,37 @@
+{
+  "batch_number": 22,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T19:15:00.000Z",
+  "results": [
+    {"id": "1993284c-7d82-4b75-8fac-30405e7f0152", "title": "High-CBD Cannabis Extract Nanoemulsion for Oral Mucosal Delivery", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery formulation"},
+    {"id": "19b3f821-138d-4b69-9105-d711f04ba2f1", "title": "CBD suppresses silica-induced pulmonary inflammation and fibrosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for lung disease"},
+    {"id": "19b56997-56e1-4946-8c3b-cd19acdfdd28", "title": "Suppression of neuropathic pain by non-psychotropic synthetic cannabinoid HU211", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Synthetic cannabinoid for pain"},
+    {"id": "19b6cd63-6936-44eb-8ed3-83a7a2cc88f5", "title": "CANNABIDIOL AS AN ANTICANCER AGENT IN GLIOMA CELLS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for brain cancer"},
+    {"id": "19be05ba-187b-4866-8e64-5be2b07677fb", "title": "Cannabinoid WIN-55,212-2 potentiates adriamycin for osteosarcoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid + chemo for bone cancer"},
+    {"id": "19c5bca3-781e-4a21-a174-aa624ea46541", "title": "Effects of CBD on anandamide levels in cannabis use disorder - RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD mechanism in CUD treatment"},
+    {"id": "19d5c554-c8c0-4d4f-9cd5-080a0239dbc4", "title": "Cannabinoid axis in HBV envelope proteins and ER stress in liver cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 mechanism in liver cancer"},
+    {"id": "19da9c53-ad92-4eda-b95f-7c0569acd33b", "title": "Cannabinoid receptor-inactive N-acylethanolamines metabolism and function", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid system research"},
+    {"id": "19e0f00d-4faf-4b6d-b827-afecd7bb3022", "title": "IL-12 renaissance: Engineering tumor-restricted IL-12 for T cell therapies", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - IL-12 cancer immunotherapy"},
+    {"id": "1a043843-627a-442c-ae06-b06b2fb5b9a1", "title": "CBD for Oral Health: New Promising Therapeutical Tool in Dentistry", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for dental health"},
+    {"id": "1a2c11ff-950e-464b-bef2-9a916de08299", "title": "Oral formulations for CBD: Improved bioavailability of SEDDS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD oral delivery system"},
+    {"id": "1a3293e7-a977-41e2-806e-bef97986214e", "title": "Neonatal Abstinence Syndrome sometimes associated with Cannabis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis prenatal exposure safety"},
+    {"id": "1a3f4046-ac3e-46c2-b7c1-90412f6b834d", "title": "Cannabinoid Receptor Ligands in Mouse Model of Anxiety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anxiolytic research"},
+    {"id": "1a42df1b-15b3-419e-865b-eb47c3cc063c", "title": "Supplementary Material for CBD Entourage Effect cancer study", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SUPPLEMENTARY material - not complete study"},
+    {"id": "1a4418db-496d-4e82-a543-a2f0988010b8", "title": "DSM-5 cannabis use disorder: phenotypic and genomic perspective", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD genetics/phenotype - not therapeutic research"},
+    {"id": "1a86c5fa-07d8-4a93-b5a6-4290c0991504", "title": "High CBD extract modulates inflammation in rheumatoid arthritis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for RA inflammation"},
+    {"id": "1aa8097d-84c4-4d57-962f-48c440bdb592", "title": "CB1 receptor modulates intestinal propulsion", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid GI mechanism"},
+    {"id": "1ab061fc-6eb0-41a3-892e-20e29a8b4f73", "title": "Adjunctive CBD in Buprenorphine Treatment for Opioid Use Disorder - pilot RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic trial for OUD"},
+    {"id": "1ac3af14-c1ab-47d2-a77b-cc75421ae59b", "title": "Cannabis potency and gender in cannabis dependence and anxiety", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Use patterns/risk factors - not therapeutic"},
+    {"id": "1ac679e7-634c-4afa-9fd1-361dd3d4feb5", "title": "CBD for Symptoms in Clinical High-Risk Psychosis - Placebo-Controlled Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD clinical trial for psychosis prevention"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "19e0f00d-4faf-4b6d-b827-afecd7bb3022",
+      "1a42df1b-15b3-419e-865b-eb47c3cc063c",
+      "1a4418db-496d-4e82-a543-a2f0988010b8",
+      "1ac3af14-c1ab-47d2-a77b-cc75421ae59b"
+    ]
+  }
+}

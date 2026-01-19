@@ -1,0 +1,41 @@
+{
+  "batch_number": 424,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T00:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "d452ef09-3320-498e-8bc0-ac6790df0bc2", "title": "Predicting Conversion From Laparoscopic to Open Cholecystectomy: A Prospective Risk Factor Analysis and Scoring Model Formulation.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "d45c672b-e4ce-4054-938c-c4953e7e8fcb", "title": "The contribution of baseline circulating endocannabinoids to individual differences in human pain sensitivity: a quantitative sensory testing study.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS pain sensitivity mechanism research"},
+    {"id": "d46916fa-9710-42c8-99da-99a401a178f3", "title": "Differentiation of Therapeutic and Illicit Drug Use via Metabolite Profiling", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "d483173e-bd07-4330-a687-f4b19941553b", "title": "Medical cannabis: From research breakthroughs to shifting public perceptions and ensuring safe use", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis research/safety review"},
+    {"id": "d49aeed2-fb53-4884-baa6-4a582f5baa02", "title": "Episodic foresight deficits in regular, but not recreational, cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis cognitive harm correctly rejected"},
+    {"id": "d4c9e322-bd90-4013-a014-c73d213cdad7", "title": "The effects of subacute exposure to a water-soluble cannabinol compound in male mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBN pharmacology research"},
+    {"id": "d4dc9734-c4d2-4388-8cc3-2b543a968dd4", "title": "Interaction Between Peroxisome Proliferator-Activated Receptors and Cannabidiol in the Gut of Chickens Applied to Different Challenge Conditions.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "d4e62c1b-bea6-41bc-9d74-80371fe99f35", "title": "Delta-9 THC detection in the young pediatric postmortem population: 2018-2024.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "d4f9ca22-b9c4-4f74-8027-abf093ee2704", "title": "HU210-Induced Downregulation in Cannabinoid CB1 Receptor Binding Strongly Correlates with Body Weight Loss in the Adult Rat", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor weight regulation mechanism research"},
+    {"id": "d502144a-8d98-4928-8ee9-537faa4ec3cd", "title": "Parental Monitoring at Age 11 and Subsequent Onset of Cannabis Use Up to Age 17: Results From a Prospective Study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "d52fee3f-6238-4a84-b321-c821f7717837", "title": "Household Tobacco Expenditure and Child Health Outcomes: Causal Evidence from a Transitional Economy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "d5386866-4768-4501-aa67-7070d148d87a", "title": "ChemInform Abstract: CBD Grown ZnO‐Based Gas Sensors and Dye‐Sensitized Solar Cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "d539c398-2ff5-4cc7-85e5-ea796dd1bd60", "title": "Bioactivation Pathways of the Cannabinoid Receptor 1 Antagonist Rimonabant", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 antagonist drug metabolism research"},
+    {"id": "d53ace2f-a944-45b1-bfa6-2a0ac97e43bb", "title": "Cannabis impacts female fertility as evidenced by an in vitro investigation and a case-control study.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "d53b702b-a725-41df-8885-33319b91d8fc", "title": "The role of cannabinoids in dermatology", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid dermatology therapeutic research"},
+    {"id": "d5588a6b-ba32-44a7-a9b0-59c694391d15", "title": "Estimating Price Elasticity of Cannabis Use Among U.S. Adolescents: Evidence From States With Recreational Cannabis Commercialization.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/market analysis correctly rejected"},
+    {"id": "d5652f02-c7ae-46ea-a268-cc206c4e0d0a", "title": "Bioactive Hemp Clothing Modified with Cannabidiol (CBD) Cannabis sativa L. Extract", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product/industrial textile correctly rejected"},
+    {"id": "d56ab879-e370-4713-8740-9ae7afffe5d1", "title": "ChemInform Abstract: CANNABIS PART 8, PYROLYSIS OF CANNABIDIOL, STRUCTURE ELUCIDATION OF THE MAIN PYROLYTIC PRODUCT", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry correctly rejected"},
+    {"id": "d56d4518-7a3d-4c23-87f4-0ed5a08241c8", "title": "Identification of common variants influencing risk of the three-repeat tauopathy Pick's disease: a genome wide association study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "d58f3796-0dc5-4852-b90e-ca0725ba34dd", "title": "The differential effects of medicinal cannabis on mental health: A systematic review.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis mental health systematic review"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "d45c672b-e4ce-4054-938c-c4953e7e8fcb",
+      "d483173e-bd07-4330-a687-f4b19941553b",
+      "d4c9e322-bd90-4013-a014-c73d213cdad7",
+      "d4f9ca22-b9c4-4f74-8027-abf093ee2704",
+      "d539c398-2ff5-4cc7-85e5-ea796dd1bd60",
+      "d53b702b-a725-41df-8885-33319b91d8fc",
+      "d58f3796-0dc5-4852-b90e-ca0725ba34dd"
+    ]
+  }
+}

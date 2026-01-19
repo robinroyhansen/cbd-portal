@@ -1,0 +1,40 @@
+{
+  "batch_number": 445,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T05:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "ebf4a09e-427f-469c-ab6d-224a2b37dd98", "title": "Effects of cannabis on pulmonary structure, function and symptoms", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm (lung) correctly rejected"},
+    {"id": "ebfefd35-e037-430f-8304-0a15dcb13986", "title": "Obstructive biliopathy post-cholecystectomy clip migration", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "ec118d48-7879-424d-bcf5-b47d8358a0ff", "title": "Cannabivarin and tetrahydrocannabivarin modulate nociception via vanilloid channels", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBV/THCV pain mechanism research"},
+    {"id": "ec4dda47-9946-4877-8ed9-7f3a6defbe2d", "title": "Cannabidiol in Fragile X Syndrome (FXS): Proposed Mechanism of Action", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic mechanism research"},
+    {"id": "ec70a2dc-aae3-46d8-8f04-289fa26af7b4", "title": "Cannabidiol – A new fixture in childhood neurology", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pediatric neurology"},
+    {"id": "ec723bf0-58d0-43d8-9839-4462f102af2e", "title": "Drug-gene-nutraceutical Interactions of Cannabidiol and Tacrolimus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug interaction research"},
+    {"id": "ec94ffc0-ff52-4cf0-ac90-8016114ab76d", "title": "Attenuation of cue-induced reinstatement of nicotine seeking by URB597 through CB1 receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS addiction therapeutic mechanism"},
+    {"id": "eca865b5-98db-417e-9d46-3e7f8a793c45", "title": "Weed or Wheel! How Cannabis Smoking Affects Skills Necessary for Driving", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "ecba78f6-9a1f-493b-bcf4-d7cc383136a0", "title": "Drugs from poisonous plants: Ethnopharmacological relevance", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General ethnopharmacology correctly rejected"},
+    {"id": "ecc6487c-03cd-4355-b131-b173f7b7b615", "title": "Predicting Retained CBD Stones in Gallstone Pancreatitis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "ecca97c0-f8e3-4574-b396-bdcdc0961186", "title": "Packet Estimation with CBDS Approach to secure MANET", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (computing) correctly rejected"},
+    {"id": "ecd26ca5-55d7-4b4e-89d5-40b73272adcb", "title": "FDA warning companies not to sell unapproved cannabidiol products", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Regulatory news correctly rejected"},
+    {"id": "ecd47182-9d22-4206-856d-0ebcbfdb2e4d", "title": "Cannabis sativa: an overview", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Generic overview correctly rejected"},
+    {"id": "ecd85bf5-8932-4c46-ad43-a18d63f788cd", "title": "The Development of the financial industry of Manhattan: Lessons for Beijing CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "ece0060a-f83d-46b5-bda4-3121fdea9342", "title": "Alcohol Consumption During Pregnancy and Legal Nonmedical Cannabis Retail Sales", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/epidemiology correctly rejected"},
+    {"id": "ece0c3ff-0bb1-4f07-b616-a35b9731d581", "title": "Reply Re: Effect of Cannabis Usage on Thyroid Eye Disease", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis therapeutic research"},
+    {"id": "ed0b4d17-4389-4db1-9189-603f5e419c24", "title": "Optimization of Ultrasound-Assisted Extraction of Phytochemicals from Hemp", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"},
+    {"id": "ed10ace4-182b-4c0c-91db-9cbc1072fef4", "title": "Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Too generic correctly rejected"},
+    {"id": "ed19baff-eb82-469e-af26-8b88fd770ab4", "title": "Event-Specific Cannabis Use and Cannabis Use Motives", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "ed3dc6c2-fe75-4eb7-bf95-26fc123ce522", "title": "Cannabis-induced Koro in Americans", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm (psychiatric) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "ec118d48-7879-424d-bcf5-b47d8358a0ff",
+      "ec4dda47-9946-4877-8ed9-7f3a6defbe2d",
+      "ec70a2dc-aae3-46d8-8f04-289fa26af7b4",
+      "ec723bf0-58d0-43d8-9839-4462f102af2e",
+      "ec94ffc0-ff52-4cf0-ac90-8016114ab76d",
+      "ece0c3ff-0bb1-4f07-b616-a35b9731d581"
+    ]
+  }
+}

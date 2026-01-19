@@ -1,0 +1,42 @@
+{
+  "batch_number": 447,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T05:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "ee1916df-2779-4c69-b806-e687be5b6f96", "title": "Perceptions about cannabis use during pregnancy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/perceptions correctly rejected"},
+    {"id": "ee219047-8cd9-4d05-bbfa-5d15b9933e42", "title": "Mass spectrometry of the cannabinoids and their metabolites", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "ee21fbdc-3e3f-4029-814f-85475306c231", "title": "Cannabidiol in Gliomas: Therapeutic Potential and Nanocarrier Strategies", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD cancer therapeutic research"},
+    {"id": "ee2e9811-cd94-48fe-a993-92046acfdd2c", "title": "Episodic memory and inhibitory control in people who inject substances", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General substance use correctly rejected"},
+    {"id": "ee33938b-9244-4f15-b5f5-8fca1c570eca", "title": "Cold Pressing and Supercritical CO2 Extraction of Hemp Seed Oil", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"},
+    {"id": "ee3c78b8-a077-42e2-8c7f-9d804d6674fc", "title": "Sex differences in the acute effects of oral THC: randomized, placebo-controlled, crossover", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC pharmacology research"},
+    {"id": "ee624877-622d-480f-8ce6-53825d37b9d1", "title": "LMBRD1 gene variant in Cbl deficiency", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "ee62f922-996a-4c2a-a62f-0aa406376fcd", "title": "Non-cannabinoid constituents from a high potency Cannabis sativa variety", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Non-cannabinoid chemistry correctly rejected"},
+    {"id": "ee630299-e2e6-4801-889d-df3d6b729ae4", "title": "Cu(In,Ga)Se2/(CBD)CdS heterojunction based solar cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "ee7df64f-a50f-4881-979a-7cdfb7af2193", "title": "Cannabidiol enhancement of exposure therapy in treatment refractory patients with phobias: RCT protocol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD clinical trial for anxiety"},
+    {"id": "ee94124d-cca7-4491-b702-99a3a4dd4245", "title": "Cough Sensors. III. Opioid and Cannabinoid Receptors on Vagal Sensory Nerves", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor cough mechanism"},
+    {"id": "ee9a3acf-a70f-478d-96e0-439a5c2f4c43", "title": "The effects of pelleted cannabidiol supplementation in horses", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "ee9bccc6-370c-4ead-b2a6-96074b925e05", "title": "Visceral Metastases of Osteosarcoma in the Hepatopancreatobiliary System", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "eeae65fe-2d62-4ef4-9293-4544b0c9c038", "title": "Cannabidiol and Hydroxypropyl-β-Cyclodextrin for Inhalable Powder", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery formulation"},
+    {"id": "eeb5e02a-d9a4-454d-b2cc-2011172ce474", "title": "From gan-zi-gun-nu to anandamide and 2-AG: the ongoing story of cannabis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS history/review"},
+    {"id": "eeb9b125-feb4-4b56-a825-afb6ce1ef7b5", "title": "Quantification of THC, 11-OH-THC, THC-COOH, HHC, and CBD in human plasma by LC-MS/MS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "eec45d5e-2a3c-4748-aff0-3d632d50a91e", "title": "The cannabinoid agonist DALN positively modulates L-type calcium-channels in N18TG2 cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism research"},
+    {"id": "eec70b2f-5423-436a-8395-a5e609ba2912", "title": "CBD products, from coffee to condiments and cosmetics", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market analysis correctly rejected"},
+    {"id": "eeef78ae-c811-4a39-95b0-96e9562da71c", "title": "Use of THC and CBD Products Perioperatively in Hip and Knee Arthroplasty", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid surgical use research"},
+    {"id": "ef0317a1-b951-42e9-a878-e8dd72222567", "title": "Medical cannabis use in Thailand after its legalization: survey", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns survey correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "ee21fbdc-3e3f-4029-814f-85475306c231",
+      "ee3c78b8-a077-42e2-8c7f-9d804d6674fc",
+      "ee7df64f-a50f-4881-979a-7cdfb7af2193",
+      "ee94124d-cca7-4491-b702-99a3a4dd4245",
+      "eeae65fe-2d62-4ef4-9293-4544b0c9c038",
+      "eeb5e02a-d9a4-454d-b2cc-2011172ce474",
+      "eec45d5e-2a3c-4748-aff0-3d632d50a91e",
+      "eeef78ae-c811-4a39-95b0-96e9562da71c"
+    ]
+  }
+}

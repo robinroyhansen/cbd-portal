@@ -1,0 +1,39 @@
+{
+  "batch_number": 201,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T16:15:00.000Z",
+  "results": [
+    {"id": "ded0484d-0cf6-41de-b626-a143a8000c83", "title": "CBD Exercise Physiology Bioenergetics RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD exercise/sports therapeutic"},
+    {"id": "ded78732-f1d3-4153-a262-55f9ac447542", "title": "CBD Time Onset Efficacy LGS Dravet RCTs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy clinical trials"},
+    {"id": "dedaa80f-ce54-4b2f-ad28-32ca8885d83a", "title": "CBD Daytime Sleepiness Fatigue Hypertension", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD sleep/cardiovascular therapeutic"},
+    {"id": "def228cf-afab-4324-9d76-4aa5db999260", "title": "CBD Pain Inflammation Bone Fracture RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain/inflammation therapeutic"},
+    {"id": "df11e435-6c6f-4b92-b7f4-8ec56a983e3e", "title": "CBD Endocannabinoids Blood Pressure RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular mechanism"},
+    {"id": "df138ad6-1962-4f04-b020-998cd876ee96", "title": "CBD Potentiates Levetiracetam Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy drug interaction"},
+    {"id": "df389f05-d41b-4bcb-b5d6-23c0efacf65f", "title": "Covariates Cannabis Use Progression Adolescents", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - adolescent cannabis use patterns"},
+    {"id": "df443ff3-fcb7-4f2a-9468-fe032905a5bd", "title": "Terpenyl-Cinnamoyl-Hydrazone CBD Analogues Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD analogue drug development"},
+    {"id": "df457bc3-4bd9-48b6-b7d0-2664fa11f51d", "title": "Brexpiprazole Schizophrenia SUD RCT", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - brexpiprazole non-cannabinoid"},
+    {"id": "df683535-2077-4b2f-86f6-c7df6355eb2b", "title": "Cannabinoids Cancer Care Palliative", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer palliative"},
+    {"id": "df8011bf-adba-400e-9545-5372cefa2269", "title": "Cannabinoids Neurodegeneration Generic Traits", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuroprotection review"},
+    {"id": "df819c3d-d3fa-4149-9a91-b3169e6c85aa", "title": "Guanfacine-ER Cannabis Use Disorder RCT", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - guanfacine non-cannabinoid"},
+    {"id": "df849138-ace6-4c8d-8e03-b137bdd6b4f7", "title": "Cannabinoid Ligands TRP Channels", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor mechanism"},
+    {"id": "df9eb486-5cfc-4c41-b880-521d5a31e16d", "title": "Cannabis Impact Age Onset Psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - earlier psychosis onset"},
+    {"id": "dfa81d3d-9966-4e67-bd81-ff3e816eb7fb", "title": "CBD-NE vs Epidyolex PK Fed Fasted", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PK comparison"},
+    {"id": "dfba58a4-a5d7-4fe4-9a47-0c00570e1d2d", "title": "CBD Metabolism Liver Toxicity Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety research"},
+    {"id": "dfc761cd-d706-42fa-838c-e3934fdd87a3", "title": "Going on Trial Newsletter CBD Orphan Drugs", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - newsletter content"},
+    {"id": "e00020ce-869e-4a67-bf88-b14d9b185764", "title": "CBD Adjunctive Prolonged Exposure PTSD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PTSD clinical trial"},
+    {"id": "e019bef6-9d25-43af-bfb7-7aef965b1669", "title": "High-Throughput Terpenes Terpenoids Cannabis Biomass", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "LAB METHODS - analytical methodology"},
+    {"id": "e06768aa-a80e-4207-b33b-d997579a0626", "title": "CBD DNA Damage Oral Squamous Cell Carcinoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD oral cancer therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "df389f05-d41b-4bcb-b5d6-23c0efacf65f",
+      "df457bc3-4bd9-48b6-b7d0-2664fa11f51d",
+      "df819c3d-d3fa-4149-9a91-b3169e6c85aa",
+      "df9eb486-5cfc-4c41-b880-521d5a31e16d",
+      "dfc761cd-d706-42fa-838c-e3934fdd87a3",
+      "e019bef6-9d25-43af-bfb7-7aef965b1669"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "batch_number": 369,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T10:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "9986a118-8683-44cc-aa86-c5cfc267a759", "title": "From Phytocannabinoids to Cannabinoid Receptors and Endocannabinoids: Pleiotropic Physiological and Pathological Roles Through Complex Pharmacology", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - comprehensive cannabinoid/ECS pharmacology review"},
+    {"id": "9993b4d0-20a9-4a1a-997e-8c957e94a5ef", "title": "Chronic nicotine alters cannabinoid-mediated locomotor activity and receptor density in periadolescent but not adult male rats", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm/development study correctly rejected"},
+    {"id": "99a55dcf-7ffe-49be-b612-e48db594692b", "title": "As CBD Skyrockets in Popularity, Scientists Scramble to Understand How It's Metabolized", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial content correctly rejected"},
+    {"id": "99dd5e28-c47b-42ed-a7ec-a38048682958", "title": "Advanced Tissue Imprinting With Pneumatic Press for Mass Spectrometry Imaging of Plant Tissues", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "99dfecdc-f15e-4d12-a17d-325be2152ddb", "title": "High performance thin-layer chromatography (HPTLC) analysis of cannabinoids in cannabis extracts", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "99ed1cec-4054-4e29-9e8e-1beb44b90042", "title": "Rheumatologists lack confidence in their knowledge of cannabinoids pertaining to the management of rheumatic complaints", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Provider education survey correctly rejected"},
+    {"id": "99fc50d4-b4bb-48b9-a261-afad95c85844", "title": "A Study on The Characteristics and User's Consciousness of the Pedestrian Mall in New Town CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "99fc59d4-19ee-4ede-bd0d-ffa7feb6a5d5", "title": "Tailoring of CdS Nano Films Through CBD-Isochronal Synthesis For PV Applications", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "9a0310a6-52e8-4a4d-86cf-ae96346c46e5", "title": "Rapid and sensitive detection of synthetic cannabinoids JWH-018, JWH-073 and their metabolites using molecularly imprinted polymer-coated QCM nanosensor", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "9a0ef563-ec67-40c4-9ddf-ec61630a0cd9", "title": "Quantification Study on Extension Definition of CBD:A Case Study of Xinjiekou CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "9a23acc6-6e5d-4984-a804-cd44571361e8", "title": "The CBD – Key Characteristics and Implications for Implementation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "9a270634-b559-42d8-bb7a-9fdaa081fd2d", "title": "Molecular packing and intermolecular interactions in two structural polymorphs of N-palmitoylethanolamine, a type 2 cannabinoid receptor agonist", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry/crystallography correctly rejected"},
+    {"id": "9a30b120-566a-4236-9295-20e27251259d", "title": "Cannabidiol gegen chemotherapieinduzierte periphere Neuropathie?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD for chemotherapy-induced neuropathy therapeutic"},
+    {"id": "9a3769b1-ad30-4e0d-bdf0-52543856c66c", "title": "Molecular Targets of Cannabidiol in Neurological Disorders", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD neurological therapeutic review"},
+    {"id": "9a382437-3f8b-4bac-8318-d7c0b385bd05", "title": "Nanotechnology-donated ischemic stroke therapeutics: evolving strategies from the basic to the cutting-edge", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "9a3a56f1-32ef-436e-a5b3-d01df627937f", "title": "CYP1B1- and CYP1A1-Template systems and their application to metabolism and inhibition", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "9a3b8540-9ec9-4ed6-820e-729d3eaf82e1", "title": "A Scoping Review on Male-Mediated Developmental Toxicity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "9a4c664d-0417-48b5-9360-61adc3f8435c", "title": "Excretion patterns of cannabinoid metabolites after last use in a group of chronic users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "9a5933ab-15af-462b-b4f0-a3c0c71ea3b5", "title": "Analysis of Cannabinoid-Containing Fluids in Illicit Vaping Cartridges Recovered from Pulmonary Injury Patients: Identification of Vitamin E Acetate", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "EVALI/harm investigation correctly rejected"},
+    {"id": "9a645c60-4c5a-4228-a88b-2323272ed9f8", "title": "Demand for teleworking with a special emphasis on office space in Sydney CBD regional markets", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "9986a118-8683-44cc-aa86-c5cfc267a759",
+      "9a30b120-566a-4236-9295-20e27251259d",
+      "9a3769b1-ad30-4e0d-bdf0-52543856c66c"
+    ]
+  }
+}

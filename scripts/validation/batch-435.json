@@ -1,0 +1,42 @@
+{
+  "batch_number": 435,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T02:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "e128299d-ce96-47c7-a0b9-611d782edc73", "title": "Cannabis Induced Impairment of Performance of a Divided Attention Task", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "e1394c4e-202a-43ec-b288-e2bf0717bd8d", "title": "Adolescent ischemic stroke associated with anabolic steroid and cannabis abuse", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "e13a44e9-82fd-4d92-ab7d-d7409084ab6f", "title": "Review of cannabis use and propofol anesthesia: recent insights and clinical implications.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis-anesthesia clinical interaction research"},
+    {"id": "e146a827-bdda-4c87-882e-334e8feea550", "title": "Activity of Cannabidiol on Ex Vivo Amino Acid Fermentation by Bovine Rumen Microbiota", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "e1549a84-12c7-4966-924f-5efd115b1cca", "title": "Are there any side effects to use Tom Selleck CBD Gummies United States?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Spam correctly rejected"},
+    {"id": "e1713cb0-7826-4970-afaa-d2f9597b265a", "title": "Proteomic Characterization of the Clostridium cellulovorans Cellulosome and Noncellulosomal Enzymes with Sorghum Bagasse", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "e184a0d6-bc48-497a-a3e6-151540caa285", "title": "Effects of Δ(9)-tetrahydrocannabinol (THC), cannabidiol (CBD), and THC:CBD mixtures on behavioral and physiological signs of morphine withdrawal in rhesus monkeys.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid opioid withdrawal therapeutic research"},
+    {"id": "e18f8d93-37b6-4179-a611-cbbffbe68eec", "title": "Therapeutic Potential of Cannabinoids—Perspectives for the Future", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic review"},
+    {"id": "e19b08bf-c8ce-45b7-aec8-384a8aa111d5", "title": "Exploring the Mechanisms Underlying the Analgesic Properties of Cannabidiol Using Magnetic Resonance Spectroscopy", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pain mechanism research"},
+    {"id": "e1ccd767-b194-4c8d-afb9-80e830e5aa3d", "title": "(S)Pot on Mitochondria: Cannabinoids Disrupt Cellular Respiration to Limit Neuronal Activity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm mechanism correctly rejected"},
+    {"id": "e1d79133-0228-4462-970b-bebf26ac3ced", "title": "Therapeutic Use of Synthetic Cannabinoids: Still an Open Issue?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic review"},
+    {"id": "e1ddac50-d13f-4201-9d33-beb1e9bc6d6c", "title": "Medicinal use of non-prescribed cannabis: a cross-sectional survey on patterns of use, motives for use, and treatment access in the Netherlands", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "e1e371cc-cc4b-4459-a6f0-14dcfe418775", "title": "Towards implementation of the CBD ecosystem approach : Examples from Sweden", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "e1fc947f-fa20-43b2-9843-35ba5af5b0e1", "title": "Beyond Delta-9-THC and CBD: Current Evidence for Medical Benefit of Terpenes and Less Studied Cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid/terpene therapeutic review"},
+    {"id": "e1fd7bd4-57ac-469c-b907-924a3ea14443", "title": "STUDY OF ON-STREET PARKING LOTS FOR THE EXCLUSIVE USE OF LOADING AND UNLOADING IN CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "e204cb2f-a727-4858-ac97-a604300921a2", "title": "The endogenous cannabinoid receptor agonist anandamide impairs memory in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS memory mechanism research"},
+    {"id": "e20cf9d2-d230-4233-8e0a-5bcebc4786bd", "title": "Cannabis and Male Fertility: A Systematic Review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "e210645e-5e06-458d-9ac4-5dd62bba0f59", "title": "Prevalence and use of cannabis products and routes of administration among youth and young adults in Canada and the United States: A systematic review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "e220b800-891a-4b0a-91a2-7b80a033c2e0", "title": "Development and characterization of pectin-based composite film incorporated with cannabidiol/2,6-di-O-methyl-β-cyclodextrin inclusion complex for food packaging", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product development correctly rejected"},
+    {"id": "e229d2c3-4cec-44e1-bc72-9e69e67ac346", "title": "Desensitization of Transient Receptor Potential Ankyrin 1 (TRPA1) by the TRP Vanilloid 1-Selective Cannabinoid Arachidonoyl-2 Chloroethanolamine", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid ion channel mechanism research"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "e13a44e9-82fd-4d92-ab7d-d7409084ab6f",
+      "e184a0d6-bc48-497a-a3e6-151540caa285",
+      "e18f8d93-37b6-4179-a611-cbbffbe68eec",
+      "e19b08bf-c8ce-45b7-aec8-384a8aa111d5",
+      "e1d79133-0228-4462-970b-bebf26ac3ced",
+      "e1fc947f-fa20-43b2-9843-35ba5af5b0e1",
+      "e204cb2f-a727-4858-ac97-a604300921a2",
+      "e229d2c3-4cec-44e1-bc72-9e69e67ac346"
+    ]
+  }
+}

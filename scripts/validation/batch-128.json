@@ -1,0 +1,38 @@
+{
+  "batch_number": 128,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T21:45:00.000Z",
+  "results": [
+    {"id": "8d182f1d-16ce-45f7-b85c-f07ce909c1ef", "title": "Clozapine Risperidone Schizophrenia CUD fMRI", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CUD treatment in schizophrenia"},
+    {"id": "8d1f91c4-04e6-41b7-9cc4-49536e35bb59", "title": "CBD Inverted U-shaped Public Speaking Anxiety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety therapeutic"},
+    {"id": "8d26f88d-213d-4150-ae92-492bd678dfc7", "title": "Problematic Alcohol Cannabis Young Adults", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - problematic use patterns"},
+    {"id": "8d2822e8-b879-47a3-a48e-2975d879dfec", "title": "Cannabis Cancer Symptoms Side Effects Management", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer therapeutic"},
+    {"id": "8d4344e5-8bf1-4faf-882f-8eeb082497a4", "title": "Enantiospecific CB1 Allosteric Modulation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology"},
+    {"id": "8d452bb1-b754-4d56-a09c-db3512197dc5", "title": "CBD Adjunctive Schizophrenia RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia therapeutic RCT"},
+    {"id": "8d4beabb-fcbf-46b2-b791-3c3154e8b22b", "title": "Arvanil Anandamide NADA Emesis CB1 TRPV1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anti-emetic mechanism"},
+    {"id": "8d6b6d84-ad95-4869-97bc-027d8809a13c", "title": "Capsaicin Cannabinoid Hyperemesis Syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Treating cannabis-induced condition"},
+    {"id": "8d87314e-8980-4630-8ad7-d270aef81d3b", "title": "Spasticity MS CB1 CB2 Cannabinoid", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid MS therapeutic mechanism"},
+    {"id": "8d919e3f-236f-4796-867e-1471d1099af3", "title": "CBD Stress Anxiety Management", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety therapeutic"},
+    {"id": "8d91e89f-6d1f-4e8e-84cd-d6d89d1a5b1c", "title": "Endocannabinoid IBD IBS Visceral Pain Protocol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid GI pain therapeutic"},
+    {"id": "8da08d6e-f11a-4ad1-bc45-b57fe9f1a759", "title": "CB2 Modulation Alzheimer's", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Alzheimer's therapeutic"},
+    {"id": "8dab07bc-d532-4fcc-a287-2e5df5b78dca", "title": "Editorial Cannabinoids Metabolic Endocrine", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL content"},
+    {"id": "8db6ff10-d554-4133-a5e5-11816134eb4d", "title": "19 Patients Seizure Freedom Cannabis Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis epilepsy therapeutic case series"},
+    {"id": "8de02e0e-607e-4b26-b097-d0e384370c5b", "title": "Correction CBD Ozone Pancreatic Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic correction"},
+    {"id": "8de99c86-e1c4-410f-9af2-8f5793a2f917", "title": "CB Receptor THC Alcoholism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid addiction research"},
+    {"id": "8dee5c09-fc06-407b-b041-1e6f60f85d85", "title": "CB1 Antagonism Liver Lipid Metabolism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid liver/metabolic therapeutic"},
+    {"id": "8e1940de-44b1-4ced-9061-5a27917e13d3", "title": "Synthetic Cannabinoid Psychiatric Psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - SC-induced psychosis"},
+    {"id": "8e2a3d77-446f-4b9f-a527-cda9ea5bd25b", "title": "CUD Sepsis Cancer Patients Paradox", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD cancer patient outcomes"},
+    {"id": "8e575ae7-06c3-4a08-ba36-5dfa59a23d05", "title": "Cannabis Use Depression Anxiety Primary Care", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use patterns in psychiatric patients"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "8d26f88d-213d-4150-ae92-492bd678dfc7",
+      "8dab07bc-d532-4fcc-a287-2e5df5b78dca",
+      "8e1940de-44b1-4ced-9061-5a27917e13d3",
+      "8e2a3d77-446f-4b9f-a527-cda9ea5bd25b",
+      "8e575ae7-06c3-4a08-ba36-5dfa59a23d05"
+    ]
+  }
+}

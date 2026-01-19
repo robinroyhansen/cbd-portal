@@ -1,0 +1,40 @@
+{
+  "batch_number": 410,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T20:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "c6b4fc2a-671f-44f3-af3a-7f61d8ff658a", "title": "The Evolution of Singapore's CBD in Urban Transformation and Its Revelation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "c6b81937-9a62-4f36-bf3f-0638dc961365", "title": "Ginkgo Biloba as a niche theme cognitive enhancer agent", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "c6b979e8-1df1-4c23-9e04-f9dd033e227d", "title": "Inhibition of monoamine oxidase activity by cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid MAO inhibition mechanism research"},
+    {"id": "c6bbbb34-8262-4f4a-ba85-fb1c84f304a9", "title": "Diagnostic assessment of first-episode psychosis patients and adherence to German S3 guidelines", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis incidental mention correctly rejected"},
+    {"id": "c6bd8e7e-cac2-462c-bfec-85141c9cb088", "title": "NuVita CBD Oil promo code BAMBI – Save 10% on Full Spectrum CBD Oil", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Commercial spam correctly rejected"},
+    {"id": "c6e38e51-5857-4d7c-bcfa-e8ad4123a63e", "title": "Phytochemical Profile, Extraction and Characterization of Bioactive Compounds from Industrial Hemp", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction/lab methods correctly rejected"},
+    {"id": "c6e56221-3e57-4cac-89fd-c49a9f72d3c3", "title": "The decomposition of acidic and neutral cannabinoids in organic solvents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab chemistry/storage correctly rejected"},
+    {"id": "c6e9d274-6019-4c6d-883b-e4924158bdd3", "title": "High-Potency Prenatal Cannabis Exposure and Birth Outcome Measures", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis prenatal harm correctly rejected"},
+    {"id": "c6f65e74-f0ac-445c-a1db-060b2ed3058d", "title": "Characterization of Human Hepatic and Extrahepatic UDP-Glucuronosyltransferase Enzymes Involved in the Metabolism of Classic Cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacokinetics research"},
+    {"id": "c7080fe8-6909-4969-9769-2107838d0855", "title": "Cannabimimetic activity of novel enantiomeric, benzofuran cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor pharmacology research"},
+    {"id": "c712451a-1426-4f18-8569-7e95bae6994c", "title": "Cannabidiol attenuates the expression of conditioned place aversion induced by naloxone-precipitated morphine withdrawal", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD opioid withdrawal therapeutic mechanism"},
+    {"id": "c71a9084-57d0-4b1e-ae40-5b2475df09bb", "title": "Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD research entry"},
+    {"id": "c74a9e9d-e3ba-458e-a76b-c89031730049", "title": "Kowloon East: Hong Kong's New Smart CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "c75e0a0f-b859-4363-b57b-fdbfd196d64b", "title": "THE EFFECTS OF ACUTE CANNABIS WITH AND WITHOUT CANNABIDIOL ON NEURAL REWARD ANTICIPATION IN ADULTS AND ADOLESCENTS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment study correctly rejected"},
+    {"id": "c7834e8e-4d88-49c5-85c1-1981dd9a7576", "title": "Lysophosphatidylcholine sensitizes TRPV2 by indirect mechanisms", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "c78d5ea9-75b4-4a03-97d3-7b7c381e9cd2", "title": "Δ9-Tetrahydrocannabinol discrimination in rats as a model for cannabis intoxication", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Intoxication model correctly rejected"},
+    {"id": "c7911308-bf7d-43d3-b1b1-d206b6dd1ab7", "title": "Environmental DNA (eDNA) Technology in Biodiversity and Ecosystem Health Research", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "c7981d4d-df23-4b6e-ac03-38373b270a22", "title": "Ethnic variations in sedentary behavior and marijuana use among U.S. adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "c79bbb1a-fe99-44db-a56d-b04d1aa9268e", "title": "RAPD markers encoding retrotransposable elements are linked to the male sex in Cannabis sativa L.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/genetics correctly rejected"},
+    {"id": "c7a77231-16b7-42cc-bb0d-070662edff60", "title": "Kinetic analysis of the cannabinoid-1 receptor PET tracer [18F]MK-9470 in human brain", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor PET imaging research"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "c6b979e8-1df1-4c23-9e04-f9dd033e227d",
+      "c6f65e74-f0ac-445c-a1db-060b2ed3058d",
+      "c7080fe8-6909-4969-9769-2107838d0855",
+      "c712451a-1426-4f18-8569-7e95bae6994c",
+      "c71a9084-57d0-4b1e-ae40-5b2475df09bb",
+      "c7a77231-16b7-42cc-bb0d-070662edff60"
+    ]
+  }
+}

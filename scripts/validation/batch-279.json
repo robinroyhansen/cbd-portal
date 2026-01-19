@@ -1,0 +1,40 @@
+{
+  "batch_number": 279,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T11:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "33df17e7-0a6d-453a-9268-bda046a7d740", "title": "Low doses of widely consumed cannabinoids (cannabidiol and cannabidivarin) cause DNA damage and chromosomal aberrations in human-derived cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CBD/CBDV genotoxicity correctly rejected"},
+    {"id": "33e461f4-c949-447f-b0ae-9f8cf344e36f", "title": "Effect of cannabis smoking on lung function and respiratory symptoms: a structured literature review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "341741f9-3507-4076-bc0d-c8b553e5359a", "title": "Cannabis sativa: A comprehensive ethnopharmacological review of a medicinal plant with a long history", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis ethnopharmacological review"},
+    {"id": "342aa6ee-565a-46d1-8cdb-2619c8d8316e", "title": "Cannabidiol, a non-psychoactive cannabinoid, leads to EGR2-dependent anergy in activated encephalitogenic T cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD immunomodulation for autoimmune"},
+    {"id": "343fb9eb-5513-4c88-90f5-408fbefcb5a5", "title": "Stage-Specific Excitation of Cannabinoid Receptor Exhibits Differential Effects on Mouse Embryonic Development1", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Developmental biology correctly rejected"},
+    {"id": "344489c9-7d46-4c58-82ee-37fbf0f038b4", "title": "Cats and cannabinoids: past, present and future.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "3445f971-a1bf-4e5b-8e19-6579813f757f", "title": "Medical Cannabis Use: Exploring the Perceptions and Experiences of Older Adults with Chronic Conditions", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis therapeutic for chronic conditions"},
+    {"id": "34461869-46c5-4c7b-b79c-b4d5436d6e33", "title": "Synergistic Effects of Rubidium Doping on the Structural Phase Purity and Electrical Conductivity of CBD-CdS Thin Films", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "344962b6-ad92-4908-820e-efb3147f0b55", "title": "Cannabidiol but not cannabidiolic acid reduces behavioural sensitisation to methamphetamine in rats, at pharmacologically effective doses", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD for addiction/meth sensitization"},
+    {"id": "344fdaa9-ed09-462a-ab9d-7e58b7bb8a02", "title": "Consumption of high carbohydrate, high fat, and normal chow is equally suppressed by a cannabinoid receptor antagonist in non-deprived rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid antagonist appetite mechanism"},
+    {"id": "346285f6-5112-4333-8b7d-f93c6ae3f34f", "title": "Bipolar disorder and co-occurring cannabis use disorders: Characteristics, co-morbidities and clinical correlates", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD comorbidity correctly rejected"},
+    {"id": "34652a3d-717a-42ac-8cd0-ca40e2a16971", "title": "A Preliminary Evaluation of the Comparative Efficacy of Gel-Based and Oil-Based CBD on Hematologic and Biochemical Responses in Dogs.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "34757669-edb2-44b3-9441-08f1fe2e90f1", "title": "Cannabis/Marijuana for Healthcare", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Generic title correctly rejected"},
+    {"id": "34782c01-9098-45fd-8221-9e4c5bef1d6f", "title": "Blowing Minds: A cross-cultural, longitudinal investigation to unravel the highs and lows of recreational and medicinal cannabis users.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "3487ea60-13c9-43e6-96bf-7be30efadd0a", "title": "Activation of Cannabinoid CB2 Receptor–Mediated AMPK/CREB Pathway Reduces Cerebral Ischemic Injury", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 for stroke/ischemia"},
+    {"id": "348a9665-991d-4dcd-9c04-cf0eeb996430", "title": "Prevalence and factors associated with alcohol and illicit drug use among Brazilian youth: a multicenter cross-sectional study.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "34a8327c-7588-446a-934d-7f214cb9a618", "title": "Endoscopic Retrograde Cholangiopancreatography for Choledocholithiasis: Clinical Outcomes and Predictors of Complications.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "34c39fa1-c913-45d6-9832-a87e9362855a", "title": "Laparoscopic CBD Exploration without T-tube", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "34c6b7e8-07fc-40d5-871f-854b3b64fe37", "title": "Acute Effects of Cannabis on Cognition and Mobility in Older HIV-infected and Uninfected Women", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "34f957a4-7003-4065-9afb-d0fa8b83543a", "title": "Reducing HIV/Sexually Transmitted Infection (STI) Risk Behaviors Among Juvenile Offenders on Probation: A Mobile Mindfulness-Based Intervention", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "341741f9-3507-4076-bc0d-c8b553e5359a",
+      "342aa6ee-565a-46d1-8cdb-2619c8d8316e",
+      "3445f971-a1bf-4e5b-8e19-6579813f757f",
+      "344962b6-ad92-4908-820e-efb3147f0b55",
+      "344fdaa9-ed09-462a-ab9d-7e58b7bb8a02",
+      "3487ea60-13c9-43e6-96bf-7be30efadd0a"
+    ]
+  }
+}

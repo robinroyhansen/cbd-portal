@@ -1,0 +1,37 @@
+{
+  "batch_number": 113,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T18:00:00.000Z",
+  "results": [
+    {"id": "7dfa4a2f-ff25-4253-a9a8-2b542fb9b30f", "title": "CBD Pediatric Epilepsy Meta-analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy systematic review"},
+    {"id": "7e14848b-0fbe-4e6e-a592-2777d3c54b76", "title": "CBD Hemp Anxiety Clinical Trial Website", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING - fake website for sale link"},
+    {"id": "7e14d340-a48e-4d27-a2c2-79736b88fd93", "title": "CBD THC Glioblastoma Cell Proliferation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer mechanism"},
+    {"id": "7e293468-dc56-47b0-9062-bd531d3677fc", "title": "CBD Skincare Products Effective", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD skin therapeutic"},
+    {"id": "7e387b54-d029-40e0-a200-ad4f537a773f", "title": "CBD Buprenorphine Synergistic Analgesia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain opioid interaction therapeutic"},
+    {"id": "7e59e85c-3a7d-4cd9-8881-1ee636665a42", "title": "THC CBD Villain Hero Adolescent Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD THC pharmacology review"},
+    {"id": "7e88b673-f8c7-4ffd-905b-537fcc0362e5", "title": "CBD Tuberous Sclerosis Seizures", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "7e9da8d4-c035-49df-875d-516273f53fd2", "title": "Like CBD But Better Drug Analogs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD analog drug development"},
+    {"id": "7eab8c2e-b373-4ac6-97dd-2a3362f9eeb9", "title": "Cannabis Insomnia Case Report Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis sleep therapeutic"},
+    {"id": "7eb4a4c5-c6ff-481f-b885-1cb7e7589124", "title": "Depression Cannabis Psychosis Outcomes", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - negative outcomes in psychosis"},
+    {"id": "7eba8e00-bbd8-4449-9058-023add0afde9", "title": "CB1 Receptor Spinal Dorsal Horn Localization", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid mechanism research"},
+    {"id": "7ee2364e-1fed-422c-97d7-d8bba54c4be2", "title": "CBD Ethanol Human Performance", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety pharmacology"},
+    {"id": "7ee929e6-c8e0-4447-9616-3e50b0cb31ea", "title": "Pharmacological Treatment Cannabis Dependence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - cannabis dependence pharmacotherapy"},
+    {"id": "7ee996fe-5279-47d9-9d95-a53d2ab0d45d", "title": "CBD Clobazam Antiseizure Synergism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism"},
+    {"id": "7ef47de9-6a12-4799-8f70-9a37e9760157", "title": "Daily Cannabis Negative Consequences Impulsivity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - negative consequences predictors"},
+    {"id": "7ef69d6e-55fc-4943-bf72-cf3d63a876fc", "title": "CBD HLA-G Choriocarcinoma Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer immunotherapy mechanism"},
+    {"id": "7ef8757a-531c-4ed6-9cd7-1fe78cd96960", "title": "CBD Benefits Side Effects More Info", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD review article"},
+    {"id": "7efbc2f6-bade-4d39-95ca-6d9414c52c5d", "title": "CBD Terpene Insomnia RCT Crossover", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD sleep therapeutic RCT"},
+    {"id": "7f1d4d3a-f10d-49ca-aec1-561eb204a4f4", "title": "CBN CBD Sleep Quality RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid sleep therapeutic RCT"},
+    {"id": "7f3e8827-3405-4801-99ed-c7b004ed32e2", "title": "CBD Placenta Inflammatory Response", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD inflammation mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "7e14848b-0fbe-4e6e-a592-2777d3c54b76",
+      "7eb4a4c5-c6ff-481f-b885-1cb7e7589124",
+      "7ee929e6-c8e0-4447-9616-3e50b0cb31ea",
+      "7ef47de9-6a12-4799-8f70-9a37e9760157"
+    ]
+  }
+}

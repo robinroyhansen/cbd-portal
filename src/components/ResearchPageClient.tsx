@@ -2870,20 +2870,27 @@ function ResearchTimeline({
   yearDistribution: Record<number, number>;
   dataYearRange: { min: number; max: number };
 }) {
+  const currentYear = new Date().getFullYear();
   const maxCount = Math.max(...Object.values(yearDistribution), 1);
+
+  // Show years from 2000 to current year (matching yearDistribution filter)
+  // This ensures we show the full publication history
+  const chartMinYear = 2000;
+  const chartMaxYear = Math.max(currentYear, dataYearRange.max);
   const years = Array.from(
-    { length: dataYearRange.max - dataYearRange.min + 1 },
-    (_, i) => dataYearRange.max - i
+    { length: chartMaxYear - chartMinYear + 1 },
+    (_, i) => chartMaxYear - i
   );
 
   return (
     <div className="bg-white border border-gray-200 rounded-lg p-6">
       <h3 className="text-lg font-semibold mb-4">Research Timeline</h3>
 
-      {/* Bar chart */}
+      {/* Bar chart - shows last 27 years (2000-current) */}
       <div className="mb-8">
-        <div className="flex items-end gap-1 h-32" aria-label="Research publications by year">
-          {years.slice(0, 20).reverse().map(year => {
+        <h4 className="text-sm text-gray-500 mb-2">Publications by Year (2000–{currentYear})</h4>
+        <div className="flex items-end gap-0.5 h-32" aria-label="Research publications by year">
+          {years.slice(0, 27).reverse().map(year => {
             const count = yearDistribution[year] || 0;
             const height = count > 0 ? Math.max((count / maxCount) * 100, 5) : 0;
 

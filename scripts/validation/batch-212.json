@@ -1,0 +1,39 @@
+{
+  "batch_number": 212,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T19:00:00.000Z",
+  "results": [
+    {"id": "eb10bba1-3f1b-415d-84da-939ae48d6c6a", "title": "Cannabis Full-Spectrum Low Back Pain Phase 3", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic Phase 3 RCT"},
+    {"id": "eb130e4d-8bf4-46cd-bfac-928cdc3b1085", "title": "CBD Prevents Infarction Non-CB1 Mechanism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotective stroke mechanism"},
+    {"id": "eb2441bf-b5d1-4d74-9886-d08a6148cbf0", "title": "CBD THC Neuroprotective Antioxidants", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuroprotection antioxidant"},
+    {"id": "eb2681bb-6e7c-424c-a542-def740c2ebb8", "title": "Biolyfe CBD Gummies SHOCKING SCAM 2022", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - CBD gummies advertisement"},
+    {"id": "eb4fef3a-80fd-4842-8b1f-2b2311245557", "title": "CBD Emotional Stimuli Healthy Adults", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD behavioral study negative results"},
+    {"id": "eb56352e-98b5-4b5a-8859-ca563f0cf479", "title": "CBD Cannabis Safer Schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia safety"},
+    {"id": "eb56d4ed-316e-4bf7-9911-444ec6fd5a70", "title": "Commentary CBD Cannabis Autism Clinical Study", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - commentary piece"},
+    {"id": "ebb07b6a-49a4-4cf7-8f07-7a883a52448a", "title": "CBD Short-Term Memory Alzheimer's STZ Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's therapeutic"},
+    {"id": "ebb4fd55-df5b-4b23-a89e-8a4eae2dacd0", "title": "Medical Cannabis Sleep Quality 12 Months", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis sleep therapeutic"},
+    {"id": "ebbea41e-8c9a-42db-93fb-48d63245e131", "title": "CBT-I Sleep Medication Substance Reduction", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - CBT-I insomnia treatment"},
+    {"id": "ebd0aba0-f81b-4529-93ff-1f38918504c8", "title": "THC CBD Macrophage IBD Murine Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid IBD therapeutic"},
+    {"id": "ebe41eba-e4a6-46e3-aef4-8af407202524", "title": "CBD Hemp Extract C. elegans Effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety toxicology C. elegans"},
+    {"id": "ebee63d7-5bfe-490b-8362-264220733e03", "title": "CBD Isolate Novel Food Safety Assessment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD novel food safety regulatory"},
+    {"id": "ebf16672-383a-49d0-876a-2821a409fd26", "title": "Moringa oleifera Immune Modulation Cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - Moringa plant study"},
+    {"id": "ebf78d4b-fd4e-4baa-98f4-dc08595cafaf", "title": "Pelican CBD Gummies Scam 2022", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - CBD gummies advertisement"},
+    {"id": "ec0c5bc6-3b86-4742-8cf8-84dca9e5d40f", "title": "CBD Inflammatory Response Rheumatoid Arthritis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD rheumatoid arthritis therapeutic"},
+    {"id": "ec18d32c-f93a-466b-a2cd-17e6d4dfce82", "title": "Cannabis Psychosis Schizophrenia Interaction", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis causation"},
+    {"id": "ec2dbc7f-49f5-44c5-a14f-869a53a0efbb", "title": "Cholesterol Modulation CB1 Receptors Nerve", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor mechanism"},
+    {"id": "ec4b1d3c-04c9-47d2-bf1d-9ba6aa80aacd", "title": "WIN55,212-2 Inflammatory Mediators Astrocytes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anti-inflammatory therapeutic"},
+    {"id": "ec54fd2e-4d01-4382-9b55-09f907f30f73", "title": "CBD-Rich Marijuana Driving Ability", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD driving safety study"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "eb2681bb-6e7c-424c-a542-def740c2ebb8",
+      "eb56d4ed-316e-4bf7-9911-444ec6fd5a70",
+      "ebbea41e-8c9a-42db-93fb-48d63245e131",
+      "ebf16672-383a-49d0-876a-2821a409fd26",
+      "ebf78d4b-fd4e-4baa-98f4-dc08595cafaf",
+      "ec18d32c-f93a-466b-a2cd-17e6d4dfce82"
+    ]
+  }
+}

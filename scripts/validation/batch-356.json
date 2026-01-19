@@ -1,0 +1,41 @@
+{
+  "batch_number": 356,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T07:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "8bacc8e6-7228-4fd5-b2e3-9b4d52235c33", "title": "The Biosynthesis of Cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Biosynthesis/chemistry correctly rejected"},
+    {"id": "8baf9eca-cef3-4626-89d2-4d710d988d3a", "title": "Microbial Biotransformation of Cannabidiol (CBD) - antimicrobial activity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD derivatives antimicrobial activity"},
+    {"id": "8bb77b36-3312-4e56-9b2f-71849cbad25f", "title": "Cannabis poisoning in children", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "8bc11167-a79a-4ed6-8e42-5a73dc8c6533", "title": "Work-related contact urticaria to Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm/allergy correctly rejected"},
+    {"id": "8bc4a774-8050-4054-879d-5866ed7b726c", "title": "Synergistic effects of cannabinoid inverse agonist AM251 on food intake", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid system appetite therapeutic"},
+    {"id": "8be8b41b-9a45-4f22-b6d9-d09df561517e", "title": "Subjective Social Status, Immigrant Generation, Cannabis Use Among Adolescents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "8bf39695-85b1-46a2-afff-996a079d9aae", "title": "Randomised, placebo-controlled trial of 20:1 CBD:THC on neurocognition and mood", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC clinical trial"},
+    {"id": "8bf5f32b-e966-4d2c-b1e6-75f8eeee9662", "title": "Jaundice Revealing Lemmel's Syndrome and Duplicated Gallbladder", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "8c120ff0-ee1b-4c6a-bbbc-bdcb3676d2c8", "title": "Oculomotor Effects of THC in Humans: Brain Cannabinoid System", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC brain cannabinoid system mechanism"},
+    {"id": "8c186846-b44b-4989-b228-37e7d02614cf", "title": "Exercise ameliorates stanozolol and cannabis co-abuse testicular damage", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "8c3a45b5-78c1-4f85-b7ed-532096fdae69", "title": "Social media surveillance for perceived therapeutic effects of CBD products", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic effects research"},
+    {"id": "8c428f35-8fa5-4629-997e-de2365e8d3f4", "title": "Ultrasound-assisted extraction of cannabidiol and THC from Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"},
+    {"id": "8c4d617e-86c9-462d-87a0-8ae21ea909f2", "title": "Δ7-TETRAHYDROCANNABINOL, NON-PSYCHOTROPIC: STRUCTURE-ACTIVITY CONSIDERATIONS", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid SAR research"},
+    {"id": "8c6672e6-a759-4924-9d2f-5c446d2b8538", "title": "Catalytic asymmetric synthesis of cannabinoids and menthol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthesis correctly rejected"},
+    {"id": "8c751eac-1595-49e6-8f97-f5d7afc9ec53", "title": "Health Perceptions of CBD Marketing data file", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Marketing research data correctly rejected"},
+    {"id": "8c7e6ef5-2753-4911-9a8d-961d165481df", "title": "Impact of cannabis and cannabinoids for medical conditions on QoL: systematic review", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis therapeutic systematic review"},
+    {"id": "8c86f126-8ccb-4e90-9c22-46c620632a82", "title": "Cannabis and psychosis in acute psychiatric admissions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "8c8cf8b3-3c1c-4046-84d2-543be719f965", "title": "Association between cannabis use and schizotypal dimensions meta-analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "8caf7d00-e7a8-4b83-8e3d-382943c10c3c", "title": "Nicotine Replacement Therapy Through Pharmacist Prescribing", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "8caf9fde-74f3-41c2-b8e9-18e6daaf74a7", "title": "Multispectral reflectance dataset of medicinal Cannabis cultivars", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "8baf9eca-cef3-4626-89d2-4d710d988d3a",
+      "8bc4a774-8050-4054-879d-5866ed7b726c",
+      "8bf39695-85b1-46a2-afff-996a079d9aae",
+      "8c120ff0-ee1b-4c6a-bbbc-bdcb3676d2c8",
+      "8c3a45b5-78c1-4f85-b7ed-532096fdae69",
+      "8c4d617e-86c9-462d-87a0-8ae21ea909f2",
+      "8c7e6ef5-2753-4911-9a8d-961d165481df"
+    ]
+  }
+}

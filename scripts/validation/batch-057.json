@@ -1,0 +1,39 @@
+{
+  "batch_number": 57,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T04:00:00.000Z",
+  "results": [
+    {"id": "3fc25bb4-2086-454f-a8a4-acc2d48edfbb", "title": "Investigating the polygenic relationship between heavy cannabis use and schizophrenia in the All of Us Research Program.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - cannabis-schizophrenia genetic relationship"},
+    {"id": "3fde4758-08e4-4712-8b79-73ff13393859", "title": "Biolyfe CBD Gummies Reviews: Hoax or Real? Is it Worth Your Money?", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING - blatant CBD gummies marketing spam"},
+    {"id": "3fdf6de7-02bf-4d43-ad47-bbf57633469d", "title": "Modulatory Effects of Active Drugs on the Endocannabinoid System on Spontaneous and Induced Contractility of the Colon", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid GI motility therapeutic research"},
+    {"id": "3ff3f588-aebd-4d99-a863-8b0b492499ad", "title": "Individual and combined effects of Cannabidiol (CBD) and Δ9-tetrahydrocannabinol (THC) on striato-cortical connectivity in the human brain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC brain mechanism research"},
+    {"id": "40005c25-c782-4c81-bdf0-a18fdddf7355", "title": "Short‐Term Effects of Cannabinoids on Immune Phenotype and Function in HIV‐1‐Infected Patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid HIV immune safety research"},
+    {"id": "403836bf-52dd-4d58-8f90-f587c66f6a59", "title": "Cannabidiol Does Not Impact Acute Anabolic or Inflammatory Signaling in Skeletal Muscle In Vitro", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD skeletal muscle mechanism research"},
+    {"id": "403be4a8-c5c6-41a7-91bd-d94d7aa30969", "title": "Tolerability and Efficacy of Hemp-Derived CBD for the Treatment of Alcohol Use Disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD alcohol use disorder therapeutic"},
+    {"id": "403d78ae-0485-40b2-9e47-899b390e228f", "title": "From Screening to a Nanotechnological Platform: Cannabidiol-Chemotherapy Co-Loaded Lipid Nanocapsules for Glioblastoma Multiforme Treatment.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD glioblastoma cancer therapeutic"},
+    {"id": "40670e77-375d-4ff9-a026-96eb5f066abc", "title": "Therapeutic potential of TRPM8 channels in cancer treatment", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - TRPM8 channels, not cannabinoid-related"},
+    {"id": "406e24b3-eb66-465f-a89f-a1e681279da7", "title": "A peripherally restricted cannabinoid receptor agonist produces robust anti-nociceptive effects in rodent models of inflammatory and neuropathic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Peripheral CB1 agonist pain therapeutic"},
+    {"id": "407bb079-ad06-498f-b82b-c1ff308398c9", "title": "Translational validity of quantitative sensory testing in chronic pain neuro-sensitization: guide of use and interpretation in osteoarthritis animal models", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general pain methodology, no cannabinoid focus"},
+    {"id": "407d92e4-8ff4-4ea0-bc36-3a6ae8aeee7b", "title": "Cannabis and psychosis – Authors' reply", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - author's reply to letter, not research"},
+    {"id": "40854e43-49ba-4e2e-a617-00a9efbc40a1", "title": "Opioid reduction in patients with chronic non-cancer pain undergoing treatment with medicinal cannabis.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis opioid-sparing therapeutic"},
+    {"id": "40868967-8c9d-4b33-af96-af6fffa3f8cc", "title": "Evaluating the Acute Effects of the Cannabinoid Dronabinol and the Opioid Hydromorphone Alone and in Combination: A Double-Blind, Randomized, Placebo-Controlled Trial in Knee Osteoarthritis.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Dronabinol/THC osteoarthritis pain therapeutic RCT"},
+    {"id": "40b60f3b-e1fa-4c7a-ba58-0a6aed6b109c", "title": "A Randomized Controlled Trial of Topical Cannabidiol for the Treatment of Thumb Basal Joint Arthritis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD thumb arthritis therapeutic RCT"},
+    {"id": "40b7c68d-aabe-424d-871c-43ef40a4daa1", "title": "Cannabis Use Patterns and Their Association with DSM-IV Cannabis Dependence and Gender", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use patterns and dependence, not therapeutic"},
+    {"id": "40bc2c68-1bcb-4480-84c4-672783523571", "title": "Association between BDNF/CB1R expression and postoperative pain and recovery in patients with preoperative sleep disorders.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1R pain/sleep mechanism research"},
+    {"id": "40e355ea-1f32-419d-b633-aa529a764cbd", "title": "Use of a Product Containing the Cannabinoids CBD and THC as a Treatment Strategy for Alzheimer's Disease - Clinical Trial Alzheimer's Disease and Cannabis (DAZACANN)", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis Alzheimer's therapeutic RCT"},
+    {"id": "40f30635-80a4-4427-aac8-4a43f72707fd", "title": "Nav1.8, an analgesic target for nonpsychotomimetic phytocannabinoids.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Phytocannabinoid pain mechanism research"},
+    {"id": "41009b24-54c0-47af-886f-b3164ca57cf4", "title": "Efficacy and safety of cannabidiol in children with developmental and epileptic encephalopathies: A systematic review.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pediatric epilepsy systematic review"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "3fc25bb4-2086-454f-a8a4-acc2d48edfbb",
+      "3fde4758-08e4-4712-8b79-73ff13393859",
+      "40670e77-375d-4ff9-a026-96eb5f066abc",
+      "407bb079-ad06-498f-b82b-c1ff308398c9",
+      "407d92e4-8ff4-4ea0-bc36-3a6ae8aeee7b",
+      "40b7c68d-aabe-424d-871c-43ef40a4daa1"
+    ]
+  }
+}

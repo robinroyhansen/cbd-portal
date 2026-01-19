@@ -1,0 +1,36 @@
+{
+  "batch_number": 169,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T08:15:00.000Z",
+  "results": [
+    {"id": "bd7f8437-80bb-47ac-aab4-eedadc24dff6", "title": "Medical Cannabis IBD Real-Life Side-Effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis IBD therapeutic observational"},
+    {"id": "bda00e39-969f-4f48-bd14-61c7e233352f", "title": "Endogenous Cannabinoid Opioid Systems Addiction", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS opioid addiction mechanism"},
+    {"id": "bda47960-bd48-4756-a2d1-cc9f3abd7f96", "title": "Cannabigerol Liver Fibrosis AMPK Activation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG hepatology mechanism"},
+    {"id": "bdaf1d2a-5119-4ddc-a8c8-7270dfa10527", "title": "Cocaine CPP CB2 CB1 Modulation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid addiction mechanism"},
+    {"id": "bdbc127c-252d-46ff-be15-adaf62d9f94c", "title": "Cannabinoid Model Psychosis Dopamine Schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS psychosis mechanism"},
+    {"id": "bdce6725-8ad2-46cc-821e-3d84988d32d8", "title": "CB1 Antagonist SSRI Antidepressant Tests", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid depression mechanism"},
+    {"id": "bdcf9710-e30c-43a7-8b64-35c21497f293", "title": "Biolife CBD Gummies SCAM EXPOSED", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - advertisement"},
+    {"id": "bdd3551c-11e5-4116-8b9d-c4e1a1742339", "title": "β-Caryophyllene Dermatologic Disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 agonist terpene skin therapeutic"},
+    {"id": "bde0458a-1012-4e64-84f2-d2f9357c1067", "title": "Cannabinoids Intestinal Motility CB2 Receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid GI mechanism"},
+    {"id": "bde62859-c9d3-48ec-93ec-3d5d5865fb57", "title": "CBD Acute Lung Injury Murine Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD respiratory anti-inflammatory"},
+    {"id": "be1a5193-02a5-4ea6-8230-67e7d730af53", "title": "I Use Weed for ADHD Online Forum Analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis ADHD patient perspectives"},
+    {"id": "be1eefec-de56-4c87-a2e2-7ad7d97986e4", "title": "CBD Hydroxychloroquine Phase I PK Trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug combination trial"},
+    {"id": "be1f8ed1-212f-4405-835e-f9b6869fef1b", "title": "Urinary PK CBD Vaporized Oral Drug Testing", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics drug testing"},
+    {"id": "be2b2262-7959-4268-8ef5-b1be461d2492", "title": "Cannabis Cue Reactivity CUD Neuroimaging", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD neuroimaging patterns"},
+    {"id": "be438cd9-ebd8-425a-9838-6a2ed1415e91", "title": "Cannabinoid Receptor Distribution Rat Brain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS basic research"},
+    {"id": "be4c4bdf-7b52-46ff-a08a-92092a14fe0e", "title": "Cannabis Dependence Comorbidity Southwest California Indians", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis dependence patterns"},
+    {"id": "be5f37c0-e32c-4968-bebb-66646028fe0a", "title": "Cannabigerol Inflammatory Bowel Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG IBD therapeutic"},
+    {"id": "be62a34f-42bb-4f2d-9a3c-2ec757439fd1", "title": "CBD Neuropathic Pain Carioca Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain/anxiety mechanism"},
+    {"id": "bec46870-14c2-4e5f-8ef0-83f5df166280", "title": "COVID-19 and Cannabidiol CBD Commentary", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD COVID review commentary"},
+    {"id": "beef71bc-d46f-4251-b534-78833195506b", "title": "Medical Cannabis ODT vs Sativex PK Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis formulation PK research"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "bdcf9710-e30c-43a7-8b64-35c21497f293",
+      "be2b2262-7959-4268-8ef5-b1be461d2492",
+      "be4c4bdf-7b52-46ff-a08a-92092a14fe0e"
+    ]
+  }
+}

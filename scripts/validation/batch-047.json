@@ -1,0 +1,41 @@
+{
+  "batch_number": 47,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T01:30:00.000Z",
+  "results": [
+    {"id": "354a9224-edc9-4834-aa68-36008ad2194c", "title": "Is the Clinical Use of Cannabis by Oncology Patients Advisable?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis therapeutic oncology review"},
+    {"id": "3553a459-1733-4e36-8b64-6fca2a0f2afa", "title": "Nuances of Gender Identity for a Transgender Patient Receiving Inpatient Treatment for Paranoid Schizophrenia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - transgender schizophrenia case study"},
+    {"id": "35667059-1d98-4f78-ae5c-9c17d0d82835", "title": "Financial literacy as a measure of firm performance. A study of SMEs in Harare CBD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Central Business District Zimbabwe (finance)"},
+    {"id": "356775ee-62f2-4442-96b7-9eecc2ae4578", "title": "Cannabinoid Hyperemesis Syndrome", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - hyperemesis syndrome caused by use"},
+    {"id": "357aba6f-a123-4f83-8f27-74a7c4ed55c5", "title": "Combined effects of cannabidiol and THC alleviate migraine-like symptoms in mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC migraine therapeutic research"},
+    {"id": "357d98f9-ae35-49b1-a0ff-b7e16301ced3", "title": "Evaluation of the Effectiveness and Safety of Revodiol Calming Cream in Atopic Dermatitis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CLEAR CANNABINOID - product name doesn't confirm CBD"},
+    {"id": "3582658a-d88e-4f66-8764-84aa9a9bbaf9", "title": "Subjective effects of cannabidiol in anxiety disorder and cannabinoid excretion in chronic daily cannabis smokers", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiolytic effect in social anxiety disorder"},
+    {"id": "35993ebe-8e01-4bb8-a6a8-6bc3fe629ecb", "title": "Puberty as a highly vulnerable developmental period for the consequences of cannabis exposure", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - developmental vulnerability study"},
+    {"id": "359d4509-e962-4717-9708-d2458dedacef", "title": "Cannabidiol affects body weight gain and adipose tissue accumulation in rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD obesity therapeutic research"},
+    {"id": "35bde8ba-b538-4b8a-91f9-6710f74f811e", "title": "College students' receptiveness to intervention approaches for alcohol and cannabis use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - intervention to reduce cannabis use"},
+    {"id": "35c42060-dd24-47dd-9525-08808d133b3e", "title": "Arousal-enhancing properties of the CB1 cannabinoid receptor antagonist SR 141716A", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 antagonist sleep/arousal research"},
+    {"id": "35c58c57-3dc8-4267-bf11-3456fe521d22", "title": "Deficiency of cannabinoid receptor of type 2 worsens renal functional abnormalities in diabetic mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 diabetes mechanism research"},
+    {"id": "35c9ab2c-e63a-4295-b70f-d40dd50abe1c", "title": "Discovery of Ring-Annulated Analogues of Cannabidiol as Potential Anticancer Agents", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anticancer drug development"},
+    {"id": "35d16aba-c599-408f-a9b0-4c623557b3e3", "title": "In Vitro and Clinical Evaluation of Cannabigerol (CBG) Produced via Yeast Biosynthesis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG therapeutic skin research"},
+    {"id": "35d882d8-239a-4bd3-8fe6-cd35e1433804", "title": "Mother infant cortisol levels and maternal childhood adversity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - cortisol/stress study"},
+    {"id": "35f51d22-a957-4405-a760-843c18e9c225", "title": "Investigating the Mental Health Impact of COVID-19 and Caring Contact Interventions", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - COVID mental health interventions"},
+    {"id": "35fc27ab-552d-4724-9dd4-768df943368a", "title": "Chronic activation of CB2 cannabinoid receptors in hippocampus increases excitatory synaptic transmission", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 receptor mechanism research"},
+    {"id": "36397530-621b-4972-9a9d-cda3a028d8ab", "title": "Antidepressant-like effects of cannabidiol in a rat model of early-life stress", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antidepressant therapeutic research"},
+    {"id": "3649fb0c-2fc6-4e51-85e4-a3512d2d5883", "title": "CB1 Cannabinoid Antagonists: Structure-Activity Relationships and Potential Therapeutic Applications", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 antagonist drug development review"},
+    {"id": "365b80b1-21a8-410e-b1b6-bb9babd775d1", "title": "Cannabis Use Moderates Methamphetamine- and HIV-Related Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis anti-inflammatory HIV research"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "3553a459-1733-4e36-8b64-6fca2a0f2afa",
+      "35667059-1d98-4f78-ae5c-9c17d0d82835",
+      "356775ee-62f2-4442-96b7-9eecc2ae4578",
+      "357d98f9-ae35-49b1-a0ff-b7e16301ced3",
+      "35993ebe-8e01-4bb8-a6a8-6bc3fe629ecb",
+      "35bde8ba-b538-4b8a-91f9-6710f74f811e",
+      "35d882d8-239a-4bd3-8fe6-cd35e1433804",
+      "35f51d22-a957-4405-a760-843c18e9c225"
+    ]
+  }
+}

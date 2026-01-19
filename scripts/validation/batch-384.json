@@ -1,0 +1,39 @@
+{
+  "batch_number": 384,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T14:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "a8eccb24-34ef-4124-a9af-c7e246a8ce10", "title": "Season‐long characterization of high‐cannabinoid hemp (Cannabis sativa L.) reveals variation in cannabinoid accumulation, flowering time, and disease resistance", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "a8ff3a8b-952f-4fd6-b9af-13898c7553e8", "title": "Edible Cannabis–Induced Psychosis: Intoxication and Beyond", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "a908b02e-ceec-499b-9d9f-07d82dd54812", "title": "Does cannabidiol protect against the negative effects of THC?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD protective effects research"},
+    {"id": "a912da5a-6180-447c-a0b8-4bdf5e98b247", "title": "Uncovering the antifungal potential of Cannabidiol and Cannabidivarin.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/CBDV antifungal therapeutic"},
+    {"id": "a91c6750-0fac-4584-8d61-2bf829024ea4", "title": "Cannabidiol in Foods and Food Supplements: Evaluation of Health Risks and Health Claims", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Regulatory correctly rejected"},
+    {"id": "a9261c66-7542-44b2-baaf-e04764c2b5e0", "title": "Biological basis of cannabinoid medicines", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid medicine mechanism"},
+    {"id": "a927b8cc-e1e3-452f-a2db-6e45e9571491", "title": "Le cannabidiol (CBD) : que faut-il retenir ?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correctly rejected"},
+    {"id": "a93102b5-7e91-406d-b2b0-ca2b5778d8f6", "title": "A Cytochrome P450 Enzyme Responsible for the Carbon Monoxide Formation by Cannabidiol in Mouse Hepatic Microsomes.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD metabolism research"},
+    {"id": "a943cb44-c0ed-456c-ac54-cce3decba0c3", "title": "From Science to Pleasure: Justifications of the Use of Classic Psychedelics in Finland", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a94d4f5a-11e7-40d7-83d9-b2d7d0821828", "title": "Auxiliary Discrminator Sequence Generative Adversarial Networks (ADSeqGAN) for Few Sample Molecule Generation.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a94e1160-90cf-4772-b07e-f6cebc6efc79", "title": "Research on drug-drug interaction prediction using capsule neural network based on self-attention mechanism", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a9569d5f-6f86-462c-89d0-0bfc6f6c19bd", "title": "Cannabis and night vision", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis vision mechanism research"},
+    {"id": "a964bac0-cd0a-44e2-ad0a-f49b7b1a22c6", "title": "Predicting Ultra-High Risk Outcomes Using Linguistic and Acoustic Measures From High-Risk Social Challenge Recordings: mHealth Longitudinal Cohort Exploratory Study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a9a236e5-a2e7-481a-9e64-5941f6bedc31", "title": "Exploring the relationship between cannabis use and psychosis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "a9ad610b-c1e2-4753-81b3-f7227fcca766", "title": "Many Questions Surround CBD.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correctly rejected"},
+    {"id": "a9b097b7-ddb1-425a-bd07-a49be0a69379", "title": "Psilocybin Outside the Clinic: Public Health Challenges of Increasing Publicity, Accessibility, and Use.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a9b72e19-34b1-4165-8cba-51da2f4a78e2", "title": "Chemotaxonomic Features Associated with Flavonoids of Cannabinoid-Free Cannabis (Cannabis sativasubsp.sativaL.) in Relation to hops (Humulus LupulusL.)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry correctly rejected"},
+    {"id": "a9c8b8ef-0b76-49a3-942c-f854ea2a318b", "title": "Evaluation of Cannabis Per Se Laws: A Semi‐Mechanistic Pharmacometrics Model for Quantitative Characterization of THC and Metabolites in Oral Users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/forensic correctly rejected"},
+    {"id": "a9d4131e-b43d-4166-ab8a-60b9dfeebcfd", "title": "ID1 in hematopoiesis and hematologic disorders: novel potentials of a classic differentiation regulator", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a9d44bc0-0b55-4801-a84d-b4ae5d275d56", "title": "An analysis of the cultivation, consumption and composition of home-grown cannabis following decriminalisation in the Australian Capital Territory", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "a908b02e-ceec-499b-9d9f-07d82dd54812",
+      "a912da5a-6180-447c-a0b8-4bdf5e98b247",
+      "a9261c66-7542-44b2-baaf-e04764c2b5e0",
+      "a93102b5-7e91-406d-b2b0-ca2b5778d8f6",
+      "a9569d5f-6f86-462c-89d0-0bfc6f6c19bd"
+    ]
+  }
+}

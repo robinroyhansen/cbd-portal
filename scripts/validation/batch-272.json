@@ -1,0 +1,42 @@
+{
+  "batch_number": 272,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T10:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "2cb8fed1-d2b7-473a-a738-389cc75011ab", "title": "Factors influencing the in situ formation of Δ9-THC from cannabidiol during GC-MS analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical methodology correctly rejected"},
+    {"id": "2cbcbb8e-a6f4-4a67-bfbf-d9a3e8c2e9db", "title": "Inferring the value of walking time from parking rent data in a diffused CBD model", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "2cd31a6f-8b59-4677-ad26-25703d80c7aa", "title": "Repeated administration of cannabidiol decreases splenic lymphocyte subset numbers in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD immunomodulation"},
+    {"id": "2cde49fb-56e4-45cb-b049-8d9c14c70f9f", "title": "Synthetic cannabinoid use associated with acute kidney injury", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid harm correctly rejected"},
+    {"id": "2cf1ff89-8cc4-4864-94d5-18c73c5ce820", "title": "The cannabis-mind connection: a clinician's perspective on mental health practice, harm reduction", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm/mental health correctly rejected"},
+    {"id": "2cf2cae3-17bf-41e4-aced-9212eb1d1390", "title": "The Crystal and Molecular Structure of Cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry/crystallography correctly rejected"},
+    {"id": "2cf52175-8868-466c-b961-38379e7150c4", "title": "Effect of heat-treatment on Cu2S thin films deposited by CBD method", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "2cfc8b20-d4bf-4e94-8788-e285acbee5a2", "title": "Cannabinoid CB1 receptor antagonist rimonabant attenuates reinstatement of ketamine conditioned place preference in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor in addiction"},
+    {"id": "2d02284f-545c-4122-a935-6c5d17c34ef5", "title": "Labelling and biological evaluation of [11C]methoxy-Sch225336: a radioligand for the cannabinoid-type 2 receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor imaging tool"},
+    {"id": "2d110d06-287d-464a-b68d-c5f4a50ad364", "title": "Cannabinoids and the Cannabinoid Receptors: An Overview", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor overview"},
+    {"id": "2d1346ed-db8b-4286-9850-59ef924925ff", "title": "Delta9-Tetrahydrocannabinol: A blunt weapon or a double-edged sword for virus-induced neuroinflammation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC for neuroinflammation"},
+    {"id": "2d174e59-c0fc-4997-a542-79df12da689c", "title": "In vivo and In vitro Crosstalk Among CBD, Aβ, and endocannabinoid system enzymes and receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD for Alzheimer's"},
+    {"id": "2d3e1105-d0db-4f8e-9b50-22a58587b048", "title": "A case of acute cerebral ischemia following inhalation of a synthetic cannabinoid", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid harm correctly rejected"},
+    {"id": "2d71f134-683e-47b7-b5e6-192c21a646dc", "title": "Aligning a Household-Level Service Array Through Child Maltreatment Prevention Effort", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2d736bd7-7491-45d1-847e-cfb12def6b06", "title": "EndoCure CBD Oil Starter Pack", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM/advertising correctly rejected"},
+    {"id": "2d7c950d-7f7d-44ce-b910-02e47492f1e4", "title": "A bio-SPME-LC-MS/MS method for quantitative determination of cannabinoids in plasma", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical methodology correctly rejected"},
+    {"id": "2d8018e9-308b-409c-b8b6-432389f4048a", "title": "Chitosan-Modified Biodegradable Polymeric Nanoparticles for Tunable Cannabidiol Release and Enhanced Mucosal Transport", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery"},
+    {"id": "2d81711a-f9c1-415b-87fe-39fe851d9899", "title": "Evaluation of an interactive mobile phone-based brief intervention to reduce driving under the influence of cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "2d8778aa-8b6c-42ea-963b-1782b9b0a523", "title": "Coevolution between cannabinoid receptors and endocannabinoid ligands", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Evolutionary biology correctly rejected"},
+    {"id": "2d89a145-9239-4262-bf01-d9bf5660b94d", "title": "Cannabidiol Reduces D1 and D2 Medium Spiny Neuron Excitability in the Nucleus Accumbens Core", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD brain mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "2cd31a6f-8b59-4677-ad26-25703d80c7aa",
+      "2cfc8b20-d4bf-4e94-8788-e285acbee5a2",
+      "2d02284f-545c-4122-a935-6c5d17c34ef5",
+      "2d110d06-287d-464a-b68d-c5f4a50ad364",
+      "2d1346ed-db8b-4286-9850-59ef924925ff",
+      "2d174e59-c0fc-4997-a542-79df12da689c",
+      "2d8018e9-308b-409c-b8b6-432389f4048a",
+      "2d89a145-9239-4262-bf01-d9bf5660b94d"
+    ]
+  }
+}

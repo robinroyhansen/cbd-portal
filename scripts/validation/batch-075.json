@@ -1,0 +1,37 @@
+{
+  "batch_number": 75,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T08:30:00.000Z",
+  "results": [
+    {"id": "52e8aff0-f61f-444c-8758-26f073fac443", "title": "Medical cannabis reduces opioids HIV+ pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis opioid-sparing HIV pain"},
+    {"id": "52f35ef1-3a84-4857-b0e1-88325614d221", "title": "Cardiovascular effects cannabis vs tobacco", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cardiovascular toxicity risk"},
+    {"id": "52f3bfaf-f42a-4100-aac9-46763ee472f2", "title": "CBD pharmacokinetics in children with epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy pharmacokinetics"},
+    {"id": "5304bc38-0ca7-4628-90e9-e098f48d616b", "title": "CB1-dependent CART regulation zebrafish fasting", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 appetite mechanism"},
+    {"id": "533c9395-136e-45b2-86b5-e66733d11544", "title": "Cannabidiol – Recent Advances", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacological review"},
+    {"id": "533f4cd6-2e88-4c96-8831-66d2e43ff0fd", "title": "Opioid-sparing cannabinoids systematic review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid opioid-sparing meta-analysis"},
+    {"id": "53401c4d-6534-49f8-ae53-bf31b04b37bf", "title": "Cannabinoid receptor ontogeny postnatal and aging rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB receptor development"},
+    {"id": "53493a94-d465-470b-aee2-bbd7c729b15d", "title": "Cannabidiol for Cannabis Use Disorder", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - treating cannabis addiction with CBD"},
+    {"id": "535a1378-504f-48cc-bc8a-edf8b11bccc4", "title": "Exosome-infused DTM-MPs hydrogel tendon repair", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - biomaterial tendon repair"},
+    {"id": "535d3fd7-e348-482b-bb2d-0f7fa76cfb0b", "title": "CBD refractory epilepsy real-life study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "5376774d-5b3d-4db2-a396-c8519c07ec0c", "title": "Medicinal cannabis MS spasticity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis MS therapeutic"},
+    {"id": "53aa44e5-3794-4f06-8d7c-0b3e9d38f4c9", "title": "O‐1057 water‐soluble CB agonist antinociception", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Novel water-soluble cannabinoid analgesic"},
+    {"id": "53b9ca69-e2f3-4c33-a58c-8d0563b20116", "title": "RelA for CBD glioblastoma cytotoxicity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD glioblastoma mechanism"},
+    {"id": "53ca7531-073d-4625-ba20-c0f9cc0f13a3", "title": "Cannabinoids intestinal inflammation and cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid IBD/cancer review"},
+    {"id": "53cd4e58-5536-4964-b84e-b58149617507", "title": "Cannabis/CBD chronic pain physician perspective", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain physician review"},
+    {"id": "53cfdd1b-a378-47d5-b896-45119b2616c9", "title": "CBD PLGA nanoparticles metabolic syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD metabolic therapeutic nanoformulation"},
+    {"id": "53d7bd4f-116f-4193-a496-bf3b5e4ad82b", "title": "Psychotic-like experiences mental disorders Lagos Nigeria", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - psychiatric epidemiology"},
+    {"id": "53e2e61d-76f3-4244-9b66-282317daef15", "title": "CBD liver inflammation obesity PCOS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD metabolic/PCOS therapeutic"},
+    {"id": "53e9f907-af28-4e5b-b412-5035a1452736", "title": "CBD-enriched cannabis for autism Turkey", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism clinical experience"},
+    {"id": "540aeec0-5a69-4068-8a04-e08b107982c3", "title": "CBD neural basis anxiolytic effects SAD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD social anxiety neuroimaging"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "52f35ef1-3a84-4857-b0e1-88325614d221",
+      "53493a94-d465-470b-aee2-bbd7c729b15d",
+      "535a1378-504f-48cc-bc8a-edf8b11bccc4",
+      "53d7bd4f-116f-4193-a496-bf3b5e4ad82b"
+    ]
+  }
+}

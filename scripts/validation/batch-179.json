@@ -1,0 +1,38 @@
+{
+  "batch_number": 179,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T10:45:00.000Z",
+  "results": [
+    {"id": "c8426030-974c-4581-9814-06b24d7aa3e2", "title": "CBD Apoptosis Leukemia Nox4 p22phox CB2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD leukemia therapeutic mechanism"},
+    {"id": "c862e487-8ed4-416e-8c26-b73d8a46c988", "title": "Therapeutic Potential Purified CBD Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD comprehensive therapeutic review"},
+    {"id": "c86d49c3-362d-43ec-b8ff-b57deacd6cfe", "title": "CBD Adenosine Signalling Chronic Epilepsy Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy adenosine mechanism"},
+    {"id": "c87181ad-f59e-490c-b4cc-f8b34678447c", "title": "CB1 CB2 Distribution Ligands Nervous System", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor review"},
+    {"id": "c87da712-9fee-4ee9-92dc-8a35bc72fb25", "title": "CBD Inhibits TRPC4 mPFC Pyramidal Neurons", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD ion channel mechanism"},
+    {"id": "c8883ad2-c81a-47d6-b3d2-427f0bf06167", "title": "Young Adult Cannabis Risk Benefit Perceptions Pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use patterns perceptions"},
+    {"id": "c8b4ce8c-158c-4417-a9fe-334f8f024fa2", "title": "THC Cue Reactivity CUD Treatment Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC for CUD therapeutic trial"},
+    {"id": "c8b85d24-7cd8-4793-9aed-6477253a5304", "title": "Cannabinoid Agonists Mitochondrial Excitotoxicity Neuroprotection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuroprotection mechanism"},
+    {"id": "c8b87e6c-96bb-4025-9d77-c0bd2caac8b1", "title": "CBD Nicotine Metabolism Pharmacokinetics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interaction study"},
+    {"id": "c8bb74b0-e24b-445b-a92a-ca00c51c3262", "title": "How Cannabis Causes Paranoia THC IV Mechanisms", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - THC induces paranoia"},
+    {"id": "c8cf08e7-922d-40c4-84a0-e46d5bccb297", "title": "CBD Insomnia Management Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD sleep systematic review"},
+    {"id": "c8f11f6c-93cb-4048-b557-2293db7eedee", "title": "β-Amyrin 2-AG Hydrolysis Antinociceptive Triterpene", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid pain indirect mechanism"},
+    {"id": "c8f9a2d6-a188-4dc7-963f-ca777603943a", "title": "CB1 Receptor Neurite Outgrowth Rap Src Stat3", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor signaling mechanism"},
+    {"id": "c90cd45a-238f-4653-90a0-d87e8b5ddb55", "title": "CBD Meloxicam Dogs Osteoarticular Pain Hematology", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dogs osteoarthritis"},
+    {"id": "c916e290-f6b8-42b3-b69b-1e14f88f7d96", "title": "Ajulemic Acid Osteoclastogenesis Arthritis Bone", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid acid bone therapeutic"},
+    {"id": "c91adce7-8700-4047-bdbe-7039534e1e5f", "title": "HHC Psychosis Hexahydrocannabinol Hospital Admissions", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - HHC psychosis"},
+    {"id": "c920767a-f35b-4111-8bfd-1185a91b207e", "title": "Endocannabinoids Insulin Secretion Action Clinical", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS diabetes clinical trial"},
+    {"id": "c92b77a8-fbe3-483b-9668-6a3ae1b3fbea", "title": "Cannabinoid Receptors Adenylyl Cyclase Sodium Coupling", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor biochemistry"},
+    {"id": "c93e23df-e2b8-442a-bf3d-914cbea700cc", "title": "FASD Prevention Behavioral Intervention South Africa", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - prenatal substance abuse prevention"},
+    {"id": "c94214dd-1203-4ffe-b97b-c67303610825", "title": "CBD Real-World Epilepsy Subtypes Multicenter", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy real-world data"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "c8883ad2-c81a-47d6-b3d2-427f0bf06167",
+      "c8bb74b0-e24b-445b-a92a-ca00c51c3262",
+      "c90cd45a-238f-4653-90a0-d87e8b5ddb55",
+      "c91adce7-8700-4047-bdbe-7039534e1e5f",
+      "c93e23df-e2b8-442a-bf3d-914cbea700cc"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "batch_number": 33,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T22:00:00.000Z",
+  "results": [
+    {"id": "26417682-1f70-429c-93f8-3757e4a72e5b", "title": "Novel cannabidiol−carbamate hybrids as selective BuChE inhibitors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug development for Alzheimer's"},
+    {"id": "26468a23-56c5-4e61-b699-9e259ed8e1a6", "title": "L'usage du cannabidiol dans le sport", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD athletic use review (French)"},
+    {"id": "26616359-3c53-43b2-93db-1f4c6c504f0d", "title": "Reducing Cannabis Use for Sleep Among Adults Using Medical Cannabis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE reduction study - not therapeutic research"},
+    {"id": "26690c9b-e6c5-4865-ab88-f5e033b4cf95", "title": "Coping Motives Mediate the Association of Trauma History with Problematic Cannabis Use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE patterns/dependence - not therapeutic"},
+    {"id": "267165e6-caba-4190-b127-7dde1b45c242", "title": "Low Basal CB2R in Dopamine Neurons and Microglia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 receptor mechanism research"},
+    {"id": "267cb556-633d-4900-9b9f-932c152c62c6", "title": "CBD complexes mediated by bridged cyclodextrins dimers", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery formulation"},
+    {"id": "268a8f39-3617-4ce9-8c53-207c04d1fec3", "title": "Purified cannabidiol for treatment-resistant infantile epileptic spasms", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for pediatric epilepsy"},
+    {"id": "26ab0f50-7eb1-43db-9b99-6e412df111dd", "title": "The DSM-IV criteria for adolescent alcohol and cannabis use disorders", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE disorder criteria - not therapeutic"},
+    {"id": "26c08ccd-5a25-488c-86ea-3855da6d4e9f", "title": "Cannabis legalisation, problematic use and impulsivity in USA", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Policy/use patterns study - not therapeutic"},
+    {"id": "26c4e1e7-87f5-4200-a8d4-ca9e0a68e801", "title": "Cannabidiol in the management of bruxism in FTD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for bruxism in dementia"},
+    {"id": "26d0f79c-a902-4fa1-8918-8499b4a86baa", "title": "Neuroprotective Effects of Cannabidiol in Parkinson's Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for Parkinson's disease"},
+    {"id": "27047a37-d1d2-435f-b913-eff138b53f33", "title": "CB1R mediates high glucose-induced apoptosis in diabetic nephropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 mechanism for diabetes therapy"},
+    {"id": "27115c01-2946-450d-aa93-fe8080a2e294", "title": "ASGE criteria for choledocholithiasis in biliary pancreatitis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - gallstone/bile duct diagnostics"},
+    {"id": "2716fdb0-3e19-4da1-ae7e-69eeb5e9f79a", "title": "CBD and Iloperidone Neuronal Activity in Schizophrenia Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antipsychotic research"},
+    {"id": "271e0ee1-c0d2-4a64-9baa-d99fbb77c730", "title": "THC/CBD oromucosal spray for MS bladder dysfunction", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Nabiximols for MS bladder"},
+    {"id": "27212555-41c5-4b09-a520-e320bfc02726", "title": "Elon Musk CBD Gummies Reviews (Scam Or Legit)", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM/ADVERTISING - product marketing"},
+    {"id": "2735db19-9453-4cfd-bb4d-7fe6d14d6744", "title": "Polarised light stellate ganglion irradiation for PTSD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - light therapy for stress"},
+    {"id": "2749d65d-94bb-4c6a-bb9f-9bc14433cb5b", "title": "Cannabis-Based Medicine at Advanced Stages of Dementia in Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC+CBD for Alzheimer's"},
+    {"id": "274b20db-f27e-4258-a7bb-3fea7f9e8c4e", "title": "Current Cannabis-Based Pharmaceuticals in Pain Medicine", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain review"},
+    {"id": "274bf803-9247-4d58-b9df-ee472b7eb43e", "title": "Anti-inflammatory effect of cannabinoid agonist WIN55 on colitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB agonist for inflammatory bowel"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "26616359-3c53-43b2-93db-1f4c6c504f0d",
+      "26690c9b-e6c5-4865-ab88-f5e033b4cf95",
+      "26ab0f50-7eb1-43db-9b99-6e412df111dd",
+      "26c08ccd-5a25-488c-86ea-3855da6d4e9f",
+      "27115c01-2946-450d-aa93-fe8080a2e294",
+      "27212555-41c5-4b09-a520-e320bfc02726",
+      "2735db19-9453-4cfd-bb4d-7fe6d14d6744"
+    ]
+  }
+}

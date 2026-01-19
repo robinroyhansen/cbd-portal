@@ -1,0 +1,39 @@
+{
+  "batch_number": 439,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T03:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "e55dc04a-a008-4aa9-aa91-401be862fbb1", "title": "Soxhlet Extraction of Cannabinoids (CBD and THC) From Four Different Strains", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"},
+    {"id": "e57b2507-affc-4b28-b52c-57613ac5097c", "title": "Sydney CBD 132kv Cable Tunnel", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "e59acbe8-a7c0-409e-bfac-94aa4eb9deb9", "title": "Cytological Basis of Sex Determination in Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "e5aa1c5b-4039-4868-a501-131fc136bb80", "title": "Self-Assembled Cannabigerol-Based Nanoparticles: Design, Synthesis, and Antiproliferative Activity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBG anticancer therapeutic research"},
+    {"id": "e5c1c5c7-ec59-418a-b44b-5655b119fa38", "title": "Proteomic and metabolomic analyses reveal the antibacterial mechanism of Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antibacterial mechanism research"},
+    {"id": "e5e1fda2-5cf4-4616-8323-9dffb7e32662", "title": "Cannabis Use by Persons Living with HIV/AIDS: Patterns and Prevalence of Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns survey correctly rejected"},
+    {"id": "e5f18a05-8af4-493d-806b-9c5851e31568", "title": "Using wastewater analysis to estimate prevalence of THC and CBD use in Japan", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Epidemiology correctly rejected"},
+    {"id": "e5f2dce3-3197-41f5-a587-ac36aed9f83b", "title": "Establishment of efficient Cannabis protoplast isolation and transient expression", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant biotechnology correctly rejected"},
+    {"id": "e5fbe630-5137-4f61-b665-1dc612881ce3", "title": "Multidimensional Family Therapy for Adolescent Cannabis Users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "e60a8187-a32a-4608-8834-8718687b3bc7", "title": "Down-regulation of cannabinoid-1 (CB-1) receptors in dietary obesity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1/ECS obesity mechanism research"},
+    {"id": "e60e4279-5c50-4d6c-ac31-e438b592c5c7", "title": "The cannabinoid receptor CB1 inverse agonist AM251 potentiates anxiogenic activity of urocortin I", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor anxiety mechanism research"},
+    {"id": "e618fe0e-fae9-43b0-ab2a-6aa6403ba444", "title": "Solution-processed CdTe nanocrystal/CBD-CdS hetero-junction solar cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "e61dc38e-8c2a-42ef-987d-f0663c3d15a8", "title": "Compliance Testing of Hemp Cultivars for Total Delta-9 THC and Total CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Compliance testing correctly rejected"},
+    {"id": "e629944c-8b71-4798-bc82-e1db09a96591", "title": "Synthetic Cannabinoid Use and Sports-Related Concussion Risk Among US Adolescents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid harm correctly rejected"},
+    {"id": "e64d7588-a6d1-4320-b17d-aeb1255f84ff", "title": "Compensation grouting in Perth CBD and its numerical backanalysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "e66b5c4b-e4d5-4597-9160-cbca4c3d03e6", "title": "Is cannabis becoming more potent?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Potency analysis correctly rejected"},
+    {"id": "e66c2fd0-9d97-47bf-a745-6be44af65967", "title": "Shoppotopes: Pedestrian Friendly Network Throughout Auckland's CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "e66c8bdf-0713-406e-89fe-c7f2e960a64e", "title": "Identifikasi Kriteria Perancangan di CBD Kota Bandung", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "e6a477bd-97c5-4be3-8d37-c7135ff8490e", "title": "Effect of Cd2+ Concentration on the Structure and Properties of CBD-CdS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "e6ad6a71-6b2b-4197-95d9-d6904ab1bcc7", "title": "Brivaracetam/cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug interaction/combo therapy research"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "e5aa1c5b-4039-4868-a501-131fc136bb80",
+      "e5c1c5c7-ec59-418a-b44b-5655b119fa38",
+      "e60a8187-a32a-4608-8834-8718687b3bc7",
+      "e60e4279-5c50-4d6c-ac31-e438b592c5c7",
+      "e6ad6a71-6b2b-4197-95d9-d6904ab1bcc7"
+    ]
+  }
+}

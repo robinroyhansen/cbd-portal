@@ -1,0 +1,38 @@
+{
+  "batch_number": 27,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T20:30:00.000Z",
+  "results": [
+    {"id": "1f4bd967-20e7-44ba-aaa4-b2087eac3630", "title": "Racial diversity in cannabis use disorder research", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Meta-research on CUD studies - not therapeutic"},
+    {"id": "1f54e15c-0ac8-4908-bb42-c295ac45e729", "title": "Effect of THC and CBD on Blood Flow and Blood Pressure", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cardiovascular research"},
+    {"id": "1f573847-76fd-4cf3-b2fe-302b635d9f99", "title": "The Development of Cannabinoid Antagonists", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1/CB2 antagonist pharmacology"},
+    {"id": "1f6be045-d3cf-49f2-ba72-8bee2ac28580", "title": "Long-term Effectiveness of CBD Against Focal-onset Seizures", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy EAP data"},
+    {"id": "1f6d31c4-5d32-4deb-b4d8-b3987f562b12", "title": "CBD Improves Cognition in SAMP8 Alzheimer's Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for Alzheimer's/dementia"},
+    {"id": "1f700c63-d0e1-4517-a989-e38499051bc2", "title": "Pharmacokinetics of CBD in Rat Brain Tissue", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD brain pharmacokinetics"},
+    {"id": "1f7892f6-8174-45c6-9dc6-882ee136ef53", "title": "CB2 receptors stimulate brain glucose uptake - Alzheimer's", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 for Alzheimer's research"},
+    {"id": "1f8dc353-d8b1-4a1c-acd2-a2ccc49f1c95", "title": "Sex and Pregnancy in HCV Treatment in OUD Patients", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - Hepatitis C treatment"},
+    {"id": "1f8ea0c3-c375-4264-a196-4944a892685a", "title": "Comparative CBD and CBDA pharmacokinetics - One Health", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics review"},
+    {"id": "1f99b5a1-f10e-416c-ab12-2ac560c885eb", "title": "Pheophytins as bioenhancers for CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD bioavailability research"},
+    {"id": "1f9e3354-668b-4b1f-9198-90cf8af66c9e", "title": "CBD Evidence-Based Psychiatric Benefits - Critical Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychiatric applications review"},
+    {"id": "1fbef248-0fe4-49d2-a775-5da7127b8b8d", "title": "CBD attenuates pulmonary arterial hypertension", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for PAH research"},
+    {"id": "1fd6c753-5f4f-4888-bda9-d6bd26ac21c6", "title": "BURMAN'S HEALTH SHOP - Liquid Multivitamin CBD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM/ADVERTISING - product page"},
+    {"id": "1fe471f3-0d27-4659-afb3-9426c57071c0", "title": "Caregiver outcomes with CBD in LGS and DS - BECOME survey", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy real-world data"},
+    {"id": "2001a6fd-12e8-4f17-90a0-e863aefac8cc", "title": "CBD for myofascial pain in parkinsonian rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain/Parkinson's research"},
+    {"id": "2002e974-7142-4fbe-9e65-52efd79b339b", "title": "Sarah's Blessing CBD Oil UK Reviews", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM/ADVERTISING - product marketing"},
+    {"id": "201d4762-90c9-47cd-9241-f7be18d72696", "title": "Translational molecular imaging in MS", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general MS imaging research"},
+    {"id": "201dfd88-457e-4987-bc30-a61f52b27315", "title": "CB1 receptor binding in schizophrenia patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 in schizophrenia research"},
+    {"id": "202487d6-87de-472a-89c1-1b66b6af9195", "title": "THC and CBD on Gingival and Skin Keratinocyte", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid skin/dental research"},
+    {"id": "20386d19-ed9b-4a20-b3e9-44987c85450b", "title": "CBD reverses mCPP-induced marble-burying", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anticompulsive/OCD research"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "1f4bd967-20e7-44ba-aaa4-b2087eac3630",
+      "1f8dc353-d8b1-4a1c-acd2-a2ccc49f1c95",
+      "1fd6c753-5f4f-4888-bda9-d6bd26ac21c6",
+      "2002e974-7142-4fbe-9e65-52efd79b339b",
+      "201d4762-90c9-47cd-9241-f7be18d72696"
+    ]
+  }
+}

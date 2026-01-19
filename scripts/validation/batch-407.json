@@ -1,0 +1,40 @@
+{
+  "batch_number": 407,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T19:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "c3181efe-7378-4b6d-96fb-04ed39e27f21", "title": "Towards Enhanced Solubility of Cannabidiol: Preparation and Evaluation of Cannabidiol Solid Dispersions Using Vacuum Compression Molding", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD formulation research"},
+    {"id": "c3186186-d462-4168-93db-d12607cb6179", "title": "Dose-dependent Effects of Cannabis Edibles on Simulated Driving Performance", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Driving impairment correctly rejected"},
+    {"id": "c3258ea9-2d71-4888-90a9-4d74d241087d", "title": "Cannabis, cannabinoids, and health", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General cannabis harm review correctly rejected"},
+    {"id": "c32862bf-825f-41ef-a0a5-88fc2b4e001c", "title": "Is Any Side Effects Exist Of Recover FX CBD Drop", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Commercial spam correctly rejected"},
+    {"id": "c3422538-b786-4333-8d85-2c56e098ad44", "title": "The effects of Cannabidiol on podocytes in vitro", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD kidney mechanism research"},
+    {"id": "c36287cf-f719-4830-9e9f-20ea63c7925e", "title": "Chemically Distinct Ligands Promote Differential CB1 Cannabinoid Receptor-Gi Protein Interactions", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor signaling research"},
+    {"id": "c362ed41-7457-4912-bf06-6690e9acdf98", "title": "Prevalence and correlates of cannabis use in an outpatient VA posttraumatic stress disorder clinic", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use patterns PTSD correctly rejected"},
+    {"id": "c363ac33-a85d-4878-9a89-e1a8af9be794", "title": "Stimulation of sphingomyelin hydrolysis by cannabidiol in fibroblasts from a Niemann-Pick patient", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD Niemann-Pick disease mechanism"},
+    {"id": "c36c6c9c-7b5e-4a02-9bbb-63c1da05d212", "title": "A Retrospective Analysis of Cannabidiol (CBD) Use in a Concussion Cohort (P7-1.007)", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD concussion clinical study"},
+    {"id": "c389d425-c5e1-4ca4-951a-34f239309b8b", "title": "Overview: Exploring the onto-politics of cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/social correctly rejected"},
+    {"id": "c3a503dd-a322-4bda-b534-92329ac63011", "title": "Natriuretic Peptides as Multisystem Regulators", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "c3ae2098-227d-4b9d-a474-6f243b58f947", "title": "Super cbd gummies -REVIEWS SCAM ALERT & READ MUST BEFORE Buy In 2022?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Commercial spam correctly rejected"},
+    {"id": "c3bc82de-56c2-4f2d-98ef-306ce58044f4", "title": "Cannabis and Cannabinoid Signaling: Research Gaps and Opportunities", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid signaling research overview"},
+    {"id": "c3c3e67b-07f2-4571-a39d-217b2a58566b", "title": "Effective cannabis testing protocols for workplace safety in South Africa post legalisation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Workplace testing correctly rejected"},
+    {"id": "c3db6503-b153-4660-9127-6564a4539b1e", "title": "Excretion and residue depletion of cannabinoids in beef cattle fed hempseed cake for 111 days", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "c3f0dea6-75e0-43d9-8d47-b04f26f63bb4", "title": "Cannabis users differ from non-users on measures of personality and schizotypy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "c3fa23f0-2f13-42ab-ab9d-e8575f4519c3", "title": "Simultaneous identification of 2-carboxy-tetrahydrocannabinol, tetrahydrocannabinol, cannabinol and cannabidiol in oral fluid", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "c40cb9be-d5f4-4d03-bb40-256d16660143", "title": "Decoding the neural correlates of social cognition and emotion recognition in cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm cognition correctly rejected"},
+    {"id": "c40e679d-5c43-4a34-ab92-ad935997460f", "title": "Chronic cannabis use in people with bipolar disorder is associated with comparable decision-making and functional outcome to healthy participants", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use patterns correctly rejected"},
+    {"id": "c40f18a2-56bb-4427-9acc-767b07d0aaf6", "title": "Pre- and postnatal tobacco and cannabis exposure and child behavior problems", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis prenatal harm correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "c3181efe-7378-4b6d-96fb-04ed39e27f21",
+      "c3422538-b786-4333-8d85-2c56e098ad44",
+      "c36287cf-f719-4830-9e9f-20ea63c7925e",
+      "c363ac33-a85d-4878-9a89-e1a8af9be794",
+      "c36c6c9c-7b5e-4a02-9bbb-63c1da05d212",
+      "c3bc82de-56c2-4f2d-98ef-306ce58044f4"
+    ]
+  }
+}

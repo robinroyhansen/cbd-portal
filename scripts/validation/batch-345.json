@@ -1,0 +1,40 @@
+{
+  "batch_number": 345,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T04:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "7da6572c-3a6c-49af-a83a-c52df13b29c2", "title": "The effects of cannabis on mind-wandering", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cognitive effects correctly rejected"},
+    {"id": "7daf8655-91ff-412e-b059-4dc511a6e724", "title": "Artificial Intelligence in Digestive Endoscopy Training", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "7dba0dbc-0168-4dd6-955a-be165a5bd033", "title": "Development of Pure Certified Reference Material of Cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab reference standards correctly rejected"},
+    {"id": "7ddb30e4-90ed-4e7e-8b4b-5bec8d654370", "title": "Intracerebral self-administration of the cannabinoid receptor agonist CP 55,940", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Addiction/reward mechanism correctly rejected"},
+    {"id": "7df8678d-e35a-42b9-a787-a3d910b7c949", "title": "A Phase 1B Trial of Cannabidiol for Symptom Management in Kidney Failure", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD clinical trial kidney failure"},
+    {"id": "7e1c47b7-4712-4ecf-a488-babce991ed8f", "title": "Nonlinear liquid-liquid chromatography cannabinoids elution profiles", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "7e251e89-dea8-40d2-9601-af653145dc9d", "title": "ERCP in children with pediatric congenital biliary dilatation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "7e2e6629-332d-45d1-a411-d5f95485c4f7", "title": "Opioid and Cannabinoid Receptor Inhibition of Adenylyl Cyclase in Brain", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research"},
+    {"id": "7e2fc579-0613-477a-8656-9e48453ccf3c", "title": "Cannabis advertising, promotion and branding", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Marketing/policy correctly rejected"},
+    {"id": "7e3c1d92-2821-49ab-8fff-495c6ef8a75c", "title": "SCN1A Variant and Cannabidiol Use", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy pharmacogenomics"},
+    {"id": "7e49de19-e395-4d19-a586-3e5c03a850a6", "title": "Improving the sensitivity of estimating CBD in plasma samples", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "7e669e6c-b5ee-49f9-9d19-9fa57cd7895c", "title": "Recurrent ascending cholangitis secondary to food reflux", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "7ea9777a-fc06-400c-98dd-54ab95086955", "title": "Normalization dynamics of donor-derived cell-free DNA kidney transplant", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "7eaa828a-fc31-4df3-8364-5a768a5022b5", "title": "Cannabidiol, neuroprotection and neuropsychiatric disorders", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD neuroprotection therapeutic review"},
+    {"id": "7eb44e7f-0d51-478b-a22b-22d716131067", "title": "Interaction between cannabidiol (CBD) and THC: influence of dose ratio", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC pharmacology interaction"},
+    {"id": "7ec933b1-a5d9-402a-9c08-d87c55a5513a", "title": "Antibacterial Effect of Cannabinoids on Bacteria in Endodontic Infections", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid antimicrobial therapeutic"},
+    {"id": "7eca474f-0545-4370-98db-7345a1b1b1f2", "title": "Rethinking indicators of problematic cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD/policy correctly rejected"},
+    {"id": "7ed3dc2c-2564-4f11-bd1b-553ad3a385d2", "title": "Cannabidiol (CBD) drives sex-dependent impairments in omission", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cognitive impairment correctly rejected"},
+    {"id": "7ed9aa96-75aa-4013-87f1-ada89cfc781e", "title": "Frontal lobe dysfunction in long-term cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "7edad450-24f3-4ecf-9a35-a7d290727217", "title": "Effects of synthetic cannabinoid CP55,940 on intracranial self-stimulation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Abuse mechanism correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "7df8678d-e35a-42b9-a787-a3d910b7c949",
+      "7e2e6629-332d-45d1-a411-d5f95485c4f7",
+      "7e3c1d92-2821-49ab-8fff-495c6ef8a75c",
+      "7eaa828a-fc31-4df3-8364-5a768a5022b5",
+      "7eb44e7f-0d51-478b-a22b-22d716131067",
+      "7ec933b1-a5d9-402a-9c08-d87c55a5513a"
+    ]
+  }
+}

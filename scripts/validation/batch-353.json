@@ -1,0 +1,39 @@
+{
+  "batch_number": 353,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T06:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "87d842b1-3b68-48b5-aacb-2091c59f4d5f", "title": "Lattice Cryptography CBD sampling", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Centered Binomial Distribution) correctly rejected"},
+    {"id": "87db37ea-1e52-4008-a734-e033e119ac36", "title": "Legalization, decriminalization & medicinal use of cannabis: public health perspective", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/harm editorial correctly rejected"},
+    {"id": "87f6066e-13b5-4bff-9ec7-8cedebcc7967", "title": "A drug discovery case history of THC, CBD", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid drug discovery therapeutic"},
+    {"id": "8801b2df-5b8b-4677-ad43-8d1d8f209da9", "title": "Plan de desarrollo del CBD de Melbourne, Australia", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "88041b18-5f7e-4fd3-acbd-cf7d8a844657", "title": "Rates and correlates of cannabis-associated psychotic symptoms", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "88087c80-4d08-4a0e-963f-c031eed72acf", "title": "Re-timing 218 signals in the Denver CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "88139e31-11c5-492b-a484-3fce68766929", "title": "Heating of consumer cannabis oils CBD and THC depletion", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product testing correctly rejected"},
+    {"id": "881d8f52-5b54-4c07-a1fa-f8b5a765d4a4", "title": "EPAR: Epidyolex, cannabidiol, Lennox Gastaut Syndrome, Epilepsies", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy regulatory approval documentation"},
+    {"id": "88323a42-af11-4e6e-a2da-0832e147137f", "title": "Ancient use of cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Historical correctly rejected"},
+    {"id": "883a653a-89c1-40ca-bc2a-fab72870a1a5", "title": "Anxiety, Depression Following Prenatal Substance Exposure", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "88509602-cd15-4877-bb1a-e65e9df674db", "title": "Cannabis in patients with suicidal ideation in emergency department", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "8850d94e-901c-4e5a-9c56-09e4662a7d86", "title": "Preoperative prediction of difficult laparoscopic cholecystectomy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "8855a91d-2679-4b7c-bea8-f18c7834c2a8", "title": "Nonpsychoactive Cannabidiol Prevents Prion Accumulation and Protects Neurons", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD prion disease neuroprotection"},
+    {"id": "8865aff6-76d8-4f57-a005-8a265d4a6f84", "title": "Influence of Amino Acids on Spray-Dried Cannabidiol for Inhalation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD inhalation drug delivery"},
+    {"id": "886f9bac-d77e-461a-9e31-6d806d2cd279", "title": "Medical cannabis: Knowledge and attitudes of prospective doctors in Serbia", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Education/policy survey correctly rejected"},
+    {"id": "887f02bb-d146-4504-8c41-14b135d0eb9f", "title": "Plant-feeding sand flies prefer Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Vector biology correctly rejected"},
+    {"id": "887fec38-ecc3-4540-a132-2e2ff7625968", "title": "Accidental cannabis intoxication in two young children", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "88886b95-d4b9-4b89-b686-a687b49dc587", "title": "Chemical Analysis of CBD and THC in Hemp Oil via GC-MS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "88925b57-0350-440c-ad5e-85e7954ef055", "title": "Cannabidiol as a potential medicine", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic review"},
+    {"id": "88aeed2b-8274-4a32-b4a6-0f00df35ea81", "title": "Lower striatal dopamine D2 receptor with tobacco/marijuana smoke", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "87f6066e-13b5-4bff-9ec7-8cedebcc7967",
+      "881d8f52-5b54-4c07-a1fa-f8b5a765d4a4",
+      "8855a91d-2679-4b7c-bea8-f18c7834c2a8",
+      "8865aff6-76d8-4f57-a005-8a265d4a6f84",
+      "88925b57-0350-440c-ad5e-85e7954ef055"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "batch_number": 164,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T07:00:00.000Z",
+  "results": [
+    {"id": "b6d7c3f6-700d-4e3f-8542-b7ac0afce207", "title": "Nabiximols abuse potential cognitive RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid safety research"},
+    {"id": "b6fd76ad-e140-4c1a-89da-4859b246a12b", "title": "THC Fear Extinction PTSD R33", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC PTSD therapeutic"},
+    {"id": "b71b4846-5c63-46e8-9947-56330e81b317", "title": "Estradiol cocaine CB1 reinstatement", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 addiction mechanism"},
+    {"id": "b73ee78d-d30a-4b13-aa3e-cc8fce4c564c", "title": "Correlates cannabis use pregnancy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - pregnancy use patterns"},
+    {"id": "b7543950-212e-4004-b280-842d9b1b13b5", "title": "HU-210 Win-55,212-2 arthritis chondrocytes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid arthritis mechanism"},
+    {"id": "b7556212-34a1-46b6-907c-7fbc5515545d", "title": "Endocannabinoids headache anxiety insular", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS headache/anxiety mechanism"},
+    {"id": "b789c8e3-4fdd-407b-a772-526f5be7f76e", "title": "CBD Dog's Anxiety pet owners RCT", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dog anxiety study"},
+    {"id": "b7d27344-26e3-4f54-8882-34288b2f6c04", "title": "CBD SYNGAP1 epileptic encephalopathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy case series"},
+    {"id": "b7da1a64-45bf-4451-8caf-49c2fd6e9015", "title": "CBD Pulse Electric Field Breast Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD breast cancer mechanism"},
+    {"id": "b7dcdf6c-2a3d-4197-914a-9f3d8d3da2d4", "title": "Cannabis withdrawal time course", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CUD withdrawal research"},
+    {"id": "b7e2f4b1-8c4d-4bd3-b564-ffca42ce3bda", "title": "CBD PLA PLGA implants parenteral", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery formulation"},
+    {"id": "b80411f6-d473-49f5-a99e-bde7f9b22009", "title": "CBD apoptosis glioma canine human", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD glioma mechanism"},
+    {"id": "b805c112-cce1-47ef-a754-84df32e9fce5", "title": "CBD therapeutic UVA UVB skin", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD skin protection research"},
+    {"id": "b812879f-13ab-4048-94c5-184f797990ee", "title": "CBD THC 5xFAD Alzheimer amyloid", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC Alzheimer's mechanism"},
+    {"id": "b8245c0d-0f39-42d7-91d8-91b19e61eadd", "title": "Nimbin Isoproterenol Mitochondrial", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - Nimbin from neem"},
+    {"id": "b83d8e7c-6fd5-4227-891e-42a7310bba8d", "title": "CB2 Selective Peripheral CB1/CB2 Ligands", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid ligand review"},
+    {"id": "b8499c8a-3bae-4398-976c-463559104243", "title": "THC ultralow doses neuroprotection LPS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC neuroprotection mechanism"},
+    {"id": "b86bcc65-c14a-4ea9-aad4-3dc21c483b27", "title": "Tolerance dependence psychotropic cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology"},
+    {"id": "b86c9ceb-9377-4926-b38d-7dcceea1b4d5", "title": "Cannabis use cognition MS", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cognition effects MS"},
+    {"id": "b8799788-ab42-429c-a7ee-96fa301323a2", "title": "Cannabinoid Hyperemesis Syndrome case", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - CHS case report"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "b73ee78d-d30a-4b13-aa3e-cc8fce4c564c",
+      "b789c8e3-4fdd-407b-a772-526f5be7f76e",
+      "b8245c0d-0f39-42d7-91d8-91b19e61eadd",
+      "b86c9ceb-9377-4926-b38d-7dcceea1b4d5",
+      "b8799788-ab42-429c-a7ee-96fa301323a2"
+    ]
+  }
+}

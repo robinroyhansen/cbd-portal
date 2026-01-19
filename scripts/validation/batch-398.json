@@ -1,0 +1,41 @@
+{
+  "batch_number": 398,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T17:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "b9f2cd15-7ff0-4be5-83c2-77c61635f04c", "title": "Increasing Use of Cannabis for Medical Purposes Among U.S. Residents, 2013–2020", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use prevalence correctly rejected"},
+    {"id": "ba0172e0-80a1-46e3-9aab-4110e2119952", "title": "Comprehensive Detection of Chromosomal and Genomic Abnormalities via Next-Generation Sequencing", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "ba2515fe-cec9-4ecc-838c-c310705b9218", "title": "Chemical stability of Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD stability/formulation research"},
+    {"id": "ba454c0c-3358-40df-b6c3-aac0bd60306f", "title": "How high: Differences in the developments of cannabis markets in two legalized states", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis market analysis correctly rejected"},
+    {"id": "ba5075e2-8ab7-4efa-9f9f-ffa55215e0be", "title": "Changes in cannabis potency and first-time admissions to drug treatment", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis potency/CUD correctly rejected"},
+    {"id": "ba5d671f-8d42-4a8a-bb3f-e450acd8827e", "title": "Critical Excerpts (Critiques) On Children's Behavioral Development (CBD)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Children's Behavioral Development) correctly rejected"},
+    {"id": "ba632cfd-dd81-4a55-a37a-80e18ae1fef0", "title": "Effects of Cannabinoids on Synaptic Transmission in the Frog Neuromuscular Junction", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid synaptic mechanism"},
+    {"id": "ba701365-f984-4925-9ec7-d5c454425f6e", "title": "Development and Optimization of a Germination Assay and Long-Term Storage for Cannabis sativa Pollen", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/breeding correctly rejected"},
+    {"id": "ba755559-5416-4bf8-85bb-a2b3d0383f6d", "title": "Cannabinoid transference and retention in tissues of beef steers fed hemp leaves", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "ba7d18ca-b64f-44c3-8f48-d673455f3e68", "title": "Opioid receptor and NO/cGMP pathway as a mechanism of peripheral antinociceptive action of the cannabinoid receptor agonist anandamide", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - anandamide pain mechanism"},
+    {"id": "ba87d7eb-7bf4-44eb-a048-0973b5d99ee2", "title": "Cannabidiol Gummy Products: LC-MS/MS Assessment of Cannabinoid Concentrations", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product testing correctly rejected"},
+    {"id": "baaeeaa6-6132-41bb-bc95-ca79a15b6559", "title": "Development and characterization of cannabidiol-loaded alginate copper hydrogel for repairing open bone defects", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD bone healing therapeutic"},
+    {"id": "babeec13-d4ed-4472-9701-03f8dd3f2d34", "title": "Medicinal cannabis plant extract (NTI164) modifies epigenetic, ribosomal, and immune pathways in paediatric acute-onset neuropsychiatric syndrome", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis therapeutic in PANS"},
+    {"id": "babfda80-48a7-46c9-8d7d-38daf1534b03", "title": "A Scoping Systematic Review of Cannabis Use in Endometriosis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis therapeutic review for endometriosis"},
+    {"id": "bac4d8bd-c33d-48c3-a5d0-ee8a64862988", "title": "The association of endodontic prognostic factors with periapical lesions and cortical bone destruction", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "bac4db24-ebd2-44dd-95c6-2500397fadf5", "title": "The cannabinoid CB1 receptor is expressed on serotonergic and dopaminergic neurons", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor expression research"},
+    {"id": "bac7886a-ad72-4d55-ac8e-8ed5bf54f8e0", "title": "Assessment of Nicotine and Cannabis Vaping and Respiratory Symptoms in Young Adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis vaping harm correctly rejected"},
+    {"id": "bacd9354-9f62-4bf8-ba4c-4c45b4e74114", "title": "Cognitive Difficulty Concentrating According to Chronic Medical Conditions and Cannabis Use Among US Adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use patterns correctly rejected"},
+    {"id": "bacf2434-b83d-41c3-9805-f70cda139487", "title": "Adolescents and cannabis in the 21st century", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Adolescent cannabis harm correctly rejected"},
+    {"id": "bad271b7-c0b9-44a5-b284-2d05e2ecd467", "title": "Cannabis Britannica: Empire, Trade, and Prohibition, 1800–1928", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Historical/policy correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "ba2515fe-cec9-4ecc-838c-c310705b9218",
+      "ba632cfd-dd81-4a55-a37a-80e18ae1fef0",
+      "ba7d18ca-b64f-44c3-8f48-d673455f3e68",
+      "baaeeaa6-6132-41bb-bc95-ca79a15b6559",
+      "babeec13-d4ed-4472-9701-03f8dd3f2d34",
+      "babfda80-48a7-46c9-8d7d-38daf1534b03",
+      "bac4db24-ebd2-44dd-95c6-2500397fadf5"
+    ]
+  }
+}

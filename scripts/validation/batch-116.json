@@ -1,0 +1,38 @@
+{
+  "batch_number": 116,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T18:45:00.000Z",
+  "results": [
+    {"id": "81c03017-c123-4fd0-b4e7-42a97b9a67cc", "title": "CBD Prostate Cancer PC3 Apoptosis NFkB", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer mechanism"},
+    {"id": "81c4b62d-132b-43be-b6cc-933b301e5526", "title": "Cucurbitacin D Colorectal Cancer NOX4", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - cucurbitacin compound"},
+    {"id": "81c88264-ab91-48c2-811f-95b0d2ad1ba3", "title": "CBD Buprenorphine Opioid Use Disorder RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction therapeutic"},
+    {"id": "81d13906-4f73-4c4b-86fd-1ac9020fab07", "title": "Cannabis Induced Psychosis Self Amputation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis case report"},
+    {"id": "81d71a4e-0bed-4a2c-b2e3-ff036d869649", "title": "Tom Selleck CBD Gummies Scam", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING - celebrity product spam"},
+    {"id": "81ee2a1d-8b03-4b19-a55d-217a057c5b8c", "title": "CBD Treatment-resistant Epilepsy Children", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "81f2ef12-5469-40ce-ad19-708d5a4cbbab", "title": "Exercise Gut Microbiota Type 2 Diabetes", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - exercise gut microbiome"},
+    {"id": "82211107-6609-4cef-8263-d4ac6ea102ff", "title": "NADA WIN55 Endothelial Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid anti-inflammatory mechanism"},
+    {"id": "8222ec29-4def-46f0-8a07-4c219e49a10b", "title": "Ajulemic Acid IL-1β Monocyte Suppression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anti-inflammatory"},
+    {"id": "82272ab0-9b96-4593-a6f9-f90fbafc5540", "title": "Hemp Chiropractic Chronic Pain Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Hemp/cannabis pain therapeutic"},
+    {"id": "822876c8-6fad-452d-99f2-b5cd3e26e125", "title": "Cannabinoid Agonists Capsaicin Skin Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain therapeutic"},
+    {"id": "823e726a-bbbf-4bad-8db3-2c3c9211248f", "title": "Medical Marijuana MS Motor Function", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis MS therapeutic"},
+    {"id": "82452a11-7345-43b1-9c11-a1d6e63fd931", "title": "CBD Alginate Microencapsulation Bioavailability DCA", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics delivery"},
+    {"id": "824a944f-5f55-4deb-ba43-492bdb6ecb75", "title": "Cannabis CBD Parkinson's Attitudes French Survey", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's therapeutic research"},
+    {"id": "824ae403-a845-44fd-ae6c-3ec65dd7def1", "title": "CBD Products Oxidative Stress Neuronal Cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety toxicology research"},
+    {"id": "824bfc32-88d9-4d50-892d-3fe391344dbb", "title": "Keanu Reeves CBD Oil Benefits Pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING - celebrity product spam links"},
+    {"id": "826d40b6-79d2-4260-94e1-2bebf14ea36f", "title": "CBD vs Narcotics Post Op Shoulder Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic RCT"},
+    {"id": "827b1e08-e84a-485b-be0c-34402dea28a2", "title": "CBD Electrospinning Patch Wearable Device", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD delivery device"},
+    {"id": "827b30d9-8f92-4aaa-96fa-f8b6e7a7d872", "title": "CBD Nicotine Metabolism Inhibition CYP2A6", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics drug interactions"},
+    {"id": "827ba52c-dd0e-4f47-bcd8-af8cd5476734", "title": "South African Pharmacists CBD Knowledge Training", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD clinical practice education"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "81c4b62d-132b-43be-b6cc-933b301e5526",
+      "81d13906-4f73-4c4b-86fd-1ac9020fab07",
+      "81d71a4e-0bed-4a2c-b2e3-ff036d869649",
+      "81f2ef12-5469-40ce-ad19-708d5a4cbbab",
+      "824bfc32-88d9-4d50-892d-3fe391344dbb"
+    ]
+  }
+}

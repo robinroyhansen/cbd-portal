@@ -1,0 +1,42 @@
+{
+  "batch_number": 309,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T19:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "5473d8a3-9c28-40ff-8057-ee97fb30e91e", "title": "Lactobacillus rhamnosus GG and Lactobacillus paracasei IMPC2.1 Mitigate LPS-Induced Epithelial Barrier Dysfunction: A Focus on Autophagy Regulation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "54781b00-9f85-4b89-a5cd-c55aedc870b5", "title": "Yield of Illicit Indoor Cannabis Cultivation in The Netherlands", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cultivation forensic correctly rejected"},
+    {"id": "5494fa8e-a413-4c90-a116-54409f648930", "title": "Cannabinoid Receptors Couple to NMDA Receptors to Reduce the Production of NO and the Mobilization of Zinc Induced by Glutamate", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neuroprotection mechanism"},
+    {"id": "54ae6dba-b79e-4f54-8d73-9a3f99dc1eec", "title": "Blockade of Nicotine and Cannabinoid Reinforcement and Relapse by a Cannabinoid CB1-Receptor Neutral Antagonist AM4113 and Inverse Agonist Rimonabant in Squirrel Monkeys", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 antagonist addiction pharmacology"},
+    {"id": "54c98bea-a972-4138-8f08-eec357f91d9d", "title": "Periaqueductal grey CB1 cannabinoid and metabotropic glutamate subtype 5 receptors modulate changes in rostral ventromedial medulla neuronal activities induced by subcutaneous formalin in the rat", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 pain modulation mechanism"},
+    {"id": "54d13a67-669f-4611-bd33-9e72cc1b39ee", "title": "Influence of annealing temperature of seed layer on the structural and optical properties of ZnO nanorods synthesized by SILAR and CBD techniques", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "54d1ccc7-5dc6-4606-a18d-82ec3bd0e9d3", "title": "Cannabidiol prevents a post-ischemic injury progressively induced by cerebral ischemia via a high-mobility group box1-inhibiting mechanism", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD stroke neuroprotection mechanism"},
+    {"id": "54d3fc2d-7854-43cd-b923-531e178f6501", "title": "The role of THC and CBD in dentistry – a review of impacts on oral health", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC/CBD oral health therapeutic review"},
+    {"id": "54e2aad0-6cd9-4959-8333-e475642d90a1", "title": "Cannabis and Crime: Treatment Programs for Adolescent Cannabis Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment policy correctly rejected"},
+    {"id": "54e51b11-c50a-4a0c-8536-26c1bf658182", "title": "Regulation of CB1cannabinoid receptor internalization by a promiscuous phosphorylation‐dependent mechanism", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor regulation mechanism"},
+    {"id": "54f83c25-fa71-44df-a649-f32fa4da8c01", "title": "PLANNING STRATEGY FOR THE REGENERATION OF THE BUND CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "551205cf-2e0a-4c68-b97f-62948c1ea31f", "title": "Predictive and mechanistic biomarkers of treatment response to Transcranial Magnetic Stimulation (TMS) in Psychiatric and Neurocognitive Disorders, identified via TMS-Electroencephalography (EEG) and Resting-State EEG: A systematic review.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "55149541-bf67-46a2-b9ff-ee81b1044381", "title": "Unveiling the toxic effects of perfluorooctanoic acid on osteoblast function and extracellular matrix deposition using 2D and 3D models", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "552881b1-c8cc-4d8e-bede-8718024d41de", "title": "The Interlinkages Between Ambient Temperature and Air Pollution in Exacerbating Childhood Asthma: A Time Series Study in Cape Town, South Africa ", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "552fc537-3cb9-4ef8-b2cb-64b53e0935c4", "title": "EMIT Cannabinoid Assay: Confirmation by RIA and GC/MS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "553a597f-95a7-4a76-b30d-5badea0fa99b", "title": "Pharmacologic treatments for gastroparesis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "5554a8e1-cf42-46d3-b211-d2add7b48224", "title": "Acute Necrotizing Pancreatitis With Infected Peripancreatic Collections and Upper Gastrointestinal Bleed Managed Via Multimodal Endoscopic Intervention.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "5597b6e1-3dd3-4880-ad37-2c458bced0fa", "title": "Role of cannabinoid receptors in inhibiting macrophage costimulatory activity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid immune mechanism"},
+    {"id": "55a35ca5-234f-4ba5-b4f3-2e639543e119", "title": "Does Cannabidiol (CBD) in Food Supplements Pose a Serious Health Risk? Consequences of the European Food Safety Authority (EFSA) Clock Stop Regarding Novel Food Authorisation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety/toxicology assessment"},
+    {"id": "55a7a802-e622-49b8-bc09-b1114a2da549", "title": "Compliance with CBD-ABS regime (環境問題の法的課題)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "5494fa8e-a413-4c90-a116-54409f648930",
+      "54ae6dba-b79e-4f54-8d73-9a3f99dc1eec",
+      "54c98bea-a972-4138-8f08-eec357f91d9d",
+      "54d1ccc7-5dc6-4606-a18d-82ec3bd0e9d3",
+      "54d3fc2d-7854-43cd-b923-531e178f6501",
+      "54e51b11-c50a-4a0c-8536-26c1bf658182",
+      "5597b6e1-3dd3-4880-ad37-2c458bced0fa",
+      "55a35ca5-234f-4ba5-b4f3-2e639543e119"
+    ]
+  }
+}

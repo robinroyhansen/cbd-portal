@@ -1,0 +1,37 @@
+{
+  "batch_number": 20,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T18:45:00.000Z",
+  "results": [
+    {"id": "17684375-b499-413e-adb0-965cb68bb0fc", "title": "Cannabinoids provide neuroprotection against 6-hydroxydopamine toxicity - Parkinson's disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuroprotection for PD"},
+    {"id": "176b7af5-f745-4b26-a4d2-86058bded39d", "title": "Phase 2a CBD as Steroid-sparing Therapy in Crohn's Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for Crohn's - clinical trial"},
+    {"id": "176eca43-7a3f-4a4c-8ee2-9e4c0e366ef8", "title": "Status Epilepsy Syndromes Made Easy: Pediatric Perspectives", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general pediatric epilepsy education"},
+    {"id": "17b193d8-1cd4-42ad-b88a-6a61b5abec3d", "title": "CBD-induced Biomarkers of Inflammation Reduction in HIV", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for HIV inflammation"},
+    {"id": "17cfe300-d3bf-41b5-aa2f-fd040ed82c38", "title": "Biomechanical Effects of THC and CBD on Tendon Healing", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD for tendon healing"},
+    {"id": "17cff226-752d-4d0a-b9cc-9bd50c21d213", "title": "THC/CBD Pharmacokinetics and Pharmacodynamics in Healthy Adults - RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid PK/PD clinical trial"},
+    {"id": "17db6616-f56e-451b-937d-aa33eb75e9e4", "title": "Patient perceptions of off-label CBD use for insomnia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for insomnia - patient perspectives"},
+    {"id": "17e70258-57fb-42f4-b69f-75dbbc6b3283", "title": "Sigma-1 receptor prevents cannabinoids from provoking NMDA hypofunction", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid-NMDA mechanism"},
+    {"id": "17fb66e9-7066-4600-890d-bf3fbdfdd0ad", "title": "Peripheral immune changes in temporal lobe epilepsy - diffusion MRI", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general epilepsy neuroimaging"},
+    {"id": "180867c4-15c4-4d69-854b-e5afead6e26f", "title": "Association Between Marijuana Use and Periodontitis - NHANES", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Use patterns/adverse oral health epidemiology"},
+    {"id": "180c76e1-5c74-42da-868c-9ca3ef4bc49e", "title": "Application of cannabidiol in glioma - bench to bedside", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for brain cancer"},
+    {"id": "1832d8f6-4d46-4984-995f-b144d526c62a", "title": "Cannabinoid receptor agonist WIN 55,212-2 blocks hyperalgesia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid agonist for pain"},
+    {"id": "183a53ff-5038-4ec1-9651-de1e25544167", "title": "Cannabinoids for neurogenic bladder in MS - systematic review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids for MS bladder - meta-analysis"},
+    {"id": "184d7020-6c70-4c78-b2af-94405c04e63a", "title": "Cannabinoid therapy in cancer: analgesia, antitumor, toxicity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid for cancer"},
+    {"id": "1854afa4-8476-4531-88a3-010e953aef7e", "title": "Cannabis use comparison in neuropathic vs non-neuropathic pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Use patterns comparison - not therapeutic outcomes"},
+    {"id": "185639be-656c-416e-8175-fc4e121aba9c", "title": "Cannabidiol - an effective analgesic for toothache?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for dental pain"},
+    {"id": "185dd084-567b-431b-b9e2-6f5113f81bb1", "title": "Does Medical Cannabis Reduce Opioid Use in Adults With Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis opioid reduction study"},
+    {"id": "1864b729-8efb-40ef-a6c3-eb204dfe0387", "title": "CBD inhibits neuroinflammation following damage to songbird vocal cortex", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection"},
+    {"id": "1865cafb-406b-4e1f-bfbb-3dfd4ac6bd69", "title": "CBD/THC in insomnia disorder - RCT with high-density EEG", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid for sleep - clinical trial"},
+    {"id": "1889d67e-fb78-4476-b243-18c6a78d3b0b", "title": "CB2 receptor in reducing mechanical allodynia in neuropathic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 for neuropathic pain"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "176eca43-7a3f-4a4c-8ee2-9e4c0e366ef8",
+      "17fb66e9-7066-4600-890d-bf3fbdfdd0ad",
+      "180867c4-15c4-4d69-854b-e5afead6e26f",
+      "1854afa4-8476-4531-88a3-010e953aef7e"
+    ]
+  }
+}

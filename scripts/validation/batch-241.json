@@ -1,0 +1,41 @@
+{
+  "batch_number": 241,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T02:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "0ac54d45-9421-4fbe-ac83-3911ab445671", "title": "Antimicrobial CBD in Dentistry Scoping Review", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic review"},
+    {"id": "0aee09ba-d059-4965-b45e-a6dee19ed4a9", "title": "Cannabinoid Modulation Kaposi's Sarcoma Herpesvirus", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "0b05e3c4-03f9-4832-8ffb-70c44a24a6c6", "title": "Novel Treatments Refractory Pericarditis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "0b18451b-7ab4-4a2c-b300-4d12e8d5e503", "title": "Cannabichromene Cyclase Bacterial Flavoenzymes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Biochemistry correctly rejected"},
+    {"id": "0b1d87bd-6498-477f-9796-6f753434de40", "title": "CBD Hemp Extract Reconsolidation Aversive Memory", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD PTSD clinical trial"},
+    {"id": "0b36e872-a292-4360-a73a-46a1f528e381", "title": "STRUCTURAL REQUIREMENTS CANNABINOID ACTIVITY", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacology"},
+    {"id": "0b3f8241-1903-4359-92a4-40a9a6d7a842", "title": "LC-MS/MS method CBD THC rat blood", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical method correctly rejected"},
+    {"id": "0b43ebf5-c79b-4065-8c0b-0a493648d184", "title": "CBDA bioavailability study", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBDA pharmacokinetics"},
+    {"id": "0b655089-dc6f-4217-a4e7-9059a541c7be", "title": "Fire-retarding MOF fabric coating", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "0b93ed2a-4f76-451e-9258-b45156180318", "title": "Solidago canadensis Biochar Soil Cd", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "0b973b8d-b8e6-43af-a6ad-a9bbbf6bd7ab", "title": "Pure Harmony CBD Gummies Reviews Buy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "0ba2c358-7059-445c-ac87-594e441f4e74", "title": "Modifying Cannabis Waste Perceptions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Waste/environmental correctly rejected"},
+    {"id": "0ba3ccd2-6d79-47af-8283-9711ee664f29", "title": "Nutraceutical packaging trends CBD e-commerce", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industry news correctly rejected"},
+    {"id": "0bbc141b-67ba-4ddb-85fd-823e1d6972d0", "title": "Presynaptic Cannabinoid Sensitivity DSI DSE Hippocampus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid mechanism"},
+    {"id": "0bcbfcb1-ad08-4d4a-a532-652f4c0d64f5", "title": "Brazilian supermarkets CBD/Pão de Açúcar", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (company name) correctly rejected"},
+    {"id": "0bd0e728-2874-4147-a7e5-f88163c29fc8", "title": "QTL Mapping Seed Size Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "0bd4d41d-1319-438f-93ef-bbaeb727900d", "title": "CB1 antagonist URB447 feeding body-weight", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 obesity therapeutic"},
+    {"id": "0bda1bf6-9886-4318-82d0-eabae66fef20", "title": "DSM substance use disorders prevalence", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevalence correctly rejected"},
+    {"id": "0bda7141-a55f-407c-84f1-e7428cfa0883", "title": "Cannabinoids humoral immune response suppression", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid immune mechanism"},
+    {"id": "0bdbd667-80ac-4c61-b12a-a58fc98427c6", "title": "Cannabis Use Ankle ORIF Higher Risks", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "0ac54d45-9421-4fbe-ac83-3911ab445671",
+      "0b1d87bd-6498-477f-9796-6f753434de40",
+      "0b36e872-a292-4360-a73a-46a1f528e381",
+      "0b43ebf5-c79b-4065-8c0b-0a493648d184",
+      "0bbc141b-67ba-4ddb-85fd-823e1d6972d0",
+      "0bd4d41d-1319-438f-93ef-bbaeb727900d",
+      "0bda7141-a55f-407c-84f1-e7428cfa0883"
+    ]
+  }
+}

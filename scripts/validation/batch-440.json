@@ -1,0 +1,37 @@
+{
+  "batch_number": 440,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T04:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "e6c64625-864a-4ee5-aa56-a4689eb858d3", "title": "BeVital CBD Gummies (#1 PREMIUM MALE GROWTH GUMMIES) Shocking Result", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "e6d1403f-59df-4c61-8830-d7d9397d3fda", "title": "In vitro antibacterial activity of CBD formulations against MRSA in canine pyoderma.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "e6e12d34-071f-4c41-a88d-ad0dc180ce48", "title": "Cannabinoids in preclinical research of sepsis: a scoping review.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid sepsis therapeutic research"},
+    {"id": "e6e38a45-b3fe-4690-bb4a-35879f8c7271", "title": "CBD grown ZnO-based gas sensors and dye-sensitized solar cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "e6ff8a26-7e6e-4491-9012-18371f977321", "title": "Response of essential oil hemp growth, biomass, and cannabinoid profiles to varying fertigation rates", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "e7016969-9e66-4b86-85ac-f5456320185c", "title": "In Silico Assessment of CBD as an Antiviral Against Shrimp Pathogens in Aquaculture", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary/aquaculture correctly rejected"},
+    {"id": "e7045598-040b-41d3-a12f-937dc0f06dde", "title": "Medical Cannabis for Best Supportive Care of Patients Affected by Cancers of the Head and Neck", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis cancer supportive care"},
+    {"id": "e7135e49-c787-41d2-a987-a26e8ee1649a", "title": "Treatment Implications Associated With Cannabis and Tobacco Co-use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Substance use treatment correctly rejected"},
+    {"id": "e7184624-155c-4984-a633-17fa872c9a9f", "title": "Efficacy of psychoeducation intervention on substance use outcomes in college students", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "e71e392e-2e6a-41ca-a0df-bdd796bede3b", "title": "Special Issue: Therapeutic Potential for Cannabis and Cannabinoids 2.0", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial content correctly rejected"},
+    {"id": "e72d0fc4-4a77-4800-b30a-d74b83d39533", "title": "Laparoscopic primary suture versus T-tube drainage for choledocholithiasis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "e73a5887-7f7f-4864-9f6d-97cbeae0e1d4", "title": "Wellington's sedimentary basin: new CBD 3D model and maps", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "e74e7789-ee51-4d6b-9432-0afa732bea39", "title": "Cannabidiol in Foods and Food Supplements: Evaluation of Health Risks and Health Claims.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research"},
+    {"id": "e760f709-db26-4c35-99c6-078c50e5e611", "title": "Population Structure and GWAS of Cannabinoids and Terpenes Synthesis in Hemp", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "e773530f-e4ad-4591-9f34-2eefbc6eb42b", "title": "Cannabis Use in Older Individuals May Be Risk Factor for Motor Vehicle Crashes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment/harm correctly rejected"},
+    {"id": "e7a28e7e-0fcf-4c5f-8185-85399b58ffb1", "title": "Effects of limited enzymatic hydrolysis on functional properties of hemp protein isolate", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food science correctly rejected"},
+    {"id": "e7a782e5-2185-48db-9ac5-194c9b7a973d", "title": "CBD products that resemble tobacco products enter traditional retail outlets", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market analysis correctly rejected"},
+    {"id": "e7a88649-c61b-4787-890f-41e862175117", "title": "Pregnant Women's Cannabis Use in Relation to Views on Legalization and Knowledge of Harm", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/attitudes correctly rejected"},
+    {"id": "e7a895b3-d0c9-4a0b-aa22-2d20606918da", "title": "Evaluation of European fibre hemp genotypes in semi-arid Mediterranean environment", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "e7c7d0f4-e0df-475b-b867-1d271d65dbf0", "title": "BDNF and miRNAs in acupuncture-regulated neuroplasticity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "e6e12d34-071f-4c41-a88d-ad0dc180ce48",
+      "e7045598-040b-41d3-a12f-937dc0f06dde",
+      "e74e7789-ee51-4d6b-9432-0afa732bea39"
+    ]
+  }
+}

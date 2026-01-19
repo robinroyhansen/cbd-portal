@@ -1,0 +1,43 @@
+{
+  "batch_number": 302,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T17:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "4d01457d-a1fc-4ec1-803c-1e7326571c61", "title": "Cannabinoid receptors in developing rats: detection of mRNA and receptor binding", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB receptor developmental mechanism"},
+    {"id": "4d0321c0-8042-489e-a038-e760af07eaaa", "title": "A Longitudinal Assessment of Endometriosis Patients Prescribed Cannabis-Based Medicinal Products: A Case Series From the UK Medical Cannabis Registry.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis endometriosis clinical"},
+    {"id": "4d18f91c-19c9-4f55-89a2-c8d6c33dab74", "title": "CBD理論과 南北韓의 政治敎育", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Korean political theory) correctly rejected"},
+    {"id": "4d2dd474-5036-4870-976f-747619276574", "title": "A comprehensive update on cannabidiol, its formulations and drug delivery systems", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery systems"},
+    {"id": "4d38f6f2-f48a-4bb2-8d73-1cbca4bbccfc", "title": "Cannabidiol (CBD): Confronting consumers' expectations of therapeutic benefits with pharmacological reality", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic pharmacology"},
+    {"id": "4d3f39d1-4071-41a4-8f27-dbe948281e3d", "title": "The endogenous cardiac cannabinoid system: a new protective mechanism against myocardial ischemia.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS cardioprotection mechanism"},
+    {"id": "4d49763d-486a-45ca-8217-48db68b8395f", "title": "Current landscape of newer non-invasive brain stimulation in psychiatric disorders across South Asia", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "4d7461b5-94ba-4cdf-a685-251b5755f70f", "title": "Cannabis de-domestication and invasion risk", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/invasive species correctly rejected"},
+    {"id": "4d7f5fc9-32f5-4d95-b91a-0b12e1eeafd7", "title": "Industrial, CBD, and Wild Hemp: How Different Are Their Essential Oil Profile and Antimicrobial Activity?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Phytochemistry correctly rejected"},
+    {"id": "4d82986f-16e5-4cf6-93ea-43c47c482b0a", "title": "Space and Type of Operation in Evolution From CBD to RBD:Study on the Dynamic Succession of the Old and New City Center of Yongchuan", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "4d95f15a-34a7-4841-ab5d-3f97de8405b8", "title": "Interventions to reduce relapse risk and drug craving in patients with substance use disorders in forensic psychiatric care: a systematic review of controlled trials", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Non-cannabinoid SUD treatment correctly rejected"},
+    {"id": "4da283eb-19ad-4429-8ae7-6fddec53782c", "title": "Cannabinoid-induced alterations in brain disposition of drugs of abuse", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC/CBD drug interaction pharmacokinetics"},
+    {"id": "4dac0103-02ae-469e-a06c-2e3c441e4cfc", "title": "Is the Party Over? Cannabis and Juvenile Psychiatric Disorder: The Past 10 Years", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "4daec09a-070f-4f13-bf84-d2376132e1a3", "title": "The Monoacylglycerol Lipase Inhibitor JZL184 Inhibits Lung Cancer Cell Invasion and Metastasis via the CB1 Cannabinoid Receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS anticancer mechanism"},
+    {"id": "4dcfca8b-3d17-41e3-9323-1e24f9b0d99d", "title": "When Access Becomes Fatal: A Case Series of Anesthetic-Drug Suicides Among Anesthesiologists", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "4ddad3fb-2f4e-4c07-b9b2-a3d5485cfe6e", "title": "Dispelling the myth of \"smart drugs\": Cannabis and alcohol use problems predict nonmedical use of prescription stimulants for studying", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "4de596f8-ae17-4853-8f8c-2101bed3f898", "title": "Ultralight flexible 3D nickel micromesh decorated with NiCoP for high stability alkaline zinc batteries.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "4dec3b41-abe6-4579-9d6b-2a5da603ff67", "title": "Inverse agonism and neutral antagonism at cannabinoid CB1 receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor pharmacology"},
+    {"id": "4e06d191-b957-4552-9f26-d42977bf7361", "title": "Histamine induced responses are attenuated by a cannabinoid receptor agonist in human skin", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid skin therapeutic"},
+    {"id": "4e1a4aae-b002-4644-aea2-a29474ce160f", "title": "The Settings of Parking Information Management System in CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "4d01457d-a1fc-4ec1-803c-1e7326571c61",
+      "4d0321c0-8042-489e-a038-e760af07eaaa",
+      "4d2dd474-5036-4870-976f-747619276574",
+      "4d38f6f2-f48a-4bb2-8d73-1cbca4bbccfc",
+      "4d3f39d1-4071-41a4-8f27-dbe948281e3d",
+      "4da283eb-19ad-4429-8ae7-6fddec53782c",
+      "4daec09a-070f-4f13-bf84-d2376132e1a3",
+      "4dec3b41-abe6-4579-9d6b-2a5da603ff67",
+      "4e06d191-b957-4552-9f26-d42977bf7361"
+    ]
+  }
+}

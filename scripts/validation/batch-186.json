@@ -1,0 +1,36 @@
+{
+  "batch_number": 186,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T12:30:00.000Z",
+  "results": [
+    {"id": "cf8023ff-84dd-41f9-bda3-6e392a5a52e5", "title": "CBD Therapeutic Potential Ischemic Stroke Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD stroke neuroprotection"},
+    {"id": "cf8384c9-a481-43c4-b413-9cfe626aeeb8", "title": "CBD Cerebral Malaria Cognitive Anxiety Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD malaria neuroprotection"},
+    {"id": "cf8aaca3-132b-4f1b-8732-9ccf1810db3e", "title": "CBD PI3K Akt Breast Cancer In Silico", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD breast cancer mechanism"},
+    {"id": "cf959db2-004a-4984-8766-071639935541", "title": "CB2 Receptor Intracellular Plasmalemmal Calcium", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 receptor pharmacology"},
+    {"id": "cfa9245e-b598-4429-8caf-b12469265513", "title": "Dravet Syndrome Therapeutics Review Horizons", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Epilepsy therapeutics review"},
+    {"id": "cfaf73b5-efbd-4935-9fac-78f3b4d6c00a", "title": "JWH-018 Synthetic Cannabinoid Psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - synthetic cannabinoid psychosis"},
+    {"id": "cfb6828b-9923-4c8a-9361-b97d2959b0b3", "title": "Hemp CBD Anxiety Clinical Cognitive Improvement", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety clinical trial"},
+    {"id": "cfc32391-0e00-48c6-ae2c-8f393d05a79b", "title": "CBD Electrospinning Patch Wearable Needleless", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery innovation"},
+    {"id": "cfcaed8d-57be-4e5c-8b4a-7c2d378a0e4e", "title": "CBD THC Transcriptional Profiles BV-2 Microglia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid gene expression mechanism"},
+    {"id": "cfcbf669-c61c-4b6b-8c98-e4ea85dfd1f5", "title": "Cannabinoids Cancer Chemotherapy Adverse Effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid chemo side effects therapeutic"},
+    {"id": "cfdd4cb2-90b1-46dd-a821-270a53abbdd1", "title": "Marijuana CBD Use Prevalence Cancer Supplementary", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use patterns cancer patients"},
+    {"id": "cfe4d586-5c0d-4c6a-8723-a6865c3deca9", "title": "Simultaneous Alcohol Cannabis SAM Use College", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use patterns college students"},
+    {"id": "cff9ba0a-6545-4d4f-b467-421d6fff507f", "title": "CBD THC Parkinson's Disease Randomized Trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Parkinson's clinical trial"},
+    {"id": "d00088d2-0215-4cca-ae7b-4df734ddf118", "title": "Cannabis Neuropathic Pain Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain systematic review"},
+    {"id": "d00c9e08-3cce-4263-8dfa-832ac2c3d120", "title": "CBD LGS Dravet Seizure Outcomes BECOME", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy outcomes"},
+    {"id": "d017fef1-fdaf-4ca7-95c1-4ca78225e6a2", "title": "CBD Autism ASD Complementary Therapy Literature", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism therapeutic review"},
+    {"id": "d01a4d75-c889-4df2-b34f-8d935d4885f8", "title": "CBD Stress Anxiety Nausea VR Protocol RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety RCT protocol"},
+    {"id": "d01fe50d-7ca0-4469-9a19-a37304a37c74", "title": "Medical Cannabis Pancreatic Cancer CanPan RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer clinical trial"},
+    {"id": "d02e77ac-89a8-433c-9782-50dbbb6d6672", "title": "CBD Valproic Acid Thrombocytopenia Pediatric", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interaction safety"},
+    {"id": "d0309343-134a-4c55-b5d5-03c2a9ab175f", "title": "Endocannabinoid CB1 Abnormal Behaviors Therapeutic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid therapeutic perspective"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "cfaf73b5-efbd-4935-9fac-78f3b4d6c00a",
+      "cfdd4cb2-90b1-46dd-a821-270a53abbdd1",
+      "cfe4d586-5c0d-4c6a-8723-a6865c3deca9"
+    ]
+  }
+}

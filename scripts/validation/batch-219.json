@@ -1,0 +1,40 @@
+{
+  "batch_number": 219,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T20:45:00.000Z",
+  "results": [
+    {"id": "f2988acf-40fd-4656-af41-cb76a238d597", "title": "Cannabis HIV Inflammation Reduction", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis HIV anti-inflammatory therapeutic"},
+    {"id": "f29da7f6-bfd7-4a5d-8679-f24e09cde7d6", "title": "CB1 Receptors Alzheimer's Cortex", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 Alzheimer's mechanism"},
+    {"id": "f2a35c4f-f1e3-4f66-ad2d-540b67bcbcb3", "title": "CBD CUMS Depression Mouse", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression therapeutic mechanism"},
+    {"id": "f2a503ea-7cc2-41f4-b98d-e586dcb59a52", "title": "CBD Delivery Bioavailability", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmaceutical development"},
+    {"id": "f2b58df4-7e35-42e8-a980-0d7aac7b2db2", "title": "CB2 Morphine Inflammation Microglia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 opioid synergy therapeutic mechanism"},
+    {"id": "f2bcbb70-d55d-4c69-9d83-ac15f347393a", "title": "THC Muscle Pain Antinociception", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC pain therapeutic mechanism"},
+    {"id": "f2bd6591-9a2f-4cf5-9cff-d4a1bd9b8edc", "title": "Cannabis Use Pregnancy Trends", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - pregnancy use patterns"},
+    {"id": "f2e1b165-6fcc-4017-8a6e-4d6e9f0df515", "title": "Cannabis Withdrawal Syndrome", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - withdrawal syndrome"},
+    {"id": "f2f5f7da-2002-42f8-af92-dac894b57f18", "title": "Dopamine Apathy Cannabis Users PET", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - dopamine effects in users"},
+    {"id": "f2f954a4-e88a-4b06-990c-33de92874aa3", "title": "Endoscopic Papillary Choledocholithiasis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - bile duct procedure"},
+    {"id": "f30cbac6-9899-4058-a935-160274d1c04c", "title": "CBD Cancer Invasion Inhibition", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic mechanism"},
+    {"id": "f3150f04-afb2-458b-ab84-13e69d95212e", "title": "Transdermal CBD Arthritis Hyperalgesia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD arthritis therapeutic"},
+    {"id": "f31591e6-fd15-45b2-a6c4-59ba00d87fb7", "title": "CB1 Antagonist ANEB-001 THC Challenge", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 antagonist pharmacology RCT"},
+    {"id": "f32ae215-8551-4b73-a883-d465f17d9817", "title": "CBD Tamoxifen Side Effects Breast", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer side effect therapeutic"},
+    {"id": "f333c03c-894a-47fa-8362-6b5a76379712", "title": "Cannabis Phytocannabinoids Overview", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid therapeutic overview"},
+    {"id": "f3471416-b6a0-41ca-acae-543ff213e50e", "title": "Symptom Severity Minority Men Chronic", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - symptom patterns study"},
+    {"id": "f359e50a-1207-41fa-9140-d6553c4bcba9", "title": "Cannabis Smoking Cognitive Complaints Women", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cognitive complaints"},
+    {"id": "f3610ebb-390d-48b7-8ee4-047bdb0e4cec", "title": "Violence Cannabis Pregnancy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - pregnancy cannabis risk factors"},
+    {"id": "f37444a0-f9be-4694-800a-4380d16b4ba0", "title": "CB1 Inhibition Chronic Kidney Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 CKD therapeutic review"},
+    {"id": "f3946d09-6e8b-4fba-8c0c-00d0f449e4fb", "title": "CBD Alzheimer's In Silico Development", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's therapeutic development"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "f2bd6591-9a2f-4cf5-9cff-d4a1bd9b8edc",
+      "f2e1b165-6fcc-4017-8a6e-4d6e9f0df515",
+      "f2f5f7da-2002-42f8-af92-dac894b57f18",
+      "f2f954a4-e88a-4b06-990c-33de92874aa3",
+      "f3471416-b6a0-41ca-acae-543ff213e50e",
+      "f359e50a-1207-41fa-9140-d6553c4bcba9",
+      "f3610ebb-390d-48b7-8ee4-047bdb0e4cec"
+    ]
+  }
+}

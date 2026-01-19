@@ -1,0 +1,41 @@
+{
+  "batch_number": 256,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T06:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "1a9ebbcd-eeae-4f2c-889a-d69c6ee345c5", "title": "Hydrogen Sulfide Donors and Inhibitors for Nervous System Injuries", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "1aabab6e-d030-4c48-97e1-a30465084806", "title": "Microphysiological systems for drug ADMET evaluation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "1aaf8981-50b5-44c6-a68f-f1bd7e74e229", "title": "Cannabis-Based Products for Treatment of Skin Inflammatory Diseases: A Review", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic for skin diseases"},
+    {"id": "1abb7b9c-e979-4ef1-a644-dfa82cd78944", "title": "Sex-Dependent Effects of MAOA Genotypes on Cannabis Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/genetics correctly rejected"},
+    {"id": "1ac1f1ed-b15d-455a-a675-52fbbb07fb16", "title": "Seasonal fluctuations in cannabinoid content of Kansas Marijuana", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "1aca8500-46d7-40d5-a12e-1ac20920e452", "title": "Cannabidiol: possible therapeutic aplication", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic review"},
+    {"id": "1ad395cd-6af2-4682-9636-91a91b7f8990", "title": "Medical cannabis: Another piece in the mosaic of autoimmunity?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis for autoimmune diseases"},
+    {"id": "1aeb3139-fb06-4385-b071-bf309389bc93", "title": "Cystic Duct Diameter as a Key Predictor for Closure Difficulties", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "1aec42eb-baf9-4312-a787-645aec5d483a", "title": "Opposite Effects of THC and CBD on Human Brain Function and Psychopathology", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD vs THC brain effects"},
+    {"id": "1aed050e-ef73-49cc-9400-8487104e3992", "title": "Origin, early expansion, domestication and anthropogenic diffusion of Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "History/anthropology correctly rejected"},
+    {"id": "1af615d0-628f-4bbe-88b5-8e52438b2d04", "title": "Prevalence and associated birth outcomes of co-use of Cannabis during pregnancy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm in pregnancy correctly rejected"},
+    {"id": "1b187f61-537d-41d5-b693-89ce2afbb7be", "title": "Do-It-Yourself medicine? Impact of light cannabis liberalization", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/market correctly rejected"},
+    {"id": "1b3346fe-f70d-4e79-a629-05feccbe4de9", "title": "Pharmacological characterization of cannabidiol as a negative allosteric modulator of 5-HT2A", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD serotonin receptor mechanism"},
+    {"id": "1b3413a0-89da-4a70-9645-b5bbf71f2df6", "title": "From Drops to Decisions: AI/ML-Driven Biofluidics for Clinical Diagnostics", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "1b4d35f9-3d4a-4cc6-ac4a-83df32802153", "title": "THC and Anandamide Directly Potentiate the Function of Glycine Receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism research"},
+    {"id": "1b65a3d5-edd5-4162-8b06-df69b7264600", "title": "Variability in Seed Traits in a Collection of Cannabis sativa L. Genotypes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/seed breeding correctly rejected"},
+    {"id": "1b67bdf9-3670-489b-84d5-1e1f9cb9eaea", "title": "Nanoencapsulation of hemp cannabidiol (CBD) through emulsification", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery/formulation"},
+    {"id": "1b6aee51-9114-4ea1-aab6-521cd03dede0", "title": "Cannabinoid hyperemesis syndrome: genetic susceptibility to toxic exposure", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis adverse effect correctly rejected"},
+    {"id": "1b7af039-13d8-4995-895a-d56daa59e8d1", "title": "Generalisation of RES = RAG via CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (mathematics) correctly rejected"},
+    {"id": "1b7bb123-e46d-45ca-92b8-8a8ef4b097e7", "title": "Synthetic Cannabinoids and Acute Kidney Injury", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid toxicity correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "1aaf8981-50b5-44c6-a68f-f1bd7e74e229",
+      "1aca8500-46d7-40d5-a12e-1ac20920e452",
+      "1ad395cd-6af2-4682-9636-91a91b7f8990",
+      "1aec42eb-baf9-4312-a787-645aec5d483a",
+      "1b3346fe-f70d-4e79-a629-05feccbe4de9",
+      "1b4d35f9-3d4a-4cc6-ac4a-83df32802153",
+      "1b67bdf9-3670-489b-84d5-1e1f9cb9eaea"
+    ]
+  }
+}

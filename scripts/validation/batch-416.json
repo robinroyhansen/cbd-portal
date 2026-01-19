@@ -1,0 +1,40 @@
+{
+  "batch_number": 416,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T22:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "cce5f600-1a15-4ff1-8968-315c05f1acca", "title": "Assessment of Preoperative Gastric Content With Ultrasound in Patients Reporting Cannabis Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Surgical preparation correctly rejected"},
+    {"id": "cd1500e8-9446-4bcf-b3a3-45cfe7436166", "title": "Optoelectronic properties of undoped and Al, B and Ga-doped In2S3 thin films grown by CBD on flexible PET/ITO substrates", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "cd33ab16-3c50-49a2-aa24-bb1d919458e0", "title": "Cannabinoid tetrad effects of oral Δ9-tetrahydrocannabinol (THC) and cannabidiol (CBD) in male and female rats: sex, dose-effects and time course evaluations", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC/CBD pharmacology research"},
+    {"id": "cd468d1b-6f96-47a6-984d-ee62994848a3", "title": "Functional MRI evidence for inefficient attentional control in adolescent chronic cannabis abuse", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "cd49703c-aa42-4f19-9b92-30528e25ba01", "title": "Mitochondria Transfer in Mesenchymal Stem Cells: Unraveling the Mechanism and Therapeutic Potential", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "cd4ccb05-403d-48d5-97bd-8ca7b7d6c5a1", "title": "Exploring perceived gender norms about cannabis among treatment-seeking adults in the era of cannabis legalization in Canada", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Social/CUD correctly rejected"},
+    {"id": "cd59b9e2-be4d-4805-b832-fd677d0b8cd5", "title": "Deep eutectic solvent enhances antibacterial activity of a modular lytic enzyme against Acinetobacter baumannii", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "cd5f5d97-c124-4309-ab41-291b24bdda85", "title": "Hydrogels as a new platform of therapeutic systems in oncological treatment", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "cd62840d-22ee-4205-a9c1-c0913792c1d7", "title": "Neuronal hyperexcitability: A key to unraveling hippocampal synaptic dysfunction in Lafora disease", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "cd8cb03a-21a8-4ad0-b9d5-9bb56b2096db", "title": "The cannabinoid agonist WIN55212-2 decreases l-DOPA-induced PKA activation and dyskinetic behavior in 6-OHDA-treated rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid Parkinson's dyskinesia therapeutic"},
+    {"id": "cd950d8f-23e8-452a-a3e1-b16ea21c2812", "title": "Effect of Al doping and deposition runs on structural and optical properties of In2S3 thin films grown by CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "cd9da5cc-150d-4e36-bc93-389ba4e94ef7", "title": "Cannabinoid Receptor-2 and HIV-Associated Neurocognitive Disorders", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor HIV therapeutic research"},
+    {"id": "cda024b7-c9c5-4687-a0db-99a75ca4e473", "title": "Lipopolysaccharide and cyclic AMP regulation of CB2 cannabinoid receptor levels in rat brain and mouse RAW 264.7 macrophages", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor regulation mechanism research"},
+    {"id": "cdacfea1-dba2-4ee0-97d9-918944cd1946", "title": "P0 protein of cotton leafroll dwarf virus-atypical isolate is a weak RNA silencing suppressor and the avirulence determinant that breaks the cotton Cbd gene-based resistance", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (cotton gene) correctly rejected"},
+    {"id": "cdae5562-e13b-408c-ba21-72a814306cab", "title": "JWH018, a common constituent of 'Spice' herbal blends, is a potent and efficacious cannabinoid CB1receptor agonist", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid correctly rejected"},
+    {"id": "cdebc82b-2df7-4915-9be1-dd001f5f02f9", "title": "Nanotechnology for the Efficacious Delivery of Medicinal Cannabis and Pharmaceutical Medicines", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis formulation/delivery research"},
+    {"id": "cdf094b1-a426-4935-8c67-b785dbbcbd41", "title": "Cannabidiol Confers Neuroprotection in Rats in a Model of Transient Global Cerebral Ischemia: Impact of Hippocampal Synaptic Neuroplasticity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD stroke neuroprotection research"},
+    {"id": "ce01d102-c915-4d8a-b5df-69d616960e18", "title": "The growth of cannabis cultivation:explanations for import substitution in the UK", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/cultivation correctly rejected"},
+    {"id": "ce1188e0-de30-46b6-8818-a59d40ec1e38", "title": "Cannabidiol: A budding industry!", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industry/editorial correctly rejected"},
+    {"id": "ce1deb2c-ea28-48a2-bb7d-92fddd403f5a", "title": "Optimizing ethanol-modified supercritical CO₂ extraction for enhanced bioactive compound recovery in hemp seed oil", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "cd33ab16-3c50-49a2-aa24-bb1d919458e0",
+      "cd8cb03a-21a8-4ad0-b9d5-9bb56b2096db",
+      "cd9da5cc-150d-4e36-bc93-389ba4e94ef7",
+      "cda024b7-c9c5-4687-a0db-99a75ca4e473",
+      "cdebc82b-2df7-4915-9be1-dd001f5f02f9",
+      "cdf094b1-a426-4935-8c67-b785dbbcbd41"
+    ]
+  }
+}

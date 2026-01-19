@@ -1,0 +1,40 @@
+{
+  "batch_number": 363,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T08:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "92de1661-7d48-4745-8a4d-d1c130415e73", "title": "Hemp-Derived Cannabidiol (CBD)", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD overview"},
+    {"id": "92e3f154-9f51-4b1d-88eb-10bb55d2baf4", "title": "Effect of intraperitoneal cannabidiol (CBD) injection on intestine microbiome profile in a mouse model", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD gut microbiome mechanism research"},
+    {"id": "92ee691f-0b38-4cbe-9b82-369b04867dee", "title": "Stochastic approximations in CBD mortality projection models", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Cairns-Blake-Dowd mortality model) correctly rejected"},
+    {"id": "92f0a393-3347-4dc9-9373-0b8761105fd9", "title": "The Evaluation of Oral and Dental Health in Substance Dependent Individuals", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "92fabec6-f461-4289-a17d-6cece94060e0", "title": "Effects of Temperature and Agitation Time of Triethanolamine as a Complexing Agent in Production of Tin Sulfide Thin Films by CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "93152a8c-1580-4ce4-b7ee-8fdef43e9050", "title": "Endoscopic retrograde cholangiopancreatography and primary sclerosing cholangitis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "93159b49-7707-44ea-906a-95f1502b443d", "title": "2012 Division of Medicinal Chemistry Award Address. Trekking the Cannabinoid Road: A Personal Perspective", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid research historical review"},
+    {"id": "93387a27-e115-4beb-9232-dc980f8d17aa", "title": "Financial Incentives for Substance Abstinence: A Systematic Review and Meta-analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General substance treatment correctly rejected"},
+    {"id": "93390b3c-69c0-4a5c-baff-0855f9665946", "title": "Large-scale analysis of bacterial genomes reveals thousands of lytic phages", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "9352aa54-05d9-4f5c-b56c-7dece08c141a", "title": "Comparison of cannabinoid concentrations in oral fluid and whole blood between occasional and regular cannabis smokers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "9352cba8-639f-44d4-a71e-b6da3c35e8b5", "title": "Effects of delta 9-tetrahydrocannabinol and cannabidiol on sodium-dependent high affinity choline uptake in the rat hippocampus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC/CBD cholinergic mechanism research"},
+    {"id": "9364250b-4aed-44d3-b940-fbdd42316f2a", "title": "Cannabinoid exposure does not alter estradiol biosynthesis in human KGN granulosa cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid endocrine mechanism research"},
+    {"id": "937e4589-d003-4bf8-8ea5-5c152eca4a7b", "title": "The effect of chronically administered cannabis extract on the testicular function of mice", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "93820c16-8ac4-4ca7-a54f-e99e557421ec", "title": "Membrane-Camouflaged Biomimetic Nanoparticles for Effective Ischemic Stroke Therapeutics? A Comprehensive Review of the Literature", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "9389f6c2-1746-4045-b859-6cccd5ddb424", "title": "Cannabis, CBD Should Not Be Schedule I Drugs, Herbal Leaders Urge FDA in Public Comments", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "938b4485-5e45-441f-adb9-62bbcdd161aa", "title": "Positron emission tomography imaging using an inverse agonist radioligand to assess cannabinoid CB1 receptors in rodents", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor imaging research"},
+    {"id": "93c5cd34-36af-41da-85f1-bddefa6ef9bf", "title": "The gastrointestinal endothelin system: receptors, cellular actions, and involvement in gastrointestinal disorders", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "93d6b23b-8ddb-42bc-85fe-fd3ac6ec9ed4", "title": "Effects of Cannabidiol Oil on Anesthetic Requirements in Cats", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "93d7b05c-b8ca-4f66-8314-5f1eb93e8864", "title": "Are Human Judgments of Real and Fake Faces Quantum-like Contextual?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "942fa250-d5fd-442c-93ae-c867519c15bc", "title": "Lithium prevents the neurotoxic effects of paclitaxel mediated through TRPA1 channels", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "92de1661-7d48-4745-8a4d-d1c130415e73",
+      "92e3f154-9f51-4b1d-88eb-10bb55d2baf4",
+      "93159b49-7707-44ea-906a-95f1502b443d",
+      "9352cba8-639f-44d4-a71e-b6da3c35e8b5",
+      "9364250b-4aed-44d3-b940-fbdd42316f2a",
+      "938b4485-5e45-441f-adb9-62bbcdd161aa"
+    ]
+  }
+}

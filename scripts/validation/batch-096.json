@@ -1,0 +1,39 @@
+{
+  "batch_number": 96,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T13:45:00.000Z",
+  "results": [
+    {"id": "6b5f6147-50ce-4f13-b255-68b2ab3c4054", "title": "Cannabis smoke working memory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cognitive research"},
+    {"id": "6b66eeee-8704-4e36-bf06-0153995a2ac4", "title": "Cannabinoid entourage effects colitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid IBD therapeutic"},
+    {"id": "6b70d878-6368-453f-9330-496b132dd6b7", "title": "CBD antitumor breast carcinoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"},
+    {"id": "6b821f71-d601-4922-94db-491cae05c83b", "title": "CANCAN CBD/THC chemotherapy RCT protocol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer symptom trial"},
+    {"id": "6b887975-b695-4625-b07e-63d628fc9415", "title": "Synthetic cannabinoids cancer therapy review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"},
+    {"id": "6b89652a-1611-4be1-ae1f-c87ab91aedf8", "title": "THC cardiovascular effects prolonged", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cardiovascular safety"},
+    {"id": "6badd72a-386e-435c-9519-132d1a18e3c4", "title": "CBD THC pancreatic cancer PAK1 PD-L1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer mechanism"},
+    {"id": "6bb488f9-1986-4f32-9c51-5fa7513a0880", "title": "COMT gene cannabinoids cognition", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacogenomics"},
+    {"id": "6bd32067-ff94-4e86-9ef8-4a2cb0b60675", "title": "CBD migraine biochemical behavioral", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD migraine therapeutic"},
+    {"id": "6c35ff29-b5a6-46a7-83de-0fd1e7559de3", "title": "CBD-Focus cognition health study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic trial"},
+    {"id": "6c39a14c-fbf4-4282-beb0-900e31699c1f", "title": "CBD rabbits growth performance diet", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE/VETERINARY - rabbit feed"},
+    {"id": "6c62f521-1392-45d0-ae0b-8f64177d5fcb", "title": "Chronic cannabis use fear extinction impaired", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cognitive impairment"},
+    {"id": "6c7a510b-628c-4cb4-8623-b6354274f322", "title": "Hippocampal harms cannabis use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - brain damage"},
+    {"id": "6c87fa5d-be9a-4b5a-b547-4351e8726ced", "title": "Medical cannabis pancreatic cancer CanPan RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer symptom RCT"},
+    {"id": "6c892ecf-5a20-4736-b5c3-804b940d4f2f", "title": "CB1 glaucoma trabecular meshwork", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid glaucoma mechanism"},
+    {"id": "6c8e3a1e-3676-423a-b909-ea510f7f8874", "title": "Hemp goat feed meat characteristics", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - hemp livestock feed"},
+    {"id": "6c94012d-6b4b-4a10-9287-e41cff40f0bf", "title": "Cannabinoid receptors HIV encephalitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid HIV brain therapeutic"},
+    {"id": "6ca00c17-cc23-456d-b98d-f4b4dd0a8e6e", "title": "Anatomy One CBD Gummies", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING"},
+    {"id": "6ca5e4dc-399c-4129-a14d-e2ee43c98af6", "title": "Pooch parade Maryborough CBD pink", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Central Business District dog parade!"},
+    {"id": "6cafb1e4-6ce6-449f-9169-048155f1a3b3", "title": "Cannabis antimicrobial CB2 neurodegeneration", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid antimicrobial therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "6c39a14c-fbf4-4282-beb0-900e31699c1f",
+      "6c62f521-1392-45d0-ae0b-8f64177d5fcb",
+      "6c7a510b-628c-4cb4-8623-b6354274f322",
+      "6c8e3a1e-3676-423a-b909-ea510f7f8874",
+      "6ca00c17-cc23-456d-b98d-f4b4dd0a8e6e",
+      "6ca5e4dc-399c-4129-a14d-e2ee43c98af6"
+    ]
+  }
+}

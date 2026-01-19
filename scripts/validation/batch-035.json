@@ -1,0 +1,37 @@
+{
+  "batch_number": 35,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T22:30:00.000Z",
+  "results": [
+    {"id": "2897649e-30fc-49e4-bf76-99395ce5159f", "title": "Cannabidiol as a Potential Treatment for Anxiety Disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for anxiety review"},
+    {"id": "28b9cff0-901c-4aa6-bd72-ba92868efd6c", "title": "CBD for Autoimmune Hepatitis via TRPV1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anti-inflammatory for liver disease"},
+    {"id": "28c32df6-d555-4946-84ca-21e2a04c8ef3", "title": "Transcriptomic Analysis of Stem Cells Treated with CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anti-inflammatory mechanism research"},
+    {"id": "28c48e83-3fe0-47bf-802e-a5a89d606c57", "title": "Additional file 1 - Developmental CBD exposure anxiety paper", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SUPPLEMENTARY DATA FILE - not complete study"},
+    {"id": "28d46690-335e-44d1-84c7-8c3a9afbad5c", "title": "CBD Antioxidant and Cardioprotective Effect", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for cardiovascular protection"},
+    {"id": "28d6772d-d399-4505-878e-a18b862d8834", "title": "CBD disrupts placental trophoblast processes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pregnancy safety research"},
+    {"id": "28d9ecf4-faa8-4aa6-bd25-c7efa7604c30", "title": "CBD for psychosis in Parkinson's disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for PD psychosis clinical trial"},
+    {"id": "28dd39ed-7445-4d0c-bc6a-48723deab932", "title": "Current state of knowledge CBD in various conditions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD medical review"},
+    {"id": "28f1d5be-c082-4fb6-a3ce-56e5f764dc0f", "title": "CBD reduces airway inflammation in allergic asthma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for asthma"},
+    {"id": "2901880f-158f-4780-9424-670d0de80163", "title": "Cannabinoid oromucosal spray for MS spasticity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Sativex for MS"},
+    {"id": "291097a7-2739-4487-bb5f-a1a77b2a37db", "title": "THC/CBD for Cisplatin-Induced Neuropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid for chemotherapy neuropathy"},
+    {"id": "2928effd-dd07-4d36-a4c4-105be9031b97", "title": "Cannabinoids in health and disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid therapeutic review"},
+    {"id": "292bce4f-26f5-4d50-bc43-d29a8615752e", "title": "Anxiety sensitivity and cannabis-related problems Hispanic/Latine", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE problems study - not therapeutic"},
+    {"id": "2953e00a-3154-4b20-8b73-3ea0d91b330a", "title": "Cannabis dependence phenotypes and FAAH variant", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis DEPENDENCE genetics - not therapeutic"},
+    {"id": "2968444e-924d-4e6b-a0d0-d91eacc0e44c", "title": "Sex differences in acute cannabis effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pharmacology RCT research"},
+    {"id": "296ed33e-ac9a-4ca0-9c41-1509582df0a7", "title": "CBD Mitigates Intestinal Toxicity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD gut protective effects"},
+    {"id": "29703c92-b40c-4fd1-b19a-fedae7b0784d", "title": "Memory Impairments by Cannabinoids Mechanisms", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism research"},
+    {"id": "298b4ea1-f933-4a91-bb65-b9c553c17542", "title": "THC, CBD and Anxiety Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anxiety effects review"},
+    {"id": "2996d26b-6f2f-4035-a6ff-a50c4ecebd18", "title": "CBD Disrupts Mitochondrial Respiration in Trophoblast", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pregnancy safety research"},
+    {"id": "299974b9-47c1-4bef-9231-6e9dadfa20b1", "title": "Cannabis user risks during COVID-19", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE risks - not therapeutic research"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "28c48e83-3fe0-47bf-802e-a5a89d606c57",
+      "292bce4f-26f5-4d50-bc43-d29a8615752e",
+      "2953e00a-3154-4b20-8b73-3ea0d91b330a",
+      "299974b9-47c1-4bef-9231-6e9dadfa20b1"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "batch_number": 333,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T01:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "701ac867-6ea1-4972-9db3-843490fd6b59", "title": "Unveiling the Unexpected: A Case of Synergistic Drug Reaction to Cannabidiol.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug interaction case"},
+    {"id": "70377856-19af-45b5-9d80-5b49fc68e315", "title": "CBD en epilepsia infantil", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pediatric epilepsy"},
+    {"id": "7039163c-a4e6-4e92-a59d-4e1aa0ce36b5", "title": "Physicians' Attitudes and Practices Regarding Cannabis and Recommending Medical Cannabis Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Attitudes correctly rejected"},
+    {"id": "705a3b77-6de1-4ae3-9e25-a6bb291508be", "title": "Cannabis sativa L. – cultivation and quality of raw material", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "706ee0ca-2107-4367-9608-5533afdd1287", "title": "Cannabidiol does not cause DNA double-strand breaks in a human liver-derived cell model.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research"},
+    {"id": "70796180-ddfa-4cd7-95cb-e1963c57e488", "title": "502 Prevalence of cannabidiol use in people with CF", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "70a99866-9088-4976-9e7c-8f40a99e03f8", "title": "Changes in health harms due to cannabis following legalisation of non‐medical cannabis in Canada", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "70c4c5fa-72b7-4b7a-b273-21a04613e8ee", "title": "Recombinant Cellulose Binding Domain (CBD) Modulates In Vitro Elongation of Different Plant Cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Cellulose Binding Domain) correctly rejected"},
+    {"id": "70f97bcc-54ca-44cf-93d0-a4f4cc868fb1", "title": "Cannabidiol extending beyond neuroprotection toward neuronal repair: A potential regenerative modulator.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD neurorepair mechanism"},
+    {"id": "71087b2d-0173-4d8f-aa9e-cd1499360bca", "title": "Cannabidiol in Sports: A Brazilian Perspective.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Sports policy correctly rejected"},
+    {"id": "71088802-5cb8-4745-a55f-26439a45cb4c", "title": "Genomic Identification and Biochemical Characterization of Methyl Jasmonate (MJ)-Inducible Terpene Synthase Genes in Lettuce", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "710b189a-ab5d-4d1b-8727-bde9463420f2", "title": "DEVELOPMENT OF PRODUCER SERVICES AND CBD IN GUANGZHOU", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "711b4793-571d-435a-9f90-2673e875b68a", "title": "Perception and use of cannabidiol (CBD) by French pet owners.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary attitudes correctly rejected"},
+    {"id": "7124dd3a-8219-4e3b-aaba-4ef1202f8210", "title": "Deep Convolutional Generative Adversarial Network (dcGAN) Models for Screening and Design of Small Molecules Targeting Cannabinoid Receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor drug discovery"},
+    {"id": "7136470c-e43a-433f-ad4e-e316b925c9f2", "title": "Causal relationship between tractography-based brain white matter structural connectome and risk of psychiatric disorders", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "7150e04a-bd7e-4114-9982-50277a2a54ec", "title": "Central and peripheral cannabinoid modulation of gastrointestinal transit in physiological states or during the diarrhoea induced by croton oil", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid GI mechanism"},
+    {"id": "7151f174-6495-4310-b972-65416adcf5d2", "title": "Recent Advances in Eco-Friendly Supercritical Carbon Dioxide Fractionation Techniques for Food Applications.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction method correctly rejected"},
+    {"id": "71577fca-3d08-4f52-8db6-a823570fc8ff", "title": "A 19-Month-Old Girl With Acute Choledocholithiasis: A Case Report.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "71732fab-5a10-4d52-8756-4e02f9c6f633", "title": "The cannabis plant : botanical characteristics.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "7186617f-8e80-4bf7-a048-da193507d6a7", "title": "한국형 내시경역행담췌관조영술 질 평가 지표", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "701ac867-6ea1-4972-9db3-843490fd6b59",
+      "70377856-19af-45b5-9d80-5b49fc68e315",
+      "706ee0ca-2107-4367-9608-5533afdd1287",
+      "70f97bcc-54ca-44cf-93d0-a4f4cc868fb1",
+      "7124dd3a-8219-4e3b-aaba-4ef1202f8210",
+      "7150e04a-bd7e-4114-9982-50277a2a54ec"
+    ]
+  }
+}

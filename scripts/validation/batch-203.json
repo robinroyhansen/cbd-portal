@@ -1,0 +1,40 @@
+{
+  "batch_number": 203,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T16:45:00.000Z",
+  "results": [
+    {"id": "e16fff7e-be7a-468d-9220-ae3a3d3d27be", "title": "CBD Drug Interaction Cancer Patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interaction safety"},
+    {"id": "e18156e1-345d-4157-9818-31a8d63a44fe", "title": "CBD Effects Morphine CPP Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD opioid addiction therapeutic"},
+    {"id": "e1884485-78fa-447d-801c-f4ae49c24caf", "title": "Tom Selleck CBD Gummies", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - fake celebrity endorsement advertisement"},
+    {"id": "e198c728-1cb4-42aa-81aa-620a2aa00823", "title": "CBD Treatment Resistant Epilepsies Dravet", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Dravet syndrome therapeutic"},
+    {"id": "e19c9db7-fa6b-446d-a7e1-ae92ae69256f", "title": "HU-320 Synthetic Cannabinoid Arthritis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Synthetic cannabinoid arthritis therapeutic"},
+    {"id": "e19cf734-7787-4ff6-923a-3ed4f84a0101", "title": "CB1 NMDA Receptors Psychosis Schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor mechanism schizophrenia"},
+    {"id": "e1c049af-e2aa-4b6f-94ce-979c4ace4e0f", "title": "CBD NK Cells Chikungunya Virus", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antiviral immune modulation"},
+    {"id": "e1c5679c-71f7-4b81-ac78-16288b9de61b", "title": "p53-CBD Cervical Cancer Biomarker", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cervical cancer therapeutic"},
+    {"id": "e1c56f77-1d01-4392-80e5-ad3d3b087d51", "title": "CBD vs Risperidone Psychosis Cannabis Use RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychosis dual diagnosis RCT"},
+    {"id": "e1c66565-de67-4b73-89f2-a6d4b6941a04", "title": "THC TRB3 ER Stress Autophagy Antitumoral", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC cancer mechanism"},
+    {"id": "e1d857ff-9599-4a17-b8d2-933476b41a11", "title": "Plant Extract ECS Anxiolytic Elderly", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - grains of paradise extract"},
+    {"id": "e1e68e1a-3778-4c9d-b8fe-19c0a1538671", "title": "Oral Cannabinoids MS Safety Tolerability", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid MS therapeutic RCT"},
+    {"id": "e1e69ef0-1f80-4576-8a2c-e27108051d25", "title": "Cannabis Neuropathic Pain Photon Emission Biomarker", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain biomarker"},
+    {"id": "e1f482f2-662c-492a-9845-85cb35324c88", "title": "Editorial Medicinal Cannabis Tourette", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - opinion piece"},
+    {"id": "e213683e-c8af-462d-a6d6-9568dad5d220", "title": "Orphan Designation CBD Lennox-Gastaut", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy regulatory"},
+    {"id": "e215259f-8a08-4024-bc04-8e6430205163", "title": "CBD Modulatory Effects Gut Therapeutic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD GI therapeutic review"},
+    {"id": "e22bf305-ca69-4ec7-9c5f-c6a4e99d268a", "title": "Percutaneous Drug Delivery Masticatory", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general drug delivery"},
+    {"id": "e22c88f1-7522-41cb-a263-5359a44d77e7", "title": "Dopamine Stress Chronic Cannabis Users PET", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - neuroimaging cannabis users"},
+    {"id": "e22c9493-5176-4673-aac1-418159527158", "title": "Reba Mcentire CBD Gummies Facebook", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - fake celebrity endorsement advertisement"},
+    {"id": "e2514de0-32a2-47ae-ac29-576edd602de2", "title": "Cancer-Associated Cachexia Mechanistic", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general cachexia study"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "e1884485-78fa-447d-801c-f4ae49c24caf",
+      "e1d857ff-9599-4a17-b8d2-933476b41a11",
+      "e1f482f2-662c-492a-9845-85cb35324c88",
+      "e22bf305-ca69-4ec7-9c5f-c6a4e99d268a",
+      "e22c88f1-7522-41cb-a263-5359a44d77e7",
+      "e22c9493-5176-4673-aac1-418159527158",
+      "e2514de0-32a2-47ae-ac29-576edd602de2"
+    ]
+  }
+}

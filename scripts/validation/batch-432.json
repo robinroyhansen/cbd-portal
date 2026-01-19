@@ -1,0 +1,40 @@
+{
+  "batch_number": 432,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T02:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "df079e28-fc83-4352-b10f-ba3df6878cc1", "title": "Quantitation of Δ1-tetrahydrocannabinol in plasma from cannabis smokers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "df0807e5-3261-4320-8e12-27b1a021fcc8", "title": "The Crime of Vehicular Homicide in Italy: Trends in Alcohol and Drug Use in Fatal Road Accidents in Lazio Region from 2018 to 2024.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/forensic correctly rejected"},
+    {"id": "df0ee6de-2e5a-4416-a4fa-06cb163242ca", "title": "An astrocytic ensemble at vHip-NAc synapses modulates cognitive impairments induced by chronic tetrahydrocannabinol exposure.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis cognitive harm correctly rejected"},
+    {"id": "df259196-8e66-43c4-b008-f8fecb5e82e2", "title": "The potency of cannabis in New Zealand from 1976 to 1996", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Potency analysis correctly rejected"},
+    {"id": "df2db96b-e6ca-42d4-8b3b-3661e7f68a10", "title": "Enhancing Cannabidiol Apparent Solubility and Oral Delivery: Self-assembled Nanomicelles of Amphiphilic Block Copolymer with γ-Polyglutamic Acid-grafted Cholesterol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery formulation research"},
+    {"id": "df2e5400-9368-4d6f-9d4e-095f3866a4ad", "title": "Cannabidiol Encapsulation in Polymeric Hydrogels and Its Controlled Release: A Review.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery review"},
+    {"id": "df35cad9-f931-417d-8038-a3522a9686a2", "title": "CBD and THC: Does the market reflect therapeutic dosing?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market analysis correctly rejected"},
+    {"id": "df35d208-731f-4358-add7-57a768a77793", "title": "FKBP5/FKBP51-mediated signaling pathways in neuropsychiatric diseases: Insights for biomarker development and targeted therapies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "df3f6c02-3c11-4e42-bfed-2bca7af04e15", "title": "Administration of Δ9-Tetrahydrocannabinol (THC) in Adolescent and Adult Mice.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Methods/unclear correctly rejected"},
+    {"id": "df49ed9a-4e4e-42ae-874e-d6dcce94def4", "title": "The relationship between chemical composition and geographical origin of cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "df4fb2f0-89ed-4967-ab42-07d6b78c1e94", "title": "[Determination of caffeine and taurine in electronic cigarette oil by high performance liquid chromatography- tandem mass spectrometry].", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "df5e4c9e-5166-4d82-9312-1f51b94cc795", "title": "Cannabinoid Hyperemesis: A Case Series", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "df64f30e-ad9f-4266-9dd5-ecefe7708d2c", "title": "Medical cannabis utilization in children - a study based on a nationwide cohort.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis pediatric research"},
+    {"id": "df6a3f39-46c7-4acc-95a7-75a4fffcc1db", "title": "Marijuana use predicts onset of current little cigar use in a national sample of US young adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "df7b3d29-d776-4b94-b043-d53843ec6105", "title": "A case of cannabis-induced pancreatitis.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "df7d4cbf-d245-4f18-9ba4-94578e4e3f90", "title": "Selective inactivation of mouse liver cytochrome P-450IIIA by cannabidiol.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug metabolism mechanism research"},
+    {"id": "df83b50a-f896-4b74-8874-d57ae0ac5909", "title": "Seized cannabis seeds cultivated in greenhouse: A chemical study by gas chromatography–mass spectrometry and chemometric analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "df8651f0-b86c-44eb-8e25-c361d94ef51e", "title": "UV induced changes in proteome of rats plasma are reversed by dermally applied cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD protective effect research"},
+    {"id": "df86bc5c-b0d5-43ad-9c3a-0ed871302e2f", "title": "Cannabinoid hyperemesis syndrome masquerading as an eating disorder", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "df94b22d-0279-4ff6-96fb-061da5c27967", "title": "Investigation of Cannabidiol's Protective Effects on Cadmium-Induced Toxicity in Mice.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD protective effect research"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "df2db96b-e6ca-42d4-8b3b-3661e7f68a10",
+      "df2e5400-9368-4d6f-9d4e-095f3866a4ad",
+      "df64f30e-ad9f-4266-9dd5-ecefe7708d2c",
+      "df7d4cbf-d245-4f18-9ba4-94578e4e3f90",
+      "df8651f0-b86c-44eb-8e25-c361d94ef51e",
+      "df94b22d-0279-4ff6-96fb-061da5c27967"
+    ]
+  }
+}

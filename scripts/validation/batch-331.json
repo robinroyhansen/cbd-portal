@@ -1,0 +1,40 @@
+{
+  "batch_number": 331,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T00:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "6df22a18-079b-41a0-ada5-5b5d33849a72", "title": "Tax revenue distribution of buildings in major CBDs (2023).", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "6e10c836-e047-44cc-b3ab-2321735e9dab", "title": "The role of cannabinoid signaling in acute and chronic kidney diseases", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid kidney disease mechanism"},
+    {"id": "6e24447c-a133-44ce-b504-80c039d267cf", "title": "Population reach, feasibility and acceptability of digital therapeutics for smoking cessation among people living with HIV", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "6e2969a8-6deb-431b-87c3-d87287a65067", "title": "Infusion of cannabidiol into infralimbic cortex facilitates fear extinction via CB1 receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD fear extinction mechanism"},
+    {"id": "6e2e8864-bae2-41e2-b086-51c64e0ad60c", "title": "Knowledge of Tetrahydrocannabinol and Cannabidiol Levels Among Cannabis Consumers in the United States and Canada", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "6e303117-9a45-4809-8e47-439e5462b848", "title": "Ion channels and G protein-coupled receptors: Cannabidiol actions on disorders of excitability and synaptic excitatory-inhibitory ratio.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD ion channel/GPCR mechanism"},
+    {"id": "6e398a85-63f4-4744-9d96-e85ddcdc1db1", "title": "The Effect of Dronabinol on Ocular Hemodynamics in Patients With Primary Glaucoma", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC glaucoma clinical trial"},
+    {"id": "6e3c7021-b58a-4ffc-b8af-d05aeafd001b", "title": "Harm reduction-the cannabis paradox", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "6e43da09-ee02-4ea9-99c0-2eca21c2d773", "title": "Racism and health: Examining pathways influencing health outcomes among justice-involved and nonjustice-involved Black and Latine individuals.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "6e458107-51ea-4722-823c-7c8d0bd63577", "title": "Obtaining of the recombinant Rhil7-Cbd fusion protein", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Cellulose Binding Domain) correctly rejected"},
+    {"id": "6e482514-f965-47dd-bb32-19fbaa360822", "title": "FAAH and MAGL inhibition: Evolving approaches to treating substance use disorders.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid system mechanism for treatment"},
+    {"id": "6e5be2b6-4fb3-4b01-bf0a-b8f19deb49e2", "title": "Seeking relief or fueling the fire? Understanding the complex role of cannabis in PTSD, stress, and sleep dysregulation.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm/use pattern correctly rejected"},
+    {"id": "6e86cc90-d8d2-471e-bad3-e84824e5eb29", "title": "Categorizing E-cigarette-related tweets using BERT topic modeling.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "6eb3ef38-afd2-47d7-8363-cb244c75804f", "title": "A research note: the outcome of GC/MS/MS confirmation of hair assays on 93 cannabinoid (+) cases", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "6eb80fa7-430e-42aa-991a-4619835f19a6", "title": "Sports adulteration concerns, from eSports to CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Sports policy correctly rejected"},
+    {"id": "6ec49232-74ff-4cb6-baba-c7f5fd579bfe", "title": "Attitudes toward medical cannabis among family physicians practising in Ontario, Canada: a qualitative research study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Attitudes correctly rejected"},
+    {"id": "6ec847fb-1376-4031-810f-a08bc76ec35e", "title": "Stimulation of voluntary ethanol intake by cannabinoid receptor agonists in ethanol-preferring sP rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research"},
+    {"id": "6ec8f731-3a81-448a-a580-439ddf6baea7", "title": "Determination of synthetic and natural cannabinoids in oral fluid by solid-phase microextraction coupled to gas chromatography/mass spectrometry: A pilot study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "6ed1bb25-48c0-4010-b8e3-397f4a408cce", "title": "The Effect of Cannabis Consumption During Lactation on the Macronutrient Concentrations in Breast Milk", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "6f21021a-3619-486f-b6aa-000c41d3d74a", "title": "Identification in human urine of Δ9-tetrahydrocannabinol-11-oic acid glucuronide: a tetrahydrocannabinol metabolite", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/analytical correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "6e10c836-e047-44cc-b3ab-2321735e9dab",
+      "6e2969a8-6deb-431b-87c3-d87287a65067",
+      "6e303117-9a45-4809-8e47-439e5462b848",
+      "6e398a85-63f4-4744-9d96-e85ddcdc1db1",
+      "6e482514-f965-47dd-bb32-19fbaa360822",
+      "6ec847fb-1376-4031-810f-a08bc76ec35e"
+    ]
+  }
+}

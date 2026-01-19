@@ -1,0 +1,40 @@
+{
+  "batch_number": 359,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T07:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "8ec05d6c-b8fc-4274-a5b5-41d8c1cbf31e", "title": "Pelican CBD + Male Enhancement Gummies - 2022 Price, Side Effects And More Details", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "8ecaae32-c711-4b80-ace7-14602aae0736", "title": "Weaving knowledge systems in IPBES, CBD and beyond—lessons learned for sustainability", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "8ed1fe2a-e770-41bc-b84b-da0329919d36", "title": "Δ9-Tetrahydrocannabinol (THC): A Critical Overview of Recent Clinical Trials and Suggested Guidelines for Future Research", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC clinical trials review"},
+    {"id": "8eeab9b8-6aa1-4c79-8001-5366720bcd4f", "title": "Cannabidiol (CBD): The evidence base", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic evidence review"},
+    {"id": "8eed9677-93e4-45e2-a3f1-9c35a152225d", "title": "Altered network function in hippocampus after sub-chronic activation of Cannabis receptors in peri-adolescence", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Adolescent brain harm correctly rejected"},
+    {"id": "8ef63d81-d4f9-4292-820c-a030a5b31eee", "title": "Nurse Practitioner Knowledge, Attitudes, and Likelihood of CBD Use in Clinical Practice", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Provider education survey correctly rejected"},
+    {"id": "8ef69843-7219-4f78-aa12-d56650eefe4f", "title": "Prenatal exposure to tobacco and cannabis, early cannabis initiation, and daily dual use of combustible cigarettes and cannabis during young adulthood", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm/use patterns correctly rejected"},
+    {"id": "8f09f1a2-034a-4889-83bc-1f3282eeaa4f", "title": "Integrating fragment-based screening with targeted protein degradation and genetic rescue to explore eIF4E function", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "8f0cefa6-b47c-404c-8c22-e8cd74948488", "title": "Neuronal substrates and functional consequences of prenatal cannabis exposure", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "8f17df02-b541-4b90-a8da-afb41a8465a1", "title": "Toxicity assessment of the novel psychoactive substance HU-210 (Hebrew University 210)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic toxicology correctly rejected"},
+    {"id": "8f1d54ba-7cdc-466d-ac55-c09d95b4c4d7", "title": "Synergistic and antagonistic antioxidant effects in the binary cannabinoids mixtures", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid antioxidant mechanism research"},
+    {"id": "8f4525bb-4803-41ef-b71d-96aa548ffef9", "title": "Relations between impulsive personality traits, alcohol and cannabis co-use, and negative alcohol consequences: A test of cognitive and behavioral mediators", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "8f5813ff-34da-4d42-a42f-f7c2ff3be6f4", "title": "Psychiatric symptoms caused by cannabis constituents: a systematic review and meta-analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "8f6e67aa-429a-4c8d-a1a8-92bc28cd1fc8", "title": "Effects of chronic cannabidiol on serotonin/glutamate cortical release and molecular signaling pathways in bulbectomised depressed mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD depression mechanism research"},
+    {"id": "8f73f190-766a-4e85-ad6d-95d2dd097ca7", "title": "The inheritance of CBD resistance in arabica coffee", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Coffee Berry Disease) correctly rejected"},
+    {"id": "8f9d2d87-b53d-4259-a30c-ee182b70ad24", "title": "Sequencing, Assembly, and Comparative Evolutionary Analysis of the Chloroplast Genome of Kenaf (Hibiscus cannabinus L.)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Different plant correctly rejected"},
+    {"id": "8fa54e49-e9a4-4e4f-9168-d1eb7a0532bd", "title": "Pharmacological characterization of AM1710, a putative cannabinoid CB2 agonist from the cannabilactone class: Antinociception without central nervous system side-effects", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 agonist pain mechanism research"},
+    {"id": "8fa827f6-bc29-4a32-90e6-149fc2c5da68", "title": "Lettuce Chlorosis Virus Disease: A New Threat to Cannabis Production", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "8fb39861-f711-4615-aa3e-09442df71aad", "title": "Faculty Opinions recommendation of Effects of cannabidiol on schizophrenia-like symptoms in people who use cannabis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD schizophrenia therapeutic research"},
+    {"id": "8fc5fc5e-90db-4d26-9230-64c010b761a4", "title": "Perceived effects of cannabis and changes in driving performance under the influence of cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment study correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "8ed1fe2a-e770-41bc-b84b-da0329919d36",
+      "8eeab9b8-6aa1-4c79-8001-5366720bcd4f",
+      "8f1d54ba-7cdc-466d-ac55-c09d95b4c4d7",
+      "8f6e67aa-429a-4c8d-a1a8-92bc28cd1fc8",
+      "8fa54e49-e9a4-4e4f-9168-d1eb7a0532bd",
+      "8fb39861-f711-4615-aa3e-09442df71aad"
+    ]
+  }
+}

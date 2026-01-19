@@ -1,0 +1,36 @@
+{
+  "batch_number": 213,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T19:15:00.000Z",
+  "results": [
+    {"id": "ec5cc5b8-3b2e-4df9-8a10-b5e655d1d3b0", "title": "Nabilone Cannabinoid Receptor Dystonia RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid dystonia therapeutic RCT"},
+    {"id": "ec7101a3-1c9f-48c4-9f79-aa0f74cc20b1", "title": "Cannabis Use Course Schizophrenia Prospective", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - effect on schizophrenia course"},
+    {"id": "ec75e1a2-2158-492b-afe9-1e6a304b7b55", "title": "Antiepileptic Potential CBD Analogs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD analogs epilepsy therapeutic"},
+    {"id": "ec83160b-9558-4776-9779-b01914223478", "title": "CBD Hepatic Ischemia Reperfusion Injury", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD hepatic therapeutic"},
+    {"id": "ec91f830-0095-4d26-8509-c20f4cf2c6e6", "title": "CBD Endocannabinoid Modulator Antipsychotic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia therapeutic RCT"},
+    {"id": "ec93fb68-2bb1-4d5a-acb9-35a0a9ebcc8f", "title": "Medical Cannabis Vouchers Opioid Reduction RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain opioid-sparing RCT"},
+    {"id": "ecad4171-a5ed-45b3-856a-839761ee655d", "title": "CBD Sublingual Drops Post-Acute COVID PACS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD long COVID therapeutic"},
+    {"id": "ecaf4ff4-e304-45cd-acda-5dc626eaf1c8", "title": "CBD Exercise Chemotherapy Neuropathy CIPN", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD CIPN therapeutic"},
+    {"id": "ecb413c3-81ea-4060-baad-ce70484ee097", "title": "Cannabinoids Depression Alzheimer's Therapy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid therapeutic review"},
+    {"id": "ecbbb588-828c-40b5-8935-76fad5f3a132", "title": "CBD Enhances Chemotherapy Mitochondrial Priming", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer chemo sensitization"},
+    {"id": "ecc00f17-ab27-4666-bc99-36e9f98acaf0", "title": "Computer-Aided Drug Design Breast Cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general CADD review"},
+    {"id": "ecc5dc7d-80dd-4c1a-a4cf-ee68d3d07df6", "title": "Cannabinoids SCS Failed Back Surgery Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain therapeutic"},
+    {"id": "eccfe46f-282c-4594-9a97-2c1d32d0935c", "title": "Author Response CBD Astrocytes Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy research response"},
+    {"id": "ecd155aa-d4ec-47b7-bf7c-ed50f8942207", "title": "Cannabinoids Cancer Causation Remediation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic review"},
+    {"id": "ecd9195d-79ff-45a6-92a2-ef91e52ccff9", "title": "CBD Blocks Seizure-Inducing CP55940", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism"},
+    {"id": "ed0f96cf-26fd-438f-bb8f-2e139e9f34c7", "title": "CBD Cannabis Oil Knee Osteoarthritis CANOA RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD arthritis therapeutic RCT"},
+    {"id": "ed218e8b-5435-4975-b19d-5bb87882aa18", "title": "Substance Use ADHD BPD Students Association", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - substance use patterns students"},
+    {"id": "ed239b17-6708-4392-96fb-9f67c603f500", "title": "CBD Cue-Induced Anxiety Mitochondria NAc", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety therapeutic mechanism"},
+    {"id": "ed28906a-bc4f-4d73-b20e-954c1595972a", "title": "THC PK PD Heart Rate Effects IV Volunteers", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology PK/PD"},
+    {"id": "ed4435dc-e677-4795-a84a-d112ca0f8110", "title": "Cannabis Tolerance Dependence Clinical Relevance", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology therapeutic context"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "ec7101a3-1c9f-48c4-9f79-aa0f74cc20b1",
+      "ecc00f17-ab27-4666-bc99-36e9f98acaf0",
+      "ed218e8b-5435-4975-b19d-5bb87882aa18"
+    ]
+  }
+}

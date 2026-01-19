@@ -1,0 +1,37 @@
+{
+  "batch_number": 138,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T00:15:00.000Z",
+  "results": [
+    {"id": "9933e2c0-f4be-48bf-8fa3-d95e8275af03", "title": "Cannabis NCI HIV Anti-inflammatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis HIV therapeutic neuroprotection"},
+    {"id": "994d32fd-4f6c-4fab-914b-1da58b7f599f", "title": "Canzana CBD Oil Side Effects", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - marketing links"},
+    {"id": "9962b136-30c1-4717-b7f8-b4faedf14c7e", "title": "Natural Remedies IBS Herbal Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Herbal therapies likely includes cannabinoids"},
+    {"id": "997912da-4f7c-4015-a832-00fc8dcda465", "title": "CBD Glial Cells Neuropsychiatric Mechanism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neurological mechanism research"},
+    {"id": "997d74fa-26ff-4f7a-8ad5-244619426ace", "title": "Cannabinoid Agonist Antagonist Pharmacology", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology classification"},
+    {"id": "998ce551-9189-4b68-b1da-7ed686b4bf28", "title": "Budtender Recommendations Pain Sleep Dispensary", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Medical cannabis dispensary context"},
+    {"id": "99c1a20e-fede-431f-8ec8-7ecb8b2f7ceb", "title": "CBD Diabetic Retinopathy Mechanism Biomarker", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD diabetes complication therapeutic"},
+    {"id": "99c6387b-b2db-48bc-8f0c-85c3093f63ba", "title": "OARS Opioid MAT Technology Primary Care", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - opioid treatment technology"},
+    {"id": "99c870ea-6adf-472f-9a53-67f0c930dcf2", "title": "THC CBD Palliative Cancer RCT Protocol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer palliative RCT"},
+    {"id": "99d6eb11-730f-4dda-ac78-ac4918b0f79c", "title": "Kelly Clarkson CBD Gummies Marketing", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - celebrity name marketing exploitation"},
+    {"id": "99e64d9b-94a0-42df-a670-84d69006ec8a", "title": "Cannabis Crohn's Disease Prospective Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis IBD therapeutic"},
+    {"id": "99ed1fd8-3ede-46be-ad90-2c3677c5d025", "title": "CBD Viral Diseases Hype or Hope Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antiviral therapeutic review"},
+    {"id": "99fe135d-90a6-491d-82fb-0b2d3ba2c067", "title": "CB2 JWH133 Pulmonary Fibrosis Alleviates", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid lung fibrosis therapeutic"},
+    {"id": "9a24f418-8da5-4bad-af89-d52f90447b55", "title": "Medical Cannabis Formulations Cancer Patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer therapeutic dosing"},
+    {"id": "9a2c5f2c-03b4-4378-a4c3-b701ea9ad302", "title": "Marijuana Use Rheumatology Clinic Survey", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Medical cannabis rheumatology context"},
+    {"id": "9a42b0b4-cf17-41ea-bc21-0cc6df850956", "title": "CB2 Antiobesity Inflammation Fat Storage", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid obesity therapeutic"},
+    {"id": "9a444e75-f43c-42db-9825-74f22182be49", "title": "Brain Behavior Reward THC Young Adults", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuroscience pharmacology"},
+    {"id": "9a6a22fa-cf2e-49d2-914e-0e5643ce8983", "title": "TRPV1 PAG Cannabinoid Anxiolytic Mechanism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anxiety mechanism"},
+    {"id": "9a6cbb10-29d0-4622-92f9-bfbbe4fcd565", "title": "CBD Stable Isotope Authentication Synthesis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "LAB METHODS - authentication methodology"},
+    {"id": "9a854dba-6688-4e7e-abed-bada67b2725e", "title": "Sleep Pain Cannabis Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis sleep pain therapeutic review"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "994d32fd-4f6c-4fab-914b-1da58b7f599f",
+      "99c6387b-b2db-48bc-8f0c-85c3093f63ba",
+      "99d6eb11-730f-4dda-ac78-ac4918b0f79c",
+      "9a6cbb10-29d0-4622-92f9-bfbbe4fcd565"
+    ]
+  }
+}

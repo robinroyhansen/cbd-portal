@@ -1,0 +1,38 @@
+{
+  "batch_number": 372,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T11:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "9c88596c-e906-4aa8-9990-5c9eea9907ba", "title": "Cannabinoid CB2R receptors are upregulated with corneal injury and regulate the course of corneal wound healing", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor wound healing mechanism"},
+    {"id": "9c8a8c8a-4fe1-41ac-a27e-eadb06486bac", "title": "The influence of environmental and chemical exposures on fertility in the Eastern Mediterranean region: A narrative review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "9c8c58a2-9cc8-42f8-a722-cf43ed7c6f20", "title": "Infrared Thermography and Physiological Variables as Methods for Recognizing Fear in Domestic Cats (Felis catus) Using Three Pharmacological Models: Cannabidiol, Gabapentin, and Synthetic Facial Pheromones.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary study correctly rejected"},
+    {"id": "9c96d2f2-20c5-4653-8d4c-dd01d8b1e7f4", "title": "Management of Iatrogenic Bile-Duct Injury After Cholecystectomy, 1995–2025: Systematic Review and Meta-Analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "9ca8fed8-971f-4c6a-8de8-b9f7caa5cab3", "title": "Barriers, Limitations, and Experiences with Clinical Trials—Treatment in Rare Diseases with Prader–Willi Syndrome as an Example", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "9cbe17cd-f9f3-42a8-9ab0-f7934a705c58", "title": "Management of a large CBD stone, beyond the scope of ERCP", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "9cc5de9b-ab4d-4cc3-a4d1-58489f36a276", "title": "Sustainable CBD decongestion: Its Application in Eldoret CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "9cd35203-8246-4638-aa09-c0cb3ccf2126", "title": "Identification of vasculo-biliary anatomy using indocyanine green during laparoscopic cholecystectomy: A prospective observational study-the IVA green study.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "9cd85e7e-ce30-4faf-a539-e86540d48a5b", "title": "Modulation of the Immune System in Cannabis Users", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis immunological effects research"},
+    {"id": "9d0fcfd3-29df-47f6-9681-dea3ba4bdf13", "title": "Aptamer Engineering: Strategies for Discovering Functional Nucleic Acids for Next‐Generation Diagnostics and Biosensing", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "9d250889-0266-43f7-adc4-4b662cbc0c63", "title": "Prenatal cannabis exposure predicts attention problems, without changes on fMRI in adolescents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prenatal harm study correctly rejected"},
+    {"id": "9d2b0f96-5fe1-457c-befc-01cb1ee0f3bf", "title": "Genetic diversity targets and indicators in the CBD post-2020 Global Biodiversity Framework must be improved", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "9d42d527-1583-4841-a86b-7bcbb704f663", "title": "Substrate effect on nanowall-structured CdS thin films obtained by CBD: Structural, optical, and electrochemical characterization for next-generation optoelectronic applications", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "9d4f469a-cf7e-4004-b2b0-1cf94bc7f0db", "title": "An Electrochemical Sensor Based on Amino Magnetic Nanoparticle-Decorated Graphene for Detection of Cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods/detection correctly rejected"},
+    {"id": "9d642229-a60c-406a-be75-99d2c0a0f621", "title": "A regulamentação do canabidiol para fins terapêuticos e as fronteiras jurídicas à sua universalização = The regulation of cannabidiol for therapeutic purposes and the legal borders to its universalization", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/legal correctly rejected"},
+    {"id": "9d66b4af-aa98-46d6-b6bd-c6588faeb419", "title": "Targeting Uterine Quiescence: A Multitarget Strategy with Vitamin D, High Molecular Weight Hyaluronic Acid, Magnesium, and Palmitoylethanolamide to Prevent Preterm Birth", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - PEA (ECS-related compound) therapeutic for preterm birth"},
+    {"id": "9d6d7ccb-c0dd-4035-ab84-a00497e5b6e1", "title": "Transient expression of the β-glucuronidase gene in Cannabis sativa varieties", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/biotech correctly rejected"},
+    {"id": "9d7d4cc7-9867-4196-95b8-8a023cdf5525", "title": "Nutra Haven Great CBD Gummies (NEW 2023!) Does It Work Or Just Scam?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "9d850b89-d61c-4fb3-854e-9bde90bae544", "title": "RP-HPLC Method Development and Validation for Simultaneous Estimation of Berberine and Ursolic Acid in Formulation.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "9d8ccc6b-4c68-4c4f-8062-cea4daf4c507", "title": "Controlled vaporized cannabis, with and without alcohol: subjective effects and oral fluid‐blood cannabinoid relationships", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacokinetics and effects research"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "9c88596c-e906-4aa8-9990-5c9eea9907ba",
+      "9cd85e7e-ce30-4faf-a539-e86540d48a5b",
+      "9d66b4af-aa98-46d6-b6bd-c6588faeb419",
+      "9d8ccc6b-4c68-4c4f-8062-cea4daf4c507"
+    ]
+  }
+}

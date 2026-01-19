@@ -1,0 +1,41 @@
+{
+  "batch_number": 131,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T22:30:00.000Z",
+  "results": [
+    {"id": "91156581-c235-4232-952e-029be16c5c44", "title": "Cannabis Derivatives Epilepsy Meta-analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid epilepsy therapeutic review"},
+    {"id": "91191daa-fca2-46d3-81ab-97f7a923ad3b", "title": "Dravet Syndrome Placebo Patients Trials", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD clinical trial context"},
+    {"id": "914a6c2c-0538-4205-aaa8-4fdd78795753", "title": "CBD Autism EEG Improvements Phase II", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism therapeutic RCT"},
+    {"id": "916f8791-7c2e-45d8-a099-482667d9c8f5", "title": "Seismic Resilience CBD Perspective Buildings", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Central Business District engineering"},
+    {"id": "919641b3-a4d4-4d50-b2e9-ce00da50d98d", "title": "CBD Neuropathic Pain Preclinical", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic"},
+    {"id": "91a43f93-d057-4393-93aa-7ff93cfd73c8", "title": "CUD Risk Thresholds THC Units", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD risk patterns study"},
+    {"id": "91bb56bf-a04f-4548-a824-abf06f9e373d", "title": "CBD FDA Approved Epilepsy Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic review"},
+    {"id": "91c1a161-5921-446c-9cc3-f18eb99a5341", "title": "Biolyfe CBD Gummies Shark Tank", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - marketing links discount offers"},
+    {"id": "91c7ad48-1668-44d3-b637-8b6c644222aa", "title": "Hemp Biomass Beef Steers Feed", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - livestock feed study"},
+    {"id": "91e5740e-03ab-4433-a0d4-7194d729529a", "title": "Cannabinoid WIN TRPV1 Phosphorylation Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "9201049e-ef3c-4849-8a54-313a308e619d", "title": "FDA Botanical Drug Development Cannabis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - regulatory framework"},
+    {"id": "923b96e1-8f95-4e52-8ebc-e5b30162a4d9", "title": "CBD THC Methamphetamine Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid addiction therapeutic"},
+    {"id": "923fcdf1-865b-49c0-a6e3-380756665d52", "title": "A+ Formulations CBD Oil Sleep Anxiety", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - marketing links fake reviews"},
+    {"id": "92417bc3-9417-41e5-aadc-83a72ca663f6", "title": "Cannabis Use Motives Stress Affect", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use patterns study"},
+    {"id": "924ff839-3f5d-4d17-a92a-9c212c11040b", "title": "Cannabis Concentrates Behavioral Health", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - concentrate risks"},
+    {"id": "92639060-395d-426c-b08c-f68519f4a9b9", "title": "CBD Neurological Disorders Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neurological therapeutic review"},
+    {"id": "926fdabb-a0a3-4602-8ea4-029042c6f4e7", "title": "CBD Osteosarcoma Cancer TNF NF-kB", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic"},
+    {"id": "9283ccb6-d8eb-49e8-be46-9f675b078ffa", "title": "WWL70 Neuropathic Pain CB-independent", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid system pain"},
+    {"id": "929513ee-c757-4a24-b875-80e9d529ddee", "title": "CBD Polypharmacology Neuropsychiatric", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuropsychiatric therapeutic review"},
+    {"id": "929bbedb-1f97-4664-a276-31c5fa975eec", "title": "WIN Cannabinoid BDNF Adolescent Brain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism research"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "916f8791-7c2e-45d8-a099-482667d9c8f5",
+      "91a43f93-d057-4393-93aa-7ff93cfd73c8",
+      "91c1a161-5921-446c-9cc3-f18eb99a5341",
+      "91c7ad48-1668-44d3-b637-8b6c644222aa",
+      "9201049e-ef3c-4849-8a54-313a308e619d",
+      "923fcdf1-865b-49c0-a6e3-380756665d52",
+      "92417bc3-9417-41e5-aadc-83a72ca663f6",
+      "924ff839-3f5d-4d17-a92a-9c212c11040b"
+    ]
+  }
+}

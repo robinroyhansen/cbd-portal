@@ -1,0 +1,41 @@
+{
+  "batch_number": 337,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T02:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "74a1d7f3-245e-4b28-993c-da514cfee49e", "title": "Preliminary In Vitro Assessment of Whey Protein Isolate Hydrogel with Cannabidiol as a Potential Hydrophobic Oral Drug Delivery System for Colorectal Cancer Therapy", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD colorectal cancer drug delivery"},
+    {"id": "74c86449-28f1-45ff-abe0-0d643e3342af", "title": "Behavioural effects of oral cannabidiol (CBD) treatment in the superoxide dismutase 1 G93A (SOD1(G93A)) mouse model of amyotrophic lateral sclerosis.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD ALS therapeutic"},
+    {"id": "74d99bdb-370a-4c17-aecd-5dee61f3284a", "title": "Chronic Δ(9)-tetrahydrocannabinol exposure during adolescence is associated with persistent behavioural tolerance in adult nonhuman primates.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "74f8aef5-fcf8-4622-9659-422d28426d06", "title": "Bioactive Properties and In Vitro Digestive Release of Cannabidiol (CBD) from Tailored Composites Based on Carbon Materials.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic delivery"},
+    {"id": "7522588d-fda5-4788-b85d-b5eab5519bdd", "title": "A Hedonic Analysis of Office Rents in the Osaka CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "75279c84-b6de-4df2-a141-3730a928d810", "title": "500mg CBD Oil Online for Sale | CBD Oil | BURMAN'S HEALTH SHOP", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "75280210-a844-4402-bad3-32d39c12dbe7", "title": "Physiologically based pharmacokinetic modeling of cannabidiol (CBD), Δ-9- tetrahydrocannabinol (THC), and their active metabolites in healthy adults", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC pharmacokinetics"},
+    {"id": "7536cce4-8836-479d-a197-9241fa94cb15", "title": "Optimizing the Establishment of a Central City Transshipment Facility: a Case Study in Melbourne CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "7536f61a-53f8-4add-99be-3a3efff659bd", "title": "Evidence for a New G Protein-Coupled Cannabinoid Receptor in Mouse Brain", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - novel cannabinoid receptor discovery"},
+    {"id": "754c81ce-d864-4f95-94b8-ef01610173b7", "title": "Medical cannabis education among healthcare trainees: A scoping review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Education correctly rejected"},
+    {"id": "754e0951-c77a-44e7-9c41-cb23db20f6c4", "title": "Optimized Extraction Method for Neutral Cannabinoids Quantification Using UHPLC-HRMS/MS.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical correctly rejected"},
+    {"id": "7553000b-49f8-4563-ade5-729adc9e7500", "title": "Simulación, caracterización y fabricación de celdas solares de CdTe/CdS usando CSS y CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "755bf603-3bd8-4e53-8250-c930bf1a1c7f", "title": "Acute cannabis intoxication mimicking brugada-like ST segment abnormalities", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "755e3099-97df-40a2-86b3-3ee6634cc708", "title": "Cannabidiol as a modulator of α7 nicotinic receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD receptor mechanism"},
+    {"id": "7561271b-c409-4d6f-8cb1-398ac2ec1978", "title": "Cannabinoids in hair and their prospective association with mental and physical health outcomes in adolescents.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "756497c5-2fc6-46c4-8ef8-ca2959cd5ab6", "title": "Mitigating Cannabidiol's Non-Selective Cytotoxicity via Subcellular Organelle Targeting: Exploring Mitochondrial Targeting Potential.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic targeting"},
+    {"id": "7576d977-be69-4039-9664-a3461cfc399f", "title": "Fabrication and Characterization of CdS Thin Film Synthesized by CBD for Solar Cells Applications", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "758435ce-4fdf-4104-9671-5691ef764a5e", "title": "Plant bioactive compounds: extraction, biological activities, immunological, nutritional aspects, food application, and human health benefits", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General plant review correctly rejected"},
+    {"id": "758a8990-c271-4474-bbb1-b8c761de2a35", "title": "Challenging the 25-year-old 'mature brain' mythology: implications for the minimum legal age for non-medical cannabis use.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "759096bc-3e39-4c08-95c6-87607ceea083", "title": "Shared Predisposition in the Association Between Cannabis Use and Subcortical Brain Structure", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm/use study correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "74a1d7f3-245e-4b28-993c-da514cfee49e",
+      "74c86449-28f1-45ff-abe0-0d643e3342af",
+      "74f8aef5-fcf8-4622-9659-422d28426d06",
+      "75280210-a844-4402-bad3-32d39c12dbe7",
+      "7536f61a-53f8-4add-99be-3a3efff659bd",
+      "755e3099-97df-40a2-86b3-3ee6634cc708",
+      "756497c5-2fc6-46c4-8ef8-ca2959cd5ab6"
+    ]
+  }
+}

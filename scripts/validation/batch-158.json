@@ -1,0 +1,39 @@
+{
+  "batch_number": 158,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T05:30:00.000Z",
+  "results": [
+    {"id": "b086fbc1-249f-4360-ba6c-807beced6bc7", "title": "Medical Cannabis Registry Pharmacology ASD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis autism research"},
+    {"id": "b08b7df9-7de6-45c0-93ca-9280ff625582", "title": "Cannabinoid spoilage CBD conversion THC", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid chemistry"},
+    {"id": "b0a72342-64ea-412f-a639-a1f9a358058c", "title": "CBD Autophagy Tau Protein Clearance", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's mechanism"},
+    {"id": "b0a9c40e-b6f6-45ce-b604-da2cd123c82f", "title": "CBD Parkinson's receptor interactions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PD therapeutic"},
+    {"id": "b0b2d522-0be3-45b7-8f3e-66d63b0fbb69", "title": "CBD Nanoemulsion Anti-Inflammatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD formulation research"},
+    {"id": "b0b454c4-0600-4088-8f86-2ab543a0559e", "title": "Medical cannabis purchasing pregnant women", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - pregnancy purchase patterns"},
+    {"id": "b0b77801-b6b3-4c86-8ef8-9cfcaf433f8b", "title": "Cannabinoid Glutamatergic Hippocampal", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuromechanism"},
+    {"id": "b0ba4ad3-25a0-46a2-a29f-afa1297da6ba", "title": "CBD drug addiction systematic review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction therapeutic review"},
+    {"id": "b0cabc33-75c7-4112-aa5b-5d317fc81157", "title": "Study Work Cannabis Use Trajectories", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use pattern qualitative study"},
+    {"id": "b0e1b7d4-ed57-491a-a5ae-4ee221358104", "title": "THC CBD sleep cancer patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer supportive care"},
+    {"id": "b0e85439-774d-4cfc-baff-94195caa71fc", "title": "CBD Ferroptosis Articular Chondrocytes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD arthritis mechanism"},
+    {"id": "b0f24d8a-7522-4989-b3cb-c39da5b5af5d", "title": "Ipsapirone CBD experimental anxiety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety RCT"},
+    {"id": "b115e77a-7bfd-4447-b45d-bf7a80c234c9", "title": "Brett Harrelson CBD Breaking News", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - advertisement"},
+    {"id": "b1346cb8-5797-4cae-8fab-08f6191170b5", "title": "CBD Chronic Pain Management Assessment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic review"},
+    {"id": "b13c1f57-8bca-4b17-b14e-7adfee5334a3", "title": "Medicinal Use Cannabis History Status", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis medicinal review"},
+    {"id": "b13fe749-e05d-44e7-ada9-c43d4220fe8e", "title": "Computational modeling cues craving addiction", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general addiction modeling"},
+    {"id": "b145f75a-ff84-4d1e-ac80-605a0d39d1c3", "title": "Carbon monoxide Nrf2 cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid interaction research"},
+    {"id": "b14c9795-f4b5-4baf-8126-e0a0c247ace1", "title": "SEMASEARCH WEGOVY cohort", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - semaglutide obesity trial"},
+    {"id": "b14d3629-fd9d-42da-a2e0-2a36ae8bcbb9", "title": "Cannabis Congenital Anomalies Canada", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - teratogenicity"},
+    {"id": "b15263da-faa6-4394-be53-4eb5e467b938", "title": "CBD survival Dravet syndrome mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Dravet preclinical"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "b0b454c4-0600-4088-8f86-2ab543a0559e",
+      "b0cabc33-75c7-4112-aa5b-5d317fc81157",
+      "b115e77a-7bfd-4447-b45d-bf7a80c234c9",
+      "b13fe749-e05d-44e7-ada9-c43d4220fe8e",
+      "b14c9795-f4b5-4baf-8126-e0a0c247ace1",
+      "b14d3629-fd9d-42da-a2e0-2a36ae8bcbb9"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "batch_number": 392,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T16:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "b2fda643-7f6b-4205-a678-29171ad2faa1", "title": "ChemInform Abstract: HASHISH. 20. SYNTHESIS OF (.+‐.)‐Δ1‐ AND Δ6‐3,4‐CIS‐CANNABIDIOLS AND THEIR ISOMERIZATION BY ACID CATALYSIS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic chemistry correctly rejected"},
+    {"id": "b307af4a-1102-44fe-be97-545e15fb6439", "title": "WIN 55212-2 impairs contextual fear conditioning through the activation of CB1 cannabinoid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research"},
+    {"id": "b30a90c1-7fbc-4bcd-8824-4930aed01429", "title": "CBD 2023 Program Committee", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (conference) correctly rejected"},
+    {"id": "b3190466-1688-459a-b9ca-a9dd15f8d671", "title": "Suppression by Cannabinoids of a Cloned Cell Line with Natural Killer Cell Activity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid immunology mechanism"},
+    {"id": "b321ac52-a1e0-4211-af38-d8cabbaaaa73", "title": "Variations and origin of the atmospheric pollen of Cannabis detected in the province of Tetouan (NW Morocco): 2008–2010", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Environmental/pollen correctly rejected"},
+    {"id": "b32a3b50-b5e8-4054-b10e-891efa772f27", "title": "Unveiling Neurological Benefits: A Review of Hemp Leaf, Flower, Seed Oil Extract, and Their Phytochemical Properties in Neurological Disorders.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - hemp therapeutic review for neurological disorders"},
+    {"id": "b33b980c-64e6-4d07-b060-319b086d085a", "title": "Binder-Free Electrode from Hemp-Derived Porous Carbon for Li-Sulfur Battery", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industrial/material science correctly rejected"},
+    {"id": "b34cf8b4-ed67-4c81-8c26-4336f95ddacc", "title": "Saliva detection of the cannabinoids tetrahydrocannabinolic acid A (THCA-A) and cannabinol (CBN) among nightclub attendees in New York City, 2024.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/detection correctly rejected"},
+    {"id": "b34d3033-8c39-4cbb-be5c-bb9a3d61fd54", "title": "Cannabinoid-Induced Immune Suppression and Modulation of Antigen-Presenting Cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid immunology mechanism"},
+    {"id": "b369df68-5c23-41a7-96ee-8e315ca803b5", "title": "El asunto Kanavape: un posible nuevo horizonte para el cannabidiol (CBD) en Espana", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/legal correctly rejected"},
+    {"id": "b36da1bf-4961-4bca-94f2-062e83cc9bda", "title": "Opioid, alcohol, and cannabis misuse among patients with hidradenitis suppurativa: A population-based analysis in the United States", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "b3882b94-8fac-476e-b48e-8be9cea9dec3", "title": "Power Calculations for Larval Zebrafish in Light-Dark Transition Test for Developmental Neurotoxicity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b3a73835-eece-42c4-964a-02fa23ca48d8", "title": "Accessing Healthcare in Ireland under CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (policy framework) correctly rejected"},
+    {"id": "b3b80af4-4176-4d9a-a564-ef2b520a48cf", "title": "Central antinociception induced by µ‐opioid receptor agonist morphine, but not δ‐ or κ‐, is mediated by cannabinoid CB1receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid-opioid pain mechanism research"},
+    {"id": "b3c93773-096b-421b-80ee-ac535f58f22f", "title": "Bone Marrow Mesenchymal Stem Cell‐Derived Exosomes Promote M2 Polarization and Protect Against Acute Lung Injury", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b3d20a22-1869-4315-94d4-e7a2e6342586", "title": "CBD oil by-product (Hemp flakes): Evaluation for nutritional composition, heavy metals and functionality as a food ingredient", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food science correctly rejected"},
+    {"id": "b3d52711-5d4d-4eb4-b659-9da081a8f363", "title": "Executive control among adolescent inhalant and cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "b3d5ba5e-84fd-45c3-a173-03c206df2d0b", "title": "Cannabinoid content on product labels influences cannabis health perceptions.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Marketing/perception correctly rejected"},
+    {"id": "b3df4258-49c7-4f28-8b4a-924ee1527798", "title": "Correlates of driving under the influence of cannabis: A latent class analysis.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "b3e53e97-33c2-466c-b0c2-62738bec962f", "title": "Hemp containing breads: Cannabinoid content, profiles, and thermal stability during baking.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food science correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "b307af4a-1102-44fe-be97-545e15fb6439",
+      "b3190466-1688-459a-b9ca-a9dd15f8d671",
+      "b32a3b50-b5e8-4054-b10e-891efa772f27",
+      "b34d3033-8c39-4cbb-be5c-bb9a3d61fd54",
+      "b3b80af4-4176-4d9a-a564-ef2b520a48cf"
+    ]
+  }
+}

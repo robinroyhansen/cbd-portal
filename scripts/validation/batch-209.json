@@ -1,0 +1,37 @@
+{
+  "batch_number": 209,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T18:15:00.000Z",
+  "results": [
+    {"id": "e7d0dcaa-4179-4434-a8d3-f8cdcc187d1c", "title": "Translational Antidepressants Cannabidiol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression therapeutic"},
+    {"id": "e7d62c76-efa7-40b0-b712-18ae931bc5a0", "title": "CBD Sex-Specific Behaviors Autism VPA Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism therapeutic"},
+    {"id": "e7ec1e75-2670-455e-b6c0-93c0ae3a5d8b", "title": "Drug Interaction Data Epidiolex Cannabidiol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interaction safety data"},
+    {"id": "e7f0eb13-6e5a-4d2e-b633-bbc80b0c39df", "title": "CBD Phase I PK Sublingual Wafer Oil", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics Phase I"},
+    {"id": "e81e3e1c-53c5-4de5-9978-6a4932497d38", "title": "CBD Lowers Diabetes Incidence NOD Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD diabetes therapeutic"},
+    {"id": "e822fafa-1853-4b08-a092-27e8046a4d7e", "title": "Cannabis-Associated Arterial Disease", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - vascular disease from use"},
+    {"id": "e826a743-efc1-4d80-93e5-5a3ea0b9a81b", "title": "Parkinson-CBD Neuroprotective", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's therapeutic data"},
+    {"id": "e82b5d0f-dc9d-4935-92cb-63ad76a0d8ae", "title": "CBD Cocaine Seeking Reinstatement CB1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cocaine addiction therapeutic"},
+    {"id": "e83868ef-b1bb-44c5-b3d8-ec9179a13c85", "title": "Ketamine Depression Parkinson's KET-PD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - ketamine therapy study"},
+    {"id": "e84205b8-bb94-4573-af85-370a9f321933", "title": "CBD Fear Recovery Extinction Resistance", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety therapeutic mechanism"},
+    {"id": "e85fe6e4-7492-457b-b348-9f334b3f5869", "title": "Gallstone Ileus Aging Patient Case", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - surgical case report"},
+    {"id": "e896eefa-94c0-42fc-b40c-76a79185cc02", "title": "Infant Mortality Cannabinoid Gestation Exposure", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - prenatal exposure mortality"},
+    {"id": "e89ac97b-0f4f-49da-a95d-d9087766c13d", "title": "CBD Endometriosis Anti-inflammatory Rat Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD endometriosis therapeutic"},
+    {"id": "e8cb4ae0-7830-47c9-9e3a-1bc9f0205a94", "title": "Cannabinoid Lipid Vasorelaxation Retinal", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid vascular mechanism"},
+    {"id": "e8cdf362-3268-44f6-87be-8a4e106c374a", "title": "CBD Cannabis Flower Anxiolytic Effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety therapeutic study"},
+    {"id": "e8d68c70-e6bd-43b1-86b8-45260e9640b2", "title": "Medical Cannabis Pain Chronic Pancreatitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic case"},
+    {"id": "e8e28aa0-b9a3-4a21-a9db-a39dd93135ac", "title": "ECS Human Disease Molecular Signaling", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS therapeutic review"},
+    {"id": "e8eb9ae1-3e47-4791-8d61-487b29c220cc", "title": "CB1 Receptor 5-HT Transporter Amygdala", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor neuroanatomy"},
+    {"id": "e8edeced-a421-4022-b601-b2f98c4a821b", "title": "CBD Transdermal Myorelaxant TMD RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD TMD pain therapeutic RCT"},
+    {"id": "e8f38669-e40c-4fc7-8c5e-cb6f7a9947d8", "title": "CBD Beta-Caryophyllene Diabetic Neuropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuropathic pain therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "e822fafa-1853-4b08-a092-27e8046a4d7e",
+      "e83868ef-b1bb-44c5-b3d8-ec9179a13c85",
+      "e85fe6e4-7492-457b-b348-9f334b3f5869",
+      "e896eefa-94c0-42fc-b40c-76a79185cc02"
+    ]
+  }
+}

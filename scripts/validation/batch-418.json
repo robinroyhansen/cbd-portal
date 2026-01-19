@@ -1,0 +1,39 @@
+{
+  "batch_number": 418,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T22:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "cf403c3f-0105-4fbc-9a66-86ba6b5eb456", "title": "CBD Nootropic Supplements | CBD | BURMAN'S HEALTH SHOP", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Commercial spam correctly rejected"},
+    {"id": "cf433107-f545-4fcc-804d-e3a31d92186a", "title": "PRACTICALITIES OF CBD FRINGE AREA CAR PARKING POLICY", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "cf43f8be-23eb-4dba-bcf7-30976dc006e8", "title": "STRUCTURAL AND THERMAL ANALYSIS OF CANNABIDIOL ORODISPERSIBLE FORMULATIONS", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug formulation research"},
+    {"id": "cf5894cf-7f4b-4984-8189-701cfcf56777", "title": "Concurrent Congenital Umbilicobiliary Fistula and Vesicourachal Diverticula in a Dog", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "cf5e0fa5-6aaa-44ba-b48c-7609d47830dd", "title": "Developing a Method for the Qualitative and Quantitative Analysis of Heavy Metals In Topical CBD Pain Relief Products", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "cf5ef4b7-f913-4cc8-a15e-4ad11e54944d", "title": "Cannabis arteritis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "cf6c272d-0678-4151-8cb1-9deaef0866e7", "title": "Altering biomolecular condensates as a potential mechanism that mediates cannabidiol effect on glioblastoma", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD glioblastoma mechanism research"},
+    {"id": "cf758c11-219c-46f9-bc6d-9cdd76e39c54", "title": "Catalytic static mixers enable the continuous hydrogenation of cannabidiol and tetrahydrocannabinol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Manufacturing correctly rejected"},
+    {"id": "cf82db30-3f06-45a9-8c51-c2969ddb6a1c", "title": "Effects of Queuing Behaviour on Service Delivery in the Banking Industry (A Survey Study of Commercial Banks in Nakuru CBD)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "cf8a836d-f0be-4034-b2a8-c92aede55293", "title": "Plasma and brain pharmacokinetic profile of cannabidiol (CBD), cannabidivarine (CBDV), Δ9-tetrahydrocannabivarin (THCV) and cannabigerol (CBG) in rats and mice following oral and intraperitoneal administration and CBD action on obsessive–compulsive behaviour", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacokinetics and OCD therapeutic research"},
+    {"id": "cf8d4681-6667-4a03-9793-b797e515769e", "title": "Adopting CBD with reuse in the KEZB e-commerce website development by using wordpress CMS application", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Component-Based Development) correctly rejected"},
+    {"id": "cfb6c897-b7a5-4e03-9c99-10629db6b612", "title": "Pharmacokinetic and behavioural profile of THC, CBD, and THC+CBD combination after pulmonary, oral, and subcutaneous administration in rats and confirmation of conversion in vivo of CBD to THC", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC/CBD pharmacokinetics research"},
+    {"id": "cfb7e0f8-468d-4925-88ce-4873d3c3fbb4", "title": "The Research On CBD Risk", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "cfc1aee6-b7cd-4ff6-8fcf-fcf72e511adb", "title": "Cannabis consumption and risk of asthma: a systematic review and meta-analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "cfcac3f9-2bff-46cb-b99d-24911ffab7e6", "title": "Cannabinoid Receptor Interacting Protein 1a Competition with β-Arrestin for CB1 Receptor Binding Sites", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor signaling mechanism research"},
+    {"id": "cfd3f93e-660b-4da7-80f3-4ee7d2427dd5", "title": "First Insights Into the Virus and Viroid Communities in Hemp (Cannabis sativa)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "cfe8bc30-ed21-45a9-8784-f9812e67622a", "title": "CBD chronics", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Unclear/editorial correctly rejected"},
+    {"id": "cfedf76b-87cd-4aa9-b369-36b49a28ce66", "title": "Longevity Hedging for Dutch Pensions: q-Forward Fair Value vs. Cost-of-Capital Pricing under the CBD Model", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Cairns-Blake-Dowd financial model) correctly rejected"},
+    {"id": "cfeff837-d7d1-42bc-b7e5-b65c8caa7625", "title": "Association of High-Potency Cannabis Use With Mental Health and Substance Use in Adolescence", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "d0171749-7f95-4ef9-9a55-33e76e57b4f5", "title": "Progress in research on the mechanisms and therapeutic strategies of SLC7A11 regulation in glioma", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "cf43f8be-23eb-4dba-bcf7-30976dc006e8",
+      "cf6c272d-0678-4151-8cb1-9deaef0866e7",
+      "cf8a836d-f0be-4034-b2a8-c92aede55293",
+      "cfb6c897-b7a5-4e03-9c99-10629db6b612",
+      "cfcac3f9-2bff-46cb-b99d-24911ffab7e6"
+    ]
+  }
+}

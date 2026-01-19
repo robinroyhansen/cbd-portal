@@ -1,0 +1,40 @@
+{
+  "batch_number": 45,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T01:00:00.000Z",
+  "results": [
+    {"id": "331e86cb-3a75-406f-95fc-84732fc27e71", "title": "Cannabinoid exposure during pregnancy and immune function", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pregnancy safety"},
+    {"id": "3324358d-083b-4bb1-b68e-b6dfd0ab24bb", "title": "Therapeutic aspects of cannabis and cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Therapeutic cannabis review"},
+    {"id": "3328132f-ff77-4005-b17d-e154908d7cbc", "title": "Cannabis Capsules for Cancer-Related Cachexia and Anorexia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer cachexia trial"},
+    {"id": "3328bd53-81f5-4339-980c-7139ae7ae5e3", "title": "2-Arachidonoylglycerol is the Physiological Ligand for CB2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid mechanism"},
+    {"id": "333f7427-b288-487f-8df0-15bdb4699a9e", "title": "Supplementary Material THC and CBD Drug-Drug Interactions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid drug interactions"},
+    {"id": "335767a4-0b44-4cbe-a8a4-e688b02b9b19", "title": "Abuse potential and psychoactive effects of Sativex", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid safety/abuse liability"},
+    {"id": "33651241-1038-4908-b2a4-d373fe6a0015", "title": "New CBD Derivatives: Synthesis and Antiinflammatory Activity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug development"},
+    {"id": "33915fc1-6291-46fe-8dfa-acf3c29163bc", "title": "Blunted Ventral Striatal Reactivity in Psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - psychosis neuroscience"},
+    {"id": "33a160d1-e0b0-457c-99b4-c74931a4b45e", "title": "Cannabis Use Associated with Nucleus Accumbens Abnormalities", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE causing brain damage - harm study"},
+    {"id": "33a6c19d-d5c4-4dc0-af58-4af3f31e277b", "title": "CBD efficacy in children with Autism Spectrum Disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism therapeutic review"},
+    {"id": "33d4018e-3eda-472d-b5fc-0893b014f760", "title": "CBD-Hersteller gelten nicht mehr als Dealer (German)", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NEWS/POLICY article - not research"},
+    {"id": "33d4d06c-08ab-4170-9580-6f41a74daf15", "title": "Indian research on cannabis use disorders & psychiatric disorders", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD comorbidity study - not therapeutic"},
+    {"id": "33dd974e-76f3-44b3-bd17-4ca9e91b05e8", "title": "Cannabis in supportive care and treatment of brain tumor", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis brain tumor therapeutic review"},
+    {"id": "33df460d-6947-40c5-b34a-a0b0c8b311a3", "title": "CBD pharmacokinetics in Holstein dairy calves", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - veterinary cattle research"},
+    {"id": "33f8cf05-186c-45ae-a5ad-d49882e66835", "title": "Impact of CBD-rich marijuana on driving ability", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety - no driving impairment"},
+    {"id": "34074102-e36b-45c0-a1d5-918e15d6b126", "title": "Phytocannabinoids and Nanotechnology in Lung Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer nanotechnology"},
+    {"id": "3414f965-3a0a-4341-9fad-f3b4018a43ca", "title": "Hyperforin potentiates polymyxin B against pathogens", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - Hyperforin (St. John's Wort)"},
+    {"id": "342f8b2e-7163-49d1-af8c-0db82dcf2d91", "title": "Author response for CBD metallothionein paper", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - author response document"},
+    {"id": "344bfd16-830f-4e97-9be3-93dfc6dd2437", "title": "THC and CBD for Pain: Preclinical and Clinical Models", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain comprehensive review"},
+    {"id": "3460a2c5-0e41-4dfe-a35c-baaf3f8d658c", "title": "CBD and THC on Anti-Inflammatory Lipid Mediator Synthesis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anti-inflammatory mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "33915fc1-6291-46fe-8dfa-acf3c29163bc",
+      "33a160d1-e0b0-457c-99b4-c74931a4b45e",
+      "33d4018e-3eda-472d-b5fc-0893b014f760",
+      "33d4d06c-08ab-4170-9580-6f41a74daf15",
+      "33df460d-6947-40c5-b34a-a0b0c8b311a3",
+      "3414f965-3a0a-4341-9fad-f3b4018a43ca",
+      "342f8b2e-7163-49d1-af8c-0db82dcf2d91"
+    ]
+  }
+}

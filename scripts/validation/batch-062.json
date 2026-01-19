@@ -1,0 +1,36 @@
+{
+  "batch_number": 62,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T05:15:00.000Z",
+  "results": [
+    {"id": "456999cf-26d4-44b9-bf91-6ddb32a7bfe0", "title": "Expression of Cannabinoid CB1 Receptors in Models of Diabetic Neuropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 diabetic neuropathy mechanism research"},
+    {"id": "456bb391-553d-4107-8038-bc6027ca726c", "title": "Importance of PERK pathway modulation on colorectal cancer management: a systematic review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - PERK pathway cancer review"},
+    {"id": "456faa65-cd9b-41f4-ba87-e51797deafa6", "title": "Intravesical Cannabidiol for Inflammation and Pain in Interstitial Cystitis/Bladder Pain Syndrome via TLR4/NF-κB and TRPV1 Modulation.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD interstitial cystitis therapeutic"},
+    {"id": "45722de9-d150-4350-8d63-261f39028e11", "title": "Óleo de cannabidiol para o tratamento de doenças crônicas", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD chronic disease therapeutic review (Portuguese)"},
+    {"id": "45785325-9590-49a2-a3d2-825513625413", "title": "Potential Adverse Drug Events and Drug–Drug Interactions with Medical and Consumer Cannabidiol (CBD) Use", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety and drug interaction review"},
+    {"id": "458aa972-36d7-408c-9e42-0725df3d8af2", "title": "Effects of CBD on the Phosphorylation of Cardiac Insulin Receptor in Rat Model of Metabolic Syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD metabolic syndrome cardiac mechanism"},
+    {"id": "45a14df2-04b6-43d7-9564-5dc97dd1b9ec", "title": "Recent cannabis use in HIV is associated with reduced inflammatory markers in CSF and blood", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis HIV anti-inflammatory research"},
+    {"id": "45b03b8c-855c-4f60-9f28-5b0f04c67513", "title": "Unravelling a potential therapeutic effect of polymeric lipid-core nanoencapsulated cannabidiol on anxiety- and panic-like behaviours elicited by Bothrops jararaca lancehead pit vipers", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD nanoencapsulated anxiety therapeutic"},
+    {"id": "45cfb889-89d5-491a-8f7a-e6c0fbb68c29", "title": "Synthesis and evaluation of a highly selective cannabidiol amide cholinesterase inhibitor", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD derivative Alzheimer's drug development"},
+    {"id": "45d8bcae-ed09-4266-be1e-6bef6d60fc3f", "title": "Extending the discussion: Cannabis based therapies in inflammatory bowel disease a letter to the editor.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - letter to editor, not research"},
+    {"id": "45eb9937-d9b4-4efd-8411-57e3c1029426", "title": "A Systematic Review on the Pharmacokinetics of Cannabidiol in Humans", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics systematic review"},
+    {"id": "45f18506-923f-4d80-9f5a-48c5891f065b", "title": "A Triple-Blind Randomised Clinical Trial on the Effectiveness of CBD for Neuropathic Pain in Diabetic Foot Neuropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD diabetic neuropathy therapeutic RCT"},
+    {"id": "45f5e562-2a48-4e5f-8d37-2aab0607a778", "title": "PSNCBAM‐1, a novel allosteric antagonist at cannabinoid CB1 receptors with hypophagic effects in rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 allosteric antagonist obesity therapeutic"},
+    {"id": "45f8b4d6-bd63-4a53-b3f6-8e36de2fb76e", "title": "THC vs. CBD | WhitSands Treatment", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING - treatment center promotional"},
+    {"id": "460bc266-b091-4593-8f73-500a6aacb4b2", "title": "Effects of Chronic Cannabidiol Treatment in the Rat Chronic Unpredictable Mild Stress Model of Depression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression CUMS model therapeutic"},
+    {"id": "461a77fd-976b-4d57-8920-083f8fe689ba", "title": "Low-Dose Vaporized Cannabis Significantly Improves Neuropathic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis neuropathic pain therapeutic"},
+    {"id": "461f20cf-788c-44e9-8f55-36e1b14955a1", "title": "Successful Treatment of Cannabinoid Hyperemesis Syndrome with Topical Capsaicin", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CHS treatment mechanism TRPV1"},
+    {"id": "462c83fe-3f5a-4d88-aeaf-b58f4cbe1f03", "title": "Low dose treatment with the synthetic cannabinoid Nabilone significantly reduces spasticity-related pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Nabilone spasticity pain therapeutic"},
+    {"id": "4637c595-ec75-4459-8b6d-4bcd912bdc39", "title": "A Combination of Low-Dose Δ9-THC and Celecoxib as a Therapeutic Strategy for Alzheimer's Disease.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC Celecoxib Alzheimer's combination therapy"},
+    {"id": "46572876-2f35-422d-b781-f80177c6c81f", "title": "Cannabigerol Attenuates Memory Impairments, Neurodegeneration, and Neuroinflammation Caused by Transient Global Cerebral Ischemia in Mice.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG cerebral ischemia neuroprotective"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "456bb391-553d-4107-8038-bc6027ca726c",
+      "45d8bcae-ed09-4266-be1e-6bef6d60fc3f",
+      "45f8b4d6-bd63-4a53-b3f6-8e36de2fb76e"
+    ]
+  }
+}

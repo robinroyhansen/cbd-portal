@@ -1,0 +1,36 @@
+{
+  "batch_number": 59,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T04:30:00.000Z",
+  "results": [
+    {"id": "4243266a-96d3-40fa-a589-7e5df13b6e26", "title": "Data from Marijuana and Cannabidiol Use Prevalence and Symptom Management Among Patients with Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer symptom management survey"},
+    {"id": "42463901-5d5a-4225-95b7-1a41873a65a4", "title": "Importancia de los cultivos celulares. Optimización de un ensayo para evaluar el impacto biológico del cannabidiol (CBD)", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cell culture optimization for dental research (Spanish)"},
+    {"id": "42524215-ab5d-4f99-869a-0177be150d0f", "title": "Pickering emulsions stabilized with chitosan/gum Arabic particles: Effect of chitosan degree of deacetylation on the physicochemical properties and cannabidiol (CBD) topical delivery", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD topical drug delivery formulation"},
+    {"id": "42583bbd-5478-447f-bf87-26afcd2fa679", "title": "CBD Supplementation Has a Positive Effect on the Activity of the Proteolytic System and Biochemical Markers of Honey Bees (Apis mellifera) in the Apiary", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - CBD for honey bees, not human health research"},
+    {"id": "426eaec3-74e8-4599-beb6-4865bad3870b", "title": "Δ-9-Tetrahydrocannabinol Inhibits Antitumor Immunity by a CB2 Receptor-Mediated, Cytokine-Dependent Pathway", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - THC inhibits anti-tumor immunity, promotes tumor growth"},
+    {"id": "4285e432-d317-4318-bcbd-a63e5a6852cb", "title": "Cannabidiol Activated the Intrinsic Apoptotic Pathway in Murine Lymphocytes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD apoptosis mechanism research"},
+    {"id": "428765df-d4ae-4110-8c6c-e71359c694f6", "title": "Interpreting the association between cannabis use and increased risk for schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Scientific discussion of ECS dysfunction in schizophrenia - critiques causation"},
+    {"id": "4295bdd0-b4d4-4d31-ab97-e907e2b5e78e", "title": "Pharmacokinetics and Side Effects of Δ(9)-Tetrahydrocannabinol and Cannabidiol in Patients with Different Stages of CKD.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD pharmacokinetics in chronic kidney disease"},
+    {"id": "42afbc27-4d9a-4a26-add5-a5b0340de88c", "title": "A Phase Ib/IIa, Multiple-Dose, Double-Blind, Randomized, Placebo-Controlled Study to Assess the Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of S-777469 in Subjects With Mild to Moderate Atopic Dermatitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 agonist atopic dermatitis therapeutic RCT"},
+    {"id": "42cbc595-1bbe-4450-a2b8-c235b275b55a", "title": "Low-dose cannabidiol increases plasma concentrations of amitriptyline: A clinical drug-drug interaction study.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interaction safety research"},
+    {"id": "42e8284b-553b-4826-b63d-d8263d7a23c3", "title": "Cannabis use for chronic non-cancer pain: results of a prospective survey", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis chronic pain therapeutic survey"},
+    {"id": "42e9b27a-6bbe-4738-b594-dc5581d6c299", "title": "Chronic Cannabidiol Administration Fails to Diminish Blood Pressure in Rats with Primary and Secondary Hypertension Despite Its Effects on Cardiac and Plasma Endocannabinoid System, Oxidative Stress and Lipid Metabolism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD hypertension therapeutic research (negative result)"},
+    {"id": "42ff7c3d-7825-4eb4-81e0-e61bbfc161e2", "title": "Marijuana and Peripheral Vascular Disease: Pathophysiology, Clinical Evidence, and Cardiovascular Implications.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cardiovascular clinical review"},
+    {"id": "432276c5-3f9f-4cf9-a08e-9a6334a73dcf", "title": "Interactive Effects of Ayahuasca and Cannabidiol in Social Cognition in Healthy Volunteers", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD + ayahuasca interaction RCT"},
+    {"id": "4332fcd3-1a38-45ca-9c78-d00140987cf7", "title": "Cannabidiol tweet miner: a framework for identifying misinformation In CBD tweets.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - NLP/social media misinformation framework, not health research"},
+    {"id": "433318d3-6703-44da-a01d-d6c10d1c79a0", "title": "Cannabis for the Treatment of Epilepsy: an Update", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis epilepsy therapeutic review"},
+    {"id": "433c6f88-51fe-41f5-a68b-97cc39b92856", "title": "The prophylactic and therapeutic effects of cannabidiol on lung injury secondary to cardiac ischemia model in rats via PERK/NRF2/CHOP/BCL2 pathway.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiac/lung therapeutic research"},
+    {"id": "43538e61-66bf-4204-bcd2-f2c59505f035", "title": "The impact of cannabis use on ageing and longevity: a systematic review of research insights.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis aging/longevity systematic review"},
+    {"id": "43557d37-d35c-4f22-a172-be7190b108ab", "title": "Cannabinoid Therapeutic Effects in Inflammatory Bowel Diseases: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid IBD therapeutic meta-analysis"},
+    {"id": "435b923a-1160-4838-b251-de398d45c08a", "title": "Residues Accessible in the Binding-Site Crevice of Transmembrane Helix 6 of the CB2 Cannabinoid Receptor", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 receptor structure research"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "42583bbd-5478-447f-bf87-26afcd2fa679",
+      "426eaec3-74e8-4599-beb6-4865bad3870b",
+      "4332fcd3-1a38-45ca-9c78-d00140987cf7"
+    ]
+  }
+}

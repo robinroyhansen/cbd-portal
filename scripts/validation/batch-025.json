@@ -1,0 +1,36 @@
+{
+  "batch_number": 25,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T20:00:00.000Z",
+  "results": [
+    {"id": "1d141c7e-c864-4eac-acb6-83b5d11556ab", "title": "Cannabis and cognition: short- and long-term effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 mechanism + THC for AIDS wasting"},
+    {"id": "1d15cef0-a5d2-46d2-823b-135dcd13c3a3", "title": "Cannabidiol: An Overview of Some Pharmacological Aspects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacology review"},
+    {"id": "1d40cd0d-cea2-407c-9dc2-df6c01f09335", "title": "Cannabidiol and Autonomic Function in Individuals at Rest", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular trial"},
+    {"id": "1d5fdbce-da64-4baf-b9e9-63dbb2d3e4ca", "title": "Appetite and Metabolic Effects of Ghrelin and Cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid metabolic mechanism"},
+    {"id": "1d69d598-e0fd-43e1-943f-b1b0a26d3930", "title": "Emodin Alleviates Pulmonary Arterial Hypertension by Targeting TAK1", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - emodin (anthraquinone compound)"},
+    {"id": "1d6a33a0-a5d0-46b5-bb27-20fae2670fc3", "title": "CBD Prevents Heart Failure - An Updated Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardioprotection review"},
+    {"id": "1d888c12-6b4c-4e20-b3dd-b4b64e51f744", "title": "Prenatal Cannabis Exposure and Childhood Outcomes: ABCD Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis safety - prenatal exposure"},
+    {"id": "1d9d4434-abe3-4036-b951-b380d8991e4d", "title": "The performance of steel struts in a braced excavation in Perth CBD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD! = Perth Central Business District - civil engineering"},
+    {"id": "1da448da-2e1a-4067-9e47-0ae6a54db1db", "title": "Antianxiety effect of cannabis: central benzodiazepine receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis anxiolytic mechanism"},
+    {"id": "1dabf773-5f5e-4e08-901c-93881b84ae81", "title": "Cannabis and schizophrenia: demographic and clinical correlates", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE patterns/risk in schizophrenia - not therapeutic"},
+    {"id": "1dca6ecf-83a9-44c5-ad54-cda55dec6632", "title": "CBD Protects Dopaminergic Neurons via Heme Oxygenase", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection mechanism"},
+    {"id": "1dd379e9-bcca-4e76-98db-e066ac680fb6", "title": "Diversity of molecular targets and signaling pathways for CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacology review"},
+    {"id": "1dd7ab46-1844-4dec-94cc-da4129951a2a", "title": "Transdermal cannabinoid pharmacokinetics in beagles", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD veterinary PK study"},
+    {"id": "1de391bb-d21a-485f-a735-15a41207fe28", "title": "CBD Therapy for Comorbid Schizophrenia and Addiction", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD clinical practice guide"},
+    {"id": "1deb07c7-cb72-474e-b8c7-5011db0f4ee5", "title": "Cannabidiol and THC in Endometriosis - Literature Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid for endometriosis"},
+    {"id": "1df007ac-bc5c-49fe-97d6-db4316eab9fa", "title": "Physical exercise changes CB1 expression in rat brain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS mechanism research"},
+    {"id": "1e09ad13-189f-473e-bfc2-4f68360cec66", "title": "Cannabinoids in cardioprotection induced by LPS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 cardioprotection mechanism"},
+    {"id": "1e0fc8f2-4773-40e1-9e53-4909c796d100", "title": "Cannabinoids for fibromyalgia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cochrane review protocol"},
+    {"id": "1e149409-0e86-4865-ad6c-36a02cf63b9c", "title": "Terpineol antidepressant via cannabinoid system", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1/CB2 mechanism in depression"},
+    {"id": "1e3e55d8-5692-4c96-9e8f-9f6136649e8b", "title": "CBD Does Not Impair Anabolic Signaling in Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD athletic recovery safety"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "1d69d598-e0fd-43e1-943f-b1b0a26d3930",
+      "1d9d4434-abe3-4036-b951-b380d8991e4d",
+      "1dabf773-5f5e-4e08-901c-93881b84ae81"
+    ]
+  }
+}

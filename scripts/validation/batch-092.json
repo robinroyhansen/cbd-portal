@@ -1,0 +1,39 @@
+{
+  "batch_number": 92,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T12:45:00.000Z",
+  "results": [
+    {"id": "66d43778-6b1c-4a7e-813d-288c7f68a006", "title": "CBD neurology translational perspectives", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Comprehensive CBD neurology review"},
+    {"id": "66f374f9-c360-4af7-91db-c3c7305ba3fd", "title": "Black Eagle CBD Gummies", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING"},
+    {"id": "6702f493-c0e1-407b-979d-637042158d17", "title": "Iron oxide nanoparticles cannabinoid cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid drug delivery"},
+    {"id": "670300ae-b421-45e6-9e49-2ec2d174f186", "title": "Cancer-related bone pain alternative medications", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Pain management includes cannabinoids"},
+    {"id": "670543af-72cc-4153-b78a-68c6ba7e9d71", "title": "Cannabinoid specificity cardiovascular risk", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cardiovascular therapeutic nuance"},
+    {"id": "672628f9-a121-4136-b681-87d0e095b963", "title": "Tourette syndrome comprehensive treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Tourette's pharmacology includes cannabinoids"},
+    {"id": "6751cfc8-34e9-4ed4-b2fc-8265d73821c8", "title": "CB2 anti-inflammatory vitreoretinopathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 eye disease therapeutic"},
+    {"id": "67895b15-a19b-49ea-8b7a-93e8570629d2", "title": "CBD anxiety agitation Alzheimer's dementia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD dementia behavioral therapeutic"},
+    {"id": "67a2b341-751f-455c-bb23-f35d59593b15", "title": "SUD withdrawal management nurse practitioner", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general addiction care"},
+    {"id": "67c24234-9fb9-4b4c-b9fd-034d0a29e2b0", "title": "Cannabis BCRP CBDA plasma concentrations", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacokinetics entourage"},
+    {"id": "67cf2d45-229d-42be-8a3b-b3f96ff2cee1", "title": "Massage herbal therapies low back pain RCT", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general herbal/massage"},
+    {"id": "67d0a0a1-e062-426e-b4d2-98d9c2db1639", "title": "CBD glioblastoma treatment perspectives", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD brain cancer therapeutic"},
+    {"id": "67e1a37c-517a-4095-b912-a029b047337e", "title": "CBD cannulation ERCP failure systematic review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Common Bile Duct procedure"},
+    {"id": "67e68d13-d499-4c4c-8a6c-009557e75880", "title": "CBD polycaprolactone nanoparticles bioavailability", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery nanoparticles"},
+    {"id": "67ec2527-067b-4a46-88c5-dbc4c920c747", "title": "Decision letter CBD astrocytes epilepsy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL CONTENT - decision letter"},
+    {"id": "67ee8640-7878-4325-8034-f5f286a25929", "title": "Cannabis use psychosis outcomes 3-year", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - use worsens psychosis"},
+    {"id": "68115681-2003-4794-b674-b6bc277c8817", "title": "CBD tuberous sclerosis 3-year efficacy safety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD TSC long-term therapeutic data"},
+    {"id": "6814879c-dd63-437b-9e44-ff28fe181826", "title": "CB1 autophagic flux mTOR BECLIN1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 autophagy mechanism"},
+    {"id": "681971f4-0b2d-48b6-b33a-9d72662862a4", "title": "CBD bioavailability high-fat meal crossover", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics optimization"},
+    {"id": "6819c0f2-072f-4b95-a8aa-3e824744af68", "title": "Cannabinoids in elderly clinical evidence", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid geriatric therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "66f374f9-c360-4af7-91db-c3c7305ba3fd",
+      "67a2b341-751f-455c-bb23-f35d59593b15",
+      "67cf2d45-229d-42be-8a3b-b3f96ff2cee1",
+      "67e1a37c-517a-4095-b912-a029b047337e",
+      "67ec2527-067b-4a46-88c5-dbc4c920c747",
+      "67ee8640-7878-4325-8034-f5f286a25929"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "batch_number": 268,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T09:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "27a7b407-e545-4fa4-bc9a-294e98dd0d25", "title": "Gender Differences in Anti-Doping Rule Violations", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Doping/forensic correctly rejected"},
+    {"id": "27e85d0c-6f1b-4bca-a81b-5e681897122a", "title": "Cannabidiol isolation by centrifugal partition chromatography", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methodology correctly rejected"},
+    {"id": "27ffb3b2-3921-4aa7-a12f-aa27741ba7e2", "title": "Primary Study On Qingdao's CBD Construction", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "28096029-2c59-4784-9b61-630c20f733a4", "title": "Feasibility Study of Non-Contact Differentiation of Cannabidiol Concentrations", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical method correctly rejected"},
+    {"id": "280bdd75-e685-4e71-a6c6-8a9bfc3c9ea2", "title": "TREATMENT OF REFRACTORY POSTANOXIC MYOCLONIC STATUS EPILEPTICUS WITH CANNABIDIOL", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy treatment"},
+    {"id": "280fe5de-c536-48ab-bcbd-b629305d9572", "title": "Hair analysis for THCA-A and mechanism of drug incorporation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "281f7880-bdf2-444b-9e7b-15c2ebd401d8", "title": "Epiregulon: Single-cell transcription factor activity inference", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "281fddf6-c336-4fc6-9e57-771c23c87a97", "title": "Recreational substance use and difficulty recalling personal experiences", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "28295c80-6fcd-45fa-806e-705e21bd5e72", "title": "Personality-based intergenerational effects of prenatal THC exposure in mice", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "28353671-3945-40be-b917-8496e27d2813", "title": "Effect of biliopancreatic tree anatomy on acute gallstone pancreatitis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2836cc95-ade3-4328-b1f0-3f70627e08f0", "title": "High-pressure liquid chromatography of cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical method correctly rejected"},
+    {"id": "28461e3e-8e6d-489d-a4d7-df24fa5167f5", "title": "Polymorph prediction leading to new crystalline form of cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Pharmaceutical chemistry correctly rejected"},
+    {"id": "28476ad7-3369-479d-ba18-361cdcd13c4d", "title": "Medical Marijuana Use and Driving Performance in Adults 50+", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "284ffa44-8648-4c6e-a6e0-3e8098071804", "title": "Prevalence of cannabis use in Brazil", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "28568cdd-89a9-42dd-98bb-cd5643d8e0b9", "title": "New class of potent ligands for the human peripheral cannabinoid receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor drug development"},
+    {"id": "285b6738-00f5-4c02-8169-789f80528219", "title": "Recent innovations in cannabinoid chemistry, biology, and biosynthesis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry/biosynthesis correctly rejected"},
+    {"id": "2863c827-7a88-40ce-9bc2-a6d1d835f76d", "title": "Brain-Derived Neurotrophic Factor (BDNF) Role in Cannabinoid-Mediated Neurogenesis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neurogenesis mechanism"},
+    {"id": "2884b9e3-3787-4093-90ed-18181c0194d3", "title": "Detection and identification of cannabis by DNA", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "2898ca4b-87f2-476a-9e17-7a482fdccbd1", "title": "Biotechnological advancements enabling cannabinoid biosynthesis in engineered fungi", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Biosynthesis correctly rejected"},
+    {"id": "28a0ccc0-c063-40a6-9ce2-1a0626b5def4", "title": "Cytochrome P450 enzymes involved in the metabolism of tetrahydrocannabinols and cannabinol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid drug metabolism"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "280bdd75-e685-4e71-a6c6-8a9bfc3c9ea2",
+      "28568cdd-89a9-42dd-98bb-cd5643d8e0b9",
+      "2863c827-7a88-40ce-9bc2-a6d1d835f76d",
+      "28a0ccc0-c063-40a6-9ce2-1a0626b5def4"
+    ]
+  }
+}

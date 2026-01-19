@@ -1,0 +1,37 @@
+{
+  "batch_number": 159,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T05:45:00.000Z",
+  "results": [
+    {"id": "b152921b-76f8-43d3-91e6-6f8b89e077eb", "title": "CBD neuroinflammatory SARS-CoV-2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD COVID neuroinflammation"},
+    {"id": "b1611afe-6adf-477c-bee5-a9260cb2ac0d", "title": "CB1 expression atopic patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 atopic skin research"},
+    {"id": "b1682e89-6ade-4be2-aba5-896f5640b1ce", "title": "CBD cognitive function older adults review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cognitive therapeutic review"},
+    {"id": "b18658fb-1b69-4501-8263-dd1a0fd25c77", "title": "Cannabis effective treatment joint pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis joint pain therapeutic"},
+    {"id": "b19717d1-d7fa-4e75-b052-1f9757833f57", "title": "Endogenous cannabinoid energy balance", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS metabolism mechanism"},
+    {"id": "b1a4f9e1-186a-449e-91c7-14d933acbd15", "title": "CBD Analogue CIAC001 Morphine Addiction", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD analogue addiction therapeutic"},
+    {"id": "b1b10b11-1439-4fa8-b1d6-0ffee3b9d697", "title": "Cocaine methamphetamine endocannabinoid anxiety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS anxiety mechanism"},
+    {"id": "b1cac826-a2d3-4aa0-9fbd-9cfda75e6739", "title": "Cannabis use ocular inflammatory disease", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use/disease association"},
+    {"id": "b1e6d1f4-a1fe-4666-8dbd-c6c91f234660", "title": "CBD THC Stop Opiate Substitutes Pilot", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC opioid reduction therapeutic"},
+    {"id": "b1fef2ef-1e46-4dbd-9c1d-4318736c9731", "title": "Cannabis use disorders USA prevalence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD epidemiology"},
+    {"id": "b2027105-6259-448f-8c7a-1ad9a085df2d", "title": "CBD clinical high risk psychosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychosis therapeutic"},
+    {"id": "b20d8197-665b-4d84-8b01-ac11638cc5e4", "title": "Genetic Tools Rodents Cannabinoid Functions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS research tools review"},
+    {"id": "b20ebc29-8fb6-4046-9662-ffa5ca347e77", "title": "CBD AUD Pharmacotherapy Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD alcohol therapeutic review"},
+    {"id": "b21200b2-b45a-48bf-86c8-469977e8cba1", "title": "Developmental Trajectory Cannabis Use Disorder", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD risk trajectory"},
+    {"id": "b216c70c-17dc-4108-942e-be7cc6c64081", "title": "Cannabinoid agonist postherpetic neuralgia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain clinical"},
+    {"id": "b2199719-f9d8-48be-9ce8-920b25d3aa07", "title": "CBD first episode psychosis RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychosis RCT"},
+    {"id": "b21ab0e0-dc77-45d3-9322-1af3fce18132", "title": "CBD Analogues Derivatives Inflammation Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug development review"},
+    {"id": "b2230ff2-3628-47d4-a6f2-cea2dcc1142c", "title": "Therapeutic potential cannabis pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic review"},
+    {"id": "b226dffd-7dde-4058-aefa-49d78a048869", "title": "Nicotine cannabinoid agonist negative contrast", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anxiety mechanism"},
+    {"id": "b2373788-5504-46fb-b3f6-88163b94ae42", "title": "Acyl-CoA synthetases MASH hepatocellular", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - liver cancer general"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "b1cac826-a2d3-4aa0-9fbd-9cfda75e6739",
+      "b1fef2ef-1e46-4dbd-9c1d-4318736c9731",
+      "b21200b2-b45a-48bf-86c8-469977e8cba1",
+      "b2373788-5504-46fb-b3f6-88163b94ae42"
+    ]
+  }
+}

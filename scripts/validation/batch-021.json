@@ -1,0 +1,39 @@
+{
+  "batch_number": 21,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T19:00:00.000Z",
+  "results": [
+    {"id": "188e0be3-9f0c-4c87-922e-10d40631a27c", "title": "Brain Neuronal CB2 Receptors in Drug Abuse and Depression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 receptor research"},
+    {"id": "18a8b13f-7cd7-46bf-8a1b-be9a67788e06", "title": "CBD for nail-patella syndrome-induced pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for rare disease pain"},
+    {"id": "18af0c50-2ce3-4e98-bed6-8c81b8453a8d", "title": "Biochemical and behavioral effects of CBD: implications for migraine", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for migraine - preclinical"},
+    {"id": "18b3a539-14b9-48f2-9204-cf49a1142f91", "title": "High-CBD Extract in Asthma Management", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for asthma"},
+    {"id": "18bfe22e-ae5a-412b-9498-b3585d607356", "title": "HU-211 Cerebroprotective Effects After Closed Head Injury", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Synthetic cannabinoid for TBI"},
+    {"id": "18cd8125-e350-4043-8260-d9d4f4c438a4", "title": "Epidemiology of Fusarium oxysporum causing rot of cannabis plants", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - cannabis plant fungal disease"},
+    {"id": "18d008b2-f12b-4109-a5c9-1e9edd21e7d7", "title": "CBD prevents locomotor sensitization induced by cocaine and caffeine", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for stimulant addiction"},
+    {"id": "18deb020-5e73-405c-afcd-85dba12b3d36", "title": "Pharmacological and Therapeutic Properties of CBD for Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for epilepsy"},
+    {"id": "18e47677-3373-4387-a8f8-b98a6388dad6", "title": "Working memory and alcohol distractors in alcohol drinkers", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - alcohol cognition study"},
+    {"id": "18e68d52-46ca-46e1-a58c-abb75f7a9260", "title": "Cannabis, Schizophrenia and Reward: Self-Medication", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Dronabinol for schizophrenia"},
+    {"id": "18ffcd19-ef09-4574-b59f-6a2c54b19f55", "title": "Cannabis and CBD for treatment of fibromyalgia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for fibromyalgia"},
+    {"id": "19045071-a8a1-40f1-abc0-0a8242037343", "title": "Neuroprotective activity of CBD with other drugs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection"},
+    {"id": "1911abf9-d04b-4ea3-b0c3-dba4f4b9cec7", "title": "Sex Difference in Effects of THC and CBD on Pentobarbital-Induced Sleeping Time", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology"},
+    {"id": "19224e07-a0ca-466f-9453-a7b43ea8a58f", "title": "Synthetic peripherally-restricted cannabinoid for chemotherapy-induced neuropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid for chemo pain"},
+    {"id": "19351332-7bb5-4ee9-8ebc-c08b5b47b774", "title": "Circadian Oscillation of Leukocytes and Inflammatory Cytokines in Horses", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - equine physiology"},
+    {"id": "1954ee7d-263d-4246-8993-ecee30d14a53", "title": "Cannabis-based medicines for chronic neuropathic pain in adults", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for neuropathic pain - review"},
+    {"id": "195ab27f-60fd-4f59-8e68-05d4b161a2c8", "title": "CBD oil for osteoarthritis in mature horses", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for veterinary arthritis"},
+    {"id": "195d7a3e-aaef-4102-a036-37176633cbb5", "title": "Diagnosis of Alzheimer's using biological markers in corticobasal syndrome", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - AD diagnostic biomarkers"},
+    {"id": "19694dbe-bef1-406e-b313-ae1c4a4b65a5", "title": "Proximal vs total gastrectomy for proximal gastric cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - stomach cancer surgery"},
+    {"id": "1992e133-56d5-4ebe-a5d6-15d897b41035", "title": "Rob Gronkowski's CBD venture could sack NFL comeback", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NEWS ARTICLE - not research"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "18cd8125-e350-4043-8260-d9d4f4c438a4",
+      "18e47677-3373-4387-a8f8-b98a6388dad6",
+      "19351332-7bb5-4ee9-8ebc-c08b5b47b774",
+      "195d7a3e-aaef-4102-a036-37176633cbb5",
+      "19694dbe-bef1-406e-b313-ae1c4a4b65a5",
+      "1992e133-56d5-4ebe-a5d6-15d897b41035"
+    ]
+  }
+}

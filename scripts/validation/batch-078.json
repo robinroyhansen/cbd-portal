@@ -1,0 +1,40 @@
+{
+  "batch_number": 78,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T09:15:00.000Z",
+  "results": [
+    {"id": "5650ab91-33ea-4c32-bff9-414c2b73e401", "title": "Mapping prohibited substances athletic physiology", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general doping review"},
+    {"id": "5660905d-2d73-4d27-9433-40e7c0f327c5", "title": "CBD Antioxidative and Anti-Inflammatory Properties", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD mechanism review"},
+    {"id": "566606bc-4c5b-4bd6-af16-7fa46ee2289e", "title": "2-AG neuroprotective effects via abn-CBD-sensitive receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "2-AG/CBD neuroprotection mechanism"},
+    {"id": "566988ca-f2b7-4903-9e67-b86a560409bc", "title": "BioLyfe CBD Gummies CUSTOMER REVIEWS SCAM", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING"},
+    {"id": "56979cf8-9cb6-4f31-90ca-bd4a18045dbb", "title": "Drug narratives young cannabis users treatment", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - addiction sociology"},
+    {"id": "569942fa-b1fe-4216-b9d4-548f73603b96", "title": "CBD and low-dose radiation hepatic encephalopathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection therapeutic"},
+    {"id": "56ad9b57-d717-480f-a1cb-3bee42648fa6", "title": "Caregiver perspective anti-seizure meds CDKL5", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Includes CBD/Epidiolex CDKL5"},
+    {"id": "56adb3e0-7c08-4ddb-9a78-f38256a872b8", "title": "CBD Neurobehavioral Effects Youth Alcohol Use Disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic for alcohol addiction"},
+    {"id": "56b30b72-8915-488c-90c9-6479e845ecbc", "title": "Talking to patients about substance use pregnancy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - clinical counseling guide"},
+    {"id": "56bc43d8-f2ff-4ac6-a1fa-675d5fb2d72e", "title": "Brexpiprazole switching schizophrenia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - antipsychotic drug study"},
+    {"id": "56c10799-6b9c-4c9d-a2e3-162c7132f98a", "title": "Exposome Score Schizophrenia Transdiagnostic", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - psychiatric epidemiology"},
+    {"id": "56c2f930-6e77-4c77-b72b-f59185ffe95a", "title": "CBD and moringin anti-inflammatory macrophages", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anti-inflammatory therapeutic"},
+    {"id": "56c94b89-f3dc-4711-9d76-07694bea6ec9", "title": "CBD metabolites UHPLC-MS/MS epilepsy TDM", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic drug monitoring"},
+    {"id": "56d8eee0-5a5e-43ed-9072-cf3b0fd305bc", "title": "CBD/THC anti-cancer haematological malignancies", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC cancer therapeutic"},
+    {"id": "56deb06e-ecc7-4016-8d0c-16da5c567ea5", "title": "Cannabis use steatotic liver disease Friend or Foe", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis liver disease assessment"},
+    {"id": "56e1f695-684b-4495-9ed5-594985ce92c6", "title": "THC/CBD spray long-term MS spasticity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Sativex MS therapeutic"},
+    {"id": "56f2d795-6199-48db-a78e-b9c59fa44ac6", "title": "Postneonatal epilepsy after neonatal seizures", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - epilepsy epidemiology"},
+    {"id": "56f36d77-1343-4749-a33a-276ca33801ea", "title": "Cannabis sativa anti-dysmenorrheal activities", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain/dysmenorrhea therapeutic"},
+    {"id": "5700da80-1b02-4405-a979-b79d1523865a", "title": "THC:CBD spray MS spasticity SAVANT trial subgroups", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Sativex MS therapeutic RCT"},
+    {"id": "5704e027-0621-4ea3-a295-86aae24e28fa", "title": "CBD dissolution test bioavailability formulations", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD formulation/bioavailability research"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "5650ab91-33ea-4c32-bff9-414c2b73e401",
+      "566988ca-f2b7-4903-9e67-b86a560409bc",
+      "56979cf8-9cb6-4f31-90ca-bd4a18045dbb",
+      "56b30b72-8915-488c-90c9-6479e845ecbc",
+      "56bc43d8-f2ff-4ac6-a1fa-675d5fb2d72e",
+      "56c10799-6b9c-4c9d-a2e3-162c7132f98a",
+      "56f2d795-6199-48db-a78e-b9c59fa44ac6"
+    ]
+  }
+}

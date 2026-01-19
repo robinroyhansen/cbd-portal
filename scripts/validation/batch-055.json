@@ -1,0 +1,41 @@
+{
+  "batch_number": 55,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T03:30:00.000Z",
+  "results": [
+    {"id": "3dc4af43-395f-4672-a5a8-39d11f7c3f0a", "title": "Subtypes of cocaine use disorder and their neurobehavioral profiles", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - cocaine use disorder subtypes, not cannabinoid related"},
+    {"id": "3dc5d779-0ef5-4286-a11e-468d9f92066c", "title": "Cannabigerol Alleviates Liver Damage in Metabolic Dysfunction-Associated Steatohepatitis Female Mice via Inhibition of Transforming Growth Factor Beta 1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG liver therapeutic research"},
+    {"id": "3ddcf0ce-756e-45c7-9ce3-a35de8e4b67f", "title": "Cannabidiol and Liver Enzyme Level Elevations in Healthy Adults", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety/liver research"},
+    {"id": "3de0ee49-1bdd-4cc6-bfd7-2bfbe168d746", "title": "Safety and Tolerability of  Withania somnifera  Root Extract in Healthy Male Participants: A Pilot Randomized, Double‐Blind, Placebo‐Controlled Clinical Trial", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - Withania somnifera (Ashwagandha), not cannabinoid"},
+    {"id": "3de315fe-9066-48d8-bffd-ea5415d1be11", "title": "Cannabinoids for the Treatment of Pain: An Update on Recent Clinical Trials", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain therapeutic review"},
+    {"id": "3de9e213-3da5-4334-8911-12ef86ff4fdd", "title": "Effects of acute systemic administration of cannabidiol on sleep-wake cycle in rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD sleep therapeutic research"},
+    {"id": "3dfd7f11-7586-4db9-8528-facee6f4adbc", "title": "Treatment of Hemobilia Using a Covered Metallic Stent in a Patient With a CBD Remnant Post-Bile Duct Resection", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Common Bile Duct medical procedure, not cannabidiol"},
+    {"id": "3dfec693-49b5-4b17-b559-bfdc64cec517", "title": "PV-108 - IMPACTO DEL CANNABIDIOL (CBD) EN LA FUNCIÓN CEREBRAL: A PROPÓSITO DE UN CASO.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD brain/psychiatric therapeutic (Spanish)"},
+    {"id": "3e0452cd-4c3a-4cc0-8719-56c64c5943b9", "title": "Topical cannabinoid agonist, WIN55,212-2, reduces cornea-evoked trigeminal brainstem activity in the rat", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid eye/cornea pain therapeutic"},
+    {"id": "3e19079f-c2f0-4454-9556-da919c4b8a18", "title": "Evaluation of Biophysical Parameters of the Skin of Patients With Atopic Dermatitis After Application of an Ointment Containing 30% Cannabidiol and 5% Cannabigerol.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/CBG atopic dermatitis skin therapeutic"},
+    {"id": "3e2960cd-edcb-41e4-be14-3bac8592cd4d", "title": "3D-printed cannabidiol hollow suppositories for treatment of epilepsy.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy drug delivery research"},
+    {"id": "3e4ae332-55ec-4941-848f-49123161aae2", "title": "Effects of the Cannabinoid-1 Receptor Antagonist Rimonabant on Psychiatric Symptoms in Overweight People With Schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 antagonist schizophrenia/obesity therapeutic research"},
+    {"id": "3e4d0b5c-817b-4183-b0e2-953f669c5186", "title": "Talking About Cannabis: Perspectives of First Episode Psychosis Care Participants and Parents.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - perspectives/attitudes study on cannabis and psychosis"},
+    {"id": "3e4eaa46-7d4e-4cf2-b0f9-1b30c259a6b9", "title": "Short communication: Genetic association between schizophrenia and cannabis use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - schizophrenia-cannabis genetic association"},
+    {"id": "3e5ccc8f-55a8-4ea3-8f40-176030207192", "title": "Effects of Drugs on Stress Memories", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC stress/PTSD therapeutic research"},
+    {"id": "3e5d239d-d162-4861-a76c-fef0b612fa3d", "title": "Chronic, intermittent treatment with a cannabinoid receptor agonist impairs recognition memory and brain network functional connectivity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - cannabinoid impairs recognition memory"},
+    {"id": "3e6e33e7-3fc9-4edd-9ed0-2cf38215c503", "title": "The future of information under the CBD, Nagoya Protocol, Plant Treaty, and PIP Framework", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Convention on Biological Diversity (UN treaty), not cannabidiol"},
+    {"id": "3e7f6a65-090c-4a0c-aa3e-a80ef1267bd1", "title": "Digital Symptom Tracking and Wellness in Long COVID Patients Using Endourage Targeted Wellness Formula C™ Sublingual Drops", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis Long COVID therapeutic"},
+    {"id": "3e834fbf-6c4c-4d12-b1b2-74d412ec3f81", "title": "Kara's Orchards CBD Gummies | Complete Food Recipe | Complete Foods", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING - CBD gummies marketing spam"},
+    {"id": "3e8532bd-5491-45f8-8d61-042fc0a21365", "title": "Cannabinoids and Capsaicin Improve Liver Function Following Thioacetamide-Induced Acute Injury in Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid liver therapeutic research"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "3dc4af43-395f-4672-a5a8-39d11f7c3f0a",
+      "3de0ee49-1bdd-4cc6-bfd7-2bfbe168d746",
+      "3dfd7f11-7586-4db9-8528-facee6f4adbc",
+      "3e4d0b5c-817b-4183-b0e2-953f669c5186",
+      "3e4eaa46-7d4e-4cf2-b0f9-1b30c259a6b9",
+      "3e5d239d-d162-4861-a76c-fef0b612fa3d",
+      "3e6e33e7-3fc9-4edd-9ed0-2cf38215c503",
+      "3e834fbf-6c4c-4d12-b1b2-74d412ec3f81"
+    ]
+  }
+}

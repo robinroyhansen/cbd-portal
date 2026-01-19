@@ -1,0 +1,41 @@
+{
+  "batch_number": 338,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T02:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "75b00bb9-3c0c-4bd6-b978-5bc2b5c5cdcb", "title": "Insights into biased signaling at cannabinoid receptors: synthetic cannabinoid receptor agonists", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor signaling mechanism"},
+    {"id": "75b2202c-bb22-4b2c-9a0a-87bbd3ee62b4", "title": "The Antimicrobial Impact of CBD-infused Lozenges on Streptococcus Mutans clinical trial", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antimicrobial clinical trial"},
+    {"id": "75b2fc78-cd30-4148-b15b-d3240057ba7b", "title": "Determination of cannabinoids in urine, oral fluid and hair samples after repeated intake of CBD-rich cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "75c1a19d-f9b9-4fac-80e4-7061f2f4e4d2", "title": "Simple and sensitive determination of THC, CBD and CBN in hair", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "75caa663-2c09-4b3f-b78a-80add657b1d4", "title": "A Study on the Management Guidelines for the Building Height in CBD : Focusing on Busan City", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "75d03d46-7cd0-4679-a211-597878065b9f", "title": "Tetrahydrocannabivarin (THCV) Dose Dependently Blocks or Substitutes for THC in a Drug Discrimination Task in Rats.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THCV pharmacology"},
+    {"id": "75dd0b91-e02f-421a-896a-0c42fb541d6a", "title": "Where to Purchase Natures Boost CBD Gummies ?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "75e971f0-6ad1-4d83-847f-a4d91d3b2c59", "title": "Evidence on the effect of in-utero cannabis exposure in neonates.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "75ea4588-0726-4f1a-aff9-7bc6a04949c1", "title": "Effects of Cannabinoids on T-cell Function and Resistance to Infection", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid immune mechanism"},
+    {"id": "75ec1303-0dcc-4eb4-a3a1-895a86ce4370", "title": "Cannabis sativa (Portuguese general article)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General article correctly rejected"},
+    {"id": "75ed9b39-03fc-4632-9c02-bf9640ebb6a9", "title": "P.1.g.048 Attenuation of haloperidol-induced extrapyramidal effects by cannabidiol administration in mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antipsychotic side effect mitigation"},
+    {"id": "75f6f097-611f-4dd3-a1c8-3a84f1369b85", "title": "The Dabbing Dilemma: A Call for Research on Butane Hash Oil and Other Alternate Forms of Cannabis Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/harm correctly rejected"},
+    {"id": "75fac5a8-4263-4ad0-99d2-cb72d232a616", "title": "Cannabinoid receptors are localized to noradrenergic axon terminals in the rat frontal cortex", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor localization"},
+    {"id": "75fbcfcc-2164-4e6d-bddf-7c54c0c7a546", "title": "Cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Ambiguous title-only correctly rejected"},
+    {"id": "75fe0b99-ffc8-4545-b530-4973edbfd2b8", "title": "Blood Cannabinoids. II. Models for the Prediction of Time of Marijuana Exposure from Plasma Concentrations", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "760f457a-7452-4615-be25-996a83b52a95", "title": "Christian companies investing in CBD, preaching its healing power", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Commercial news correctly rejected"},
+    {"id": "7612ac12-1ad2-40eb-b851-17b76d24e384", "title": "Identification of Reference Genes for RT-qPCR Data Normalization in Cannabis sativa Stem Tissues", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "7615f998-5242-4e28-a8cb-207dc0f0cb27", "title": "Involvement of cannabinoid CB1 and CB2 receptor activity in the development of behavioural sensitization to methamphetamine effects in mice.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism"},
+    {"id": "76346885-3a17-4e83-b99d-b6fa038e9fc9", "title": "Effects of Whey and Plant-Based Additives on Fermented Raw-Dried Pork Meat Snacks", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "7667d114-0cdd-4d20-94eb-28521c462ea0", "title": "Comparative RNA-Seq analysis reveals genes associated with masculinization in female Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "75b00bb9-3c0c-4bd6-b978-5bc2b5c5cdcb",
+      "75b2202c-bb22-4b2c-9a0a-87bbd3ee62b4",
+      "75d03d46-7cd0-4679-a211-597878065b9f",
+      "75ea4588-0726-4f1a-aff9-7bc6a04949c1",
+      "75ed9b39-03fc-4632-9c02-bf9640ebb6a9",
+      "75fac5a8-4263-4ad0-99d2-cb72d232a616",
+      "7615f998-5242-4e28-a8cb-207dc0f0cb27"
+    ]
+  }
+}

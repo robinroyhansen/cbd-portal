@@ -1,0 +1,40 @@
+{
+  "batch_number": 120,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T19:45:00.000Z",
+  "results": [
+    {"id": "85c2751e-7a63-43e0-affa-883722445fbd", "title": "CBD PFOS Cardiomyocyte Apoptosis Protection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular therapeutic"},
+    {"id": "85db7793-f70e-43af-9d17-897ebb999810", "title": "CUD Prevalence Medical Cannabis Inpatient", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD patterns medical cannabis"},
+    {"id": "85df9c22-b1c9-4ced-b5db-89c038c138e5", "title": "Traffic Management CBD Kota Indonesia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Central Business District traffic"},
+    {"id": "85e8fdd3-7d2b-4b6d-928e-209cc905366b", "title": "Natural Products Diabetes Mellitus 2nd Edition", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general natural products"},
+    {"id": "85f25365-3ff6-4706-970b-0af1d0f550a0", "title": "CBD Naltrexone Alcohol Craving RCT Protocol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction therapeutic RCT"},
+    {"id": "85f8143f-06a9-497e-95f7-5bce7301d533", "title": "Edible Cannabis Pain Inflammation Cognition", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic"},
+    {"id": "85f9000c-fc10-467e-bab1-b4fdc9278f15", "title": "CB2 Polymorphism Autoimmune Risk Endocannabinoid", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid autoimmune mechanism"},
+    {"id": "8603bd1a-6b9c-42e0-b1ff-617289533b6f", "title": "CBD Anti-Cancer Drug Promising Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic"},
+    {"id": "861d8cdb-600a-41ab-b920-84b14967204d", "title": "CB1 Loss Intestinal Tumor Growth Colorectal", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer mechanism"},
+    {"id": "8637474d-cad3-4d4b-8cb0-983c822c86b9", "title": "CB1 Antagonists Parkinson's Antiparkinsonian", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Parkinson's therapeutic"},
+    {"id": "86624fc0-b324-423e-9145-230bee3e0849", "title": "CBD CANBACK Acute Low Back Pain RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic RCT"},
+    {"id": "866e00e6-5f5c-4902-af76-1b63b4cfb7ab", "title": "CUD Comorbidities Pregnancy Hospitalization", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD pregnancy patterns"},
+    {"id": "8694872a-8300-4e37-88d4-8fd2675811ca", "title": "THC Fear Extinction Memory Recall PTSD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid PTSD therapeutic"},
+    {"id": "869701a4-e71a-4bd8-ac86-673b0b6fc020", "title": "CBD 3-NP Striatal Atrophy Neuroprotection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Huntington's neuroprotection"},
+    {"id": "86a61190-2223-4c3c-a625-1236a63392c4", "title": "CBD Status Epilepticus Zebrafish Kainic Acid", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "86b983c4-5a62-44e2-ae9c-518bc69209cb", "title": "MML Regulation Marijuana Use Rates Policy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - marijuana law use patterns"},
+    {"id": "86bb9a49-0966-44ce-96a7-8b11eb5b7f33", "title": "CBD Brain Copper Alzheimer's Neuroprotection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's therapeutic"},
+    {"id": "86c9f816-47d6-4738-bb9f-d621195c2fc7", "title": "Cannabis Subjective Effects Dependence Genetics", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - dependence predictors"},
+    {"id": "86cc0c54-8587-4768-bcdb-d22f1ead3683", "title": "THC Addiction Telomere Length Aging Marker", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - chronic addiction effects"},
+    {"id": "86ccc920-daed-49c9-9d2c-9825d32788fc", "title": "CBD Complexed Anti-inflammatory Carriers Edema", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anti-inflammatory therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "85db7793-f70e-43af-9d17-897ebb999810",
+      "85df9c22-b1c9-4ced-b5db-89c038c138e5",
+      "85e8fdd3-7d2b-4b6d-928e-209cc905366b",
+      "866e00e6-5f5c-4902-af76-1b63b4cfb7ab",
+      "86b983c4-5a62-44e2-ae9c-518bc69209cb",
+      "86c9f816-47d6-4738-bb9f-d621195c2fc7",
+      "86cc0c54-8587-4768-bcdb-d22f1ead3683"
+    ]
+  }
+}

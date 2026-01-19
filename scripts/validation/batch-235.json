@@ -1,0 +1,41 @@
+{
+  "batch_number": 235,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T00:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "03d6bf3f-90b1-4777-83e3-fc20eeaf15ff", "title": "5 Towards cannabinoid drugs", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid drug development"},
+    {"id": "03d96964-c38c-44f1-a198-0936d0f67794", "title": "Lecture Brainstorming Demonstration CBD Stunting", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (teaching method) correctly rejected"},
+    {"id": "03dc12c9-4871-44a4-a2eb-9050778e4cc0", "title": "Substance use disorders healthcare Norway", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General correctly rejected"},
+    {"id": "03de3d1d-1984-4f1a-8156-bb619bb66953", "title": "FDA warns CBD supplement maker", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "News/regulatory correctly rejected"},
+    {"id": "03ee95ec-e35e-4501-a262-5198404aa6e2", "title": "CBD Pharmacology therapeutic applications", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic"},
+    {"id": "03f1a984-d5e2-4bab-ae1a-727d1079318e", "title": "Prevalence cannabidiol use Swiss men", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevalence correctly rejected"},
+    {"id": "041553db-2dfd-4d94-be2f-4b6aac2117db", "title": "Chronic THC restores cognitive function old mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC cognitive therapeutic"},
+    {"id": "041a60ec-a766-4002-87b7-32be175b1605", "title": "Cannabinoid Treatment Neonatal Cortical Lesion", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic"},
+    {"id": "042cce61-78de-4f8b-9098-7a1eefb08f48", "title": "JPEO-CBD Software Support Activity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "043119f8-ddfb-43d5-a36e-ad2afe6bcaf7", "title": "Fluorescent Sensing JWH-018", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "046a140b-0a2c-40e1-b64d-3479563a82b7", "title": "Pneumatic lithotripsy CBD calculi", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "04765f8c-c0fa-4e40-909e-21dcf9c14d24", "title": "Vesicle microRNAs GI Malignancies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "0484493b-5d3b-4510-af63-b3e23d6fb7cf", "title": "Neurodegenerative Diseases Drug Discovery", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General correctly rejected"},
+    {"id": "049a9bc2-f4d1-4172-abe9-00fffca58260", "title": "VALUE ENGINEERING CBD SURABAYA", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "049e7b56-a6d6-4d8f-a3f7-5e5e14b81832", "title": "Cannabinoids inhibit ERK MAPK splenocytes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid immune mechanism"},
+    {"id": "04ab6c5d-4fca-48c2-89a6-57088dc9df32", "title": "Endocannabinoid System GI Physiology Pathology", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS GI therapeutic"},
+    {"id": "04afe790-a006-4bae-a4f0-689790e6153e", "title": "Property Investment Jakarta CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "04b7ebd2-36e4-4290-abdc-f7a47d83b662", "title": "High-CBD Cannabis Oral Lichen Planus GVHD", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic immune"},
+    {"id": "04c6ee5c-3d62-45fe-b5ae-81e6bab14df8", "title": "Reference genes RT-qPCR Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture method correctly rejected"},
+    {"id": "04dc2473-2049-4720-bbeb-45774e4e86a9", "title": "Cannabinoid content Cannabis sativa England", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agricultural correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "03d6bf3f-90b1-4777-83e3-fc20eeaf15ff",
+      "03ee95ec-e35e-4501-a262-5198404aa6e2",
+      "041553db-2dfd-4d94-be2f-4b6aac2117db",
+      "041a60ec-a766-4002-87b7-32be175b1605",
+      "049e7b56-a6d6-4d8f-a3f7-5e5e14b81832",
+      "04ab6c5d-4fca-48c2-89a6-57088dc9df32",
+      "04b7ebd2-36e4-4290-abdc-f7a47d83b662"
+    ]
+  }
+}

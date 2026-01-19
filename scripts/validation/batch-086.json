@@ -1,0 +1,42 @@
+{
+  "batch_number": 86,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T11:15:00.000Z",
+  "results": [
+    {"id": "5fe57ea2-3e62-4773-ac02-31666cd8f6a8", "title": "Epidiolex vs Kriya Hops CBD epilepsy cohort", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy comparative study"},
+    {"id": "5fe819c2-a08a-411f-b678-d71079dfaa35", "title": "Cannabis nystagmus reduction case", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis nystagmus therapeutic"},
+    {"id": "5fe82036-5d3d-4ac1-981b-7f405d3b00da", "title": "Depression urgency problematic cannabis use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - problematic use patterns"},
+    {"id": "5ff1a38a-8591-47a1-8dfc-e2cd6373791a", "title": "Long COVID demyelination cognitive", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general Long COVID research"},
+    {"id": "6009135c-950f-4f32-852b-91c9f5220327", "title": "Cannabis sativa phytocomplex skin anti-inflammatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis skin therapeutic"},
+    {"id": "60119c24-943a-4cd0-a808-c50b01b20ba9", "title": "Gallbladder volvulus MRCP diagnosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - radiology imaging"},
+    {"id": "602a4aff-130f-421e-a6b5-d622d40ffbdd", "title": "Cannabis psychosis predisposition cohort", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis risk epidemiology"},
+    {"id": "6032daaa-4126-43af-abca-11cdb95f4aab", "title": "CUD neurophysiological psychological inventories", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID THERAPEUTIC - CUD assessment tools"},
+    {"id": "6036b89c-cfd3-4e90-9d0e-fffffdc0680e", "title": "Topical cannabinoid antinociception spinal synergy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "60395970-8f11-41c7-ae69-bc7ce92b5382", "title": "AKT1 COMT FAAH cannabis intoxication psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - genetic psychosis susceptibility"},
+    {"id": "603acd9d-5767-471f-b6e3-4630f9f54eb0", "title": "Medical cannabis chronic pain sleep", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Medical cannabis pain/sleep therapeutic"},
+    {"id": "60431e43-cddb-486c-859c-ec16bc25101b", "title": "CBD PTSD violence victims review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PTSD therapeutic"},
+    {"id": "605032df-1d97-42c1-b40d-7d6dc6763c70", "title": "CBD germinal matrix hemorrhage neonatal neuroprotection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection therapeutic"},
+    {"id": "605305f3-0ade-4c00-94bb-7c7aa184bd3c", "title": "Prenatal THC CBD offspring phenotypes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD prenatal safety research"},
+    {"id": "605e7dc5-5567-4388-9c09-26f15bce80d9", "title": "Cannabis use change psychotic experiences", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis epidemiology"},
+    {"id": "60772eca-1767-45eb-abbc-4bd5139a1ffc", "title": "First-episode psychosis cannabis temporal", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis epidemiology"},
+    {"id": "60878bfd-2708-49c5-8f61-127d177e2cf6", "title": "Deuterated CBD metabolic stability", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD analog pharmacology"},
+    {"id": "6096eb9a-496d-4d9b-8384-2b21b7fa0fba", "title": "Cannabis laws opioid use effect", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - cannabis laws effect on opioid use"},
+    {"id": "60ad151a-0335-4f7e-9470-936e1c18f891", "title": "Cannabinoids for Pain Management review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain therapeutic review"},
+    {"id": "60d35b42-e496-4309-90b8-f871dab57fd3", "title": "CBD analogs anti-SARS-CoV-2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD COVID therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "5fe82036-5d3d-4ac1-981b-7f405d3b00da",
+      "5ff1a38a-8591-47a1-8dfc-e2cd6373791a",
+      "60119c24-943a-4cd0-a808-c50b01b20ba9",
+      "602a4aff-130f-421e-a6b5-d622d40ffbdd",
+      "6032daaa-4126-43af-abca-11cdb95f4aab",
+      "60395970-8f11-41c7-ae69-bc7ce92b5382",
+      "605e7dc5-5567-4388-9c09-26f15bce80d9",
+      "60772eca-1767-45eb-abbc-4bd5139a1ffc",
+      "6096eb9a-496d-4d9b-8384-2b21b7fa0fba"
+    ]
+  }
+}

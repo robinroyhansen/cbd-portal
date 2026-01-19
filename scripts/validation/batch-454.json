@@ -1,0 +1,40 @@
+{
+  "batch_number": 454,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T06:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "f5079873-e2a0-428d-b83b-5f5872af3657", "title": "Influence of Surfactants on the Stability of Cannabidiol, Formulated as a Water-Soluble Product, in Simulated Gastric Fluid.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery/formulation research"},
+    {"id": "f512004d-ac14-47f6-bf33-00da5c25e0f2", "title": "Cannabinoids in disguise: Δ9-Tetrahydrocannabinol-like effects of tetramethylcyclopropyl ketone indoles", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoids correctly rejected"},
+    {"id": "f5196a71-6715-4b7c-973f-f3073147ce56", "title": "Cannabis: A joint problem for patients and the dental profession", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "f51f251a-0720-4776-8703-879fab6cf6b9", "title": "Identification of a Potent and Selective Cannabinoid CB1Receptor Antagonist from Auxarthron reticulatum", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 antagonist drug discovery research"},
+    {"id": "f5262019-6491-44f2-ad41-d264873502e6", "title": "Challenges in Responding to Cannabis-Impaired Motor Vehicle Drivers.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment correctly rejected"},
+    {"id": "f52ba236-0e81-4fe0-8162-c025f28b716a", "title": "Cannabidiol-Mediated Green Synthesis, Characterization, and Cytotoxicity of Metal Nanoparticles in Human Keratinocyte Cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD nanoparticle pharmaceutical/biomedical research"},
+    {"id": "f5565494-4ac4-47c2-b368-e71ef2df82a6", "title": "Bio-based pectin films with cannabidiol extract from pollen of Cannabis sativa L - active packaging to protect anthocyanins in Thomson seedless dark grapes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food packaging correctly rejected"},
+    {"id": "f5646d3e-1243-4f64-bded-d86a8e160aeb", "title": "Examine the Feasibility of a Standardized Field Test for Marijuana Impairment: Laboratory Evaluations", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment testing correctly rejected"},
+    {"id": "f5794986-d118-4554-aea7-93b4f32bad5e", "title": "Decriminalization of Cannabis – potential risks for children?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "f5815d5b-e76c-4548-b428-c620f868295c", "title": "Impact of carrier oil on interfacial properties, CBD partition and stability of emulsions formulated by whey protein or whey protein-maltodextrin conjugate", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery/emulsion research"},
+    {"id": "f58954a5-9e15-4134-9953-a54fa6191f0f", "title": "Mental health of teenagers who use cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "f59d62d0-0b33-4160-a2d6-7cdef2d7faec", "title": "206. Cannabis indica. Part IV. The synthesis of some tetrahydrodibenzopyran derivatives", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry correctly rejected"},
+    {"id": "f5a6bd4a-80bb-41f9-8012-de123ed46605", "title": "Clinical, physiological, imaging and molecular responses to cannabis smoking: the Canadian Users of Cannabis Smoke (CANUCK) study.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis smoking effects correctly rejected"},
+    {"id": "f5b325b1-a025-4725-b0f0-0ef1fb53bbd2", "title": "Orthobunyaviruses: Epidemiology, innate immune escape, and intervention strategies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "f5bd2b99-6f32-4dbd-b98f-7b60e0ee7876", "title": "Toxicological mechanism of cannabidiol (CBD) exposure on zebrafish embryonic development", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CBD toxicology correctly rejected"},
+    {"id": "f5c96af2-7c10-4c99-8fbc-8518a5151f9c", "title": "Functional consequences of nonsynonymous single nucleotide polymorphisms in the CB2 cannabinoid receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor mechanism research"},
+    {"id": "f5d1e217-c173-4b52-a541-e13ef292966f", "title": "Oral fluid cannabinoid concentrations following controlled smoked cannabis in chronic frequent and occasional smokers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "f5e933da-aac8-47ab-bb86-7c1fa182af14", "title": "The Impact of Exposure to Cannabinoids in Adolescence: Insights From Animal Models", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "f5faf33a-89fa-40fd-9300-b365b15ecefb", "title": "Systemic N‐Acylethanolamines and Other Lipid Mediators Are Associated With NSAID‐Exacerbated Respiratory Disease", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS/endocannabinoid mechanism research in respiratory disease"},
+    {"id": "f6045b2b-6687-485b-8f3b-7b3b00113b58", "title": "A Study of Secondary CBD by Photogeography: A Case Study of Cheonho Area in Seoul Metropolitan Region", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "f5079873-e2a0-428d-b83b-5f5872af3657",
+      "f51f251a-0720-4776-8703-879fab6cf6b9",
+      "f52ba236-0e81-4fe0-8162-c025f28b716a",
+      "f5815d5b-e76c-4548-b428-c620f868295c",
+      "f5c96af2-7c10-4c99-8fbc-8518a5151f9c",
+      "f5faf33a-89fa-40fd-9300-b365b15ecefb"
+    ]
+  }
+}

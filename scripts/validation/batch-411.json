@@ -1,0 +1,40 @@
+{
+  "batch_number": 411,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T20:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "c7c6cfeb-b89c-413d-9c43-d95510be0c7f", "title": "Effect of complexing agent on the structural properties of BI2 S3 thin films prepared by CBD technique", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "c7d9bc14-bc57-4e87-85f9-a9bcb408800b", "title": "Functional localization of cannabinoid receptors and endogenous cannabinoid production in distinct neuron populations of the hippocampus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor/ECS hippocampus mechanism research"},
+    {"id": "c7df088e-6c39-4db9-a97e-2eb6c6003016", "title": "A within-subject cross-over trial comparing the acute effects of vaporized delta-8-tetrahydrocannabinol and delta-9-tetrahydrocannabinol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Intoxication comparison study correctly rejected"},
+    {"id": "c8063880-b072-4032-b82a-a3178b61d696", "title": "Yield and turnover of illicit indoor cannabis plantations in Belgium", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/cultivation correctly rejected"},
+    {"id": "c8083614-cb46-4d32-a61d-663161b37736", "title": "Development Over Time of the Population-Attributable Risk Fraction for Cannabis Use Disorder in Schizophrenia in Denmark", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm schizophrenia correctly rejected"},
+    {"id": "c81f0192-b08f-4861-866a-2b342f292a9e", "title": "Concordant and Discordant Interrelationships of the GERD Triad", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "c83773c2-9f9c-4cbe-badb-0c9c1b54045a", "title": "Cannabinoid CB2 receptors are expressed in glutamate neurons in the red nucleus and functionally modulate motor behavior in mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor motor function mechanism research"},
+    {"id": "c85dde5e-32a2-44d8-a0c6-fc7d097daef5", "title": "6ʺ-Azidohex-2ʺ-yne-cannabidiol: a potential neutral, competitive cannabinoid CB1 receptor antagonist", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD analog CB1 receptor pharmacology"},
+    {"id": "c85f7c75-2a8d-438c-962d-c767477386ea", "title": "Preparation of Cd1−xMnxSe DMS Thin Films by CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "c8615dae-7e80-4fce-a9ef-6180520d7a2b", "title": "Modelling the Anti-Methicillin-Resistant Staphylococcus Aureus (MRSA) Activity of Cannabinoids: A QSAR and Docking Study", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid antibacterial therapeutic research"},
+    {"id": "c862b8e6-97c0-40e2-8373-8c795442acbf", "title": "How beneficial is vaping cannabis to respiratory health compared to smoking?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm study correctly rejected"},
+    {"id": "c879e167-2a05-46b9-aad6-c4f40ad32901", "title": "Tetrahydrocannabinol separation from cannabis extracts using centrifugal partition chromatography", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "c8947961-2f4f-4b27-a575-e73e3efc247e", "title": "Truman CBD + Male Enhancement Gummies (#1 PREMIUM MALE GROWTH GUMMIES) Shocking Result!", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Commercial spam correctly rejected"},
+    {"id": "c8992b71-322b-421b-b061-5a9c7d81efdf", "title": "Moving from Components to CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Component-Based Development) correctly rejected"},
+    {"id": "c89a7588-a5c3-41ab-b13c-523e1a8509de", "title": "E-cigarette or vaping product use-associated lung injury outbreak", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Vaping harm correctly rejected"},
+    {"id": "c89c8d60-ebd4-473f-a90b-181fc1e9a794", "title": "Epigenetic regulation by WTAPP1 promotes trophoblast dysfunction in gestational diabetes via CNR1/NF-κB activation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CNR1/CB1 receptor gestational diabetes mechanism"},
+    {"id": "c89fb330-5fb8-41a1-acdf-839dca671827", "title": "Rainwater harvesting in existing urban fabric: studying the case of CBD-Belapur, Navi Mumbai", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (place name) correctly rejected"},
+    {"id": "c8abba65-0163-4101-b3b3-bd510ff9d94e", "title": "Emergency Department Pediatric Visits in Alberta for Cannabis After Legalization", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm pediatric correctly rejected"},
+    {"id": "c8afeeea-1738-4171-b0c5-ab349f93394b", "title": "Distinct pharmacological activities between cannabidiol (CBD) and cannabidiol analog (CBDVHS) in a 3D human trabecular meshwork model", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD ocular/glaucoma therapeutic research"},
+    {"id": "c8b6a8b5-3f71-43dc-92f1-6a19b022d74b", "title": "Validated LC-MS/MS methodology for the quantification of CBD, trace level THCA and UK controlled cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "c7d9bc14-bc57-4e87-85f9-a9bcb408800b",
+      "c83773c2-9f9c-4cbe-badb-0c9c1b54045a",
+      "c85dde5e-32a2-44d8-a0c6-fc7d097daef5",
+      "c8615dae-7e80-4fce-a9ef-6180520d7a2b",
+      "c89c8d60-ebd4-473f-a90b-181fc1e9a794",
+      "c8afeeea-1738-4171-b0c5-ab349f93394b"
+    ]
+  }
+}

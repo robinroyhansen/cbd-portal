@@ -1,0 +1,35 @@
+{
+  "batch_number": 72,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T07:45:00.000Z",
+  "results": [
+    {"id": "4f1e3271-20d9-46c1-9c39-59fc513fd279", "title": "Varenicline for cannabis use disorder: A randomized controlled trial.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - varenicline to reduce cannabis use"},
+    {"id": "4f49981a-dbba-43bb-8049-a9b15ab890b4", "title": "Cannabinoid CB1 Receptor Involvement in the Actions of CBD on Anxiety and Coping Behaviors in Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety mechanism CB1"},
+    {"id": "4f4aef31-4419-47f3-b3db-a36951715928", "title": "A Selective Inverse Agonist for Central Cannabinoid Receptor Inhibits Mitogen-activated Protein Kinase Activation Stimulated by Insulin or Insulin-like Growth Factor 1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 inverse agonist insulin mechanism"},
+    {"id": "4f515ca3-84ab-416a-b779-e2205c45dd5c", "title": "Medicinal Uses of Marijuana and Cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Therapeutic cannabis 40-year overview"},
+    {"id": "4f527eb5-0c83-420d-af97-be8cad01d6d1", "title": "Cannabinoid type 1 receptor blockade induces transdifferentiation towards a brown fat phenotype in white adipocytes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1R blockade obesity mechanism"},
+    {"id": "4f56dcea-3a2c-44b0-bd03-563fb9f63606", "title": "Role of Endocannabinoids in Glaucoma: A Review.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid glaucoma therapeutic review"},
+    {"id": "4f65eec9-5122-45c6-9df1-c93d70877bce", "title": "Cannabidiol is a negative allosteric modulator of the cannabinoid CB 1 receptor", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD CB1 allosteric mechanism"},
+    {"id": "4f7532c4-4b1e-406e-bd36-934cd2cc1f80", "title": "Cannabinoids and neuroinflammation: Therapeutic implications", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD neuroinflammation therapeutic"},
+    {"id": "4f87603f-580c-478b-8a06-61a71fe83d91", "title": "Cannabis in Palliative Medicine: Improving Care and Reducing Opioid-Related Morbidity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis palliative opioid-sparing"},
+    {"id": "4fa6e028-a771-4697-8a3f-263e2b9d5933", "title": "7-Hydroxycannabidiol and 7-carboxycannabidiol induced cytotoxicity via apoptosis and endoplasmic reticulum stress in human hepatic cells.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD metabolite hepatic safety"},
+    {"id": "4fb331e7-e0a4-4473-86ee-079aadb9f4b0", "title": "Potential Probiotic or Trigger of Gut Inflammation – The Janus-Faced Nature of Cannabidiol-Rich Cannabis Extract", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD gut microbiome safety research"},
+    {"id": "4fd2bb17-f3a1-4583-b67d-42fc5b0bff2d", "title": "Combination CBD/THC in the management of chemotherapy-induced peripheral neuropathy: a randomized double blind controlled trial.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC CIPN therapeutic RCT"},
+    {"id": "4fdd4a69-4469-4329-8d09-694d614d39f2", "title": "Selective and Potent Analgetics Derived from Cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid analgesic development"},
+    {"id": "4ffdf721-153a-4b25-ade2-2c38d98285e2", "title": "Development and In Vitro Characterization of [(3)H]GMC-058 as Radioligand for Imaging Parkinsonian-Related Proteinopathies.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - diagnostic imaging radioligand"},
+    {"id": "50134e06-d18e-4e32-bb7e-d37562f0fbad", "title": "Cannabidiol and Indole-3-carbinol Reduce Intracellular Lipid Droplet Accumulation in HepaRG, A Human Liver Cell Line, as well as in Human Adipocytes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD NAFLD/obesity therapeutic"},
+    {"id": "501491c2-fc30-4686-8e6f-e2bfe04a49e5", "title": "Use of cannabidiol oil by caregivers: A focus on Alzheimer's disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's caregiver use"},
+    {"id": "50237f34-5a75-470d-b1dc-f01c88a0b2b5", "title": "Neuroprotective effects of a cannabidiol nanoemulsion in a rotenone-induced rat model of Parkinson's disease: Insights into the gut-brain axis.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's neuroprotection"},
+    {"id": "5032679b-8203-4317-ace4-0f623617452c", "title": "Efficacy of Cannabidiol for Δ-9-Tetrahydrocannabinol-Induced Psychotic Symptoms, Schizophrenia, and Cannabis Use Disorders: A Narrative Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antipsychotic therapeutic review"},
+    {"id": "50391f3b-2798-47e8-b823-e87bd236abbf", "title": "Nabilone for Non-motor Symptoms in Parkinson's Disease: An Open-label Study to Evaluate Long-term Safety and Efficacy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Nabilone Parkinson's therapeutic"},
+    {"id": "503b9d2f-28f6-44b6-b5e1-4f98b3949678", "title": "Exploring the effects of cannabidiol on pain sensitivity using quantitative sensory testing among individuals receiving methadone or buprenorphine for opioid use disorder: an open-label, proof-of-concept study.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain sensitivity therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 18,
+    "incorrect": 2,
+    "incorrect_ids": [
+      "4f1e3271-20d9-46c1-9c39-59fc513fd279",
+      "4ffdf721-153a-4b25-ade2-2c38d98285e2"
+    ]
+  }
+}

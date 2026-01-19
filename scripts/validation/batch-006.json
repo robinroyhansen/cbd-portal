@@ -1,0 +1,45 @@
+{
+  "batch_number": 6,
+  "studies_validated": 30,
+  "timestamp": "2026-01-18T14:30:00.000Z",
+  "results": [
+    {"id": "090861bc-8b38-488d-af73-f3ee7e6568c8", "title": "The Immunomodulating Effects of...THC and CBD...in Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD immunomodulation"},
+    {"id": "090ba8ff-c9dc-409d-ad60-3f379e4db392", "title": "...neuroprotective effects...of medical cannabinoids in ischemic stroke", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids for stroke"},
+    {"id": "0921e337-ae3c-499e-bf13-7058c0bbfa80", "title": "Stress reactivity is modulated by cannabinoid type-1 receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 in stress"},
+    {"id": "09260413-e5f3-4b31-b8e9-979fe05558f8", "title": "...adverse health effects of recreational cannabis use", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Review of cannabis health effects"},
+    {"id": "0935345f-5607-45d2-a423-09819c7e1850", "title": "Cannabidiol for Rapid Eye Movement Sleep Behavior Disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for sleep disorder in Parkinson's"},
+    {"id": "093617f0-6574-4c97-920a-0def56f12b03", "title": "Successful use of cannabidiol in nonconvulsive status epilepticus in Angelman syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for epilepsy"},
+    {"id": "0936f70f-5ee6-4381-9d31-dd660cb079b5", "title": "Investigating the Therapeutic Potential of Cannabidiol in the Dermatitis mouse model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for dermatitis"},
+    {"id": "093bb30c-7d5f-4987-9430-677597206d3f", "title": "Endogenous cannabinoids and appetite", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid system and appetite"},
+    {"id": "0944f710-aeb9-4d2c-a78b-1c58d13ce665", "title": "Cannabinoids in Chronic Pain: Clinical Outcomes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids for pain"},
+    {"id": "0963e65e-1d29-4c75-a627-3673f5c4f4a1", "title": "Regulation of DNA Methylation by Cannabidiol...for Psychiatry", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epigenetics for psychiatric disorders"},
+    {"id": "096ffbed-a5d2-4c21-82e9-fc91158ce53a", "title": "Cannabidiol-loaded-injectable depot formulation...triple-negative breast cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for cancer"},
+    {"id": "0988520a-afb8-4265-881b-78053ff153fe", "title": "Cannabidiol exhibits anxiolytic but not antipsychotic property", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for anxiety"},
+    {"id": "099ee787-329f-4499-9a66-0bf2f58c1e56", "title": "Placebo response in patients with Dravet syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Related to CBD trials"},
+    {"id": "09a97ab8-560b-4a63-8605-f6bbd374adfb", "title": "Cannabinoid-mediated neuroprotection...may be more relevant to multiple sclerosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids for MS"},
+    {"id": "09aa8bb1-29c3-4e83-9dc8-bced727d3d91", "title": "Minocycline...by Activating Cannabinoid Receptor 2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 for neuroprotection"},
+    {"id": "09ad629e-577f-4228-95fb-8dae106c7767", "title": "Emerging Trends in Global Lung Cancer Burden", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "About lung cancer trends, no cannabinoid focus"},
+    {"id": "09b0ace4-334f-47fa-9fbe-d7d031f4915a", "title": "...synthetic cannabidiol...alleviates symptoms of atopic dermatitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for dermatitis"},
+    {"id": "09bef019-1ce7-45a9-93ca-8f1494068d75", "title": "Impact of Cannabidiol and Exercise...Chemotherapy-Induced Peripheral Neuropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for neuropathy"},
+    {"id": "09c4ac61-a48d-400b-805a-57377b85ff9b", "title": "...Anticancer Properties...With...Cannabidiol In...Advanced Cancer Patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for cancer"},
+    {"id": "09c8899d-b4e3-4fc6-8909-787b3a84d167", "title": "Evaluation of a Digital Educational Intervention...to Support Safe Cannabis Use", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis education for oncology"},
+    {"id": "09cab90e-0816-4ab8-b7d6-b045f1519f38", "title": "Diacylglycerol Lipase...Similar to...Cannabinoid Receptor 1 Knockout Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid system and metabolism"},
+    {"id": "09d5fc02-29d5-4d6c-80ef-c6522f8e7442", "title": "...cannabidiol is an orally effective therapeutic agent in rat...pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for pain"},
+    {"id": "09e24c99-1ac7-498b-b447-2b2839d2cf7b", "title": "Reducing Pain and Opioid Use With CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for pain and opioids"},
+    {"id": "09ea1de9-4045-48c9-8d3f-f7f563735505", "title": "...Allodynia is Suppressed by Cannabinoid CB2 Receptor Activation...Chemotherapy-Induced Peripheral Neuropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 for chemo neuropathy"},
+    {"id": "0a24e5e8-7e93-4c8a-8678-dc2c0e21261d", "title": "...Cannabis...for Pain Relief in Orthopaedic Conditions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for orthopedic pain"},
+    {"id": "0a272261-9f3a-45cc-90f6-43a7f97ac178", "title": "Social Aspects of the Use of Cannabis in India", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Social/cultural anthropology study, not health research"},
+    {"id": "0a389ed5-07c1-45f8-804c-8b191eb87072", "title": "Benefits and adverse effects of cannabis use among adults with persistent pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for pain"},
+    {"id": "0a40b8b2-1e31-4b35-b9ff-36ef2062a1f9", "title": "Cannabis Use in Central Disorders of Hypersomnolence", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for hypersomnia"},
+    {"id": "0a5ed17b-5115-4eec-b8f5-bfb0b7bb6178", "title": "The association between marijuana use and oral cancer risk", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis and cancer risk"},
+    {"id": "0a7d9d54-f9e2-4a54-a4a5-c8575f4da02c", "title": "Multitarget Cannabinoids as Novel Strategy for Alzheimer Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids for Alzheimer's"}
+  ],
+  "batch_summary": {
+    "correct": 28,
+    "incorrect": 2,
+    "incorrect_ids": [
+      "09ad629e-577f-4228-95fb-8dae106c7767",
+      "0a272261-9f3a-45cc-90f6-43a7f97ac178"
+    ]
+  }
+}

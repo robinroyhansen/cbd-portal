@@ -1,0 +1,38 @@
+{
+  "batch_number": 431,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T01:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "ddd609cb-f587-4984-9ba3-ffa1263a8a5f", "title": "The Influence of Long-term Storage Conditions on the Stability of Cannabinoids derived from Cannabis Resin", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic methods correctly rejected"},
+    {"id": "dddaa396-5d25-471d-930e-98036f61682a", "title": "Adverse Effects Associated with the Use of Cannabidiol (CBD) Oil Products on Adolescents and Young Adults", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research"},
+    {"id": "dddf9166-842a-4437-80e2-ba1998b54a96", "title": "The impacts of distance to CBD on housing prices in Shanghai: a hedonic analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "de0bea3e-24d3-49d4-a5a4-0b857fb633c5", "title": "Anti-epileptic medication induced disturbed calcium-vitamin D metabolism: A behavioral analysis using association rule mining technique", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "de2b29db-0ad6-4581-bc56-778f7076b315", "title": "Frey procedure for chronic pancreatitis improves bile duct stricture.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "de436768-26ea-4483-bd30-fdd0ff464ede", "title": "Measuring the bioactivity of phytocannabinoid cannabidiol from cannabis sources, and a novel non - cannabis source", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD bioactivity research"},
+    {"id": "de48f66b-1d3a-4e52-af6d-352efb46542d", "title": "Oros CBD Gummies Reviews - (2023) Scam Or Legit? Ingredients, Side Effects, Customer Risks!", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Spam/advertising correctly rejected"},
+    {"id": "de578867-5579-43eb-b99c-7de3ec3a2616", "title": "Cannabis Inflorescence Yield and Cannabinoid Concentration Are Not Increased With Exposure to Short-Wavelength Ultraviolet-B Radiation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "de7a9574-b0a8-480a-a77a-89464178a48d", "title": "济南CBD规划方案掀起\"盖头\"来", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "de7c5805-ae2f-4da3-a165-a21ca5faa8cf", "title": "Microstructural, structural and piezoelectric properties of nanorod-like ZnO layers deposited by the two-step CBD process", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "de85e65c-e4c2-4156-aabe-c016ea0493c3", "title": "The Medicinal Uses of Cannabis and Cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis/cannabinoid therapeutic review"},
+    {"id": "de96d3c4-f2ea-4e97-ae9f-03b8a2a57fec", "title": "UHPLC–MS-MS Determination of THC, CBD and Their Metabolites in Whole Blood of Light Cannabis Smokers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "de9dd47b-43b3-42b4-9f87-11937deec7e7", "title": "Indigenous culture as a moderator of the relationship between ethical practices and talent acquisition in SMEs in Harare CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "deb449fa-52e9-4589-82ba-cb38ffd0c34e", "title": "Prevalence of Cannabis Withdrawal Symptoms Among People With Regular or Dependent Use of Cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD/withdrawal correctly rejected"},
+    {"id": "deb60069-bf3b-4310-98a6-9fc57eb35146", "title": "[Risk factor of coronal imbalance after posterior hemivertebra resection with short segment fixation for congenital lumbosacral hemivertebra].", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "debb8495-5a30-4736-b408-1407edf07a83", "title": "Residual effects of cannabis use in adolescent and adult brains — A meta-analysis of fMRI studies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis brain harm correctly rejected"},
+    {"id": "dec40752-c8f9-4049-a69d-269bd450cf88", "title": "PND86 COST-UTILITY ANALYSIS OF DELTA-9-TETRAHIDROCANNABINOL AND CANNABIDIOL OROMUCOSAL SPRAY", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic health economics"},
+    {"id": "dec8fb46-2dfe-4d2b-92b8-00c8c47d3ec1", "title": "Characterization of CBD-CdS/Cu(In,Ga)Se2 Thin-Film Solar Cells with Photoreflectance Spectroscopy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "decb6036-4724-43e9-ad41-54ea7cf9d9ce", "title": "Graphical Knowledge Template of CBD Meta-model", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Component-Based Development) correctly rejected"},
+    {"id": "deed5848-7409-4416-aff7-355eb6c48793", "title": "Association Between Recreational Cannabis Use and Cardiac Structure and Function", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis cardiovascular effects correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "dddaa396-5d25-471d-930e-98036f61682a",
+      "de436768-26ea-4483-bd30-fdd0ff464ede",
+      "de85e65c-e4c2-4156-aabe-c016ea0493c3",
+      "dec40752-c8f9-4049-a69d-269bd450cf88"
+    ]
+  }
+}

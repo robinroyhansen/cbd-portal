@@ -1,0 +1,37 @@
+{
+  "batch_number": 103,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T15:30:00.000Z",
+  "results": [
+    {"id": "73a4d575-ae5a-4fec-b006-5b4eaf84cabd", "title": "Nabiximols THC:CBD pediatric pain nausea", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pediatric therapeutic"},
+    {"id": "73b9c563-1698-4cec-b722-aa40586122a2", "title": "Natural Synthetic Cannabinoids pharmacology adverse events", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology safety review"},
+    {"id": "73c14182-3957-412f-8ed5-89ecf7a90a21", "title": "Serum testosterone cannabis opiate users", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use hormonal effects study"},
+    {"id": "73d1709f-f204-4fd4-8146-e32023e5ce3e", "title": "CB1R signaling network neurite outgrowth BRCA1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuronal mechanism"},
+    {"id": "73d7adc9-7b73-4e50-a998-ce2ea97befbe", "title": "Inhaled cannabis diabetic neuropathy 5-year", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis neuropathy therapeutic"},
+    {"id": "73dfa43d-974b-48ce-9377-094d10108a37", "title": "CB1 expression schizophrenia bipolar depression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor psychiatric disorders"},
+    {"id": "73ed2dcb-b7e6-4c11-a983-3e0cea174d94", "title": "CBD medicine indications efficacy clinical", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic review"},
+    {"id": "73f14a9a-043c-4010-8520-eb5757ad0b96", "title": "Topical CBD DOMS muscle soreness RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD sports medicine research"},
+    {"id": "740b8655-52b0-4968-a838-ca87c31e01ea", "title": "MC cancer palliative supportive care observational", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer supportive care"},
+    {"id": "740f4629-cbcf-45bb-9026-c1a7c6a390f2", "title": "CBD KCNB1 epilepsy CSWS case report", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy case report"},
+    {"id": "7419e527-68c7-43a5-8ead-157bb2758941", "title": "Marijuana cannabinoids PTSD literature review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis PTSD therapeutic review"},
+    {"id": "742d83ae-8653-4693-9584-64778f32a886", "title": "CBD TSC infantile spasms efficacy phase 3", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy RCT"},
+    {"id": "743d88d8-6561-42fd-88b3-559460399fed", "title": "THC Th1 Th2 cytokine balance T cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid immunology mechanism"},
+    {"id": "743f161e-29ca-4bfb-a71f-9b4230eef506", "title": "MC autism safety efficacy comparison", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis autism therapeutic"},
+    {"id": "744e63aa-72e3-4ded-af36-be428a6eaf74", "title": "CBD oral cells toxicology acute chronic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety research"},
+    {"id": "745fd0f4-3e2b-4d74-a522-adbe26101d1c", "title": "MC cannabinoids chronic pain systematic review meta", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain meta-analysis"},
+    {"id": "746a9afe-818c-4893-8cdb-6d20f0ac1bc6", "title": "YouTube synthetic cannabinoids K2 Spice videos", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID FOCUS - social media drug abuse analysis"},
+    {"id": "746f09b6-fe2d-4dc6-ae57-33634b9b9fda", "title": "Cannabis Movement Disorders Tourette Parkinson", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis neurological therapeutic review"},
+    {"id": "7477aef0-f1ee-4bff-8807-7c8a32d16964", "title": "Substance use COVID pandemic Europe survey", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - substance use patterns during pandemic"},
+    {"id": "74799886-57cb-4602-a300-8dfe85041920", "title": "Vincristine neuropathy leukemia survivors evaluation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - chemotherapy side effects study"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "73c14182-3957-412f-8ed5-89ecf7a90a21",
+      "746a9afe-818c-4893-8cdb-6d20f0ac1bc6",
+      "7477aef0-f1ee-4bff-8807-7c8a32d16964",
+      "74799886-57cb-4602-a300-8dfe85041920"
+    ]
+  }
+}

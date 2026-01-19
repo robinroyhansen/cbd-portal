@@ -1,0 +1,42 @@
+{
+  "batch_number": 400,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T18:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "bb843712-e646-423f-ba63-d8d41938a1fc", "title": "Can cannabis use be prevented by targeting personality risk in schools?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use prevention correctly rejected"},
+    {"id": "bb8f6f51-0966-4171-a5f5-42092005a92f", "title": "Sensitive Determination of Cannabinoids in Whole Blood by LC–MS-MS After Rapid Removal of Phospholipids by Filtration", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "bb906abe-0587-457e-8aec-fd4981b254cd", "title": "Physiological Effects of Nutritional Support in Patients With Parkinson's Disease", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "bba8bc5d-fcf0-41e3-a89d-49756566d5a4", "title": "Pure Δ9-tetrahydrocannabivarin and a Cannabis sativa extract with high content in Δ9-tetrahydrocannabivarin inhibit nitrite production in murine peritoneal macrophages", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THCV anti-inflammatory mechanism"},
+    {"id": "bba97884-bce4-4ab0-b020-7a55aa2c0523", "title": "Childhood CBD exposure and lung function: Concerns and future directions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CBD harm concern correctly rejected"},
+    {"id": "bbaaa915-3ca4-426f-87af-2768d6011dba", "title": "Piperine-pro-nanolipospheres as a novel oral delivery system of cannabinoids: Pharmacokinetic evaluation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid delivery/pharmacokinetics"},
+    {"id": "bbbf7061-a48a-4514-9c7d-eaa9b74825df", "title": "Effect of CBD oil on the activity of the antioxidant system in honey bees", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "bbc5bea6-91f0-44f7-93de-c545976e8751", "title": "Microclimate-Controlled Smart Growth Cabinets for High-Throughput Plant Phenotyping", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "bc019d25-c55f-42a4-9e8b-80d9c10c6ce8", "title": "Inhibitory effects of Δ8-tetrahydrocannabinol on major hepatic cytochrome P450 enzymes and implications for drug disposition", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - D8-THC drug interaction pharmacology"},
+    {"id": "bc050cda-3958-4836-8d00-de32cbd07681", "title": "A Triple-blind, Placebo-controlled, Randomized, Crossover Study of Low Dose Oral Synthetic Cannabidiol Effects in Healthy Cannabis Occasional Users", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD clinical trial"},
+    {"id": "bc108fe1-dc65-4fcb-89c0-7d973a4545b5", "title": "Geographic variation in the utilisation of specialist healthcare for patients with substance use disorders in Norway", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Healthcare utilization correctly rejected"},
+    {"id": "bc1c6b59-ea9a-45ce-b89b-4b8a2e5a4117", "title": "GPR3 and GPR6, novel molecular targets for cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD receptor targets research"},
+    {"id": "bc550b0a-c6cf-46a3-9841-959e8e89237f", "title": "Uncovering the hidden: Method validation for analysis of 36 psychoactive substances in Türkiye's wastewater", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "bc7b7b4f-1f4e-4e1d-9f3f-7d2ccb896255", "title": "Electroacupuncture modulates vlPAG release of GABA through presynaptic cannabinoid CB1 receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research"},
+    {"id": "bc8d4f4c-1de5-4b0c-a610-3b281f029ea1", "title": "An improved learning-and-optimization train fare design method for addressing commuting congestion at CBD stations", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "bca5307b-5e54-44e1-b9d7-a8fc736cba2b", "title": "Cannabidiol metabolites identified by LC-QTOF after controlled dosing", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmacokinetics research"},
+    {"id": "bca8ff00-5cd8-4199-8122-53136bfa8fa0", "title": "Cannabis cue-elicited craving and the reward neurocircuitry", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis addiction correctly rejected"},
+    {"id": "bcb2ddbd-8e73-4174-8efc-34f5497b6d95", "title": "The effect of Δ9, cannabidiol, and cannabinol on the anaesthesia induced by various anaesthetic agents in mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/CBN drug interaction pharmacology"},
+    {"id": "bcbc6d6e-a277-425e-8dae-bdcfcfa405b8", "title": "Regulating Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "bcbffffd-ddfd-4f5d-9c56-678f6ec4f086", "title": "Tobacco smoking and cannabis use in a longitudinal birth cohort: Evidence of reciprocal causal relationships", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "bba8bc5d-fcf0-41e3-a89d-49756566d5a4",
+      "bbaaa915-3ca4-426f-87af-2768d6011dba",
+      "bc019d25-c55f-42a4-9e8b-80d9c10c6ce8",
+      "bc050cda-3958-4836-8d00-de32cbd07681",
+      "bc1c6b59-ea9a-45ce-b89b-4b8a2e5a4117",
+      "bc7b7b4f-1f4e-4e1d-9f3f-7d2ccb896255",
+      "bca5307b-5e54-44e1-b9d7-a8fc736cba2b",
+      "bcb2ddbd-8e73-4174-8efc-34f5497b6d95"
+    ]
+  }
+}

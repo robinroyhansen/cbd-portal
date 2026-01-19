@@ -1,0 +1,42 @@
+{
+  "batch_number": 303,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T17:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "4e1a53a2-6b91-46a4-8e3f-e49d6a7e3a13", "title": "Improving post-hypoxic myoclonus using cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic for myoclonus"},
+    {"id": "4e2985e0-fe9b-4b23-83a4-79718c53ae83", "title": "A novel component of cannabis extract potentiates excitatory synaptic transmission in rat olfactory cortex in vitro", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis neurophysiology mechanism"},
+    {"id": "4e355c5b-ebf7-4205-bc88-428d9b4bfb1c", "title": "Myth and medicine: a historical perspective on caesarean section in Ferdowsi's Shahnameh.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "4e3d8efb-2f15-47ac-8e3c-7d3d33866abb", "title": "Phytocannabinoids : unraveling the complex chemistry and pharmacology of cannabis sativa", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - phytocannabinoid pharmacology"},
+    {"id": "4e426fc1-e65a-43d2-93d4-be999153ce72", "title": "Analysis of Pedestrian Facilities in CBD Area of Pabna Municipality, Bangladesh", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "4e64a203-857b-42bf-9137-81c25bf01537", "title": "CANNABIDIOL PARA LA EPILEPSIA RESISTENTE A FÁRMACOS EN ARGENTINA: EVALUACIÓN DE TECNOLOGÍA SANITARIA", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy health technology assessment"},
+    {"id": "4e756eca-0993-4420-ac70-aba5f1a9049f", "title": "Prevalence and forms of cannabis use in legal vs. illegal recreational cannabis markets", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "4e7b8af4-4091-4e32-bed0-72b344adf5b4", "title": "The Action of Cannabidiol on Doxycycline Cytotoxicity in Human Cells—In Vitro Study", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug interaction/cytoprotection"},
+    {"id": "4e883272-ce12-4606-8dd5-75eca3636d0b", "title": "Examining the \"Night Break\" Method in Cannabis sativa Horticulture: Vegetative Daily Light Integral Affects Yield of Extractable Biomass in C. sativa.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "4e9aee36-12de-4b02-8442-0854a9c50a3f", "title": "Nonsmoker Exposure to Secondhand Cannabis Smoke. III. Oral Fluid and Blood Drug Concentrations and Corresponding Subjective Effects", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/toxicology correctly rejected"},
+    {"id": "4ecfd546-98c6-4e6f-a6f9-bead9a017bd6", "title": "Death circumstances of older adults with cannabinoid exposures", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/harm correctly rejected"},
+    {"id": "4ed110b4-5099-41b5-ad18-214aab471a61", "title": "A Mobile Prototype for a Field Sobriety Test for Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment testing correctly rejected"},
+    {"id": "4ed3acb0-ba3e-4084-b4d9-52c1ce71c2be", "title": "Phenolic Constituents Drive Antimicrobial and Antibiotic-Enhancing Activities of Cannabis sativa Seed Extracts Obtained by Two Extraction Methods", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Phytochemistry/phenolics correctly rejected"},
+    {"id": "4edab4d9-0386-4d3e-aa68-f4d6de87ad25", "title": "Effects of the cannabinoid receptor antagonist SR 141716, alone and in combination with dexfenfluramine or naloxone, on food intake in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB receptor appetite mechanism"},
+    {"id": "4edd5735-2326-47cf-a68e-ec8bd639ef1c", "title": "The effect of withdrawal from cannabis on pentylenetetrazol convulsive threshold in mice", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Withdrawal effects correctly rejected"},
+    {"id": "4eed1fa1-258d-4f54-8ca5-3adc4a9e176c", "title": "In vitro and in vivo human metabolism of a new synthetic cannabinoid NM-2201 (CBL-2201)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid abuse correctly rejected"},
+    {"id": "4ef0f90b-0b04-4f00-bfe0-a1e0da58ca6f", "title": "CBD bei Krebs ohne antientzündlichen Effekt", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD and cancer (German)"},
+    {"id": "4eff653e-14a4-4264-9af0-43b636be2982", "title": "Cannabidiol lymphatic transport after oral administration assessed using a novel thoracic lymph duct cannulated conscious pig model", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmacokinetics"},
+    {"id": "4f1489f2-5afc-42da-9bbf-3ade146b99ea", "title": "Biodegradable Films and Edible Coatings Based on Whey Protein Isolate for Extending the Shelf Life of Commercial Strawberries", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "4f149f67-25cf-4b12-90af-08c300c8c55f", "title": "HS-FET-GC/MS-Method Development and Validation for Analysis of 45 Terpenes-Creating a Complementary Tool for Comprehensive Profiling of Cannabis Flowers in Forensics.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic analysis correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "4e1a53a2-6b91-46a4-8e3f-e49d6a7e3a13",
+      "4e2985e0-fe9b-4b23-83a4-79718c53ae83",
+      "4e3d8efb-2f15-47ac-8e3c-7d3d33866abb",
+      "4e64a203-857b-42bf-9137-81c25bf01537",
+      "4e7b8af4-4091-4e32-bed0-72b344adf5b4",
+      "4edab4d9-0386-4d3e-aa68-f4d6de87ad25",
+      "4ef0f90b-0b04-4f00-bfe0-a1e0da58ca6f",
+      "4eff653e-14a4-4264-9af0-43b636be2982"
+    ]
+  }
+}

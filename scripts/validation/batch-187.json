@@ -1,0 +1,40 @@
+{
+  "batch_number": 187,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T12:45:00.000Z",
+  "results": [
+    {"id": "d03bc112-8f13-455e-8311-f5459ad81eaa", "title": "CBD Juvenile Chronic Metabolic Markers Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD metabolic effects preclinical"},
+    {"id": "d0592daf-5b97-443c-80ea-371cd79389f6", "title": "GNPS Methamphetamine Ethanol Drug Interaction", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - meth/ethanol toxicity"},
+    {"id": "d05ad30e-9b99-4601-978f-daee8e95fc1b", "title": "Genistein CB1 Antagonist Marijuana Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 pharmacology therapeutic"},
+    {"id": "d05f530d-97d3-4390-a5c2-7d99e0d01ce0", "title": "ACPA Lung Fibroblast CAF NSCLC Exosomes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid agonist cancer therapeutic"},
+    {"id": "d069f4ce-f5db-45d8-ae44-226c74154f8e", "title": "Cannabis Stimulant Disorders Psychosis Readmission", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis relapse predictor"},
+    {"id": "d0800ea7-514d-4fa6-b25d-24bf1b492e4f", "title": "CBN TRPV1 Anti-inflammatory Keratinocytes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBN skin inflammation therapeutic"},
+    {"id": "d097716c-ff74-401b-820c-7702d5596b91", "title": "Exosomal Cannabinoid Delivery Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer drug delivery"},
+    {"id": "d09b2452-57ba-4b19-8139-0f1fedc18c9c", "title": "Childhood Trauma Cannabis Paranoia Model", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabis paranoia mechanism"},
+    {"id": "d0b8eeb4-88e9-4c21-a1e8-2caa30f94237", "title": "CBD Pharmacokinetics Connemara Ponies", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - ponies"},
+    {"id": "d0bd8fed-1681-4a8b-b7f1-717077302412", "title": "Carfilzomib Nanomedicine Cancer Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - proteasome inhibitor"},
+    {"id": "d0bddbe1-ca69-4325-b60f-64475f255b84", "title": "CB1 Gene Variations Migraine Predisposition", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid genetics migraine"},
+    {"id": "d0c30747-f3d6-47e5-8726-cf70a028216e", "title": "Cannabinoids Anticancer Drugs Preclinical Status", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer preclinical review"},
+    {"id": "d0e9fd8c-632a-48a9-86cd-61b19e0d2196", "title": "CBD Neuroplasticity Lipidome Depression Rat", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression mechanism"},
+    {"id": "d0fb152d-fae3-430c-af66-0f65bc69805a", "title": "Cannabis Use Psychotic Disorders Outcomes Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis outcomes"},
+    {"id": "d0ff42e0-e49b-4011-b37a-85f52ac98e38", "title": "CBD Treatment PTSD Therapeutic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PTSD therapeutic review"},
+    {"id": "d10914fe-42d6-4b1c-ac50-05cd6a7799a8", "title": "Cannabinoid UGT Drug Interactions PBPK Modeling", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid drug interaction safety"},
+    {"id": "d111fee1-ca2b-4233-83ee-02e89bbe3abc", "title": "CBD Oil Behavioral Dementia Agitation RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD dementia clinical trial"},
+    {"id": "d115e2ff-aa42-4b10-a4b8-615ead34c266", "title": "Cannabinoids Paediatric Epilepsy Efficacy Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid epilepsy therapeutic review"},
+    {"id": "d122f896-1090-4e35-b2fa-b0d5d035b1e1", "title": "Deucravacitinib Psoriasis Plaque Treatment", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - JAK inhibitor psoriasis"},
+    {"id": "d13517b7-f5c3-4d43-9547-9a92c1eed01f", "title": "CBD Nav1.4 Sodium Channel Slow-Inactivated Binding", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD ion channel mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "d0592daf-5b97-443c-80ea-371cd79389f6",
+      "d069f4ce-f5db-45d8-ae44-226c74154f8e",
+      "d09b2452-57ba-4b19-8139-0f1fedc18c9c",
+      "d0b8eeb4-88e9-4c21-a1e8-2caa30f94237",
+      "d0bd8fed-1681-4a8b-b7f1-717077302412",
+      "d0fb152d-fae3-430c-af66-0f65bc69805a",
+      "d122f896-1090-4e35-b2fa-b0d5d035b1e1"
+    ]
+  }
+}

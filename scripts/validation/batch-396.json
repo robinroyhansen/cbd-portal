@@ -1,0 +1,41 @@
+{
+  "batch_number": 396,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T17:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "b74a40a6-8c0d-40a7-b0c5-e49215d0033a", "title": "A bio-inspired cell-free system for cannabinoid production from inexpensive inputs", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Biosynthesis correctly rejected"},
+    {"id": "b75af5b1-1011-423b-9986-2646fcfe30bc", "title": "Does Cannabidiol (CBD) in Food Supplements Pose a Serious Health Risk? Consequences of the EFSA Clock Stop Regarding Novel Food Authorisation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety assessment research"},
+    {"id": "b78902ff-ff51-4d99-93e4-b13394902150", "title": "Terpenes, Flavors, and Effects Blends for THC, CBD, and Hemp Products", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Commercial correctly rejected"},
+    {"id": "b790a6e6-99ef-46fc-a824-6e7c83a56126", "title": "The Exploration of Creating the Green Transport System in CBD——A Case Study of South Business District in Ningbo", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "b796cae6-2bcb-4263-a7bb-c823782501dc", "title": "Cannabisin A, an arylnaphthalene lignanamide from fruits of Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Phytochemistry correctly rejected"},
+    {"id": "b7995cbf-8b96-46e1-8bd0-0d6eb9f8d183", "title": "Unraveling Lysosomal Exocytosis: From Molecular Mechanisms to Physiological Functions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b7a7e066-fe67-49cd-85e5-3b6587b1dc19", "title": "Chemical Constituents from Coleus strobilifer and Their Xanthine Oxidase Inhibitory Activity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b7ae8f53-35c8-4982-8711-d87d3baf04d1", "title": "Differences in Plasma Exposure of Cannabidiol and Cannabidiolic Acid Following Oral Administration to Horses.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "b7b9d9c9-a103-468b-a488-a82eb696f6f5", "title": "Modulation of Drug Intake: Evaluation of Opioid and Cannabinoid Interactions on Drug Self-Administration", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Addiction/abuse liability correctly rejected"},
+    {"id": "b7c54cbd-1450-4963-86f8-cd18edabbb77", "title": "6. CBD and Subcenter Visitors", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "b7f5837f-eb5e-494d-9b74-732f560965eb", "title": "Development of Substance Use Problems: The Role of Adolescent Cannabis Age of Onset, Frequency of Use and Childhood Risk Factors.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm/CUD correctly rejected"},
+    {"id": "b801a47c-1bee-42b9-970d-7cb92c96458f", "title": "Ajulemic acid, a synthetic cannabinoid acid, induces an antiinflammatory profile of eicosanoids in human synovial cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid anti-inflammatory mechanism"},
+    {"id": "b8328753-8435-4901-a8b6-cdfccfa237a5", "title": "Role of the EUS in the Treatment of Biliopancreatic Disease in Patients with Surgically Altered Anatomy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b859238c-6ad0-42c5-b94a-665a52e7f4e3", "title": "Behavioral effects of two cannabidiol and cannabigerol-rich formulas on mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/CBG behavioral mechanism research"},
+    {"id": "b86899e4-7bdb-4fc4-874f-c93cbf486577", "title": "Agonist alkyl tail interaction with cannabinoid CB1 receptor V6.43/I6.46 groove induces a helix 6 active conformation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor structure-function research"},
+    {"id": "b87131d3-adc8-4f12-8bf0-b1c482c8a5d9", "title": "Cannabinoid receptors and their ligands", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor research"},
+    {"id": "b885608e-5df6-4600-881e-221fd46a8c6e", "title": "Comparison of different methods for the extraction of cannabinoids from cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"},
+    {"id": "b8904cd2-820a-4145-986d-9b55bcea874d", "title": "Cannabinoid Receptor Type 2 Agonists Induce Transcription of the μ-Opioid Receptor Gene in Jurkat T Cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor mechanism research"},
+    {"id": "b8ac0080-2912-48a4-a827-672c58fefb6a", "title": "Coordinated epigenetic dysregulation of CNR1 and FAAH genes drives endocannabinoid system dysfunction in anorexia nervosa", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS mechanism in anorexia nervosa"},
+    {"id": "b8bf313a-ed62-4518-b9ec-31f619536ede", "title": "Hyresgästers preferenser på kontorslokalhyresmarknaden : Jämförelse mellan Stockholms CBD och Kista", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "b75af5b1-1011-423b-9986-2646fcfe30bc",
+      "b801a47c-1bee-42b9-970d-7cb92c96458f",
+      "b859238c-6ad0-42c5-b94a-665a52e7f4e3",
+      "b86899e4-7bdb-4fc4-874f-c93cbf486577",
+      "b87131d3-adc8-4f12-8bf0-b1c482c8a5d9",
+      "b8904cd2-820a-4145-986d-9b55bcea874d",
+      "b8ac0080-2912-48a4-a827-672c58fefb6a"
+    ]
+  }
+}

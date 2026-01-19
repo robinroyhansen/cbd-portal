@@ -1,0 +1,40 @@
+{
+  "batch_number": 394,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T16:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "b5784074-ca81-4552-9a56-de6e0cc19716", "title": "Cannabis Use and Suicidal Ideation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "b57acbfc-2f53-47de-9199-4bd1a8d9eb2e", "title": "Twin-screw extrusion retains industrial hemp byproduct (hemp flakes) functionality.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food processing correctly rejected"},
+    {"id": "b57e7f9d-bf72-4219-ac71-e6bc2627d77c", "title": "The Canadian Lung Outcomes in Users of Vaping Devices (CLOUD) Study: protocol for a prospective, observational cohort study.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Vaping harm correctly rejected"},
+    {"id": "b59682b7-5773-4733-b88a-d4322ad8879f", "title": "Impact of age at onset of cannabis use on cannabis dependence and driving under the influence in the United States", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "b598c69b-4601-4ad4-b836-8491d9a487f1", "title": "Cannabinoid-receptor 1 null mice are susceptible to neurofilament damage and caspase 3 activation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor neuroprotection mechanism"},
+    {"id": "b5a3d3a2-427a-4ec2-864b-93ac2e89f6b4", "title": "Survey of Cannabis Use in Patients With Chronic Inflammatory Arthritis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns survey correctly rejected"},
+    {"id": "b5a463c3-1ae5-494f-8385-fa04f1a3dbf5", "title": "The cannabinoid CB1 receptor is expressed in pancreatic δ-cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor expression research"},
+    {"id": "b5ad5159-51cf-4030-849d-e9b6bd98d21e", "title": "Stereochemical requirements for cannabinoid activity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacology research"},
+    {"id": "b5b0628a-7fa0-43ef-aecb-47c250dfe78f", "title": "Medium-throughput zebrafish optogenetic platform identifies deficits in subsequent neural activity following brief early exposure to cannabidiol and Δ-9-tetrahydrocannabinol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Developmental toxicity correctly rejected"},
+    {"id": "b5c4c9fa-9292-4cc3-9bf0-9a0392c1509b", "title": "Increases in synthetic cannabinoids-related harms: Results from a longitudinal web-based content analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid harm correctly rejected"},
+    {"id": "b5c95dd3-d41a-49c6-86c4-8151bb5ced6f", "title": "Latent profiles of cannabis use patterns and associations with eating pathology outcomes.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "b5e47b70-5206-402e-b924-0482131b378a", "title": "Tu1530 – Use of Cannabidiol (CBD Oil) in Autoimmune Hepatitis - What are the Patients Doing?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns survey correctly rejected"},
+    {"id": "b5fa2460-6066-400f-8e8d-47a305c46fb7", "title": "The Bioactive Conformation of Aminoalkylindoles at the Cannabinoid CB1 and CB2 Receptors: Insights Gained from (E)- and (Z)-Naphthylidene Indenes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor pharmacology research"},
+    {"id": "b6049075-df9d-4dae-9283-feba862654de", "title": "Long-Term Consequences of Adolescent Cannabis Exposure on the Development of Cognition, Brain Structure and Function: An Overview of Animal and Human Research", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis developmental harm correctly rejected"},
+    {"id": "b613551e-3897-40a5-91e9-d2d9507cb03a", "title": "Cannabis Use Disorders", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD correctly rejected"},
+    {"id": "b629edaf-4da8-4053-96ec-cdc77fb30e71", "title": "Safety and Tolerability of Transdermal Cannabidiol Gel in Children With Developmental and Epileptic Encephalopathies", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy therapeutic research"},
+    {"id": "b6341d06-931e-4401-8f6b-75df4e2837a0", "title": "Lively Guangzhou: Deciphering the divergent intra-urban vibrancy across historic districts and CBD using interpretable machine learning", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "b64dc03b-6491-4b26-ab47-496670c72627", "title": "A Review on CBDS in MANET", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (network security) correctly rejected"},
+    {"id": "b652d903-143a-42d3-8f4f-bd0ca64666f4", "title": "Differential effects of chronic cannabis use on preattentional cognitive functioning in abstinent schizophrenic patients and healthy subjects", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis cognitive harm correctly rejected"},
+    {"id": "b6532d12-4b32-4b58-8294-92837105a8a3", "title": "Exploring Cannabidiol-TRPV3 Mediated Biological Activities-Findings From Molecular Docking, Simulation and Proteins Network Interactions.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD TRPV3 mechanism research"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "b598c69b-4601-4ad4-b836-8491d9a487f1",
+      "b5a463c3-1ae5-494f-8385-fa04f1a3dbf5",
+      "b5ad5159-51cf-4030-849d-e9b6bd98d21e",
+      "b5fa2460-6066-400f-8e8d-47a305c46fb7",
+      "b629edaf-4da8-4053-96ec-cdc77fb30e71",
+      "b6532d12-4b32-4b58-8294-92837105a8a3"
+    ]
+  }
+}

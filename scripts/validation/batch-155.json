@@ -1,0 +1,41 @@
+{
+  "batch_number": 155,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T04:45:00.000Z",
+  "results": [
+    {"id": "ad75e05d-8dbd-4840-b971-b469b6cc0fa7", "title": "Blood-Brain Barrier Glioblastoma Drugs", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - glioblastoma general"},
+    {"id": "ad77ab63-a601-48c9-87c7-12fcec88eb44", "title": "CBD reduces anxiety social phobia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety recommendation"},
+    {"id": "ad790d80-5b73-433f-936f-fcf2f34d90aa", "title": "Cannabinoid receptors Huntington's", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB receptors HD mechanism"},
+    {"id": "ad829d43-9313-4f26-91d8-36149f53b5de", "title": "Plant-Based Nutrition Athletic Performance", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general nutrition"},
+    {"id": "ada2225c-f463-4e25-8f1a-01074806d65b", "title": "Cannabis Psychotic Disorders Development", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis risk"},
+    {"id": "ada9ea40-e3b1-48e2-956c-495e52dd387a", "title": "Grey Matter Cannabis Adolescence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - adolescent brain changes"},
+    {"id": "adc4fcb3-8477-45c9-a188-11e04c02cab5", "title": "Cannabinoids Pancreatic Tumor Apoptosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer mechanism"},
+    {"id": "add5f3e8-5339-4598-a369-8459d362057f", "title": "CBD effective treatment anxiety adults", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety review"},
+    {"id": "ade7b106-9c01-44ae-b17b-713c49dc8f93", "title": "Cannabinoids Desensitize Capsaicin TRPA1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "adebb647-b769-4642-818b-07023625b161", "title": "Medicalisation revolt cannabis users sociology", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - sociological analysis"},
+    {"id": "ae028573-f182-40c8-9304-9788b55475e8", "title": "Intrathecal Drug Delivery Chronic Pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - pain delivery systems"},
+    {"id": "ae02c9c2-a5c2-4ef8-b413-720d546d248f", "title": "2-Arachidonoylglycerol Chemokine Production", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid immune mechanism"},
+    {"id": "ae12754d-05cc-421d-b6e9-9be752604365", "title": "CBD Skin Health Dermatology Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD skin therapeutic review"},
+    {"id": "ae1bbe1c-8b91-4b93-9102-d11872669ccb", "title": "CBD-Based Terpene Analogues Antinociceptive", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug development pain"},
+    {"id": "ae41c6d0-b2dd-4785-81d5-6ff9c22534fd", "title": "Feline cognitive dysfunction CBD Alzheimer's", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - cat model"},
+    {"id": "ae440bec-69d2-4e0a-8be7-b854d1b1103f", "title": "Green Canyon CBD Oil Google Sites", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - advertisement"},
+    {"id": "ae7037e4-a3d8-4488-a24b-c6a806b7222a", "title": "Subjective benefit CBD epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy research"},
+    {"id": "ae814b30-b768-454b-8c15-8dd610ace682", "title": "CBD Multifunctional Drug Pharmacokinetics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacology review"},
+    {"id": "ae824f06-6ae7-4707-948b-6aabf00b0c30", "title": "Vaporized Cannabis Neuropathic Pain SCI", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain clinical trial"},
+    {"id": "ae82db58-6cf9-4032-a471-3cbbb5cf7ca6", "title": "Hemp oil anticancer metabolomics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Hemp cancer mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "ad75e05d-8dbd-4840-b971-b469b6cc0fa7",
+      "ad829d43-9313-4f26-91d8-36149f53b5de",
+      "ada2225c-f463-4e25-8f1a-01074806d65b",
+      "ada9ea40-e3b1-48e2-956c-495e52dd387a",
+      "adebb647-b769-4642-818b-07023625b161",
+      "ae028573-f182-40c8-9304-9788b55475e8",
+      "ae41c6d0-b2dd-4785-81d5-6ff9c22534fd",
+      "ae440bec-69d2-4e0a-8be7-b854d1b1103f"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "batch_number": 200,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T16:00:00.000Z",
+  "milestone": "BATCH 200 - 4000+ studies validated",
+  "results": [
+    {"id": "ddfff4eb-173d-4d1d-b4eb-cb8323e20143", "title": "Cannabinoid Adolescent Exposure Transgenerational Morphine CPP", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - transgenerational drug sensitivity"},
+    {"id": "de094aa8-0f54-4306-a1b6-6f0faf94207f", "title": "CB2 Agonist Lenabasum Cystic Fibrosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 cystic fibrosis therapeutic"},
+    {"id": "de270102-d492-4cbc-bdfe-270327375e69", "title": "Sativex Neuropathic Pain Multicentre Open Label", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain clinical trial"},
+    {"id": "de2714d7-31ae-4305-8af7-0ea7277c1cd4", "title": "Biased Agonism SCRA Scaffolds CB1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor drug development"},
+    {"id": "de3bb73b-a10b-43d2-9335-93330242ca52", "title": "Cannabis Medication Adherence First-Episode Psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis symptom exacerbation"},
+    {"id": "de610789-d411-4e60-a0a6-ad6263be474d", "title": "Nurse Education Fibromyalgia Medical Cannabis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis fibromyalgia therapeutic"},
+    {"id": "de63853b-999f-43a4-8811-e29b06a1100a", "title": "Cannabinoids Autism Spectrum Disorder Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid autism therapeutic"},
+    {"id": "de645d02-f327-4a67-a11c-82faa71024b4", "title": "Gut Microbiota Neuromyelitis Optica Mendelian", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - gut microbiota NMOSD study"},
+    {"id": "de6a4d6c-d7c9-4abf-99a3-72e81b45289a", "title": "Cannabis Cannabinoids Cancer Care Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic review"},
+    {"id": "de6d7608-694c-4f48-a72e-a4a358291086", "title": "CBD Genotype Safety PK Healthy Volunteers", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PK safety research"},
+    {"id": "de75687f-a66e-4621-9faa-263aac925d22", "title": "Sex Differences Cocaine Vulnerability Rodents", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - cocaine stress vulnerability"},
+    {"id": "de82c66d-0a3e-4024-8dab-9602236338bd", "title": "THC CBD Oxidative Stress Glioblastoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid glioblastoma cancer"},
+    {"id": "de9412f3-81e4-4022-8cb7-b0246067ff53", "title": "TKIs CBD Oral Cancer Treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD oral cancer therapeutic"},
+    {"id": "de976ba0-dee1-4e3f-9047-ad2819c60134", "title": "CBG Hemp Extract Colitis IBD Microbiome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG IBD therapeutic"},
+    {"id": "de99de15-73fa-45e4-9cdd-cfb15e772dc9", "title": "CBD Decreases Cocaine Motivation Craving", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction therapeutic"},
+    {"id": "de9f5c36-7c9d-4513-98ad-712004491a50", "title": "CBD Nanofibers Cyclodextrin Anxiety Depression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD formulation anxiety/depression"},
+    {"id": "dea0f621-1911-4199-bb41-d128299c8cfd", "title": "Epidemiological Cannabis Abuse Dependence Adolescents", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - adolescent cannabis use patterns"},
+    {"id": "dea19b59-5513-403b-a62b-7f13096431f7", "title": "Curcumin Tumor Metabolic Landscape", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - curcumin cancer study"},
+    {"id": "dec89afc-5aa4-45df-af23-2c00e85b55d9", "title": "CBD Clobazam Four RCTs Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy clinical trials"},
+    {"id": "decca443-66a4-4be8-a126-1872784dc158", "title": "CBG Acute Effects Anxiety Stress Mood", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG anxiety therapeutic RCT"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "ddfff4eb-173d-4d1d-b4eb-cb8323e20143",
+      "de3bb73b-a10b-43d2-9335-93330242ca52",
+      "de645d02-f327-4a67-a11c-82faa71024b4",
+      "de75687f-a66e-4621-9faa-263aac925d22",
+      "dea0f621-1911-4199-bb41-d128299c8cfd",
+      "dea19b59-5513-403b-a62b-7f13096431f7"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "batch_number": 453,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T06:40:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "f3fe576b-dc03-48b5-8bb5-a6dced5289ed", "title": "The effect of cannabis policies on treatment outcomes for cannabis use among U.S. adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/CUD correctly rejected"},
+    {"id": "f40105eb-f0a3-4907-80f9-9eaf44134408", "title": "Examine the Feasibility of a Standardized Field Test for Marijuana and Alcohol Impairment: Laboratory Evaluations", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment testing correctly rejected"},
+    {"id": "f41afa46-2230-4cba-adc1-50f2cca087ad", "title": "AHPA releases its revised Hemp-CBD Status Report", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industry/regulatory correctly rejected"},
+    {"id": "f41b2400-8190-4c94-8cfc-1898b9dacc19", "title": "Separate and combined effects of the cannabinoid agonists nabilone and Δ9-THC in humans discriminating Δ9-THC", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacology research"},
+    {"id": "f429373d-1b9d-4b84-aab9-2b57e860313b", "title": "Cannabis : a report of the commission of inquiry into the non-medical use of drug", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "f42e806b-5366-43d7-940c-687389cdd52f", "title": "Cannabidiol et cannabinoïdes : nécessité d'une évaluation pharmacologique approfondie à des fins d'expertise clinique et réglementaire", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmacology research"},
+    {"id": "f4300286-5375-4260-ad75-53db5c8234bd", "title": "Resurrected Ancestral Cannabis Enzymes Unveil the Origin and Functional Evolution of Cannabinoid Synthases.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "f43ca138-e0d1-4d37-a9c4-98f7caec7721", "title": "Wernicke's Encephalopathy Secondary to Cannabis Hyperemesis Syndrome.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "f449517b-4ec5-42a5-89a8-4e5f4b7f51e9", "title": "Chemistry of Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry correctly rejected"},
+    {"id": "f458da37-daa9-4f49-88be-74c2b8a81522", "title": "Gas chromatography of cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "f45c9f3e-7160-4945-b33a-74b9be4acfb9", "title": "Chemistry of Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry correctly rejected"},
+    {"id": "f4628a2f-345d-41d2-9805-8b6143426c07", "title": "Label accuracy of unregulated cannabidiol (CBD) products: measured concentration vs. label claim", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product testing correctly rejected"},
+    {"id": "f4662381-d070-4e44-b26e-e7f5c532b46c", "title": "Phytocannabinoids: Chromatographic Screening of Cannabinoids and Loading into Lipid Nanoparticles", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD nanoparticle drug delivery research"},
+    {"id": "f4996c02-552a-4e3a-bf2f-8bef661c2111", "title": "Cannabinoid-induced antinociception is mediated by a spinalα2-noradrenergic mechanism", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pain mechanism research"},
+    {"id": "f4a3fe47-0f59-4787-9864-4a9cefda0e06", "title": "A novel biomimetic nanozyme orchestrates ulcerative colitis resolution by targeting KEAP1-NRF2-ARE pathway", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "f4acae95-bcd2-4ce4-978a-fffaf0c6c7e5", "title": "Characterization of two duplicate zebrafish Cb2-like cannabinoid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor mechanism research"},
+    {"id": "f4cdb261-6162-4f42-b50a-20876fa4d809", "title": "A Potential Contribution of S100A11 to Skin Fibrosis and Pulmonary Involvement in Systemic Sclerosis.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "f4f4cb81-d771-4d6c-bbea-e9bdc3140ad6", "title": "Expression and Characterization of the Fusion Protein CBD-CelB", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Cellulose Binding Domain) correctly rejected"},
+    {"id": "f4fc6228-bfbd-4aec-89b1-4cedb74288ab", "title": "A Multiple Correspondence Analysis of Patterns of CBD Use in Hemp and Marijuana Users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "f4ff9deb-de2f-4a1a-a32e-8b2e8e4a0c2e", "title": "Suppression of experimetal autoimmune encephalomyelitis by cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid autoimmune/MS therapeutic research"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "f41b2400-8190-4c94-8cfc-1898b9dacc19",
+      "f42e806b-5366-43d7-940c-687389cdd52f",
+      "f4662381-d070-4e44-b26e-e7f5c532b46c",
+      "f4996c02-552a-4e3a-bf2f-8bef661c2111",
+      "f4acae95-bcd2-4ce4-978a-fffaf0c6c7e5",
+      "f4ff9deb-de2f-4a1a-a32e-8b2e8e4a0c2e"
+    ]
+  }
+}

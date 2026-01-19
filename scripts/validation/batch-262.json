@@ -1,0 +1,42 @@
+{
+  "batch_number": 262,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T07:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "213a2bd8-6bd9-4554-b886-4d4b74322489", "title": "Heavy metal tolerance and accumulation by Cannabis sativa L.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Phytoremediation correctly rejected"},
+    {"id": "2141054d-0d6d-4946-a31b-071665d67f85", "title": "Genetic and Environmental Influences on Alcohol, Caffeine, Cannabis, Nicotine Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Genetics of use correctly rejected"},
+    {"id": "21430986-97ef-4d64-8a67-9a2048dec546", "title": "Recent Advances in Endolysin Engineering", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "21461d8e-c19d-41e4-ae31-946bc9c27922", "title": "Antimicrobial and Antiviral (SARS-CoV-2) Potential of Cannabinoids: Comprehensive Review", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid antimicrobial/antiviral/COVID review"},
+    {"id": "215de752-1007-4c39-b3f6-d9952f56aeff", "title": "Cannabinoid Ester Constituents from High-Potency Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant chemistry correctly rejected"},
+    {"id": "217596b5-6aa3-4e4f-ae76-e916869ba842", "title": "Research on Cluster Models in CBD Modern Service Industry", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "21780fac-349c-42be-8aa1-662a4b82fca4", "title": "Cannabidiol: potential in treatment of neurological diseases", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD for neurological diseases"},
+    {"id": "219e9b0f-36d4-4402-b061-33a8a368cee6", "title": "Proteomic Profiling of BALF in CBD and BeS Patients", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "219ebd02-c1ef-4747-8af3-9ca40d68ff1e", "title": "Drugs derived from cannabinoids. 3. Sulfur analogs", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid drug development"},
+    {"id": "21ab07d2-dc37-482f-a708-10c118d853d3", "title": "Cannabinoids enhance human B-cell growth at low nanomolar concentrations", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid CB2 immune modulation"},
+    {"id": "21cf1525-13f2-4fe2-bbff-8920779a5e7a", "title": "Improved accessibility to desoxy analogues of THC and CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic chemistry correctly rejected"},
+    {"id": "21d62381-f128-4b93-a02c-a45e722fd9af", "title": "Tom Selleck CBD Gummies [Reviews] Hoax or Legitimate?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "21e7f78f-2869-4a2f-b553-8171c0bc27ed", "title": "中央商务区(CBD)的分类及微型CBD的打造", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "221f14bd-6e7d-4ede-9d66-3d47e5f1fff9", "title": "Design and Bottom-up Production of Aerosolizable Cannabidiol Nanosuspension", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery"},
+    {"id": "2221cd82-9a97-42f4-a46f-481e65f76a20", "title": "Systemic effect of cannabinoids on firing rate of locus coeruleus neurons", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid brain mechanism"},
+    {"id": "222ae0db-b0b1-49f5-9871-888f8ac2a1c7", "title": "Chemical Composition of Aerosols from E-Cigarette Vaping of Cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Vaping analysis correctly rejected"},
+    {"id": "222cb0f5-a3a8-48b3-ac8f-0940fe618277", "title": "Developing the Cannabinoid Receptor 2 (CB2) pharmacopoeia", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 drug development review"},
+    {"id": "225463e2-ffa4-4aee-bb2b-9316dc51c6f4", "title": "Cannabinoid receptor stimulation of GTP binding in rat brain membranes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism"},
+    {"id": "225dcb98-c6b1-41e4-aec6-493b32fe32a7", "title": "Cannabinoids and Terpenes as Chemotaxonomic markers in Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant chemistry correctly rejected"},
+    {"id": "226068ee-3af0-4dc5-aef6-e899316bdf50", "title": "Target Receptors of Regenerating Nerves: Neuroma Formation Treatment Options", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "21461d8e-c19d-41e4-ae31-946bc9c27922",
+      "21780fac-349c-42be-8aa1-662a4b82fca4",
+      "219ebd02-c1ef-4747-8af3-9ca40d68ff1e",
+      "21ab07d2-dc37-482f-a708-10c118d853d3",
+      "221f14bd-6e7d-4ede-9d66-3d47e5f1fff9",
+      "2221cd82-9a97-42f4-a46f-481e65f76a20",
+      "222cb0f5-a3a8-48b3-ac8f-0940fe618277",
+      "225463e2-ffa4-4aee-bb2b-9316dc51c6f4"
+    ]
+  }
+}

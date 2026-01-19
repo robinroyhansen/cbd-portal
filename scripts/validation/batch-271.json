@@ -1,0 +1,39 @@
+{
+  "batch_number": 271,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T09:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "2b726a16-6dcd-4a64-8094-aaad7efacfee", "title": "2-Arachidonoyl-sn-glycero-3-phosphate conversion to 2-arachidonoyl-sn-glycerol, a cannabinoid receptor ligand", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid biosynthesis mechanism"},
+    {"id": "2b7c8cdc-e657-4af5-bfc0-524499be3c0b", "title": "Smartphone-integrated lateral flow assay for robust detection of THC", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/analytical correctly rejected"},
+    {"id": "2b9c1e50-e415-4b1f-9681-2c0b238a6def", "title": "Nationwide Expert Survey on Bile Duct Transection Line Surgery", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2bb34fc5-7b80-44b8-9f45-62247818c35e", "title": "New Cannabinoid-Like Chromane and Chromene Derivatives from Rhododendron anthopogonoides", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant chemistry correctly rejected"},
+    {"id": "2bbd9f1a-29a8-4620-8c6d-6652ff2eaaed", "title": "Oleosome Delivery Systems: Enhancing Stability and Therapeutic Potential", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "2bc4daac-f339-4d55-8d5d-06ccaf502a84", "title": "Bioanalytical methods for the determination of synthetic cannabinoids and metabolites", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/analytical correctly rejected"},
+    {"id": "2bdeb067-6e25-4280-aa05-829fc3480ec6", "title": "Historical perspective on the therapeutic potential of cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic review"},
+    {"id": "2be5e3a2-e916-4911-8b79-797c24763600", "title": "Conditional probabilities of substance use disorders and associated risk factors", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use disorder correctly rejected"},
+    {"id": "2bfc1774-44f3-455c-abe4-9e801eb7c4d1", "title": "Detecting impairment associated with cannabis on the Standardized Field Sobriety Tests", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "2c0ce21b-dcbc-48c6-ae02-a4b8c3e9433c", "title": "Coating Nasal Silicone Splints with Antibiotics for Staphylococcus aureus Protection", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2c4877c5-5e59-4641-9cc0-789a35908094", "title": "Development of cannabidiol full-spectrum oil/cyclodextrin inclusion complex with enhanced water solubility, bioactivity, and thermal stability", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD formulation with enhanced bioactivity"},
+    {"id": "2c521014-4179-4c98-9561-830b6a0d4ce1", "title": "Searching for Fire Amid the Smoke: Will Cannabinoids Prove Useful and Safe for Those With CKD?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoids for CKD"},
+    {"id": "2c66365d-bdb4-4a7e-9abc-9929d0d8aa9e", "title": "Trends over time in adult cannabis use: A review of recent findings", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "2c70ba37-e028-416f-9b9d-0e878ef22110", "title": "Acute Effects of Cannabis on Everyday Life Memory", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "2c752503-7fbf-4b68-98b3-8d07ef28a3ae", "title": "Identification of the major urinary metabolites of seven synthetic cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid forensic correctly rejected"},
+    {"id": "2c81abad-dbe4-4bff-95c3-f3941974f14e", "title": "Nature-Inspired Molecules as Inhibitors in Drug Discovery", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "2c90b56e-02e8-4faa-b975-e2de773d61ea", "title": "Prevalence and correlates of cannabis use in developed and developing countries", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "2c99c2ff-7db6-487b-9ba9-881d5617808f", "title": "Cognitive Effects of Cannabis Use Across the Lifespan", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "2c9ca39b-c0e4-4ebd-85b0-5d5ea2afc42d", "title": "Green extraction of cannabidiol using deep eutectic solvent-based microemulsion", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methodology correctly rejected"},
+    {"id": "2c9d5d62-2095-47e1-8a47-a3d06b56c529", "title": "Smart Cannabis: A Prescription Digital Therapeutic Framework for Enhancing Medical Cannabis Care", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis care framework"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "2b726a16-6dcd-4a64-8094-aaad7efacfee",
+      "2bdeb067-6e25-4280-aa05-829fc3480ec6",
+      "2c4877c5-5e59-4641-9cc0-789a35908094",
+      "2c521014-4179-4c98-9561-830b6a0d4ce1",
+      "2c9d5d62-2095-47e1-8a47-a3d06b56c529"
+    ]
+  }
+}

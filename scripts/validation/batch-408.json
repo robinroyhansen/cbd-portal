@@ -1,0 +1,39 @@
+{
+  "batch_number": 408,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T20:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "c4260bac-102c-4f08-b92b-de72e81c1850", "title": "Advances in natural product discovery: strategies, technologies, and insights", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No clear cannabinoid focus correctly rejected"},
+    {"id": "c43adbde-32aa-42dc-a68a-29b36001aa7f", "title": "Is There a Legal Duty to Establish mpas under the cbd?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "c453aaa7-251c-44e3-a9b7-ced39177c8ad", "title": "Effects of short-term environmental stresses on the onset of cannabinoid production in young immature flowers of industrial hemp", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "c45659f0-41e9-46f3-9c48-e3348bee070c", "title": "Anti-obesity effect of unsaponifiable matter from hemp seed in 3T3-L1 adipocytes and high-fat diet-induced obese mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - hemp seed anti-obesity therapeutic"},
+    {"id": "c458aae5-f128-4bfa-864c-cbcacb5883c2", "title": "Duration of Neurocognitive Impairment With Medical Cannabis Use: A Scoping Review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "c46a3a75-2fdb-4288-861f-d7ef85d6899d", "title": "Ultra-high-performance liquid chromatography-tandem mass spectrometry assay for quantifying THC, CBD and their metabolites in hair", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "c47cced7-8b95-45a6-a6f5-cf7d61a1f731", "title": "Cannabis Use in Opioid Maintenance Therapy: Prevalence, Clinical Correlates and Reasons for Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "c49e10cc-673e-486e-909c-2bc300eda069", "title": "Relationships between frequency of driving under the influence of cannabis, self-reported reckless driving and risk-taking behavior", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impaired driving correctly rejected"},
+    {"id": "c4a9d238-0bcd-43e6-aa50-21b7a94049bb", "title": "Who is the bigger culprit? Studying impacts of traffic and land use on noise levels in CBD area of Karachi, Pakistan", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "c4d09c01-41ef-4bc3-b85d-5c0679d011eb", "title": "Cannabis and cannabinoid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor research"},
+    {"id": "c4d15b59-a604-4f43-8f16-e3bbb4055a98", "title": "Thiolysis of CBD arylethers for development of highly GSH-selective fluorescent probes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry tool correctly rejected"},
+    {"id": "c4d43f0a-947f-4f03-9f86-99dc44c2c428", "title": "Independent brain cortical signatures of risk for adolescent cannabis use and consequences of such use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "c4e344d1-3df2-49ca-8396-18208abf6617", "title": "A recent update on the antibacterial effects of distinct bioactive molecules derived from the Cannabis plant", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis antibacterial therapeutic"},
+    {"id": "c501301f-1714-48cf-84e4-9bea762a832b", "title": "Elevated Behavioral Economic Demand for Alcohol in Co-Users of Alcohol and Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Polysubstance use correctly rejected"},
+    {"id": "c5148237-3bea-49d7-bc3f-601568855534", "title": "Distinct Adipocyte Responses to Δ(9)-Tetrahydrocannabinol (THC) Exposure Govern Hepatic Lipid Accumulation in an Obesogenic Setting", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC metabolic mechanism research"},
+    {"id": "c5160fc2-7f33-4814-982a-c3814ad653b3", "title": "Exploring the protective effects of Huangyangning dispersible tablets against Doxorubicin-induced cardiotoxicity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "c536ede8-c5ba-4afb-99c0-711f1c83f90c", "title": "Rapid Method for Consistency and Concentration Reporting of Cannabidiol Using 1H-NMR and Computer-Assisted Chemical Software", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "c5386fbc-071d-41a4-9979-aa7ea9e24cd9", "title": "Cannabidiol (CBD) potentiates physiological and behavioral markers of hypothalamic-pituitary-adrenal (HPA) axis responsivity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD HPA axis mechanism"},
+    {"id": "c55c0657-d1af-47d5-8eee-4bf37dd2a74b", "title": "Assessment of Abuse Potential of Three Indazole-Carboxamide Synthetic Cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid abuse correctly rejected"},
+    {"id": "c5a79429-eda7-46a0-8e62-ed9bd2014657", "title": "Adverse Effects of Synthetic Cannabinoids: Management of Acute Toxicity and Withdrawal", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid harm correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "c45659f0-41e9-46f3-9c48-e3348bee070c",
+      "c4d09c01-41ef-4bc3-b85d-5c0679d011eb",
+      "c4e344d1-3df2-49ca-8396-18208abf6617",
+      "c5148237-3bea-49d7-bc3f-601568855534",
+      "c5386fbc-071d-41a4-9979-aa7ea9e24cd9"
+    ]
+  }
+}

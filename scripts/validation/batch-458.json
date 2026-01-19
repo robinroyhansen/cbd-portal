@@ -1,0 +1,42 @@
+{
+  "batch_number": 458,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T07:10:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "f9c96b0b-d96c-4d70-82f7-bd05f933c2be", "title": "Evaluation of the antimicrobial effect of cannabidiol (CBD) in a multispecies subgingival biofilm model.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antimicrobial therapeutic research"},
+    {"id": "f9e76485-b8b8-46fa-b8fe-972ccd752f6a", "title": "Synthetic and Natural Derivatives of Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD derivatives/drug development research"},
+    {"id": "f9f28e97-e49f-4f3f-bb4a-bf3a1e5a7455", "title": "Selective Personality-Targeted Intervention and the Escalation of Substance Use During Adolescence : A Secondary Analysis of A Cluster-Randomized Clinical Trial", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Substance abuse intervention correctly rejected"},
+    {"id": "fa0a6d8e-2fa0-48aa-b8b7-6e99fc795e52", "title": "Case Report: White-Sutton syndrome and cannabidiol, an update on a reported patient with a successful response to off--label therapy.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic case report"},
+    {"id": "fa18131e-9352-4769-acc5-0cc9d69ed7d1", "title": "Behavioral Economic Analysis of Medical Marijuana Use in HIV+ Patients: Probability Survey", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "fa1f6087-e8bb-4bda-90cd-f37eca932cf3", "title": "Demographic features, health status, and behavioral changes associated with cannabidiol use in the Dog Aging Project.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "fa527908-49ba-4d6e-9f4a-776b733c4b0a", "title": "An assessment of the prevalence of cannabis use in eye clinic patients and its implications on glaucoma diagnosis and management", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "fa6ddd8d-7af7-4cf3-adef-98f0c207673f", "title": "Cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Too generic correctly rejected"},
+    {"id": "fa71d2eb-a55b-4693-ba79-3cf893240101", "title": "Plant Proteins as Alternative Natural Emulsifiers in Food Emulsions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "fa96d919-ba8c-4a16-8278-5e340817b8f6", "title": "Effect of N+ ion implantation on the optical properties of nanostructured CdS thin film prepared by CBD technique", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "faf23b73-3009-451c-9413-ffcb9e149d07", "title": "To earn its name, the Art Gallery of NSW should leave the CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "fafc28d0-d130-4add-a62f-2982205141c2", "title": "Anandamide-induced neuroblastoma cell rounding via the CB1 cannabinoid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - anandamide/CB1 mechanism research"},
+    {"id": "fb04802d-f5b2-4b9e-af03-a3004acfd564", "title": "Trends in blunt smoking among adults in the United States, 2015-2022.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "fb10548b-5cb7-41c4-bc0a-fb0135b29752", "title": "Where To Buy Green Canyon CBD Oil Oil?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "fb141fe0-ba82-41f6-ae12-7e250eec3d35", "title": "Comparative Analysis of Cannabidiol and Risperidone on Behavioral and Neurochemical Outcomes, and Neurodevelopment Markers in a Zebrafish Model of Embryonic Exposure to Sodium Valproate.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic research for developmental conditions"},
+    {"id": "fb16848a-6809-44fa-8112-e016af90b19a", "title": "CBD drinks making a splash in the marketplace", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market correctly rejected"},
+    {"id": "fb26a2b6-2862-4470-9568-046493af7971", "title": "Formulation of Cannabidiol in Lipid Carriers", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery/formulation research"},
+    {"id": "fb355fee-77a9-4cec-93c9-a064529827ba", "title": "Assessing the public health impact of cannabis legalization in Canada: core outcome indicators towards an 'index' for monitoring and evaluation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "fb3944ec-43e9-4165-a9d3-62663286289f", "title": "[Pharmaceutical interviews in onco-haematology and so-called 'natural' products: An example illustrated by cannabidiol (CBD)].", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD oncology/drug interaction research"},
+    {"id": "fb60cea1-0432-43f4-88a4-ec1e93250bc8", "title": "Cannabinoids and Neuroprotection", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neuroprotection review"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "f9c96b0b-d96c-4d70-82f7-bd05f933c2be",
+      "f9e76485-b8b8-46fa-b8fe-972ccd752f6a",
+      "fa0a6d8e-2fa0-48aa-b8b7-6e99fc795e52",
+      "fafc28d0-d130-4add-a62f-2982205141c2",
+      "fb141fe0-ba82-41f6-ae12-7e250eec3d35",
+      "fb26a2b6-2862-4470-9568-046493af7971",
+      "fb3944ec-43e9-4165-a9d3-62663286289f",
+      "fb60cea1-0432-43f4-88a4-ec1e93250bc8"
+    ]
+  }
+}

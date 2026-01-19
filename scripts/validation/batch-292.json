@@ -1,0 +1,42 @@
+{
+  "batch_number": 292,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T15:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "431b5ea9-ee39-4b47-b353-97b8181d1ae6", "title": "Flavonoid glycosides and cannabinoids from the pollen of Cannabis sativa L.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Phytochemistry correctly rejected"},
+    {"id": "431d6a43-bad7-4f4d-9f22-d1874faa50da", "title": "Management of cannabinoid hyperemesis syndrome with an erector spinae plane block in the emergency department.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm treatment correctly rejected"},
+    {"id": "431f60a1-a7f2-4eb7-b771-eb1e57996c9a", "title": "Eicosapentaenoic acid decreases expression of anandamide synthesis enzyme and cannabinoid receptor 2 in osteoblast-like cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS bone mechanism"},
+    {"id": "43384abb-1320-456a-beb7-0946e233f8bb", "title": "Protective Effects of the Synthetic Cannabinoids CP55,940 and JWH-015 on Rat Brain Mitochondria upon Paraquat Exposure", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neuroprotection"},
+    {"id": "433a04bd-0a24-4b79-acc1-a545bcf8ae5a", "title": "LC-MS-MS confirmation of 11-nor-9-carboxy-tetrahydrocannabinol (Δ8, Δ9, Δ10) and hexahydrocannabinol metabolites in authentic urine specimens.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "43494e54-c825-4918-82ed-97bcf621a5bf", "title": "Cannabis and Lung Health: Does the Bad Outweigh the Good?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "435eeb18-7daa-4db6-a029-8e6da7934ee1", "title": "Pre- and postsynaptic type-1 cannabinoid receptors control the alterations of glutamate transmission in experimental autoimmune encephalomyelitis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 in MS model therapeutic"},
+    {"id": "43614c90-ec00-4bd5-8dd5-fb1acbfaee97", "title": "Bioequivalence Assessment of Cannabidiol (CBD) Administrated in Oral Formulations", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmacokinetics"},
+    {"id": "43637849-1aaa-4524-bd0d-394d83f167f8", "title": "Pain, Cannabis Species, and Cannabis Use Disorders", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis for pain"},
+    {"id": "4363e528-0f22-4188-a1f1-92ab1f9af247", "title": "Analysis of Normalizers and Neurodevelopment-Related microRNAs in the Prefrontal Cortex and in the Sperm of SHR Rats", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "4368b1d5-b12a-4ae5-899a-2b360971353d", "title": "Targeted inhibition of the type 2 cannabinoid receptor is a novel approach to reduce renal fibrosis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 renal therapeutic"},
+    {"id": "43798cd8-5317-4d15-ba92-711ce4cfd3e0", "title": "Cannabinoid receptor antagonism increases female sexual motivation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism sexual function"},
+    {"id": "4399193b-563f-49e2-82c3-f60d08c0a61f", "title": "Rapid Analytical Method Development and Validation for the SimultaneousEstimation of 5-Fluorouracil and Cannabidiol in Plasma and Lipid-basedNanoformulations", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD cancer nanoformulation"},
+    {"id": "43b019d0-04c0-44fc-b528-1177d138e090", "title": "Predictors of onset of cannabis and other drug use in male young adults: results from a longitudinal study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "43b8b140-eb5e-44f7-a490-dac4493febd0", "title": "Trained immunity using probiotics and inactivated pathogens enhances resistance to Salmonella enterica serovar Typhimurium infection by activating the cGAS-STING signal pathway in mice and chickens", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "43c977b5-5d44-48d4-9c3a-a195497a305b", "title": "What are the ingredients and price of Elon Musk CBD Gummies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "43d19cbd-57ba-4d0c-9747-9882c2009315", "title": "Unveiling the hidden impact: metabolomic changes in children undergoing VSD repair.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "43dc1a76-475c-4035-aeac-949ec9c4c756", "title": "Over-the-counter cannabidiol (CBD) sold in the community pharmacy setting in Colorado", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market/retail correctly rejected"},
+    {"id": "43e2504a-2411-4a3b-9800-3e76da1f394e", "title": "Implementing the Kunming-Montreal Biodiversity Targets", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention) correctly rejected"},
+    {"id": "43e4088f-d929-46c3-a9d1-a5ea0b302b66", "title": "Tobacco and cannabis co-use and interrelatedness among adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "431f60a1-a7f2-4eb7-b771-eb1e57996c9a",
+      "43384abb-1320-456a-beb7-0946e233f8bb",
+      "435eeb18-7daa-4db6-a029-8e6da7934ee1",
+      "43614c90-ec00-4bd5-8dd5-fb1acbfaee97",
+      "43637849-1aaa-4524-bd0d-394d83f167f8",
+      "4368b1d5-b12a-4ae5-899a-2b360971353d",
+      "43798cd8-5317-4d15-ba92-711ce4cfd3e0",
+      "4399193b-563f-49e2-82c3-f60d08c0a61f"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "batch_number": 254,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T05:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "17fa60d9-740c-4f57-bb72-252b2e65a391", "title": "Cannabinoid receptor-mediated inhibition of calcium signaling in rat retinal ganglion cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 mechanism research"},
+    {"id": "180151b5-de6d-4ae9-b4d7-548a3024b60c", "title": "An improved method for determination of THC, cannabinol and CBD in hair by LC-MS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical/forensic method correctly rejected"},
+    {"id": "1801fff4-8ec2-4dd4-84af-188e61b31da3", "title": "Cannabidiol efficiently suppressed methamphetamine-induced conditioned place preference", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic for addiction"},
+    {"id": "180207a7-45aa-4afa-b316-8db5080b03c4", "title": "Deficiency of cannabinoid receptors enhances host susceptibility to bacterial infection", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor immune function"},
+    {"id": "180a83a6-c9a7-4634-ab68-b60e8d06d549", "title": "Communication between healthcare providers and medical cannabis patients", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Healthcare practice patterns correctly rejected"},
+    {"id": "183d940a-715c-4444-a30f-4617e35a9955", "title": "Cannabis Dependence or Abuse in Kidney Transplantation: Implications", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm/transplant outcomes correctly rejected"},
+    {"id": "185473b5-d263-47d6-a89b-90ccd9d1f73c", "title": "Cannabidiol (CBD) et cannabis ultra-ligth: quel status en droit français", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Regulatory/legal correctly rejected"},
+    {"id": "187b419f-59d8-4afa-9181-dec0995cc972", "title": "Cannabielsoin as a new metabolite of cannabidiol in mammals", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD metabolism/pharmacokinetics"},
+    {"id": "188f2bbc-3c76-42e0-99b6-24dfce6faef2", "title": "Cannabinoids. I. Behavioral effects", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Behavioral effects correctly rejected"},
+    {"id": "189bea21-4c64-4f78-b408-fab8d13c272b", "title": "Controlled human drug administration studies to define THC-sparing effects of CBD", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD THC-sparing therapeutic effects"},
+    {"id": "189d0ea4-8512-45ce-adb0-ec53e7103b2e", "title": "Turning Over a New Leaf: Cannabinoid and Endocannabinoid Modulation of Immune Function", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid immune modulation review"},
+    {"id": "18c65352-3ef8-412d-8ed8-ea7cabba7e2a", "title": "Synthetic cannabinoid XLR-11 induces in vitro nephrotoxicity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid toxicity correctly rejected"},
+    {"id": "18c912b7-fe06-4cac-906c-4ea688ada26f", "title": "Densities and Viscosities of Cannabis Extracts and CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Physical chemistry correctly rejected"},
+    {"id": "18d34ba3-c3cb-459f-800c-0f92c23ecf47", "title": "Does cannabidiol (CBD) oil decrease the frequency and severity of chronic headaches?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic for headaches"},
+    {"id": "18e37194-5148-4201-91df-35f351236ecb", "title": "Chronic kidney disease and itch", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "18ee8c8d-94d9-427a-9738-67d0cb85a219", "title": "Cannabinoids inhibit excitatory neurotransmission in the substantia nigra", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism"},
+    {"id": "19203ae9-c153-4306-9480-aedcc03a3ac8", "title": "Effects of intranigral cannabinoids on rotational behavior: dopamine interaction", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid-dopamine mechanism"},
+    {"id": "192ba6c9-f0e7-433e-b52f-0df068a9eb58", "title": "A Proteomic View of Cellular and Molecular Effects of Cannabis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism review (AD, MS, Parkinsons)"},
+    {"id": "192dc0cc-2fdf-49d8-b227-666a8beaf70e", "title": "Correction range of lumbosacral curve vertebral body tilt in degenerative scoliosis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "194fe7ac-d226-463c-ab15-9fda1822959a", "title": "Does cannabidiol (CBD) or THC induce drug metabolizing enzymes in human hepatocytes?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC drug metabolism safety"}
+  ],
+  "batch_summary": {
+    "correct": 9,
+    "incorrect": 11,
+    "incorrect_ids": [
+      "17fa60d9-740c-4f57-bb72-252b2e65a391",
+      "1801fff4-8ec2-4dd4-84af-188e61b31da3",
+      "180207a7-45aa-4afa-b316-8db5080b03c4",
+      "187b419f-59d8-4afa-9181-dec0995cc972",
+      "189bea21-4c64-4f78-b408-fab8d13c272b",
+      "189d0ea4-8512-45ce-adb0-ec53e7103b2e",
+      "18d34ba3-c3cb-459f-800c-0f92c23ecf47",
+      "18ee8c8d-94d9-427a-9738-67d0cb85a219",
+      "19203ae9-c153-4306-9480-aedcc03a3ac8",
+      "192ba6c9-f0e7-433e-b52f-0df068a9eb58",
+      "194fe7ac-d226-463c-ab15-9fda1822959a"
+    ]
+  }
+}

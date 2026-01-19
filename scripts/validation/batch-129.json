@@ -1,0 +1,42 @@
+{
+  "batch_number": 129,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T22:00:00.000Z",
+  "results": [
+    {"id": "8e592d31-e3b9-4702-be10-229ff5e0608d", "title": "Biolyfe CBD Gummies Reviews Scam Alert", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - marketing links discount offers"},
+    {"id": "8e59ff95-03d3-4635-9e1c-08d1b9d80d9d", "title": "CBD CBDA Hemp Dogs TPLO Pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dogs post-surgery"},
+    {"id": "8e9c9e38-f368-484c-96bf-b28f685e43e3", "title": "CBD Immune System Modulators Therapeutic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic review"},
+    {"id": "8e9d2db7-90b7-489d-bc39-976d0496cc80", "title": "CUD Risks Medicaid Psychiatric Illnesses", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD risk patterns"},
+    {"id": "8eae7f20-321d-46d9-b6bf-8568855f66ee", "title": "Cannabis Hospital Admission FEP Antipsychotic", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - treatment failure FEP"},
+    {"id": "8eafd8af-570d-4fe5-bdea-2653bac89139", "title": "Cannabis Psychosis DSM-5", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabis psychosis link"},
+    {"id": "8eb28378-2567-4f8c-b7a3-78f6e509f1e1", "title": "Neurobiology CB Receptor Signaling", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism"},
+    {"id": "8eec1396-44ba-4ccb-bc95-f37f6e82b00f", "title": "CB2 Titanium Particle Inflammatory Osteolysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid bone therapeutic"},
+    {"id": "8f09111b-25df-43fd-9664-67a3b322e0c8", "title": "CBD Pharmacokinetic Profile Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy pharmacology"},
+    {"id": "8f092e13-5408-4a4a-b940-6ddd34792577", "title": "CBD Muscular Tension Pain Bruxism RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain/TMD therapeutic RCT"},
+    {"id": "8f116f4f-e53b-487a-b4c6-74c65809dead", "title": "Cannabis Schizophrenia Risk or Therapeutic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis schizophrenia therapeutic review"},
+    {"id": "8f7a22ac-93f3-405a-b959-fc8e2944b1c0", "title": "PACAP CGRP Migraine Mouse Clinical", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - neuropeptide migraine study"},
+    {"id": "8f7df22a-f20f-49af-b2d3-98b7e4d51016", "title": "Cannabinoids Supplement Sleep Mood RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid sleep therapeutic RCT"},
+    {"id": "8f7eb1ac-64e2-45c1-aaaf-9f86959ea4f9", "title": "CBD Nano-Selenium Chickens C. perfringens", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - poultry study"},
+    {"id": "8f841189-ed96-4742-9194-f3838582835e", "title": "CB1R iNOS Inhibitors Metabolic Syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid metabolic therapeutic"},
+    {"id": "8f8b9b08-9efb-4970-bafd-df5a678eb764", "title": "Injectable Oral Antipsychotic Schizophrenia SUD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - antipsychotic comparison"},
+    {"id": "8faa92ed-d98c-4fb1-8b87-8b226ffe1ff8", "title": "Multi-cannabinoid Alzheimer's Therapeutic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Alzheimer's therapeutic"},
+    {"id": "8fab5f7a-1ac7-490a-88e3-b3b5f94a8237", "title": "Hemp Leaf By-Products Anti-Inflammatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Hemp therapeutic compounds"},
+    {"id": "8fbcc14f-b7c0-4042-bf9a-343d25b65d37", "title": "Cannabinoid Signaling Immune System", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid immune therapeutic"},
+    {"id": "8fc25ec6-8eb9-4549-a5b2-43def752352c", "title": "Mobile Intervention CUD Black Adults", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD treatment intervention"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "8e592d31-e3b9-4702-be10-229ff5e0608d",
+      "8e59ff95-03d3-4635-9e1c-08d1b9d80d9d",
+      "8e9d2db7-90b7-489d-bc39-976d0496cc80",
+      "8eae7f20-321d-46d9-b6bf-8568855f66ee",
+      "8eafd8af-570d-4fe5-bdea-2653bac89139",
+      "8f7a22ac-93f3-405a-b959-fc8e2944b1c0",
+      "8f7eb1ac-64e2-45c1-aaaf-9f86959ea4f9",
+      "8f8b9b08-9efb-4970-bafd-df5a678eb764",
+      "8fc25ec6-8eb9-4549-a5b2-43def752352c"
+    ]
+  }
+}

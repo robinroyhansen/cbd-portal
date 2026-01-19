@@ -1,0 +1,37 @@
+{
+  "batch_number": 184,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T12:00:00.000Z",
+  "results": [
+    {"id": "cda61c42-e074-4e59-babc-0e4387bb6102", "title": "CBD Mitragynine Paclitaxel Allodynia Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuropathic pain therapeutic"},
+    {"id": "cdba851b-1c29-4d81-b898-f47240350ab7", "title": "CBD URB597 Nausea Gaping Erratum", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD nausea research correction"},
+    {"id": "cdc31487-13c7-4f74-9bc1-867dc7f56cf7", "title": "Cannabis Use ACEs Cancer Survivors", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use patterns cancer survivors"},
+    {"id": "cdcbdea7-9df5-49f1-ae7b-c9fa60603ba1", "title": "Bay Park CBD Gummies Facebook Advertisement", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - Facebook product advertisement"},
+    {"id": "cdd186fc-a8d8-4ab7-9273-1993cbf9f27b", "title": "CBD Pharmacology Epilepsy Neuropsychiatric Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD comprehensive therapeutic review"},
+    {"id": "cdd9f970-1573-4802-a04f-b07843d4f0d6", "title": "Platinum IV CBD Complexes Antitumor Satraplatin", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer drug development"},
+    {"id": "cde252c0-460c-4035-8c60-303a9d3db921", "title": "CBD Cocaine-Environment Memory Addiction Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cocaine addiction therapeutic"},
+    {"id": "cde54960-4415-46ce-898c-9089524ce775", "title": "CB2 Myocardial Regeneration Cardiac Progenitor MI", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 cardiac regeneration therapeutic"},
+    {"id": "cdf63d26-6aa6-4b9a-a84b-3d277584b169", "title": "CB2 Agonists Purines Osteoarthritic Pain Clinical", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 arthritis pain drug development"},
+    {"id": "ce009501-5287-4ebe-bffc-2f51a2c197f4", "title": "abn-CBD Vasoactivity Retinal Arterioles Endothelium", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid retinal vascular mechanism"},
+    {"id": "ce082c6a-1749-4692-9a53-f4a5db72ce41", "title": "CBD Inflammation Oral Healing Diabetes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD diabetes oral therapeutic"},
+    {"id": "ce2a03ac-dadb-40ac-8e8a-e13a0b4d18f2", "title": "CBD Pericarditis Pain CRP MAvERIC Pilot", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pericarditis clinical trial"},
+    {"id": "ce711e1f-f89d-45d3-804e-10d26d0826b0", "title": "CBD Hemp Oil Dogs Lymphoma CHOP Doxorubicin", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dogs cancer chemotherapy"},
+    {"id": "ce71eb97-9a3f-4e11-9485-b3a21aa1057e", "title": "Cannabis Essential Oils Hemp Serbia Antimicrobial", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - hemp variety essential oils"},
+    {"id": "ce73262e-dcd8-4a81-a701-7c46f45900b7", "title": "CBD Dementia Anxiety Agitation Alzheimer's Trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's clinical trial"},
+    {"id": "ce7f6d92-738d-47d6-987b-b307c3316a0f", "title": "CBD LPS Inflammatory Placenta NF-κB", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD placental inflammation mechanism"},
+    {"id": "ce892794-8023-43d3-b6c0-ebf98da14ccc", "title": "CBD Ocular Hypotension Toxicity Neurotoxicity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD ocular safety research"},
+    {"id": "ce8bc9a8-b15d-4d95-9e02-6762eee5764e", "title": "CBD Lung Cancer Cells Cancer Stem Cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD lung cancer therapeutic"},
+    {"id": "ce8bfc4c-f866-4de0-bea2-fe78d0974e36", "title": "CBD Potential Treatment Psychosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychosis therapeutic"},
+    {"id": "ce967f24-e3f2-4a60-9891-dc87ed5648a2", "title": "Cannabinoid Administration Sleep Human Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid sleep systematic review"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "cdc31487-13c7-4f74-9bc1-867dc7f56cf7",
+      "cdcbdea7-9df5-49f1-ae7b-c9fa60603ba1",
+      "ce711e1f-f89d-45d3-804e-10d26d0826b0",
+      "ce71eb97-9a3f-4e11-9485-b3a21aa1057e"
+    ]
+  }
+}

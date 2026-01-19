@@ -1,0 +1,38 @@
+{
+  "batch_number": 12,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T16:30:00.000Z",
+  "results": [
+    {"id": "0f7e2d4e-358d-4f32-a39b-b22bd20fc3d2", "title": "Rimonabant and CB1 Receptor Antagonists in Reducing Food Intake", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 antagonists for obesity"},
+    {"id": "0f812aae-b8a2-4a81-9e4c-8a4941d2cf74", "title": "Review for 'Cannabidiol-induced activation of the metallothionein pathway'", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Peer review comment - not original research"},
+    {"id": "0f9d8569-06be-452c-b0ee-facfdc10d7ba", "title": "Med Check: Sage's Treatment; Cannabidiol Products; Pimavanserin", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NEWS ARTICLE - not original research, mostly about other drugs"},
+    {"id": "0fa6f42d-28c5-4caa-a30b-8c857316e576", "title": "Astrocytic Cannabinoid Receptor 1 Governs Stress Resilience", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor research"},
+    {"id": "0faff43c-df78-433e-8327-45e1c3ef4013", "title": "Marked Sinus Bradycardia in a COVID-19 Patient", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "COVID case report - no cannabinoid content"},
+    {"id": "0fc2b8c0-b54f-4f2a-811f-487246f9b381", "title": "Delta9-THC and CBD as potential curative agents for cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD for cancer"},
+    {"id": "0fc3877a-1dfb-4f2a-a6ed-dcbb803948fd", "title": "Analgesic activity of paracetamol prevented by blockade of CB1 receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism in analgesia"},
+    {"id": "0fd22f7b-997a-43f7-a316-c589d5e98d60", "title": "CBD Mood Boost Supplement | CBD Supplements | BURMAN'S", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - product advertisement"},
+    {"id": "0fd9f7a3-f2b8-4cdd-8d8f-cb7358a09204", "title": "Cannabidiol auf die Alzheimer Pathologie (German)", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for Alzheimer's"},
+    {"id": "0fda882a-98ec-48e9-ae32-bb88407095a9", "title": "Sickle Cell Patients...cannabis or CBD for analgesic use", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for sickle cell pain"},
+    {"id": "0fe78f32-86bd-4f20-8565-feb848613401", "title": "Cannabidiol decreases...necrotizing enterocolitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for NEC"},
+    {"id": "0ff66423-8ed9-4393-b2e6-7f9186991858", "title": "Gene expression in CB1 cannabinoid receptor knockout mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor research"},
+    {"id": "1009f0d1-cf3f-4940-9199-ba7e1b5534c1", "title": "Seizure Susceptibility in Drosophila melanogaster is Reduced with CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for epilepsy (fruit fly)"},
+    {"id": "101af66a-150e-46b9-a262-6ea48dcc351d", "title": "Hemp in Animal Diets—Cannabidiol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD in animal diets review"},
+    {"id": "1020c6fb-3032-483d-889c-7084c5b1ae9e", "title": "Cannabidiol – characteristic and application in cosmetology and dermatology", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for skin conditions"},
+    {"id": "1045abac-d5f5-4718-9747-6ebecbf9700a", "title": "Cannabidiol effects on cognition in cocaine use disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for addiction"},
+    {"id": "104dd3f1-53db-4cc8-90ab-d79aefd5c034", "title": "Cannabinoid receptor agonists on regional brain activity using MRI", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1/CB2 brain imaging"},
+    {"id": "104ee2ea-2466-48d4-934e-260d265b7e6c", "title": "Endocannabinoid system in periodontitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid in dental health"},
+    {"id": "10824c12-2a0f-43fb-baaa-73dca9ef6e10", "title": "Covid-19 therapeutic agents on...remdesivir", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Remdesivir study - no cannabinoid content"},
+    {"id": "1096e931-8acc-444d-a095-3a752223818c", "title": "Synthetic Cannabinoid use in Patients with Psychosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Synthetic cannabinoids and psychosis"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "0f812aae-b8a2-4a81-9e4c-8a4941d2cf74",
+      "0f9d8569-06be-452c-b0ee-facfdc10d7ba",
+      "0faff43c-df78-433e-8327-45e1c3ef4013",
+      "0fd22f7b-997a-43f7-a316-c589d5e98d60",
+      "10824c12-2a0f-43fb-baaa-73dca9ef6e10"
+    ]
+  }
+}

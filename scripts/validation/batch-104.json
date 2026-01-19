@@ -1,0 +1,41 @@
+{
+  "batch_number": 104,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T15:45:00.000Z",
+  "results": [
+    {"id": "748c18fa-cc4b-4b64-bf8c-bbccb38818dd", "title": "CBD ovarian cancer ER stress apoptosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer mechanism"},
+    {"id": "749c230d-e0d0-4d1a-a4f7-d3c866fb317a", "title": "CBD OUD opioid cue-reactivity craving RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction therapeutic RCT"},
+    {"id": "74a721dd-aea6-4331-aca1-ef3047796eb9", "title": "Cannabis schizophrenia Mendelian randomization", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - schizophrenia risk causality"},
+    {"id": "74a74411-23de-4c8b-b3f7-58a5be62180f", "title": "Chronic cannabis use sleep architecture", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - chronic use effects study"},
+    {"id": "74aa0df2-3650-4521-9e51-1517aa222804", "title": "Cannabis Abuse Elevated MI Risk Young", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - heart attack risk"},
+    {"id": "74b000c6-6150-4254-8391-c210aab8a1ad", "title": "Neural Oscillations HIV Inflammatory Markers", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - HIV inflammation study"},
+    {"id": "74c58a51-bc1b-496e-8d76-0794896bf75c", "title": "Orofacial pain mechanisms novel therapies", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general pain mechanisms"},
+    {"id": "74c78853-afa8-4273-8576-a64145af3b5d", "title": "CBD Perceptions Orthopaedic Sports Medicine survey", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic perception survey"},
+    {"id": "74dd3703-9882-4f37-bce8-8c5b00cbf652", "title": "CBD OA PsA Arthritis Sensory Testing RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD arthritis RCT"},
+    {"id": "74de3060-9b61-4cda-87ac-652edeace6dc", "title": "Cannabis Cancer Chemotherapy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer supportive care"},
+    {"id": "74e4ef70-5855-40da-8e9a-8965d34f3d19", "title": "PTSD stroke survivors Ethiopia factors", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general PTSD epidemiology"},
+    {"id": "751db20a-1157-4cbd-825c-7e5bfc2cfe33", "title": "CBD Orodispersible Tablets factorial design", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery formulation"},
+    {"id": "75338167-d6ce-4b88-815b-d79b37776335", "title": "CBD alcohol dependence withdrawal neuroprotection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction therapeutic"},
+    {"id": "75432ed6-887d-4af2-a74e-5ead93094c73", "title": "MC stage IV cancer pain opioid RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer therapeutic RCT"},
+    {"id": "7555a239-e664-4f96-ab57-ac4274216491", "title": "CBD THC dementia behavioral symptoms RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid dementia therapeutic RCT"},
+    {"id": "755cf8d9-2d0c-4930-a607-e330ab839b82", "title": "Low-dose CBD chronic stress synaptic changes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD stress mechanism"},
+    {"id": "755decea-3dc0-40be-a3a7-2ce90092a652", "title": "Transferrin VCAM-1 Parkinsonian syndromes", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - PD biomarkers"},
+    {"id": "75606c0d-55df-4674-a07b-f263582ad791", "title": "Alzheimers cannabinoids neuroprotection review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid AD review"},
+    {"id": "7564cc89-f03b-4772-aef6-247f5aeb49cb", "title": "CBD vascular disease management review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular therapeutic review"},
+    {"id": "75657e9f-f355-4e42-989b-e18dc5ba81b4", "title": "Cannabis Seizures NSW Australia Potency Profile", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "FORENSIC - police seized cannabis analysis"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "74a721dd-aea6-4331-aca1-ef3047796eb9",
+      "74a74411-23de-4c8b-b3f7-58a5be62180f",
+      "74aa0df2-3650-4521-9e51-1517aa222804",
+      "74b000c6-6150-4254-8391-c210aab8a1ad",
+      "74c58a51-bc1b-496e-8d76-0794896bf75c",
+      "74e4ef70-5855-40da-8e9a-8965d34f3d19",
+      "755decea-3dc0-40be-a3a7-2ce90092a652",
+      "75657e9f-f355-4e42-989b-e18dc5ba81b4"
+    ]
+  }
+}

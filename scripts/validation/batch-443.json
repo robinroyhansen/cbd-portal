@@ -1,0 +1,41 @@
+{
+  "batch_number": 443,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T04:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "ea198fc1-f2b5-4f60-b3e9-00481d240506", "title": "Association between maternal cannabis use and birth outcomes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm/pregnancy correctly rejected"},
+    {"id": "ea1a8806-8f98-45df-8e46-818116d853f5", "title": "One Month of Cannabis Abstinence Is Associated With Improved Memory", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm/recovery correctly rejected"},
+    {"id": "ea228040-997c-4406-8b13-39691f5c82fc", "title": "Tropical Rainforest and the Malaysian Policies on CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "ea2b2663-76dc-458e-81d2-88796c8aa8b0", "title": "UPLC-MS Analysis of Cannabis sativa: Inhibition of Breast Cancer Cell Survival", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid anticancer therapeutic research"},
+    {"id": "ea2b5d26-3e87-4321-9b72-a4810fa1b1ae", "title": "Cannabidiol in skincare: the on-trend skin superfood and its benefits", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD skin therapeutic research"},
+    {"id": "ea4702d9-79f5-4759-afc2-4e78c6d6db48", "title": "Characterization in populations of Coffea arabica L. for resistance to CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Coffee Berry Disease) correctly rejected"},
+    {"id": "ea5b9c50-188c-40b6-97a2-8ce0ca69bb17", "title": "FUTURE²: A FAIR-based Framework for Genomic Open Science", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "ea65425d-5363-42d9-97f6-98ebaad326b4", "title": "Utilization of Industrial Hemp: Stability of Cannabidiol in Pre and Post-Encapsulation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD formulation/stability research"},
+    {"id": "ea754ce2-9381-4722-920a-c7b0e93ef6a4", "title": "Cannabis use and male sexuality in a Tunisian sample", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "ea894b41-fa35-401e-b9a9-ee23fc75184c", "title": "Two Janus Cannabinoids That Are Both CB2 Agonists and CB1 Antagonists", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - novel cannabinoid pharmacology"},
+    {"id": "ea8bdb0f-2240-4d57-82c8-f167de99b11b", "title": "Influence of psychoactive and nonpsychoactive cannabinoids on cell proliferation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cell mechanism research"},
+    {"id": "ea938c79-c196-4f9a-9748-73a39c4f50d0", "title": "Endocannabinoid System Regulation in Canine Uteri", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "eaa62c50-c3cb-4b81-9ef6-ef3c8917fe3e", "title": "Effects of nicotinic receptor antagonism on nicotine and THC self-administration", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Substance use correctly rejected"},
+    {"id": "eaafd4ba-5798-4a31-bcc9-ad0d06af284e", "title": "Cannabis: an Example of Taxonomic Neglect", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant taxonomy correctly rejected"},
+    {"id": "eab860cb-98d0-4a16-906d-f49a0dd36bd4", "title": "Genetic and environmental influences on cannabis use initiation: meta-analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD epidemiology correctly rejected"},
+    {"id": "eac60939-d53d-4237-8844-ea7fd7eb8384", "title": "The scientific controversy on the conversion of CBD into THC in the human stomach", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research"},
+    {"id": "eacdf6be-2934-4c37-aa3e-4a907a2ce04d", "title": "Effect of the novel synthetic cannabinoids AKB48 and 5F-AKB48 on tetrad and neurological responses", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid abuse correctly rejected"},
+    {"id": "ead65d5d-22ad-41e1-97a2-eca914280648", "title": "Refining Cannabidiol Crystallization: Quality Control for High-Purity Crystal Production", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Manufacturing correctly rejected"},
+    {"id": "eae343ad-7038-4a41-87f8-93bcd6f73fdd", "title": "Hemp physiological response to seasonal variation for high yield CBD cultivars", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "eaea1ff2-bfd7-46a6-b8bb-0b27a9157a9f", "title": "Effects of THC, CBD, and THC/CBD mixtures on fentanyl versus food choice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid opioid addiction research"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "ea2b2663-76dc-458e-81d2-88796c8aa8b0",
+      "ea2b5d26-3e87-4321-9b72-a4810fa1b1ae",
+      "ea65425d-5363-42d9-97f6-98ebaad326b4",
+      "ea894b41-fa35-401e-b9a9-ee23fc75184c",
+      "ea8bdb0f-2240-4d57-82c8-f167de99b11b",
+      "eac60939-d53d-4237-8844-ea7fd7eb8384",
+      "eaea1ff2-bfd7-46a6-b8bb-0b27a9157a9f"
+    ]
+  }
+}

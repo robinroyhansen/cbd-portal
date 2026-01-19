@@ -1,0 +1,40 @@
+{
+  "batch_number": 185,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T12:15:00.000Z",
+  "results": [
+    {"id": "cea19997-38b3-4fe6-ade6-e2f02b8c9cdb", "title": "CBD Derivatives Anti-inflammatory Molecular Docking", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug development therapeutic"},
+    {"id": "cea989aa-a36b-47d4-9f5c-45c4d5e0f479", "title": "Cannabinoid Delivery Systems Pain Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid drug delivery therapeutic"},
+    {"id": "ceb149e2-5fa2-43c3-a304-b5dd072d9fc4", "title": "CBD Cannabis Antipsychotic Drug Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antipsychotic therapeutic"},
+    {"id": "ceb17311-52e7-48a4-bf2a-329eaafbb2c3", "title": "rTMS Heavy Cannabis Users CUD Craving", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - rTMS non-cannabinoid"},
+    {"id": "ceb699f1-f1d7-4e28-a118-d9eba5879fc2", "title": "Opioid Cannabinoid System Food Intake Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid appetite mechanism"},
+    {"id": "cebd3c54-3b6e-46df-9a26-ffa824618f63", "title": "Cannabinoid Stress Astrocyte Plasticity NAc", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid stress mechanism"},
+    {"id": "cef82cd0-835a-4e2c-bd4f-4a058718b92f", "title": "CBD Tacrolimus Pharmacokinetics Phase I Trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interaction clinical trial"},
+    {"id": "cf0a0c1a-b5c9-4ba2-8114-a46c8d05b688", "title": "CBD Fentanyl Neonatal Pain Long-term Effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neonatal pain preclinical"},
+    {"id": "cf110851-b269-4b68-b777-9e1c4cabaee1", "title": "Cannabinoids Psychosis Risk Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis risk review"},
+    {"id": "cf18554b-e659-4202-a061-48514430ff98", "title": "Psychosis Synthetic Cannabinoids", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - synthetic cannabinoid psychosis"},
+    {"id": "cf2261a9-b12c-4d99-b98f-21b87af16b69", "title": "WIN-55212-2 Anti-inflammatory Brain Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuroinflammation therapeutic"},
+    {"id": "cf24a379-60ee-4401-af06-b34ea14275de", "title": "Cannabis Sativa Anti-Alzheimer Computational Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis Alzheimer's therapeutic"},
+    {"id": "cf3d2c81-5c2f-480e-948c-0501c916b35a", "title": "NPS Use Predictors Australian Adolescents LSAC", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - substance use risk factors"},
+    {"id": "cf40bc1c-c6b9-4a7c-8396-66c46f6ff74f", "title": "CBD Chemo-Induced Peripheral Neuropathy Prevention", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD chemo neuropathy therapeutic"},
+    {"id": "cf49c921-89be-4dd2-9deb-f75c989a81f5", "title": "CBD Supplemental Mature Horses Performance", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - horses"},
+    {"id": "cf5a6bdb-9549-45ba-9be8-9292589fa2d3", "title": "CB1 Opioid Receptor Genes Obesity Epigenetics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid obesity mechanism"},
+    {"id": "cf5ff126-a28d-492d-90f1-9d2c107e1024", "title": "Transdermal CBD Binge Alcohol Neurodegeneration", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD alcohol neuroprotection"},
+    {"id": "cf67ee6f-c8a8-4442-a509-a4bae36e07c0", "title": "Benzodiazepine Dependence Opioid Agonist Treatment", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - benzodiazepine management"},
+    {"id": "cf6db4e1-3345-4323-8508-62cbe39631b9", "title": "Stigmatization Chronic Pain Exaggeration Symptoms", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - pain stigma"},
+    {"id": "cf72e916-2266-4888-a59a-702f841d02f1", "title": "CBD Isolate Novel Food Safety FSA Assessment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety regulatory assessment"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "ceb17311-52e7-48a4-bf2a-329eaafbb2c3",
+      "cf110851-b269-4b68-b777-9e1c4cabaee1",
+      "cf18554b-e659-4202-a061-48514430ff98",
+      "cf3d2c81-5c2f-480e-948c-0501c916b35a",
+      "cf49c921-89be-4dd2-9deb-f75c989a81f5",
+      "cf67ee6f-c8a8-4442-a509-a4bae36e07c0",
+      "cf6db4e1-3345-4323-8508-62cbe39631b9"
+    ]
+  }
+}

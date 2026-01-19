@@ -1,0 +1,38 @@
+{
+  "batch_number": 118,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T19:15:00.000Z",
+  "results": [
+    {"id": "8365597f-864a-439c-985d-00ca0eeb8eab", "title": "HU-331 Cannabinoid Anticancer Quinone Doxorubicin", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"},
+    {"id": "836a4194-0477-4f2d-8f27-e2250e7a21ed", "title": "SR 141716A Cannabinoid Receptor Mesenteric Artery", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cardiovascular mechanism"},
+    {"id": "8376b66d-43d1-4041-a0aa-f6a99bbc51e5", "title": "Cannabis Nivolumab Tumor Response Immunotherapy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer safety/interaction"},
+    {"id": "83970d14-7dda-4490-a2d0-da0a6ba5d755", "title": "Laneway Activation Queensland CBD Revitalisation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Central Business District urban planning"},
+    {"id": "839a3895-ed4c-4446-88c1-04d9337e8c39", "title": "CBD Cost-Effectiveness Lennox-Gastaut Seizures", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic economics"},
+    {"id": "839f9328-4e08-4e0b-85f0-b156093bba63", "title": "Cannabinoids Cancer Progress Promise Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"},
+    {"id": "83a635a1-a0f6-494b-bd55-355aaa1ae4f3", "title": "Cocaine Cannabis Response Inhibition ERP", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - impairment effects"},
+    {"id": "83bb6754-aed7-4c06-bbfd-ecae0093c54a", "title": "CBD SARS-CoV-2 Replication Inhibition COVID", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antiviral therapeutic"},
+    {"id": "83f0cfd1-ed1b-4f07-b193-9cb980123e79", "title": "Hanf Cannabis CBD THC German Thesis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pharmacology thesis"},
+    {"id": "8404adf2-a0b0-43c2-8250-c5ebfaff8523", "title": "CBD Epilepsy Neuropsychiatric Alternative Medicine", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic review"},
+    {"id": "8411a43f-0983-4105-bf05-0dfb7b6aea48", "title": "Cannabinoid Receptor Pharmacophores SAR", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor mechanism"},
+    {"id": "84204bd1-5101-4704-921b-abb0cc7c6140", "title": "GWAS Cannabis Schizophrenia Genetics Liability", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - schizophrenia genetic risk"},
+    {"id": "842a79f5-c102-4e7a-96cf-29b7e7f9a036", "title": "Phytocannabinoids Pharmacological Profile In Vitro", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology"},
+    {"id": "842d4887-eed7-4939-8e2d-f916cc9d385f", "title": "Cannabis Pregnancy France 2010 Prevalence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - pregnancy cannabis use patterns"},
+    {"id": "844c617a-83f8-4036-bcdb-66db007ffc4a", "title": "Cannabis Neuropsychological Schizophrenia Performance", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cognitive effects"},
+    {"id": "8462ad7e-aeb5-4b08-ae5f-302039a46b90", "title": "CBD Muscle Recovery Athletic Training RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD athletic therapeutic RCT"},
+    {"id": "8475dccd-0f71-47e7-b75c-925cf79cee9c", "title": "CBD Oxidative Stress Signalling Modulation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antioxidant mechanism"},
+    {"id": "84780bd4-df7a-415f-94f4-af7056ecb7ab", "title": "CBD Early Psychosis RCT Protocol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychosis therapeutic RCT"},
+    {"id": "847ffa44-5252-4f85-aeba-3992333b005c", "title": "CBD Insomnia Perceptions Sentiment Analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD sleep research"},
+    {"id": "84a2f80c-d3ee-4722-97e5-4725f07cf02e", "title": "CB2 Agonists Anti-inflammatory Thiazole SAR", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anti-inflammatory mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "83970d14-7dda-4490-a2d0-da0a6ba5d755",
+      "83a635a1-a0f6-494b-bd55-355aaa1ae4f3",
+      "84204bd1-5101-4704-921b-abb0cc7c6140",
+      "842d4887-eed7-4939-8e2d-f916cc9d385f",
+      "844c617a-83f8-4036-bcdb-66db007ffc4a"
+    ]
+  }
+}

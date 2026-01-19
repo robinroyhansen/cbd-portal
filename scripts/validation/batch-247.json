@@ -1,0 +1,38 @@
+{
+  "batch_number": 247,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T03:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "106d1fd9-6140-4b73-a461-b24b30797a14", "title": "International driving under cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Driving/policy correctly rejected"},
+    {"id": "10768121-934a-4c21-abb0-083e422b91f7", "title": "123I-labeled AM251 radioiodinated CB1 ligand", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor imaging research"},
+    {"id": "1078b42b-c836-41b5-a688-729dcb6d085a", "title": "Rapid analysis THC CBD edibles paper spray", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical method correctly rejected"},
+    {"id": "1085c983-c5b5-4cca-8f16-14159ca3b4d9", "title": "University sanctions cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/intervention correctly rejected"},
+    {"id": "10a2f87e-400e-47fa-b361-2051cbcb779d", "title": "Industry perceptions CBD use horses", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "10b05128-f9dd-453a-8b9c-4bb405f7d183", "title": "Dierethiek CBD 2.0", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "10b3bda1-3277-4be0-bc75-4bc985188f51", "title": "Field Test Marijuana Impairment", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment/harm correctly rejected"},
+    {"id": "10c0cf95-2d5a-4693-b37f-5b8be25845e1", "title": "CBDV vs Placebo Prader-Willi Syndrome", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBDV clinical trial"},
+    {"id": "10c2487c-ae4e-442b-ad8e-a81b6de36cf2", "title": "Cannabis-induced memory impairment mechanisms", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "10c94f21-73cc-4003-97f8-d32874acbb25", "title": "CBD nanoselenium gut barrier chickens", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "10fbe655-716a-4446-89f5-207a98393a18", "title": "TRANSPORT GUANGZHOU CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "112de9cc-775a-4d98-9bad-285906d4efb3", "title": "Le CBD sous contrôle", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Regulatory correctly rejected"},
+    {"id": "113c15bc-5c76-4ee9-86ef-15f5acccf1a8", "title": "Nonlinear Optics CBD Grown CdS Films", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "113caa82-d731-45de-9696-f109e281c2ce", "title": "Arrestin Binding GPCRs", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "1141a505-8bfc-4ad1-a57e-d969477c3035", "title": "EMPOWER Psychedelics Cannabinoids Military", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Survey/interest correctly rejected"},
+    {"id": "1144e592-1559-4b94-a610-5cc48f31f49d", "title": "Cannabinoid agonists inhibit 5-HT3 receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism (antiemesis/analgesia)"},
+    {"id": "11566185-d092-40ab-966f-a3f0e07e3ba1", "title": "State Cannabis Legalization CUD Veterans", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD prevalence/policy correctly rejected"},
+    {"id": "11571da4-939a-48bd-b0c4-886204c4ed6e", "title": "HIV Medication Diversion", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "116e4020-ca46-4581-b352-be8b8cb0e174", "title": "Orexin-A analgesia via CB1 receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 pain mechanism"},
+    {"id": "1170efb8-b7c1-4bb5-b264-9181dad69ecc", "title": "Double cystic duct mimic CBD injury", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "10768121-934a-4c21-abb0-083e422b91f7",
+      "10c0cf95-2d5a-4693-b37f-5b8be25845e1",
+      "1144e592-1559-4b94-a610-5cc48f31f49d",
+      "116e4020-ca46-4581-b352-be8b8cb0e174"
+    ]
+  }
+}

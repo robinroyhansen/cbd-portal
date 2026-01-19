@@ -1,0 +1,37 @@
+{
+  "batch_number": 26,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T20:15:00.000Z",
+  "results": [
+    {"id": "1e478e4c-992d-415b-839a-ef56247f1a7e", "title": "Modulation of PBMC Signaling by Medicinal Cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid immune mechanism"},
+    {"id": "1e486b37-3c65-4066-9a66-c45625100c9b", "title": "Cannabis Use Disorder Disparities in Sexual/Gender Minority Populations", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "USE patterns/disparities - not therapeutic research"},
+    {"id": "1e517124-3e50-4061-ba03-1e0e5ea442a4", "title": "Cannabis and Pain: A Clinical Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for pain clinical review"},
+    {"id": "1e572656-1369-42f4-9c8d-91c92ef471eb", "title": "Intranasal CBD hydrogels for PTSD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery for PTSD"},
+    {"id": "1e6bd52c-c6ba-423b-851b-80477d6fcc17", "title": "Antidepressant-like effect of CBD in LPS model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for depression research"},
+    {"id": "1e7cf744-9ce1-4ec0-99f8-a5079dcedaf4", "title": "Sativex for Agitation in Alzheimer's dementia - RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Nabiximols for Alzheimer's trial"},
+    {"id": "1e880319-86da-44e4-b4ac-780b0f676308", "title": "Species-specific susceptibility to cannabis convulsions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD seizure research"},
+    {"id": "1e88dc6f-4e9c-442f-a81a-9219cd033685", "title": "Cannabidiol May Help Normalize Brain Function in Psychosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychosis news summary"},
+    {"id": "1e947e75-f6e0-424b-b5ca-eb881818c8a3", "title": "Cannabinoid treatments in epilepsy and seizure disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy comprehensive review"},
+    {"id": "1eb52789-555d-4c6e-acca-dc4f42261db6", "title": "Cannabidiol in autism: Clinical pharmacology priorities", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism trial design"},
+    {"id": "1ebfa6e9-f02d-4528-9b19-4c3adbe8b3af", "title": "Maltodextrin vs Glucose for Postoperative Nausea", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - carbohydrate preop study"},
+    {"id": "1ec9b333-ae3d-49ae-b47f-5ddbd87e905f", "title": "Correction: Cannabis Use in ADHD Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis ADHD correction article"},
+    {"id": "1ede9414-f0c9-4c5b-b9b7-eee0825065b7", "title": "CBD and Colorectal Tumorigenesis via Serotonergic Pathway", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer mechanism research"},
+    {"id": "1ee00e8c-51a3-47df-97db-4f4e9eb13314", "title": "Prostaglandin inhibition by CBD pyrolysis derivatives", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD derivative anti-inflammatory mechanism"},
+    {"id": "1ee9b715-d2b4-4750-9bb2-c06299241928", "title": "Cannabinoid interactions with ion channels and receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacology review"},
+    {"id": "1eeb294f-97f2-4d4e-92b3-a9d707344372", "title": "Inflammatory Biomarkers: Marijuana and PrEP Use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Marijuana USE + HIV treatment markers - not therapeutic"},
+    {"id": "1eec19ef-60b6-4ab2-8e11-8b9d4c6c690b", "title": "Adolescent cannabis use and mental disorders persistence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE as risk factor - not therapeutic research"},
+    {"id": "1f021c5c-944b-4d0f-b60d-ee6be7bd134d", "title": "Antidiabetic actions of GPR55 agonist Abn-CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid derivative for diabetes"},
+    {"id": "1f159753-422f-4d5d-92f7-ad5e81bc31b8", "title": "Cannabinoid-Terpene Combinations for Esophageal Cancer Prevention", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG for esophageal mutagenicity"},
+    {"id": "1f4167c5-3abf-46dd-9a9e-ba41d3f9f293", "title": "Targeting CB2 receptor: structural determinants", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 pharmacology/drug design"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "1e486b37-3c65-4066-9a66-c45625100c9b",
+      "1ebfa6e9-f02d-4528-9b19-4c3adbe8b3af",
+      "1eeb294f-97f2-4d4e-92b3-a9d707344372",
+      "1eec19ef-60b6-4ab2-8e11-8b9d4c6c690b"
+    ]
+  }
+}

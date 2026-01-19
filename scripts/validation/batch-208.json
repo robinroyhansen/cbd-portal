@@ -1,0 +1,39 @@
+{
+  "batch_number": 208,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T18:00:00.000Z",
+  "results": [
+    {"id": "e69bfad4-3689-49d8-824b-4b829c85c5b1", "title": "CB2 Receptors Fibrogenesis Skin Wound Repair", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 wound healing therapeutic"},
+    {"id": "e6a97af4-05e6-4788-bc86-bf2bb5e14a12", "title": "CBD THC Inflammatory Biomarkers Meta-Analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid inflammation review"},
+    {"id": "e6ac83e1-e9cc-4c78-970e-fe8a7c580a7c", "title": "CBD Neurological Psychiatric Substance Use Adolescents", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pediatric therapeutic review"},
+    {"id": "e6b89966-3512-4d5e-a457-db91331619ed", "title": "Cannabis Epilepsy Two Case Reports", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis epilepsy therapeutic"},
+    {"id": "e6bd2c95-4bfa-4cff-808b-3ef36e4baa17", "title": "CB1 Antagonist SR141716A Metabolic Zucker Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid obesity therapeutic"},
+    {"id": "e6eabcb2-71b5-415b-b52b-7855576b283a", "title": "CBD Cannabis Extract Autism Spectrum Observational", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism therapeutic"},
+    {"id": "e6f5ecb1-fc89-4865-91c4-67d096321569", "title": "Gelato CBD Vape Cartridge BURMAN'S HEALTH SHOP", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - CBD product advertisement"},
+    {"id": "e6f9d2f8-3aa4-4add-9fe9-1a645d88bdab", "title": "Dronabinol Nightmares PTSD RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC PTSD therapeutic trial"},
+    {"id": "e7051e43-2760-4f03-9f9c-f3cff4a0277d", "title": "Cannabis Use Bladder Cancer Risk California", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - epidemiological cancer risk"},
+    {"id": "e7237ea3-a2a5-4996-b262-db9d4d2d2fd0", "title": "Social Media Surveillance CBD Products", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CBD use patterns survey"},
+    {"id": "e72448a4-878d-4ec5-b55a-5af0c7d09892", "title": "Pain Reprocessing Therapy Migraine", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - psychological therapy"},
+    {"id": "e7252129-84f0-42ca-986a-3d337b8d6a7f", "title": "CBD Paracetamol Osteoarthritis Knee RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD osteoarthritis pain therapeutic RCT"},
+    {"id": "e72b35ed-40c3-44eb-ba2a-920fd819161b", "title": "CBD Treatment Pediatric Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pediatric epilepsy therapeutic review"},
+    {"id": "e72ca290-a4a6-4575-a45e-4b74201a9465", "title": "Medical Cannabis Decreased Opiate Use Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain opioid-sparing"},
+    {"id": "e74df20b-2a7c-4481-8ff1-e65d148b60ee", "title": "CBD Amorphous Solid Dispersions Characterization", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmaceutical formulation"},
+    {"id": "e761af55-3c17-40d6-af45-bf289d787695", "title": "CNR1 Gene Hebephrenic Schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor gene schizophrenia"},
+    {"id": "e761f0cd-ae7d-4b43-a3d4-eebe6f83c815", "title": "CBD Follicular Growth Ovulation Cattle", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - cattle reproduction"},
+    {"id": "e77ebea9-371b-4a3d-ab3f-764fd90f45a0", "title": "Neurovascular Astrocytes GPCRs Alzheimer's", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general GPCR review"},
+    {"id": "e7ac988c-ca14-4ca6-b57c-0fb0d5353d69", "title": "CBD Medial Temporal Striatal Fear Psychosis Risk", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychosis therapeutic"},
+    {"id": "e7ae7a35-b7d5-4067-a8d5-10b2fa953c23", "title": "CB1 Receptor Binding Female Migraine Patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid migraine mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "e6f5ecb1-fc89-4865-91c4-67d096321569",
+      "e7051e43-2760-4f03-9f9c-f3cff4a0277d",
+      "e7237ea3-a2a5-4996-b262-db9d4d2d2fd0",
+      "e72448a4-878d-4ec5-b55a-5af0c7d09892",
+      "e761f0cd-ae7d-4b43-a3d4-eebe6f83c815",
+      "e77ebea9-371b-4a3d-ab3f-764fd90f45a0"
+    ]
+  }
+}

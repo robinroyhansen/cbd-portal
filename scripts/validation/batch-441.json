@@ -1,0 +1,43 @@
+{
+  "batch_number": 441,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T04:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "e7d1490d-9cae-4eed-a49d-9e2dd5a13728", "title": "Changes in the conditioned emotional response of rats, induced by delta 9-thc, cbd and mixture", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism research"},
+    {"id": "e7e952fc-c7b0-4918-a2dd-2439b20db3fd", "title": "NNT to Achieve Seizures Reduction in Dravet Syndrome: Stiripentol vs Fenfluramine and Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy therapeutic comparison"},
+    {"id": "e7fbccd9-78cf-419e-b594-d4bd832f07a5", "title": "Psilocybin-assisted psychotherapy for treatment-resistant OCD: protocol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "e8029bd6-26a6-41dd-9d01-3f1a9c69dc0a", "title": "Cannabidiol.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD research/review"},
+    {"id": "e810698d-be5b-47db-a5e9-c020ee0a35cb", "title": "Cannabidiol: pharmacology and therapeutic targets", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmacology therapeutic review"},
+    {"id": "e822ecbe-015d-4b0b-8b9f-d92fe54b90d0", "title": "Weight regain after cessation of medication for weight management", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "e8242946-ec1b-4412-a48c-275e4f95a97d", "title": "Terpenes/Terpenoids in Cannabis: Are They Important?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - terpene therapeutic research"},
+    {"id": "e837c1eb-b4f1-416d-aa44-0440e5e8d46b", "title": "Recent Advances in the Development of Selective Ligands for the Cannabinoid CB2 Receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor ligand development"},
+    {"id": "e83b72c1-7ce9-42f4-bc7d-316598969fec", "title": "Cannabinoids in the treatment of rheumatic diseases: Pros and cons", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid rheumatic therapeutic review"},
+    {"id": "e841d359-9767-4478-bd2d-7fb6f9ecf182", "title": "Synergistic effects of magnesium nano-oxide and mycorrhizal fungi on metabolite profiles in sesame", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "e8561d0d-ea8b-448d-ac72-9a2b33d7a48d", "title": "Simulation Analysis on Loading/Unloading Activities at the CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "e86c3d90-ea09-498c-b7ce-fa0562613b75", "title": "The behavioral profile of spice and synthetic cannabinoids in humans", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid abuse correctly rejected"},
+    {"id": "e874b85c-8ca7-4c98-9240-02475943880c", "title": "The Metabolism of Δ9‐Tetrahydrocannabinol and Related Cannabinoids in Man", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC pharmacokinetics research"},
+    {"id": "e899fcb1-f43c-4398-8bb2-1cf7d0aba90e", "title": "Prevalence of Adolescent Cannabis Vaping", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "e8a04fae-a113-4c56-b461-9c71b02bd871", "title": "Psychosocial functioning among regular cannabis users with and without cannabis use disorder", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD/harm correctly rejected"},
+    {"id": "e8bddba6-a503-4d36-85b4-3376263d0035", "title": "Global patterns of domestic cannabis cultivation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "e8ce843a-2674-4f2b-8cc2-221f7c3419b1", "title": "Cannabinoid Hyperemesis Syndrome in Adolescents: Role of Aprepitant as Treatment", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CHS treatment (cannabis harm) correctly rejected"},
+    {"id": "e8de0bb1-9f94-4a41-9dee-aa45e29742db", "title": "Cannabinoid activation of recombinant and endogenous vanilloid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research"},
+    {"id": "e8e5cd9f-1f18-43a6-9040-dfac59b9afa7", "title": "Simplified Cannabidiols: Friedel‐Crafts Alkylation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry/synthesis correctly rejected"},
+    {"id": "e8ed5a05-bfd4-409a-8e93-f1aec1451277", "title": "Short-Term Effects of Maternal Cannabis Use on Human Milk Macronutrient Composition", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm/safety correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "e7d1490d-9cae-4eed-a49d-9e2dd5a13728",
+      "e7e952fc-c7b0-4918-a2dd-2439b20db3fd",
+      "e8029bd6-26a6-41dd-9d01-3f1a9c69dc0a",
+      "e810698d-be5b-47db-a5e9-c020ee0a35cb",
+      "e8242946-ec1b-4412-a48c-275e4f95a97d",
+      "e837c1eb-b4f1-416d-aa44-0440e5e8d46b",
+      "e83b72c1-7ce9-42f4-bc7d-316598969fec",
+      "e874b85c-8ca7-4c98-9240-02475943880c",
+      "e8de0bb1-9f94-4a41-9dee-aa45e29742db"
+    ]
+  }
+}

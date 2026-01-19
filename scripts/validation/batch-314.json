@@ -1,0 +1,41 @@
+{
+  "batch_number": 314,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T20:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "59a4a2a1-e0e9-4724-930c-501587b69371", "title": "Nordic CBD Gummies \"Australia/NZ (New Zealand)\" Chemist Warehouse, Nordic CBD Gummies Evaluations [Fact Uncovered 2023]", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "59bc11b7-8d28-49d0-bb2b-e0362e018d2c", "title": "Acute effects of different types of cannabis on young adult and adolescent resting-state brain networks.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis brain effects correctly rejected"},
+    {"id": "59be903e-859a-40bb-a10c-f3c552f61fc8", "title": "A Randomized Pilot Trial of a Cannabis Harm Reduction e-Intervention (CHAMPS) for Young Adults With Early Psychosis Who Use Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD harm reduction correctly rejected"},
+    {"id": "59c0b2b2-69b3-4cde-8cff-1f5ba0bad018", "title": "Cannabis sativa L. Inflorescences from Monoecious Cultivars Grown in Central Italy: An Untargeted Chemical Characterization from Early Flowering to Ripening", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/cultivation correctly rejected"},
+    {"id": "59c17981-c912-4df7-a0b4-e28e5208e93f", "title": "Sprayable Hybrid Gel with Cannabidiol, Hyaluronic Acid, and Colloidal Silver: A Multifunctional Approach for Skin Lesion Therapy.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD dermatological therapeutic formulation"},
+    {"id": "59d1b394-9ff2-4144-b8e3-5efb02aea5f9", "title": "Quantifying Heart Rate Changes After Delta-9-Tetrahydrocannabinol Administration Using a PBPK-PD Model in Healthy Adults.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC cardiovascular pharmacology"},
+    {"id": "59dd81d3-460e-48cd-9aca-99b7fb47afa4", "title": "A hunger for cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correctly rejected"},
+    {"id": "59e5c746-4dee-48ac-a286-dc11543012de", "title": "Cognitive and psychomotor effects in males after smoking a combination of tobacco and cannabis containing up to 69 mg delta-9-tetrahydrocannabinol (THC)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment/harm correctly rejected"},
+    {"id": "59eb7ebb-98a2-4ffa-8f26-f6df1c5e8ccd", "title": "Corrigendum to \"Cannabidiol suppresses proliferation and induces cell death, autophagy and senescence in human cholangiocarcinoma cells via the PI3K/AKT/mTOR pathway\" [J Tradition Complement Med 14(6) (2024) 622-634].", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anticancer mechanism (corrigendum)"},
+    {"id": "5a039666-bf08-41bd-a9aa-5f2682dc0e3c", "title": "Cannabis smoking and acute coronary syndrome: Two illustrative cases", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "5a061974-6a5d-4a0e-9b93-d657b0510957", "title": "Fabrication and characterization of a cannabidiol-loaded emulsion stabilized by a whey protein-maltodextrin conjugate and rosmarinic acid complex", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery formulation"},
+    {"id": "5a4744b6-b514-4b9e-9867-86757bf95730", "title": "Is cannabis treatment for anxiety, mood, and related disorders ready for prime time?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis anxiety/mood therapeutic review"},
+    {"id": "5a47ac87-c13a-42d8-8407-08493b8338b6", "title": "CBD ABS Focal Point", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "5a59b6fd-a424-4e1b-9c18-073a58e65c53", "title": "Occipital stroke shortly after cannabis consumption", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "5a640fd3-f129-4708-8833-403f56d400a1", "title": "Harnessing bioactive compounds from Cannabis sativa residue to improve rumen fermentation and reduce methane production: in silico, in vitro, and in situ nylon bag studies.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/veterinary correctly rejected"},
+    {"id": "5a64d714-4377-4c8e-ad09-63030ebcd0c1", "title": "Transgastric ERCP is a Useful Modality for Addressing Biliary Complications in Patients After Orthotopic Liver Transplantation and History of Roux-en-Y Gastric Bypass: Case Report and Proposed Treatment Algorithm.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "5a68dc93-e40a-4601-9e20-ca5fc12e8a0d", "title": "Cannabis Use for Endometriosis: Clinical and Legal Challenges in Australia and New Zealand", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis therapeutic for endometriosis"},
+    {"id": "5a8cb370-75f5-445c-9e2d-38344692740e", "title": "High-Potency Cannabis Use and Health: A Systematic Review of Observational and Experimental Studies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "5a8e1c9c-d852-47f1-879d-dab6ac9ba33e", "title": "Cannabidiol: Recent advances and new insights for neuropsychiatric disorders treatment", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD neuropsychiatric therapeutic review"},
+    {"id": "5a9740bd-d2a9-425f-afc1-fbe635392cff", "title": "The emerging threat of synthetic cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid abuse correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "59c17981-c912-4df7-a0b4-e28e5208e93f",
+      "59d1b394-9ff2-4144-b8e3-5efb02aea5f9",
+      "59eb7ebb-98a2-4ffa-8f26-f6df1c5e8ccd",
+      "5a061974-6a5d-4a0e-9b93-d657b0510957",
+      "5a4744b6-b514-4b9e-9867-86757bf95730",
+      "5a68dc93-e40a-4601-9e20-ca5fc12e8a0d",
+      "5a8e1c9c-d852-47f1-879d-dab6ac9ba33e"
+    ]
+  }
+}

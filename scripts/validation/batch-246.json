@@ -1,0 +1,39 @@
+{
+  "batch_number": 246,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T03:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "0fb9a177-95f1-48f0-90bc-edc308c99082", "title": "Cannabis-Bacteria Interaction Biocontrol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "0fdb3de4-fb7f-4fe4-9568-9261192329a9", "title": "Cannabis genome assembly CBD hemp", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "0fe51a42-b8e5-443e-8d0f-1b2e40a32b47", "title": "Cannabis users low knowledge cannabinoid", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Survey/knowledge correctly rejected"},
+    {"id": "0fe5c018-afc7-4387-971b-691291a3c6cd", "title": "CBD fails reverse THC hypothermia rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC interaction mechanism"},
+    {"id": "0fec258c-25ba-47d8-9b7c-e2849a49d3aa", "title": "CBD Neurodevelopment Perception Proof", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial/opinion correctly rejected"},
+    {"id": "0ff4b474-46d5-4b26-af24-d72bbf9f7817", "title": "CBD Protects Neonatal Mouse Heart Hyperoxia", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD cardioprotective therapeutic"},
+    {"id": "0ffe6bd2-1b75-4dd7-b71f-823c064bf140", "title": "Synthèses énantiosélectives cannabinoïdes CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthesis correctly rejected"},
+    {"id": "10011656-00a1-4e6c-80fe-aaa7984b7eb0", "title": "CV Sciences CBD gummy functional food", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industry news correctly rejected"},
+    {"id": "10049a5c-a75f-457d-b368-eb8d58a9ef2d", "title": "CBD oil (title only)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General reference correctly rejected"},
+    {"id": "1009f8cf-7676-4624-a8d1-a27fd68a6244", "title": "Cannabinoids membrane bilayers cholesterol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism research"},
+    {"id": "100d38e1-c5cd-42d6-b6b3-72c0efc2232f", "title": "Cannabinoid inhibition testosterone Leydig", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabinoid harm correctly rejected"},
+    {"id": "101d126f-8f20-4b9b-8631-d8912c8da53f", "title": "Formulación gomitas CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food product correctly rejected"},
+    {"id": "10218055-4d82-4f9d-9af8-9108eaad0874", "title": "Cannabis Expectancy Questionnaire MSM", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Survey methodology correctly rejected"},
+    {"id": "102b32e9-6b21-4871-93bd-97e9156016e8", "title": "When Best Time Buy Ultra CBD Gummies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "1041ef7c-4903-4d8f-9b7e-b13d34a7d702", "title": "CB2R T lymphocyte CXCL12 chemotaxis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid immune mechanism"},
+    {"id": "10439526-ffe1-40ec-9034-d4c730fadd02", "title": "Ethnobotanical hemp cultivation China", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Historical correctly rejected"},
+    {"id": "1057f5da-c906-4d3b-b983-6b19dc6708fe", "title": "Cannabinoid withdrawal gene transcription", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Withdrawal/dependence correctly rejected"},
+    {"id": "105fba0b-e45a-4d84-b255-9ca25ba33066", "title": "ERCP Cholangioscope Gallbladder Polyps", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "106154e7-6b44-4afd-93b2-a6abb82cf22f", "title": "Spectrum CBD Gummies Safe Does Work", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "1067b0e6-b468-4dc6-9148-d637d8ab66fb", "title": "UHPLC-MS/MS CBD cutaneous topical iontophoresis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD skin delivery pharmacokinetics"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "0fe5c018-afc7-4387-971b-691291a3c6cd",
+      "0ff4b474-46d5-4b26-af24-d72bbf9f7817",
+      "1009f8cf-7676-4624-a8d1-a27fd68a6244",
+      "1041ef7c-4903-4d8f-9b7e-b13d34a7d702",
+      "1067b0e6-b468-4dc6-9148-d637d8ab66fb"
+    ]
+  }
+}

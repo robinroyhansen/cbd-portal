@@ -1,0 +1,41 @@
+{
+  "batch_number": 102,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T15:15:00.000Z",
+  "results": [
+    {"id": "724ccec9-7fc9-42dc-91f1-2e7755f336c5", "title": "MC spasticity effectiveness adverse events", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis therapeutic"},
+    {"id": "724d1e9d-248c-4ee4-a941-445711b86f8d", "title": "CBD THC osteoclasts bone health", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid bone mechanism"},
+    {"id": "72500e96-6fd9-4420-b532-c640cf5d15b3", "title": "Antiseizure prescribing Dravet syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Epilepsy treatment patterns"},
+    {"id": "72516309-46da-4be9-b07e-1135ac98342c", "title": "CBD analogs anticonvulsant SAR", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy drug development"},
+    {"id": "728ad295-2427-44ab-9031-52e73ef21ae2", "title": "CBD nanoparticles suspension stable", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery formulation"},
+    {"id": "729c41d3-08ec-4cd8-b6ed-6abd3f932f4b", "title": "Medical Cannabis chronic nonmalignant pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic"},
+    {"id": "72c4604a-85aa-4cd4-b9e8-820b30916112", "title": "Digital health reduce substance use women", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - addiction treatment interventions"},
+    {"id": "72c63759-b2b1-47a1-bd9d-dfa1745b65c1", "title": "Cannabis glandular trichomes maturation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - plant biology botany"},
+    {"id": "72cec632-1092-4d26-bb2e-d2906e4eec33", "title": "Cannabis tobacco use outcomes young women", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use patterns study"},
+    {"id": "72fd3c56-78ab-4961-a2c6-098cb1d42bca", "title": "Canonical Cannabinoid Receptors CB1 CB2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor review"},
+    {"id": "72ff9640-3d4e-43b4-90c4-e2c5f92d0301", "title": "CBD perceptions experience cancer diagnosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer symptom management"},
+    {"id": "7301d490-64f1-4682-86a8-5a2ed6ce7b77", "title": "Peace CBD Oil Reviews Legal", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING"},
+    {"id": "730a6a33-55c6-48a4-9600-79ec586fba69", "title": "Cannabis sativa phytocomplex skin anti-inflammatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid skin therapeutic"},
+    {"id": "731722e9-d93e-4fe0-b3d4-64d0d02d22ac", "title": "CBD Hemp Indoor Outdoor Variety Trial", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - cultivation variety trial"},
+    {"id": "73219c13-454c-4a47-b33f-26fb9980d0d7", "title": "CBD Melanoma PPARγ-TET1 demethylation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer mechanism"},
+    {"id": "73550a47-06ac-4a52-994d-12509104f443", "title": "CBD Angelman syndrome seizures EEG", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "7357a608-c1d8-462f-8445-dbaa78938122", "title": "TTD consensus emesis gastric cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general emesis guidelines"},
+    {"id": "736336f3-04b3-4bfb-8dce-703201f1c9a5", "title": "CBD Sertraline PTSD animal model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PTSD therapeutic"},
+    {"id": "736945aa-8637-47c4-8550-cce77f4c5fb1", "title": "Acute MI cannabis smoking young man", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - heart attack case report"},
+    {"id": "7375d0dc-0d92-4af7-a76d-ce5bf6904553", "title": "Review for CBD Alzheimer paper", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - peer review document"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "72c4604a-85aa-4cd4-b9e8-820b30916112",
+      "72c63759-b2b1-47a1-bd9d-dfa1745b65c1",
+      "72cec632-1092-4d26-bb2e-d2906e4eec33",
+      "7301d490-64f1-4682-86a8-5a2ed6ce7b77",
+      "731722e9-d93e-4fe0-b3d4-64d0d02d22ac",
+      "7357a608-c1d8-462f-8445-dbaa78938122",
+      "736945aa-8637-47c4-8550-cce77f4c5fb1",
+      "7375d0dc-0d92-4af7-a76d-ce5bf6904553"
+    ]
+  }
+}

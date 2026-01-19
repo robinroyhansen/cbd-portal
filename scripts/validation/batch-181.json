@@ -1,0 +1,35 @@
+{
+  "batch_number": 181,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T11:15:00.000Z",
+  "results": [
+    {"id": "ca4680db-cf2b-4c6c-b43e-622cbf8d1032", "title": "CBD New Treatment Cocaine Addiction Clinical", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cocaine addiction clinical trial"},
+    {"id": "ca82ce9e-7654-437f-8ecc-5f01f9326cbd", "title": "Cannflavin B VPA Autism Behavioural Neuronal", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis compound autism therapeutic"},
+    {"id": "ca8deab2-e678-4ab2-b905-7ed47f31a404", "title": "THC CBD THCV CBC CBN β-Cells High Glucose", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids diabetes beta cell protection"},
+    {"id": "caa6415e-6993-45cc-929c-62c8f3944060", "title": "Cannabidiol as Antipsychotic Symposium", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antipsychotic therapeutic"},
+    {"id": "cabd7b73-f3e4-4e2a-82c8-7959c659046a", "title": "Cannabinoids MS Mice CB1 Anti-inflammatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid MS therapeutic"},
+    {"id": "cac050de-db29-43c5-81a4-b77d87cd9214", "title": "CBD Alcohol Withdrawal Stress Maladaptive Plasticity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD alcohol withdrawal therapeutic"},
+    {"id": "cac25ecb-e5ae-42a0-9dd1-0a37cfccb88c", "title": "CBD Self-Emulsifying Drug Delivery SEDDS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD formulation drug delivery"},
+    {"id": "cacbafa4-de50-4d64-84ee-bd4170b2586d", "title": "Cannabinoids Neural Stem Cells Autophagy Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuroprotection mechanism"},
+    {"id": "cad18364-3410-4acb-a780-bc48e4ed48b0", "title": "Cannabinoids Glucocorticoids Amygdala Stress Plasticity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid stress neuroscience"},
+    {"id": "cad41a3c-3ed1-4ec8-8583-de05738c3c72", "title": "CBD Oil Stress Relief Quasi-Experimental Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD stress clinical study"},
+    {"id": "cb10d1ff-a819-4c04-8739-66ca0c195bc5", "title": "Sister-Chromatid Exchanges Cannabis Heroin Addicts", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - genotoxicity study"},
+    {"id": "cb1ccbe1-db2b-42c3-91df-72e2b68d9220", "title": "CBD Anticonvulsant GW Pharmaceuticals Preclinical", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy preclinical program"},
+    {"id": "cb2c4edf-795c-4055-8b1f-8d56658dd2c5", "title": "THC Dependence Withdrawal Studies", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid dependence pharmacology"},
+    {"id": "cb4260c5-6ae3-47a2-9096-72d4e2d62c1d", "title": "CBD Triple-Negative Breast Cancer NK Cells EGFR", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer immunotherapy"},
+    {"id": "cb45c6a9-1513-4c6f-bf7f-027f9ebd43f1", "title": "Electroacupuncture Cannabinoid Osteoarthritis Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism acupuncture"},
+    {"id": "cb69bfdb-afbc-4025-9957-6e1d05c70b01", "title": "Cannabinoid Fear Extinction PTSD Neural Circuits", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid PTSD clinical trial"},
+    {"id": "cb6cd74a-9c51-4794-acdc-40fff7c6644a", "title": "Super CBD Gummies Legit Fake Reviews", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - gummy product advertisement"},
+    {"id": "cb7461a9-66b7-421e-a4e6-655562a5dda6", "title": "WIN 55212-2 Glaucoma Neuroprotection DBA/2J", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid agonist glaucoma therapeutic"},
+    {"id": "cb761384-83c8-4fa0-8341-dbfd258f47cc", "title": "Cannabinoids Pain New Insights Old Molecules", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain comprehensive review"},
+    {"id": "cb7e4b3a-c386-488f-b373-b2f23caa4702", "title": "Cannabis Cardiovascular Health Evidence Gaps", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cardiovascular research review"}
+  ],
+  "batch_summary": {
+    "correct": 18,
+    "incorrect": 2,
+    "incorrect_ids": [
+      "cb10d1ff-a819-4c04-8739-66ca0c195bc5",
+      "cb6cd74a-9c51-4794-acdc-40fff7c6644a"
+    ]
+  }
+}

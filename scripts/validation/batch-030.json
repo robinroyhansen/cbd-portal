@@ -1,0 +1,40 @@
+{
+  "batch_number": 30,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T21:15:00.000Z",
+  "results": [
+    {"id": "22a21f35-ef2e-4039-89c3-9adce225f5e7", "title": "Cannabis sativa stem extracts anti-inflammatory activity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for inflammation research"},
+    {"id": "22ac046e-d3d1-4360-b973-23f96f849ce7", "title": "Cannabis and Alcohol Use to Initiate Sleep", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE patterns - not therapeutic"},
+    {"id": "22b91a73-a094-4e49-8a97-68a2ffa1bdad", "title": "CBD modulation of hippocampal glutamate in psychosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for psychosis mechanism"},
+    {"id": "22c19b19-8446-4ae1-8cd0-525f044b7b4f", "title": "Next day impairment in insomnia patients with cannabis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Medical cannabis sleep safety"},
+    {"id": "22c43561-64b0-4610-8543-d8437551a8aa", "title": "CBD Health Claims at Point-of-Sale Consumer Perceptions", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY/MARKETING - not therapeutic research"},
+    {"id": "2301c03e-7f39-4a5c-bb39-69d569a42feb", "title": "The Neural Correlates of Cannabis Use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE effects - not therapeutic"},
+    {"id": "230c00cb-0b1f-4298-9e81-ee7398b5e5dd", "title": "THC on cardiac performance with beta blockade", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC cardiovascular research"},
+    {"id": "230daea8-5bed-41c3-b89e-bb23c0939156", "title": "Hair straightening on cannabis content in hair", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "FORENSIC detection methodology - not therapeutic"},
+    {"id": "2321f9ea-5d2c-49c2-8ebd-b9fb3083d134", "title": "THC conditioned place preference vs cocaine, morphine", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis ABUSE potential study - not therapeutic"},
+    {"id": "2322a1c4-4676-4e66-b440-0915a8b9f6c2", "title": "Spinal Endocannabinoid System in Noxious Stimuli", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid pain mechanism"},
+    {"id": "23395d7e-3f44-48a7-b8aa-aac42893211c", "title": "Cannabidiol activates neuronal Kv7 channels", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD mechanism for epilepsy"},
+    {"id": "233c1dbc-4a48-42a5-9abb-16a08b89b651", "title": "Mouse models of channelopathies in epilepsy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general epilepsy genetics"},
+    {"id": "236b07b4-fabc-493c-96ee-9646e78edd24", "title": "Inhibitory Control in Older THC vs CBD Chronic Users", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC cognitive effects research"},
+    {"id": "236b6da4-5639-4426-997a-69806ff233a0", "title": "Topical CBD and PEA tolerability profile", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD topical safety research"},
+    {"id": "239b3eba-0f14-43fb-8844-785dca55dc5a", "title": "Early-onset cannabis use and abuse risk", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE risk - not therapeutic"},
+    {"id": "23b9663a-86a1-4dcf-939e-f43b388729d2", "title": "CBD and THC on anxiety following alcohol withdrawal", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for alcohol withdrawal"},
+    {"id": "23c79ee8-f758-4f9e-8558-947cd82c12e8", "title": "CB2 agonists attenuate TNF-α vascular smooth muscle", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 for cardiovascular"},
+    {"id": "23c7cd4b-fd05-481c-8bd4-88f1ff5c98c9", "title": "CBD to Reduce Anxiety in Social Anxiety Disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for anxiety trial"},
+    {"id": "23f89ee4-e336-47de-9f45-aae761c79832", "title": "Cannabinoid Agonist for GI Function in IBS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Dronabinol for IBS"},
+    {"id": "24044e09-ceb4-4103-9141-1bb8ec628e89", "title": "CBD as Potential Antipsychotic Medication - Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antipsychotic review"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "22ac046e-d3d1-4360-b973-23f96f849ce7",
+      "22c43561-64b0-4610-8543-d8437551a8aa",
+      "2301c03e-7f39-4a5c-bb39-69d569a42feb",
+      "230daea8-5bed-41c3-b89e-bb23c0939156",
+      "2321f9ea-5d2c-49c2-8ebd-b9fb3083d134",
+      "233c1dbc-4a48-42a5-9abb-16a08b89b651",
+      "239b3eba-0f14-43fb-8844-785dca55dc5a"
+    ]
+  }
+}

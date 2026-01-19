@@ -1,0 +1,41 @@
+{
+  "batch_number": 88,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T11:45:00.000Z",
+  "results": [
+    {"id": "6238a1b2-1d2b-41d6-b04a-6e1d98e75db3", "title": "CBD chronic pain veterans trial protocol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic protocol"},
+    {"id": "62435614-9d5f-427a-ac02-2cfcd9bfb1ff", "title": "Gisele Bundchen CBD Oil supplements4fitness", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING"},
+    {"id": "62580aed-ff8e-4725-a4a8-1b14d75471f1", "title": "Heavy cannabis use dependence brain CUD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - CUD clinical review"},
+    {"id": "62585063-37c8-4659-95a1-04f8a5ea1f6b", "title": "THC female response estradiol influence", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC pharmacology sex differences"},
+    {"id": "626d2053-2a7e-4079-a13f-940e6ef16adc", "title": "Cannabinoids insomnia sleep EEG RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid insomnia RCT"},
+    {"id": "627bc98a-342b-4fe0-a8aa-3ed08a93fd86", "title": "Cannabinoids cancer symptom management", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic review"},
+    {"id": "6286543d-c276-4d20-b87e-fa935d0c57b8", "title": "Cannabis endometriosis pain trial challenges", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis endometriosis therapeutic"},
+    {"id": "62935c9a-47d4-411c-9eff-06049c2a78ee", "title": "Ferroptosis Parkinson's proteinopathy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general Parkinson's neuroscience"},
+    {"id": "629fe88d-25f5-4748-98f6-11816081feca", "title": "Cannabis psychosis incidence persistence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis editorial"},
+    {"id": "62a26c2a-9610-4227-9aab-60a9b807c589", "title": "CB2 receptor anti-nociception pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 pain therapeutic"},
+    {"id": "62abec09-1222-47be-ae78-ab39c48635d0", "title": "Chemoreceptors heart failure cardiorespiratory", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - cardiovascular physiology"},
+    {"id": "62af4732-f1ec-4cd8-b444-01dabb8e815a", "title": "Glucose metabolism astroglial cannabinoid", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid metabolism mechanism"},
+    {"id": "62d5175e-461f-49f8-a616-6afa9087b531", "title": "Beck Depression Inventory BDI-II validation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - psychological assessment"},
+    {"id": "62d76de9-1e7c-4684-9952-ce7093590401", "title": "CBD Deposited CdS Layer complexing agent", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Chemical Bath Deposition"},
+    {"id": "62d7a010-424d-4eb3-a6aa-ca9b43ed9e8f", "title": "THC/CBD TLR7 TLR8 IL-1β monocytes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD immune mechanism"},
+    {"id": "62e404a8-1f3b-40f7-b2ba-801130ad89ab", "title": "Cannabis orthopedic musculoskeletal pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic"},
+    {"id": "62fdc6f1-4734-4aa2-8b76-3cd1317a748d", "title": "CBD refractory epilepsy children review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pediatric epilepsy review"},
+    {"id": "630494d3-74e9-4e5f-9c8b-9ebbea60cd1b", "title": "Pharmacology cannabinoid receptor ligands", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology review"},
+    {"id": "6310d152-d60a-438c-b909-b46f4d26ddd8", "title": "CB1 allosteric modulator cocaine meth", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 addiction therapeutic"},
+    {"id": "632421d0-eef1-4936-8f79-701699cc6ae5", "title": "Cannabis youth mental health", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - youth mental health risks"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "62435614-9d5f-427a-ac02-2cfcd9bfb1ff",
+      "62580aed-ff8e-4725-a4a8-1b14d75471f1",
+      "62935c9a-47d4-411c-9eff-06049c2a78ee",
+      "629fe88d-25f5-4748-98f6-11816081feca",
+      "62abec09-1222-47be-ae78-ab39c48635d0",
+      "62d5175e-461f-49f8-a616-6afa9087b531",
+      "62d76de9-1e7c-4684-9952-ce7093590401",
+      "632421d0-eef1-4936-8f79-701699cc6ae5"
+    ]
+  }
+}

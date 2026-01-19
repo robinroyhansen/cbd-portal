@@ -1,0 +1,37 @@
+{
+  "batch_number": 433,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T02:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "dfac3f23-4990-4029-bcd6-3c2964d5eee1", "title": "Synthesis and characterization of polypyrrole thin film by MW-CBD method for NH3 gas sensor", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "dfae4baa-032c-47f1-8c1e-c074229c2b00", "title": "Pedestrianizing the Central District : the CBD in Hong Kong", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "dfb073ea-c5be-499f-9351-c49532cad6f5", "title": "Terpenes in Cannabis sativa – From plant genome to humans", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant chemistry/genomics correctly rejected"},
+    {"id": "dfb16f34-c884-470a-ab2c-fdc5c4416eec", "title": "Behavioural, Neural and Molecular Effects Underlying Caffeine's Addictive Properties", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "dfb1ae3d-9236-4a6c-8721-a09a76a8c460", "title": "Cannabis in the wild: Analysis of street cannabis and cannabinoid composition in Australia.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Potency/product analysis correctly rejected"},
+    {"id": "dfcc71e1-a4ac-4de7-9778-54f99ea5d933", "title": "High-Concentration Delta-9-Tetrahydrocannabinol Cannabis Products and Mental Health Outcomes : A Systematic Review.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "dfd3a63e-23a3-484c-85b8-eb0589590bab", "title": "Sphingosine and Its Analog, the Immunosuppressant 2-Amino-2-(2-[4-octylphenyl]ethyl)-1,3-propanediol, Interact with the CB1 Cannabinoid Receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research"},
+    {"id": "dfe519cc-d1c5-49e9-a589-cdc2e4e82ed5", "title": "Expression of New Gene Markers Regulating Protein Metabolism in Porcine Ovarian Granulosa Cells In Vitro", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "dfecebef-45ec-43df-a8a3-702d4949be5b", "title": "Purification, immobilization, evolution, and characterization of D-allulose 3-epimerase from Antarctic Microbacterium.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "dff75ef5-988a-426f-bf90-e46035afdd2d", "title": "Delta-9-tetrahydrocannabinol (THC) serum concentrations and pharmacological effects in males after smoking a combination of tobacco and cannabis containing up to 69 mg THC", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Pharmacokinetics/impairment correctly rejected"},
+    {"id": "dff89e6c-e5e3-476f-a388-410baabb58ef", "title": "Alcohol-Induced Dilation of Fetal Cerebral Arteries Is Region-Specific and Mediated by Cannabinoid Receptor 1 in a Sexually Dimorphic Manner.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research"},
+    {"id": "e004de79-ecfa-4022-8224-d4bb052a4f89", "title": "Cannabidiol counters the effects of a dominant-negative pathogenic Kv7.2 variant", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy mechanism research"},
+    {"id": "e0077187-f651-4d8e-8fa5-3c41439c894f", "title": "Effects of different methods of cannabis use on cognition and blood THC: A systematic review.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis cognitive harm correctly rejected"},
+    {"id": "e01107e5-c88c-4b4b-ad9a-f27cbd379b08", "title": "Decision letter for \"Cannabidiol Treatment for Adult Patients with Drug‐Resistant Epilepsies: A Real‐World Study in a Tertiary Center\"", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correspondence correctly rejected"},
+    {"id": "e028e6b9-dfc3-4c12-b2e6-1710116657ac", "title": "Augmenting Nutrient Acquisition Ranges of Greenhouse Grown CBD (Cannabidiol) Hemp (Cannabis sativa) Cultivars", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "e02c3c77-b7fc-445d-95a3-d37c6560782a", "title": "Current status and future prospects in cannabinoid production through in vitro culture and synthetic biology", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Biosynthesis correctly rejected"},
+    {"id": "e02da507-bc75-44e8-b75f-7cd2bf5235ac", "title": "Development and Initial Validation of the Cannabis Attention and Affect Motives Scale.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD assessment correctly rejected"},
+    {"id": "e0327d63-fb67-4b25-994a-3a2229fe8da7", "title": "Hashish. 20. Synthesis of (.+-.)-.DELTA.1- and .DELTA.6-3,4-cis-cannabidiols and their isomerization by acid catalysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry correctly rejected"},
+    {"id": "e044ef19-3928-406b-bf01-8970c298abcc", "title": "Longer chronic cannabis use in humans is associated with impaired implicit motor learning and supranormal resting state cortical activity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "e047ea23-b8f5-44a7-9793-7c5269827f88", "title": "Recommendations for Addressing In-Hospital Substance Use From a National Delphi Consensus Process.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/general correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "dfd3a63e-23a3-484c-85b8-eb0589590bab",
+      "dff89e6c-e5e3-476f-a388-410baabb58ef",
+      "e004de79-ecfa-4022-8224-d4bb052a4f89"
+    ]
+  }
+}

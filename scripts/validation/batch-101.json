@@ -1,0 +1,40 @@
+{
+  "batch_number": 101,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T15:00:00.000Z",
+  "results": [
+    {"id": "7115426a-d9ef-44e2-85df-80bdf5de8bd6", "title": "Synaptic effects of cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid mechanism review"},
+    {"id": "712545bb-7d6b-4651-bbb9-7dc6cf802398", "title": "Biomarkers Anhedonia Amotivation Depression Cannabis Use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use & depression biomarkers"},
+    {"id": "712db429-b588-4c6f-ace7-d3f1b13834fb", "title": "Visuomotor Biomarker Cerebellar Dysfunction Chronic Cannabis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - brain dysfunction from chronic use"},
+    {"id": "7131c39d-f4f5-4367-8544-c3d50d060d79", "title": "CBD cadmium toxicity protection liver cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD hepatoprotective mechanism"},
+    {"id": "7140e383-327f-4459-ba6f-8a3a23b35375", "title": "Polysaccharide Cryogels β-Cyclodextrin CBD Delivery", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery formulation"},
+    {"id": "718e1ece-d3a5-4a35-9dc9-8155f82c8a1e", "title": "Isomerization CBD THC electrospray mass spectrometry", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "LAB METHODS - analytical chemistry"},
+    {"id": "71923ed8-248d-48a7-9710-4859921a8038", "title": "Perception Risks Cannabis CBD Pregnancy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pregnancy safety perception"},
+    {"id": "719e2381-bf53-40af-8a73-a1cf5bb41002", "title": "CB2 macrophage repolarization lung injury ARDS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 lung injury therapeutic"},
+    {"id": "71d25ddb-3a42-47c6-8fc7-7d39f5052a53", "title": "CBD menstrual-related symptoms", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD womens health RCT"},
+    {"id": "71d8c538-bfbb-4bf9-bf8f-9329d91a8d55", "title": "Hydromethylthionine rivastigmine Alzheimers mouse", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - AD drug study"},
+    {"id": "71e1dc5f-47e1-4adb-9d1a-ffd30fdd07eb", "title": "Mechanisms CBD Cancer Treatment Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer mechanism review"},
+    {"id": "71f408e6-d566-426c-b980-786a1a423a15", "title": "Therapeutic potential acidic cannabinoids THCA CBDA", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Acidic cannabinoid therapeutic review"},
+    {"id": "71ff353b-3148-410b-b59e-8d63fdd86faf", "title": "CB1 antagonist AM 251 nausea feeding", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism"},
+    {"id": "7203ef94-fdd1-4d40-8151-ab2235244d5a", "title": "α-pyrrolidinophenone synthetic cathinones NPS", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - synthetic cathinones (bath salts)"},
+    {"id": "721b5836-22f2-4adb-8893-0eb9d03831ef", "title": "CBD itching behavior pruritis mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pruritis mechanism"},
+    {"id": "7224c0f1-3125-4a24-8edf-c063d54a0c37", "title": "Medical cannabis insomnia chronic pain elderly", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis sleep pain therapeutic"},
+    {"id": "7225f18d-e7e7-4cb1-8a86-0d257ab370aa", "title": "PPP2R1A Neurodevelopmental Disorders spectrum", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - genetic disorder review"},
+    {"id": "722751bb-bd4b-4680-96fc-76d9d225c811", "title": "Behavioral sensitization heroin cannabinoid pretreatment", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - gateway drug sensitization"},
+    {"id": "723ac9fd-e4db-41e4-b546-da45d9d6def3", "title": "CBD fenfluramine stiripentol Dravet syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy efficacy comparison"},
+    {"id": "7240c9b1-152e-47bf-ba2d-f82e4be995b9", "title": "THC:CBD Tourette Syndrome adolescents RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "MC Tourettes therapeutic RCT"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "712545bb-7d6b-4651-bbb9-7dc6cf802398",
+      "712db429-b588-4c6f-ace7-d3f1b13834fb",
+      "718e1ece-d3a5-4a35-9dc9-8155f82c8a1e",
+      "71d8c538-bfbb-4bf9-bf8f-9329d91a8d55",
+      "7203ef94-fdd1-4d40-8151-ab2235244d5a",
+      "7225f18d-e7e7-4cb1-8a86-0d257ab370aa",
+      "722751bb-bd4b-4680-96fc-76d9d225c811"
+    ]
+  }
+}

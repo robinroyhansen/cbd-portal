@@ -1,0 +1,42 @@
+{
+  "batch_number": 451,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T06:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "f23293cc-40e6-459e-b435-8ee2832cfce5", "title": "Cannabinoid-Mediated Disinhibition and Working Memory: Dynamical Interplay of Multiple Feedback Mechanisms in a Continuous Attractor Model of Prefrontal Cortex", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS/DSI working memory mechanism research"},
+    {"id": "f259bc97-b40d-42a0-9a2e-0c4c3c988cfd", "title": "Prenatal Cannabis and Tobacco: Studies in Animal Models.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis prenatal harm correctly rejected"},
+    {"id": "f25c1f7d-da56-4afc-bd61-e74838b31a0a", "title": "Effects of Cannabinor, a Novel Selective Cannabinoid 2 Receptor Agonist, on Bladder Function in Normal Rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 bladder mechanism research"},
+    {"id": "f2619b84-c0a9-4d8c-9e9a-2a59a1d2b2d4", "title": "Cannabis Smoking in 2015", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "f273d1fb-1e6a-4a1a-bd30-98c5726c8207", "title": "Defining a public health approach to substance use: insights from a systematic scoping review and conceptual framework development approach", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "f2787a0b-7201-4eca-8953-43a823b382cc", "title": "Role of individual, peer and family factors in the use of cannabis and other illicit drugs: A longitudinal analysis among Finnish adolescent twins", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "f27b3a98-5ec1-48c6-87b1-15da99dd62b0", "title": "Populus 'CBD'", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Poplar cultivar) correctly rejected"},
+    {"id": "f2811bfe-ec39-48ae-be6b-66c9031f8abd", "title": "The potential of hemp (Cannabis sativa L.) for sustainable fibre production: a crop physiological appraisal", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "f28673bb-2f03-4efe-a654-284a4410f454", "title": "Recent advances in the cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic/mechanism review"},
+    {"id": "f28d5a56-2093-4e64-819f-e78e883fade6", "title": "Risky sexual behavior among cannabis users: The role of protective behavioral strategies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "f28d9b0c-7516-4695-bb93-dd4eb1c69c15", "title": "Anti-Biofilm Activity of Cannabidiol against Candida albicans", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antifungal therapeutic research"},
+    {"id": "f29f5e56-5c16-40ef-ad45-98c1bce10635", "title": "Differential Effects of Cannabinol (CBN), Cannabigerol (CBG), and Cannabidiol (CBD) on Human Brain Microvascular Endothelial Barrier Function Under TNF-α and IL-1β Stimulation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid BBB/neuroinflammation mechanism research"},
+    {"id": "f2a1652f-301e-4e1d-8872-e224e0279b8d", "title": "Cannabis use correlates with schizotypy in healthy people", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "f2a561ab-5a4f-4a41-b112-1d55781c982b", "title": "A phase I study to assess the single and multiple dose pharmacokinetics of THC/CBD oromucosal spray", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacokinetics clinical trial"},
+    {"id": "f2a877d9-a23a-4d8d-a833-75378bbbf01f", "title": "Cannabidiol- and tetrahydrocannabinol-related AEs", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid safety/adverse events research"},
+    {"id": "f2a9d277-66cc-4d8e-8bd7-a68719c728ce", "title": "Discussion on Transport Planning of Jiangbei Town(CBD) in Chongqing", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "f2acddee-203d-4811-8c5d-961b170d34bb", "title": "Analyzing Characteristics of Land-use Cluster Using Land-use Dominance Index(LDI) in Cheongju CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "f2c36b04-4421-44fb-a1e5-c47d69a57efa", "title": "Evaluating cannabidiol-induced liver injury with and without valproate using a three-dimensional human hepatocyte spheroid model.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety/drug interaction research"},
+    {"id": "f2ca19e7-00f1-4785-8aea-6500972e21ef", "title": "Solubility of non-psychoactive cannabinoids in supercritical carbon dioxide and comparison with psychoactive cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction chemistry correctly rejected"},
+    {"id": "f2da2f89-c46b-4a44-bd9e-1744d6515fda", "title": "Ethnic Discrimination Moderates Genetic Influences on Adolescent Internalizing and Externalizing Psychopathology", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "f23293cc-40e6-459e-b435-8ee2832cfce5",
+      "f25c1f7d-da56-4afc-bd61-e74838b31a0a",
+      "f28673bb-2f03-4efe-a654-284a4410f454",
+      "f28d9b0c-7516-4695-bb93-dd4eb1c69c15",
+      "f29f5e56-5c16-40ef-ad45-98c1bce10635",
+      "f2a561ab-5a4f-4a41-b112-1d55781c982b",
+      "f2a877d9-a23a-4d8d-a833-75378bbbf01f",
+      "f2c36b04-4421-44fb-a1e5-c47d69a57efa"
+    ]
+  }
+}

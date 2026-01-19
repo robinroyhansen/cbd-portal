@@ -1,0 +1,37 @@
+{
+  "batch_number": 31,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T21:30:00.000Z",
+  "results": [
+    {"id": "241b1711-16cc-4c46-8f27-0b423099e309", "title": "CBD Promotes Oral Ulcer Healing via Inflammasome Inhibition", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for oral ulcers"},
+    {"id": "241e19a4-6e14-4ee6-ad15-327856b5d286", "title": "Nanocarrier Systems of CBD for Pain Treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery research"},
+    {"id": "242cc2ce-d031-4350-915e-31ff33b76a69", "title": "Cannabis in Cancer Immunotherapy Poor Outcome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis safety for cancer patients"},
+    {"id": "24433965-b53a-481e-86ef-60098bcc5453", "title": "Preventing synaptic pruning in schizophrenia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general schizophrenia neurobiology"},
+    {"id": "245ff79d-6c30-4929-b1b3-e674ce8630f8", "title": "Animale CBD Gummies Reviews SCAM", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM/ADVERTISING - product marketing"},
+    {"id": "2462c8b4-4bdc-4edc-844b-8ab5378c4707", "title": "CBD and analogs: effects on inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anti-inflammatory review"},
+    {"id": "2464b0a8-aab1-4970-8666-77cb1c3b19be", "title": "Sudden Cardiac Death with Synthetic Cannabinoid MDMB-CHMICA", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Synthetic cannabinoid toxicology"},
+    {"id": "247ff3d4-f530-4a96-990e-6a0aabbe356c", "title": "CBD Preserves Retinal Neurons in Diabetes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for diabetic retinopathy"},
+    {"id": "2486475f-a08b-43ee-9f94-54db88e1ea69", "title": "CB1 Receptor in Mitochondria of White Adipocytes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 mechanism research"},
+    {"id": "249bfc8b-2fc6-4312-b6e8-4a4840d2a3d7", "title": "CBD Enhances THC Effects on Glioblastoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD+THC for brain cancer"},
+    {"id": "24a297c9-091c-47df-93bb-2a4fdb2787b6", "title": "Vaping THC Pharmacokinetics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC pharmacokinetics research"},
+    {"id": "24bf4f7c-cb6a-4452-9eaa-8d80a43e4d0f", "title": "Wonder Leaf CBD Male Enhancement Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM/ADVERTISING - product marketing"},
+    {"id": "24c0738b-28e1-4f22-b57f-f494d43ec4fa", "title": "CBD reduces neuroinflammation after brain ischemia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection for stroke"},
+    {"id": "24c1d17a-4d5b-4fe3-95a6-da273298bdb9", "title": "CB1 receptors in human vascular endothelial cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 mechanism research"},
+    {"id": "24d36183-ce3f-4fea-adc3-97c716b074c9", "title": "CBD in treatment-resistant epilepsy - Authors' reply", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy correspondence"},
+    {"id": "2510885a-e1a5-4b5f-a3aa-627830306a56", "title": "CBD modulates hippocampal glutamate in psychosis risk", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for psychosis prevention"},
+    {"id": "25174a9c-4e0c-475c-b817-9039af4e6067", "title": "Enantiomeric CBD derivatives receptor binding", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacology research"},
+    {"id": "2519ea48-f1eb-4970-ba2e-7a2534a352f5", "title": "CBD Sequestration of Alzheimer's Amyloid-β", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for Alzheimer's mechanism"},
+    {"id": "251d4649-f9ff-4de2-bf5e-44d2d5383579", "title": "Uno CBD Gummies Reviews", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM/ADVERTISING - product marketing"},
+    {"id": "252647f3-9777-4d01-8bc8-0ca9019588ab", "title": "CBD for refractory epilepsy in Peru", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy access/use"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "24433965-b53a-481e-86ef-60098bcc5453",
+      "245ff79d-6c30-4929-b1b3-e674ce8630f8",
+      "24bf4f7c-cb6a-4452-9eaa-8d80a43e4d0f",
+      "251d4649-f9ff-4de2-bf5e-44d2d5383579"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "batch_number": 343,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T03:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "7b99cf57-e8cc-45ce-9356-539565942dfb", "title": "Comorbidity and temporal relations of alcohol and cannabis use disorders", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD correctly rejected"},
+    {"id": "7ba24f42-d864-4281-bfae-4d2224e8dcf6", "title": "DKW basal salts improve micropropagation and callogenesis in Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "7bb05c32-230a-4096-ba1a-de7a5410bd6f", "title": "In vitro digestion and cytotoxicity study of cannabidiol-loaded nanostructured lipid carriers", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery"},
+    {"id": "7bb789a1-e433-465b-b91e-05a66b5a31f9", "title": "Darwin CBD Parking Strategy: a coming of age", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "7bbac5fa-2efb-4e7a-a5fe-8a546b3ad560", "title": "Comparative genomics of 'Xanthomonas cannabis' reveals an emerging, diverse pathogen", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "7bbf4d58-fd02-4e54-8aae-6a5124bd3db6", "title": "Accessing Healthcare Abroad under CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Cross Border Directive) correctly rejected"},
+    {"id": "7bc693af-cc93-4566-bd99-d22812338453", "title": "Cannabinoid Hyperemesis: A Case Series of 98 Patients", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "7bcea6f5-3bca-454e-a2f3-b8d15f779f91", "title": "The 'runner's high' may result from molecules called cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid system mechanism"},
+    {"id": "7bddf314-baea-43cc-8b48-831a4bf94887", "title": "Nursing student training for contraception in Democratic Republic of the Congo", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "7bf20171-1f1e-4c05-ac52-b95f52c5b8fb", "title": "Perspectives on Challenges in Cannabis Drug Delivery Systems: Where Are We?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis drug delivery review"},
+    {"id": "7bf76157-c6b0-4438-be9d-3c1682e06e28", "title": "Characterization, amino acid composition and in vitro digestibility of hemp proteins", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food science correctly rejected"},
+    {"id": "7bfee1b4-4f3a-49e8-9d26-e42bf83774f9", "title": "Formulation and in Vitro Evaluation of Liposomal and SMEDDS for Oral Delivery of Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery formulation"},
+    {"id": "7bffda26-ef29-4ceb-865c-74a005dc1317", "title": "Phytocanabinoids and synthetic cannabinoids: from recreational consumption to potential therapeutic use", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic review"},
+    {"id": "7c01ea06-ad25-4744-862e-4967d319e4bd", "title": "Clues for glues: from serendipity to nature's blueprints in degrader discovery", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "7c0f03f9-3a89-4e53-ae6e-e917bc729cf3", "title": "Therapeutic potential of chronic CBD:THC co‐treatment on disease‐relevant behaviors of female TAU58/2 mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC Alzheimer's therapeutic"},
+    {"id": "7c12110d-8f01-45b0-a8c3-ceab1b01a07f", "title": "Abnormal-Cannabidiol-Induced Increase in Aqueous Humor Outflow", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD analog glaucoma mechanism"},
+    {"id": "7c19020b-112c-4916-91b1-d977b46acadc", "title": "Prostaglandin and Cannabinoid Receptors in the Development of Eosinophilic Esophagitis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism in EoE"},
+    {"id": "7c1a3cd4-cb3d-4183-8398-9f01efa63652", "title": "Study on Plant Landscape of Hangzhou Qianjiang New Town CBD Park", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "7c26ad46-c56c-4023-9945-0409cfafb4fb", "title": "Prevalence of Biochemically-Verified Substance Use in Healthy Adolescents ABCD Study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "7c475036-dac4-425e-a378-19d94fd9180a", "title": "The interactive effects of emotional clarity and cognitive reappraisal on problematic cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "7bb05c32-230a-4096-ba1a-de7a5410bd6f",
+      "7bcea6f5-3bca-454e-a2f3-b8d15f779f91",
+      "7bf20171-1f1e-4c05-ac52-b95f52c5b8fb",
+      "7bfee1b4-4f3a-49e8-9d26-e42bf83774f9",
+      "7bffda26-ef29-4ceb-865c-74a005dc1317",
+      "7c0f03f9-3a89-4e53-ae6e-e917bc729cf3",
+      "7c12110d-8f01-45b0-a8c3-ceab1b01a07f",
+      "7c19020b-112c-4916-91b1-d977b46acadc"
+    ]
+  }
+}

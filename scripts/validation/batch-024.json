@@ -1,0 +1,36 @@
+{
+  "batch_number": 24,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T19:45:00.000Z",
+  "results": [
+    {"id": "1bf484ac-c371-4d32-a77c-c4356043f5b3", "title": "Regulating for Safety: Cannabidiol Dose in Food: A Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD food safety regulation"},
+    {"id": "1bf7e7d9-405c-4edd-94e5-cc17003ca3d8", "title": "Cannabis use and mental health QoL in anxiety disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis/anxiety research"},
+    {"id": "1bfd0d86-5ba4-4a0e-b014-d0e25916c9a0", "title": "Cannabinoid Modulation of Cutaneous Aδ Nociceptors During Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "1c0b526d-f338-4ee7-859f-f16f390770a4", "title": "Oleoylethanolamide: Alternative to Cannabinoid Antagonists for Appetite", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid-related for obesity"},
+    {"id": "1c17290c-ad5c-462e-84cb-be9e13b7321f", "title": "Emergency Department Treatment of Cannabinoid Hyperemesis Syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis adverse effect management"},
+    {"id": "1c17bd5d-43fb-4338-a38c-2a41dc63a563", "title": "Effects of CBD, Hypothermia in Newborn Rats with HIE", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection for neonatal HIE"},
+    {"id": "1c36b0e1-ab60-4751-bd9e-182f58eec4ff", "title": "Evaluating CBD to Enhance Analgesic Effect of Hydromorphone", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD opioid-sparing trial"},
+    {"id": "1c3bb21b-47f5-4a57-91b7-4fdd4d786ca2", "title": "Cannabidiol (CBD) Use by Older Adults for Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for elderly pain"},
+    {"id": "1c41e5fd-5d0e-4ed2-8bdc-9433b5f8a7c1", "title": "Cannabinoid Formulations for Anxiety and Tourette Syndrome - meta-analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid therapeutic review"},
+    {"id": "1c50c848-a553-4415-9113-658b9fd1db03", "title": "30-day readmission rates in SUD patients during COVID", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general SUD/COVID epidemiology"},
+    {"id": "1c561a0c-6b18-4097-a58e-d146aa790a21", "title": "Cannabidiol modulates sleep in rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD sleep mechanism"},
+    {"id": "1c662e80-aa97-4004-a574-02eeef59c508", "title": "Recreational cannabis use and sleep in general population - systematic review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "RECREATIONAL use patterns - not therapeutic"},
+    {"id": "1c7e49f6-7d80-4665-a737-008e3004434f", "title": "Suicidal ideation correlates in Italian adolescents: sleep quality", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - adolescent mental health/sleep"},
+    {"id": "1c8b6d35-b9bf-42ea-ad26-3f5b30ba580a", "title": "Systematic Review on Transdermal/Topical Cannabidiol Trials", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD topical delivery review"},
+    {"id": "1ca2cefd-91da-4d1f-81ff-104ac2b570aa", "title": "Placebo effects in CBD RCT for psychological distress", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression trial"},
+    {"id": "1cbd3c93-a6f9-430a-bfa9-607be49cdf76", "title": "Pro-inflammatory obesity in CB2 receptor-deficient mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 mechanism research"},
+    {"id": "1ccd4c12-5c14-4b0a-846c-1e17cd5bcd63", "title": "High-CBD cannabis extracts modulate ACE2 in COVID-19 tissues", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for COVID prevention"},
+    {"id": "1cfda0c2-3c65-48af-ae4d-31850df58c33", "title": "Cannabinoid-ethanol interactions and effects on performance", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid safety interactions"},
+    {"id": "1d0705bb-27e8-4838-8745-5a64bb9df25e", "title": "CBD-Öl in der Tiermedizin (CBD Oil in Veterinary Medicine)", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD veterinary medicine"},
+    {"id": "1d0cebc8-a52f-4cba-b012-e321334ee6ce", "title": "Critical assessment of CBD dietary supplements", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety/regulation review"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "1c50c848-a553-4415-9113-658b9fd1db03",
+      "1c662e80-aa97-4004-a574-02eeef59c508",
+      "1c7e49f6-7d80-4665-a737-008e3004434f"
+    ]
+  }
+}

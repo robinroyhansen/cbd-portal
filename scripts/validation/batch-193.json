@@ -1,0 +1,43 @@
+{
+  "batch_number": 193,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T14:15:00.000Z",
+  "results": [
+    {"id": "d61ac47c-7480-4c4e-a6f4-1db96bbcfd45", "title": "Cannabinoids Wound Healing Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid wound healing review"},
+    {"id": "d64d5410-2e72-471e-b0c4-6a0a2e19cb38", "title": "Psychedelics Chronic Pain Outcomes", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - psychedelics for pain"},
+    {"id": "d6515661-c781-43a8-9b6f-c3f259bd32c8", "title": "Hemp Protein Hydrolysates Anti-Inflammatory Monocytes", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - hemp protein nutrition not cannabinoids"},
+    {"id": "d651ae59-10c1-4c99-b5f7-09c78bc0b805", "title": "CBD TRAIL DR5 Colorectal Cancer Apoptosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic"},
+    {"id": "d6567399-9bf8-4f3d-ab86-f3059c324bab", "title": "Spice Synthetic Cannabinoid Psychosis Trigger", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - synthetic cannabinoid psychosis"},
+    {"id": "d677f175-f636-4d93-966b-f2c6541f6e5f", "title": "Sativex Fluconazole Pharmacokinetics Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid drug interaction PK"},
+    {"id": "d693c91c-6cab-44d8-9c79-439aa5144792", "title": "Cannabis Extract CINV Phase II RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid nausea clinical trial"},
+    {"id": "d6a6c02a-d96a-4d71-b650-aa148b67e653", "title": "CBD Reduces Cocaine Intake Mouse Hippocampus CB1R", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cocaine addiction preclinical"},
+    {"id": "d6b2aff6-45a3-4790-bc5d-5b3588538702", "title": "CBD Inhibits Angiogenesis Multiple Mechanisms HUVEC", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer anti-angiogenic"},
+    {"id": "d6b50d85-4c8b-4527-990c-ac51960976b0", "title": "Drugs Abuse Metabolism Zebrafish Microdosing Workflow", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "LAB METHODS - drug metabolism methodology"},
+    {"id": "d6c66b97-d38e-4355-9ac3-b340506057ee", "title": "Cannabis Approach-Bias Heavy Users Predicts Changes", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - addiction cue-reactivity not therapeutic"},
+    {"id": "d6deb6de-4cd5-46ad-b15e-f8fe8fcdd9e0", "title": "CBD Neuroprotective Hypoxic Ischemic Newborn Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neonatal neuroprotection"},
+    {"id": "d6f5de03-1943-4479-a326-cc2b6c2d5c93", "title": "CBD PTSD Systematic Review Portuguese", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PTSD therapeutic review"},
+    {"id": "d702a8cd-13c5-482e-a44a-60644baf03dc", "title": "α-Asaronol Seizures Dravet Zebrafish GABA", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - asaronol for epilepsy"},
+    {"id": "d7061406-c3f8-4cf1-8827-64a76d3c46b0", "title": "Antitumor Cannabinoid Chemotypes Structural Insights", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer drug development"},
+    {"id": "d70659be-72eb-4502-9db4-e3c85b1a736f", "title": "Developmental CBD Exposure Anxiety DNA Methylation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - developmental CBD adverse effects"},
+    {"id": "d70b9c07-97fa-4f5b-8064-07acfe22c315", "title": "Enantiomeric Cannabinoids Vas Deferens Myenteric Plexus", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor pharmacology"},
+    {"id": "d70f03ed-0fd7-45e1-a3b2-ea6763ce2268", "title": "Cannabis Use Type 2 Diabetes Swedish Longitudinal", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis/diabetes epidemiology"},
+    {"id": "d712f81c-2e21-432b-9433-abb83a74d54a", "title": "ADHD Symptoms Risky Sexual Behaviours University", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - ADHD behavior study"},
+    {"id": "d7237099-95fc-451b-83c4-3cc933f27de9", "title": "Pain Nomogram Endoscopic Resection Risk Factors", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - surgical pain factors"}
+  ],
+  "batch_summary": {
+    "correct": 10,
+    "incorrect": 10,
+    "incorrect_ids": [
+      "d64d5410-2e72-471e-b0c4-6a0a2e19cb38",
+      "d6515661-c781-43a8-9b6f-c3f259bd32c8",
+      "d6567399-9bf8-4f3d-ab86-f3059c324bab",
+      "d6b50d85-4c8b-4527-990c-ac51960976b0",
+      "d6c66b97-d38e-4355-9ac3-b340506057ee",
+      "d702a8cd-13c5-482e-a44a-60644baf03dc",
+      "d70659be-72eb-4502-9db4-e3c85b1a736f",
+      "d70f03ed-0fd7-45e1-a3b2-ea6763ce2268",
+      "d712f81c-2e21-432b-9433-abb83a74d54a",
+      "d7237099-95fc-451b-83c4-3cc933f27de9"
+    ]
+  }
+}

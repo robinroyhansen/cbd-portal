@@ -1,0 +1,37 @@
+{
+  "batch_number": 36,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T22:45:00.000Z",
+  "results": [
+    {"id": "29a38f03-5e53-4ea0-a50f-fb07acb0ab52", "title": "Cannabinoid receptor agonists in neuropathic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid for pain research"},
+    {"id": "29a4c38d-32e6-448c-b278-3cca362ba775", "title": "Cannabidiol and epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for epilepsy"},
+    {"id": "29b299eb-60f2-46ac-a860-6624e70dee5c", "title": "Cannabinoid and dopamine systems in schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuroscience review"},
+    {"id": "29c5f2de-3d94-436f-8345-9ba5cd5bfce2", "title": "Cannabis Use Influences on Offspring Alcohol Involvement", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis as RISK FACTOR for AUD - not therapeutic use"},
+    {"id": "29f859dd-d845-4331-b1ff-ccc8d0717b54", "title": "Psychopharmacological drug effects on social stress", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism research"},
+    {"id": "29fd3a1e-8361-45da-bea9-a12199670d3a", "title": "5'-Azido-delta8-THC photoaffinity label", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "LAB CHEMISTRY/METHODS - not therapeutic research"},
+    {"id": "2a0ac961-ae43-4467-af4f-0d1498348efa", "title": "Peer Review #3 of CBD brain uptake paper", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PEER REVIEW document - not actual study"},
+    {"id": "2a37b319-79e4-4a1f-9282-c9d7f5422554", "title": "Pharmacokinetic Oral Fluid Profile of CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics research"},
+    {"id": "2a4409d2-3601-4e03-91b4-ff5a5a8a23e6", "title": "Cannabinoid agonist HU 210 influence on cocaine effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid addiction mechanism"},
+    {"id": "2a49318d-5b1e-46fe-89b9-1cba825eec46", "title": "Cannabidiol (Epidiolex) CADTH recommendation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD regulatory for epilepsy"},
+    {"id": "2a4b28f8-3bca-43d0-b8d4-5543a0aac85c", "title": "CBD modulation of KV7 channels anticonvulsant", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism"},
+    {"id": "2a7563d8-038e-4dd8-8adb-7124f9409a52", "title": "Cannabinoid Analgesia for Chronic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain review"},
+    {"id": "2a7c44da-d595-47bf-86b6-2762843915e8", "title": "Cannabinoid Drug Interactions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology"},
+    {"id": "2aaf723e-0d34-4231-bcd0-058c13d7b746", "title": "Parkinson's disease management guidelines", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "May include cannabis recommendations"},
+    {"id": "2ab62da2-6ed1-4b0b-a2da-ab808026568e", "title": "Is CBD the Cure-all Remedy?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD overview review"},
+    {"id": "2abd431c-b260-4628-a8b4-8963c1b162c9", "title": "β-Caryophyllene in Liver Diseases", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 agonist for liver disease"},
+    {"id": "2acca71f-d36a-40d7-bd01-f7dc02c02bc0", "title": "Delta-8-THC psychiatric admissions case reports", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid safety case report"},
+    {"id": "2adf1969-4ab6-4f2a-a328-74ab86968011", "title": "Medical Cannabis in Chronic Musculoskeletal Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for pain research"},
+    {"id": "2af01ed5-c8ce-42c8-a9d7-05ac42d0ba0b", "title": "Pelican CBD Gummies (NEW 2022!) Does It Work Or Just Scam?", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM/ADVERTISING - product marketing"},
+    {"id": "2af6fcd5-7d16-4adb-9c93-8d46fe52bac6", "title": "Cannabis THC Cardiovascular Hemodynamics Trial Protocol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cardiovascular research"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "29c5f2de-3d94-436f-8345-9ba5cd5bfce2",
+      "29fd3a1e-8361-45da-bea9-a12199670d3a",
+      "2a0ac961-ae43-4467-af4f-0d1498348efa",
+      "2af01ed5-c8ce-42c8-a9d7-05ac42d0ba0b"
+    ]
+  }
+}

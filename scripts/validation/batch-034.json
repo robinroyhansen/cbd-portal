@@ -1,0 +1,38 @@
+{
+  "batch_number": 34,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T22:15:00.000Z",
+  "results": [
+    {"id": "274ec8ac-1be7-4a71-b57d-dd2813a44e63", "title": "Pre-illness cannabis use and early course of nonaffective psychotic disorders", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE patterns and psychosis risk - not therapeutic"},
+    {"id": "27531a0a-628e-42d4-a715-3fd87e925edf", "title": "CBD Therapeutic Potential for Temporomandibular Disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for TMJ/orofacial pain review"},
+    {"id": "275df8a4-c35b-47ab-b762-2d34219b9f4a", "title": "CBD systematic review for pediatric drug-resistant epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for pediatric epilepsy review"},
+    {"id": "2767b8dd-4e71-4a18-ad7b-38fec51cfb1d", "title": "The Endocannabinoid System in Human Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS therapeutic mechanism review"},
+    {"id": "276d2986-1635-4f0d-be08-daddb25a1e9d", "title": "CBD for Parkinson's disease - RCT at Buriram Hospital", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for Parkinson's clinical trial"},
+    {"id": "27dcd740-e8e3-40dc-9255-e62a68e2e6e8", "title": "CBD effect on brain activity in adults with ASD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for autism fMRI research"},
+    {"id": "27e278b7-6269-4e93-b3b2-a44122098c56", "title": "CBD side effects and non-conformity European market", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety/regulation research"},
+    {"id": "27ef1c15-aec3-4dcc-ba76-a439d5c78db4", "title": "Optimization of CBD extraction from industrial hemp", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Extraction/lab methods focus - not therapeutic research"},
+    {"id": "27f02f1d-fb31-4032-ba90-9ee10a59b7c7", "title": "Chemical analysis of CBD for epilepsy patients in Chile", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD quality for therapeutic use"},
+    {"id": "281f29d5-cb41-4146-8c99-d71beda12176", "title": "THC modulation of CBD efficacy in songbird vocal recovery", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD+THC pharmacology for neural recovery"},
+    {"id": "28205c8a-df9e-4dfc-8659-259f78aec0e8", "title": "CBDA and CBGA as AChE Inhibitors for Alzheimer's", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid acids for Alzheimer's"},
+    {"id": "2820da81-a98d-4740-abcf-f8a299d31491", "title": "LGS incidence after FDA approval of CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD (Epidiolex) regulatory impact"},
+    {"id": "2821e71f-fe44-48bd-9801-77a694ad2821", "title": "Cannabis Use Disorder Remission", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE DISORDER treatment - not therapeutic cannabinoid"},
+    {"id": "2821eaeb-66b4-4bc1-b731-911a22d0410d", "title": "Parental reporting cannabis extracts for refractory epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for epilepsy patient response"},
+    {"id": "2830f916-ab85-47b5-96a0-078ef8e32ef3", "title": "Heartfulness Meditation and Endocannabinoid System in CVS", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - meditation/endogenous ECS study"},
+    {"id": "283e3268-5ec7-41b8-8d37-719be2fe7a33", "title": "Evidence-based Treatment Options in Cannabis Dependency", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis DEPENDENCY treatment - not therapeutic cannabinoid use"},
+    {"id": "2849ddd0-70b0-433c-bdad-62a4b358b95e", "title": "Cannabis-Based Products for Chronic Pain: Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for chronic pain review"},
+    {"id": "284be4e8-76e5-4041-8057-89c916dc95ba", "title": "CBD regulates CB1-pSTAT3 for neurite outgrowth in AD models", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD mechanism for Alzheimer's"},
+    {"id": "28600688-a55e-45da-b029-e1af2c6098d1", "title": "Enhanced oral bioavailability of CBD by zein nanoparticles", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery research"},
+    {"id": "288478e9-cd9e-4de7-ab34-48a5781290c3", "title": "Cannabis and cannabinoids: pharmacology and therapeutic potential", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology review"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "274ec8ac-1be7-4a71-b57d-dd2813a44e63",
+      "27ef1c15-aec3-4dcc-ba76-a439d5c78db4",
+      "2821e71f-fe44-48bd-9801-77a694ad2821",
+      "2830f916-ab85-47b5-96a0-078ef8e32ef3",
+      "283e3268-5ec7-41b8-8d37-719be2fe7a33"
+    ]
+  }
+}

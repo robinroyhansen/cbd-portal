@@ -1,0 +1,43 @@
+{
+  "batch_number": 406,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T19:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "c19c5777-c1ef-4202-855f-880b17e81804", "title": "Cannabis and adolescents: Exploring the substance misuse treatment provider experience in a climate of legalization", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "c1b19d9c-d625-4354-ab4e-d1c8145fbaf6", "title": "CANNABIS USE INCREASES RISK FOR REVISION AFTER TOTAL KNEE ARTHROPLASTY", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm on surgery correctly rejected"},
+    {"id": "c1b5e2a5-6496-4375-b551-0253fdb7b2e2", "title": "Modulation of type 1 cannabinoid receptor activity by cannabinoid by-products from Cannabis sativa and non-cannabis phytomolecules", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor entourage effect research"},
+    {"id": "c1c42435-5eab-4ed3-91ba-9ae1320eb9d4", "title": "Cannabis Use During the COVID-19 Pandemic in Canada: A Repeated Cross-sectional Study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "c1d6379c-172d-4b43-9129-cd0e770f7d21", "title": "Mechanisms of cannabis impairment: Implications for modeling driving performance", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "c1ddf914-0b84-466b-a72c-14db50951b38", "title": "Cannabinoid compounds in South African Cannabis sativa L", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemotype analysis correctly rejected"},
+    {"id": "c2049ff2-1a40-475e-a087-06e4a67ac45d", "title": "Analysis of cannabinoids and semi-synthetic cannabinoids in authentic breastmilk samples by liquid chromatography-tandem mass spectrometry", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "c218b927-d958-413d-8f31-89da4aa143f3", "title": "The Routledge Handbook of Post-Prohibition Cannabis Research", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Handbook correctly rejected"},
+    {"id": "c21aae39-7981-4e5c-a1f1-09e1ddbd5ca9", "title": "Identification of Essential Cannabinoid-binding Domains", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor binding domain research"},
+    {"id": "c26efee6-120f-44ea-9069-c39c8439ac32", "title": "Requirement of cannabinoid CB1 receptors in cortical pyramidal neurons for appropriate development of corticothalamic and thalamocortical projections", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 brain development research"},
+    {"id": "c275eed3-2518-4913-9c7d-0d06fea74d67", "title": "Toxic Tetrahydrocannabinol (THC) Dose in Pediatric Cannabis Edible Ingestions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Pediatric toxicity correctly rejected"},
+    {"id": "c28a6e91-0be8-4fb4-8ac4-ebc8e37dd049", "title": "CNS Cannabinoid Receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor research"},
+    {"id": "c29eb856-32de-47b3-ad99-bc0c4f7f28d3", "title": "Influence of Agronomic Practices on the Bioactive Compound Production in Cannabis sativa L.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "c2af4bf0-08f9-4b5d-b65f-ec299c8d8f55", "title": "Variation in commercial smoking mixtures containing third‐generation synthetic cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid analysis correctly rejected"},
+    {"id": "c2d25498-9d3b-4b8f-a859-9f4c560f0446", "title": "Zur Identifikation potentieller Metabolite von Cannabis‐Inhaltstoffen", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabinoid metabolite methods correctly rejected"},
+    {"id": "c2ec5968-1060-4bb3-9e60-690fb053ad98", "title": "Cannabinoid CB1 receptors in distinct circuits of the extended amygdala determine fear responsiveness to unpredictable threat", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 anxiety/fear mechanism"},
+    {"id": "c2eff15e-5b7a-431f-b132-d2ec6e27f6de", "title": "Cannabinoid series: developing a synthetic CBD tablet", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD formulation development"},
+    {"id": "c2f74c13-6ba4-426e-a4ab-685d002f9053", "title": "Protocol for EpiCom: A phase 3b/4 study of behavioral outcomes following adjunctive cannabidiol for the management of tuberous sclerosis complex-associated neuropsychiatric disorders (TAND)", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD clinical trial for TSC"},
+    {"id": "c2fb2529-6bd1-4fd6-a40d-6b15cc595b5d", "title": "Exploring the Lesser-Known Bioactive Natural Products of Plant Species of the Genus Cannabis L.: Alkaloids, Phenolic Compounds, and Their Therapeutic Potential", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis therapeutic compounds review"},
+    {"id": "c30923bb-03c4-419f-8b29-d3d2f588a4eb", "title": "Graphene oxide and cannabidiol-based hybrid coatings on PMMA for biomedical applications", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD biomedical materials"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "c1b5e2a5-6496-4375-b551-0253fdb7b2e2",
+      "c21aae39-7981-4e5c-a1f1-09e1ddbd5ca9",
+      "c26efee6-120f-44ea-9069-c39c8439ac32",
+      "c28a6e91-0be8-4fb4-8ac4-ebc8e37dd049",
+      "c2ec5968-1060-4bb3-9e60-690fb053ad98",
+      "c2eff15e-5b7a-431f-b132-d2ec6e27f6de",
+      "c2f74c13-6ba4-426e-a4ab-685d002f9053",
+      "c2fb2529-6bd1-4fd6-a40d-6b15cc595b5d",
+      "c30923bb-03c4-419f-8b29-d3d2f588a4eb"
+    ]
+  }
+}

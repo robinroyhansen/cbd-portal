@@ -1,0 +1,39 @@
+{
+  "batch_number": 277,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T11:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "31b136d2-568d-4fae-8a67-c03166800461", "title": "Fibroblast‐derived neuropilin 1 alleviates renal fibrosis progression", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "31baf743-5b9f-4393-af11-f2fcdd79a44b", "title": "Effects of a Supplement Containing Cannabidiol (CBD) on Sedation and Ataxia Scores and Health", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD health effects study"},
+    {"id": "31bbc38f-f865-4ddf-a9f9-f5511d82469a", "title": "Effects of lipophilicity and functional groups of synthetic cannabinoids on their blood concentrations and urinary excretion", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid forensic correctly rejected"},
+    {"id": "31cdff5a-3b2e-4ba0-9dd3-0681f84c0c93", "title": "Pharmacokinetics of cannabidiol and its metabolites in rhesus monkeys and New Zealand White rabbits.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmacokinetics"},
+    {"id": "31ce05df-88cb-431e-83c9-472b36cb3814", "title": "Cannabinoids and Symptomatic Bradycardia", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabinoid adverse effect correctly rejected"},
+    {"id": "31e0dde3-2a34-40bb-aaa3-c00b553df564", "title": "CBD COP 12 and NP COP/MOP 1 Highlights: Tuesday, 14 October 2014", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "31f45aa6-1067-46a7-b995-09fad3fdef34", "title": "Cannabidiol Limits T Cell-Mediated Chronic Autoimmune Myocarditis: Implications to Autoimmune Disorders and Organ Transplantation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD autoimmune therapeutic"},
+    {"id": "32092584-e070-48bf-9953-23823d895be0", "title": "A Fatal Case of Coronary Thrombosis in a Young Male Triggered by Marijuana Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "320ad5f0-0076-482c-8b53-fa81e3c85e51", "title": "Parent Perspectives on Youth Cannabis Use and Mental Health: Impacts, Challenges, and Recommendations.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm perspectives correctly rejected"},
+    {"id": "3217915c-8742-46dc-b542-af6b5e3ed848", "title": "Comparison of State-Level Regulations for Cannabis Contaminants and Implications for Public Health", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/regulatory correctly rejected"},
+    {"id": "321899cb-08af-43e4-a998-a380a9b76ce8", "title": "Process Development for GMP-Grade Full Extract Cannabis Oil: Towards Standardized Medicinal Use.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Manufacturing process correctly rejected"},
+    {"id": "321f2751-16e5-4d22-a65c-bbced45eaf75", "title": "Cannabidiol revisited", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry/crystallography correctly rejected"},
+    {"id": "3230dcbe-c430-4e62-b9df-d767e78c7eb2", "title": "Cannabis social clubs in Belgium: Organizational strengths and weaknesses, and threats to the model", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "32536a69-af0c-4b81-82bf-613efcbdb2ea", "title": "Perceptions of cannabis among adults aged 60 years and older in Canada: a qualitative study.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Perceptions study correctly rejected"},
+    {"id": "3255020b-cbf5-4e32-8f4f-263979be6008", "title": "Characterisation of inverse agonism of the orphan-G protein-coupled receptor GPR52 by cannabinoid ligands Cannabidiol and O-1918", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD GPR52 receptor mechanism"},
+    {"id": "32590611-ba66-4d31-ab5b-335e564dcd57", "title": "Measuring the diversity gap of cannabis clinical trial participants compared to people who report using cannabis.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Clinical trial methodology correctly rejected"},
+    {"id": "328885cb-5d58-48a2-834f-f068a1132066", "title": "Erratum: Effects of acute cannabidiol on behavior and the endocannabinoid system in HIV-1 Tat transgenic female and male mice", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Erratum correctly rejected"},
+    {"id": "32a54ebd-9a02-43f0-8139-7060a556b2ec", "title": "Microencapsulation techniques for developing cannabidiol formulations: a review.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery formulation"},
+    {"id": "32a7a9b0-0de1-4ef5-9692-187e06755323", "title": "Use of Water Quality Index and Pesticides-Related Human Health Risk Assessment for Evaluating the Surface Water Sustainability Status of the Kakia-Esamburmbur Agricultural Watershed, Narok County, Kenya.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "32ab331f-5037-4e6e-9cd1-c8493abe6a53", "title": "Classifying Cannabis sativa chemovars using K-means analysis of elemental composition", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant chemistry correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "31baf743-5b9f-4393-af11-f2fcdd79a44b",
+      "31cdff5a-3b2e-4ba0-9dd3-0681f84c0c93",
+      "31f45aa6-1067-46a7-b995-09fad3fdef34",
+      "3255020b-cbf5-4e32-8f4f-263979be6008",
+      "32a54ebd-9a02-43f0-8139-7060a556b2ec"
+    ]
+  }
+}

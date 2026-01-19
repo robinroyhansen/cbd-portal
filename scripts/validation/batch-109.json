@@ -1,0 +1,43 @@
+{
+  "batch_number": 109,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T17:00:00.000Z",
+  "results": [
+    {"id": "7a2c0cd6-4045-42a3-a542-3a0eccd36c72", "title": "Mental health suicide OUD adults", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - OUD mental health"},
+    {"id": "7a2c2ceb-fec7-4243-a181-43893552620d", "title": "Hemp CBD CBDA Capsule Absorption PK", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics"},
+    {"id": "7a3306b4-3919-4f25-99a4-38c6c33806ef", "title": "Cannabinoids Neuroprotection Cerebral Ischemia stroke", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid stroke neuroprotection"},
+    {"id": "7a33bc64-fac9-4efe-92f7-5fb52b55fa26", "title": "Adolescent cannabis use addiction vulnerability trajectory", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - addiction vulnerability"},
+    {"id": "7a5b632f-6d81-40e7-827e-79cdf957256a", "title": "Cannabinoid profiling toxicology samples depression", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "FORENSIC - toxicology profiling"},
+    {"id": "7a670ac8-f69c-4e92-83e8-aa434b2d93bd", "title": "CBD Treatment Psychosis review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychosis therapeutic"},
+    {"id": "7a675f97-794d-43a9-8710-5711cba28ef6", "title": "CdS thin films CBD photodetector nanostructured", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Chemical Bath Deposition semiconductor"},
+    {"id": "7a6a301f-af27-4a99-a310-cef7ed41f624", "title": "Liberty CBD Gummies Shark Tank Review spam", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING"},
+    {"id": "7a71c3be-3fac-438d-86f1-97baa2eeb773", "title": "CBD Epilepsy Pharmacological Mechanisms Neuroprotective", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism review"},
+    {"id": "7a8e223a-f1b9-4645-8824-e709d166e558", "title": "Lenabasum CB2 Dermatomyositis Skin RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 agonist therapeutic RCT"},
+    {"id": "7a93ecef-fa9e-4f59-9eae-fcd25d8d2584", "title": "CBD pharmacokinetics toxicological in silico environmental", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety computational"},
+    {"id": "7a94fbf8-313b-413d-bd2e-e7d129006313", "title": "Cyclic vomiting syndrome cannabinoid use association", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - CVS/CHS association"},
+    {"id": "7a992842-44e4-4be8-b782-9f189de7036a", "title": "Oxytocin Vasopressin CBD Therapeutic Biomarkers", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD mechanism biomarkers"},
+    {"id": "7ab180f7-f938-4f19-a062-d8d5166bcd9d", "title": "Atypical Parkinsonian Syndromes Imaging Molecular", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - PD imaging"},
+    {"id": "7ab4a2fe-6520-4873-a691-7f7285344de2", "title": "Cannabis Terpenes Antinociceptive Pain Fibromyalgia adenosine", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis terpenes pain mechanism"},
+    {"id": "7ac64077-de75-4d9d-aa5d-aae5e9d23790", "title": "CBD Deep-Learning Encrypted Traffic Classification", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - machine learning algorithm acronym"},
+    {"id": "7ac83b7b-223d-4d02-9368-2423ce49973c", "title": "Prenatal Cannabis Use Stigma Physician Communication", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - pregnancy use patterns stigma"},
+    {"id": "7ace2aff-c7a0-43e0-8f7a-220700c980b1", "title": "CBD-rich marijuana driving ability impact", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety driving"},
+    {"id": "7ad76ab6-5b35-4d01-a186-131affd39099", "title": "CBD Pharmacokinetics Dogs Oil Treat single dose", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dogs"},
+    {"id": "7af7cfd6-5f6d-48a3-bdd7-bf61f57d0a8c", "title": "CBD nanodispersible pharmacokinetics fasting fed healthy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics"}
+  ],
+  "batch_summary": {
+    "correct": 10,
+    "incorrect": 10,
+    "incorrect_ids": [
+      "7a2c0cd6-4045-42a3-a542-3a0eccd36c72",
+      "7a33bc64-fac9-4efe-92f7-5fb52b55fa26",
+      "7a5b632f-6d81-40e7-827e-79cdf957256a",
+      "7a675f97-794d-43a9-8710-5711cba28ef6",
+      "7a6a301f-af27-4a99-a310-cef7ed41f624",
+      "7a94fbf8-313b-413d-bd2e-e7d129006313",
+      "7ab180f7-f938-4f19-a062-d8d5166bcd9d",
+      "7ac64077-de75-4d9d-aa5d-aae5e9d23790",
+      "7ac83b7b-223d-4d02-9368-2423ce49973c",
+      "7ad76ab6-5b35-4d01-a186-131affd39099"
+    ]
+  }
+}

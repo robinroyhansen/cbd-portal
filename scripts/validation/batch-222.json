@@ -1,0 +1,36 @@
+{
+  "batch_number": 222,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T21:30:00.000Z",
+  "results": [
+    {"id": "f5fd4f6e-a707-4e78-bf44-bdad02a7654b", "title": "Synthetic Cannabinoid Quinones Prostate", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"},
+    {"id": "f60bc0a3-3c09-4dd1-a8b2-6bea7b3747d7", "title": "CBD CD47 Leukemia Apoptosis VDAC", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic mechanism"},
+    {"id": "f6179a45-77b3-43fe-a365-b1fc0aa20a0f", "title": "CB1 Antagonist Heroin-Seeking NAc PFC", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid addiction therapeutic mechanism"},
+    {"id": "f62aafdc-084d-4420-895d-069ffe7ee644", "title": "Neurobiologia Cannabis CUD Portuguese", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - CUD neurobiology"},
+    {"id": "f64bf6f5-a24d-4d2e-8094-63376613ca2d", "title": "CNR1 Gene Antidepressant Response", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor depression therapeutic"},
+    {"id": "f64eae42-2ad2-4318-8038-52526eda5e12", "title": "Endogenous Cannabinoids Pain Modulation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid pain mechanism"},
+    {"id": "f651be5a-d9b8-43e0-abf9-66d1a512b8b0", "title": "CBD Epidiolex Dental Pain Emergency", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD dental pain therapeutic"},
+    {"id": "f658b718-9d8f-4e70-a3e5-26631db61a5d", "title": "CUD Neurocircuitry fMRI Addiction", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - CUD brain connectivity"},
+    {"id": "f660482d-39de-49d5-b876-5069c094698e", "title": "THC Celecoxib Alzheimer's Strategy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC Alzheimer's therapeutic"},
+    {"id": "f6716738-6885-445f-b504-7c6d36d6ddcb", "title": "CBD Renoprotective LPS Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD kidney therapeutic"},
+    {"id": "f67fb9aa-187a-4168-8c6e-bb908f5ea5a0", "title": "CBD Aqueous Humor Glaucoma IOP", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD glaucoma therapeutic"},
+    {"id": "f691dff4-43f3-433e-b63d-494296c921ff", "title": "Cannabis Immune Modulation JAMA", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis immunomodulation"},
+    {"id": "f69a2391-ded1-44e8-bc51-85bb9e47e14a", "title": "CBD Analgesic Component Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic"},
+    {"id": "f6b8eb7f-15f7-4719-a283-e3d5e6fd0ece", "title": "CB1 Antagonist Obesity Diaryl-pyrazole", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 antagonist metabolic therapeutic"},
+    {"id": "f6d0b15e-fe18-46b5-8d64-d9305cf05a89", "title": "CBD TSC Seizures RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD TSC epilepsy therapeutic RCT"},
+    {"id": "f6ddbbb4-a27a-4ac5-9e72-6400b8383ec0", "title": "TASK-1 Channels Cannabinoid Agonists", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism research"},
+    {"id": "f6e49aac-f6f7-4fa5-9dd4-725b9bc39f39", "title": "Cannabinoids Anxiety Sleep Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anxiety/sleep therapeutic"},
+    {"id": "f70112ce-37f2-4d2a-86f5-e292c2340204", "title": "CUD GWAS Multi-ancestry", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - CUD genetics"},
+    {"id": "f706f031-8968-4e0b-a27c-075eccf6642d", "title": "CB1 Cholesterol CRAC Sequence", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor mechanism"},
+    {"id": "f7235cdb-4ac3-4ea4-99f0-4a294ee290fc", "title": "Endocannabinoids Maternal Depression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid depression mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "f62aafdc-084d-4420-895d-069ffe7ee644",
+      "f658b718-9d8f-4e70-a3e5-26631db61a5d",
+      "f70112ce-37f2-4d2a-86f5-e292c2340204"
+    ]
+  }
+}

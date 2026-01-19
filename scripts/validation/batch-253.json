@@ -1,0 +1,39 @@
+{
+  "batch_number": 253,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T05:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "17220de4-92f9-47dd-9772-7bd645f09dd4", "title": "Cannabinoid Neuroimmune Modulation of SIV Disease", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid immune modulation research"},
+    {"id": "17278c6d-ab59-4e1b-a55a-1d816384bd11", "title": "Monoaminergic neurotransmission contributes to cannabinoid-induced activation of HPA axis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism research"},
+    {"id": "173aaf76-59f8-416d-a309-6457ad88d052", "title": "Hair concentrations of THC and CBD in cannabis consumers psychiatric patients", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/diagnostic testing correctly rejected"},
+    {"id": "173f1d8b-566d-4e7a-a19a-de06746f7f9a", "title": "5 Hemp CBD Research Areas for Further Supplement Growth", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industry/market article correctly rejected"},
+    {"id": "174108b6-589e-4f7b-8932-d8d25b7edec2", "title": "Enzymatic synthesis of anandamide, an endogenous ligand for the cannabinoid receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS mechanism research"},
+    {"id": "175c2c6b-bb59-48e8-8571-df241ce6b87a", "title": "1033 CBD modulates human monocyte derived dendritic cell functions", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD immune modulation"},
+    {"id": "175c90e0-daf5-4d28-9a3b-e415881bf092", "title": "Cannabis And Cannabidiol Use In Active Individuals: A Survey", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns survey correctly rejected"},
+    {"id": "1762cfe3-c3d6-4140-9046-36e367c3b212", "title": "Driving under the Influence of Cannabis: The Problem and Potential Countermeasures", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Driving/policy correctly rejected"},
+    {"id": "17645872-78d0-4949-bbd7-ef45383b98e7", "title": "Characterization of the acute endocrine actions of HU-210, a potent synthetic cannabinoid", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid effects correctly rejected"},
+    {"id": "176b43b1-5592-406f-9cfa-3e66992894b7", "title": "Cannabinoids and Memory; Animal Studies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis memory impairment correctly rejected"},
+    {"id": "177e16fb-bbc3-4621-84fe-3372daa6e2c7", "title": "Spatial Distribution of PM10 and NO2 in Cape Town CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "177efdb2-13b6-4498-b1ae-19d8144c407a", "title": "Cannabidiol Perceptions and Use in the Orthopaedic Patient Population", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use perceptions correctly rejected"},
+    {"id": "1783d948-8077-41ab-a8cc-c052296de4d8", "title": "Predictors of novel psychoactive substance use among Australian adolescents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "17989a47-a4dc-46f7-a39e-b46d540178d2", "title": "Cannabis and Cannabinoids in Reproduction and Fertility", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Fertility effects/harm correctly rejected"},
+    {"id": "17aa7c48-e5c2-4be8-ba80-69e4b4817c0a", "title": "Cannabidiol lymphatic transport after oral administration in pig model", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmacokinetics research"},
+    {"id": "17bd4dcb-44af-4745-bbfc-34138010241b", "title": "Thickness modulated opto-electronic properties of SnSe thin films prepared by CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "17d09a65-4d49-4858-8cd5-07e017cc12e5", "title": "Medical cannabis in Israel: a comprehensive review of trends and regulations", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Regulatory review correctly rejected"},
+    {"id": "17d102af-d49e-4e60-8c58-b2496e447df0", "title": "Innovative methods for preparation of medical Cannabis oils", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"},
+    {"id": "17e94925-1d3a-4fed-b16f-a04e1eb7d1ca", "title": "Transcriptomic analysis of ethephon-induced sex reversion of male Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "17eb8132-d2e9-4131-917a-74a54688b1bf", "title": "The genetics of cannabis lifetime use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Genetics of use/addiction correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "17220de4-92f9-47dd-9772-7bd645f09dd4",
+      "17278c6d-ab59-4e1b-a55a-1d816384bd11",
+      "174108b6-589e-4f7b-8932-d8d25b7edec2",
+      "175c2c6b-bb59-48e8-8571-df241ce6b87a",
+      "17aa7c48-e5c2-4be8-ba80-69e4b4817c0a"
+    ]
+  }
+}

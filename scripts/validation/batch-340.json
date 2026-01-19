@@ -1,0 +1,41 @@
+{
+  "batch_number": 340,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T03:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "77eb504c-5394-47d0-9511-9b399f33eea0", "title": "Comparison of selected metals in hemp cigarette brands vs tobacco cigarettes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product testing correctly rejected"},
+    {"id": "77f3ac4d-946b-4632-aedf-48361fe67415", "title": "Cannabinoids and bone: endocannabinoids modulate human osteoclast function in vitro", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid bone therapeutic mechanism"},
+    {"id": "77f84860-9697-4494-8d89-42b6ad978548", "title": "A multi-site proof-of-concept investigation of computerized approach-avoidance training in adolescent cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "780d2894-e48a-42a0-89f2-971d082482b5", "title": "In Vivo and In Vitro Models of Hepatic Fibrosis for Pharmacodynamic Evaluation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "7824f8fc-afa3-4e18-86af-204386f21d9e", "title": "An Application of Intelligent Distribution Network in Qianjiang Century CBD Hangzhou", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "782bd45f-0bb8-408b-ba66-506351f2a03d", "title": "Uncovering the molecular targets of phytocannabinoids: mechanistic insights from inverse molecular docking fingerprint approaches", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - phytocannabinoid mechanism research"},
+    {"id": "783eff86-d60b-442d-ab45-c31a085eefd8", "title": "Cannabidiol-Associated Hepatotoxicity: A Systematic Review and Meta-Analysis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research"},
+    {"id": "785c2f87-6462-4230-8ea9-81043b2a2311", "title": "Characteristics of cannabinoids composition of Cannabis plants grown in Northern Thailand forensic application", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "785ca449-0682-4e71-a35d-2c1656d5dbc2", "title": "Vaporized D-limonene selectively mitigates the acute anxiogenic effects of Δ9-tetrahydrocannabinol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - therapeutic terpene-THC interaction"},
+    {"id": "7863e86f-2e97-403b-b4b0-063b1c87faf4", "title": "Effect of CBD on glial cell hyperactivation in septic mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD sepsis/inflammation mechanism"},
+    {"id": "786f1ee6-c9cd-497e-b5cd-03ac4538783a", "title": "Prediction of Orthosteric and Allosteric Regulations on Cannabinoid Receptors Using Supervised Machine Learning Classifiers", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor drug discovery tool"},
+    {"id": "78714318-3094-4dae-8bb7-7becdad11d31", "title": "Spicing things up: synthetic cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm correctly rejected"},
+    {"id": "7875e7da-cbde-4027-a9f1-90a506dbcde8", "title": "Adverse Childhood Experiences, Discrimination, Nativity, and Associations with Cannabis Use Among Black Young Adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "78acb8af-7a6f-4ead-af78-af9d8a4ac1b5", "title": "Assessment and management of cannabis use disorders in primary care", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD correctly rejected"},
+    {"id": "78c51a95-1653-450d-b0a6-71b58f9da47c", "title": "Brief Discussion on the Utilization and Reformation of CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "78db3b84-a794-48ca-a10b-f1e037f9fc85", "title": "Advertising Among Cannabidiol (CBD) Retailers in North Carolina", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Marketing correctly rejected"},
+    {"id": "79011b35-1164-4b02-8b71-d2884bfd7552", "title": "The Plant of ManyScents: Unraveling the Odorant Composition of Selected CBD Hemp Cultivars", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "7927d7d8-d142-45b6-af9d-d9e35d779efc", "title": "Pickering emulsions as an innovative approach for the oral administration of cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery formulation"},
+    {"id": "79433b5c-b80c-4706-807f-eb87db87a11b", "title": "Effect of cannabis use on oral candidal carriage", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "795c6992-20d8-4e1c-80aa-f955cdbf96d5", "title": "Free Radicals in Cannabis Smoke", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "77f3ac4d-946b-4632-aedf-48361fe67415",
+      "782bd45f-0bb8-408b-ba66-506351f2a03d",
+      "783eff86-d60b-442d-ab45-c31a085eefd8",
+      "785ca449-0682-4e71-a35d-2c1656d5dbc2",
+      "7863e86f-2e97-403b-b4b0-063b1c87faf4",
+      "786f1ee6-c9cd-497e-b5cd-03ac4538783a",
+      "7927d7d8-d142-45b6-af9d-d9e35d779efc"
+    ]
+  }
+}

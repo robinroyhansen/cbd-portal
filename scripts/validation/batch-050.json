@@ -1,0 +1,41 @@
+{
+  "batch_number": 50,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T02:15:00.000Z",
+  "results": [
+    {"id": "389b23b6-b30f-4d00-ac16-45caef1dd791", "title": "Topical Acetaminophen for Itch Relief", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID intervention - acetaminophen study"},
+    {"id": "38a4f452-7900-43e2-960c-37c65cfab755", "title": "Antiviral activities of hemp cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid antiviral research"},
+    {"id": "38be327e-2e83-4b68-9724-c3875f92ed32", "title": "Cannabidiol attenuates hypersensitivity and oxidative stress after traumatic spinal cord injury", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD spinal cord injury therapeutic"},
+    {"id": "38c069c4-f29a-4723-9b7c-0249f1976e83", "title": "The addictive potential of cannabis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - addiction/dependence potential"},
+    {"id": "38d3f2a4-6774-4b16-b633-94007a805625", "title": "Vaping and Smoking in Pregnancy-A Meta-Analysis of Neurobehavioural Development", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - vaping/smoking pregnancy study"},
+    {"id": "38e0eebe-e0a4-4084-bb08-4975326300d0", "title": "Results From an Italian Expanded Access Program on Cannabidiol Treatment in Dravet and Lennox-Gastaut Syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy clinical program"},
+    {"id": "38fc0124-7660-4e45-99f1-2ce6508d0a73", "title": "Neighbourhood matters: Perceptions of neighbourhood cohesiveness and associations with cannabis use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Prevalence study - cannabis use patterns"},
+    {"id": "390a564e-83ef-45f5-a0d2-0e1e9f37e0e4", "title": "Investigation of cannabidiol in the treatment of tardive dyskinesia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD tardive dyskinesia therapeutic"},
+    {"id": "392ac3c2-2a08-4387-995c-9fa6d1c95e88", "title": "Cannabinoid-1 receptor inverse agonists: current understanding of mechanism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 mechanism research"},
+    {"id": "39378013-11f1-430a-a2a1-c82d5a8f5be3", "title": "Augmentation of endogenous cannabinoid tone modulates cytokine levels", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid immune mechanism"},
+    {"id": "393870a5-a4d3-44e0-b6f2-3e330e213fe7", "title": "Are early-onset cannabis smokers at an increased risk of depression spells?", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - cannabis causes depression risk"},
+    {"id": "396399c1-0542-4d02-add2-f89cf97f4543", "title": "Psychosis and Cannabis Abuse in the Gambia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - cannabis as psychosis risk factor"},
+    {"id": "396e853d-30e1-4b89-936c-655d653820e0", "title": "Correction: The Global Epidemiology of Cannabis Use and Dependence to the Global Burden of Disease", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Editorial content - correction to CUD burden study"},
+    {"id": "3981b2fc-6add-419b-a5ce-288f01e33fc0", "title": "Cannabidiol (CBD) in the Self-Treatment of Depression-Exploratory Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression therapeutic research"},
+    {"id": "398b9df8-7eb5-4099-8b8a-61bff44fdc25", "title": "Pharmacokinetics of cannabidiol in children with refractory epileptic encephalopathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy pharmacokinetics"},
+    {"id": "39a8e433-2386-4390-b824-4f0cf736c4b8", "title": "The potential of cannabinoids in respiratory diseases", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid respiratory therapeutic review"},
+    {"id": "39ab4381-d2cf-4115-a5ef-46ad9fbb27bf", "title": "The short-term safety and efficacy of fluoxetine in depressed adolescents with cannabis use disorders", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID intervention - fluoxetine for CUD patients"},
+    {"id": "39bda76d-b6c0-4e6e-9d95-2a64a0b701b4", "title": "Efficacy of non-psychotropic Cannabis sativa L. extracts in intestinal inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis intestinal inflammation therapeutic"},
+    {"id": "39ea9661-2a9f-4d13-898a-7b7499c77de0", "title": "Enhancing Prolonged Exposure With Cannabidiol to Treat PTSD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PTSD therapeutic"},
+    {"id": "39f456e6-2ff3-44b9-8698-607a35284491", "title": "Targeting bladder cancer: Potent anti-cancer effects of cannabichromene and THC", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anticancer research"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "389b23b6-b30f-4d00-ac16-45caef1dd791",
+      "38c069c4-f29a-4723-9b7c-0249f1976e83",
+      "38d3f2a4-6774-4b16-b633-94007a805625",
+      "38fc0124-7660-4e45-99f1-2ce6508d0a73",
+      "393870a5-a4d3-44e0-b6f2-3e330e213fe7",
+      "396399c1-0542-4d02-add2-f89cf97f4543",
+      "396e853d-30e1-4b89-936c-655d653820e0",
+      "39ab4381-d2cf-4115-a5ef-46ad9fbb27bf"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "batch_number": 437,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T03:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "e31f5859-7c2f-4f90-8f94-89b43a9f2d74", "title": "Cannabis som medisin", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis review"},
+    {"id": "e3365e8f-31db-4e62-bdca-76754bfb86ea", "title": "What Should I Do?: Information and Support Needs Relating to Substance Use on Reddit.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General substance use correctly rejected"},
+    {"id": "e3398514-0f95-4c2a-93ba-d783b1990677", "title": "Consequences of Perinatal Cannabis Exposure", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "e34ddf6a-8d73-42e9-9381-af0e8c31081b", "title": "Analysis of cannabinoids in laser-microdissected trichomes of medicinal Cannabis sativa using LCMS and cryogenic NMR", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "e34f0026-a716-4efa-ad0a-6a09ac6756b0", "title": "Phytochemical Investigation of Aquilaria agallocha and Identification of a Diarylheptanoid", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "e350f8f3-ecd5-4b66-a95a-a4ee1ad5cf79", "title": "In vitro antimicrobial activity of Thai stick cannabis extract against pathogenic bacteria.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis antimicrobial therapeutic research"},
+    {"id": "e35787d9-6a67-4299-ba2e-41916d3863c1", "title": "Prevalence of cannabis use disorders and associated factors among privately insured adults with epilepsy.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD prevalence correctly rejected"},
+    {"id": "e3862071-a538-430c-b7eb-1fa347df76f9", "title": "Hemp fiber (Cannabis sativa L.) derivatives with antibacterial and chelating properties", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industrial fiber correctly rejected"},
+    {"id": "e38eb21f-abd5-48f6-b0ad-f270694f3a57", "title": "Naturalistic investigation of cannabis strains varying in THC and CBD ratios and verbal recognition memory", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD protective effect on cognition research"},
+    {"id": "e395ed80-b371-4b5b-b9cc-6976bc16adb7", "title": "Cannabinomics: extraction, analytical identification, and micro/nanoencapsulation methods for bioactive metabolites.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - drug delivery/encapsulation research"},
+    {"id": "e39d7b71-8b7d-46ff-9d70-1fe3039127fd", "title": "Cannabidiol in refractory status epilepticus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy therapeutic research"},
+    {"id": "e39fe78a-6e36-4e6c-81dc-f968550c80cd", "title": "Biotransformation of cannabidiol in mice. Identification of new acid metabolites.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmacokinetics/metabolism research"},
+    {"id": "e3b9b753-2493-48ae-8926-3eb57a440819", "title": "Controlled Use of Cannabis Among Young Adults in Los Angeles Across Changes in Cannabis Policies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/policy correctly rejected"},
+    {"id": "e3cd9d13-0ba6-4b1f-8efe-db031b1d8656", "title": "Long-lasting behavioral, molecular and functional connectivity alterations after chronic THC exposure during adolescence in mice.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "e3d6f0bd-696b-47b4-a527-47ac8262fc86", "title": "Cannabidiol-treated Rats Exhibited Higher Motor Score After Cryogenic Spinal Cord Injury", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD spinal cord injury therapeutic research"},
+    {"id": "e3dc2f50-5e51-47b6-b620-8bdc5edefce1", "title": "Cannabinoid Receptor 1 Binding Activity and Quantitative Analysis of Cannabis sativa L. Smoke and Vapor", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product/chemical analysis correctly rejected"},
+    {"id": "e3f93910-6a7e-4dac-92f7-29631e9bdf0a", "title": "Implications of global distributive justice principles for implementation of the Kunming-Montreal Global Biodiversity Framework.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "e4219d55-d6a2-4b6b-afd4-225cd4edad84", "title": "Comparative analyses on factors of the pedestrian numbers in Nagoya CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "e421ad8d-adf2-4d5d-8423-5ff346139dfb", "title": "A comprehensive molecular analysis of cannabidiol: From solid state to antioxidant potential", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antioxidant therapeutic potential research"},
+    {"id": "e43abd9d-445f-42d1-93ea-73481031593f", "title": "Multi-LOD seismic-damage simulation of urban buildings and case study in Beijing CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "e31f5859-7c2f-4f90-8f94-89b43a9f2d74",
+      "e350f8f3-ecd5-4b66-a95a-a4ee1ad5cf79",
+      "e38eb21f-abd5-48f6-b0ad-f270694f3a57",
+      "e395ed80-b371-4b5b-b9cc-6976bc16adb7",
+      "e39d7b71-8b7d-46ff-9d70-1fe3039127fd",
+      "e39fe78a-6e36-4e6c-81dc-f968550c80cd",
+      "e3d6f0bd-696b-47b4-a527-47ac8262fc86",
+      "e421ad8d-adf2-4d5d-8423-5ff346139dfb"
+    ]
+  }
+}

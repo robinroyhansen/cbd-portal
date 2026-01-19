@@ -1,0 +1,37 @@
+{
+  "batch_number": 425,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T00:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "d5a4489f-4bf2-4d48-8d72-2de37842b114", "title": "Understanding the role of oxylipins in Cannabis to enhance cannabinoid production", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/cultivation correctly rejected"},
+    {"id": "d5a4f324-7b59-4d5b-9b6e-a2fd9fb156e4", "title": "Cannabinoids Cause Central Sympathoexcitation and Bradycardia in Rabbits", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cardiovascular mechanism research"},
+    {"id": "d5b40483-79ab-4afc-929f-d1fccef16854", "title": "Classification of cannabis strains in the Canadian market with discriminant analysis of principal components using genome-wide single nucleotide polymorphisms", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "d5b91bcc-6274-4738-a3d6-507a7468411d", "title": "Plant-derived compounds and neurodegenerative diseases: Different mechanisms of action with therapeutic potential.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Too general correctly rejected"},
+    {"id": "d5c9d9ad-e277-40e1-b341-598021013ae1", "title": "Cannabinoids and the heart-a psychiatrist's perspective.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis cardiovascular harm correctly rejected"},
+    {"id": "d5e022e6-5eb3-4da0-bcab-d89b5c186a1d", "title": "Light Quality Impacts Vertical Growth Rate, Phytochemical Yield and Cannabinoid Production Efficiency in Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "d6040297-9b7d-46f0-bfb8-5a3ae9c2a305", "title": "Novel approach to urinary 11-nor-9-carboxy-delta-9-tetrahydrocannabinol analysis in forensic applications using disposable, graphene-based electrochemical sensor coupled with monolithic micro-solid-phase extraction.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "d604ab44-1b20-4bf3-97b3-48f03a6ef982", "title": "The current role of cannabis and cannabinoids in health: A comprehensive review of their therapeutic potential", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic potential review"},
+    {"id": "d61d02c5-7d93-454c-a293-942b186f43f1", "title": "The New SH3b_T Domain Increases the Structural and Functional Variability Among SH3b-Like CBDs from Staphylococcal Phage Endolysins", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Cell Binding Domain) correctly rejected"},
+    {"id": "d62691c4-7ab7-4ad1-ab36-4570925b0190", "title": "Schizophrenia and cannabis use.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis psychiatric harm correctly rejected"},
+    {"id": "d62e4676-47e2-4562-bdfc-4d9351e60ff2", "title": "Cannabidiol Treatment for Adult Patients with Drug-Resistant Epilepsies: A Real-World Study in a Tertiary Center.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy real-world clinical study"},
+    {"id": "d63a0609-112c-42d6-afa3-0ecfc323026f", "title": "Burnie CBD Safety Committee: CBD Cameras Report", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "d64f7dab-57b7-4e22-9873-52f58ba52fd8", "title": "Medical cannabis: A growing opportunity for the Moroccan pharmaceutical industry.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market analysis correctly rejected"},
+    {"id": "d653688d-1946-4596-b308-85250b6c1bbc", "title": "Intravenous self-administration of the cannabinoid CB1 receptor agonist WIN 55,212-2 in rats", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Addiction research correctly rejected"},
+    {"id": "d6538893-a46d-4753-a83c-a1575ee3af7b", "title": "Effect of deposition temperature on the structural and optical properties of CdSe QDs thin films deposited by CBD method", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "d65bf774-c60d-4546-bd95-38c6eaa0142b", "title": "Hemp (Cannabis sativa L.) as an Environmentally Friendly Energyplant", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/industrial correctly rejected"},
+    {"id": "d6652677-ff95-46ca-9727-fe96d9ce6d43", "title": "Short scales to assess cannabis-related problems: a review of psychometric properties", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD assessment correctly rejected"},
+    {"id": "d66fe971-c411-4780-bf71-ab769d9072f9", "title": "Investigating Links Between Prenatal Cannabis Exposure and Brain Development Using Magnetic Resonance Imaging Techniques: A Narrative Review.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis prenatal harm correctly rejected"},
+    {"id": "d67e14b6-0fee-4b7c-91d5-8add7ee2b56f", "title": "What's Driving Hemp CBD Growth?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market analysis correctly rejected"},
+    {"id": "d68647ea-085d-4bc5-b404-7f4bbd81b687", "title": "CANNABIDIOL (CBD). ¿TRATAMIENTO ADYUVANTE EN TRASTORNOS PSICÓTICOS?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Not CBD research correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "d5a4f324-7b59-4d5b-9b6e-a2fd9fb156e4",
+      "d604ab44-1b20-4bf3-97b3-48f03a6ef982",
+      "d62e4676-47e2-4562-bdfc-4d9351e60ff2"
+    ]
+  }
+}

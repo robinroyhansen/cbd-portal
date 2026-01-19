@@ -1,0 +1,45 @@
+{
+  "batch_number": 29,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T21:00:00.000Z",
+  "results": [
+    {"id": "213f3dfe-9d2e-45a9-9568-5285499a0b89", "title": "CBDA as neuroprotective agent in ALS model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBDA for ALS research"},
+    {"id": "213f3e00-3eaa-4dac-a686-8b1515c63aa7", "title": "High potency cannabis use and mental health", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE patterns - not therapeutic"},
+    {"id": "2175779a-9aa6-46b8-a8b6-60013430b621", "title": "Trends of cannabis use in pregnancy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE patterns in pregnancy"},
+    {"id": "218ff15a-0b42-4641-a854-dd44070ffffb", "title": "GWAS Meta Analysis CNR1 and DRD2 for Cannabis Medicinals", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor genetics research"},
+    {"id": "219d6fd9-dce1-46ac-960a-11e8fe4d3712", "title": "Methodologies for epilepsy care recommendations", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general epilepsy methodology"},
+    {"id": "21a56d19-8dbc-418c-a72b-9ac47c09f283", "title": "Targeting CXCL8 in PTSD and Alzheimer's", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - CXCL8 cytokine research"},
+    {"id": "21b298dd-6594-4a4a-a30b-b6f4a3f6f82e", "title": "Gene-based analysis for metabolic health", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general genomics"},
+    {"id": "21b2e5d7-8663-4f94-ba16-d071391dc147", "title": "Long-acting injectable CBD (IVL5005) for convulsions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for epilepsy research"},
+    {"id": "21b38433-c318-4d6d-b530-39af7c8fd2cc", "title": "Cannabis Phytochemicals and Acetylcholinesterase in Alzheimer's", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for Alzheimer's research"},
+    {"id": "21b65e6b-690b-4d92-9115-d859616142eb", "title": "Hemp X CBD Capsules product page", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM/ADVERTISING - product marketing"},
+    {"id": "21b8a626-9e85-419b-ba6e-dd5babfc68de", "title": "Cannabis use and mental health of young people", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE risks - not therapeutic"},
+    {"id": "2207eaa8-2b0b-44a2-a4eb-9cf851f48994", "title": "Niosomal Ion-Sensitive In Situ Gel for Ocular Delivery", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general ocular drug delivery"},
+    {"id": "22088c2a-ba98-4be2-88a8-c62998ccc1b2", "title": "Choice CBD Gummies Reviews SCAM ALERT", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM/ADVERTISING - product marketing"},
+    {"id": "220aa827-e58e-408b-81f4-c65eb1705e1e", "title": "Cannabis use and mood disorders: longitudinal study", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE patterns - not therapeutic"},
+    {"id": "22105b4c-3565-4407-9dfb-f08065235878", "title": "Elevated blood anandamide levels in COVID-19", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid system in COVID-19"},
+    {"id": "221c14c8-9da6-44ba-b803-40c8f61d6398", "title": "Phase 1 Study of Atorvo+™", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - unclear product trial"},
+    {"id": "22310a11-1438-415f-ae4c-d89e47f656f3", "title": "Prenatal CBD exposure neurodevelopmental outcomes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety research"},
+    {"id": "223e2a1f-1db2-402c-9ee9-7650c2d512ff", "title": "CBD vs Synthetic Drugs in Autism Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for autism research"},
+    {"id": "224af20a-f4e0-4597-889a-9f9ce6125dd6", "title": "Cardioprotective Drugs Based on Cannabinoid Receptor Agonists", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cardioprotection"},
+    {"id": "225fb1ea-8382-4724-9bea-e4ecc4d232b8", "title": "4R-tau isoform via TDP-43 in neurons", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - tau/neurodegeneration research"}
+  ],
+  "batch_summary": {
+    "correct": 8,
+    "incorrect": 12,
+    "incorrect_ids": [
+      "213f3e00-3eaa-4dac-a686-8b1515c63aa7",
+      "2175779a-9aa6-46b8-a8b6-60013430b621",
+      "219d6fd9-dce1-46ac-960a-11e8fe4d3712",
+      "21a56d19-8dbc-418c-a72b-9ac47c09f283",
+      "21b298dd-6594-4a4a-a30b-b6f4a3f6f82e",
+      "21b65e6b-690b-4d92-9115-d859616142eb",
+      "21b8a626-9e85-419b-ba6e-dd5babfc68de",
+      "2207eaa8-2b0b-44a2-a4eb-9cf851f48994",
+      "22088c2a-ba98-4be2-88a8-c62998ccc1b2",
+      "220aa827-e58e-408b-81f4-c65eb1705e1e",
+      "221c14c8-9da6-44ba-b803-40c8f61d6398",
+      "225fb1ea-8382-4724-9bea-e4ecc4d232b8"
+    ]
+  }
+}

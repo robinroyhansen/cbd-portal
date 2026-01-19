@@ -1,0 +1,41 @@
+{
+  "batch_number": 234,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T00:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "02ff8a1f-9ec9-4f7c-ab01-bff7531e419c", "title": "CNS effects CB2 cannabinoid receptors neuro-immuno", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 CNS mechanism"},
+    {"id": "030bb454-d436-4acd-b46b-af2ba01f868b", "title": "Neuroanatomical CB1 dopaminergic basal ganglia", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 dopamine mechanism"},
+    {"id": "030e1785-41ef-4223-94e0-bb1c951494c1", "title": "Cannabidiols Alkenylation Synthesis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CBD synthesis correctly rejected"},
+    {"id": "0319d86a-c8ac-4528-a4c5-fbc5447d1f50", "title": "Working memory cannabis alcohol urge", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm correctly rejected"},
+    {"id": "031fea7f-2c50-42a1-bc4e-e5e9646d02ed", "title": "AChE BChE cannabis tramadol memory decline", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm correctly rejected"},
+    {"id": "033013fd-ffdc-4b9d-b93a-940907337cc3", "title": "Cooling demand Singapore CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "03332adf-8681-4f12-bb58-538a806b7e9e", "title": "Cannabinoid glycine receptors analgesia", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pain mechanism"},
+    {"id": "033b3918-95de-4815-97fd-cfd6ab5e8032", "title": "Bioprospecting India CBD Traditional Medicine", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "0348566c-39b0-4c0f-b3c5-b3afc4f257b5", "title": "Longitudinal cognition cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm correctly rejected"},
+    {"id": "03486718-8746-4e2a-93c8-ef1eb85e66c9", "title": "Aluminum Cannabis Smoking Disease", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm correctly rejected"},
+    {"id": "034afeec-dcd2-4dc0-a6a4-f0a6891410d8", "title": "CBD extraction Percolation maceration", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction method correctly rejected"},
+    {"id": "036d26a0-807d-4c03-9b0e-17167810f700", "title": "Mothers fathers medical cannabis patterns", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevalence correctly rejected"},
+    {"id": "03761e53-354a-4946-9080-1a5f4687c103", "title": "Tampa Downtown CBD Travel", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "038f975d-d870-4912-a1c2-98e7f9bbac78", "title": "CBD Food Supplements Health Risk EFSA", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety review with dose data"},
+    {"id": "03a4b870-b8c8-475f-bbd0-cebd035edfd2", "title": "Cannabinoids People with PD Patient-Reported", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid Parkinson's therapeutic"},
+    {"id": "03b17061-bb92-4228-9294-2d2bdd517b49", "title": "CBG PK bioavailability horses", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "03b72a3b-e146-4b23-ae32-489131412b22", "title": "CBD cosmetics HPLC determination", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cosmetics method correctly rejected"},
+    {"id": "03c0f8de-b16a-41ed-9d80-3620118efa6b", "title": "Reduced Risk Pancreatitis Cannabis Use", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis protective effect pancreatitis"},
+    {"id": "03c69e7b-e479-4df9-a25c-6828e638c264", "title": "Attitudes Marijuana Legalization Cancer", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy survey correctly rejected"},
+    {"id": "03cec527-e9ed-4028-b9b9-ed1d09cbeb9b", "title": "CBD Nano-Structured Lipid Carriers HME", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery formulation"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "02ff8a1f-9ec9-4f7c-ab01-bff7531e419c",
+      "030bb454-d436-4acd-b46b-af2ba01f868b",
+      "03332adf-8681-4f12-bb58-538a806b7e9e",
+      "038f975d-d870-4912-a1c2-98e7f9bbac78",
+      "03a4b870-b8c8-475f-bbd0-cebd035edfd2",
+      "03c0f8de-b16a-41ed-9d80-3620118efa6b",
+      "03cec527-e9ed-4028-b9b9-ed1d09cbeb9b"
+    ]
+  }
+}

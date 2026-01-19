@@ -1,0 +1,41 @@
+{
+  "batch_number": 65,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T06:00:00.000Z",
+  "results": [
+    {"id": "4874139a-b181-493c-ac70-7e1ce1d827a3", "title": "Effects of cannabidiol (CBD) treatment in a mouse model of Alzheimer's disease through regulation of Interleukin‐5", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's IL-5 mechanism"},
+    {"id": "487606a8-7900-47a3-9a0f-5449018b2154", "title": "Effects of Cannabidiol on anxiety induced by recall of traumatic event in patients diagnosed with posttraumatic stress disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PTSD trauma anxiety therapeutic"},
+    {"id": "4882fd94-3574-4e95-b01e-6a8a9621a7f4", "title": "Assessing a potential therapeutic effect of cannabidiol for lower back pain, requires appropriately designed studies", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - letter to editor, not research"},
+    {"id": "489c5a10-f346-4c85-b32f-07ad4edeffca", "title": "Cannabis use: consistency and validity of self‐report, on‐site urine testing and laboratory testing", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD STUDY - testing methodology in adolescent treatment"},
+    {"id": "48aa0568-134d-483a-a50b-9839a869a8b1", "title": "Cardiovascular effects of marijuana and synthetic cannabinoids: the good, the bad, and the ugly", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cardiovascular effects review"},
+    {"id": "48ae07e2-0d6c-4a87-bb69-4cf045ce427f", "title": "Perioperative Analgesic and Sedative Effects of Cannabidiol in Cats Undergoing Ovariohysterectomy.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - CBD for cats"},
+    {"id": "48ae21d4-b2b6-4941-b4b2-47af84b9a26c", "title": "Magnitude of stimulation dictates the cannabinoid-mediated differential T cell response to HIVgp120", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid HIV immune mechanism"},
+    {"id": "48b9c568-f5e9-46dd-9cf6-eddd4a2c7854", "title": "Associations between adolescent cannabis use and brain structure in psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - brain structure effects"},
+    {"id": "48c0c3f4-3824-43e8-be45-a6d9a5347f5c", "title": "A Single-Center Study Evaluating the Effects of a Novel Retinol and Cannabidiol Combination Topical on Facial Skin", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD retinol skin anti-aging therapeutic"},
+    {"id": "48d7bb11-7039-429e-ae48-488240fc97f9", "title": "The effect of the cannabinoid‐receptor antagonist, SR141716, on the early stage of kainate‐induced epileptogenesis in the adult rat", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 antagonist epilepsy mechanism"},
+    {"id": "48ddcd08-0542-4ce7-ae22-83d199d7fe02", "title": "Cannabis use and cognitive functions in at-risk mental state and first episode psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - cognitive impairment in psychosis"},
+    {"id": "48df946f-9c4f-4486-8d30-9ffe28fbf012", "title": "Do cannabis and urbanicity co-participate in causing psychosis? Evidence from a 10-year follow-up cohort study", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - psychosis causation"},
+    {"id": "48dfe74e-e3a4-446b-baf3-68b60dbed348", "title": "Three-year CBD program begins in the Dominican Republic.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Community-Based Distribution (family planning)"},
+    {"id": "48e56532-55a3-4d16-96c5-1d82bae5cf80", "title": "Terpenoids and Phytocannabinoids Co-Produced in Cannabis Sativa Strains Show Specific Interaction for Cell Cytotoxic Activity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis terpenoid cancer cytotoxicity mechanism"},
+    {"id": "48e5ca7d-9727-4782-8545-e9b4049b41b5", "title": "Mast cell metabolism in cancer: an underexplored frontier demanding more attention", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - mast cell cancer metabolism"},
+    {"id": "48e95b4e-993b-4ab8-a77d-85929ccbbbbc", "title": "Reduction of Benzodiazepine Use in Patients Prescribed Medical Cannabis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis benzodiazepine-sparing therapeutic"},
+    {"id": "491c2704-afd8-4808-9682-bfd51e790bca", "title": "Cannabis as medicine: time for the phoenix to rise?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis therapeutic review commentary"},
+    {"id": "491ff91e-d43a-43e6-ab68-beb5f754d60d", "title": "Effects of nabilone, a synthetic cannabinoid, on postoperative pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Nabilone postoperative pain therapeutic"},
+    {"id": "49231bcd-f864-4f98-ae9d-e8253214e475", "title": "Cannabinoid treatment impacts adaptive behavior in autism patients and caregivers' mental health: A prospective real-life cohort study.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid autism therapeutic"},
+    {"id": "49278321-e0e4-4ee8-9c99-d5d340b3d4e9", "title": "Assessing patient perceptions of off-label cannabidiol use for insomnia through sentiment analysis.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD insomnia patient perception research"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "4882fd94-3574-4e95-b01e-6a8a9621a7f4",
+      "489c5a10-f346-4c85-b32f-07ad4edeffca",
+      "48ae07e2-0d6c-4a87-bb69-4cf045ce427f",
+      "48b9c568-f5e9-46dd-9cf6-eddd4a2c7854",
+      "48ddcd08-0542-4ce7-ae22-83d199d7fe02",
+      "48df946f-9c4f-4486-8d30-9ffe28fbf012",
+      "48dfe74e-e3a4-446b-baf3-68b60dbed348",
+      "48e5ca7d-9727-4782-8545-e9b4049b41b5"
+    ]
+  }
+}

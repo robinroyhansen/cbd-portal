@@ -1,0 +1,39 @@
+{
+  "batch_number": 150,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T03:30:00.000Z",
+  "results": [
+    {"id": "a7a6284a-55bb-46ee-8ef4-48bc87c3c188", "title": "HU-331 Oxidized CBD Topoisomerase Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer mechanism"},
+    {"id": "a7aa66be-02df-4d72-a3bd-a4985be9dbdd", "title": "Craving cannabis schizophrenia antipsychotics", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD craving schizophrenia"},
+    {"id": "a7b06ec5-e1c3-4935-bce6-fe64973aa049", "title": "CBD CUD Phase III RCT Protocol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD CUD therapeutic trial"},
+    {"id": "a7ebd6c2-8d96-4086-a0a2-fc64a8472d65", "title": "CBD periodontal inflammation TLR4 NF-κB", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD periodontitis therapeutic"},
+    {"id": "a7f3e72b-a8a2-45ea-a8d3-81df13270ddd", "title": "Pregabalin Oxycodone Lacosamide Breathing", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - opioid interaction"},
+    {"id": "a7f66633-fda9-4194-9218-acc0de5039c6", "title": "PAIN perioperative cannabis management", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis perioperative guidelines"},
+    {"id": "a8217743-4cab-4889-a40a-4abab1da9042", "title": "SARS-CoV-2 Inhibition by Cannabidiol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antiviral mechanism"},
+    {"id": "a826abc5-ac36-4ed5-a458-a08cebb95b76", "title": "CBD nanoemulsion anxiolytic panicolytic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety therapeutic"},
+    {"id": "a8288dfd-5b1e-4e46-86fb-8f8aefbd5527", "title": "CB1 Antagonists Attenuate Cocaine Reward", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS addiction mechanism"},
+    {"id": "a82abe09-c096-4ab8-b72a-c9b27a44001a", "title": "CBD long-term efficacy refractory epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy long-term"},
+    {"id": "a8378676-5074-4625-810d-0daf103d2ccb", "title": "CBD methamphetamine-seeking D2 receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD meth addiction"},
+    {"id": "a849f9ac-be5c-4ba8-99ad-2f5700e6a94f", "title": "CBD resting-state connectivity epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy brain mechanism"},
+    {"id": "a84fec60-6b3e-48c7-a219-d9ac34328c91", "title": "Cannabis psychosis bhang ingestion", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - bhang psychosis"},
+    {"id": "a85be0d5-0c89-4892-ba75-9792a1fd7eaa", "title": "Anxiety Hemp CBD Cohort Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety clinical study"},
+    {"id": "a86b7249-0161-4e66-a436-fd7f6e3cccd7", "title": "Beat the Kick substance abuse ID", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - behavioral intervention"},
+    {"id": "a8822bcb-6683-438e-9fd0-0bec4fabf3c9", "title": "CBD GUMMIES Therapeutic Pharmacological Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD formulation review"},
+    {"id": "a88b2407-7413-4396-bd6e-629c4cc4c91d", "title": "CBD Nile tilapia stress mitigating", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - fish study"},
+    {"id": "a892dd62-4f65-42e6-8f04-36ba30691572", "title": "Marijuana before Cigarettes Alcohol Gateway", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - gateway patterns"},
+    {"id": "a89501bc-8696-4624-ab88-28797c5dcde1", "title": "CBD hydromorphone pain RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain clinical trial"},
+    {"id": "a897a1b4-24db-4a6b-8fea-959f127bbda1", "title": "Cannabinoids allodynia neuropathic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "a7aa66be-02df-4d72-a3bd-a4985be9dbdd",
+      "a7f3e72b-a8a2-45ea-a8d3-81df13270ddd",
+      "a84fec60-6b3e-48c7-a219-d9ac34328c91",
+      "a86b7249-0161-4e66-a436-fd7f6e3cccd7",
+      "a88b2407-7413-4396-bd6e-629c4cc4c91d",
+      "a892dd62-4f65-42e6-8f04-36ba30691572"
+    ]
+  }
+}

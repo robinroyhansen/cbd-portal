@@ -1,0 +1,40 @@
+{
+  "batch_number": 274,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T10:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "2eb3cde0-a844-4a53-bcb1-c4262668d037", "title": "Cannabinoid receptor CB1 mRNA is highly expressed in the rat ciliary body: implications for the antiglaucoma properties of marihuana", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 glaucoma mechanism"},
+    {"id": "2eb3f232-7898-425e-8381-5c55bb97cb69", "title": "Quantity and frequency of cannabis use in relation to cannabis-use disorder and cannabis-related problems", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD patterns correctly rejected"},
+    {"id": "2edabae0-250f-4e22-b9db-068ee9878a9e", "title": "Effective Isolation of Cannabidiol and Cannabidiolic Acid Free of Psychotropic Phytocannabinoids from Hemp Extract by Fast Centrifugal Partition Chromatography", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methodology correctly rejected"},
+    {"id": "2ee1748c-4d64-43ea-a211-116af2ba72bc", "title": "Use of Cannabis and Attitudes towards Cannabis in the Nordic Countries", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevalence/attitudes correctly rejected"},
+    {"id": "2ee3201e-7d4c-4cee-a32c-605170d8ee56", "title": "Plant architecture manipulation increases cannabinoid standardization in 'drug-type' medical cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "2ee97d9e-a05d-4ebf-b666-62c0636376b1", "title": "Cannabis, cigarettes, and their co-occurring use: Disentangling differences in default mode network functional connectivity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "2eee3dd0-47f7-4772-befd-bc2ac6e2c33b", "title": "Age-period-cohort analysis of past 12-month cannabis use in Germany (1995-2021).", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "2ef2a097-865d-4075-a282-672871a7a41e", "title": "Testing Human Hair for Cannabis II. Identification of THC-COOH by GC-MS-NCI as a Unique Proof", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "2f16bc81-6628-41b4-a041-937364b011bb", "title": "Psychopathological symptoms associated with synthetic cannabinoid use: a comparison with natural cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid harm correctly rejected"},
+    {"id": "2f1a3069-bf3e-4214-86ac-6ca0833e00df", "title": "Factors associated with ever using cannabidiol in a cohort of younger pregnant people", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "2f26d01e-1a75-493e-a7f0-a33bb74b0cda", "title": "Cannabidiol Cold Tolerance Trial", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - likely cold pain tolerance study"},
+    {"id": "2f3be001-479f-4c9b-b3a7-01135b36569d", "title": "Stereospecific cyclizations and isomerizations of cannabichromene and related cannabinoids.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry correctly rejected"},
+    {"id": "2f42ba04-cbab-4ceb-b906-ce9d8d447f75", "title": "A preliminary investigation on the distribution of cannabinoids in man", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacokinetics"},
+    {"id": "2f62c5e5-f4eb-420e-ae20-8f925d161198", "title": "Cannabidiol's Antioxidant Properties in Skin Care Products and Legislative Regulations.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cosmetics/regulatory correctly rejected"},
+    {"id": "2f79a53b-a54a-4f9b-8354-178fa143dab6", "title": "The Cannabinoid Use in Progressive Inflammatory brain Disease (CUPID) trial: a randomised double-blind placebo-controlled parallel-group multicentre trial and economic evaluation of cannabinoids to slow progression in multiple sclerosis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - major THC for MS clinical trial"},
+    {"id": "2f9d5e39-e169-4706-9b13-501e14a70521", "title": "Chemistry and Pharmacology of Delta-8-Tetrahydrocannabinol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - Delta-8-THC pharmacology"},
+    {"id": "2fa9f8c7-2cd7-41f2-b8a5-a0860758de22", "title": "Occurrence, Distribution and Risk Assessment of Biocides in Chao Lake and Its Tributaries.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2fb7a8ab-4cf3-4de1-bbde-a7fb353a4c36", "title": "Recent Insights into the Research of (Bio)Active Additives for Advanced Polymer Materials", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2fc21399-b506-48f2-9bb2-66d00a119bc4", "title": "The evolution of cannabinoid phenotypes inCannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "2fc8d37b-07f8-4f8e-878a-eebbe88d1c0c", "title": "Corrigendum to \"Local release of fibroblast growth factor 21 and cannabidiol promoting spinal cord nerve injury repair through activation of cannabinoid receptor 2\" [Biomaterials. 325 (2026) 123609].", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD spinal cord repair via CB2"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "2eb3cde0-a844-4a53-bcb1-c4262668d037",
+      "2f26d01e-1a75-493e-a7f0-a33bb74b0cda",
+      "2f42ba04-cbab-4ceb-b906-ce9d8d447f75",
+      "2f79a53b-a54a-4f9b-8354-178fa143dab6",
+      "2f9d5e39-e169-4706-9b13-501e14a70521",
+      "2fc8d37b-07f8-4f8e-878a-eebbe88d1c0c"
+    ]
+  }
+}

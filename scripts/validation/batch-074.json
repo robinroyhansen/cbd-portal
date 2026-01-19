@@ -1,0 +1,41 @@
+{
+  "batch_number": 74,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T08:15:00.000Z",
+  "results": [
+    {"id": "51652d9d-b339-46f8-bcd0-d0b07ad4cd73", "title": "Fermented hemp seeds for arthritis via gut microbiota", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Hemp-based probiotic therapeutic"},
+    {"id": "51715902-3acc-4590-bba9-fbc7316acb4d", "title": "Cannabis use and mental health QoL in depressive disorders", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - observational cannabis use patterns"},
+    {"id": "517c7928-2d7b-4f5e-b724-72e679359749", "title": "THC inhibits RAS-MAPK signalling in colorectal cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC colorectal cancer mechanism"},
+    {"id": "518af36f-3560-4417-9d01-e07a4b08e614", "title": "Stress ECG, CMR, SPECT comparison for chest pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - cardiac imaging diagnostics"},
+    {"id": "51aef79b-d0ed-4711-b07b-cc07bac160c2", "title": "Medical cannabis for anesthesiologist/pain physician", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Medical cannabis pain review"},
+    {"id": "51b2a5a7-a79f-45da-a92e-9f71e7704ecf", "title": "CBD/FGF21 spinal cord injury repair via CB2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD spinal cord neuroprotection"},
+    {"id": "51dbd591-3b06-4ec6-b763-1516e4661fc1", "title": "CBD boosting acetylcholine in Alzheimer's model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's therapeutic"},
+    {"id": "51e0b076-066f-4137-b9e5-29759658e13c", "title": "Two new fatty acid ethanolamides bind CB receptor", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid discovery Mechoulam"},
+    {"id": "51f4192c-cfc2-45be-9110-6c5c8568b25a", "title": "Gestational THC exposure placental schizophrenia markers", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - prenatal THC exposure risk"},
+    {"id": "5204e271-20f2-4c29-86b5-a2f07eb056b6", "title": "Cannabis, inhibitory neurons, schizophrenia course", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - schizophrenia progression"},
+    {"id": "52146063-09d3-46a4-b336-78e198a60390", "title": "Cannabis and illicit drugs comorbid abuse/dependence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - drug abuse epidemiology"},
+    {"id": "521f18d8-3315-407c-880f-0d83fb64ad16", "title": "CBD phospholipid changes in psoriatic keratinocytes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psoriasis therapeutic"},
+    {"id": "52244563-805b-4f5e-b147-45f2e4ac2db8", "title": "Postbiotics/Doxorubicin in gastric cancer cells", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - postbiotics cancer research"},
+    {"id": "523b4e9c-2454-4981-a5d1-ccc555e333a3", "title": "CBD for Parkinson's treatment (Portuguese)", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's therapeutic review"},
+    {"id": "526246b6-9d9e-421f-ae66-ff6013095501", "title": "CB2 activation suppresses paclitaxel neuropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 chemotherapy neuropathy"},
+    {"id": "5263b618-44e1-49b4-9388-fb9c9e1f555d", "title": "European robin cryptochrome circadian rhythms", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - bird biology"},
+    {"id": "5281239f-18dc-4d58-aca9-654ed12af4fc", "title": "Cannabis use among head/neck cancer survivors", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cancer survivor usage patterns"},
+    {"id": "52945358-ae1b-42a2-a0ee-b383b8e5ab47", "title": "Endocannabinoids stimulate glucose uptake in fat cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid metabolic mechanism"},
+    {"id": "52c273f6-5dc8-4138-b058-85ea7505f412", "title": "CB1 deficiency in PCP-induced social withdrawal", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 schizophrenia mechanism"},
+    {"id": "52e3efca-d9ed-4998-8981-56ba4357326f", "title": "Adolescent CBD antidepressant effects without cognitive harm", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "51715902-3acc-4590-bba9-fbc7316acb4d",
+      "518af36f-3560-4417-9d01-e07a4b08e614",
+      "51f4192c-cfc2-45be-9110-6c5c8568b25a",
+      "5204e271-20f2-4c29-86b5-a2f07eb056b6",
+      "52146063-09d3-46a4-b336-78e198a60390",
+      "52244563-805b-4f5e-b147-45f2e4ac2db8",
+      "5263b618-44e1-49b4-9388-fb9c9e1f555d",
+      "5281239f-18dc-4d58-aca9-654ed12af4fc"
+    ]
+  }
+}

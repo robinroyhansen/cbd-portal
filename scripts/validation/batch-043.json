@@ -1,0 +1,39 @@
+{
+  "batch_number": 43,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T00:30:00.000Z",
+  "results": [
+    {"id": "30835909-3af8-49ae-b3a4-42482e5443c2", "title": "CBD for chemotherapy-induced peripheral neuropathy Phase 3 RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD CIPN Phase 3 clinical trial"},
+    {"id": "30947d5d-d461-4142-9e84-5aab077bb787", "title": "Cannabinoid receptors for Neuropathic Pain Including Orofacial Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain review"},
+    {"id": "30c3281c-8b2c-4dcd-82e6-5db2a9976a9a", "title": "CBD Use and Perceptions Women With Chronic Pelvic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic research"},
+    {"id": "30cc704f-f39a-4b4e-93ad-2f51fbc0b588", "title": "CBD induces loss of mitochondrial membrane potential in gastric cancer cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anticancer mechanism"},
+    {"id": "30d90dd9-3a14-420a-91fe-07119ee82f3c", "title": "Acute Effects of Cannabis on Alcohol Craving and Consumption RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for alcohol addiction RCT"},
+    {"id": "30e39b0d-209b-45ef-a204-436e7e4d1acb", "title": "Liberty CBD Gummies Reviews Scam Alert 2022", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM/ADVERTISING - product marketing"},
+    {"id": "30e6ef50-11cc-4a0d-a589-67760431a202", "title": "Proportion of first-episode psychosis attributable to high potency cannabis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis as CAUSE of psychosis - harm study"},
+    {"id": "310e68ef-58c2-4012-9914-d47fa9862ef5", "title": "Abnormal serum IL-10 and IL-19 levels in childhood schizophrenia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - cytokine schizophrenia study"},
+    {"id": "3138e391-a752-4b0b-8d69-8358d09fd915", "title": "THC AND CBD DIFFERENTIALLY REGULATE INTRAOCULAR PRESSURE", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid glaucoma research"},
+    {"id": "313cf926-6aa3-463e-a52b-efa308be0a3d", "title": "Medical Cannabis in Children With Autistic Spectrum Disorder trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis autism clinical trial"},
+    {"id": "31445676-22dc-4f5e-9b43-7b76315842ec", "title": "Peripheral CB1 Antagonism for Treating Metabolic Disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 antagonist drug development"},
+    {"id": "314d3373-ed3e-4039-a0c1-81f409eb0054", "title": "CBD:THC plus temozolomide in recurrent glioblastoma RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid brain cancer RCT"},
+    {"id": "316028a3-a71a-482a-bfc5-a46b71b8a70f", "title": "Drug-Drug-Gene Interaction between Sertraline and CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interaction safety"},
+    {"id": "3161e4ef-b964-4bc9-907a-d5133fe23c5a", "title": "Self-Expandable Metallic Stents for Malignant Hilar Biliary Obstruction", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - biliary stent procedure"},
+    {"id": "3184e539-0c13-4f86-9c4a-e4ce1c76d48f", "title": "Cannabinoids and Inflammation in Anxiety research trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anxiety research"},
+    {"id": "31a66371-01d7-4984-8e01-09168d3b32cb", "title": "Maternal Obesity Risk Factor for Neurodevelopmental Outcomes", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - obesity neurodevelopment study"},
+    {"id": "31b86e3b-ec28-4ed2-b795-78d5097a166b", "title": "Longitudinal Predictors of Synthetic Cannabinoid Use in Adolescents", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SC USE patterns - not therapeutic"},
+    {"id": "31c074de-13b0-4ada-9d7d-dfda70363bec", "title": "Targeting the endogenous cannabinoid system to treat neuropathic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS pain therapeutic review"},
+    {"id": "31c5afd3-d238-44a8-9483-04fd676edd4d", "title": "Endogenous cannabinoid system in peripheral control of pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS pain mechanism"},
+    {"id": "31c9a48c-b519-4193-bdcb-8fb3f5599164", "title": "Therapeutic applications of cannabinoids in oncology", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer review"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "30e39b0d-209b-45ef-a204-436e7e4d1acb",
+      "30e6ef50-11cc-4a0d-a589-67760431a202",
+      "310e68ef-58c2-4012-9914-d47fa9862ef5",
+      "3161e4ef-b964-4bc9-907a-d5133fe23c5a",
+      "31a66371-01d7-4984-8e01-09168d3b32cb",
+      "31b86e3b-ec28-4ed2-b795-78d5097a166b"
+    ]
+  }
+}

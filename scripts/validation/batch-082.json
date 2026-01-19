@@ -1,0 +1,39 @@
+{
+  "batch_number": 82,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T10:15:00.000Z",
+  "results": [
+    {"id": "5b430261-c9be-47d7-8cea-ef99b06e2ede", "title": "Novel THC analogs chloro derivatives Japan", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "FORENSIC - identifying synthetic cannabinoid variants"},
+    {"id": "5b4c06dc-d996-4473-9e02-9b3ea431f178", "title": "Cannabinoid system beta-amyloid BBB transit", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Alzheimer's mechanism"},
+    {"id": "5b52b633-9d4e-4567-8f82-6a9c2972529e", "title": "Brands intoxicating cannabis vape shops US 2023", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - market surveillance"},
+    {"id": "5b5814c8-1d05-4102-8b2a-ed0f8b68283b", "title": "Toke cheap cannabis demand purchase laboratory", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - behavioral economics of use"},
+    {"id": "5b605fa7-d5d3-408a-bae7-677d16aedc48", "title": "Cannabinoid activation PPARα neuroprotection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuroprotection mechanism"},
+    {"id": "5b6b7a26-3222-497f-bbf3-3850bfbfe813", "title": "Cannaverda CBD Gummies Benefits Website", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING"},
+    {"id": "5b6f61e4-ea9e-49a8-b7bf-86b106ef8af0", "title": "High endogenous cannabinoid CSF Parkinson's", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid Parkinson's research"},
+    {"id": "5b706478-b09e-49ba-852a-221b2df0dc51", "title": "CB2 AM1241 inhibits neuropathic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 agonist pain therapeutic"},
+    {"id": "5b77ed93-4e43-476e-8f81-72ad63d99b71", "title": "Minor cannabinoids terpenes flavonoids pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis constituents pain review"},
+    {"id": "5b7b1470-a5e4-4f3b-a515-f1894041d5f7", "title": "Cannabis effects autism spectrum adults", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis autism therapeutic"},
+    {"id": "5b8581c4-e4cb-4200-8e58-b9db9324bfb2", "title": "CBD cisplatin-induced neuropathic pain model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuropathic pain therapeutic"},
+    {"id": "5b88f395-5083-48a2-9a21-46846f48aea9", "title": "CBD oxidative stress HIF-1α hypoxia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection mechanism"},
+    {"id": "5b890ddd-4ce6-4518-8473-09a5ed000c9b", "title": "Mitochondrial dynamics neurodevelopmental disorders", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general neuroscience"},
+    {"id": "5b923014-15f0-4760-b07c-206f764b6b43", "title": "CBD enzyme contributions pharmacokinetics PBPK", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics research"},
+    {"id": "5b9cb3ee-ba53-41db-a023-256de0b41d35", "title": "Fetal THC exposure pregnancy prediction", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC pregnancy safety research"},
+    {"id": "5ba6409b-dcdf-4d9e-b48a-edadf080a13f", "title": "Cannabinoid pediatric epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid epilepsy therapeutic"},
+    {"id": "5bbec788-5df1-4846-8e91-4d4a8ae149b9", "title": "CB2 polymorphism eating disorders food intake", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 eating disorders research"},
+    {"id": "5bc951f5-908b-43e6-aada-e0881fe4a9fb", "title": "Cannabinoid content seized hashish Spain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "FORENSIC DETECTION"},
+    {"id": "5be32fde-9d49-464b-b50c-bb5df9580de1", "title": "Cannabis oils CBD:THC ratios hypertension steatosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC cardiovascular metabolic research"},
+    {"id": "5be681ad-987a-4311-8b86-4fd51608f048", "title": "Cannabidiol and addiction", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "5b430261-c9be-47d7-8cea-ef99b06e2ede",
+      "5b52b633-9d4e-4567-8f82-6a9c2972529e",
+      "5b5814c8-1d05-4102-8b2a-ed0f8b68283b",
+      "5b6b7a26-3222-497f-bbf3-3850bfbfe813",
+      "5b890ddd-4ce6-4518-8473-09a5ed000c9b",
+      "5bc951f5-908b-43e6-aada-e0881fe4a9fb"
+    ]
+  }
+}

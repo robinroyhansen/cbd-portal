@@ -1,0 +1,35 @@
+{
+  "batch_number": 71,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T07:30:00.000Z",
+  "results": [
+    {"id": "4db370c1-cb82-4792-8657-9141dc4d76e0", "title": "Evaluation of a Digital Educational Intervention Regarding Safe and Efficient Cannabis Use with Young Adults Diagnosed with Cancer: a Pilot Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer patient education"},
+    {"id": "4dcf1320-8f99-4426-ac00-d6f576f1b5c4", "title": "Assessment of the Effect of a Cosmetic Cream With CBD and Natural Ingredients on the Recurring Chronic Tendon Pain in Triathletes, Runners, Cyclists, and Swimmers: a Randomized, Crossover, Placebo-controlled, Double-blind Trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD athletic chronic pain therapeutic RCT"},
+    {"id": "4dd82474-ffca-4789-ae4a-5a61502c6382", "title": "DIFFERENTIAL ANTIPROLIFERATIVE EFFECTS OF CANNABIDIOL (CBD) IN THE CORE AND INFILTRATIVE BOUNDARY OF HUMAN GLIOBLASTOMA CELLS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD glioblastoma cancer therapeutic"},
+    {"id": "4dd9014f-c57a-468f-ac0d-b15499799abb", "title": "Cannabidiol and the corticoraphe circuit in post-traumatic stress disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PTSD mechanism"},
+    {"id": "4ddce143-744a-4a79-8151-02e5166a2599", "title": "The Cannabinoid CB1 Receptor Antagonist, Rimonabant, as a Promising Pharmacotherapy for Alcohol Dependence: Preclinical Evidence", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 antagonist alcohol addiction therapeutic"},
+    {"id": "4df85f3b-d620-4f7d-98a8-cab14e3022b2", "title": "Cannabidiol induced apoptosis in human monocytes through mitochondrial permeability transition pore-mediated ROS production", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD monocyte apoptosis mechanism"},
+    {"id": "4dfdd712-8c3f-4304-b784-b33dcede4a11", "title": "Cannabinoids: Novel Therapies For Arthritis?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid arthritis therapeutic review"},
+    {"id": "4e0596f2-18a0-4a21-90b5-7e9c07283e1a", "title": "Neurological soft signs in non‐psychotic patients with cannabis dependence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - neurological dysfunction in CUD"},
+    {"id": "4e0c0f3e-02c7-4fe7-ad71-777ea5f79302", "title": "Cannabidiol as a Potential Treatment for Anxiety and Mood Disorders: Molecular Targets and Epigenetic Insights from Preclinical Research", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety/mood therapeutic review"},
+    {"id": "4e1ec98b-ef69-49f9-9bdc-bb957b322fff", "title": "Pharmacological actions and therapeutic uses of cannabis and cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis therapeutic review"},
+    {"id": "4e3ae86f-bfc4-4399-8161-92a1c80eabe1", "title": "Cannabidiol Mediates In Vitro Attenuation of Proinflammatory Cytokine Responses in Psoriatic Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psoriasis therapeutic"},
+    {"id": "4e4c4a60-f955-4320-9a1d-81db270f5203", "title": "The endogenous cannabinoid anandamide inhibits human breast cancer cell proliferation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Anandamide breast cancer mechanism"},
+    {"id": "4e7d3484-03ba-4996-8b80-55479e1199e5", "title": "2-Arachidonoylglycerol, an endogenous cannabinoid receptor ligand, induces rapid actin polymerization in HL-60 cells differentiated into macrophage-like cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "2-AG macrophage mechanism"},
+    {"id": "4eaa2c2e-7cd4-4ce0-acfa-d33b41a5086b", "title": "Antianxiety effect of cannabidiol in the elevated plus-maze", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety therapeutic"},
+    {"id": "4eb51301-91a7-4be5-a0ca-92edf2301c9d", "title": "Overactive cannabinoid 1 receptor in podocytes drives type 2 diabetic nephropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 diabetic nephropathy mechanism"},
+    {"id": "4eb87e15-9157-404a-a8fa-6e051ed315fa", "title": "Cannabidiol (CBD) Use among children with juvenile idiopathic arthritis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD JIA pediatric therapeutic survey"},
+    {"id": "4ebbe424-c654-4567-a0ec-a2db1f82ca15", "title": "Cannabidiol as prophylactic treatment for intestinal ischaemia reperfusion injury in elderly rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD intestinal ischemia therapeutic"},
+    {"id": "4ec370af-85e8-416b-883e-e84f31e04b6c", "title": "Tolerance to the memory disruptive effects of cannabinoids involves adaptation by hippocampal neurons", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid memory mechanism"},
+    {"id": "4edb4402-d276-4f26-92ac-3a8104e3f83d", "title": "Targeting Human Cancer Cells with Cannabidiol (CBD): Apoptotic Cytotoxicity in HeLa, MDA-MB-231, and CaCo-2 Lines", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer apoptosis therapeutic"},
+    {"id": "4f018ec6-9a63-4b5a-b538-d96b44f10f1f", "title": "Improvement of Traffic Operation in Congested Intersections for the CBD of Baghdad", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Central Business District (Baghdad traffic)"}
+  ],
+  "batch_summary": {
+    "correct": 18,
+    "incorrect": 2,
+    "incorrect_ids": [
+      "4e0596f2-18a0-4a21-90b5-7e9c07283e1a",
+      "4f018ec6-9a63-4b5a-b538-d96b44f10f1f"
+    ]
+  }
+}

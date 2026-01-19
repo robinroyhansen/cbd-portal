@@ -1,0 +1,40 @@
+{
+  "batch_number": 389,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T15:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "aefa25ff-90d8-4bda-8cd9-e81c3761ac63", "title": "Influence of age, postmortem delay and freezing storage period on cannabinoid receptor density and functionality in human brain", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor research"},
+    {"id": "aefe6ecd-bbdf-4c19-bf87-9089b99e9bcb", "title": "Delimiting the CBD in Finland", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "af19ea7d-eeeb-4953-b93b-69ffae95c5f4", "title": "Cannabis and cannabinoids in dermatology: a systematic review and meta-analysis of quantitative outcomes.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid dermatology therapeutic review"},
+    {"id": "af1c73b3-8b3b-4063-9c66-b10519f84a16", "title": "Medicinal cannabis in Australia: the missing links", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "af2e7e40-3486-4011-b0f3-11febce21a8d", "title": "Traffic impact analysis of Jiefangbei CBD(II)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "af9771b0-fe12-49da-92b8-b437d4e52cdb", "title": "Identification of Tetrahydrocannabidiol Metabolites in Human Urine.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacokinetics research"},
+    {"id": "af9f323a-1173-4938-a1de-e906866dd66b", "title": "https://supplements4fitness.com/karas-orchards-cbd-gummies/", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "afa587bc-f8f5-4ba7-b328-d3b03443f949", "title": "The effects of cannabidiol (CBD) in transport water on the behaviour of ornamental fishes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "afae236e-6654-460a-b603-17d7dbdb071d", "title": "The Influence of CBD and THC on Hepatic Enzymes of the Human Cytochrome P450 Complex Family: A Systematic Literature Review.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC drug interaction safety research"},
+    {"id": "afbd3278-0a84-49f5-ac78-4e2ee884fadc", "title": "Think big. Why the future of uni campuses lies beyond the CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "afc18b10-f4ae-44aa-a4db-ddf8dbf61d04", "title": "Crystallization behavior of milk fat, palm oil, palm kernel oil, and cocoa butter with and without the addition of cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food science correctly rejected"},
+    {"id": "afd89704-06d2-4bc6-a541-9f25d7a8f4d9", "title": "Impact of preoperative cannabis use on short and mid-term postoperative outcomes following total hip and knee arthroplasty.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use impact study correctly rejected"},
+    {"id": "aff3a9d3-7c7c-4ae3-a84e-91983be96504", "title": "Sociodemographic differences in patterns of nicotine and cannabis vaping among US adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "b02c7eb6-63a8-4b45-a95f-4f67e52b640f", "title": "Therapeutic applications of cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic review"},
+    {"id": "b0332410-71ad-4d42-b215-66d62c4dd519", "title": "Effect of Cannabis Use on Cognitive Functions and Driving Ability", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "b03462bf-a3ab-4eeb-929a-3e67cf34ca5f", "title": "Isolation and Identification of a Cannabinoid-Like Compound From Amorpha Species", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Phytochemistry correctly rejected"},
+    {"id": "b03550db-2033-47cb-8591-8cfd932147cc", "title": "A Case Report of Severe Bromadiolone Poisoning: Blood Toxicology Levels and Correlation to Clinical Toxicity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b037c2ee-bb47-49af-88b1-281e4cdc384c", "title": "AI-Integrated Micro/Nanorobots for Biomedical Applications: Recent Advances in Design, Fabrication, and Functions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b047d4ec-5f68-4ec6-991b-f29008ad6bfe", "title": "Boosting the Cannabidiol Production in Engineered Saccharomyces cerevisiae by Harnessing the Vacuolar Transporter BPT1", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Biosynthesis/production correctly rejected"},
+    {"id": "b0560601-0783-40e3-81e2-fb649200b10b", "title": "Effects of rimonabant, a cannabinoid CB1 receptor ligand, on energy expenditure in lean rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism/metabolic research"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "aefa25ff-90d8-4bda-8cd9-e81c3761ac63",
+      "af19ea7d-eeeb-4953-b93b-69ffae95c5f4",
+      "af9771b0-fe12-49da-92b8-b437d4e52cdb",
+      "afae236e-6654-460a-b603-17d7dbdb071d",
+      "b02c7eb6-63a8-4b45-a95f-4f67e52b640f",
+      "b0560601-0783-40e3-81e2-fb649200b10b"
+    ]
+  }
+}

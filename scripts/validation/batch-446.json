@@ -1,0 +1,43 @@
+{
+  "batch_number": 446,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T05:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "ed3f0f5d-dcb7-4cc4-b495-51b36729c1d8", "title": "Supercritical CO2 extraction of hemp: terpene-rich and terpene-depleted CBD fractions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"},
+    {"id": "ed47dfd5-83ac-46ad-9698-cc4ed37241f2", "title": "Acute Cannabis Administration Transiently Reduces Mitochondrial DNA in Young Adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "ed4aeb84-685f-4cd1-8a62-5d275277a1a3", "title": "Investigation of Adenosinergic Receptors in the Behavioral Effects Induced by Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD mechanism research"},
+    {"id": "ed516dbc-a4e2-4d8a-a1a4-e549f651696a", "title": "Enhancing transmucosal delivery of CBD through nanoemulsion: in vitro and in vivo studies", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery research"},
+    {"id": "ed5e030f-336e-4d45-8248-9e27ed2bb1c0", "title": "'Weed-ing' Out Disproportionate Regulation: The Free Movement of CBD in the EU", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Legal/regulatory correctly rejected"},
+    {"id": "ed66c474-badf-4e93-8d9d-947f33723640", "title": "Cannabidiol Potentiates the Consolidation of Conditioned Fear Memory in Humans", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD behavioral mechanism research"},
+    {"id": "ed896a77-bfcb-4153-8c7f-6567092dbcff", "title": "The Effects of Cannabidiol (CBD) on Mental Health Disorders Among Adolescents and Young Adults", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD mental health therapeutic"},
+    {"id": "ed8c1fdd-82c7-447c-867a-81ef757634fb", "title": "Beyond Cannabis: Plants and the Endocannabinoid System", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS mechanism research"},
+    {"id": "ed92c105-5fcc-40c5-a231-49623d5b4431", "title": "Chronic l-DOPA treatment increases striatal cannabinoid CB1 receptor in 6-OHDA rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 Parkinson's mechanism research"},
+    {"id": "ed9ab7b0-0ac4-47ac-acbd-e5180aca9cda", "title": "Adolescent Initiation of Cannabis use and Early-Onset Psychosis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm (psychosis) correctly rejected"},
+    {"id": "edb47060-122b-42a5-b912-52deb943f360", "title": "Where-to for Melbourne's next wave of CBD design?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "edc539d4-2b78-4dd7-add2-778c48925d6b", "title": "Δ9-Tetrahydrocannabinol inhibits gastric motility through cannabinoid CB1 receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC/CB1 GI mechanism research"},
+    {"id": "edd0ff09-050a-41ff-baa2-7e3a85fd5e7d", "title": "HILLSTONE HEMP CBD GUMMIES: Does it Really Work?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "edd1951b-2e5d-4a78-93a5-10b49934aefa", "title": "Identification of Bioactive Minor Cannabinoids From Hemp Extract by Using Machine Learning", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid bioactivity research"},
+    {"id": "edd2da02-5b1c-493b-9475-8ecde114ce5e", "title": "Recent Advances in MXene-Based Screen-Printed Electrochemical Sensors", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "eddb2cae-1b54-41f9-9a35-38b2e8f11767", "title": "Review of Subjective Well-Being: A Culture Based Development (CBD) perspective", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "ede2389e-c31e-4063-9b0c-95aab803f993", "title": "Raman-Based Differentiation of Hemp, CBD-Rich Hemp, and Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "ede520e0-972d-4de2-8973-e027e41fd346", "title": "Family-based CBT for OCD in children and adolescents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "ee0a84ef-3f84-4b77-a695-158007773613", "title": "Pro-nociceptive effects of Cannabidiol depend on Trpa1b in larval Zebrafish", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pain mechanism research"},
+    {"id": "ee11be26-055e-4489-96ad-f863488b3529", "title": "Cannabis-Derived Product Types, Flavors From an E-Commerce Website", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market analysis correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "ed4aeb84-685f-4cd1-8a62-5d275277a1a3",
+      "ed516dbc-a4e2-4d8a-a1a4-e549f651696a",
+      "ed66c474-badf-4e93-8d9d-947f33723640",
+      "ed896a77-bfcb-4153-8c7f-6567092dbcff",
+      "ed8c1fdd-82c7-447c-867a-81ef757634fb",
+      "ed92c105-5fcc-40c5-a231-49623d5b4431",
+      "edc539d4-2b78-4dd7-add2-778c48925d6b",
+      "edd1951b-2e5d-4a78-93a5-10b49934aefa",
+      "ee0a84ef-3f84-4b77-a695-158007773613"
+    ]
+  }
+}

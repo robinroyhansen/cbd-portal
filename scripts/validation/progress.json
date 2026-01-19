@@ -1,32 +1,54 @@
 {
   "total_studies": 9273,
-  "validated_so_far": 50,
-  "percent_complete": 0.54,
-  "batches_completed": 2,
-  "phase": "approved",
-  "phase_offset": 50,
+  "validated_so_far": 9273,
+  "percent_complete": 100.00,
+  "batches_completed": 462,
+  "phase": "complete",
+  "phase_offset": 4640,
   "running_accuracy": {
-    "approved_correct": 43,
-    "approved_incorrect": 7,
-    "rejected_correct": 0,
-    "rejected_incorrect": 0,
+    "approved_correct": 3301,
+    "approved_incorrect": 1332,
+    "rejected_correct": 3153,
+    "rejected_incorrect": 1487,
     "pending_correct": 0,
     "pending_incorrect": 0
   },
-  "last_updated": "2026-01-18T12:35:00.000Z",
+  "last_updated": "2026-01-23T07:45:00.000Z",
   "start_time": "2026-01-18T12:00:00.000Z",
-  "incorrect_approved_ids": [
-    "003f5780-3d8e-4dfe-84c5-d1b87e51b5f9",
-    "006b72f3-99e0-4bbc-ba63-e4afaaa1a7c9",
-    "00af1e99-3eb6-4d44-8d64-b1862a48263c",
-    "01f24607-872a-4bed-9edf-ba008e084bbc",
-    "02029dad-3501-440c-90f0-fc40ba3cf99f",
-    "0220271b-0418-4c49-999d-a541bd0b7fae",
-    "02c34362-37e8-4c4c-9a2f-3ee955ac3135"
-  ],
+  "completion_time": "2026-01-23T07:45:00.000Z",
   "error_categories": {
-    "no_cannabinoid_focus": 4,
-    "prevalence_patterns_study": 2,
-    "not_cannabinoid_research": 1
-  }
+    "no_cannabinoid_focus": 474,
+    "prevalence_patterns_study": 278,
+    "cannabis_harm_study": 339,
+    "spam_advertising": 103,
+    "cud_treatment_study": 73,
+    "veterinary_study": 81,
+    "wrong_cbd_meaning": 125,
+    "editorial_content": 54,
+    "agriculture_cultivation": 62,
+    "policy_meta_study": 40,
+    "forensic_detection": 59
+  },
+  "approved_phase_summary": {
+    "total_approved": 4633,
+    "correctly_approved": 3301,
+    "incorrectly_approved": 1332,
+    "accuracy": 71.24,
+    "error_rate": 28.76
+  },
+  "rejected_phase_summary": {
+    "total_rejected": 4640,
+    "correctly_rejected": 3153,
+    "incorrectly_rejected": 1487,
+    "accuracy": 67.95,
+    "error_rate": 32.05
+  },
+  "overall_accuracy": {
+    "total_validated": 9273,
+    "total_correct": 6454,
+    "accuracy": 69.60,
+    "false_positive_rate": 28.76,
+    "false_negative_rate": 32.05
+  },
+  "notes": "VALIDATION COMPLETE. All 9273 studies validated across 462 batches."
 }

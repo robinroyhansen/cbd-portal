@@ -1,0 +1,39 @@
+{
+  "batch_number": 388,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T15:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "adc41223-0186-4d8a-92db-d18e19942a9e", "title": "Detection and identification of the new potential synthetic cannabinoids 1-pentyl-3-(2-iodobenzoyl)indole and 1-pentyl-3-(1-adamantoyl)indole in seized bulk powders in Hungary", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "adcc156e-aa2f-458d-85e9-ba5fe9d00613", "title": "Cannabidiol Toxicity Driven by Hydroxyquinone Formation.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety/toxicology research"},
+    {"id": "ade523ae-51bd-4625-9a2f-d4b9e83ad8ee", "title": "Cannabidiol enhances consolidation of explicit fear extinction in humans", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic human study (anxiety/fear)"},
+    {"id": "adf4424d-fc9a-4389-8293-54dc5e7d6c75", "title": "Genotyping of Commercial European Cannabis Seeds Based on Multiple Mapped Marker Loci: A Comparative Study of Drug and Hemp Varieties.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/genetics correctly rejected"},
+    {"id": "adffcefc-20c7-431c-9a57-9fcaabaddf64", "title": "The role of temperament in the relationship between early onset of tobacco and cannabis use: The TRAILS study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "ae2128e0-1e54-4db5-9d4e-3ed728875ff2", "title": "Truman CBD + Male Enhancement Gummies -#Urgent Update #1 GROUNDBREAKING SOLUTION REVEALED Does It Worth Buying", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "ae3edbb7-d63b-4ab3-9a50-6b8a67745f53", "title": "Prevalence and characteristics of prenatal cannabis use in Michigan, USA: A statewide population‐based pregnancy cohort", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "ae4089d5-511b-473d-923a-2aef39162201", "title": "Early Definitive Surgery for Congenital Biliary Dilatation in Children Is Associated With Lower Morbidity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "ae453e71-ff39-42ca-8d43-d25d8d5b3043", "title": "Methamphetamine and Cannabis: A Tale of Two Drugs and their Effects on HIV, Brain, and Behavior", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "ae4b4f14-0c28-4b02-86b2-8f7ffa7153f8", "title": "再谈\"中央商务区（CBD）\"", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "ae599995-1faa-4e31-826d-18d996812123", "title": "Effects of cannabidiol on the viability and neuronal differentiation of human iPS cells.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD mechanism/neural research"},
+    {"id": "ae607541-492b-4887-bcc5-3e8b9d5ec1c6", "title": "Asociación del consumo de cigarro, derivados nicotínicos y cannabis con enfermedad periodontal. Una revisión", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "ae86febd-0c4b-4085-b322-b1b1d982b6a1", "title": "Ultrastructural localization of cannabinoid CB1 and mGluR5 receptors in the prefrontal cortex and amygdala", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research"},
+    {"id": "ae8ba0e0-62e6-41b9-bf35-542fc72b6213", "title": "Solid-State Microwave Drying for Medical Cannabis Inflorescences: A Rapid and Controlled Alternative to Traditional Drying", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Processing methods correctly rejected"},
+    {"id": "aea61e16-40eb-40ee-8a95-39bb4dbd7bb3", "title": "Cannabis and Phencyclidine Self-Administration by Animals", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Addiction/abuse liability correctly rejected"},
+    {"id": "aeb78a1b-37a4-4a16-afda-26f392dec51f", "title": "Effect of patient marijuana use on perioperative opioid requirements.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis clinical opioid interaction research"},
+    {"id": "aebb34e2-f13e-4843-89d3-1697c2bfaa61", "title": "Regular cannabis use, with and without tobacco co-use, is associated with respiratory disease", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "aecbfa3f-1e6f-49ca-828c-c6bb039d22b3", "title": "The Complex Relationship Between Cannabis Use and Mental Health: Considering the Influence of Cannabis Use Patterns and Individual Factors.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "aed68b5f-239a-4a86-8ee3-8f65d4898f66", "title": "Passive Cannabis Smoke Exposure and Oral Fluid Testing", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "aef66c44-5193-421f-a16c-85420f9fdce3", "title": "The synthetic cannabinoids ADB-FUBINACA and AMB-FUBINACA enhance in vitro neurodifferentiation of NG108-15 cells, along with PGC-1α dysregulation and mitochondrial dysfunction.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid toxicity correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "adcc156e-aa2f-458d-85e9-ba5fe9d00613",
+      "ade523ae-51bd-4625-9a2f-d4b9e83ad8ee",
+      "ae599995-1faa-4e31-826d-18d996812123",
+      "ae86febd-0c4b-4085-b322-b1b1d982b6a1",
+      "aeb78a1b-37a4-4a16-afda-26f392dec51f"
+    ]
+  }
+}

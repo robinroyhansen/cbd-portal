@@ -1,0 +1,39 @@
+{
+  "batch_number": 117,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T19:00:00.000Z",
+  "results": [
+    {"id": "828a4b4a-0e93-4106-ab7a-8c62f4be1640", "title": "Medical Cannabis Pain Opioid Prescriptions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain opioid reduction therapeutic"},
+    {"id": "82967c6d-78d2-4ec5-845e-271a3470ff0a", "title": "CBD Wound Healing Inflammatory Response", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD wound healing anti-inflammatory"},
+    {"id": "82a5febf-9a18-4782-b5d7-507930aca824", "title": "CBD Adipogenesis Adipose Stem Cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD metabolism mechanism"},
+    {"id": "82c7d8ab-2188-4d59-9cb1-7aa5df069624", "title": "CBD Dravet Syndrome Long-term OLE Safety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic RCT extension"},
+    {"id": "82d0dc2c-6caf-4838-98dc-308c22dc821c", "title": "Radiation Epigenetics Anticancer Therapies", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - radiation cancer"},
+    {"id": "82da0b32-1294-43c4-9b33-120f69141913", "title": "THC Adolescence Mesocortical Dopamine Development", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - THC developmental effects"},
+    {"id": "82dddb75-336e-4bcc-81c0-e42c4a949e4e", "title": "CBD Protective Tissular Effects Immune Aging", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD aging protective therapeutic"},
+    {"id": "82fd0b9d-17a9-4d06-a1d7-6f3057cb8f26", "title": "Cyclophosphamide-Bortezomib-Dexamethasone Myeloma", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Cyclophosphamide-Bortezomib-Dexamethasone chemotherapy"},
+    {"id": "82fd5832-76b6-4961-bdd5-a877189427ff", "title": "CBD Palliative Care Role", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD palliative care therapeutic"},
+    {"id": "82ffc12a-173a-41e2-a986-4be95c1a2bbb", "title": "Levodopa Dyskinesia Parkinson's Pharmacological", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - PD levodopa treatments"},
+    {"id": "8302e247-e3b4-4198-86d9-ef31461da6c3", "title": "CB2 Receptor Colitis Protection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid IBD therapeutic"},
+    {"id": "830d1695-0c21-40c9-b335-92032e212a96", "title": "Endocannabinoids Fibromyalgia Fitness Connectivity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid fibromyalgia mechanism"},
+    {"id": "830fb860-03aa-4a82-a57f-122a456d871c", "title": "Cannabis Expiation Notice South Australia Policy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - cannabis policy effects study"},
+    {"id": "83148dbf-8868-4b23-8ea1-8c321df523ff", "title": "CBD GPR55 Signaling Antiepileptic Mechanism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism"},
+    {"id": "8318aae3-a4a0-4715-ab3e-a44dda89324c", "title": "CBC CBG CBN Amyloid Neurotoxicity PC12", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Alzheimer's neuroprotection"},
+    {"id": "83214daa-5c8f-458c-845b-ebe226c5a4d2", "title": "Opioid Cannabinoid Pain Control Knockout", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "832300d4-5d52-49d3-b1bb-f7c69bc3d509", "title": "Medical Cannabis Head Neck Cancer Supportive Care", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer therapeutic"},
+    {"id": "832a44a6-797f-4a75-a309-7dea9d1c127c", "title": "CBD Stone Cholangitis Elderly", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Common Bile Duct stone"},
+    {"id": "83346801-0fba-49d9-bac1-304dc98bac44", "title": "CBD PPARγ Alzheimer's Neuroprotection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's therapeutic mechanism"},
+    {"id": "8344a97e-84ec-4cfb-920c-478dd41eab5e", "title": "Cannabis Products Chronic Pain AHRQ", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic review"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "82d0dc2c-6caf-4838-98dc-308c22dc821c",
+      "82da0b32-1294-43c4-9b33-120f69141913",
+      "82fd0b9d-17a9-4d06-a1d7-6f3057cb8f26",
+      "82ffc12a-173a-41e2-a986-4be95c1a2bbb",
+      "830fb860-03aa-4a82-a57f-122a456d871c",
+      "832a44a6-797f-4a75-a309-7dea9d1c127c"
+    ]
+  }
+}

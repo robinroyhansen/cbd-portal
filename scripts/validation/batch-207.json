@@ -1,0 +1,39 @@
+{
+  "batch_number": 207,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T17:45:00.000Z",
+  "results": [
+    {"id": "e5e6ae07-7f71-4ec5-aa86-e6063add7859", "title": "Cannabinoids Hippocampal Neural Encoding Memory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid memory mechanism CB1"},
+    {"id": "e5f2709b-cd4a-4e46-b473-6479cc3bb3a3", "title": "Cannabinoids Pain Modulatory Circuit Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "e5f873ca-2093-4f39-a196-dcbe9486b00d", "title": "Cannabis Use Abuse Withdrawal Mechanisms", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology mechanism review"},
+    {"id": "e6192e71-c333-43b4-b4a5-afd176aac377", "title": "Ensuring Access Cannabis-Based Medicines", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - regulatory access commentary"},
+    {"id": "e62778f9-0b2e-492e-a28c-f1d37df14132", "title": "CBD Oil-Associated Microscopic Colitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety adverse effect case report"},
+    {"id": "e62eb272-19e9-49be-8037-c77680cebffc", "title": "Cannabis Medicinal Autismo Portuguese", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism therapeutic review"},
+    {"id": "e637a598-8217-451e-880a-2d1de832e282", "title": "Ajulemic Acid Neuropathic Inflammatory Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Synthetic cannabinoid pain therapeutic"},
+    {"id": "e645b851-cb54-4393-9d38-c8901e682dfe", "title": "Computer-Assisted Behavioral Therapy CUD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - behavioral therapy non-cannabinoid"},
+    {"id": "e6480876-bfaf-46cc-80c2-be6178ad517a", "title": "Cannabis Users Neurocognitive Impulsive Behavior", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cognitive deficits in users"},
+    {"id": "e64efdc2-b968-4ebd-8e0c-d54310fa1501", "title": "CBD Recovery Social Behaviour Autism Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism therapeutic Shank3 Fmr1"},
+    {"id": "e650b1e4-9f94-4920-93bf-fb806cceab67", "title": "CB1 Receptors Antinociception SCI Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid SCI pain therapeutic"},
+    {"id": "e6510da6-9cb9-4a60-a9d2-83653bb52e3b", "title": "Cannabis Use and Schizophrenia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis risk association"},
+    {"id": "e651ddb1-06f5-4137-b4fa-16f79cd96230", "title": "Cannabinoid Antagonists Clinicians Rise Fall", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid antagonist metabolic therapeutic review"},
+    {"id": "e65260bc-9ad9-47fd-9b5e-598a1db02b78", "title": "Cannabis Anti-inflammatory Insulin Sensitivity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid inflammation diabetes therapeutic"},
+    {"id": "e654d201-45b4-435c-86a4-55483e1703ec", "title": "Adolescent Cannabis Use Young Adult Outcomes", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - longitudinal adverse outcomes"},
+    {"id": "e659067b-aa3e-4b69-b935-231f41ee312c", "title": "CBD HPA Axis Genes Restraint Stress", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD stress anxiety mechanism"},
+    {"id": "e66c5c66-ae90-459e-bb91-bed078879690", "title": "Sustainable Operation Index Arterials CBD Sector Hilla", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Central Business District urban planning"},
+    {"id": "e6917613-5a1b-4859-9337-723e7cb0740b", "title": "Indian Hemp Gunjah Cannabis Indica Tetanus", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Historical O'Shaughnessy cannabis therapeutic"},
+    {"id": "e6941c68-3b63-488e-acdd-c6f1a5046688", "title": "Phytocannabinoids Seizures Zebrafish", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid epilepsy therapeutic"},
+    {"id": "e6970f52-8e9d-4277-bcc0-6304dfd33232", "title": "Epidiolex Prostate Cancer Phase I/Ib", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD prostate cancer clinical trial"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "e6192e71-c333-43b4-b4a5-afd176aac377",
+      "e645b851-cb54-4393-9d38-c8901e682dfe",
+      "e6480876-bfaf-46cc-80c2-be6178ad517a",
+      "e6510da6-9cb9-4a60-a9d2-83653bb52e3b",
+      "e654d201-45b4-435c-86a4-55483e1703ec",
+      "e66c5c66-ae90-459e-bb91-bed078879690"
+    ]
+  }
+}

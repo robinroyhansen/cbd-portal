@@ -1,0 +1,36 @@
+{
+  "batch_number": 145,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T02:15:00.000Z",
+  "results": [
+    {"id": "a229385a-7819-46a2-8627-4b63066a9efc", "title": "Neuroprotection EAE Progressive MS Cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid MS therapeutic"},
+    {"id": "a22a53b4-103b-4ea8-8e25-db6506e3d2df", "title": "Topical CBD atopic dermatitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD eczema therapeutic"},
+    {"id": "a22b60a6-b04d-4d1f-ae0f-18f1145b4e5a", "title": "Cannabis use and adult ADHD symptoms", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis/ADHD relationship"},
+    {"id": "a2328a8c-3a0b-4b33-b154-030bc5fd0392", "title": "Antiseizure phytocomplexes Cannabis CBD status epilepticus", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid epilepsy mechanism"},
+    {"id": "a2508545-810e-41c3-a48f-f87547104270", "title": "CBD THC Special Populations Pharmacokinetics DDIs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacokinetics review"},
+    {"id": "a25b9c7b-6874-4819-898a-7853ac7493f5", "title": "Cannabinoid signaling nucleus accumbens", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS addiction neuroscience"},
+    {"id": "a25ec7b9-c6a3-48cd-a5fb-05f6573456f3", "title": "CBD stress-induced liver injury oxidative", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD hepatoprotective"},
+    {"id": "a26cfbce-964f-4c76-94a0-a9295faf13f3", "title": "Formulation CBD Colloidal Lipid Carriers", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD formulation research"},
+    {"id": "a27da9fe-9f79-4b09-bcb0-f624f356c3d9", "title": "CB1 Receptor Anticonvulsant Cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid epilepsy mechanism"},
+    {"id": "a287809b-94e0-47b1-8b82-8c61ffbc1de9", "title": "Enhancing Cancer Treatment Cannabinoids RT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapy"},
+    {"id": "a28b0076-6853-4f83-9f10-367ff0dd3a60", "title": "Halloysite CBD Temporomandibular Pain Pilot", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD TMJ pain therapeutic"},
+    {"id": "a2a6f79b-e206-412e-86c7-2c1683a1f6f5", "title": "Gabapentin CB2 agonist LY2828360 Pain SNI", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 neuropathic pain mechanism"},
+    {"id": "a2a83d02-333d-4aea-bafc-39d2912f238d", "title": "Nanoemulsion CBD Oil Dermal", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD formulation skin delivery"},
+    {"id": "a2b049f0-c5eb-4abe-8934-0cd20072f772", "title": "CNR1 FAAH polymorphisms heroin addiction", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS genetics addiction mechanism"},
+    {"id": "a2b1b1a8-90be-4a2b-aaeb-e768ce700c15", "title": "Cannabis sativa Extract Oxidative Stress In Vivo", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis antioxidant mechanism"},
+    {"id": "a2c722b1-c0d0-4907-809b-479c135dd530", "title": "Synthetic transdermal CBD knee OA pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD osteoarthritis therapeutic"},
+    {"id": "a2cf1306-5b7a-4934-9a6a-68647d823ae1", "title": "CBD Intervertebral Disc Degeneration", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD spinal disc therapeutic"},
+    {"id": "a301c861-7e9f-4dc0-a0ef-4f323d1925fa", "title": "CBD hemp paste cats osteoarthritic pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - cats OA"},
+    {"id": "a3032d70-2800-45be-9497-ff9c3edee722", "title": "CBD nano-selenium chickens C. perfringens", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - chickens gut"},
+    {"id": "a30618f1-2752-4eff-801a-4e8edacf9767", "title": "Cannabinoids Alzheimer's Disease Therapy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid AD therapeutic review"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "a22b60a6-b04d-4d1f-ae0f-18f1145b4e5a",
+      "a301c861-7e9f-4dc0-a0ef-4f323d1925fa",
+      "a3032d70-2800-45be-9497-ff9c3edee722"
+    ]
+  }
+}

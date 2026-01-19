@@ -1,0 +1,39 @@
+{
+  "batch_number": 330,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T00:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "6cdc45d7-cedf-46a6-9edd-95e08b7e74f9", "title": "Porous starch as an effective carrier for sustained release and bioactivity protection of cannabidiol full spectrum oil", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery/formulation"},
+    {"id": "6cf4434a-4c9b-4749-8c1a-5cce83cb9dab", "title": "Identification of monohydroxylated metabolites of cannabidiol formed by rat liver", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD metabolism/pharmacokinetics"},
+    {"id": "6d04d177-b2b8-49c7-aab7-d93447a7de20", "title": "DFT and QTAIM insights into C20 fullerene derivatives as advanced sensors for phencyclidine drug detection in clinical settings", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "6d1c029d-0969-4613-beb7-d2617a99a3f4", "title": "The study on improvement of the Business-Critical CBD methodology for software reliability improvement", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (software) correctly rejected"},
+    {"id": "6d552829-80da-4498-8a97-f4afc9fa3701", "title": "Understanding and assessing personality across cultures: A scoping review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "6d5b1739-480d-4612-8ddb-6da52e6a3b22", "title": "The Possible Futures of Central Businesses District (CBD), Melbourne, Australia", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "6d666a65-5b59-4b39-bcbc-704051c8ddae", "title": "Pharmacological properties, therapeutic potential, and legal status of Cannabis sativa L.: An overview", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis therapeutic review (cancer, epilepsy, Parkinson's)"},
+    {"id": "6d6ec778-b304-4ec6-b7c4-6a2dc2bb3564", "title": "Design and Synthesis of New Quinoxaline Analogs to Regenerate Sensory Auditory Hair Cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "6d706a01-4e84-4c08-9da2-8ace8c23c6be", "title": "Using Chemical Ecology as a Guide for Development and Differentiation of Clinically Relevant Phytochemical Profiles in Cannabis Trichome.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant chemistry correctly rejected"},
+    {"id": "6d9ce8cd-540f-4ab3-bf51-4021222f3afb", "title": "The Form and Content of Cannabis Products in the United States", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product analysis correctly rejected"},
+    {"id": "6da72fe5-1010-4dc3-a48a-80fba04e4644", "title": "Development and validation of reverse phase high performance liquid chromatography method for the determination of delta-9-tetrahydrocannabinol and cannabidiol in oromucosal spray from cannabis extract", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical method correctly rejected"},
+    {"id": "6db51f0e-1934-481f-a1dc-31596d484133", "title": "Perceptions of cannabis as a stigmatized medicine: a qualitative descriptive study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Attitudes study correctly rejected"},
+    {"id": "6db9022a-7ea1-4fc0-9240-1cac058b3c19", "title": "Determination of Cannabinoids in Meat Products and Animal Feeds in Singapore Using Liquid Chromatography-Tandem Mass Spectrometry.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food testing correctly rejected"},
+    {"id": "6dce0bea-2765-49cd-934d-ead56ce709e0", "title": "IMPROVEMENT OF SURGICAL TREATMENT OF ACUTE BILIARY PANCREATITIS.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "6dd2ee72-d92b-43cc-8486-f04a950ee9e7", "title": "CBD 시스템으로 보강된 비내진 RC 골조의 내진성능 평가", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Channel Beam Damper) correctly rejected"},
+    {"id": "6dd75a32-760a-40c8-b99c-e130ece9b8d7", "title": "The Case for Cannabidiol-Integration of Eastern and Western Medical Traditions and the Promise for the Future: A Narrative Review and Commentary", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic review"},
+    {"id": "6ddf5f03-6b1c-4844-b579-ea29daa022eb", "title": "Cannabinoids Inhibit Migration of Microglial-like Cells to the HIV Protein Tat", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid HIV neuroprotection mechanism"},
+    {"id": "6de1bec4-3e60-4ced-a317-2cef013f6522", "title": "Multidimensional analysis of cannabis volatile constituents: Identification of 5,5-dimethyl-1-vinylbicyclo[2.1.1]hexane as a volatile marker of hashish, the resin of Cannabis sativa L.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/analytical correctly rejected"},
+    {"id": "6de75752-fcf6-4aea-b7fd-04d8764150b8", "title": "Possible Anxiolytic Effects of Cannabidiol (CBD) Administration on Feline Responses to a Fear Response Test.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "6df08ee5-3a25-4e04-84f0-ed40925ce414", "title": "Pupillary dynamics as a marker of acute cannabis inhalation.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment detection correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "6cdc45d7-cedf-46a6-9edd-95e08b7e74f9",
+      "6cf4434a-4c9b-4749-8c1a-5cce83cb9dab",
+      "6d666a65-5b59-4b39-bcbc-704051c8ddae",
+      "6dd75a32-760a-40c8-b99c-e130ece9b8d7",
+      "6ddf5f03-6b1c-4844-b579-ea29daa022eb"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "batch_number": 163,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T06:45:00.000Z",
+  "results": [
+    {"id": "b57a0569-d0a7-417f-9f49-20d056a4b84d", "title": "Cannabis respiratory lung cancer risk", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - respiratory/cancer"},
+    {"id": "b57ebaa2-d2b4-40dc-8812-4b572281f893", "title": "Cannabis smoking vaping respiratory cardiovascular", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - smoking effects"},
+    {"id": "b5821a99-ba85-4c77-a392-7a6686592242", "title": "CBD-HGF Hepatocyte Growth Factor Collagen-Binding", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Collagen-Binding Domain"},
+    {"id": "b58f4a7e-6496-40c1-8684-26f084b09391", "title": "CBD anandamide schizophrenia RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia clinical trial"},
+    {"id": "b5a21547-0414-4f11-be0a-ef041f480660", "title": "Hempseed flaxseed oil lyotropic crystals", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - hemp oil formulation"},
+    {"id": "b5e09cbd-90f3-4ca6-9c8e-caca486fc902", "title": "Pharmacological strategies CUD treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CUD pharmacological treatment"},
+    {"id": "b5ea248a-44a3-4d04-b3e3-e7cfc5e2242c", "title": "VERDICT trial veterans chronic low back pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - chiropractic trial"},
+    {"id": "b5f2007f-0623-4d58-8709-f6f5f3d104c3", "title": "CBD Anxiety Disorders Systematic Review RCTs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety systematic review"},
+    {"id": "b5f9644b-8ed5-4717-af24-f2b56670faf3", "title": "CBD THC PK/PD acute chronic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC pharmacology"},
+    {"id": "b5fd9d30-a9ff-47e9-97b9-a9d4acdd32a5", "title": "CBD imipramine antidepressant BDNF", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression mechanism"},
+    {"id": "b5ff90da-ca7c-4bd4-8937-c9909b67371e", "title": "CBD meth memory abstinence neuroprotection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD meth addiction neuroprotection"},
+    {"id": "b6001c3e-d8d1-46d1-af68-2c6add035870", "title": "CBG Sleep Veterans Placebo-controlled", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG sleep RCT"},
+    {"id": "b6109066-0942-40b2-b195-dfd1c245ffb8", "title": "Cannabis use OUD treatment outcomes", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use in OUD"},
+    {"id": "b6467bb4-72ef-4f9a-b6e6-59c3578f3e9e", "title": "Cancloz CBD clozapine-resistant schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia trial protocol"},
+    {"id": "b66bff17-408a-4ce8-96a1-10c02f5d1aac", "title": "CBD Alzheimer molecular simulations", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's mechanism"},
+    {"id": "b680b1ca-1b9e-4d53-be7e-a8454c9f8428", "title": "Cannabis use pregnancy patient-provider", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - pregnancy use discussions"},
+    {"id": "b68bf869-719b-4fa1-a96d-a26c19e4a51d", "title": "Repurposing Drugs PTSD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Drug repurposing PTSD"},
+    {"id": "b693b7db-5c29-4628-9676-9f58cff052bd", "title": "CBD epilepsies mechanisms review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism review"},
+    {"id": "b6ac161e-d0a1-4e03-9395-c3edde0b5124", "title": "Cannabinoid pH oxygen nucleus accumbens", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid blood flow mechanism"},
+    {"id": "b6b5b740-7e09-4b39-b223-ae193ea272e7", "title": "CBD cognitive function CUD RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD CUD cognitive outcomes"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "b57a0569-d0a7-417f-9f49-20d056a4b84d",
+      "b57ebaa2-d2b4-40dc-8812-4b572281f893",
+      "b5821a99-ba85-4c77-a392-7a6686592242",
+      "b5a21547-0414-4f11-be0a-ef041f480660",
+      "b5ea248a-44a3-4d04-b3e3-e7cfc5e2242c",
+      "b6109066-0942-40b2-b195-dfd1c245ffb8",
+      "b680b1ca-1b9e-4d53-be7e-a8454c9f8428"
+    ]
+  }
+}

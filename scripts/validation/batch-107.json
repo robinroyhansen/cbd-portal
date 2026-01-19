@@ -1,0 +1,39 @@
+{
+  "batch_number": 107,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T16:30:00.000Z",
+  "results": [
+    {"id": "777515fe-0220-4c8f-8b46-cbe8d347007c", "title": "Cannabis dogs osteoarthritis pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dogs"},
+    {"id": "778d4ff3-075f-4857-a61b-3112e6a049ea", "title": "CBD depressive behaviors neuropathic pain mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic mechanism"},
+    {"id": "77ab77c6-2e83-4887-a0ef-3efd758a7cf1", "title": "CBD Metformin Periodontitis Diabetes Epigenetic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD dental diabetes therapeutic"},
+    {"id": "77bb3cac-9383-4f9c-9a89-c64032f11b6c", "title": "Varenicline Cannabis Tobacco Use treatment", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - varenicline for cannabis use disorder"},
+    {"id": "77d5ad0e-a4c4-4a62-9e9d-4fc25de0c7de", "title": "CBD Keratinocyte Inflammation Nrf2 NFkB UV", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD skin mechanism"},
+    {"id": "77ec86cb-0986-4696-93ad-785855310a55", "title": "CBD CYP3A Drug Interactions pharmacokinetics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics safety"},
+    {"id": "77ec8e98-d4aa-42d8-8849-6389c9ca9c47", "title": "Calcium Uterus Endometrial Cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - uterine cancer calcium"},
+    {"id": "7809570f-0019-488d-8216-c55c83556882", "title": "CBD cuprizone demyelination MS mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD MS therapeutic"},
+    {"id": "780cd31c-e464-40dc-a144-b6f6992c3d93", "title": "Pain cannabinoids science evidence review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain review"},
+    {"id": "780e93fc-ee21-4e07-bdd9-d420138f832c", "title": "CBD genetic epilepsy models Portuguese thesis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy research"},
+    {"id": "780fa3de-540a-4323-ad99-25a0a34a186a", "title": "CBD PTSD depression mini-review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PTSD depression review"},
+    {"id": "782039af-96d4-45c9-a04f-bcf971a087c3", "title": "CBD compassionate access stress support feasibility", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic program"},
+    {"id": "7822d1cb-dc06-4272-bcdd-efbde8c9793b", "title": "CBD Hemp Dogs Cats Pharmacokinetics safety", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dogs and cats"},
+    {"id": "78321aa0-b3dd-4979-b4a3-9b87b1b8ea68", "title": "CBD circadian rhythm sleep anesthesia rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD sleep therapeutic"},
+    {"id": "784d74d3-cc6f-421d-974c-2551dbea161b", "title": "CBD MC treatment-resistant epilepsy meta-analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy meta-analysis"},
+    {"id": "7850d62d-ad75-4a15-9932-e77e2e277aee", "title": "Systemic Therapies Hepatocellular Carcinoma India", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - liver cancer India"},
+    {"id": "78546d53-f3a7-4ab8-9dc7-6557aa629883", "title": "CBDV CBD TRPV1 neuronal hyperexcitability epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid epilepsy mechanism"},
+    {"id": "7867298d-e1e1-4647-ab2a-f77d453e9f88", "title": "CBD Lennox-Gastaut Dravet Seizures oral solution", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "789453f4-7e84-44f9-b924-b2ff2d9b4f7e", "title": "Synthetic cannabinoid Norwegian forum discourse heroin", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - SC abuse forum analysis"},
+    {"id": "78aed69b-52be-4bb7-bafa-f187706e18b1", "title": "Cannabidiol Impact Depression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "777515fe-0220-4c8f-8b46-cbe8d347007c",
+      "77bb3cac-9383-4f9c-9a89-c64032f11b6c",
+      "77ec8e98-d4aa-42d8-8849-6389c9ca9c47",
+      "7822d1cb-dc06-4272-bcdd-efbde8c9793b",
+      "7850d62d-ad75-4a15-9932-e77e2e277aee",
+      "789453f4-7e84-44f9-b924-b2ff2d9b4f7e"
+    ]
+  }
+}

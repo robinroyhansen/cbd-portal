@@ -1,0 +1,39 @@
+{
+  "batch_number": 162,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T06:30:00.000Z",
+  "results": [
+    {"id": "b48f5729-df6b-463d-a805-e5e0fed36cfb", "title": "Cognitive Measures Long-Term Cannabis Users", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cognitive effects"},
+    {"id": "b498fe63-40e2-4d0c-bf2c-cddf00ef4754", "title": "CBD Acute Supplementation Metabolism Energy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD metabolism research"},
+    {"id": "b4995483-048e-42f1-a1e9-dd3707dae2e2", "title": "CBD Cannabis Extract ASD Children RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism clinical trial"},
+    {"id": "b4a55360-0921-456b-a677-444ed6babcd8", "title": "Cannabinoid receptor expression schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB receptor schizophrenia research"},
+    {"id": "b4ab9700-495f-4809-847b-4d8e3a8167b9", "title": "CBD apoptosis autophagy inflammation cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer/inflammation review"},
+    {"id": "b4b3e2eb-70c6-479d-bdd5-5319050e3ffa", "title": "CBD Dermal Papilla A549 Lung Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer mechanism"},
+    {"id": "b4c53214-2598-4dbe-810d-9793f6ebfa29", "title": "Sex gender CUD scoping review protocol", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD sex/gender patterns"},
+    {"id": "b4d67db0-dd40-4422-9c32-1c4946050271", "title": "CBD pediatric drug-resistant epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy clinical research"},
+    {"id": "b4e6bf2d-4013-433d-b970-8f039d674e6e", "title": "VER-01 Pain Relief Sleep CLBP Phase 3", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis extract pain RCT"},
+    {"id": "b4e8ecc1-536b-495b-becf-737f4b0b9706", "title": "Cannabis Microwave Extraction Cytotoxic Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer research"},
+    {"id": "b506f359-47d9-4a0a-ab48-d3e0ee50bc47", "title": "Cannabinoids Immunoregulatory Infectious Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid immune research"},
+    {"id": "b5208bce-e5e1-4c20-a785-2e2eadab7a64", "title": "Cannabis cardiovascular risk ageing", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cardiovascular ageing"},
+    {"id": "b523ec10-b99a-419b-9b55-320b37a4a931", "title": "Medicinal Cannabis Palliative Care Trials", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis palliative trial design"},
+    {"id": "b5349d69-0b99-4e30-bd7e-0509fa408e39", "title": "CBT comorbid cannabis anxiety ICART pilot", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - non-cannabinoid therapy"},
+    {"id": "b53b2fef-623e-4bfc-83e2-a1d743f04213", "title": "CBD endothelium vasorelaxation mesenteric", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD vascular mechanism"},
+    {"id": "b53e30ea-bc12-4d61-acd2-1bae013b614b", "title": "CBD pharmacokinetics horses", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - horse study"},
+    {"id": "b53e79aa-f5f7-4e16-8292-b22cbfbed9fd", "title": "Truman CBD Male Enhancement Gummies SALE", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - advertisement"},
+    {"id": "b5454b7a-e793-45f5-a962-3ab192bf00ee", "title": "UK Medical Cannabis Registry CRPS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis CRPS clinical analysis"},
+    {"id": "b54651a0-26c1-461a-be7c-569799e6eac2", "title": "Artisanal cannabis epilepsy USA status", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis epilepsy therapeutic"},
+    {"id": "b575876a-d5bb-46c2-9cdb-55e6bb645a63", "title": "CBD BBB Cerebral Ischemia Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD stroke neuroprotection"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "b48f5729-df6b-463d-a805-e5e0fed36cfb",
+      "b4c53214-2598-4dbe-810d-9793f6ebfa29",
+      "b5208bce-e5e1-4c20-a785-2e2eadab7a64",
+      "b5349d69-0b99-4e30-bd7e-0509fa408e39",
+      "b53e30ea-bc12-4d61-acd2-1bae013b614b",
+      "b53e79aa-f5f7-4e16-8292-b22cbfbed9fd"
+    ]
+  }
+}

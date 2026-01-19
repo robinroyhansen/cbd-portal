@@ -1,0 +1,39 @@
+{
+  "batch_number": 122,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T20:15:00.000Z",
+  "results": [
+    {"id": "879ffcb1-9307-417a-9fd7-6ecf995e7a68", "title": "Cannabis use predicts future psychotic symptoms", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - bidirectional cannabis-psychosis link"},
+    {"id": "87a82656-54e8-44e0-a564-a7e8de129ae0", "title": "Pubertal Cannabinoid Schizophrenia Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism schizophrenia model"},
+    {"id": "87ba0618-b94b-493a-b5dc-b30d11439562", "title": "CBC CBG Antitumor Malignant Glioma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"},
+    {"id": "87c25fe7-67bc-45cf-919f-5a3c183ff049", "title": "CB2 Atherosclerosis Cardiovascular", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 cardiovascular protective mechanism"},
+    {"id": "87dae55f-41ef-423b-a860-f075547cfd9b", "title": "Gray Matter Volume Cannabis Polysubstance", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - brain volume effects"},
+    {"id": "87e53f85-6059-4c09-ae4c-4b8a316c30a3", "title": "CBD Dravet Syndrome 3-Year OLE GWPCARE5", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy RCT long-term"},
+    {"id": "87e5b5e8-7997-452a-845a-8d6e8a1696f3", "title": "CBD Pharmacokinetics Immunomodulatory Phase I", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics safety"},
+    {"id": "87eef1f2-ab3e-40b7-a427-65049280f255", "title": "CBD Health Claims Point-of-Sale Consumer RCT", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - CBD marketing regulation study"},
+    {"id": "87f6fdee-198b-4ac5-a6c4-64f511d6fb7e", "title": "CBD Alcohol Use Disorder Liver Brain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction therapeutic"},
+    {"id": "8804d7c1-9030-48ac-adb7-3a7fd08be474", "title": "CBD Vascular Dementia Behavioral RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD dementia therapeutic RCT"},
+    {"id": "880a8f30-e992-4069-82f0-3664e1524bc7", "title": "CP-55940 Cannabinoid Receptor Ligand Conformation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology mechanism"},
+    {"id": "88249c30-4fa5-49ee-bfc1-417d7da27717", "title": "Cannabis Onset Age Schizophrenia Bipolar", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabis hastens mental illness onset"},
+    {"id": "88460125-0625-45fa-90fd-89f718dc6bc6", "title": "CBD-oil Tamoxifen Side Effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interaction therapeutic"},
+    {"id": "8854b89a-61cb-4abd-b284-0d1f8242bf10", "title": "CBD Blood Pressure Meta-analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular systematic review"},
+    {"id": "88732e36-d4d8-4903-9926-95d03d9b4648", "title": "THC:CBD:CBN Diabetic Neuropathy Transdermal", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic"},
+    {"id": "887de348-aa87-4e41-b616-3ace62721b01", "title": "CBD Adjunctive Treatment Schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia therapeutic"},
+    {"id": "88848801-7773-4edc-bb43-9341cc13f168", "title": "CPE Program CBD Knowledge Pharmacists", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - pharmacist education program"},
+    {"id": "888ce5a0-c282-4362-a748-3aeb8f40b7bd", "title": "Reproductive Health CBD Program Maramba Muheza", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Community Based Distribution (contraceptives Tanzania)"},
+    {"id": "8892c8d0-2916-4641-b4d8-7585ce044cbd", "title": "CB1 Receptor mRNA Parkinsonian Brain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Parkinson's mechanism"},
+    {"id": "88a5bc4c-2fc3-46a7-982c-afe9b56b86bf", "title": "Minor Cannabinoids Breast Cancer In Silico", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "879ffcb1-9307-417a-9fd7-6ecf995e7a68",
+      "87dae55f-41ef-423b-a860-f075547cfd9b",
+      "87eef1f2-ab3e-40b7-a427-65049280f255",
+      "88249c30-4fa5-49ee-bfc1-417d7da27717",
+      "88848801-7773-4edc-bb43-9341cc13f168",
+      "888ce5a0-c282-4362-a748-3aeb8f40b7bd"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "batch_number": 378,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T12:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "a2d3591b-46bf-48b2-9387-3c9e0be8f89d", "title": "Perinatal or adult exposure to cannabinoids alters male reproductive functions in mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid reproductive mechanism research"},
+    {"id": "a2ebfbac-da28-4cca-9245-184131592ae5", "title": "Types and Brands of Derived Psychoactive Cannabis Products: An Online Retail Assessment, 2023", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market analysis correctly rejected"},
+    {"id": "a2ee34f7-fe7b-4808-bd8d-6d5dd37897d2", "title": "Cannabinoids and Cannabinoid Receptors: The Story so Far", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor review"},
+    {"id": "a2fee6c0-22e5-444b-9b80-80485b8354bd", "title": "P.102 Cannabidiol enhancement of exposure therapy in treatment refractory patients with phobias: first results after augmented in vivo exposure therapy", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD clinical trial for phobias"},
+    {"id": "a2ff1073-1554-4c81-8c40-da8ac4bcff78", "title": "Dynamic nuclear magnetic resonance and empirical force field studies of cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "a30f90c6-2e8a-4c38-8c0f-7ae994a8e942", "title": "Safety and efficacy of robot-assisted bile ductoplasty and intrapancreatic bile duct resection in congenital biliary dilatation: a single-center retrospective cohort (2013-2024).", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a3286634-8c4a-4f81-8cf5-9141393130d9", "title": "Cannabis-based medicines and the perioperative physician", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis clinical guidance"},
+    {"id": "a32f2107-88cd-498d-a2c2-da0e29c01f91", "title": "Cannabidiol and cognition: a literature review of human randomized controlled trials.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD cognition clinical review"},
+    {"id": "a333848e-7a18-41cd-9b9b-e37d8c4ac570", "title": "A trio-binning approach for genome assembly reveals extensive structural variation between two Cannabis cultivars: Punto Rojo and Cherry Pie.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Genetics correctly rejected"},
+    {"id": "a334ad4d-10bf-4e5b-bf07-bc469e457fe4", "title": "A Study of Traffic and Environmental Effects of Cooperative Delivery System in CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "a361d680-2bf2-4c89-904e-9e7498a4ed19", "title": "Understanding Cannabis Use After Spinal Cord Injury: A Canadian Survey Study.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "a36c407c-056e-43ae-8abc-5dcc7401e58c", "title": "The AASM Guidelines for the Treatment of Restless Legs Syndrome (RLS) in the Context of Latin America", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a36d8285-7cf1-45a2-9c9a-f7f79729c490", "title": "Tissue culture and Agrobacterium-mediated transformation of hemp (Cannabis sativa L.)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "a3767b08-bae9-464b-a163-03ee7b5d8eb4", "title": "Cannabidiol and tetrahydrocannabinol interactions on antinociception in male and female rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC pain mechanism research"},
+    {"id": "a3991df4-3dcf-4495-844d-0f8eed6859a6", "title": "Development of cannabis use disorder in medical cannabis users: A 9-month follow-up of a randomized clinical trial testing effects of medical cannabis card ownership", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD study correctly rejected"},
+    {"id": "a3a644c2-296e-4818-a7aa-7ccf536467c4", "title": "Sex differences in the independent and combined effects of genomic and exposomic risks for schizophrenia on distressing psychotic experiences: insights from the ABCD study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "a3b1d5a1-b1e6-4f26-b09a-de939bfddf73", "title": "Modulation of GABAergic transmission in the globus pallidus by the synthetic cannabinoid WIN 55,212-2", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism research"},
+    {"id": "a3b669fd-3113-4f46-8f4e-fc87f985f7dd", "title": "Age verification in alcohol online sales and delivery: results from a mystery shopping study in Estonia", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a3ba4687-f22d-4e55-be7b-0b8ab210e3cf", "title": "[Tobacco and cannabis in psychiatry: Impacts and clinical issues].", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm focus correctly rejected"},
+    {"id": "a3ccd5e4-b27d-4200-aa92-161ca68cd054", "title": "Impulsivity differences in recreational cannabis users and binge drinkers in a university population", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "a2d3591b-46bf-48b2-9387-3c9e0be8f89d",
+      "a2ee34f7-fe7b-4808-bd8d-6d5dd37897d2",
+      "a2fee6c0-22e5-444b-9b80-80485b8354bd",
+      "a3286634-8c4a-4f81-8cf5-9141393130d9",
+      "a32f2107-88cd-498d-a2c2-da0e29c01f91",
+      "a3767b08-bae9-464b-a163-03ee7b5d8eb4",
+      "a3b1d5a1-b1e6-4f26-b09a-de939bfddf73"
+    ]
+  }
+}

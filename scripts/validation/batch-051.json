@@ -1,0 +1,35 @@
+{
+  "batch_number": 51,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T02:30:00.000Z",
+  "results": [
+    {"id": "39fe443c-1913-4391-865d-7fdc209f29fc", "title": "Effects of Marijuana Extract Distillate and Cannabidiol on Variable Interval Performance", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid behavioral research"},
+    {"id": "3a0cb474-ece6-44d1-9a80-df2b427f0cb7", "title": "Cannabinoids Potentiate Emotional Learning Plasticity in Neurons of the Medial Prefrontal Cortex", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 neuroscience mechanism research"},
+    {"id": "3a2ec787-4803-42d7-9b74-ca4d9809e24a", "title": "Anti-arthritic Activity of ArthoCan – V50 Tablets (containing Cannabis sativa)", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis-containing therapeutic for arthritis"},
+    {"id": "3a31dbe7-f93a-4718-baf2-9f5e2aa52a5e", "title": "Analog Derivatization of Cannabidiol for Improved Ocular Permeation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD ocular drug delivery therapeutic"},
+    {"id": "3a361e07-863d-422e-acfa-8ba69aa807d7", "title": "Lifestyle and Behavioral Enhancements of Sleep: A Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general sleep lifestyle review"},
+    {"id": "3a3803ae-dd7c-4655-93c0-17eac2199a04", "title": "Cannabinoid–Dopamine Interaction in the Pathophysiology and Treatment of CNS Disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid CNS therapeutic review"},
+    {"id": "3a3ae173-39c9-42df-b052-8dd1708f5ed7", "title": "Synthesis and Evaluation of Dibenzothiazepines: A Novel Class of Selective CB1 Receptor Inverse Agonists", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 drug development research"},
+    {"id": "3a3c8df4-b4ff-48f1-a095-381e1363ec65", "title": "Medical Cannabis: Effects on Opioid and Benzodiazepine Requirements for Pain Control", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis opioid-sparing therapeutic research"},
+    {"id": "3a42a2a8-d3b3-4eb5-9f37-9e44105c2e93", "title": "Cannabinoids Transmogrify Cancer Metabolic Phenotype via Epigenetic Reprogramming", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer epigenetic mechanism"},
+    {"id": "3a461f42-6009-4fe4-8445-161931c14e52", "title": "Cannabidiol as Adjunctive Treatment in Drug-Resistant Epilepsy With Epileptic Spasms", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "3a494349-c540-4367-b94c-5c993e111ca2", "title": "Effect of Rifampicin, Ketoconazole, and Omeprazole on the Pharmacokinetics of Sativex", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Sativex drug interaction research"},
+    {"id": "3a4febc9-278b-4bfd-995b-fbab5dd5ade7", "title": "Knowledge, Attitudes, and Perceptions of Cannabinoids in the Dermatology Community", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid therapeutic attitudes survey"},
+    {"id": "3a8c90a8-09ff-4a45-a5db-dd9af74cd8bc", "title": "Cannabis und andere illegale Drogen: Prävalenz, Konsummuster und Trends (German)", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Prevalence study - epidemiological cannabis use patterns (German survey)"},
+    {"id": "3a8f5f09-bd6e-44ca-abe7-21d6bb6933e1", "title": "Rapid seizure resolution with cannabidiol in medically refractory epilepsy with myoclonic-atonic seizures", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "3a9f0298-2ba9-46a8-b193-db5e96745d66", "title": "Therapeutic Potential of Cannabinoid Receptors Type 1 and 2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor therapeutic review"},
+    {"id": "3aa07e94-87f2-41a8-9468-f857ac7d277e", "title": "The Impact of Cannabidiol on the Induction of Isoflurane Anesthesia and Recovery in Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anesthesia research"},
+    {"id": "3aadde95-dc95-4196-b044-b12055dcd00f", "title": "Should cannabinoids be used as analgesics for neuropathic pain?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain therapeutic review"},
+    {"id": "3ab4f380-4fa7-4c93-ac5a-722e873c3845", "title": "Cannabidiol and Cannabigerol Exert Antimicrobial Activity without Compromising Skin Microbiota", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/CBG antimicrobial skin therapeutic"},
+    {"id": "3ab7d56e-3d68-4452-b7d5-43c2ea33e734", "title": "Cannabidiol activates neuronal Kv7 channels", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism research"},
+    {"id": "3aba32a3-512e-45b6-af0c-e3e648ad93fc", "title": "Mechanotransduction Pathways in Massage Therapy: CB1/Piezo2 Receptor Crosstalk", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 anti-inflammatory mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 18,
+    "incorrect": 2,
+    "incorrect_ids": [
+      "3a361e07-863d-422e-acfa-8ba69aa807d7",
+      "3a8c90a8-09ff-4a45-a5db-dd9af74cd8bc"
+    ]
+  }
+}

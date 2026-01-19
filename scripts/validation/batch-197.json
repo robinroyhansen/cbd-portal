@@ -1,0 +1,39 @@
+{
+  "batch_number": 197,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T15:15:00.000Z",
+  "results": [
+    {"id": "da437d41-a493-4d38-bc8a-8483bb1bf0d6", "title": "Eye Parameters Previct Drugs Monitoring Substance Use Disorder", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "FORENSIC DETECTION - drug monitoring via eye measurements"},
+    {"id": "da53c609-a214-47b6-9187-9cf8f1b8c1f9", "title": "CBD Refractory Epilepsy Follow-up", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "da75d7c1-fa78-4782-b749-99d58389031b", "title": "CBD Fast Antidepressant Therapy Spanish Thesis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression mechanism research"},
+    {"id": "da8b3889-8fb4-4567-a46f-21a648c615f3", "title": "CBD Effective Treatment Schizophrenia Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia systematic review"},
+    {"id": "da9e9ee9-fa80-4e5f-99fe-c7fc4703ad6b", "title": "CBD Innovative Pharmacological Treatment OCD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD OCD therapeutic"},
+    {"id": "dab0f155-fd76-47ca-b836-ab700725e74c", "title": "Cannabinoids Cellular Proliferation Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer mechanism"},
+    {"id": "dace4c1c-3738-40f5-a021-cd8351ef5c50", "title": "CBD Lung Endothelial Protection Irradiation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD lung protection therapeutic"},
+    {"id": "dad058e7-79ca-4d63-95d9-9dcc33b36ae8", "title": "Fatty Acid Amides Silk Fibroins Cytotoxicity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - lipid carrier delivery systems"},
+    {"id": "dadd1105-8f8f-469a-b392-4a61b3faeea2", "title": "CBD Neural Correlates Anxiety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety neuroimaging"},
+    {"id": "daf33054-2459-4768-b00d-dd892b4d4f10", "title": "Cannabis CBD Pancreatic Cancer Apoptosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pancreatic cancer therapeutic"},
+    {"id": "db248c3b-0fd1-4379-ae8a-34229dc3628f", "title": "Cannabinoid Ligands Development Therapeutic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid drug development review"},
+    {"id": "db2e95e9-87a5-4e65-b746-0ef17a2ca886", "title": "CB2 Agonists Breast Cancer Bone Remodeling", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 bone cancer therapeutic"},
+    {"id": "db413fa7-bcc0-41ba-8013-96918fc814ab", "title": "CBD Pain Anxiety Epilepsy Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic review"},
+    {"id": "db51bdeb-f675-4724-9ad7-44943920a0da", "title": "Cannabinoids Enhance Ethanol Neurotoxicity Immature Brain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - developmental neurotoxicity"},
+    {"id": "db6cb421-ecf4-4d12-b8d1-26545e6b0f09", "title": "CBD Epilepsy KCNT1 Mutations", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD genetic epilepsy therapeutic"},
+    {"id": "db741fed-262e-45e6-bd46-13e40c4cdcca", "title": "CB2 Agonists Oral Bioavailability", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 drug development PK"},
+    {"id": "db7a2e3f-8487-47b5-8d56-ec2658e0ab00", "title": "CBD-PbS Film Infrared Detectors", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Chemical Bath Deposition semiconductor"},
+    {"id": "db7d3a4e-c8a9-4362-9527-d57db741e265", "title": "Cannabinoids Rescue Migraine CGRP", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid migraine therapeutic"},
+    {"id": "dba15748-ca2b-408d-9e6b-4e5e7fac5534", "title": "Genetic Vulnerability Schizophrenia Cannabis Adolescence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - genetic risk/cannabis use patterns"},
+    {"id": "dba7cb3b-c6b2-46e1-9983-4a6c16b383b0", "title": "Non-Cannabinoid Cannabis Metabolites Therapeutic", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - explicitly non-cannabinoid focus (flavonoids, terpenes)"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "da437d41-a493-4d38-bc8a-8483bb1bf0d6",
+      "dad058e7-79ca-4d63-95d9-9dcc33b36ae8",
+      "db51bdeb-f675-4724-9ad7-44943920a0da",
+      "db7a2e3f-8487-47b5-8d56-ec2658e0ab00",
+      "dba15748-ca2b-408d-9e6b-4e5e7fac5534",
+      "dba7cb3b-c6b2-46e1-9983-4a6c16b383b0"
+    ]
+  }
+}

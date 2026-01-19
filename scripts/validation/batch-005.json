@@ -1,0 +1,39 @@
+{
+  "batch_number": 5,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T14:00:00.000Z",
+  "results": [
+    {"id": "07900afe-9e85-4140-b3c4-3372463ed4b9", "title": "Cannabidiol for...ulcerative colitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for IBD"},
+    {"id": "07bb29f3-d622-48ce-a3d2-c27a7b45d8aa", "title": "Correction: Cannabidiol inhibits invasion...colorectal cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Correction to CBD cancer study"},
+    {"id": "07c1527d-9140-4d4a-accf-fd52acf2c402", "title": "Cannabidiol-Induced Recovery of Social Behaviour...Syndromic Autism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for autism"},
+    {"id": "07f01277-c703-45a3-9440-e88e290c7913", "title": "The Psychotomimetic States Inventory (PSI)...ketamine and cannabis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Measuring cannabis effects"},
+    {"id": "08132818-08e8-4a98-81b7-b6d81d2c48aa", "title": "The pH Sensitivity of the Cardiac Na+/Ca2+ Exchanger...Calcium Binding Domains (CBD)", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CBD = Calcium Binding Domains, not cannabidiol - cardiology ion channels"},
+    {"id": "08265373-f6f9-40aa-942b-467e00248750", "title": "Cannabis...Therapeutic Potential for Inflammatory Bowel Disease?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids for IBD"},
+    {"id": "082a7dd3-54f2-4bc9-babd-b0f50fefdb8a", "title": "A Scoping Review...Cannabis...During the COVID-19 Pandemic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Includes medical cannabis discussion"},
+    {"id": "0834f27b-cfdd-492f-a8d4-7c9b72b74f60", "title": "A Case of Pancreaticoduodenectomy for...Ampullary Cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Pancreas surgery - no cannabinoid content"},
+    {"id": "083e8d35-504c-406d-a328-ae3c5ae8e317", "title": "Efficacy of auditory gamma stimulation for cognitive decline", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "About auditory stimulation, not cannabinoids"},
+    {"id": "0840fab6-c754-4bc6-a113-6678f6277d41", "title": "Cannabidiol for Mood Disorders: A Call for More Research", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for mood disorders"},
+    {"id": "0847db19-9cec-4fe0-a19b-6b98494d504b", "title": "Neuroinflammation-Modulating Properties...Glutathione, N-Acetylcysteine, Uridine", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "About glutathione/NAC/uridine, not cannabinoids"},
+    {"id": "0851f21a-49b1-4b19-ae30-160d97501087", "title": "Correction: Kalvala et al. Cannabidiol-Loaded Extracellular Vesicles...", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Correction to CBD study"},
+    {"id": "085b4421-232c-4e41-9c27-191e155796fa", "title": "Histological features...hepatic...vessels...cannabidiol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety study on liver"},
+    {"id": "086da2fc-f9f5-4d71-864d-aeb394a05100", "title": "Cannabichromene...anti-seizure effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabichromene for epilepsy"},
+    {"id": "0882d5e0-a867-445a-978e-53c990d66250", "title": "D2 Dopamine Receptors Modulate...CB1 Cannabinoid Receptor", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor mechanism"},
+    {"id": "08b7a0a9-5ba5-4554-8aed-ee6df1475dde", "title": "Cannabinoid Receptor Agonist-induced Apoptosis...Prostate Cancer Cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids for cancer"},
+    {"id": "08d054ae-db38-411e-9a40-3f1f4449f0f9", "title": "Comorbid Cannabis Use Disorder with Major Depression...", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CUD comorbidity research"},
+    {"id": "08d59811-d3a8-4523-95b7-395c48ea3e41", "title": "A Systematic Review...Arterial Spin Labeling MRI...in Psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "About MRI in psychosis, no cannabinoid focus"},
+    {"id": "08f3a06d-c207-4c48-973e-e37e8e632fff", "title": "Mark Harmon CBD Gummies THE MOST POPULAR...", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - pricing, Facebook links, promotional content"},
+    {"id": "08fb01ac-b99d-4528-bbd8-f2a30aa26808", "title": "In Vitro Studies on Therapeutic Effects of Cannabidiol in Neural Cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD effects on neural cells"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "08132818-08e8-4a98-81b7-b6d81d2c48aa",
+      "0834f27b-cfdd-492f-a8d4-7c9b72b74f60",
+      "083e8d35-504c-406d-a328-ae3c5ae8e317",
+      "0847db19-9cec-4fe0-a19b-6b98494d504b",
+      "08d59811-d3a8-4523-95b7-395c48ea3e41",
+      "08f3a06d-c207-4c48-973e-e37e8e632fff"
+    ]
+  }
+}

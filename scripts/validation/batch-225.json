@@ -1,0 +1,40 @@
+{
+  "batch_number": 225,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T22:15:00.000Z",
+  "results": [
+    {"id": "f961f46b-4148-476b-8dd3-8ec6808cc8b0", "title": "Token Economy ADHD Digital Intervention", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - behavioral ADHD intervention"},
+    {"id": "f967427d-8b29-4578-9dd0-8b8e2ab10a4a", "title": "CBD CIK Cells Lung Cancer TRPV2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer immunotherapy therapeutic"},
+    {"id": "f96e9c0e-a828-427e-ab0b-49795c5c5855", "title": "Semaglutide GLP-1 OUD Trial", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - GLP-1 for opioid use disorder"},
+    {"id": "f9728744-74f2-4ee9-a9e2-dcd7270f3bf4", "title": "CBD Oil Liver Microcirculation Histomorphometry", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD liver safety research"},
+    {"id": "f978f497-e514-45df-ba15-04190fc07672", "title": "Oxylipins Atherosclerosis Inflammation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - oxylipin review"},
+    {"id": "f97b666a-7a64-4996-bf80-e00af6c8a594", "title": "Cannabis Smoking Lipid Metabolism Obesity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - metabolic disruption"},
+    {"id": "f9a927d3-3a17-4d6e-8107-16ea24ba0f1e", "title": "CBD Prostate Cancer Phase I BCR", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD prostate cancer therapeutic trial"},
+    {"id": "f9a9363b-f88c-43c4-bf08-4e39442e3fa3", "title": "Cannabis Oil TMJ Pain Sleep", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis TMJ therapeutic"},
+    {"id": "f9ac711b-5ee9-4b1e-af6b-7ac2a3f3ac83", "title": "CBD Sunscreen Additive Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD dermatology therapeutic review"},
+    {"id": "f9b69434-b2b6-492e-b5ef-d33cd525f558", "title": "Cannabis CBD Cancer Prevalence Table", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use patterns data table"},
+    {"id": "f9bcddd8-052f-47b5-850c-17aed2884889", "title": "CBD Oil Testes Reproductive Hormones", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD reproductive safety research"},
+    {"id": "f9c816ee-4022-4b90-a434-3880d7893bb5", "title": "Bibliometric Neuroinflammation Network", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - bibliometric analysis"},
+    {"id": "f9e2e56c-1ec5-4b67-a83c-0c12364dedfd", "title": "Cannabis Cancer Anorexia Qualitative", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer anorexia therapeutic"},
+    {"id": "f9f7b767-a1da-474d-9242-66a683732f79", "title": "Cannabis-Induced Schizophrenia Adolescent", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabis-induced schizophrenia"},
+    {"id": "fa1434e2-aac0-4104-be8a-ab6c9c28f783", "title": "Cannabis COX TNF Hippocampus Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain mechanism research"},
+    {"id": "fa2b9059-84ac-4637-8261-ec442c308d26", "title": "Cannabis Oxycodone Pain RCT Crossover", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic RCT"},
+    {"id": "fa2df689-117a-409b-9fdf-90c7f9a388a3", "title": "Minor Cannabinoids Neuropathic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuropathic pain therapeutic"},
+    {"id": "fa3f534c-7149-423f-87a6-3a00040b9f78", "title": "CBD Alzheimer's Behavior CANBiS-AD RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's therapeutic RCT"},
+    {"id": "fa7c51c2-e0ba-4e38-b90b-e592a337454b", "title": "CB1 Pilocarpine Seizures Modulation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 epilepsy therapeutic mechanism"},
+    {"id": "fa845d54-cb26-41f5-82e5-532e1784ff96", "title": "Cannabinoid PFC Network Activity Cognition", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid brain mechanism research"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "f961f46b-4148-476b-8dd3-8ec6808cc8b0",
+      "f96e9c0e-a828-427e-ab0b-49795c5c5855",
+      "f978f497-e514-45df-ba15-04190fc07672",
+      "f97b666a-7a64-4996-bf80-e00af6c8a594",
+      "f9b69434-b2b6-492e-b5ef-d33cd525f558",
+      "f9c816ee-4022-4b90-a434-3880d7893bb5",
+      "f9f7b767-a1da-474d-9242-66a683732f79"
+    ]
+  }
+}

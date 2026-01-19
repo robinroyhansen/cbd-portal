@@ -1,0 +1,42 @@
+{
+  "batch_number": 255,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T05:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "196b3b7d-84b9-4640-a577-310e5aa99444", "title": "Different Cannabis sativa Extraction Methods - Biological Activities against Colon Cancer", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis therapeutic for cancer"},
+    {"id": "196b6db1-6a24-49aa-89e0-0342edba24be", "title": "Biosynthesis of novel cannabigerolic acid derivatives by engineering prenyltransferase", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Bioengineering/biosynthesis correctly rejected"},
+    {"id": "198a48fb-56d8-4f65-a83e-40db17de15b2", "title": "Development of a novel chimeric lysin for preventing sow endometritis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "19964afa-b5ee-43e5-80f0-3a99ac8a40f2", "title": "experiencia con Cannabidiol en el trastorno del espectro autista", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic for autism"},
+    {"id": "19b52791-4a11-47e7-87ec-10093b3409ea", "title": "The mechanism by which CBD suppresses TNF-α secretion involves TACE", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anti-inflammatory mechanism"},
+    {"id": "19b71a9f-d269-43dc-9a9f-8c7abd9fe402", "title": "Cooking With CBD: Vegan CBD-Infused Dark Chocolate Pop-Tarts", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Recipe/lifestyle correctly rejected"},
+    {"id": "1a3082f0-e7b3-4d76-bf84-ff1d8748dd5f", "title": "The effect of Urban Spatial Structure on Land value in secondary CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "1a3d7fae-e5f1-4296-b31e-5edad3c03c8f", "title": "The cannabinoid dexanabinol is an inhibitor of NF-κB", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid anti-inflammatory mechanism"},
+    {"id": "1a47cd9f-2d98-4e5b-a46b-42c512e25ead", "title": "Impacts of Embryonic Exposure to CBD or THC on Zebrafish Frailty", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Developmental toxicity correctly rejected"},
+    {"id": "1a5884e2-362d-459b-9f03-f80452a122c5", "title": "RSM-Based Optimization of Antibacterial Potential of Cannabis sativa Leaves", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis antibacterial therapeutic"},
+    {"id": "1a588f88-de27-45f6-bc2a-830410a459ba", "title": "Green rush and red warnings: Adverse events of cannabinoid-psychotropic drug interactions", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid drug interaction safety"},
+    {"id": "1a64a5bf-2e35-491e-a99a-661992d9cd79", "title": "CBD and THC concentrations in commercially available CBD E-liquids in Switzerland", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product analysis correctly rejected"},
+    {"id": "1a69fe8d-3361-4fca-962b-9bea66f2a4e6", "title": "Gene ancestry of the cannabinoid receptor family", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Evolutionary genetics correctly rejected"},
+    {"id": "1a71f9e3-cdfe-4856-9ebd-8cdcb8710563", "title": "The constrained disorder principle emphasizes importance of variability boundaries", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "1a8440aa-b70b-4931-b98f-8cf65b32a140", "title": "Does CBD Develop In Those With Repeated Borderline BeLPTs?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Corticobasal Degeneration) correctly rejected"},
+    {"id": "1a8b0c59-b8a4-425f-b8eb-d16054224755", "title": "Analysis of impurities of cannabidiol from hemp - cannabidibutol analog", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical chemistry correctly rejected"},
+    {"id": "1a8de9fd-1c07-41b5-8ccc-4bc17974a0c4", "title": "More evidence of cannabis efficacy in restless legs syndrome", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis therapeutic for RLS"},
+    {"id": "1a916313-066e-414f-8781-be0eeef72d0c", "title": "Synthetic cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoids overview correctly rejected"},
+    {"id": "1a93f227-eabb-4a83-8ecf-5bba24a25c6e", "title": "Étude de la stabilité du THC et du cannabidiol dans le fluide oral", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/analytical correctly rejected"},
+    {"id": "1a97b96c-c4c2-4f0b-b2f5-bd080ec448f0", "title": "Cannabinoid-induced changes in respiration of brain mitochondria", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "196b3b7d-84b9-4640-a577-310e5aa99444",
+      "19964afa-b5ee-43e5-80f0-3a99ac8a40f2",
+      "19b52791-4a11-47e7-87ec-10093b3409ea",
+      "1a3d7fae-e5f1-4296-b31e-5edad3c03c8f",
+      "1a5884e2-362d-459b-9f03-f80452a122c5",
+      "1a588f88-de27-45f6-bc2a-830410a459ba",
+      "1a8de9fd-1c07-41b5-8ccc-4bc17974a0c4",
+      "1a97b96c-c4c2-4f0b-b2f5-bd080ec448f0"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "batch_number": 58,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T04:15:00.000Z",
+  "results": [
+    {"id": "410811a3-b154-447c-9d83-494b786026a1", "title": "Comparison of Cannabinoids to Placebo in Management of Arthralgia and Myofascial Pain Disorder of the Temporomandibular Region: A Randomized Clinical Trial.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD TMJ pain therapeutic RCT"},
+    {"id": "4119813a-74b3-4099-a0ff-d4d0bc46a196", "title": "Cannabidiol modulates brain molecular alterations, gut microbiota dysbiosis and alcohol self-administration in a mouse model of fetal alcohol spectrum disorder.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD fetal alcohol spectrum disorder therapeutic"},
+    {"id": "4139b08b-42cb-4cec-9707-ac04fb3c5806", "title": "Randomized Placebo-controlled Trial to Determine the Biological Signature of Cannabidiol as a Treatment for Social Anxiety Disorder (R61)", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD social anxiety disorder therapeutic RCT"},
+    {"id": "416df3e3-7231-46ef-9ab5-d35bdf3aa536", "title": "Randomized trial of delta-9-tetrahydrocannabinol (THC) versus placebo to augment the effects of prolonged exposure therapy on fear extinction learning in post-traumatic stress disorder: Study rationale and protocol.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC PTSD therapeutic RCT protocol"},
+    {"id": "417d296e-586b-4333-b118-60e0f82b0410", "title": "Interaction Between Functional Genetic Variation of DRD2 and Cannabis Use on Risk of Psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - DRD2 gene-cannabis interaction increases psychosis risk"},
+    {"id": "41837fe9-e5b8-4c49-b195-380115569247", "title": "Cannabidiol as a Therapeutic Target: Evidence of its Neuroprotective and Neuromodulatory Function in Parkinson's Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's therapeutic review"},
+    {"id": "418eadee-aae5-4a25-ac21-40729238de7f", "title": "The Cannabinoids as Potential Antiepileptics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid epilepsy therapeutic review"},
+    {"id": "4196200e-142e-4910-9883-2b6b9c813ea2", "title": "Transcriptional Changes Common to Human Cocaine, Cannabis and Phencyclidine Abuse", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - brain transcriptional changes from drug abuse"},
+    {"id": "41bf218d-cae6-40e8-b43b-33f63caf26d4", "title": "European Guideline on Chronic Nausea and Vomiting—A UEG and ESNM Consensus for Clinical Management", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general nausea/vomiting guideline, no cannabinoid focus"},
+    {"id": "41c5fcb2-9b7c-4915-9350-31e9014d03c1", "title": "Pharmacological strategies for treating social anxiety disorder in adults: a systematic review of studies published since 2015.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general anxiety pharmacotherapy review"},
+    {"id": "41cf027b-66d2-4ae4-9dc8-6b1ec0d7783d", "title": "Cannabidiol drug approved for use in two forms of epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy drug approval news"},
+    {"id": "41d2b56e-9abb-4aa5-8549-70525f6cdb3a", "title": "Debunking Cannabidiol as a Treatment for COVID-19: Time for the FDA to Adopt a Focused Deterrence Model?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD COVID-19 therapeutic critique/discussion"},
+    {"id": "41da08cc-68c0-40fd-982d-1b789f88c27c", "title": "Presynaptic mechanisms underlying cannabinoid inhibition of excitatory synaptic transmission in rat striatal neurons", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid striatal mechanism research"},
+    {"id": "41f022a9-e2d3-4eb8-baa3-ec45af359f7b", "title": "CBD in the Treatment of Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic review with 39 RCTs and 13 meta-analyses"},
+    {"id": "41f4ad92-28f7-4daa-b255-20b7791a3329", "title": "Patients' and clinicians' perspectives of co-use of cannabis and opioids for chronic non-cancer pain management in primary care", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis opioid co-use therapeutic perspectives"},
+    {"id": "41f85104-e99a-4732-b8a0-90f7b0172640", "title": "Cannabinoid type 1 receptor antagonists (rimonabant) for smoking cessation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 antagonist smoking cessation Cochrane review"},
+    {"id": "420af57b-6c85-4ffb-a8aa-29f4da2cb078", "title": "Beyond Conventional Pharmacotherapy: Unraveling Mechanisms and Advancing Multi-Target Strategies in Alzheimer's Disease", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general Alzheimer's multi-target strategies"},
+    {"id": "421dd670-7e2a-42b3-895b-852ab88c18e8", "title": "Cannabinoid receptor 1 suppresses transient receptor potential vanilloid 1-induced inflammatory responses to corneal injury", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 corneal inflammation therapeutic mechanism"},
+    {"id": "4235f070-dcbc-4cee-8997-d9a92c20d962", "title": "Opioid-, cannabis- and alcohol-dependent women show more rapid progression to substance abuse treatment", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - substance dependent women treatment progression, not therapeutic"},
+    {"id": "42375554-0cc4-4638-bd41-bed12eea83d9", "title": "Use of Cannabidiol and Cannabigerol in the Treatment of Trigeminal Neuralgia and Postherpetic Pain.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/CBG trigeminal neuralgia pain therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "417d296e-586b-4333-b118-60e0f82b0410",
+      "4196200e-142e-4910-9883-2b6b9c813ea2",
+      "41bf218d-cae6-40e8-b43b-33f63caf26d4",
+      "41c5fcb2-9b7c-4915-9350-31e9014d03c1",
+      "420af57b-6c85-4ffb-a8aa-29f4da2cb078",
+      "4235f070-dcbc-4cee-8997-d9a92c20d962"
+    ]
+  }
+}

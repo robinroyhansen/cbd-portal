@@ -1,0 +1,44 @@
+{
+  "batch_number": 154,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T04:30:00.000Z",
+  "results": [
+    {"id": "abded351-f29f-479c-961a-8db2d820fe0a", "title": "Sex Differences CUD Hospitalizations", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD hospitalization epidemiology"},
+    {"id": "ac016b81-8452-4a1b-8e57-c10005f07c4a", "title": "Cannabis and cannabinoids as drugs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid science review"},
+    {"id": "ac431732-d187-4278-8794-56b08f7397a0", "title": "CBD anxiolytic drug", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety therapeutic"},
+    {"id": "ac447fca-aaed-4bfb-b690-843dea6c092d", "title": "CBD Aromatase Inhibitor Arthralgias Phase 2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD arthritis clinical trial"},
+    {"id": "ac478d50-8b64-4e48-84e2-8f0fdc045bc0", "title": "CBD use in pets survey USA", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - pet CBD use survey"},
+    {"id": "ac51581d-7e44-4649-b97b-6d2441745bc2", "title": "Cannabinoid Fear Extinction Brain Circuits", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid PTSD mechanism"},
+    {"id": "ac634e34-790f-4fee-bcfb-0c698d2a45c0", "title": "Perinatal Cannabis Use Depression", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - perinatal exposure study"},
+    {"id": "ac7e98ee-2555-4af5-b7b0-554b40ad7aa0", "title": "Craving substance use alcohol cannabis heroin", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - multi-substance craving patterns"},
+    {"id": "ac851abc-c4b7-4fff-90e3-d13fbfe9285b", "title": "Cannabinoids ALS therapeutic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid ALS therapeutic review"},
+    {"id": "ac89a23b-9514-4023-9845-f50f88910c60", "title": "ERCP abdominal pain nursing", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - ERCP nursing care"},
+    {"id": "aca501c3-c065-4b35-8e30-eeb03d92bb31", "title": "Dual Cannabis Tobacco Lung Cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - lung cancer risk"},
+    {"id": "aca8fbf6-590b-408e-a06e-e4808e142fcc", "title": "CBD precuneus alcohol use disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD AUD therapeutic"},
+    {"id": "acb63f71-342c-4399-afef-e6e71e8c73c5", "title": "CBD fish welfare tilapia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - fish welfare study"},
+    {"id": "acfc2066-3ce0-456f-9bf8-232aa9fac6c0", "title": "Cannabis ocular inflammatory disease", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use/disease association"},
+    {"id": "acff8661-0ece-4106-a5b8-92fd14c2a8b8", "title": "Cannabinoids pain relief prospect", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain review"},
+    {"id": "ad0b7296-44df-4ac6-b332-8ccf0af86aab", "title": "GoldTop CBD Gummies", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - advertisement"},
+    {"id": "ad1af1a7-e494-44e5-b56e-f1f380210a47", "title": "Cannabis herbal remedy ADMET neuroprotective", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis neuroprotection mechanism"},
+    {"id": "ad4768f7-2dfd-4ca5-a1c7-505e23b5361c", "title": "CBD Pediatric Epilepsy Phase 1 Dravet", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy clinical trial"},
+    {"id": "ad7435ee-d7d7-4f63-910b-c8dc7fe60e58", "title": "Open Eye CBD Gummies Facebook", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - Facebook advertisement"},
+    {"id": "ad7525e6-f89d-4355-ae15-d6b93873c9c5", "title": "Cannabis dab cardiotoxicity case", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - concentrate toxicity"}
+  ],
+  "batch_summary": {
+    "correct": 9,
+    "incorrect": 11,
+    "incorrect_ids": [
+      "abded351-f29f-479c-961a-8db2d820fe0a",
+      "ac478d50-8b64-4e48-84e2-8f0fdc045bc0",
+      "ac634e34-790f-4fee-bcfb-0c698d2a45c0",
+      "ac7e98ee-2555-4af5-b7b0-554b40ad7aa0",
+      "ac89a23b-9514-4023-9845-f50f88910c60",
+      "aca501c3-c065-4b35-8e30-eeb03d92bb31",
+      "acb63f71-342c-4399-afef-e6e71e8c73c5",
+      "acfc2066-3ce0-456f-9bf8-232aa9fac6c0",
+      "ad0b7296-44df-4ac6-b332-8ccf0af86aab",
+      "ad7435ee-d7d7-4f63-910b-c8dc7fe60e58",
+      "ad7525e6-f89d-4355-ae15-d6b93873c9c5"
+    ]
+  }
+}

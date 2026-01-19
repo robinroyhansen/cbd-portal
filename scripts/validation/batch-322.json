@@ -1,0 +1,41 @@
+{
+  "batch_number": 322,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T22:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "63472391-2639-4c2d-95d8-0f4fe897f050", "title": "Biofilm structure as a key factor in antibiotic tolerance: insights from Bacillus subtilis model systems", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "6347e70b-7e69-4246-9d2d-fe35efed648b", "title": "The Therapeutic Potential of Cannabidiol in Skin Conditions.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD skin therapeutic review"},
+    {"id": "6354705f-071f-4227-82b2-f8559a2fd941", "title": "STUDY ON THE DEVELOPING MEASURE OF CHONGQING'S CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "6359b5e9-693c-4691-8479-bf2b280c7c71", "title": "Hemp inflorescence meal as a novel feed ingredient in laying hens: Safety assessment, nutritional characterization, and effects on egg quality.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary/agriculture correctly rejected"},
+    {"id": "6360288d-5f59-4aff-ae2c-a15cac589c1e", "title": "Feasibility and Impact of 28-days of Monitored Abstinence From Cannabis Use on Symptoms of Distress, Inflammation, and HIV Viral Load", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Abstinence study correctly rejected"},
+    {"id": "636073a1-7ad4-459a-a3ec-eaae3954019f", "title": "Allosteric Modulator ORG27569 Induces CB1 Cannabinoid Receptor High Affinity Agonist Binding State, Receptor Internalization, and Gi Protein-independent ERK1/2 Kinase Activation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 allosteric modulation mechanism"},
+    {"id": "636ba85b-8ffb-42ba-86e8-130b879f7a8c", "title": "Decriminalization of cannabis use in South Africa: The perspectives and health outcomes among medical students; A systematic qualitative review.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "636f3ee3-afdb-4eb3-9c74-06d5f16b2e1f", "title": "First-Year Psychiatric Outcome of Pediatric Mild Traumatic Brain Injury: A Prospective Longitudinal Controlled Study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "6397dfe0-075e-4bf3-a2e4-1a9021d304e1", "title": "Impact of Growth Stage and Biomass Fractions on Cannabinoid Content and Yield of Different Hemp (Cannabis sativa L.) Genotypes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "63a052ec-cb9f-4bd5-a8b1-298a556b2fb2", "title": "Protoplast isolation, transient transformation, and flow-cytometric analysis of reporter-gene activation in Cannabis sativa L.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant biotechnology correctly rejected"},
+    {"id": "63a0a423-0178-45eb-942c-fe2d4ba895b3", "title": "Identification of a potent and highly efficacious, yet slowly desensitizing CB1 cannabinoid receptor agonist", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 agonist pharmacology/desensitization"},
+    {"id": "63a13bda-90d6-4457-bb16-100df5ccec6d", "title": "CBD-In(OH)xSy Thin Films: An Approach to the Growth Mechanism", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "63c04fe6-3db4-4627-8212-bffc9db33252", "title": "Comparison of Cannabis sativa by Random Amplification of Polymorphic DNA (RAPD) and HPLC of cannabinoids: a preliminary study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/analytical correctly rejected"},
+    {"id": "63d3999c-51fe-4483-a20b-cd078c20e661", "title": "Safety, efficacy, and mechanisms of action of cannabinoids in neurological disorders", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neurology review"},
+    {"id": "63d545e0-b27a-4464-a775-8f4da283f966", "title": "Elevated Concerns About Cannabidiol and Liver Enzymes.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD hepatic safety discussion"},
+    {"id": "63e4649b-1ecc-4f9e-8b83-66a77760e3b7", "title": "A nutraceutical product, extracted from Cannabis sativa, modulates voltage-gated sodium channel function", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis extract ion channel mechanism"},
+    {"id": "63f3d79d-5eed-443b-8638-3044c3fa5859", "title": "Normal Human Pituitary Gland and Pituitary Adenomas Express Cannabinoid Receptor Type 1 and Synthesize Endogenous Cannabinoids: First Evidence for a Direct Role of Cannabinoids on Hormone Modulation at the Human Pituitary Level", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 pituitary expression/hormone mechanism"},
+    {"id": "63f58c0a-da73-46c7-932e-88428fa95633", "title": "Addressing the legal and health challenges of licensed medical cannabis users who want to travel abroad.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/legal correctly rejected"},
+    {"id": "64097c51-f00a-42cf-831b-34d4c100ffa8", "title": "Chemical Constituents of Cannabis sativa L. Root", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant chemistry correctly rejected"},
+    {"id": "64236367-d339-4416-8592-97a2d7d4130a", "title": "Cannabis and Frankincense at the Judahite Shrine of Arad", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Archaeology correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "6347e70b-7e69-4246-9d2d-fe35efed648b",
+      "636073a1-7ad4-459a-a3ec-eaae3954019f",
+      "63a0a423-0178-45eb-942c-fe2d4ba895b3",
+      "63d3999c-51fe-4483-a20b-cd078c20e661",
+      "63d545e0-b27a-4464-a775-8f4da283f966",
+      "63e4649b-1ecc-4f9e-8b83-66a77760e3b7",
+      "63f3d79d-5eed-443b-8638-3044c3fa5859"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "batch_number": 414,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T21:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "ca8e714e-6aff-4c6d-86fc-b3c88f27e6ba", "title": "The molecular structure within dislocations in Cannabis sativa fibres studied by polarised Raman microspectroscopy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Materials/agriculture correctly rejected"},
+    {"id": "caba39e7-d20c-4897-88b7-7c0c8329119f", "title": "Patterns of medicinal cannabis prescriptions in diverse patient populations: a retrospective analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "cac269c0-a803-4338-9024-47f9b37f60b3", "title": "The effects of cannabis and alcohol on simulated driving: Influences of dose and experience", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment correctly rejected"},
+    {"id": "cac98132-0dea-4188-948e-05a6b5626610", "title": "E.11 - DISTINCT INTERACTIONS OF CANNABIDIOL AND MORPHINE IN THREE NOCICEPTIVE BEHAVIORAL MODELS IN MICE", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD morphine pain mechanism research"},
+    {"id": "caeb1e15-2db9-4682-ab84-23a5abae2fa1", "title": "Medical cannabinoids: a pharmacology-based systematic review and meta-analysis for all relevant medical indications", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabinoid systematic review/meta-analysis"},
+    {"id": "cb007e23-71fd-424d-a6a5-0f390d448225", "title": "Therapeutic potential of cannabidiol against ischemia/reperfusion liver injury in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD liver ischemia therapeutic research"},
+    {"id": "cb04ec31-d918-4594-8154-b889b0057640", "title": "Identification and Structural Elucidation of a New Synthetic Cannabinoid, MDMB-5'Br-PINACA, in Seized Herbal Materials", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "cb0edb67-70d2-4a5b-bdce-4f36239af902", "title": "The prevalence of cannabis-involved driving in California", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment correctly rejected"},
+    {"id": "cb16c56f-9636-44bf-bacb-5a822c8d0a1f", "title": "Design and evaluation of octopromycin-derived peptides as multifunctional antimicrobial agents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "cb2a369e-b9b0-475f-b6bf-5ce86d6bb95d", "title": "A μ-SPE procedure for the determination of cannabinoids and their metabolites in urine by LC–MS/MS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "cb37da60-7cdd-4467-8772-2f539763ec70", "title": "Prognosis of schizophrenia in persons with and without a history of cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "cb5c381c-e9d9-4e52-bd7e-dbf9abaa60bb", "title": "Purification and characterization of the major hepatic cannabinoid hydroxylase in the mouse: a possible member of the cytochrome P-450IIC subfamily", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacokinetics research"},
+    {"id": "cb5ec2ea-a9a1-4b00-8d29-bd913b069d92", "title": "청주시 도심의 범죄 특성 (Crime Patterns of CBD in Cheongju City)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "cb66ffe8-3b33-4411-9c7e-57a4e7aa51b7", "title": "Enhanced nutraceutical potential of cannabidiol derived from industrial hemp using plant based complex coacervates", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD formulation research"},
+    {"id": "cb67c893-a8aa-4d38-aec5-ec1247549208", "title": "The Cannabis Youth Treatment (CYT) Study: Main findings from two randomized trials", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "cb83440e-e4cc-4057-9a6f-cd4a917ee698", "title": "Feasibility of indocyanine green fluorescence imaging to predict biliary complications in living donor liver transplantation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "cb9a55a3-68ad-456c-933b-7370d315a497", "title": "Voltage-gated sodium channels in the nervous system: Molecular physiology to therapeutic interventions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "cb9d3d13-a8f3-4ded-898b-fa3e5a8a0e50", "title": "Cannabis Use and the Risk of Arrhythmias: Insights From a Large Retrospective Multicenter Analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "cba0a422-feeb-4230-83e9-e1709c408053", "title": "Cannabis-induced bullous lung disease leading to pneumothorax", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "cbafbc9f-f46e-48ab-9e5c-f4a925eeac7e", "title": "Cytosolic- and membrane-localized oxidized indole-3-acetic acid formation regulates developmental auxin transients", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "cac98132-0dea-4188-948e-05a6b5626610",
+      "caeb1e15-2db9-4682-ab84-23a5abae2fa1",
+      "cb007e23-71fd-424d-a6a5-0f390d448225",
+      "cb5c381c-e9d9-4e52-bd7e-dbf9abaa60bb",
+      "cb66ffe8-3b33-4411-9c7e-57a4e7aa51b7"
+    ]
+  }
+}

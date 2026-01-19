@@ -1,0 +1,38 @@
+{
+  "batch_number": 251,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T04:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "152dde69-d190-4fdd-91e0-bda9f957cb67", "title": "Research on the Location Selection of CBD in Chongqing", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "155569f8-6c3d-47f6-8809-c1e7d42307e7", "title": "Inhibitory effects of cannabidiol on voltage-dependent sodium currents", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD ion channel mechanism research"},
+    {"id": "155cc66d-c366-4234-b26a-9fa96958d5ac", "title": "Developmental Trajectories of Positive Expectancies of Cannabis Use Effects Among Early Adolescents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use patterns correctly rejected"},
+    {"id": "156373ff-445d-430d-acad-2a3174eacb36", "title": "Comparison of outcome expectancies for synthetic cannabinoids and botanical marijuana", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use perceptions correctly rejected"},
+    {"id": "15737d38-32a6-41d6-8f11-6e63c98c5313", "title": "Plasma exposure of cannabidiol and cannabidiolic acid after oral administration to the horse", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "157c8fc0-34d4-4a2a-87d8-db8bc58b9833", "title": "Improved Visualization of Pancreatic Cystic Lesions on Magnetic Resonance", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "159a8d45-a1ce-4b56-9efa-346ef8a3e1c9", "title": "Pohewa Pae Tawhiti: Māori holistic approach to land-use systems", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "159d8df4-c90a-4b92-bdac-e07c2f3708fd", "title": "Low temperature CBD growth of CdS on flexible substrates", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "15a8486e-c702-4567-a7e6-2a4589e83b70", "title": "Shanghai Central: A City in Search of a CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "15af2f4a-34bb-4a0c-8502-2adb9bc648bc", "title": "Integrated omics of Saccharomyces cerevisiae adaptations to cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Yeast/microbiology correctly rejected"},
+    {"id": "15d549ec-482e-469d-999b-b9585239acba", "title": "Canabidiol-CBD: um possível aliado no tratamento de depressão", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD for depression therapeutic review"},
+    {"id": "15d92f4f-b28c-407b-8e29-5df96eeb7413", "title": "Investigation of sex-dependent effects of cannabis in daily cannabis smokers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use effects correctly rejected"},
+    {"id": "15ef5620-b640-44ec-bccf-ae05ba02030d", "title": "Visual identification of cystic duct-CBD junction during cholecystectomy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "15fcafb7-15c6-47e9-9945-83dd92c78b8c", "title": "Flumazenil for coma reversal in children after cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis poisoning/harm correctly rejected"},
+    {"id": "1602acfe-8e7c-4607-81d7-28ce242233ba", "title": "Changing Functions of the CBD in Small Urban Areas: Lafayette, Indiana", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "1607c2e5-afb2-4ab4-9f23-c0f98c36cce9", "title": "Solutions for Cbd Cannabis Extraction", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"},
+    {"id": "16361c8b-b22e-4164-b5b4-c6bd9a22fe66", "title": "A Randomized Controlled Test of the Effects of CHI-554 on Fear (F-01)", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD RCT for anxiety/fear"},
+    {"id": "163779e1-a1de-455c-ac4b-695fec63392b", "title": "Cumulative consequences of multispecies invasions biodiversity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "164c8143-5447-49f0-ae77-0d500377b8cc", "title": "Are Ultra CBD Gummies the Right Choice for You?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "1655d72d-d819-411f-928c-72b518ddd103", "title": "Innovative Strategies to Enhance the Bioavailability of Cannabidiol: Nanotechnology and Advanced Delivery Systems", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery/formulation research"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "155569f8-6c3d-47f6-8809-c1e7d42307e7",
+      "15d549ec-482e-469d-999b-b9585239acba",
+      "16361c8b-b22e-4164-b5b4-c6bd9a22fe66",
+      "1655d72d-d819-411f-928c-72b518ddd103"
+    ]
+  }
+}

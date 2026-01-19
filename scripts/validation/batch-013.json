@@ -1,0 +1,34 @@
+{
+  "batch_number": 13,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T16:45:00.000Z",
+  "results": [
+    {"id": "10a4a06d-e3e4-4aa3-8896-d838c5861d95", "title": "Adverse health effects of synthetic cannabinoids with emphasis on psychosis-like effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "SCRA safety and psychosis"},
+    {"id": "10b81207-debd-4306-837d-cace08766a64", "title": "Alcohol, cannabis and cocaine usage in patients with trauma injuries", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Prevalence study - drug use patterns in trauma patients"},
+    {"id": "10d47f9e-30cf-4f7c-8ac2-6443c2655642", "title": "Is Low Dosage of Medical Cannabis Effective for Treating Pain Related to Fibromyalgia?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for fibromyalgia"},
+    {"id": "10d5b9e2-9013-42a5-b398-af103360b5d3", "title": "Identification of Genes Hub...Triple-Negative Breast Cancer and Cannabidiol Analogs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for cancer"},
+    {"id": "10fc171f-c1c6-4bb8-8379-705a25a88282", "title": "Therapeutic potential of cannabidiol-rich Cannabis sativa to mitigate inflammation and pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for pain/inflammation"},
+    {"id": "10fcf991-9267-4718-b045-e6bd147d9e55", "title": "Cannabis Exposure During Critical Windows of Development: Epigenetic and Molecular Pathways", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis developmental effects"},
+    {"id": "110efaf4-0848-43a0-a61e-0f72e002c64a", "title": "Cannabinoid antagonist SR-141716 inhibits endotoxic hypotension", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism"},
+    {"id": "111c1d7a-9550-4a41-a90c-63222dd61bf0", "title": "Seizure Response to Cannabidiol in a State-Sponsored Open-Label Program", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for epilepsy"},
+    {"id": "112faf0d-4da5-4d01-8fc9-790cb0c600aa", "title": "Cannabidiol loaded extracellular vesicles sensitize triple-negative breast cancer to doxorubicin", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for cancer"},
+    {"id": "11580a79-980e-45e9-b832-fc441fbde6a1", "title": "Phytocannabinoids: Useful Drugs for the Treatment of Obesity?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for obesity"},
+    {"id": "115a17fe-ef04-4d4e-8eae-da225f0c5c7a", "title": "Receptors and Channels Targeted by Synthetic Cannabinoid Receptor Agonists", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor pharmacology"},
+    {"id": "115ba793-88f0-4d62-9321-dbd50583b7a3", "title": "Cannabidiol (CBD): a killer for inflammatory rheumatoid arthritis synovial fibroblasts", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for RA"},
+    {"id": "11630e8a-e6b2-4045-8f78-4aa2eb145933", "title": "Drug interactions of tetrahydrocannabinol and cannabidiol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD drug interactions"},
+    {"id": "118d7070-708c-443c-b572-af84dcfd853b", "title": "Age at Initiation of Cannabis Use Predicts Age at Onset of Psychosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis and psychosis onset"},
+    {"id": "119a1b07-eef3-46ad-a7ab-6abb1944db3e", "title": "The Effect of Cannabis-Based Medicine in the Treatment of Cachexia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for cachexia"},
+    {"id": "11afaa24-c751-4b10-acc4-2eca4859b0bb", "title": "Marijuana withdrawal and craving: influence of CNR1 and FAAH genes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Genetics of cannabis addiction"},
+    {"id": "11b417ca-4e49-4d06-8da4-672a16a44100", "title": "Cannabinoid Administration Attenuates the Progression of Simian Immunodeficiency Virus", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC for HIV/AIDS"},
+    {"id": "11c29009-a1a2-4275-9c9a-b5ab16b34bce", "title": "Cannabis use and cardiometabolic risk in schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis effects in schizophrenia"},
+    {"id": "11c29ba5-949a-478a-9759-a765cb8d200b", "title": "Cannabidiol-Loaded Solubilizing Systems for Improvement of Oral Bioavailability", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD formulation"},
+    {"id": "11d8cbde-c160-4712-99bb-fdd6ca6dbd45", "title": "Cannabinoids as modulators of Wnt/β-catenin signaling...neuropathic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 19,
+    "incorrect": 1,
+    "incorrect_ids": [
+      "10b81207-debd-4306-837d-cace08766a64"
+    ]
+  }
+}

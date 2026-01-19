@@ -1,0 +1,39 @@
+{
+  "batch_number": 218,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T20:30:00.000Z",
+  "results": [
+    {"id": "f11005c8-fbfa-4fe0-aaab-aaba9e118ed2", "title": "Cannador Postoperative Pain Dose Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis extract pain therapeutic trial"},
+    {"id": "f1588a9f-86f9-4a1e-9dd8-471251f5aee1", "title": "THC CBD THCV CB1 CB2 Pharmacology", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor pharmacology review"},
+    {"id": "f16017b7-5f3e-41d3-8b66-2f7353b26fd0", "title": "Cannabis VER-01 Back Pain vs Opioids RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis chronic pain therapeutic Phase III"},
+    {"id": "f177af02-1a38-4d5e-8fd3-083ee8192810", "title": "Topical CBD Peripheral Neuropathy RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuropathy pain therapeutic RCT"},
+    {"id": "f17ee886-5877-4abf-818b-fced779ed258", "title": "ABCB1 Polymorphism Cannabis Dependence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - genetic dependence risk"},
+    {"id": "f186e29a-0c4d-41f2-9669-61bccedb8648", "title": "Psychosis and Cannabis Schizophrenia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis trigger study"},
+    {"id": "f1bd7878-ea1d-4a62-ac70-909f64db169c", "title": "CBD Cocaine Sensitization Prevention", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction therapeutic mechanism"},
+    {"id": "f1eb7272-ba0a-4378-8c2c-34b8b3ee0e24", "title": "Endocannabinoid Ulcerative Colitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid IBD therapeutic mechanism"},
+    {"id": "f1f2d6a7-a9dd-4d18-8a16-ddfa610e8dca", "title": "THC CBD Tourette Syndrome RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD Tourette's therapeutic RCT"},
+    {"id": "f1f76a18-d469-48f9-aab7-2ae932f3e14c", "title": "CBD CBG Cholangiocarcinoma Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/CBG cancer therapeutic mechanism"},
+    {"id": "f2184c52-e939-435a-9edf-6ab9d6f8e329", "title": "NASEM Cannabis Health Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis health effects review"},
+    {"id": "f22fe704-7189-442a-871b-1f3f6c0342fe", "title": "Maternal Cannabis Neurodevelopment", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - prenatal exposure outcomes"},
+    {"id": "f23c5737-ee1b-47da-85c0-4777cb172273", "title": "CBD THC Spinal Cord Injury", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC SCI therapeutic"},
+    {"id": "f24dfd69-c97b-4152-9f3a-6902e7d7a5df", "title": "Charlotte's Web Dravet Genetics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy responder genetics"},
+    {"id": "f2552216-ec00-45fe-9956-c8d85ee5f481", "title": "Natures Stimulant CBD Gummies ED", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - CBD gummies advertisement"},
+    {"id": "f2564b42-a996-47f0-a270-e611ed82dfcb", "title": "SA Drug-Free Sport CBD Position", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - anti-doping guidelines"},
+    {"id": "f25cec7f-5ad2-410d-a6cd-2532496a9462", "title": "Cannabinoid Receptors Localization", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor mechanism research"},
+    {"id": "f27350d8-7d6d-45cc-ba1e-e42047b8066c", "title": "CBD THC Inflammatory Pain Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC pain therapeutic mechanism"},
+    {"id": "f2747e57-b343-424a-a068-2d7bfc6c9958", "title": "CB2 Ligand Development Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 agonist therapeutic development"},
+    {"id": "f295d45d-eacc-4254-b520-e48c0afcd903", "title": "Reba McEntire CBD Gummies Shark Tank", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - celebrity CBD advertisement"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "f17ee886-5877-4abf-818b-fced779ed258",
+      "f186e29a-0c4d-41f2-9669-61bccedb8648",
+      "f22fe704-7189-442a-871b-1f3f6c0342fe",
+      "f2552216-ec00-45fe-9956-c8d85ee5f481",
+      "f2564b42-a996-47f0-a270-e611ed82dfcb",
+      "f295d45d-eacc-4254-b520-e48c0afcd903"
+    ]
+  }
+}

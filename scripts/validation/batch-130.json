@@ -1,0 +1,35 @@
+{
+  "batch_number": 130,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T22:15:00.000Z",
+  "results": [
+    {"id": "8fc5081f-4b3a-4fd6-8ec3-5aa1af5c0ba8", "title": "CBD Methamphetamine Addiction ATP5A1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction therapeutic"},
+    {"id": "8ff4d330-f056-48e4-962e-55482eb7af96", "title": "Cannabinoids Titrating Opioids Pain Consensus", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain therapeutic guidelines"},
+    {"id": "9001ad51-1ca3-4ee9-ac73-63c80a1ce4c2", "title": "Terpenes CBD Coronavirus E229 In Vitro", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antiviral therapeutic"},
+    {"id": "90089d7b-ee52-4690-a90d-ed99e2cfd53c", "title": "THC CBD Pain Epidermolysis Bullosa", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain therapeutic"},
+    {"id": "902b94f3-1574-4621-b15a-16f79a45f7c9", "title": "CBD LPS Inflammatory Placenta NF-kB", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anti-inflammatory mechanism"},
+    {"id": "902f5638-87f8-4724-9ff6-7eec934819ea", "title": "Green Ape CBD Gummies Everyone Talking", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - marketing link"},
+    {"id": "9038ced0-1f3b-46be-9a66-c80f2c1d1a6a", "title": "CBD Pharmacokinetics Food Liver Function", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics safety"},
+    {"id": "904c9a95-5d12-47eb-aa14-e549dac6f289", "title": "CBD Biological Effects Healthy Cells Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety review"},
+    {"id": "905ac8ec-c180-49bc-8d65-d6e994cd9289", "title": "CBD MAPK Apoptosis Colorectal Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic"},
+    {"id": "905b9712-d590-4a01-8d9e-9033c13effe0", "title": "Biomarkers Cannabis THC Healthy Volunteers", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology"},
+    {"id": "90827fba-0fe8-4415-8d8c-7387542b9b3f", "title": "Online Information CBD Epilepsy Credibility", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy info quality"},
+    {"id": "90a63b12-7950-4247-a764-7bfaa9d1c722", "title": "Neurodevelopmental Exogenous Cannabinoids GABA", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism"},
+    {"id": "90aa0f76-a896-4f5d-b195-7014e97fe41a", "title": "CBD Wake-Inducing Agent Nonpsychoactive", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD wakefulness therapeutic"},
+    {"id": "90ab45de-516d-4846-9369-219041ddf1f6", "title": "Four Segmentalized CBD Sonar Reverberation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - sonar detection term"},
+    {"id": "90b9bb6d-a429-4fb8-a1e1-895e94d48c1d", "title": "CBD Neuroprotective Concussion Case Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection therapeutic"},
+    {"id": "90d80c90-97cc-4683-a4ae-98929e34c5c2", "title": "CBD Adjunctive Drug-Resistant Epilepsy Meta", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic review"},
+    {"id": "90d9516e-c20b-4f68-98ac-e0c2bf42b40c", "title": "CBD 5-HT1A Restraint Stress Cardiovascular", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety therapeutic mechanism"},
+    {"id": "91011658-1563-4ff3-8825-a5c595966458", "title": "Cannabinoids Fibromyalgia Nabilone", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain therapeutic"},
+    {"id": "911191d1-c595-4f27-8308-c8afd39ff117", "title": "CBD Chronic Prostatitis Pelvic Pain CB2 TRPV1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic"},
+    {"id": "9113f81c-ffd1-4d45-b9c3-c72fa15071ee", "title": "CBD Inflammatory Response TBI PGE2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD TBI therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 18,
+    "incorrect": 2,
+    "incorrect_ids": [
+      "902f5638-87f8-4724-9ff6-7eec934819ea",
+      "90ab45de-516d-4846-9369-219041ddf1f6"
+    ]
+  }
+}

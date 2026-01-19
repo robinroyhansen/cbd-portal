@@ -1,0 +1,39 @@
+{
+  "batch_number": 367,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T09:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "974c731a-0b48-4553-9d7f-89c09ab66f41", "title": "Antagonist-Elicited Cannabis Withdrawal in Humans", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD/withdrawal study correctly rejected"},
+    {"id": "975137e0-a031-4787-a342-0e626ae0e601", "title": "Prevalence and correlates of daily-level reasons not to drink among young adults who use alcohol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "9769e9d3-8e0a-4b75-a9f8-3cbbcdfdf725", "title": "Defining a threshold for higher potency cannabis products in legal markets", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "9771c633-9ee8-45cf-adbd-dea4945afbd7", "title": "Cannabinoids in glioblastoma multiforme—hype or hope?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cancer therapeutic review"},
+    {"id": "97775332-1103-45dc-b620-b8410aee03ba", "title": "Summer Valley CBD Gummies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "977bd61e-c126-42a8-ae38-8ece6a2e2a5d", "title": "Cannabinoid CB1 receptors in rat medial prefrontal cortex are colocalized with calbindin but not parvalbumin- and calretinin-positive GABA-ergic neurons", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor brain mechanism research"},
+    {"id": "9793e66e-b90d-4777-b30a-fe3112d62d43", "title": "Marijuana Use and Health Outcomes in Persons Living With HIV: Protocol for the MAPLE Longitudinal Cohort Study", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis/HIV clinical research protocol"},
+    {"id": "9796bd84-cd74-40f6-b4e2-229680177e07", "title": "Urinalysis and perceived effects following 2-week use of a commercial broad-spectrum cannabidiol product", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD clinical effects research"},
+    {"id": "97a16585-161b-411c-b2a6-d63dde68afa7", "title": "Effects of Cannabis Use on Human Behavior, Including Cognition, Motivation, and Psychosis: A Review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm review correctly rejected"},
+    {"id": "97a3522b-2187-4927-be96-c34222d568a5", "title": "Prenatal exposure to a cannabinoid agonist produces memory deficits linked to dysfunction in hippocampal long-term potentiation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prenatal harm study correctly rejected"},
+    {"id": "97a5105f-23e4-4465-acf8-0a3126fd4236", "title": "Cannabis.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Generic title/unclear correctly rejected"},
+    {"id": "97b3b301-5903-4e72-9e29-89f67bcb6618", "title": "Combining CBD Resistance with High Yields and Good Cup Quality: Success case in Ruiru 11 Cultivar", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Coffee Berry Disease) correctly rejected"},
+    {"id": "97bf7825-c673-44f3-8490-992ab2629940", "title": "Willingness of pregnant and postpartum women who use marijuana and/or cannabidiol to participate with their offspring in long-term cohort studies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Research methodology correctly rejected"},
+    {"id": "97c96076-fec9-4307-8915-39345b11818d", "title": "μ opioid and CB1 cannabinoid receptor interactions: reciprocal inhibition of receptor signaling and neuritogenesis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1/opioid receptor mechanism research"},
+    {"id": "97eb0293-c6eb-41a6-bc49-2ea5a894050d", "title": "What Does CBD Stand For?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correctly rejected"},
+    {"id": "97f4ba4d-c597-4739-95ff-9c97da80a116", "title": "Novel remediation of per- and polyfluoroalkyl substances (PFASs) from contaminated groundwater using Cannabis Sativa L. (hemp) protein powder", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Environmental correctly rejected"},
+    {"id": "97fd4931-522c-47ec-85f0-f0c2106c0b92", "title": "Significance of Ni doping on structure-morphology-photoluminescence, optical and photocatalytic activity of CBD grown ZnO nanowires", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "98254326-0f0e-4f92-aa25-9da79da352a2", "title": "Ultrasound-Assisted Extraction of Cannabinoids from Cannabis Sativa L. Optimized by Response Surface Methodology", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction correctly rejected"},
+    {"id": "982a2e3d-accb-42e1-9053-1a5f36a4590e", "title": "Cannabis use and co-use in tobacco smokers and non-smokers: prevalence and associations with mental health in a cross-sectional, nationally representative sample of adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/harm correctly rejected"},
+    {"id": "98309d4c-5e00-45ff-80a9-f46a6affba19", "title": "Comparative effects of methamphetamine, cannabis, and polysubstance use on oral health", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "9771c633-9ee8-45cf-adbd-dea4945afbd7",
+      "977bd61e-c126-42a8-ae38-8ece6a2e2a5d",
+      "9793e66e-b90d-4777-b30a-fe3112d62d43",
+      "9796bd84-cd74-40f6-b4e2-229680177e07",
+      "97c96076-fec9-4307-8915-39345b11818d"
+    ]
+  }
+}

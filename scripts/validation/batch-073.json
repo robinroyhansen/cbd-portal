@@ -1,0 +1,37 @@
+{
+  "batch_number": 73,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T08:00:00.000Z",
+  "results": [
+    {"id": "503bdd81-2d84-42ba-b579-66a85f59b7dc", "title": "Cannabidiol‐enriched oil for adult patients with drug‐resistant epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic clinical"},
+    {"id": "504992ca-e1e5-49d8-b469-d7abb02c2623", "title": "Nanoemulsions of Cannabidiol, Δ9-Tetrahydrocannabinol anticonvulsant effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC epilepsy preclinical"},
+    {"id": "504d21c7-174e-4ae5-b0ce-fa9c1491924d", "title": "Carl Germano: Simple Guide to the Endocannabinoid System", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "DATA ERROR - abstract about COPD/Chinese medicine, not CBD"},
+    {"id": "5054c231-38fb-4c17-9199-f1a790add701", "title": "Cognitive Biases in Cannabis, Opioid, and Stimulant Disorders: A Systematic Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - addiction psychology methodology"},
+    {"id": "508a182b-57ff-4da6-9e3e-2da41f05e3cf", "title": "Paradoxical effects of the cannabinoid CB2 receptor agonist GW405833 on rat osteoarthritic knee joint pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 agonist osteoarthritis pain"},
+    {"id": "5094696b-4910-44ec-b86a-ed07bc639d03", "title": "Cannabinoids for the Treatment of Chronic Non-Cancer Pain: An Updated Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain systematic review"},
+    {"id": "50a1d643-be83-42c4-8e70-b25d35c06da0", "title": "O Potencial Terapêutico do CBD na Doença de Parkinson (Portuguese)", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's therapeutic review"},
+    {"id": "50c2628b-49b3-4ad9-80d1-cf73d02bc83e", "title": "TRP Ion Channels in Immune Cells and Their Implications for Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "TRP channels cannabinoid targets"},
+    {"id": "50d8d028-4968-4941-8351-f6a7a04a4c10", "title": "The Immunomodulating Effects of THC and CBD in Inflammation and Infection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD immune function"},
+    {"id": "50dc8178-1620-4a0b-94b3-6a22fc251376", "title": "Factor structures for DSM‐IV substance disorder criteria", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - addiction diagnostics methodology"},
+    {"id": "50ee9aea-c64f-49c2-a517-8309f7739dc0", "title": "Peripheral selectivity of novel cannabinoid receptor antagonist TM38837", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 antagonist metabolic therapeutic"},
+    {"id": "50f64eea-11c9-48e2-aa59-41eeaf8bec88", "title": "Cannabinoids Alleviate Experimentally Induced Intestinal Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid colitis therapeutic"},
+    {"id": "51035302-8048-4681-a022-a68b9a398b39", "title": "Cannabis and Cannabidiol for Post-Operative Pain in Orthopedic Surgery", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD surgical pain scoping review"},
+    {"id": "510bbcff-b3e8-4002-86e4-a85d64ad861e", "title": "Pharmacokinetics of cannabidiol in Connemara ponies", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - CBD in horses"},
+    {"id": "512243c6-3b51-4888-80ca-305c155ba844", "title": "Exploring Synthetic Cannabinoids in Colon Epithelial Cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Synthetic cannabinoid cancer"},
+    {"id": "51475d29-7933-437d-8a62-c76a0deca3e2", "title": "Cannabidiol and mitragynine in paclitaxel-induced allodynia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD chemotherapy neuropathy"},
+    {"id": "514a7e37-b7c1-4c72-b9fd-3a0f2cb23ebc", "title": "CBD effect on sleep quality in multiple sclerosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD MS sleep therapeutic protocol"},
+    {"id": "5151c9f3-0b21-4f89-b996-6be7d0862fc2", "title": "Unlocking the potential: CBD as anti-tumor agent", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic"},
+    {"id": "5162fdca-c6ac-45b6-8b07-a2588059eef7", "title": "CBD for self-aggressiveness in Cornelia de Lange syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD rare syndrome case report"},
+    {"id": "516301f0-0365-4026-bace-4246413a0966", "title": "Chronic CBD modulates depression in socially isolated mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression preclinical"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "504d21c7-174e-4ae5-b0ce-fa9c1491924d",
+      "5054c231-38fb-4c17-9199-f1a790add701",
+      "50dc8178-1620-4a0b-94b3-6a22fc251376",
+      "510bbcff-b3e8-4002-86e4-a85d64ad861e"
+    ]
+  }
+}

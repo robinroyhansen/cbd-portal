@@ -1,0 +1,41 @@
+{
+  "batch_number": 195,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T14:45:00.000Z",
+  "results": [
+    {"id": "d857c50b-5ceb-41e0-aa09-79ca5e646cd1", "title": "THC CBD Mg2+-ATPase Synaptic Vesicles Rat", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism research"},
+    {"id": "d86432c9-32ee-4614-8621-7da0d433776f", "title": "BDNF CB1R Postoperative Pain Sleep Disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1R pain/sleep mechanism"},
+    {"id": "d87b84f0-6bbd-4e58-b674-806b905e6e5f", "title": "CBD Pediatric Epilepsy PK Drug Interactions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy clinical research"},
+    {"id": "d87e4657-55e8-49dc-b6a6-13bc50da5881", "title": "Comparison CBD Cannabis Use Motives Survey MTurk", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use motives survey"},
+    {"id": "d885bd2a-37e0-40f6-8983-481d9d29d583", "title": "CB1 Expression Hodgkin Lymphoma Target", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 cancer therapeutic target"},
+    {"id": "d88b94ff-b6e4-4c2c-890d-6415466fbac4", "title": "CBD Neurodevelopmental Disorders Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neurodevelopmental review"},
+    {"id": "d8beb8dd-a94c-414b-8bf2-e1add54b1280", "title": "Cannabinoids Ondansetron Cisplatin Emesis Comparison", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid nausea therapeutic"},
+    {"id": "d8d4ccc4-5ace-4617-b414-bc871cb5de0c", "title": "COMT rs4680 Impulsivity Substance Addictions", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - COMT genetics addiction"},
+    {"id": "d914ac1a-e20c-4602-8c86-8f7f5888a290", "title": "CBD Antidepressant Adolescent Adult Rats Sensitivity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression preclinical"},
+    {"id": "d9166ff0-529e-41c7-933c-26fa3406be58", "title": "Pharmacological Actions Therapeutic Uses Cannabis Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology review"},
+    {"id": "d9193701-6489-489e-a8a3-cb90007c4f70", "title": "Cannabis Oil Autistic Children Concomitant Medications", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis autism therapeutic"},
+    {"id": "d92a6ce7-e5e6-4501-9b95-e69765213357", "title": "HDL Nanoplatform Tumor Microenvironment Pancreatic", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - HDL cancer nanoplatform"},
+    {"id": "d92ec3f9-b2fd-4b07-9cf7-3ac86ccdfbc1", "title": "CB Receptors Equine Hoof Laminitis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - horse laminitis"},
+    {"id": "d92f06e8-125e-483f-9be9-bb1480440a5c", "title": "CBD 2% Cat Squamous Cell Carcinoma Spanish", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - cat cancer"},
+    {"id": "d9496547-f8a7-4e66-863d-1a38b52874d6", "title": "Chronic Cannabinoid Treatment Recognition Social Pubertal Rats", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - developmental effects"},
+    {"id": "d94b4dca-4967-4b5a-8a2f-b03d26035bb0", "title": "Continuous Flight Auger Piles Johannesburg CBD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Central Business District"},
+    {"id": "d95a3914-edea-4cd4-b7c2-78976354fd05", "title": "Cannabinoid Modulation A-Type K+ Hypothalamus Sex", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuroendocrine mechanism"},
+    {"id": "d95e113e-f537-44bc-aea9-184e18378e31", "title": "Cannabis Use Decisions During Pregnancy Self-treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pregnancy clinical guidance"},
+    {"id": "d966b5c5-28f6-4386-8c31-2a258a1ea101", "title": "LOTUS CBD CUD Treatment RCT Protocol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for CUD clinical trial"},
+    {"id": "d96bc3c3-98b6-4c8b-a422-58fd02522bd8", "title": "CE-MARC 3 Stable Chest Pain UK Multicenter", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - cardiac imaging trial"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "d87e4657-55e8-49dc-b6a6-13bc50da5881",
+      "d8d4ccc4-5ace-4617-b414-bc871cb5de0c",
+      "d92a6ce7-e5e6-4501-9b95-e69765213357",
+      "d92ec3f9-b2fd-4b07-9cf7-3ac86ccdfbc1",
+      "d92f06e8-125e-483f-9be9-bb1480440a5c",
+      "d9496547-f8a7-4e66-863d-1a38b52874d6",
+      "d94b4dca-4967-4b5a-8a2f-b03d26035bb0",
+      "d96bc3c3-98b6-4c8b-a422-58fd02522bd8"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "batch_number": 312,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T20:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "57860b77-6eb1-4cc4-99fa-ed6dc121f447", "title": "Cannabidiol (CBD) and Its Biological Toxicity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety/toxicology research"},
+    {"id": "578dd736-3388-4869-86d7-746ca85b4c2b", "title": "Chemical and biological control of cobweb disease (Cladobotryum mycophilum) in Agaricus bisporus mushroom crops.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "578f6212-3865-4085-afcf-c3e16bd2ca68", "title": "Cannabis sativa L.: Botany and Horticulture", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/botany correctly rejected"},
+    {"id": "57927f2d-184b-4f87-bc43-388af27d2a61", "title": "CBD Project in Rural Nigeria Helped Raise Modern Method Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Community-Based Distribution) correctly rejected"},
+    {"id": "57a15ce8-287c-4e16-9c9e-78e8d430c834", "title": "CBD-bound full-length rat TRPV2 in nanodiscs, state 2", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD TRPV2 receptor mechanism"},
+    {"id": "57a4552b-9c4f-4f1c-9f9f-815d7850f4ec", "title": "Determination of cannabinoid and synthetic cannabinoid metabolites in wastewater by liquid–liquid extraction and ultra‐high performance supercritical fluid chromatography‐tandem mass spectrometry", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/analytical correctly rejected"},
+    {"id": "57b18148-4f38-45a2-80d1-3a01b0903775", "title": "ZnO nanofiber (NFs) growth from ZnO nanowires (NWs) by controlling growth temperature on flexible Teflon substrate by CBD technique for UV photodetector", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "57b8422f-3437-435d-880e-6a41f9d7d069", "title": "Cannabis: A rare cause of acute pancreatitis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "57d9adb4-c1aa-4799-a9c7-12e55ebf49da", "title": "Orally administered cannabidiol does not produce false‐positive tests for Δ9‐tetrahydrocannabinol on the Securetec DrugWipe® 5S or Dräger DrugTest® 5000", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic testing focus correctly rejected"},
+    {"id": "57f2b897-665f-4d55-9928-dba6008288c6", "title": "Cannabis use among sexual minority adults: insights from recent U.S. nationally representative data.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "57fc4e7f-b109-4796-85c3-4395415e19cf", "title": "Melbourne CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "5828bde5-b3c9-4fb8-90cd-51adcdfda5b1", "title": "Nano-Elicitation Approaches for Boosting Secondary Metabolites in Medicinal Plant Cell Cultures", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/cultivation correctly rejected"},
+    {"id": "58358587-f63f-4742-83a8-ccf3e8e831fd", "title": "[Cannabis, CBD, THC : therapeutic potential, realities and latest discoveries].", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - therapeutic potential review"},
+    {"id": "58382cc2-5792-4ad0-abc6-9bf7251d06ae", "title": "Dolly Parton CBD Gummies Reviews [Website Scam Exposed]: Shocking Price and Side Effects!", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "5838336d-3a34-4ccf-b984-9865026776f3", "title": "Terpenes and Cannabinoids Yields and Profile from Direct-Seeded and Transplanted CBD-Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/cultivation correctly rejected"},
+    {"id": "58454ae8-f349-4bac-b4e3-808eca6c13c8", "title": "The Neurocognitive Effects of Cannabis Across the Lifespan", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis cognitive harm correctly rejected"},
+    {"id": "58474105-5085-4d7f-9cd7-9354b9327e77", "title": "Comprehensive analysis of the chloroplast genome in Cannabis sativa L. reveals variations in simple sequence repeats among cultivars", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "5853f35c-90d0-45fb-8087-00b062ab76d7", "title": "A Spatial Statistical Approach to the Delimitation of CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "585502e0-3030-4e10-8248-4e0d6f8688be", "title": "CBD Interview Guide_FINAL(25APR13).docx", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention document) correctly rejected"},
+    {"id": "58570280-c69c-4a45-a061-c6bbae112128", "title": "Exploring Intoxication During Acute Alcohol and Cannabis Concentrate Co-Administration: A Focus on Cannabinoid Content and Order Effects", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Intoxication/harm study correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "57860b77-6eb1-4cc4-99fa-ed6dc121f447",
+      "57a15ce8-287c-4e16-9c9e-78e8d430c834",
+      "58358587-f63f-4742-83a8-ccf3e8e831fd"
+    ]
+  }
+}

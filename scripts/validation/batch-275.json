@@ -1,0 +1,41 @@
+{
+  "batch_number": 275,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T10:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "2fc9cea3-e236-47af-8b97-fa4844c34bcd", "title": "BPS2025 - Unravelling the chemical determinants of CBD activity on the Kv7 ion channels", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD Kv7 ion channel mechanism"},
+    {"id": "2fced6a3-c876-463e-8e87-781e24ab39e1", "title": "Cannabidiol differentially modulates Kv7 channelopathy-related phenotypes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic for channelopathies"},
+    {"id": "2fd6ccb1-d293-4310-8e03-87bd74ef2936", "title": "关于中央商务区(CBD)的六点看法", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "2fd979e9-b993-4aed-8469-1099a13e6a29", "title": "Acute intoxication caused by synthetic cannabinoids 5F-ADB and MMB-2201: A case series", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid harm correctly rejected"},
+    {"id": "2fe02299-7efd-46f4-a1c6-477fc51e927e", "title": "Lewis-Acid-Mediated Union of Epoxy-Carvone Diastereomers with Anisole Derivatives: Mechanistic Insight and Application to the Synthesis of Non-natural CBD Analogues", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic chemistry correctly rejected"},
+    {"id": "2fe15386-2a23-492b-9324-5d03bfb83425", "title": "Small molecule metabolites: discovery of biomarkers and therapeutic targets", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "2ff74243-e1eb-492a-bc6d-d1062ef59b25", "title": "Timing matters: modeling the effects of gestational cannabis exposure on social behavior and microglia in the developing amygdala.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prenatal cannabis harm correctly rejected"},
+    {"id": "2ffbb908-4b2f-4ee4-80d3-9af4cb147509", "title": "Cannabinoids: influence on neurotransmitter uptake in rat brain synaptosomes.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism on neurotransmitters"},
+    {"id": "3002d2b7-6d99-4eea-8232-2a5fb0192e8e", "title": "Sex differences in the acute effects of cannabis on human cognition: A systematic review.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "3028e9c0-6cde-4dbd-b76e-710e4ed28296", "title": "Male Enhancement CBD Gummies [Shocking Reviews!] - Pelican CBD Male Enhancement Gummies For Extra Pleasure!", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "302e1b90-77a8-455a-969f-6f4798cd3801", "title": "Uncovering novel endocannabinoidome-gut microbiome-brain axis-based therapeutic targets in a Fragile X Syndrome mouse model.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid therapeutic targets Fragile X"},
+    {"id": "30564cb0-40cc-432a-bec7-bd8b15086840", "title": "Cannabinoid receptor agonists and antagonists", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1/CB2 pharmacology review"},
+    {"id": "3063f3b4-2ba7-409d-8eda-1a8952e60e95", "title": "Acute Effects of Smoked and Vaporized Cannabis in Healthy Adults Who Infrequently Use Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "3068aab6-73b0-4e05-b154-6c0ac733fa77", "title": "Cannabis for the treatment of amyotrophic lateral sclerosis: What is the patients' view?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis therapeutic for ALS"},
+    {"id": "307a1596-53b5-4471-9780-31a281775440", "title": "Nationwide Prevalence of Cannabidiol Use in Pregnancy and in Women of Reproductive Age.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use prevalence correctly rejected"},
+    {"id": "309712d7-3ba3-4955-a2f2-b595113c8c2c", "title": "Binding thermodynamics at the human cannabinoid CB1 and CB2 receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism"},
+    {"id": "309d3a16-45c2-4ace-9f57-ed999ef21e09", "title": "Detection of Δ9 THC in oral fluid following vaporized cannabis with varied cannabidiol (CBD) content: An evaluation of two point‐of‐collection testing devices", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "30a6961f-7045-4576-9923-2600b2dbc05f", "title": "Testing oral nicotine pouches versus nicotine replacement therapy for cigarette harm reduction in Appalachia: The ARISE study protocol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "30b4869e-002d-42eb-a462-79382f6fc3ee", "title": "A mycovirus shaped insect-pathogenic and non-pathogenic phenotypes in a fungal biocontrol agent", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "30c644d5-aabb-4210-b2b7-c474326bbbff", "title": "Long-term cognitive impairments induced by chronic cannabinoid exposure during adolescence in rats", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "2fc9cea3-e236-47af-8b97-fa4844c34bcd",
+      "2fced6a3-c876-463e-8e87-781e24ab39e1",
+      "2ffbb908-4b2f-4ee4-80d3-9af4cb147509",
+      "302e1b90-77a8-455a-969f-6f4798cd3801",
+      "30564cb0-40cc-432a-bec7-bd8b15086840",
+      "3068aab6-73b0-4e05-b154-6c0ac733fa77",
+      "309712d7-3ba3-4955-a2f2-b595113c8c2c"
+    ]
+  }
+}

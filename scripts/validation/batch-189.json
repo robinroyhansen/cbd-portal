@@ -1,0 +1,41 @@
+{
+  "batch_number": 189,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T13:15:00.000Z",
+  "results": [
+    {"id": "d2493924-650f-4c4b-ba1d-2110f8fcdea8", "title": "Ethinylestradiol Breast Milk Contraception", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - hormonal contraception"},
+    {"id": "d2518b84-6d28-482e-8f8f-06b961880e53", "title": "Medical Marijuana Pediatric CNS Tumor QOL", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer QOL study"},
+    {"id": "d25ac266-d76d-43c6-8797-11f4bb6e5412", "title": "CBD/CBG Hemp Ulcerative Colitis Murine", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid IBD therapeutic"},
+    {"id": "d26a392e-766d-470e-acc3-c0f88009a2bb", "title": "Self-Expelling Biliary Stents Elderly", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - biliary stents"},
+    {"id": "d2770d73-5c02-4f48-938f-02b388163608", "title": "Approach Bias Modification CUD Treatment", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - cognitive therapy not cannabinoid"},
+    {"id": "d2838d2a-5eba-4599-82eb-f1e3f1c7e12e", "title": "UK Medical Cannabis Registry Observational", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid outcomes UK registry"},
+    {"id": "d2891dd4-ca95-4caf-bcc7-890185c1e1aa", "title": "Cannabis Smoke Combustion Analysis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "LAB METHODS - smoke chemistry extraction"},
+    {"id": "d2a26f6e-a5d0-4adf-ba11-a905ba4de0eb", "title": "CBD Phenytoin-like Antiepileptic Molecular Modeling", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism research"},
+    {"id": "d2b4d1ef-42b5-42d0-842a-dbb1f34ce863", "title": "CBD Seizure Frequency Dogs Epilepsy RCT", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dogs epilepsy"},
+    {"id": "d2d81760-6e65-4529-a198-db21918c5efe", "title": "CBD Treatment-Resistant Epilepsies 4-Year Results", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy long-term clinical trial"},
+    {"id": "d2e103c7-5aef-4c58-8056-325d90d468b2", "title": "CBD Opioid Withdrawal Rats Data Code", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD opioid withdrawal preclinical"},
+    {"id": "d2e4b853-a6e9-44c7-9afa-ad0a634e7afd", "title": "CB1 CB2 Receptors Basal Ganglia Macaques Parkinsonism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Parkinson's mechanism"},
+    {"id": "d2fa9e0c-d40f-4c12-884b-efc3d67234f0", "title": "CBD Pain Sensitivity Methadone Buprenorphine OUD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain in OUD patients"},
+    {"id": "d30b02fe-f420-4a3b-a76d-cf856867bc9f", "title": "CBD Hemp Extract Stress Response Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid stress preclinical"},
+    {"id": "d30d8b57-ea22-464c-b58d-ee5ab0653a8b", "title": "Cannabinoid Hyperemesis Syndrome Pregnancy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - CHS adverse effect"},
+    {"id": "d31e91fc-06a6-452e-b1d7-37ac231929ce", "title": "CB1 Receptors OMAR PET Imaging Human", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor imaging"},
+    {"id": "d31fd10a-708d-4914-bf4b-575b3f281a16", "title": "Cannabis Use Identity Cutting Down Qualitative", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use patterns social study"},
+    {"id": "d3250ff0-6faa-46d1-a719-a6bfe5f75426", "title": "CBD Cardiac Fibrosis Pulmonary Hypertension Rat", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiac therapeutic"},
+    {"id": "d339ae04-c63e-4005-8bbd-9dac4c5ee1de", "title": "Cannabis Use Patterns Cancer Patients Survey", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use patterns cancer"},
+    {"id": "d33b7f6a-1130-4838-8208-0cdbbe2e8916", "title": "Role of CBD in Chronic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "d2493924-650f-4c4b-ba1d-2110f8fcdea8",
+      "d26a392e-766d-470e-acc3-c0f88009a2bb",
+      "d2770d73-5c02-4f48-938f-02b388163608",
+      "d2891dd4-ca95-4caf-bcc7-890185c1e1aa",
+      "d2b4d1ef-42b5-42d0-842a-dbb1f34ce863",
+      "d30d8b57-ea22-464c-b58d-ee5ab0653a8b",
+      "d31fd10a-708d-4914-bf4b-575b3f281a16",
+      "d339ae04-c63e-4005-8bbd-9dac4c5ee1de"
+    ]
+  }
+}

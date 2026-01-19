@@ -1,0 +1,41 @@
+{
+  "batch_number": 223,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T21:45:00.000Z",
+  "results": [
+    {"id": "f746ad53-1d74-42ad-80f3-97962abaab59", "title": "Cannabis Dependence DSM-IV ICD-10 Australia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - dependence patterns"},
+    {"id": "f762f57f-79f1-43e9-a5ee-05af30c1fdff", "title": "VCE-004.8 Scleroderma PPARγ CB2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid scleroderma therapeutic"},
+    {"id": "f7760595-e35a-4e0a-b4dd-065446ced594", "title": "Cannabis Dronabinol Cluster Headache", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cluster headache therapeutic"},
+    {"id": "f77db177-f9c4-40dd-96ba-fbc9c1a6de8a", "title": "CBD Analgesic Placebo-Controlled Doses", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic RCT (negative finding)"},
+    {"id": "f78185f0-4e15-4678-ba09-38ae0fb1cbfd", "title": "Cannabis Psychotic Disorders Update", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis precipitant"},
+    {"id": "f79291a9-3db5-4927-a13b-f398bec28320", "title": "Opioid Cannabinoid Withdrawal Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid-opioid interaction mechanism"},
+    {"id": "f795234c-24a3-423d-ab64-a9161c42c883", "title": "CBD Gestation Cardiac Outcomes Rats", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - prenatal CBD cardiac harm"},
+    {"id": "f7af4327-20af-473c-8b75-545288eed6b0", "title": "Cannabinoid Receptors Brain Distribution", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor mechanism"},
+    {"id": "f7bc7a9f-b4b5-43b9-8a44-95d99bb369d4", "title": "Cannabis Use Hypertension CARDIA", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - hypertension risk"},
+    {"id": "f7bce3e2-19f6-4072-8777-f3f4d29b8ff1", "title": "CB2 Parkinson's Neurotoxic Models", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 Parkinson's therapeutic mechanism"},
+    {"id": "f7c88f40-71ce-4320-addb-4953823e8da0", "title": "CBD Trazodone Proteotoxicity C elegans", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's therapeutic mechanism"},
+    {"id": "f7d1d3ca-f46b-46c9-a983-49dc4bcbeb88", "title": "Cannabis Ethnobotany Phytochemistry Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis therapeutic comprehensive review"},
+    {"id": "f7f3d723-0251-412a-bef4-b905fe365d21", "title": "CB2 Obesity Inflammation Insulin Resistance", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 obesity metabolic therapeutic"},
+    {"id": "f7fa16d7-d1cd-4492-992c-fea1663a4e7e", "title": "Cannabis Lung Function Effects", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - lung function effects"},
+    {"id": "f8213ca5-7064-44b1-b184-f408b84b6b7a", "title": "Meditation Samyama Anandamide BDNF", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - meditation study"},
+    {"id": "f82ffc26-045b-48f6-be9e-f57536fc933e", "title": "Cannabinoids Eating Energy Homeostasis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid obesity therapeutic review"},
+    {"id": "f830d124-a435-455f-aeb8-b5f125f32619", "title": "Adolescent Pain Sleep Substance Use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - adolescent substance patterns"},
+    {"id": "f8410e18-8244-416c-be4f-bda9dd6d8d47", "title": "TCM Epilepsy NMDA AMPA Receptors", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - TCM receptor focus"},
+    {"id": "f85909d7-4965-4555-88c9-b9afec2d0547", "title": "CB1 NMDA THC Ketamine EEG", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor human pharmacology"},
+    {"id": "f85c59a5-7a3a-4700-8f99-3060508bb9d6", "title": "CBD THC Inflammatory Biomarkers Meta", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC inflammation therapeutic review"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "f746ad53-1d74-42ad-80f3-97962abaab59",
+      "f78185f0-4e15-4678-ba09-38ae0fb1cbfd",
+      "f795234c-24a3-423d-ab64-a9161c42c883",
+      "f7bc7a9f-b4b5-43b9-8a44-95d99bb369d4",
+      "f7fa16d7-d1cd-4492-992c-fea1663a4e7e",
+      "f8213ca5-7064-44b1-b184-f408b84b6b7a",
+      "f830d124-a435-455f-aeb8-b5f125f32619",
+      "f8410e18-8244-416c-be4f-bda9dd6d8d47"
+    ]
+  }
+}

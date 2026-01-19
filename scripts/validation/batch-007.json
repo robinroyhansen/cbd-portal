@@ -1,0 +1,32 @@
+{
+  "batch_number": 7,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T15:00:00.000Z",
+  "results": [
+    {"id": "0a95ffab-c1b0-4cd9-b5c7-efb09819adb4", "title": "Cannabis-based extract for managing pain in dogs with osteoarthritis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for pain in dogs"},
+    {"id": "0a9b1f9d-d5ac-4eae-af77-3d2612c1c72e", "title": "Cannabis Derivatives as Ingredients of Functional Foods to Combat the COVID-19 Pandemic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for COVID"},
+    {"id": "0aa6f31d-e16a-45cb-bb1a-c9c9bbed4a75", "title": "Impact of psychosocial stress in early life on pace of aging", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "About early life stress and aging - no cannabinoid focus"},
+    {"id": "0ab4feaa-ef28-4bea-8c42-87bb431b5aab", "title": "Systematic Characterization...Metabolic Pathways...of 26 Synthetic Cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "PK research on synthetic cannabinoids"},
+    {"id": "0ab686a9-0ee4-4828-b323-e4b826a2b66a", "title": "Analgesic, Respiratory and Heart Rate Effects of Cannabinoid and Opioid Agonists", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid effects on pain and physiology"},
+    {"id": "0ab9f6ed-8684-43d1-99b0-1bc79478c413", "title": "Rate of Cannabis Use Disorders in Clinical Samples of Patients With Schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CUD prevalence in schizophrenia"},
+    {"id": "0abddd5e-1b9e-4a74-8e57-2ee1733da9a6", "title": "Characterization of cannabinoid-induced relief of neuropathic pain in rat models of...diabetes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids for diabetic neuropathy"},
+    {"id": "0ad1311a-aaba-4370-aebf-3111e82dfc5b", "title": "Cannabidiol on reward-and Stress-related Neurocognitive Processes in...Opioid Use Disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for addiction"},
+    {"id": "0ae7a81d-3fb0-4ebb-bef9-57a0f6c78c53", "title": "Desarrollo de una fórmula alimenticia con CBD...covid-19", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for COVID (Spanish)"},
+    {"id": "0aeba7a5-a1ff-48c8-9c52-04ced2f785c6", "title": "Cannabidiol protects lung against inflammation and apoptosis...blunt chest trauma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for lung injury"},
+    {"id": "0aec7cba-3778-4fbc-9b44-97f8a9b07f88", "title": "A Dose-ranging Study...THC:CBD Oil in Adults With Chronic Back/Neck Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD for pain"},
+    {"id": "0aee171b-03b4-4ecb-a91a-047de6aa4968", "title": "Cannabidiol protects liver from binge alcohol-induced steatosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD liver protection"},
+    {"id": "0af9f7a5-71a1-4c57-b517-d8b526c6973b", "title": "Early oral administration of THC:CBD formulations prevent pain-related behaviors...chemotherapy-induced neuropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD for chemo neuropathy"},
+    {"id": "0b236ce8-64ed-42df-83be-82b5980c4981", "title": "The Perspective of Cannabidiol in Psoriasis Therapy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for psoriasis"},
+    {"id": "0b2500af-3349-48be-8e27-c61d299649f7", "title": "An Observational Study of Adjunctive Artisanal Cannabidiol Use...Treatment Resistant Epilepsies", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for epilepsy"},
+    {"id": "0b25fda0-3e24-4311-aa81-435449756acf", "title": "Cannabinoid‐receptor expression in human leukocytes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor in immune cells"},
+    {"id": "0b2fcdc9-bd30-4761-a51e-0012ededc271", "title": "Is Social Anxiety Associated With Cannabis Use?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Association study - borderline but kept"},
+    {"id": "0b3d8794-e44e-4cc2-8108-fbec19dda709", "title": "Cannabinoid Receptor-2 Ameliorates Inflammation in Murine Model of Crohn's Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 for Crohn's"},
+    {"id": "0b3da129-3e82-4fc5-9ad7-8675d18bc7b9", "title": "Cannabidiol and substance use disorder: Dream or reality", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for addiction"},
+    {"id": "0b4a4a9a-9400-4fb8-9792-8ebe2d891e51", "title": "Cannabidiol reduces LPS-induced inflammatory response in the human placenta", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anti-inflammatory in placenta"}
+  ],
+  "batch_summary": {
+    "correct": 19,
+    "incorrect": 1,
+    "incorrect_ids": ["0aa6f31d-e16a-45cb-bb1a-c9c9bbed4a75"]
+  }
+}

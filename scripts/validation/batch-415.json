@@ -1,0 +1,40 @@
+{
+  "batch_number": 415,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T21:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "cbbfda40-b290-44b8-ad08-6e00b721e7d1", "title": "New bicyclic cannabinoid receptor-1 (CB1-R) antagonists", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor pharmacology research"},
+    {"id": "cbd1dab3-cf9f-4f20-ab71-7ad2a65a1730", "title": "Tetrahydrocannabinol (THC) and cannabidiol (CBD) inhibit androgen biosynthesis in H295R cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid endocrine mechanism research"},
+    {"id": "cbe2fbfe-3c69-4820-a36a-85a5e9eb2b3d", "title": "Cannabidiol skews biased agonism at cannabinoid CB1 and CB2 receptors with smaller effect in CB1-CB2 heteroreceptor complexes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD receptor signaling mechanism research"},
+    {"id": "cbf5a073-11aa-4955-a8da-0c1638e76175", "title": "PFOA and PFOS accumulation induces genotoxic damage and proteomic alterations in Cannabis sativa shoots", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "cc0fa900-abaa-42ba-a252-66ba1af32acd", "title": "Hazard of sinkhole formation in the Centurion CBD using the Simplified Method of Scenario Supposition", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "cc133a34-1d9d-4bf1-bd78-5a1db7952204", "title": "CBD-II故障码中英文对照（七）", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (technical fault codes) correctly rejected"},
+    {"id": "cc1f8f5f-bfc3-48b1-8fea-cf70f7c1d305", "title": "Persecutory ideation and a history of cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "cc301f36-6be8-400b-90db-4825311fcb5b", "title": "Perceived Quality Service Delivery and Performance of Pharmaceutical Retail Businesses in Cbd of Nairobi City County Kenya", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "cc32629f-59e6-48d3-bd44-f8cf23c78e88", "title": "Cyclodextrin-Based Formulations as a Promising Strategy to Overcome the Blood–Brain Barrier: Historical Overview and Prospects in Glioblastoma Treatment", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "cc361f13-dfea-449c-b08f-809dfb394334", "title": "Green extraction of cannabidiol from industrial hemp (Cannabis sativa L.) using deep eutectic solvents coupled with further enrichment and recovery by macroporous resin", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "cc4949de-7d4f-46c8-97d9-000e36b13de8", "title": "Inhibitory effects of (synthetic) cannabinoids and (designer) benzodiazepines on spontaneously active neuronal networks of primary rat cortical cultures in vitro", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid harm correctly rejected"},
+    {"id": "cc4acde7-baf6-4476-8a6f-2172e6adfa15", "title": "Effects of a cannabinoid on spontaneous and evoked neuronal activity in the substantia nigra pars reticulata", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neuroscience mechanism research"},
+    {"id": "cc58b522-fb59-4e05-a003-e1467e53386d", "title": "A study to assess cannabidiol (CBD) effects on the body following use of vapour, oral pouch, edible and chew CBD Products", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmacokinetics research"},
+    {"id": "cc59df8a-3647-4a08-9894-ad1087c6b6e9", "title": "Pre-exposure to the cannabinoid receptor agonist CP 55,940 enhances morphine behavioral sensitization and alters morphine self-administration in Lewis rats", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Addiction research correctly rejected"},
+    {"id": "cc6cf2eb-69fb-46ed-9122-35b3c5fda7ab", "title": "Duplicate Prescription Patterns in Patients With Substance Use Disorders", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Substance use patterns correctly rejected"},
+    {"id": "cc8e0759-b954-46db-90b8-296cd9f3c0ef", "title": "Boxing champ Chris Algieri: CBD definitely helps athletes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "News/editorial correctly rejected"},
+    {"id": "cca2010b-fb5e-43dd-bcaf-600d5d7e10a0", "title": "A Study on the Fire Risk Assessment in CBD based on the Characteristic Features of Fire Damage", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "cca7989a-7ecb-4edb-b7ec-7317694c02a1", "title": "Preventing cannabis users from driving under the influence of cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment correctly rejected"},
+    {"id": "ccb329b2-9bdc-4095-8815-7a953881c5b6", "title": "Effect of cannabidiol oil on the color stability of resin composites", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Material effect correctly rejected"},
+    {"id": "ccdb9d47-f227-4a79-90db-22c1b08a6b38", "title": "Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD research entry"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "cbbfda40-b290-44b8-ad08-6e00b721e7d1",
+      "cbd1dab3-cf9f-4f20-ab71-7ad2a65a1730",
+      "cbe2fbfe-3c69-4820-a36a-85a5e9eb2b3d",
+      "cc4acde7-baf6-4476-8a6f-2172e6adfa15",
+      "cc58b522-fb59-4e05-a003-e1467e53386d",
+      "ccdb9d47-f227-4a79-90db-22c1b08a6b38"
+    ]
+  }
+}

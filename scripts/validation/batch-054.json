@@ -1,0 +1,41 @@
+{
+  "batch_number": 54,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T03:15:00.000Z",
+  "results": [
+    {"id": "3cf8402c-17d5-4fb3-ad62-76162d083307", "title": "Cannabinoid receptor-dependent and -independent anti-proliferative effects of omega-3 ethanolamides in androgen receptor-positive and -negative prostate cancer cell lines", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid/CB receptor prostate cancer research"},
+    {"id": "3cff41f1-f357-4dfb-8735-9d3e7a85a0b5", "title": "ASRA Pain Medicine consensus guidelines on the management of the perioperative patient on cannabis and cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis perioperative pain management guidelines"},
+    {"id": "3d1a240f-8d0c-4a84-bc7c-91e6a33d5636", "title": "Cannabis Dependence: Interventions with Cannabis-Dependent Adults", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - interventions for cannabis addiction, not cannabinoid therapeutic"},
+    {"id": "3d1fef46-6aa8-443f-932a-5bb728c9c6ad", "title": "Pilot Study on the Effect of Cannabidiol-Coated Fabric for Pillow Covers Improves the Sleep Quality of Shift Nurses.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD sleep therapeutic research"},
+    {"id": "3d23cbfb-f8a8-489b-8a33-4df632fe1070", "title": "Sex Differences in the Anxiolytic Properties of Common Cannabis Terpenes, Linalool and β-Myrcene, in Mice.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis terpene anxiety therapeutic research"},
+    {"id": "3d2b9f1a-1a23-4f8f-8f0c-907c0f07c91a", "title": "Age of alcohol and cannabis use onset mediates the association of transmissible risk in childhood and development of alcohol and cannabis disorders: Evidence for common liability.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - risk factors for developing AUD/CUD, not therapeutic"},
+    {"id": "3d411cf1-a7b2-46f3-88db-f2675844b1e9", "title": "Biochemical Role of the Endocannabinoid System in the Pathophysiology of Attention Deficit Hyperactivity Disorder: A Narrative Review and Future Directions.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid ADHD mechanism research"},
+    {"id": "3d432ca9-0349-4c5a-ab3f-0fdbade2c99c", "title": "A twin study of early cannabis use and subsequent use and abuse/dependence of other illicit drugs", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - gateway drug effect, cannabis leads to other drug use/dependence"},
+    {"id": "3d5303d7-0101-488e-b5c2-2f47ba9fa1ad", "title": "An Assessment of Informal SMEs Governance Practices: A Case Study of SMEs in Harare CBD.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Central Business District Harare, Zimbabwe - business governance study"},
+    {"id": "3d5dfc62-aee0-4fae-adca-74eda770902f", "title": "Recent Advantages in Cannabinoid Research", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid therapeutic research overview"},
+    {"id": "3d66e5af-591d-4b32-887d-99d6612d6aa0", "title": "Black Eagle CBD Gummies This Will Support You In Physiologically And Physically (100% Pure Hemp Oil)(Work Or Hoax)", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING - CBD gummies marketing content"},
+    {"id": "3d6874da-2b0c-433f-963d-86766d6cc19e", "title": "Pre-emptive antinociceptive effects of a synthetic cannabinoid in a model of neuropathic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuropathic pain therapeutic"},
+    {"id": "3d6fcdad-a466-49b8-9335-bcf1f866cada", "title": "Potential for Therapeutic Alteration of the Underlying Biology of Epilepsy.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general epilepsy biology review, no cannabinoid focus in title"},
+    {"id": "3d7aadb7-b0a6-49ad-b424-db1e5559c4c6", "title": "Phytocannabinoids as Novel SGLT2 Modulators for Renal Glucose Reabsorption in Type 2 Diabetes Management", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Phytocannabinoid diabetes therapeutic research"},
+    {"id": "3d9be871-8e62-4b31-85cf-94e310b59237", "title": "A Phase 2, Multicenter, Randomized, Double-Blind, Multiple-Dose, Placebo Controlled Clinical Trial of Two Doses of PP-01 for the Mitigation of Cannabis Withdrawal Symptoms", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - treating cannabis withdrawal symptoms, not cannabinoid therapeutic"},
+    {"id": "3da651b3-5764-4d00-8d70-a620be88453f", "title": "The Effect of Medical Cannabis on Tics, Premonitory Urge and Psychiatric Comorbidity in Adults With Tourette Syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis Tourette syndrome therapeutic"},
+    {"id": "3db98507-4607-4ec0-8d49-1796a079550b", "title": "Toxicity effects of Cannabidiol (CBD) on immune cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety/toxicity research"},
+    {"id": "3dbc9754-acaf-4288-98a1-e041e89aa4ea", "title": "A Feasibility Study of Topical Cannabinoids for Treatment of Aromatase Inhibitor-Associated Musculoskeletal Syndrome (AIMSS) in Adults With Hormone Receptor-Positive Breast Cancer (CanAroma)", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for cancer treatment side effects (AIMSS)"},
+    {"id": "3dbdf913-2be3-44a3-9a04-fef393988feb", "title": "Tobacco and cannabis smoking cessation can lead to intoxication with clozapine or olanzapine", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "DRUG INTERACTION - cannabis smoking affects CYP1A2/drug levels, not cannabinoid therapeutic"},
+    {"id": "3dbf8934-5c7b-4bdb-976f-d0f7fdcb8709", "title": "The cannabinoid receptor agonist, WIN 55, 212-2, attenuates tumor-evoked hyperalgesia through peripheral mechanisms", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer pain therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "3d1a240f-8d0c-4a84-bc7c-91e6a33d5636",
+      "3d2b9f1a-1a23-4f8f-8f0c-907c0f07c91a",
+      "3d432ca9-0349-4c5a-ab3f-0fdbade2c99c",
+      "3d5303d7-0101-488e-b5c2-2f47ba9fa1ad",
+      "3d66e5af-591d-4b32-887d-99d6612d6aa0",
+      "3d6fcdad-a466-49b8-9335-bcf1f866cada",
+      "3d9be871-8e62-4b31-85cf-94e310b59237",
+      "3dbdf913-2be3-44a3-9a04-fef393988feb"
+    ]
+  }
+}

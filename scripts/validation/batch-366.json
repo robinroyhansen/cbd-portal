@@ -1,0 +1,43 @@
+{
+  "batch_number": 366,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T09:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "9649ee02-6a78-4f1d-8a9f-f5b513a2ceb4", "title": "Characterization of CB1 Cannabinoid Receptors Using Receptor Peptide Fragments and Site-Directed Antibodies", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research"},
+    {"id": "9655d8ac-e8c9-4f9a-8202-6851f1333f71", "title": "Effects of cannabidiol on schizophrenia-like symptoms in people who use cannabis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD mental health therapeutic research"},
+    {"id": "965742c1-8844-40e2-b28f-31264af299ba", "title": "Pengaruh Bauran Pemasaran Jasa Terhadap Minat Berkunjung Kembali ke Wonders Water World Waterpark CBD Polonia Medan", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "965ed98b-3870-4098-aadf-6b66ebde92f2", "title": "Development of solid lipid nanoparticles of cannabidiol (CBD): A brief survey of formulation ingredients", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery research"},
+    {"id": "965f0c75-b699-4137-9e19-b0a8be73caf2", "title": "The effect of high-dose dronabinol (oral THC) maintenance on cannabis self-administration", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "967ba515-d5b9-429a-b26a-69ce00236454", "title": "Activation of Cannabinoid Type 2 Receptors Inhibits HIV-1 Envelope Glycoprotein gp120-Induced Synapse Loss", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 neuroprotective mechanism research"},
+    {"id": "968037f3-9e0b-4ef5-983e-7cdcbfc79f4a", "title": "Impact of lifestyle and environmental factors on fertility", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "96a20583-648d-4398-aad5-741376a6b9ee", "title": "Effects of cannabinoid (CBD) on blood brain barrier permeability after brain injury in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD neuroprotective therapeutic research"},
+    {"id": "96d871ff-3fba-47f9-a0a6-d3738c763c60", "title": "Hooking recreational fishers on sustainable fishing", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "96e5e0a0-6f5e-4a80-82d8-40add76d2997", "title": "Carbon-11 labeled radioligands for imaging brain cannabinoid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor imaging research"},
+    {"id": "96eca391-020e-45b7-8f7d-17e787b455e0", "title": "Extraction of Cannabinoids from Cannabis sativa L. (Hemp)—Review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction correctly rejected"},
+    {"id": "96fc369d-c927-47ad-a5f3-11340b013a03", "title": "Cannabinoid 1 receptor occupancy and neurovascular responses induced by agonist, antagonist/inverse-agonist, and potential modulator in non-human primate brains", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research (primate model)"},
+    {"id": "96ff653d-91bb-4f5e-bd80-54a1268a28df", "title": "https://www.facebook.com/Karas-Orchards-CBD-Gummies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "97012719-6e62-4f36-bebd-a44c85c93571", "title": "HindIII identifies a two allele DNA polymorphism of the human cannabinoid receptor gene (CNR)", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor genetics research"},
+    {"id": "971fd774-7c10-4557-9873-d9d9e98494e6", "title": "Expansion of pharmacy preceptors' cannabidiol knowledge and confidence to ensure patient safety", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Provider education correctly rejected"},
+    {"id": "97200f72-45a3-4bf6-9425-ea6e6cf9f637", "title": "Cannabidiol-enriched hemp essential oil obtained by an optimized microwave-assisted extraction using a central composite design", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction correctly rejected"},
+    {"id": "97372a36-8055-4bdf-a78a-460724d5001e", "title": "Cannabis-induced transient meningeal enhancement: A novel radiological finding", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm/adverse effect correctly rejected"},
+    {"id": "973bc406-0fa2-435d-b580-173ed46df2fe", "title": "Cannabinoid CB1 receptor and mu-opioid receptor interaction: new insights from conditional knockout mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1/opioid receptor mechanism research"},
+    {"id": "9740ff1d-96db-4a4e-8e00-6088340d9f4b", "title": "CBD Profiles.xlsx", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Community Based Distributors) correctly rejected"},
+    {"id": "97424199-daa7-4485-a0dc-e2e8853f7c45", "title": "Sequence and annotation of 42 cannabis genomes reveals extensive copy number variation in cannabinoid synthesis and pathogen resistance genes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "9649ee02-6a78-4f1d-8a9f-f5b513a2ceb4",
+      "9655d8ac-e8c9-4f9a-8202-6851f1333f71",
+      "965ed98b-3870-4098-aadf-6b66ebde92f2",
+      "967ba515-d5b9-429a-b26a-69ce00236454",
+      "96a20583-648d-4398-aad5-741376a6b9ee",
+      "96e5e0a0-6f5e-4a80-82d8-40add76d2997",
+      "96fc369d-c927-47ad-a5f3-11340b013a03",
+      "97012719-6e62-4f36-bebd-a44c85c93571",
+      "973bc406-0fa2-435d-b580-173ed46df2fe"
+    ]
+  }
+}

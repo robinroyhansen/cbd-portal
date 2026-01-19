@@ -1,0 +1,42 @@
+{
+  "batch_number": 293,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T15:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "43eda757-3aa5-4f54-8e4e-13c7aa3ba856", "title": "Implication of GHB in proactive drug facilitated crime in Paris, France.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "43edf342-42e9-45e8-b570-c2fa34b257ae", "title": "Pharmacokinetic Study of Delta-8-Tetrahydrocannabinol in Male Rats using a Validated Bioanalytical Method.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - Delta-8-THC pharmacokinetics"},
+    {"id": "43fb03ab-9950-445f-9d2d-a19f4ce2b779", "title": "Effects of ketamine enantiomers on morphine and THC subjective effects in rats.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC drug interaction pharmacology"},
+    {"id": "441da958-a1d5-44ed-82fb-40cef45a41f7", "title": "Conformational analysis of 4,7-dihydro-1,3-dioxepin-2-one (CBD CC) and its ring-opened adducts", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (chemistry) correctly rejected"},
+    {"id": "441e8370-6ab2-4bcc-a0a7-62a91ddd725d", "title": "CBD 2010 target: a case study of Kolleru Wetland (Ramsar Site), India using remote sensing and GIS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention) correctly rejected"},
+    {"id": "44336891-ea84-4cc4-90bd-5fb89b108fa3", "title": "The Prevalence and Significance of Cannabis Use in Patients Prescribed Chronic Opioid Therapy: A Review of the Extant Literature", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/misuse correctly rejected"},
+    {"id": "4435e208-0d42-46ff-abdc-1f0b38764765", "title": "Pre-service teachers' perspectives of the diffusion of information and communications technologies (ICTs) and the effect of case-based discussions (CBDs)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "444eb2e9-99e6-4ff0-9941-d9d3edc56e04", "title": "Waiting to Inhale: Reducing Stigma in the Medical Cannabis Industry", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industry/sociology correctly rejected"},
+    {"id": "44797a60-4163-433d-a300-21bfbc841cb5", "title": "Patterns and Correlates of Cannabis Use among Individuals with HIV/AIDS in Maritime Canada", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "447b5fe2-540e-46bd-bbe4-fb1e7ec97947", "title": "A Physiologically-Based Pharmacokinetic Model for Cannabidiol in Healthy Adults, Hepatically-Impaired Adults, and Children", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD PBPK pharmacokinetics"},
+    {"id": "4485bc8a-2edd-4a96-8eca-e5d99097e8a9", "title": "Classical/non-classical cannabinoid hybrids; Stereochemical requirements for the southern hydroxyalkyl chain", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic chemistry correctly rejected"},
+    {"id": "448e06c5-3d01-406b-8947-a5050c2b0bdb", "title": "Fundamentals of CBD", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD educational overview"},
+    {"id": "4491f67b-c00c-4029-abae-619fa7ff05b4", "title": "Chronic exposure to cannabinoids during adolescence causes long‐lasting behavioral deficits in adult mice", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "44b68ef5-6cf9-4be8-bc4c-2eaf2060d452", "title": "Cannabis use disorders are comparatively prevalent among nonwhite racial/ethnic groups and adolescents: A national study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD epidemiology correctly rejected"},
+    {"id": "44bae9bf-a0e9-4a91-bbea-4161a3e23aa9", "title": "Assessing CBD - what's the difference?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (software) correctly rejected"},
+    {"id": "44c1d687-f3bf-42a9-8a6c-a083c891b3c9", "title": "Oil-based and oil-free formulations for enhancing cannabidiol bioavailability.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD formulation/bioavailability"},
+    {"id": "44cd300f-ce5f-4ba6-96bc-a993697f14de", "title": "The Role of Diacylglycerol Lipase in Constitutive and Angiotensin AT1 Receptor-stimulated Cannabinoid CB1 Receptor Activity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS DAGL/CB1 mechanism"},
+    {"id": "44d13c06-a292-4150-85e0-13084e3ea42a", "title": "Biotransformation of Cannabidiol to Cannabielsoin by Suspension Cultures of Cannabis sativa and Saccharum officinarum", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant biotechnology correctly rejected"},
+    {"id": "44d6db91-8d77-4e6d-a3bf-77bd22b41ff0", "title": "Isolation and Pharmacological Evaluation of Minor Cannabinoids from High-PotencyCannabis sativa", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacology"},
+    {"id": "44e1bd1f-7c04-440c-8df1-eb8559eebed2", "title": "Aplicação do cannabidiol para tratamento de transtornos ansiosos: revisão de literatura", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anxiety therapeutic review"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "43edf342-42e9-45e8-b570-c2fa34b257ae",
+      "43fb03ab-9950-445f-9d2d-a19f4ce2b779",
+      "447b5fe2-540e-46bd-bbe4-fb1e7ec97947",
+      "448e06c5-3d01-406b-8947-a5050c2b0bdb",
+      "44c1d687-f3bf-42a9-8a6c-a083c891b3c9",
+      "44cd300f-ce5f-4ba6-96bc-a993697f14de",
+      "44d6db91-8d77-4e6d-a3bf-77bd22b41ff0",
+      "44e1bd1f-7c04-440c-8df1-eb8559eebed2"
+    ]
+  }
+}

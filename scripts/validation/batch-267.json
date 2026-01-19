@@ -1,0 +1,38 @@
+{
+  "batch_number": 267,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T08:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "26f0c060-5054-4c8c-9378-86f18b88c99f", "title": "CBD/CBDA pharmacokinetics in cats", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary study correctly rejected"},
+    {"id": "2709719b-3566-4ab2-a3d6-0f5137ce214d", "title": "Analyse der rechtlichen Steuerungsfähigkeit der CBD (UN Convention on Biodiversity)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "270d5a42-d08a-41d1-96fe-2c1bf53e424c", "title": "Overview of home cultivation policies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy study correctly rejected"},
+    {"id": "2713fcc6-8668-4c7e-abff-c8e6352ce222", "title": "Studies of Cannabinoid-Based Products in ClinicalTrials.gov: A Scoping Review", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid clinical trials scoping review"},
+    {"id": "2715f125-88f8-4bb0-9ad8-73c01e2fd587", "title": "APPROACHES TO THE SYNTHESIS OF SIMPLIFIED ANALOGS OF CANNABIDIOL", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic chemistry correctly rejected"},
+    {"id": "2716f9ec-1b83-4b50-ae1f-eaeba47bd8d6", "title": "Management for CBD Stone-Related Mild to Moderate Acute Cholangitis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "27207c30-df49-4cff-ac5d-8c8eadbe3463", "title": "Cannabidiol (CBD) Supports the Honeybee Worker Organism by Activating the Antioxidant System", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Invertebrate/agricultural correctly rejected"},
+    {"id": "27228e06-22ae-4963-9354-bbbc6dadfeee", "title": "Modulatory Effects of Minor Cannabinoids in an in vitro Model of Neuronal Hypersensitivity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - minor cannabinoids neuroprotective mechanism"},
+    {"id": "2729a3cb-d007-480d-819f-6bcb2ebb811d", "title": "Multiple motives for cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "272e7e4b-9e69-4617-9221-15ef04387c2d", "title": "Identification and Origin Determinations of Cannabis by Gas and Paper Chromatography", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "2736cc20-1b0f-44dd-b2e1-8da2602c7c6e", "title": "Cannabinoid receptor activation and elevated cyclic AMP reduce glutamate neurotoxicity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neuroprotection mechanism"},
+    {"id": "27451690-17e3-4cb1-a233-fd5aa7382e84", "title": "Handheld near-infrared spectroscopy for THC determination", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "27482854-9080-42ea-ba7b-c722792d6285", "title": "Yield and cannabinoids contents in different cannabis genotypes for medical use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "2755443a-a958-448f-8f72-0ca40999c8c4", "title": "The Impact of Cannabis Packaging Characteristics on Perceptions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Marketing study correctly rejected"},
+    {"id": "275828b5-d68d-428f-8846-fc72c4855059", "title": "Effect of malting on nutritional and antioxidant properties of hemp seeds", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food/agriculture correctly rejected"},
+    {"id": "2769e846-5258-4127-ab65-ba617aa498ab", "title": "Identification of New Synthetic Cannabinoid ADB-CHMINACA Metabolites in Human Hepatocytes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid forensic correctly rejected"},
+    {"id": "2770af5b-c6ca-4678-acb8-333207498e77", "title": "Cholangiscopic check through mini-incision in joint of CBD and cystic duct", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "277ba437-3aaf-4941-9a0c-e417e75a06a6", "title": "Atomic Layer Deposition for Perovskite Solar Cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "277cf39a-321b-4757-b327-6f3fc68bf2de", "title": "Comparative analysis of 105 datasets: transcriptomic responses to cannabinoids THC and CBD", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC/CBD transcriptomics"},
+    {"id": "27a3fbe6-e423-4232-a457-bdf8beb498cd", "title": "PSPとCBD―その共通点と相違点 (Corticobasal Degeneration imaging)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "2713fcc6-8668-4c7e-abff-c8e6352ce222",
+      "27228e06-22ae-4963-9354-bbbc6dadfeee",
+      "2736cc20-1b0f-44dd-b2e1-8da2602c7c6e",
+      "277cf39a-321b-4757-b327-6f3fc68bf2de"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "batch_number": 10,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T16:00:00.000Z",
+  "results": [
+    {"id": "0d8f322d-9a8b-41ac-b159-838526cb5132", "title": "Cannabinoid receptor activation in the RVLM evokes cardiorespiratory effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor cardiovascular mechanism"},
+    {"id": "0d9aca2d-ae77-494d-b181-34b71228607f", "title": "Selective anti-cancer effects of cannabidiol and THC in ovarian cancer cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC for cancer"},
+    {"id": "0d9e3fb8-e27a-4682-99c4-b3afc5624d68", "title": "Phytocet CBD Oil Reviews...#1 approach For Focus", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - product marketing content"},
+    {"id": "0d9f8b0a-2f8b-4445-b561-12a8e82a8b4a", "title": "Cannabinoids in neuropathic pain treatment: pharmacological insights", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids for pain"},
+    {"id": "0da0564b-642c-402a-94ad-4dca1f3d325a", "title": "Big Five personality traits and...cannabis...gambling disorder comorbidity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Prevalence/patterns study - personality and addiction comorbidity"},
+    {"id": "0da3e818-2e3a-4bc1-a437-433354754662", "title": "Novel approaches for drug development against chronic primary pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "No cannabinoid content - general pain drug development"},
+    {"id": "0db323fe-828c-4bd0-a662-543234cf98f7", "title": "Acute Effects of Cannabis and THC Oils on Cardiovascular Hemodynamics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cardiovascular effects"},
+    {"id": "0de4da14-dbb1-48b1-a442-f83d1f8d708c", "title": "Gabapentin for Cannabis Withdrawal and Use", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CUD treatment trial"},
+    {"id": "0df942c5-661d-48b6-a6af-1fae32c4178e", "title": "Ivacaftor-Induced Oxidative Stress...CFTR Modulator Hepatotoxicity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cystic fibrosis drug - no cannabinoid content"},
+    {"id": "0dfec374-e9e2-4711-9a6f-cffd610ea08a", "title": "THC/CBD oromucosal spray...management of neuropathic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD for pain"},
+    {"id": "0e14cdd8-b889-407a-b1a5-30a3cc78c55c", "title": "SW Development...MDD/MDA Technology Application in CBD Project", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SOFTWARE ENGINEERING - CBD = Component-Based Development!"},
+    {"id": "0e162a37-c298-40a2-b08b-ba6a78f26378", "title": "Endogenous Opioid and Cannabinoid Mechanisms in Celecoxib Analgesia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism in analgesia"},
+    {"id": "0e2452d9-056f-4e57-ad8a-8805172d5b81", "title": "Can Cannabidiol (CBD) Impact Neurogenesis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neurogenesis research"},
+    {"id": "0e2bbefa-becb-4673-a662-bf1a28adf575", "title": "Atypical Cannabinoid Abn-CBD Reduces Inflammation...Prediabetes and NAFLD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD derivative for metabolic disease"},
+    {"id": "0e2d1d3f-960c-4fe6-8cbb-a58c42ce6444", "title": "Use of Cannabis and Cannabinoids for Treatment of Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids for cancer"},
+    {"id": "0e3075b2-aa46-4dc6-93e8-5ca9fa8d91c9", "title": "Fetal cannabidiol (CBD) exposure alters thermal pain sensitivity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD fetal exposure safety research"},
+    {"id": "0e36bae9-0049-4fe9-ab3b-5c4d6d68c49f", "title": "Associations among trauma, PTSD, cannabis use, and CUD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Prevalence/patterns study - not treatment research"},
+    {"id": "0e57cc62-8deb-44b2-a604-fe56ff174ec8", "title": "Cannabidiol alleviates pain and inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for pain"},
+    {"id": "0e77256e-4ef9-497f-ba86-30f5fc0aae66", "title": "Review for 'Therapeutic Potential of CBD in Dentistry'", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Peer review comment - not original research"},
+    {"id": "0e7926ed-7a7f-4c96-b462-7aba72226764", "title": "Nonseizure symptoms...Dravet syndrome and Lennox-Gastaut", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Epilepsy survey - no cannabinoid mention"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "0d9e3fb8-e27a-4682-99c4-b3afc5624d68",
+      "0da0564b-642c-402a-94ad-4dca1f3d325a",
+      "0da3e818-2e3a-4bc1-a437-433354754662",
+      "0df942c5-661d-48b6-a6af-1fae32c4178e",
+      "0e14cdd8-b889-407a-b1a5-30a3cc78c55c",
+      "0e36bae9-0049-4fe9-ab3b-5c4d6d68c49f",
+      "0e77256e-4ef9-497f-ba86-30f5fc0aae66",
+      "0e7926ed-7a7f-4c96-b462-7aba72226764"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "batch_number": 269,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T09:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "28c4b217-146d-4fde-9282-5007944f4ecd", "title": "Cannabis, Cannabinoids, and Brain Morphology: A Review of the Evidence", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm study correctly rejected"},
+    {"id": "2916c9bd-35dc-4000-a5ed-f9714253d922", "title": "Determining Antioxidant Activity of Cannabis Leaves Extracts from Different Varieties", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction/agriculture correctly rejected"},
+    {"id": "291915d1-60c1-4411-b650-2218e105bc53", "title": "Long-term effects of maternal cannabis vapor exposure on offspring", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "2948de2f-5917-4616-b9be-82ed482c6c3a", "title": "S-adenosyl-l-methionine (SAMe), cannabidiol (CBD), and kratom in psychiatric disorders: Clinical and mechanistic considerations", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD for psychiatric disorders"},
+    {"id": "2953704f-010c-4168-aea2-d4e8b77d3b04", "title": "Exploring Cannabinoid Effects Using Zebrafish as an In Vivo Model: A Review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Fish model correctly rejected"},
+    {"id": "295ae1e5-9eb7-4147-b593-7fdee4e0ae3c", "title": "Primary Research of Landscape Space Style Design of the CBD of Zhengdong New Zone", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "29633566-594a-4d68-ab92-1d5fa19573bb", "title": "Cannabidiol-d8 retrosynthesis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic chemistry correctly rejected"},
+    {"id": "2976d53d-c8f2-46a0-b962-ef794c960c7a", "title": "Intraoperative coronal alignment assessment in spinal deformity surgery", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2982a57f-3d9b-43ff-b466-336c5c6407c7", "title": "Effects of SR 141716A after cannabinoid administration in dogs", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary study correctly rejected"},
+    {"id": "29830e75-d9ba-46f8-a49f-8d1adc2193a4", "title": "Comparative effects between cannabidiol and diazepam on neophobia food intake and conflict behavior", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anxiolytic mechanism"},
+    {"id": "29872425-65ab-45c5-9b6d-ab2386376f4b", "title": "Cannabidiol-Induced Acute Generalized Exanthematous Pustulosis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Adverse effect report correctly rejected"},
+    {"id": "29b4523a-889b-42d2-a732-f4c10f53f38d", "title": "Mental Health and Cognition in Older Cannabis Users: a Review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use effects correctly rejected"},
+    {"id": "29e05d16-38c6-45d0-ac1a-d03f11fe5cd6", "title": "Cannabis withdrawal predicts severity of cannabis involvement at 1-year follow-up", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use disorder correctly rejected"},
+    {"id": "29e94c4e-6841-483b-abdb-5964d1e62d7f", "title": "Adolescent cannabis users at 24 years: trajectories to dependence", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use disorder correctly rejected"},
+    {"id": "29ffa69d-52e8-4e1a-b6e7-89755c1b9c1e", "title": "Hippocampome.org, a resource for subicular neuron types", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "29ffc1b6-011d-4aa2-a264-1c534cd38425", "title": "Stereoselective Synthesis of Nonpsychotic Natural Cannabidiol and Its Analogues", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic chemistry correctly rejected"},
+    {"id": "2a0a2793-9287-4419-ace9-4fe0c39235de", "title": "Effects of Cannabidiol on Bone Quality in Ovariectomized Rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD for osteoporosis"},
+    {"id": "2a1322f1-5eb7-4c76-a68f-17b10320a071", "title": "The CBD in the Democratic Republic of Congo: medicinal plants project", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "2a3ca9fe-913e-48b1-b233-4400ea1dead6", "title": "Identification of biomarkers associated with paraptosis in meningioma", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2a3dee43-8c6e-4241-b697-51004f30d08f", "title": "Utilisation du cannabidiol et du tetrahydrocannabinol chez les patients traités par anticancéreux en franche comté", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC cancer supportive care"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "2948de2f-5917-4616-b9be-82ed482c6c3a",
+      "29830e75-d9ba-46f8-a49f-8d1adc2193a4",
+      "2a0a2793-9287-4419-ace9-4fe0c39235de",
+      "2a3dee43-8c6e-4241-b697-51004f30d08f"
+    ]
+  }
+}

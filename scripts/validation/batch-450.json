@@ -1,0 +1,39 @@
+{
+  "batch_number": 450,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T06:25:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "f172dd04-7425-4990-94dc-3da2ff14d6f4", "title": "A Comparison of Antioxidant Potential, Total Phenolic Content, and Cannabidiol (CBD) Content of Cannabis Infused Hemp, MCT, and Olive Oils", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction/formulation chemistry correctly rejected"},
+    {"id": "f17467ef-bc95-4848-b4b6-c13518a29512", "title": "Biochemistry and pharmacology of arachidonylethanolamide, a putative endogenous cannabinoid", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - anandamide/ECS mechanism research"},
+    {"id": "f17abe47-8d9a-4b71-8a99-a144b0cd8be1", "title": "Leaner and greener analysis of cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "f186fafd-a90d-48ef-a181-82eb98473386", "title": "The central neuropharmcology of psychotropic cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neuropharmacology review"},
+    {"id": "f18e1eb2-e198-415f-840f-d3488cad999b", "title": "A large-scale study of chronic sleep disorders in psychiatric inpatients: Prevalence, hospitalization burden, restraint use, and comorbidities", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "f19dd73a-a378-4035-b33c-4ca252dff91c", "title": "De novo-synthesized ceramide is involved in cannabinoid-induced apoptosis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cancer mechanism research"},
+    {"id": "f1a29615-60d9-400f-bcd6-bc1b38e7758f", "title": "Does cannabidiol induce cannabinoid hyperemesis syndrome?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CBD adverse effects case correctly rejected"},
+    {"id": "f1a9ce61-b699-4444-862c-04f7791243c0", "title": "Vaping Induced Cannabidiol (CBD) Oxidation Product CBD Quinone Forms Protein Adducts with KEAP1 and Activates KEAP1-Nrf2 Genes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CBD vaping harm correctly rejected"},
+    {"id": "f1afa82a-27e5-4ce6-aecf-318fff990c98", "title": "The sexual differentiation of Cannabis sativa L.: A morphological and molecular study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant biology correctly rejected"},
+    {"id": "f1b98d17-2874-4b6e-94f4-1d1980b91eb4", "title": "Nicotine and tobacco-specific nitrosamine exposure among youth in England who smoke cigarettes and/or vape.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "f1ca7631-da7b-47a5-a445-185d45900c23", "title": "Racism and Its Effect on Cannabis Research", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/social correctly rejected"},
+    {"id": "f1dcfd0d-0b60-418a-869b-0cd1ae9ce669", "title": "Adolescent Synthetic Cannabinoid Exposures Reported to Texas Poison Centers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid poisoning correctly rejected"},
+    {"id": "f1ebdfbe-352d-4257-a3fe-8cfd9e14ee49", "title": "Measuring the precise carbon sinks of green spaces in high-density urban areas based on UAV oblique photography: the case of Lujiazui CBD area, Shanghai", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "f1ee2fc8-bedb-4ee0-934a-ba0d14212a2b", "title": "Cannabis use is associated with reduced prevalence of non-alcoholic fatty liver disease: A cross-sectional study", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis liver protective effect research"},
+    {"id": "f1f71c3e-9c38-4013-801c-11ade513acad", "title": "Evaluation of the psychometric properties of the cannabis use disorders identification test - revised among college students", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD assessment correctly rejected"},
+    {"id": "f1fac5ce-6f13-4367-a3d0-2bb799e93ff1", "title": "Chronic cannabis use is associated with alterations in resting-state cerebellar-cortical connectivity.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "f1fefe53-26d6-4536-b7fc-18208a25fffb", "title": "Pure Cannabidiol versus Cannabidiol-Containing Extracts: Distinctly Different Multi-Target Modulators", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD entourage effect/mechanism research"},
+    {"id": "f229d439-a9cd-453c-853d-d3197f8847c1", "title": "Conversion of cannabidiol (CBD) to Δ9-tetrahydrocannabinol (Δ9-THC) during protein precipitations prior to plasma samples analysis by chromatography", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "f2301db3-1120-40e1-a29b-df34d669b63f", "title": "United laboratory industry stops CBD project.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Business news correctly rejected"},
+    {"id": "f2307519-f905-42d7-abc4-e18ba8656af5", "title": "What Happened to the CBD-Distance Gradient?: Land Values in a Policentric City", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "f17467ef-bc95-4848-b4b6-c13518a29512",
+      "f186fafd-a90d-48ef-a181-82eb98473386",
+      "f19dd73a-a378-4035-b33c-4ca252dff91c",
+      "f1ee2fc8-bedb-4ee0-934a-ba0d14212a2b",
+      "f1fefe53-26d6-4536-b7fc-18208a25fffb"
+    ]
+  }
+}

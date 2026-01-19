@@ -1,0 +1,39 @@
+{
+  "batch_number": 273,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T10:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "2d8d301d-79b7-42a2-9adb-b68587a02b0f", "title": "User-centered Design of Smartphone App to Reduce Cannabis Use among Youth", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "2d906af7-2a09-471b-b60d-3b2be4470d0e", "title": "Cannabinoid-Induced Alterations in Regional Cerebral Blood Flow in the Rat", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid brain mechanism"},
+    {"id": "2d95a8db-5b1c-4caf-9c24-989a23a46c0c", "title": "Living with adrenoleukodystrophy: adult patient and caregiver perspectives", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2d96550c-e26d-4645-a17b-e16f948d42e4", "title": "Neuronal cytoskeleton and synaptic densities are altered after chronic treatment with cannabinoid receptor agonist WIN 55,212-2", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor neuronal effects"},
+    {"id": "2dc21ebe-0bf5-434b-85cb-deee10e7d6e4", "title": "Pharmacokinetics and pharmacodynamics of cannabigerol (CBG) in the C57BL/6Crl mouse", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBG pharmacology"},
+    {"id": "2dc28844-cc70-4de8-bd86-60c7b8961b6c", "title": "Crime concentration in Perth CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "2dc86850-f456-460d-8cdf-2d6222792cfc", "title": "Acute Pharmacokinetic Profile of Smoked and Vaporized Cannabis in Human Blood and Oral Fluid", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/detection correctly rejected"},
+    {"id": "2dc90007-7896-486b-b010-d7b4b945d945", "title": "Exploring Cannabis and Alcohol Co-Use in Adolescents: A Narrative Review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "2dfd200a-868d-429c-bca3-74967e8d14eb", "title": "Genotoxicity study of Cannabis sativa L. extract", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Toxicity study correctly rejected"},
+    {"id": "2e058487-de87-41ba-8e09-fcb23bfd3f2c", "title": "Cannabis: Psychological effects of chronic heavy use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "2e1c1f2e-a790-490d-8f6b-e88d72d0bc1b", "title": "Greg Gutfeld CBD Gummies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "2e1ccaf9-2aee-4340-b0bf-52fefae92dde", "title": "Identity Mapping Scheme with CBDS Approach to Secure MANET", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2e3a2c84-2da5-414a-9d1b-4ad909ea2b60", "title": "Greenhouse propagation of Cannabis Sativa L. by vegetative cuttings", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "2e469e9c-58a0-4c43-91e9-176678a1d4ef", "title": "Biliary stent insertion after stone clearance", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2e60d621-8d8f-4c0f-99a5-29922ada1f37", "title": "A Narrative Review of Cannabis Advertising in the United States", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Marketing study correctly rejected"},
+    {"id": "2e62a50d-00c3-4549-90e0-b81350ccd852", "title": "A teaching note on bid-rent curves with two CBDs", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "2e73c573-3e70-4d10-ae9a-4cb2ba49f96b", "title": "Cannabidiol y el test de Beam", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical method correctly rejected"},
+    {"id": "2e7ba9c8-d878-4f8f-9226-67d7f5bc1895", "title": "Targeting the Gut-Brain Axis with Plant-Derived Essential Oils: Phytocannabinoids and Beyond", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - phytocannabinoid therapeutic"},
+    {"id": "2e870580-3071-4e56-94e6-1d5f9a36cfc1", "title": "P6.d.018 Delta9-tetrahydrocannabinol (THC) and cannabidiol (CBD) alone and in combination affect brain activity during rest", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC/CBD brain activity"},
+    {"id": "2e997992-f597-4b8d-8c8d-e9b0745733b0", "title": "Association Between DPPs-4 Inhibitors and Bullous Pemphigoid", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "2d906af7-2a09-471b-b60d-3b2be4470d0e",
+      "2d96550c-e26d-4645-a17b-e16f948d42e4",
+      "2dc21ebe-0bf5-434b-85cb-deee10e7d6e4",
+      "2e7ba9c8-d878-4f8f-9226-67d7f5bc1895",
+      "2e870580-3071-4e56-94e6-1d5f9a36cfc1"
+    ]
+  }
+}

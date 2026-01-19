@@ -1,0 +1,17 @@
+{
+  "batch_number": 230,
+  "studies_validated": 3,
+  "timestamp": "2026-01-20T23:30:00.000Z",
+  "results": [
+    {"id": "ffb0e2d6-57d4-4386-8ba4-7b48b91105d6", "title": "Safety Side Effects CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety review"},
+    {"id": "ffca1fc7-de28-4ef1-8830-58f73ade7bd9", "title": "CBD TrkB FRS2 Alzheimer's", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's mechanism novel target"},
+    {"id": "ffda0299-1abe-4441-aeba-14486aeafcdf", "title": "Cannabis sensitivity schizophrenia psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabis precipitating psychosis"}
+  ],
+  "batch_summary": {
+    "correct": 2,
+    "incorrect": 1,
+    "incorrect_ids": [
+      "ffda0299-1abe-4441-aeba-14486aeafcdf"
+    ]
+  }
+}

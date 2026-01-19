@@ -22,7 +22,8 @@ export async function getArticleBySlug(slug: string, language: string = 'en') {
     .from('kb_articles')
     .select(`
       *,
-      category:kb_categories(name, slug)
+      category:kb_categories(name, slug),
+      citations:kb_citations(id, title, authors, publication, year, url, doi, pmid, slug)
     `)
     .eq('slug', slug)
     .eq('status', 'published')

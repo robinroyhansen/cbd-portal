@@ -1,0 +1,39 @@
+{
+  "batch_number": 121,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T20:00:00.000Z",
+  "results": [
+    {"id": "86ded9a8-ec5f-475e-8eee-12a4b59a112f", "title": "Phytocannabinoids Overview Mechanism Therapeutic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology review"},
+    {"id": "86e965a7-2052-4e87-a70b-9bcaf18ec8de", "title": "CBD GABAergic Drug-Resistant Seizures", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "86ecd88c-bd2b-4b88-b5e0-d061548cba72", "title": "Cannabinoid Acute Anticipatory Nausea Chemotherapy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid nausea therapeutic"},
+    {"id": "86f381e0-d4e1-4ae1-afba-b721088e81ae", "title": "CBD Isolate Survey Chronic Pain Benefits", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic"},
+    {"id": "86fd1f8e-5361-496b-8046-f58ab3a87d82", "title": "CBD Foam Cell Cholesterol Atherosclerosis PPARγ", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular therapeutic"},
+    {"id": "8711419c-01a9-41a6-8671-1c76ecfc066b", "title": "ECS Fragile X CBD Benefit Mechanisms", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Fragile X therapeutic"},
+    {"id": "8716e99e-99cd-4b0d-8094-8521a8e552d2", "title": "Cannabinoid Safety Tolerability Adults Over 50", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid safety elderly review"},
+    {"id": "871a3e4d-d827-45de-8241-ab26fa0df518", "title": "CBD Anxiety Addiction Risk WHO Spanish", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety not addictive"},
+    {"id": "871eccbe-1a61-42dd-9fd2-87eecbebdfea", "title": "Cannabis Outlet Density Use Outcomes Policy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - cannabis retail outlet prevalence"},
+    {"id": "872f3869-e0fe-4e69-a848-054e377579a9", "title": "Cannabinoids Reward Processing Psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis link"},
+    {"id": "8732d4dc-4e18-474a-8802-51c3aca54ffe", "title": "Substance Use Cameroon Students Secondary School", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - substance use patterns"},
+    {"id": "873b244c-0483-40c9-aeca-58a73b4e17d1", "title": "Cannabinoid-Inspired COVID SARS-CoV-2 Inhibitors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid COVID therapeutic"},
+    {"id": "873b64f5-a0ec-4940-9505-9433b727986a", "title": "Pre-Onset Cannabis Psychosis Age Prodrome", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabis hastens psychosis onset"},
+    {"id": "87574b41-f5c7-4134-b554-2b3540485faa", "title": "GPR55 BNST Anxiety Amphetamine Inflammatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid anxiety mechanism"},
+    {"id": "87623f59-c396-4423-9275-a12ce65b39a6", "title": "CBD Cardiac Ion Channels Multichannel Inhibitory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular mechanism"},
+    {"id": "876a5483-cef4-4f03-bdc3-59a9fe6cf67f", "title": "Mussel Adhesive Protein Anti-Aging Antioxidative", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - mussel protein"},
+    {"id": "8787cf08-2567-468e-b644-9845c7ffc876", "title": "Cannabis Problems Questionnaire CAPQ Bias", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis problem measurement tool"},
+    {"id": "8788d22b-de9b-4c02-858d-0fb60f57ddda", "title": "Cannabis Chronic Pain Meta-analysis Methodology", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic review"},
+    {"id": "878c078e-8478-4e0a-b9f0-49ae06d282cb", "title": "CBD Cocaine Reward Memory Mice CPP", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction therapeutic"},
+    {"id": "878d202e-5ecc-4680-b6e3-6518ba1898fb", "title": "Cannabinoid NaV Channel Anticonvulsant", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid epilepsy mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "871eccbe-1a61-42dd-9fd2-87eecbebdfea",
+      "872f3869-e0fe-4e69-a848-054e377579a9",
+      "8732d4dc-4e18-474a-8802-51c3aca54ffe",
+      "873b64f5-a0ec-4940-9505-9433b727986a",
+      "876a5483-cef4-4f03-bdc3-59a9fe6cf67f",
+      "8787cf08-2567-468e-b644-9845c7ffc876"
+    ]
+  }
+}

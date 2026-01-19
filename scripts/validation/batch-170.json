@@ -1,0 +1,39 @@
+{
+  "batch_number": 170,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T08:30:00.000Z",
+  "results": [
+    {"id": "bef61e49-18ee-4df1-9182-5b184479f04d", "title": "Cannabis-Specific Parenting Intergenerational Transmission", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use transmission"},
+    {"id": "bf100264-ff3a-4a89-9e9c-22bc4697824e", "title": "Cannabinoid Receptor Sickle Cell Pain Mast Cell", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid sickle cell pain mechanism"},
+    {"id": "bf275c69-4cca-44d9-b687-b81e61972657", "title": "CB1 Receptor Spinal Nociceptive Transmission", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 pain mechanism"},
+    {"id": "bf3fd040-91bf-4611-9627-c9616bdb6a42", "title": "Cannabis Use Suicidal Ideation Depression Canadians", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - mental health association"},
+    {"id": "bf4bafd1-5901-405d-936f-e12d8ddb21c5", "title": "Dronabinol Agitation Alzheimer's Disease RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Alzheimer's RCT"},
+    {"id": "bf501de2-dc12-4a5a-bc65-3362670eabbd", "title": "CB1 Receptor Density Hippocampus Diabetic Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS diabetes mechanism"},
+    {"id": "bf66b831-0f24-4a84-aacd-913fbc107086", "title": "Cannabis Sativa Oil Collagen Hydrogels Wound", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis wound healing biomaterial"},
+    {"id": "bf6b744b-caff-462f-9340-3481728bade5", "title": "Cannabidiol Cannabinoids Leukaemic Cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid leukemia mechanism"},
+    {"id": "bf79386c-6f9d-46d5-a267-cc658ed6720c", "title": "Early Risk Factors Daily Cannabis Use Young Adults", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - risk factors daily use"},
+    {"id": "bfac4224-4bad-44c8-aeb0-26a235aab47f", "title": "CBD Antidepressant Anxiolytic Effects Animal Models", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychiatric review"},
+    {"id": "bfaebcf0-d42f-4fc2-9f80-197bd420866b", "title": "Sublingual Cannabidiol Anxiety RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety clinical trial"},
+    {"id": "bfb6d0a6-51d5-478a-97d6-c1529e12f2e6", "title": "Trends CUD Treatment Race Ethnicity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD trends"},
+    {"id": "bfd6012d-98dd-4e4c-80fd-71d759af1829", "title": "Complementary Medicines Ulcerative Colitis CYP450", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis IBD drug interactions"},
+    {"id": "bfdce9b0-d7a4-422e-84c3-7d3319dbe950", "title": "CBD Lithium Drug-Drug Interactions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacology case report"},
+    {"id": "bfe3712c-23d5-4da8-b2d5-c61fc8f14717", "title": "CB2 Immunoreactivity Head Neck Cancer Survival", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer prognostic"},
+    {"id": "bfe3beaf-5864-4e99-a6b8-876ba736fc5c", "title": "CBD Neuroinflammatory Estrogen Depression Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression sex-specific mechanism"},
+    {"id": "bfe8a096-5f9d-4e6b-bc72-36060e07cafa", "title": "Anxiety Longitudinally Medical Cannabis Pennsylvania", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis anxiety therapeutic outcomes"},
+    {"id": "bff6f2e9-df5f-43d2-a35a-2049d8c2714a", "title": "Cannabinoid Agonist Replacement Cannabis Withdrawal", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid CUD treatment review"},
+    {"id": "c008d646-21ed-40df-9ecb-a7025509efe2", "title": "Symrise makes synthetic CBD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - industry news article"},
+    {"id": "c014aad9-6d82-4f7a-8182-db76c0a5d16b", "title": "Early Cannabis Use Nicotine Dependence Twin Study", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - substance use association"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "bef61e49-18ee-4df1-9182-5b184479f04d",
+      "bf3fd040-91bf-4611-9627-c9616bdb6a42",
+      "bf79386c-6f9d-46d5-a267-cc658ed6720c",
+      "bfb6d0a6-51d5-478a-97d6-c1529e12f2e6",
+      "c008d646-21ed-40df-9ecb-a7025509efe2",
+      "c014aad9-6d82-4f7a-8182-db76c0a5d16b"
+    ]
+  }
+}

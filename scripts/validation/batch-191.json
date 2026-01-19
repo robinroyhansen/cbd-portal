@@ -1,0 +1,42 @@
+{
+  "batch_number": 191,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T13:45:00.000Z",
+  "results": [
+    {"id": "d41f8549-2eb3-4405-bcb5-353abc84533b", "title": "Cannabis Emergencies Children Teens Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - pediatric toxicity review"},
+    {"id": "d44a085c-3895-475d-86a9-03b39bec41c3", "title": "Corrigendum CBD Epilepsy Meta-analysis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - correction notice"},
+    {"id": "d44ceffa-02ec-45d1-b3d5-d61ed1fde036", "title": "Cannabinoids Traumatic Brain Injury RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD TBI clinical trial"},
+    {"id": "d45e3ca0-3ffd-4ce8-b3e6-4bad29de08a5", "title": "Dronabinol Agitation Alzheimer's Pilot Trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid AD agitation clinical trial"},
+    {"id": "d45e5d9f-5939-44dd-8071-b6e264463cbf", "title": "Sleep Apnea Interstitial Cystitis Bioinformatics", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - bladder/sleep bioinformatics"},
+    {"id": "d47fe145-ca10-4923-8d7d-fc91d1521af3", "title": "CBD Antidepressant 5-HT1A CB1 GPR55 PPARγ", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression mechanism review"},
+    {"id": "d480c417-1c83-412d-88e1-61ec8176596d", "title": "CBD Clinical Practice Narrative Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic narrative review"},
+    {"id": "d48fb161-71a8-4c4d-9f4f-009602704991", "title": "Cannabis Risk Psychotic Disorder Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabis-psychosis causation"},
+    {"id": "d49a8ef9-985f-466b-89f5-ccb76399909d", "title": "Exercise Interventions Drug-Dependent Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - exercise for addiction"},
+    {"id": "d49ff649-6b71-4711-a5f6-7c8f592d306b", "title": "Medical Cannabis Laws Opioid Overdose Impact", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - law impact on healthcare"},
+    {"id": "d4af6b8f-a73f-47ed-abed-35ba97dc4b13", "title": "Cannabis THC CBD HIV Neuropathic Pain Phase 2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid HIV pain clinical trial"},
+    {"id": "d4bb8c05-d8f5-4d42-be10-5606a42df056", "title": "Cannabis Extract Neuropathic Pain CB1 CB2 Rat", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain preclinical"},
+    {"id": "d4c14ffa-e020-4c6b-9e38-e89c94bf2e43", "title": "N-Trans Caffeoyltyramine Feruloyltyramine Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - tyramine compounds"},
+    {"id": "d4c56e5b-3649-41de-8d19-491888201678", "title": "Psychophysiological Cannabis Cue-Reactivity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - addiction cue reactivity"},
+    {"id": "d4c6b3bc-3a11-4061-a5f9-8ec934d0b14b", "title": "CBD Molecular Mechanism Therapeutic Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic systematic review"},
+    {"id": "d4d40255-18e4-4fd3-a1ea-9945209cd108", "title": "rTMS Alcohol Use Disorder Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - rTMS for AUD"},
+    {"id": "d4d91653-36ef-4c9f-89ed-f694ab3183b8", "title": "CB1 Receptor PET Chronic Cannabis Users", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor imaging research"},
+    {"id": "d4df6cc2-3001-4e9f-bdd9-769b5c423a27", "title": "Cannabis EVs CBD Hepatocellular Carcinoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"},
+    {"id": "d4ead35f-1d85-4b23-a207-106383c8ec7e", "title": "CBD Depression Evidence Base Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression therapeutic review"},
+    {"id": "d4eb9015-583e-4454-a8c4-5e83602ef288", "title": "Prostaglandin Amides CB1 CB2 Receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor pharmacology"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "d41f8549-2eb3-4405-bcb5-353abc84533b",
+      "d44a085c-3895-475d-86a9-03b39bec41c3",
+      "d45e5d9f-5939-44dd-8071-b6e264463cbf",
+      "d48fb161-71a8-4c4d-9f4f-009602704991",
+      "d49a8ef9-985f-466b-89f5-ccb76399909d",
+      "d49ff649-6b71-4711-a5f6-7c8f592d306b",
+      "d4c14ffa-e020-4c6b-9e38-e89c94bf2e43",
+      "d4c56e5b-3649-41de-8d19-491888201678",
+      "d4d40255-18e4-4fd3-a1ea-9945209cd108"
+    ]
+  }
+}

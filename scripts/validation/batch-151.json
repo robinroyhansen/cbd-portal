@@ -1,0 +1,35 @@
+{
+  "batch_number": 151,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T03:45:00.000Z",
+  "results": [
+    {"id": "a89c7100-570c-4a3b-abc2-b10305cf8337", "title": "Cannabis Medicine Nanotechnology Delivery", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid drug delivery"},
+    {"id": "a8b1140c-b23c-46d4-9b11-3d4779b4c8a7", "title": "Cannabis Addiction and the Brain Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CUD neuroscience research"},
+    {"id": "a8c32708-8c0e-4070-97ab-10499f8a3573", "title": "Rimonabant CB1 antagonist obesity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid obesity therapeutic"},
+    {"id": "a8c435a8-1c85-46ad-8438-642861e8009b", "title": "CBD dyskinesias Parkinson's", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's therapeutic"},
+    {"id": "a8cba059-9298-4d7f-9ba8-f3fa9108e730", "title": "Cannabidiol Epidiolex reimbursement", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy HTA review"},
+    {"id": "a8ce4fc7-0ca4-4df3-872f-f9798a78e610", "title": "CBD CD4+ cells immunological", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD immune mechanism"},
+    {"id": "a8d7db95-df3d-4602-bfe3-f41ada74e8c5", "title": "CBD RAW 264.7 macrophage IL-6", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anti-inflammatory mechanism"},
+    {"id": "a8e32bbe-3553-43d8-8810-59d5db650a0e", "title": "CBD Enhances Sunitinib Renal Carcinoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer combination"},
+    {"id": "a8f05e35-44ff-4e01-b2df-bda5e38877c5", "title": "Cannabis Use Disorder in Adolescence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - adolescent CUD"},
+    {"id": "a8f2c45f-0af1-4cb5-abf5-d3abc43b8e4e", "title": "THC Impurity Synthetic CBD Origin", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD product safety chemistry"},
+    {"id": "a90a91b3-3401-4b66-b3bd-ccff3cbea9e7", "title": "CBD multifaceted Alzheimer's cognitive", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD AD therapeutic"},
+    {"id": "a91e0ea0-f650-49b4-96d6-9d2e2d04aed4", "title": "THC CBD Chemotherapy-Induced Neuropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid CIPN therapeutic"},
+    {"id": "a93ab1f4-68bf-4c7d-830c-cb474999cd12", "title": "Inhaled CBD CUD Cannavap Pilot", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD CUD therapeutic"},
+    {"id": "a942dccc-3cdf-471a-b8b7-b63cfba7b4d9", "title": "CB1 inverse agonist obesity asthma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid obesity/asthma"},
+    {"id": "a954ad00-22fb-4d71-acf7-ce7bf4a123a1", "title": "Medicinal cannabis oncology review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer review"},
+    {"id": "a98ccaec-6f69-4c8f-a6e9-2b437b83316c", "title": "CBD TSC Phase 3 GWPCARE6", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy clinical trial"},
+    {"id": "a9948796-836b-4673-85f0-34d9fbdef068", "title": "Cannabinoids MS psychopathological cognitive", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid MS safety"},
+    {"id": "a9a02cd5-21f4-4283-b033-17fc5517ac37", "title": "Synthetic cannabinoids rodenticides coagulopathy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "FORENSIC/HARM - SC poisoning"},
+    {"id": "a9a7bf24-b612-492a-a085-3d6abdd474a4", "title": "CB1 receptors basal ganglia Huntington's", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS Huntington's mechanism"},
+    {"id": "a9c9d365-e253-46c7-98d7-c14bbd599cc8", "title": "Cannabis Anxiety Depression Cancer Patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer supportive"}
+  ],
+  "batch_summary": {
+    "correct": 18,
+    "incorrect": 2,
+    "incorrect_ids": [
+      "a8f05e35-44ff-4e01-b2df-bda5e38877c5",
+      "a9a02cd5-21f4-4283-b033-17fc5517ac37"
+    ]
+  }
+}

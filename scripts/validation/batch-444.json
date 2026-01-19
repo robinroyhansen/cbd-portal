@@ -1,0 +1,44 @@
+{
+  "batch_number": 444,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T05:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "eaf79fc9-32c6-41d6-bbac-742dc2bd768b", "title": "CBD weed Deliver: A Simple Definition", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "eaf9a676-0bba-44e7-99a5-046b31989ca6", "title": "Perceived Stigma of Patients on Cannabis-Based Medicinal Products", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Social/stigma study correctly rejected"},
+    {"id": "eb006edd-027f-4d01-b15b-a04db54df7ee", "title": "Cannabinoid ligand-receptor signaling in the mouse uterus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research"},
+    {"id": "eb06b067-643c-4ce3-a0fc-170452333a46", "title": "Influences of cannabidiol on fetal human astrocytes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD mechanism research"},
+    {"id": "eb12ab0f-838c-4630-a318-c37fc44c8962", "title": "Comprehensive two-dimensional LC analysis of Cannabis phenolics", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry/analysis correctly rejected"},
+    {"id": "eb2cde73-6858-4c63-822e-a1f11ea1d69c", "title": "Cannabis and Psychedelics Among U.S. Young Adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "eb3309a6-d11f-41c2-8ada-65ff54c441e3", "title": "The CB1 Cannabinoid Receptor Is Coupled to c-Jun N-Terminal Kinase", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 mechanism research"},
+    {"id": "eb4d2ccf-900f-43e6-a1f2-47202445f13d", "title": "From Analytical Profiling to Liposomal Delivery: Cannabinol Antioxidant Encapsulation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBN drug delivery research"},
+    {"id": "eb58fea2-5ac2-4435-8d50-cc51734147d4", "title": "Medical use of cannabis and cannabinoids – Regulations in Europe and North America", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Regulatory/policy correctly rejected"},
+    {"id": "eb60d55c-5846-42d0-be0f-20579a03590d", "title": "Toking and driving: Canadian university students who drive after cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "eb6c36e7-6545-40cf-a325-d36266df809e", "title": "Natural Sweetener Stevioside-Based Dissolving Microneedles Solubilize Minoxidil", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "eb818cea-7292-4e83-bbed-c4c1d323e70e", "title": "Dosage sanguin du cannabidiol après consommation par e-cigarette", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmacokinetics"},
+    {"id": "eb86b1a4-f265-46f9-a9c9-44e82c1f246a", "title": "Cannabinoids in pancreatic cancer: Correlation with survival and pain", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cancer therapeutic research"},
+    {"id": "eb9a232a-bdee-48e6-a08b-b1043f529372", "title": "Effect of Quetiapine on Marijuana Withdrawal and Relapse", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "eba08ca3-152a-4c41-bec2-105afccebe98", "title": "Cannabis use disorders and other cannabis-related problems among college students", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD prevalence correctly rejected"},
+    {"id": "ebc8588c-51a7-4484-a3a7-fa530149e988", "title": "Mechanisms of cannabidiol neuroprotection in hypoxic-ischemic newborn pigs", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD neuroprotection mechanism"},
+    {"id": "ebd5d0fe-39ac-44fd-b4de-db1f17b53126", "title": "Conformationally restrained analogs of pravadoline: cannabinoid receptor agonists", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor ligand development"},
+    {"id": "ebd8a185-170b-4168-b14b-ea5c4555dddc", "title": "Hemp seed oil stimulates brown-like adipocytes through CB2 activation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 metabolic mechanism research"},
+    {"id": "ebe6ede8-0eb8-46e0-b079-4ef2e86c33c7", "title": "Advancing obstetrics and gynecology training", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "ebe849bb-5cff-489c-8b19-f42350354423", "title": "Effects of Chronic THC Treatment on Cannabinoid-Stimulated [35S]GTPγS", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research"}
+  ],
+  "batch_summary": {
+    "correct": 10,
+    "incorrect": 10,
+    "incorrect_ids": [
+      "eb006edd-027f-4d01-b15b-a04db54df7ee",
+      "eb06b067-643c-4ce3-a0fc-170452333a46",
+      "eb3309a6-d11f-41c2-8ada-65ff54c441e3",
+      "eb4d2ccf-900f-43e6-a1f2-47202445f13d",
+      "eb818cea-7292-4e83-bbed-c4c1d323e70e",
+      "eb86b1a4-f265-46f9-a9c9-44e82c1f246a",
+      "ebc8588c-51a7-4484-a3a7-fa530149e988",
+      "ebd5d0fe-39ac-44fd-b4de-db1f17b53126",
+      "ebd8a185-170b-4168-b14b-ea5c4555dddc",
+      "ebe849bb-5cff-489c-8b19-f42350354423"
+    ]
+  }
+}

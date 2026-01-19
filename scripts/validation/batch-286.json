@@ -1,0 +1,43 @@
+{
+  "batch_number": 286,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T13:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "3bf19a3c-7e60-443f-9842-c7ae1bea1896", "title": "Inhibition of endocannabinoid synthesis enzymes DAGL and NAPE-PLD transiently lowers body weight and alters glucose homeostasis during a high-fat diet challenge in mice.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS enzyme inhibition for metabolism"},
+    {"id": "3c0e891b-b21f-41f2-af22-b32dfa12872d", "title": "Solid-state nanopore fabrication via controlled dielectric breakdown: Progress and prospects.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "3c0ebbbe-9782-4da9-b99f-a57b2a3a3637", "title": "Exogenous Application of Methyl Jasmonate Affects the Phytochemical Accumulation and the Antioxidant Activity in Hemp (Cannabis sativa L.) Inflorescences", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Hemp agriculture correctly rejected"},
+    {"id": "3c15034f-5306-4b2d-ab86-d72e1befd004", "title": "Cannibidiol (CBD) supplementation in horses: A pilot study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "3c18144b-ad47-4107-95bd-b5bb162b96bf", "title": "Identification and Optimization of more Efficient Olivetolic Acid Synthases", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant biosynthesis correctly rejected"},
+    {"id": "3c248fa7-6392-404c-829a-e67c55188b1e", "title": "477 How Cannabidiol Supports Hair Growth: From Epigenetics to the Scalp Microbiome", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD for hair/scalp health"},
+    {"id": "3c258949-575a-4d06-aed0-14d7304ac5d8", "title": "Patients' perceived benefit and side effects from the use of medicinal cannabis - a cross-sectional survey study from Denmark.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis patient outcomes"},
+    {"id": "3c372971-a225-4102-9a9d-afd4e56b3f6a", "title": "Legislative options for cannabis in Australia", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "3c37a881-604c-45c8-8a05-abf679fd2ca9", "title": "The Tourismification of CBDs : Exploring Possible Theoretical Approaches", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business Districts) correctly rejected"},
+    {"id": "3c4a72c5-991b-4ce0-a29a-8ecf05060c41", "title": "TD-ESI-MS/MS for High-Throughput Screening of 13 Common Drugs and 4 Etomidate Analogs in Hair: Method Validation and Forensic Applications.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic analytical correctly rejected"},
+    {"id": "3c5240ca-656a-4878-b6cd-2afe07ef5760", "title": "Cannabis tolerance reduces symptom relief.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis tolerance/efficacy"},
+    {"id": "3c59c6ab-909e-401b-8782-ab338da97e76", "title": "Levels, Metabolism, and Pharmacological Activity of Anandamide in CB1 Cannabinoid Receptor Knockout Mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid system mechanism"},
+    {"id": "3c60e552-fa7f-4b13-b87d-966e32adeb27", "title": "Whey Protein Isolate Hydrogels Containing Cannabidiol Support the Proliferation of Pre-Osteoblasts.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD for bone health"},
+    {"id": "3c63cd36-e888-427d-bb0a-dacc161f774b", "title": "Traditional marijuana, high-potency cannabis and synthetic cannabinoids: increasing risk for psychosis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm review correctly rejected"},
+    {"id": "3c8cd10d-9b61-4fc0-8cb5-08fd54cc4198", "title": "Resting State Brain Networks under Inverse Agonist versus Complete Knockout of the Cannabinoid Receptor 1.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research"},
+    {"id": "3c908f46-63d7-4f5b-829c-9028565f0860", "title": "Posttraumatic Stress Disorder and Cannabis Use Characteristics among Military Veterans with Cannabis Dependence", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD patterns correctly rejected"},
+    {"id": "3c92ea07-5f89-41bc-9f68-6d275135806e", "title": "Association Between Cannabis Use and Neuropsychiatric Disorders: A Two-sample Mendelian Randomization Study.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm epidemiology correctly rejected"},
+    {"id": "3c963eab-a28a-475b-a6aa-93954f6d2485", "title": "Differential Superactivation of Adenylyl Cyclase Isozymes after Chronic Activation of the CB1Cannabinoid Receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 signaling mechanism"},
+    {"id": "3c99a804-1a50-4fe6-a995-c72ab95b2468", "title": "Exploring the Potential of Phytocannabinoids Against Multidrug-Resistant Bacteria.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid antibacterial potential"},
+    {"id": "3c9ca8aa-5c22-40f5-9c79-33b02a4eaf69", "title": "An outbreak of acute delirium from exposure to the synthetic cannabinoid AB-CHMINACA", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid harm correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "3bf19a3c-7e60-443f-9842-c7ae1bea1896",
+      "3c248fa7-6392-404c-829a-e67c55188b1e",
+      "3c258949-575a-4d06-aed0-14d7304ac5d8",
+      "3c5240ca-656a-4878-b6cd-2afe07ef5760",
+      "3c59c6ab-909e-401b-8782-ab338da97e76",
+      "3c60e552-fa7f-4b13-b87d-966e32adeb27",
+      "3c8cd10d-9b61-4fc0-8cb5-08fd54cc4198",
+      "3c963eab-a28a-475b-a6aa-93954f6d2485",
+      "3c99a804-1a50-4fe6-a995-c72ab95b2468"
+    ]
+  }
+}

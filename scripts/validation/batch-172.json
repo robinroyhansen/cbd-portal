@@ -1,0 +1,39 @@
+{
+  "batch_number": 172,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T09:00:00.000Z",
+  "results": [
+    {"id": "c1112f4a-f82c-4f6e-a629-24cda971017a", "title": "CBD Therapeutic Agent Rosacea Inflammatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD skin therapeutic"},
+    {"id": "c12be6e0-c916-47e7-9cc7-4642ed963d9f", "title": "Mindfulness-Based Relapse Prevention Cannabis RCT", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - non-cannabinoid therapy"},
+    {"id": "c13e4439-c754-4c18-9189-e8c9799f3008", "title": "Cannabis and Acute Psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis"},
+    {"id": "c13ec83b-9f02-4015-8c29-791049428041", "title": "Cannabinoid Control Neurogenic Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid inflammation mechanism"},
+    {"id": "c143d5af-8726-4a55-a0f1-e50fd7648b5e", "title": "Cannabis Abuse Dependence Psychiatric Disorders Madrid", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - dual pathology"},
+    {"id": "c1456855-a47b-40c0-956c-0d1d497bf447", "title": "Role Cannabinoids Treatment Pain Spasticity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain/spasticity therapeutic"},
+    {"id": "c14ea6c8-41cd-4b8b-9c75-947c87511ced", "title": "CBD Craving Relapse Prevention OUD RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD opioid addiction RCT"},
+    {"id": "c16cc372-ea7b-4d2e-9a8b-5923b07f8849", "title": "Cannabis Pediatric Epilepsy Systematic Review Protocol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis epilepsy review"},
+    {"id": "c16d8631-8d61-40b4-8ff2-32b22105f754", "title": "CBD Oil Tacrolimus Renal Transplant", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interaction transplant"},
+    {"id": "c17aea51-cc37-4036-909e-e936328c2457", "title": "Bouvardia ternifolia Root Extract Cerebral Ischemia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - different plant extract"},
+    {"id": "c1889051-608f-405d-ac0e-97736903da7d", "title": "Cannabinoids for Epilepsy Cochrane", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid epilepsy review"},
+    {"id": "c199e378-b7e3-4eda-aa49-2ebcd6be4a84", "title": "CBD Dravet Lennox-Gastaut Epidyolex Efficacy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic review"},
+    {"id": "c1a0d8e0-92d0-45ac-948a-9a4f07107b39", "title": "Long-term THC CBD Monitoring Pediatric Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy pharmacokinetics"},
+    {"id": "c1a5073a-10f2-4dde-810b-26fec3d2e422", "title": "CBD Genesung Schizophrenie ESPRIT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia recovery"},
+    {"id": "c1b63460-bb07-4dcc-b48c-07aa5682513d", "title": "Cannabis-associated Myocardial Infarction Young Man", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cardiovascular case"},
+    {"id": "c1c70817-aaba-44b6-9681-9eed9a5052aa", "title": "FDA CBD Pregnancy Breastfeeding Warning", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety regulatory guidance"},
+    {"id": "c1c777bd-b4d7-4edf-945b-bfda23c6de33", "title": "FAAH Inhibition Cannabinoid Stress-Induced Analgesia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid pain mechanism"},
+    {"id": "c1cb8d58-4f97-4f93-9922-8e3971a4e07c", "title": "Cannabidiol Spinal Motoneuron Responses Cats", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - cat study"},
+    {"id": "c1cd895d-84de-4491-b818-c825282705d5", "title": "CB1 Receptor Thermogenesis Adiponectin Visfatin", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid metabolic mechanism"},
+    {"id": "c1eb7862-e54e-43b5-9419-743ceeaee1e9", "title": "CBD Modulates Levetiracetam Seizure Parameters", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD LEV epilepsy drug interaction"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "c12be6e0-c916-47e7-9cc7-4642ed963d9f",
+      "c13e4439-c754-4c18-9189-e8c9799f3008",
+      "c143d5af-8726-4a55-a0f1-e50fd7648b5e",
+      "c17aea51-cc37-4036-909e-e936328c2457",
+      "c1b63460-bb07-4dcc-b48c-07aa5682513d",
+      "c1cb8d58-4f97-4f93-9922-8e3971a4e07c"
+    ]
+  }
+}

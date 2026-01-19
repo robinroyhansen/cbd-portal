@@ -1,0 +1,38 @@
+{
+  "batch_number": 250,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T04:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "13eed8ee-9351-4dab-9d81-30b66c1f9c0d", "title": "Endocannabinoid Levels PAG FAAH CB1 TRPV1", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid pain mechanism"},
+    {"id": "13f8462e-2d10-4ccb-a7d5-fbdbe977111f", "title": "Thiolated Hyaluronic Acid Staphylococcus", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "13fc5853-fc64-430d-9171-9ec734560be1", "title": "SAM Survey Drugs Fatal Accidents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "141d73cb-33fd-4e95-953b-e7521767ac14", "title": "Almond gum basil essential oil chicken", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "1425fe7d-dcd5-4083-b2f9-8122fbeffba6", "title": "CB2 Receptor Agonists Benzo[d]imidazole", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 therapeutic drug development"},
+    {"id": "143582ae-f980-41bf-96be-b8d30ad1ecbd", "title": "Acute Effects Oral THC CBD Healthy Volunteers", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC safety research"},
+    {"id": "1436fffc-d5f2-4219-9f7d-42288bd35aba", "title": "CBD Versus CBDP Receptor-Binding", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmacology"},
+    {"id": "143a4e83-deb2-42d7-89d4-8ea4714875e0", "title": "Urban food production Sydney CBD rooftops", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "14425b41-d58f-45a7-95f0-01eac9d324e0", "title": "Hemp biomass fertility rams", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "144813d7-ab29-42bd-8523-e29b0f64656a", "title": "CEREBRAL ATROPHY YOUNG CANNABIS SMOKERS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "14593fa5-a32f-48e8-8b39-2d1fd851e2e0", "title": "Cannabis use disorder bipolar disorder", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD prevalence correctly rejected"},
+    {"id": "146b6c1c-95b7-44d3-aa73-55fba6e8983c", "title": "Enantio-selective separation phytocannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical method correctly rejected"},
+    {"id": "1473c427-417b-4e5d-8030-6683287eea70", "title": "Medicinal vs recreational cannabis veterans PTSD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "1474c0a2-72bd-4270-8d6c-ed1b2823724a", "title": "Behavioural Economic Demand Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Economic/demand correctly rejected"},
+    {"id": "14a03007-e84b-4c3f-854d-afb57ed51d34", "title": "Cholecystectomy CBD stones endoscopic", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "14a515b3-de9f-4492-9ed3-2d5c01b3cce5", "title": "Histomorphological Lymphoid Follicles Appendix", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "14c8e381-43ea-416d-88ad-7a7a2e429d36", "title": "Cell Biology Diagnostic Test CBD-Test", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "150dcc89-1549-4197-9a9c-4d1c195bce56", "title": "Re: Cannabis Thyroid Eye Disease", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial/letter correctly rejected"},
+    {"id": "150dd89a-86c0-45c4-9fde-44ec024a6c60", "title": "How to Work Biolife CBD Gummies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "15123c3e-7215-4048-a0e4-c651c9bcc16b", "title": "CBD grown ZnO nanorods photocatalytic", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "13eed8ee-9351-4dab-9d81-30b66c1f9c0d",
+      "1425fe7d-dcd5-4083-b2f9-8122fbeffba6",
+      "143582ae-f980-41bf-96be-b8d30ad1ecbd",
+      "1436fffc-d5f2-4219-9f7d-42288bd35aba"
+    ]
+  }
+}

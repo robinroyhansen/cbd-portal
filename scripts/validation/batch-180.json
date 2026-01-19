@@ -1,0 +1,37 @@
+{
+  "batch_number": 180,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T11:00:00.000Z",
+  "results": [
+    {"id": "c94fe4e0-a6b7-4748-88a1-2be80a488a0a", "title": "CB2 Receptor Modeling MD Simulation GPCRs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 receptor structure drug discovery"},
+    {"id": "c9683924-8006-4a23-8562-1345e7cd51a6", "title": "CBD NETs Neutrophils Psoriatic Patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psoriasis mechanism"},
+    {"id": "c96c94b9-504e-4df5-86a7-d14de4d9ca82", "title": "Cannabis Cognition Residual Confounding JAMA", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cognition methodology viewpoint"},
+    {"id": "c96e0f7c-dabc-482e-ad6b-c8fceb9b1492", "title": "CB1 Inverse Agonism Nausea Conditioned Gaping", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 nausea pharmacology"},
+    {"id": "c978d052-8050-4942-9c82-b7076b6b515e", "title": "CB1 Receptor Post-natal Development Hippocampus", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor neurodevelopment"},
+    {"id": "c985327f-e60e-4019-b536-13a755d65c3e", "title": "CBD Parkinson's COVID-19 Pathophysiology Portuguese", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's COVID therapeutic"},
+    {"id": "c985e5a6-6351-4837-8fcf-c99d4424c093", "title": "CBD Thiosemicarbazones Anti-Tyrosinase Hyperpigmentation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD derivative drug development"},
+    {"id": "c9a47df7-ccee-41b1-a6d2-312d976aad52", "title": "Cannabinoid System Immune Modulation Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS immune therapeutic review"},
+    {"id": "c9b72a8f-4ac5-4637-b06c-91236885c0f6", "title": "CB2 Activation Sepsis Leukocyte Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 sepsis anti-inflammatory"},
+    {"id": "c9cae531-3874-40f1-95f3-735929e63789", "title": "CBD Plasma Persistence Clinical Trials Washout", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics clinical"},
+    {"id": "c9d111c2-c7bc-46ae-b4a1-f0d457b4764a", "title": "CBD Binding Site TRP Channels Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD TRP channel pain mechanism"},
+    {"id": "c9e78063-ad03-4779-9c2a-39be1f9b7688", "title": "Delta-8 vs Delta-9 THC Pharmacokinetics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC comparative pharmacology clinical"},
+    {"id": "c9ec9bd5-d2ca-4bc6-aa5f-6e98bc8f0e81", "title": "CBD Microglia Parvalbumin Schizophrenia MK-801", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia mechanism"},
+    {"id": "ca0b8735-6f20-47b6-986f-488618a90ea5", "title": "Orthodontic Treatment Autism Spectrum Children", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - dental autism"},
+    {"id": "ca12489f-9361-485b-823b-4a6e7c959663", "title": "CB1 TRPV1 Fear Anxiety Receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anxiety mechanism review"},
+    {"id": "ca2c3e3e-5fbf-4459-96e2-6c4c645b81c3", "title": "CBD Voltage-Gated Sodium Channels NavMs Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy crystallography mechanism"},
+    {"id": "ca2edbc8-9f83-475f-9d3a-e82b641f6f27", "title": "Digital DBT Youth Psychosis Risk Protocol", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - DBT behavioral therapy"},
+    {"id": "ca39bbdd-7e82-4c30-87e8-2ca09ca78d61", "title": "Cannabis Use Psychosis Clinical Epidemiological", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis causation review"},
+    {"id": "ca423ded-f989-48b8-95d5-7d7ab6ae248d", "title": "CBD CBC Antinociception Descending Pathway Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "ca45d04c-5400-46e3-a7db-93541ed25de2", "title": "Tourette Syndrome Research Highlights 2024", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general TS research review"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "ca0b8735-6f20-47b6-986f-488618a90ea5",
+      "ca2edbc8-9f83-475f-9d3a-e82b641f6f27",
+      "ca39bbdd-7e82-4c30-87e8-2ca09ca78d61",
+      "ca45d04c-5400-46e3-a7db-93541ed25de2"
+    ]
+  }
+}

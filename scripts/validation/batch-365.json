@@ -1,0 +1,42 @@
+{
+  "batch_number": 365,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T09:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "9572947b-4330-492b-847e-5c573d22fafe", "title": "Plant-Derived Exosome-Like Nanoparticles: A Promising Therapeutic for Neurological Disorders and Drug Delivery", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "958e6407-ca50-448b-8f24-954fe8837ace", "title": "Cannabinoid (CB1) Receptor Activation Inhibits Trigeminovascular Neurons", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor migraine mechanism research"},
+    {"id": "9596a7f0-3c57-47b9-a0c6-9cb51a20ce2d", "title": "CBDs take messages to communities in Tanzania", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Community-Based Distribution) correctly rejected"},
+    {"id": "95a21f4a-5b9c-4ea3-b20c-1b48ad339289", "title": "Pelican CBD Male Enhancement Gummies (UPDATE 2023)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "95aba112-c624-45f6-8526-9857a2de3561", "title": "Bigger is better: modern Cannabis trichomes are larger and more productive than their landrace ancestors", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "95c982f4-a19f-4549-b80f-81a98a4efc66", "title": "Effects of Phytocannabinoids on Reproductive System and Prenatal Development: Mechanisms and Clinical Implications", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - phytocannabinoid reproductive mechanism research"},
+    {"id": "95d2fefe-62a2-4608-84e4-69e736d6ba38", "title": "Valorization of CBD-hemp through distillation to provide essential oil and improved cannabinoids profile", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction correctly rejected"},
+    {"id": "95dab53b-b23e-42a1-b7ad-27a1e280b776", "title": "Role of lipids and lipid signaling in the development of cannabinoid tolerance", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid tolerance mechanism research"},
+    {"id": "95de51bf-8266-4f22-870f-aaefc1c4e90b", "title": "Dental pulp stem cells-derived cannabidiol-pretreated micro-spheroids showed robust osteogenic potential via upregulation of WNT6", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD bone regeneration therapeutic research"},
+    {"id": "95efcbff-b167-4080-9b81-b245bd319cc3", "title": "Cannabidiol Does Not Convert to Δ9-Tetrahydrocannabinol in an In Vivo Animal Model", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety/pharmacokinetics research"},
+    {"id": "95f72673-ce6a-4753-85b8-1924902bd891", "title": "Adsorption losses from urine-based cannabinoid calibrators during routine use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "95fc8c7f-a7ca-496c-aa93-5178b33e7962", "title": "Cannabis, Tobacco, Alcohol Use, and the Risk of Early Stroke", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "9608433b-f0da-4581-a3ab-5d9d0b2c78a5", "title": "ISID1033 - CBD modulates human monocyte derived dendritic cell functions", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD immune mechanism research"},
+    {"id": "9609a761-018d-4654-9441-d19ab1ddb93c", "title": "Development of the Cannabis Actions and Practices (CAP): A Parent-Focused Intervention to Address Adolescent Marijuana Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevention intervention correctly rejected"},
+    {"id": "961195fa-6906-4e33-b5d1-297985d6bd80", "title": "Activational role of cannabinoids on movement", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid motor mechanism research"},
+    {"id": "961328be-697e-47ca-b62f-d5975835d15b", "title": "Sex-dependent effects of FGF21 on HPA axis regulation and adrenal regeneration after Cushing syndrome in mice", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "961cd752-c766-433e-9249-3ddbbf7d9f2d", "title": "Pathways and gene networks mediating the regulatory effects of cannabidiol, a nonpsychoactive cannabinoid, in autoimmune T cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD autoimmune mechanism research"},
+    {"id": "961e91c6-0bb0-46c6-9800-f8378b776346", "title": "Recreational cannabis legalization and transitions in cannabis use: findings from a nationally representative longitudinal cohort", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/use patterns correctly rejected"},
+    {"id": "962579e7-7222-441e-8249-ca2b85fbae19", "title": "Childhood events as factors in continued cannabis use in adulthood: a longitudinal study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "9646567b-acc2-4ebb-830a-57793f79cd39", "title": "La consommation de cannabidiol per os : que se cache-t-il derrière les appels aux Centres Antipoison français ?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Adverse effects surveillance correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "958e6407-ca50-448b-8f24-954fe8837ace",
+      "95c982f4-a19f-4549-b80f-81a98a4efc66",
+      "95dab53b-b23e-42a1-b7ad-27a1e280b776",
+      "95de51bf-8266-4f22-870f-aaefc1c4e90b",
+      "95efcbff-b167-4080-9b81-b245bd319cc3",
+      "9608433b-f0da-4581-a3ab-5d9d0b2c78a5",
+      "961195fa-6906-4e33-b5d1-297985d6bd80",
+      "961cd752-c766-433e-9249-3ddbbf7d9f2d"
+    ]
+  }
+}

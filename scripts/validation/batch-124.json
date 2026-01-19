@@ -1,0 +1,39 @@
+{
+  "batch_number": 124,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T20:45:00.000Z",
+  "results": [
+    {"id": "899e01ed-65de-447b-bac0-95077b2388db", "title": "CBD Long-term Drug-Resistant Epilepsy Meta-analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy systematic review"},
+    {"id": "89ac2cd8-0625-4673-8aac-574aee234f00", "title": "CBD Epilepsy Glutamate Signaling", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism"},
+    {"id": "89b01eec-f4e2-41ac-8d0a-b278ab69fc97", "title": "Herbal Medicines Autism Therapeutic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Therapeutic review"},
+    {"id": "89b150fd-aded-465e-8740-960c7b68eb2e", "title": "Ultra CBD Gummies Relief Anxiety", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - marketing nonsense text"},
+    {"id": "89b7e87a-682d-4cb8-a1be-32d4f8ef3827", "title": "Marijuana HIV Neuropathic Pain RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic RCT"},
+    {"id": "89c1da12-01c8-4a57-a3a0-c4772eee0142", "title": "ESI-LC/MS Phytocannabinoid Profiling", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "LAB METHODS - analytical profiling"},
+    {"id": "89d80af7-102e-42d0-8c77-7957111d556f", "title": "CBD Oil Pets Comprehensive Guide", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - pet CBD guide"},
+    {"id": "89e7fa8d-6a99-4ac7-97b1-c9786dc3a392", "title": "CBD Croaker Fish Growth Aquaculture", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - fish farming aquaculture"},
+    {"id": "89eda2d4-bf5d-4b03-a67c-79ed9d2f74c8", "title": "CBD Drop Seizures Lennox-Gastaut", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "89ee3daa-e38c-4e36-89c3-2d4519d6d00e", "title": "CB1 CaMKIIα Antinociception Sex Differences", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "89f740a7-68b1-42c7-949f-1f0ef4e1dd3f", "title": "CBD Morphine Side Effects Hyperalgesia Withdrawal", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD opioid therapeutic"},
+    {"id": "8a05a642-0a77-4538-84b2-efb138f909c3", "title": "Developmental CBD Anxiety DNA Methylation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety/epigenetic mechanism"},
+    {"id": "8a146a90-dea4-4e8f-9f2c-b49f3594dffb", "title": "CB2 Receptor Ligands Characterization Spleen", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology"},
+    {"id": "8a3dde1b-818d-4a76-b3c5-3535de677110", "title": "ICG-PDT Photodynamic Breast Cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - photodynamic therapy"},
+    {"id": "8a3f6179-b07a-489f-b4be-bf10f895c1e4", "title": "Benzo[d]imidazole CB1 Ligands Agonism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology"},
+    {"id": "8a430317-f53a-41e0-bd62-e9c5d36247d0", "title": "CBD Vasodilatory Pulmonary Mesenteric Arteries", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular therapeutic"},
+    {"id": "8a56315a-7f5f-48d0-a2fc-9e75f92a29d5", "title": "Synthetic Cannabinoid Receptor CNS Disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid CNS therapeutic review"},
+    {"id": "8a57e056-06c0-42c4-94c7-d7b1b47cd8de", "title": "Cannabis Fibromyalgia Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic review"},
+    {"id": "8a77685f-2423-414e-8e5e-1e1bafa6ccae", "title": "Dronabinol Chemotherapy Pancreatic Cancer DIsCOvER", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer/chemo RCT Phase III"},
+    {"id": "8a8c52fc-e544-4b57-b347-058ee3c99ee5", "title": "Dependence Cannabis Ever Lasting Issue", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD - cannabis dependence conceptualization"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "89b150fd-aded-465e-8740-960c7b68eb2e",
+      "89c1da12-01c8-4a57-a3a0-c4772eee0142",
+      "89d80af7-102e-42d0-8c77-7957111d556f",
+      "89e7fa8d-6a99-4ac7-97b1-c9786dc3a392",
+      "8a3dde1b-818d-4a76-b3c5-3535de677110",
+      "8a8c52fc-e544-4b57-b347-058ee3c99ee5"
+    ]
+  }
+}

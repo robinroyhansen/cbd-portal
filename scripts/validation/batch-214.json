@@ -1,0 +1,39 @@
+{
+  "batch_number": 214,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T19:30:00.000Z",
+  "results": [
+    {"id": "ed498d21-1050-466e-8717-c0ba1ed874ad", "title": "CB2 Agonist HU-308 Hepatic I/R Injury", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 agonist liver therapeutic"},
+    {"id": "ed4f8c76-b213-45db-b3bd-9846e2a129cc", "title": "Psilocybin-Assisted Therapy Fibromyalgia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - psilocybin study"},
+    {"id": "ed506740-eefe-41ad-b592-9b25a6c612d4", "title": "CBD Quality of Life Parkinson's Integrative Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's therapeutic review"},
+    {"id": "ed602aec-92e2-4a8d-94b5-f2d0ee53fa63", "title": "Chemotherapy CBD Cancer Symposium", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Common Bile Duct cancer"},
+    {"id": "ed61b2ea-4809-4338-a1d3-2f2280509ee1", "title": "CBD Product Use Health Epilepsy Longitudinal", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic outcomes"},
+    {"id": "ed7690b1-b93d-468a-9877-c96c4023e591", "title": "CBD Analogues Anti-SARS-COV-2 Novel", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD COVID antiviral therapeutic"},
+    {"id": "eda5915c-d45c-4946-a8a3-ff9612f81a7f", "title": "CBD-Öl Vorteile Nebenwirkungen German", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - German consumer content not research"},
+    {"id": "edbbc9d8-c13e-4b92-a046-81db5f04e6b8", "title": "Cannabis Extract Alzheimer's RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis Alzheimer's therapeutic RCT"},
+    {"id": "edbd0bc6-77c0-43ad-8f76-69a19506d106", "title": "CBD Colorectal Cancer CB2 Mutation-Independent", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD colorectal cancer therapeutic"},
+    {"id": "edbdd810-ee03-4de9-8e6a-df19f913fefc", "title": "CBD Periodontal Inflammatory Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD periodontal therapeutic"},
+    {"id": "edd96ed2-ab60-436d-88b5-f2e531439b57", "title": "CBD NK Cells Tumor Target Immunomodulatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer immunomodulation"},
+    {"id": "eddb0a4d-7db8-459b-8653-a35870f8c346", "title": "Cannabis Hyperemesis Syndrome Update Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - CHS vomiting syndrome"},
+    {"id": "eddede3a-c958-4683-bec1-e3d0966ed63f", "title": "Endometriosis CBD Therapy Symptom Relief", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD endometriosis therapeutic"},
+    {"id": "edf03a04-c59a-44f5-9150-98884807a51d", "title": "Monjour CBD Gummies Canada", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - CBD gummies advertisement"},
+    {"id": "edf9c463-1d9d-4197-8a89-41e4cbaad8f5", "title": "Cannabinoids Dermatology Potential Role", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid dermatology therapeutic review"},
+    {"id": "edffe311-2d2c-41ea-b88d-9bde0f50ce49", "title": "CBD-Rich Cannabis ASD Children Improvements", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism therapeutic open-label"},
+    {"id": "ee04c0c0-4668-4106-974a-25607ac113ae", "title": "CBD Anti-inflammatory Oral Rat Models", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD inflammation therapeutic"},
+    {"id": "ee13ee80-713a-4c2c-9e39-ba34a8549d19", "title": "THC CBN CBD Tissue Oxygen Consumption", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology mechanism"},
+    {"id": "ee1e4f00-e906-41c7-8837-d3c480c3f4c3", "title": "CBD Perspectives Pinterest Content Analysis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - social media content analysis"},
+    {"id": "ee43b7f1-41e5-446d-9121-59a1cbf5aeb6", "title": "Cannabis Use Sleep Expectations Outcomes Age", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis sleep therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "ed4f8c76-b213-45db-b3bd-9846e2a129cc",
+      "ed602aec-92e2-4a8d-94b5-f2d0ee53fa63",
+      "eda5915c-d45c-4946-a8a3-ff9612f81a7f",
+      "eddb0a4d-7db8-459b-8653-a35870f8c346",
+      "edf03a04-c59a-44f5-9150-98884807a51d",
+      "ee1e4f00-e906-41c7-8837-d3c480c3f4c3"
+    ]
+  }
+}

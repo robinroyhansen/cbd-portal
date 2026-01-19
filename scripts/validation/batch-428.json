@@ -1,0 +1,44 @@
+{
+  "batch_number": 428,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T01:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "da06d926-8d33-4e05-8fbf-141f07fc2030", "title": "Extract engineering of Cannabis sativa yields novel antibacterial cannabinoids targeting Staphylococcus aureus and methicillin-resistant Staphylococcus aureus.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid antimicrobial research"},
+    {"id": "da21161e-c127-4b79-a9f6-ba3d03079d60", "title": "Molecular Imaging of Pancreatic Duct Adenocarcinoma Using [(18)F]JR-1004, a Cannabinoid Type 2 Receptor Targeted Positron Emission Tomography (PET) Probe.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor cancer imaging research"},
+    {"id": "da389270-5fb0-4008-8219-671313a6c37e", "title": "Complete sequence of a cryptic virus from hemp (Cannabis sativa)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/virology correctly rejected"},
+    {"id": "da43f6ca-81fb-42f6-bdde-ce2e31ab4016", "title": "Characterizing motivations for cannabis use in a cohort of people who use illicit drugs: A latent class analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "da53395c-e44d-4420-bde4-fd66739f4244", "title": "Age-related regulation of bone formation by the sympathetic cannabinoid CB1 receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor bone/aging mechanism research"},
+    {"id": "da5ec3ce-187b-4a9b-b373-0422d2e0de0e", "title": "Global, regional and national burden of drug use disorders, 1990-2021: decomposition analysis, health inequality analysis and predictions to 2035.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General drug epidemiology correctly rejected"},
+    {"id": "da749144-29fb-4a2a-bf10-01e205866947", "title": "The Pharmacology of the Cannabinoid System—A Question of Efficacy and Selectivity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacology research"},
+    {"id": "da77d679-d35e-408b-ba01-cc007ee7d230", "title": "Evaluation of cannabidiol-based products in Brazil: how can current regulations influence their labeling quality?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product analysis/regulatory correctly rejected"},
+    {"id": "da966374-46dc-4b40-9c9f-04b068acab50", "title": "Inhibitory CB1 and activating/desensitizing TRPV1-mediated cannabinoid actions on CGRP release in rodent skin", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1/TRPV1 pain mechanism research"},
+    {"id": "da9fbe17-2480-4743-91e2-6ff606e9857a", "title": "CANNABIS CLINIC Fusarium Wilt", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/plant disease correctly rejected"},
+    {"id": "dab4f635-ea76-46d2-be2f-6b8108c0395b", "title": "Cannabidiol potentiates Δ9-tetrahydrocannabinol (THC) behavioural effects and alters THC pharmacokinetics during acute and chronic treatment in adolescent rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC pharmacokinetic interaction research"},
+    {"id": "dab5ba10-5838-4bcd-9bac-01feb0f04b63", "title": "Association of driving with blood delta-9-tetrahydrocannabinol: a systematic review.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis driving impairment correctly rejected"},
+    {"id": "dac1331b-01a0-4046-905e-8192f4794fca", "title": "Targeting CB1R Rewires Ca(2+)-Dependent Mitophagy to Promote Nerve Regeneration.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 nerve regeneration mechanism research"},
+    {"id": "dace10fd-b4f8-4308-908b-2a4dd41bd581", "title": "The Acute Effects of Non-concussive Head Impacts on Brain Microstructure, Chemistry and Function in Male Soccer Players: A Pilot Randomised Controlled Trial.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "dada647b-5d5a-456a-9233-e30159a408f8", "title": "Patterns of cannabidiol use among marijuana users in the United States.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "daf12fef-8504-488b-a95d-d56aef25cab7", "title": "Impact of Oral Cannabinoids on the Endocannabinoidome and Gut Microbiome in People with HIV on Antiretroviral Therapy (CTN PT028 Pilot Clinical Trial).", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid HIV clinical trial"},
+    {"id": "dafbc382-b8ee-4e5b-800c-a2ed70eba98b", "title": "Cannabis consumption and motor vehicle collision: A systematic review and meta-analysis of observational studies.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis driving harm correctly rejected"},
+    {"id": "db182fcf-19dd-413e-aa87-74c145ab2961", "title": "Sex differences in cannabinoid receptor-1 (CB1) pharmacology in mice selectively bred for high voluntary wheel-running behavior", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor pharmacology research"},
+    {"id": "db1d002b-b0db-4d4a-ad7c-2e4f13172f8d", "title": "Cannabisol, a novel Δ9-THC dimer possessing a unique methylene bridge, isolated from Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry/isolation correctly rejected"},
+    {"id": "db312262-8b81-4a7d-b29e-32c3d9dfbaed", "title": "Repeated Low-Dose Administration of the Monoacylglycerol Lipase Inhibitor JZL184 Retains Cannabinoid Receptor Type 1–Mediated Antinociceptive and Gastroprotective Effects", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS antinociceptive/gastroprotective mechanism research"}
+  ],
+  "batch_summary": {
+    "correct": 9,
+    "incorrect": 11,
+    "incorrect_ids": [
+      "da06d926-8d33-4e05-8fbf-141f07fc2030",
+      "da21161e-c127-4b79-a9f6-ba3d03079d60",
+      "da53395c-e44d-4420-bde4-fd66739f4244",
+      "da749144-29fb-4a2a-bf10-01e205866947",
+      "da966374-46dc-4b40-9c9f-04b068acab50",
+      "dab4f635-ea76-46d2-be2f-6b8108c0395b",
+      "dac1331b-01a0-4046-905e-8192f4794fca",
+      "daf12fef-8504-488b-a95d-d56aef25cab7",
+      "db182fcf-19dd-413e-aa87-74c145ab2961",
+      "db312262-8b81-4a7d-b29e-32c3d9dfbaed"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "batch_number": 89,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T12:00:00.000Z",
+  "results": [
+    {"id": "632bbf98-c759-45e2-ad12-cd2857f63ff1", "title": "CBD neutrophil functionality epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD immune/epilepsy mechanism"},
+    {"id": "6342213d-d324-4c58-a252-a4ad0a7b2240", "title": "Cannabinoid receptors TBI adolescent mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB receptor TBI research"},
+    {"id": "6343a02b-2c9b-47ae-8ddf-b7f7fb1eee4a", "title": "CB1 receptor RSV immunopathology", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 RSV therapeutic"},
+    {"id": "635f1e17-049a-463e-9c80-34eb87791a1c", "title": "Cell surface engineering breast cancer motility", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - cancer cell biology"},
+    {"id": "6386e1a9-b9a8-486f-96e4-4c23612c033c", "title": "LGS incidence after CBD FDA approval", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy epidemiology"},
+    {"id": "639b61fc-2b7e-49da-a396-c806a63f0eb1", "title": "Palmitoylethanolamide pain treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "PEA pain therapeutic (ECS-related)"},
+    {"id": "63a2ffa8-ab61-4072-82b6-1ea811606dc2", "title": "Thoracic oncology molecular targets", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general oncology"},
+    {"id": "63aebcf4-5f77-4505-ac92-72758b323b22", "title": "Pain comprehensive review model target", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general pain review"},
+    {"id": "63b52b48-7cd4-4339-be6e-786ae8264b89", "title": "UK Medical Cannabis Registry MS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Medical cannabis MS outcomes"},
+    {"id": "63c82cfe-6744-4f16-8c7f-576b46eb8cfa", "title": "Biolyte CBD Gummies", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING"},
+    {"id": "63e71759-fed1-482e-8ba1-ec8a2e4f0a22", "title": "CBD medical marijuana epilepsy editorial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy editorial Epilepsia"},
+    {"id": "63f08d5b-c0b0-4682-af2c-5b92ae6c3c3c", "title": "ECS therapeutic target prodromal psychosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS psychosis therapeutic target"},
+    {"id": "6449f121-34cb-42ca-8f4d-c9000a23d79e", "title": "Cannabis dispensary staff training practices", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Medical cannabis dispensary practices"},
+    {"id": "6462684f-c7ec-45eb-93a5-4f9423d33213", "title": "CUD suicide attempts bipolar meta-analysis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - CUD suicide bipolar"},
+    {"id": "6467f597-979f-493a-9f52-44f64caa65df", "title": "CBD nicotine seizure aggravation protection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD seizure protection"},
+    {"id": "64782da6-eab5-4f36-b0bf-8bc004ed1e78", "title": "Cannabis illicit drug use epilepsy patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis epilepsy use study"},
+    {"id": "648be317-dcd1-424d-9525-2437319b53d8", "title": "Cannabis pregnancy 12 million births cohort", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - pregnancy epidemiology"},
+    {"id": "649c715e-6976-44be-b7f4-78ed8315d3e3", "title": "CB1 CB2 MAGL Parkinson's basal ganglia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor Parkinson's"},
+    {"id": "64a245a6-5e5e-41ca-b376-542899d7c813", "title": "Nicole Junkermann CBD Gummies supplements4fitness", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING"},
+    {"id": "64a518f9-3253-40bd-8557-a529ba03f990", "title": "CBD antipsychotic mechanisms review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychosis mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "635f1e17-049a-463e-9c80-34eb87791a1c",
+      "63a2ffa8-ab61-4072-82b6-1ea811606dc2",
+      "63aebcf4-5f77-4505-ac92-72758b323b22",
+      "63c82cfe-6744-4f16-8c7f-576b46eb8cfa",
+      "6462684f-c7ec-45eb-93a5-4f9423d33213",
+      "648be317-dcd1-424d-9525-2437319b53d8",
+      "64a245a6-5e5e-41ca-b376-542899d7c813"
+    ]
+  }
+}

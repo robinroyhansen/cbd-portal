@@ -1,0 +1,41 @@
+{
+  "batch_number": 323,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T22:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "6425065d-15f1-482d-8b8c-1b68e138d34f", "title": "Human mast cells take up and hydrolyze anandamide under the control of 5‐lipoxygenase and do not express cannabinoid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid mast cell mechanism"},
+    {"id": "642bd824-527f-4bfc-918c-629066620b65", "title": "Successful reconstruction with gastrojejunostomy and pancreaticobiliary junction anastomosis to the duodenum after duodenal peripapillary adenocarcinoma resection", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "643afabf-f8f8-4fbe-903d-a40e37f32d97", "title": "SR 144528, an Antagonist for the Peripheral Cannabinoid Receptor that Behaves as an Inverse Agonist", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor antagonist/inverse agonist pharmacology"},
+    {"id": "644425b5-ac3b-4047-bb81-cf9a48fb1cb8", "title": "Intra-Operative Cholangiography With Indocyanine Green Used to Assess Bile Duct Patency in a Dog With a Ruptured Gallbladder Mucocele.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "644976f5-9ace-4921-84e4-8a8280de8180", "title": "Structure of a family IIIa scaffoldin CBD from the cellulosome ofClostridium cellulolyticusat 2.2 Å resolution", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Cellulose-Binding Domain) correctly rejected"},
+    {"id": "6457d664-97c1-41cc-a0d4-81fc63b0bfc3", "title": "Phytoremediation & Valorization of Cu-contaminated Soils Through Cannabis sativa (L.) Cultivation: A Smart Way to Produce Cannabidiol (CBD) in Mediterranean Soils", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "6459d9f3-70bf-456f-be17-6b9f4f975884", "title": "Comparison of selected metals in the fillers of 14 commercial hemp cigarette brands to commercial tobacco cigarettes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical correctly rejected"},
+    {"id": "645e3269-217d-4fa2-90ed-34f32f05bd52", "title": "Antiaversive effects of cannabidiol microinjected into the dorsal periaqueductal grey", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antiaversive brain mechanism"},
+    {"id": "646e02c9-cf0d-42af-a7ce-49323ccce5eb", "title": "Phospholipase participation in cannabinoid-induced release of free arachidonic acid", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid signaling mechanism"},
+    {"id": "647cc17d-eb66-4f10-a8c7-d67d0d4b3c47", "title": "Development and Evaluation of 'High Alert', a Mobile-Based Brief Intervention to Reduce Driving Under the Influence of Cannabis Among Youth", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "DUIC prevention correctly rejected"},
+    {"id": "647d1af9-8f2c-4eff-8dbe-567ea64e660a", "title": "The Health Effects of Cannabis and Cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis/cannabinoid health effects review"},
+    {"id": "647de600-9177-4285-afb0-25dc94c83be7", "title": "Medicinal cannabis tea contains variable doses of cannabinoids and no terpenes.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product analysis correctly rejected"},
+    {"id": "649b9be7-f6c4-4bff-a52e-88ae38007d0a", "title": "Cerebrodiene, arachidonylethanolamide, and hybrid structures: potential for interaction with brain cannabinoid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor ligand research"},
+    {"id": "64a52445-bbce-410f-b023-b7d91ff3fd65", "title": "CBD-A and THC-A content in different hemp varieties", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant chemistry correctly rejected"},
+    {"id": "64a9791a-6c6f-47d4-af6e-2e46714ba303", "title": "Bacteriophages and Their Enzymes: Allies Against Microbial Biofilms", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "64b14d11-fc84-4a54-871c-0398c1191882", "title": "Endoscopic Cholecystoduodenostomy With Lumen-Apposing Metal Stent for Bile Duct Stricture in a Child with Neuroblastoma: A Case Report.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "64b9dab3-45cd-4187-a105-9380a5737b0c", "title": "Cannabis use and self-reported collisions in a representative sample of adult drivers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Driving impairment correctly rejected"},
+    {"id": "64c12d9b-33d6-4f03-85c0-cbca9b0e1fb8", "title": "Analysis of the Construction of the Xiaozhai Sub-CBD and the Current State of Development of the CBD in Xi′an", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "64c7498a-43b0-410c-b35c-ca840e9e234a", "title": "Dose-Related Differences in the Regional Pattern of Cannabinoid Receptor Adaptation and in Vivo Tolerance Development to Δ9-Tetrahydrocannabinol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor tolerance mechanism"},
+    {"id": "64cff9ac-fe94-4b58-b2df-ebd400c78f38", "title": "Grill Bristle Induced Perforation of the Bile and Pancreatic Ducts Managed by Endoscopic Ultrasound and Endoscopic Retrograde Cholangiopancreatography: A Unique Foreign Body Case.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "6425065d-15f1-482d-8b8c-1b68e138d34f",
+      "643afabf-f8f8-4fbe-903d-a40e37f32d97",
+      "645e3269-217d-4fa2-90ed-34f32f05bd52",
+      "646e02c9-cf0d-42af-a7ce-49323ccce5eb",
+      "647d1af9-8f2c-4eff-8dbe-567ea64e660a",
+      "649b9be7-f6c4-4bff-a52e-88ae38007d0a",
+      "64c7498a-43b0-410c-b35c-ca840e9e234a"
+    ]
+  }
+}

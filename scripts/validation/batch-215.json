@@ -1,0 +1,41 @@
+{
+  "batch_number": 215,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T19:45:00.000Z",
+  "results": [
+    {"id": "ee4f06bd-fea0-47d2-814d-741b0650928c", "title": "Endogenous Cannabinoids Target Obesity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS obesity therapeutic"},
+    {"id": "ee58a164-19dc-4f8b-a976-2a0d6a220e1b", "title": "Cannabis Substance Abuse Schizophrenia Risk", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - schizophrenia risk"},
+    {"id": "ee60f4f2-b4df-493d-80f0-379eacf82573", "title": "Cannabis Use Pregnancy Epidemiological", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - prenatal use"},
+    {"id": "ee6124c2-cdf7-4ffb-858b-dfd9fc19ebc2", "title": "CBD Spasticity MS RCT Iran", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD MS spasticity therapeutic RCT"},
+    {"id": "ee915e55-1b8a-4411-8e75-2ee138652746", "title": "Cannabis Cream CKD Pruritus RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis dermatological therapeutic RCT"},
+    {"id": "ee952fbf-0e8d-4f92-b10b-3fe89877137d", "title": "Cannabinoids CINV Chemotherapy Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid CINV therapeutic review"},
+    {"id": "ee977025-5de5-4113-bd16-3af3f63116f5", "title": "Sex Differences Stress House Mouse", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general stress mouse study"},
+    {"id": "ee979249-e042-4df7-8578-9c1a9f16b9a2", "title": "Medical Library CBD Pain Management", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - library resource page"},
+    {"id": "ee9bede0-10df-4ac1-adb6-73850993593d", "title": "CB1 Receptor Cardiac Dysfunction Diabetes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 diabetic cardiomyopathy mechanism"},
+    {"id": "eea1180c-dc4b-4e0a-8291-71f7b525d12c", "title": "CB1 Receptors Anxiolytic Effects Pharmacological", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 anxiety therapeutic mechanism"},
+    {"id": "eeb5f6a4-96de-47aa-a5a3-7cd132993687", "title": "Prazosin Cannabis Use Disorder PTSD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - prazosin non-cannabinoid"},
+    {"id": "eec63b2e-3e64-415f-869c-c418d05cfcc9", "title": "CBD Nanomicelles PK Anti-inflammatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmaceutical formulation"},
+    {"id": "eecd810c-f8d3-49fa-a578-95aa7bb8beb5", "title": "CB1 Deletion Podocytes Diabetic Nephropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 diabetic nephropathy therapeutic"},
+    {"id": "eed35740-b341-4d6b-a6b8-ff241b5399d4", "title": "CB1 Protects Dopaminergic Neurons MPTP", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 Parkinson's neuroprotection"},
+    {"id": "eef54b15-2292-468c-840c-dc7843fe2e63", "title": "Epidiolex ESES Epilepsy Efficacy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD ESES epilepsy therapeutic"},
+    {"id": "ef073ca2-121c-4d20-a42a-07bd496e5c37", "title": "Synthetic Cannabinoid-Induced Psychosis Adolescent", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - SC-induced psychosis"},
+    {"id": "ef139325-45b8-416f-8acd-cb9ec4abf690", "title": "CBD Immunomodulation Bovine Ruminal Cells", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - bovine/cattle"},
+    {"id": "ef150e7d-3478-4228-a817-c08c0c4154fa", "title": "CBD Gummy Cardiac Arrest Pediatric", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety adverse event case report"},
+    {"id": "ef1884e4-8e6a-4d3d-9a74-84fb49c11d6a", "title": "CBD THCV Paclitaxel Neuropathic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD THCV CIPN therapeutic"},
+    {"id": "ef32624d-e6e5-4a47-85c5-62e476922007", "title": "CUD Pancreatic Cancer Risk Chronic Pancreatitis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cancer risk study"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "ee58a164-19dc-4f8b-a976-2a0d6a220e1b",
+      "ee60f4f2-b4df-493d-80f0-379eacf82573",
+      "ee977025-5de5-4113-bd16-3af3f63116f5",
+      "ee979249-e042-4df7-8578-9c1a9f16b9a2",
+      "eeb5f6a4-96de-47aa-a5a3-7cd132993687",
+      "ef073ca2-121c-4d20-a42a-07bd496e5c37",
+      "ef139325-45b8-416f-8acd-cb9ec4abf690",
+      "ef32624d-e6e5-4a47-85c5-62e476922007"
+    ]
+  }
+}

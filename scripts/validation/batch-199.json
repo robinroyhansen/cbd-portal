@@ -1,0 +1,38 @@
+{
+  "batch_number": 199,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T15:45:00.000Z",
+  "results": [
+    {"id": "dcc28b23-34e9-4c6c-9c48-a48ee17f1b1b", "title": "CBD Neuroprotection Cerebral Ischemia Hippocampus", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD stroke neuroprotection"},
+    {"id": "dcd5f13b-9370-4a58-97c0-2fa6dc4a329a", "title": "CBD Feather-Plucking Green Macaw", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - parrot/macaw"},
+    {"id": "dd01dc6e-285c-4abb-86fc-634c090b1330", "title": "CBD Nucleoside Transporter Immunosuppression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD inflammation mechanism"},
+    {"id": "dd036908-9f46-418a-be33-00498e41cecc", "title": "Cannabis Bioactive Compounds Orofacial Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic"},
+    {"id": "dd0ccff7-fd5b-4d5c-ab9b-76d4e4ce2b22", "title": "Long-term CBD Tolerability Healthy Dogs", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dogs"},
+    {"id": "dd0eb4f3-bb1f-4940-b00f-b122927df91c", "title": "Paeoniflorin Neuroprotection via CB2 Vascular Dementia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 mechanism neuroprotection"},
+    {"id": "dd466288-a15c-401c-a679-4afd7bbe501b", "title": "CBD Therapeutic Time Window Ischemic Damage HMGB1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD stroke therapeutic"},
+    {"id": "dd69f53d-a405-4c3e-8049-01e862db5315", "title": "Hemp Full-Spectrum Cannabinoid PK PD Human", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid PK human study"},
+    {"id": "dd7ab232-536b-4c25-9f6a-38f972ed7f80", "title": "CBD Propylene Glycol Inhalation Safety Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD inhalation safety"},
+    {"id": "dd7ded2c-697e-4bf2-a991-0a18d292f68a", "title": "Cannabis Medicinal Epilepsia Portuguese", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis epilepsy review"},
+    {"id": "dda989a1-8de6-4847-996d-de6b760e79f0", "title": "Cannabinoids Oxidative Stress Neuronal Cells Alzheimer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuroprotection antioxidant"},
+    {"id": "ddaa652d-ebdf-4418-abee-4287841b7367", "title": "CBD Improves Type-1 Diabetes Deficits", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD diabetes therapeutic"},
+    {"id": "ddb32dce-144c-4775-b029-1e71a29de498", "title": "GABA CB1 Interaction Spinal Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 pain mechanism"},
+    {"id": "ddbf853b-e8c5-4de4-bead-986bb82d3c3f", "title": "Myeloid Suppressor Cells Tumor Microenvironment", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - tumor immunology not cannabinoid-focused"},
+    {"id": "ddc416de-52bb-4d7d-bc02-e36f392d6e2c", "title": "CB2 Selective Agonists Therapeutic Utility", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 drug development"},
+    {"id": "ddc7de32-6665-4971-a171-d5e2e9684908", "title": "CBD Expectancy Placebo Stress Anxiety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety placebo research"},
+    {"id": "ddcb36c7-b8ba-4f6f-97a1-9cdef40e3780", "title": "TABLE 2 Cannabis CBD Use Prevalence Cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - data table from use pattern survey"},
+    {"id": "ddd006a0-9d71-4009-b193-375d8dfdcb6b", "title": "CBD Treatment Opioid Use Disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD OUD therapeutic"},
+    {"id": "ddde2217-9cf7-4760-ae67-735ba3f4eddb", "title": "Cannabinoids Immune System Inflammatory Diseases", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid inflammation therapeutic"},
+    {"id": "dde634b0-4b0f-4464-ad97-436532040f90", "title": "CBD Treats Canine Daily Activity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dogs"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "dcd5f13b-9370-4a58-97c0-2fa6dc4a329a",
+      "dd0ccff7-fd5b-4d5c-ab9b-76d4e4ce2b22",
+      "ddbf853b-e8c5-4de4-bead-986bb82d3c3f",
+      "ddcb36c7-b8ba-4f6f-97a1-9cdef40e3780",
+      "dde634b0-4b0f-4464-ad97-436532040f90"
+    ]
+  }
+}

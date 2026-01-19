@@ -1,0 +1,43 @@
+{
+  "batch_number": 374,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T11:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "9ed4b378-2b2a-439f-b4ea-3748888bfd45", "title": "Involvement of cannabinoid CB2 receptor in alcohol preference in mice and alcoholism in humans", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor mechanism for alcoholism"},
+    {"id": "9ed5e045-06fe-4589-be22-a126e70b6425", "title": "Development and evaluation of a method to compile a national list of cannabis dispensaries.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market/policy methodology correctly rejected"},
+    {"id": "9ef29809-505d-4e88-aa06-a0c19019aeee", "title": "Invasive pulmonary aspergillosis with no abnormal immunity overlapped with allergic bronchopulmonary aspergillosis: A case report", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "9ef67955-498c-4f1a-99f2-210a39c71ddf", "title": "A Hybrid Compact Convolutional Transformer with Bilateral Filtering for Coffee Berry Disease Classification.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Coffee Berry Disease) correctly rejected"},
+    {"id": "9ef7fb78-90c0-4044-913f-01e23cdd5876", "title": "Full-spectrum Cannabis sativa extract enhances gut-peripheral organ integrity after experimental ischemic stroke.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis stroke therapeutic research"},
+    {"id": "9f174ec9-ec9d-4da2-88c0-600bc0914941", "title": "Lower perceptions of day-level peer drinking strengthen the impact of personal drinking on negative and positive consequences", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "9f20b08a-5f75-4a3d-a74a-3f109eb0f0e4", "title": "Preliminary efficacy of 'high-alert' a brief smartphone intervention to reduce Cannabis-impaired driving among youth: A pilot randomized controlled trial", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm prevention correctly rejected"},
+    {"id": "9f49d9af-a4df-4811-b2d5-7849175f21c7", "title": "Cannabis; adverse effects from an oromucosal spray", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis safety research"},
+    {"id": "9f4ae886-6949-4627-9236-4f4a5197e074", "title": "The anti-biofilm activity of cannabinoids against methicillin-resistant Staphylococcus aureus.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid antimicrobial therapeutic"},
+    {"id": "9f7cd40a-dc6a-48fb-9d45-c80ee4c7856b", "title": "SUITABILITY INDEX SYSTEM FOR THE CON- STRUCTION OF CBD IN CHINA'CITIES: QUAN- TIFICATION STUDY OF CBD IN CHINA (I)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "9f7e0b28-d340-42c8-9e96-7d874920698c", "title": "Prevalence and outcomes of prenatal recreational cannabis use in high‐income countries: a scoping review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prenatal harm study correctly rejected"},
+    {"id": "9f7ee91c-5c81-42f7-86bd-009fa4f7a133", "title": "First Report of the Anti-Parasitic Effect of a Cannabis sativa full-spectrum Extract on Echinococcus granulosus sensu stricto.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis anti-parasitic therapeutic"},
+    {"id": "9f9c023f-49fc-49f4-908e-b44e94f76365", "title": "Harmonizing TRIPs and the CBD: A Proposal from India", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "9fa38066-d91c-43e9-9338-c701a0a983ba", "title": "Barriers to Buprenorphine Initiation in Patients Using Fentanyl", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "9fa6c2e6-8280-4c33-a202-58528ef2b971", "title": "Cannabidiol Reverses MK-801-Induced Disruption of Prepulse Inhibition in Mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD schizophrenia mechanism research"},
+    {"id": "9fb9007a-06fe-40a7-8d10-e51051afc2af", "title": "Safety study of cannabidiol products in healthy dogs", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary study correctly rejected"},
+    {"id": "9fd41d83-2de3-4a13-9cfe-d8c3eb96c44e", "title": "UGT2B7-mediated drug-drug interaction between cannabinoids and hydromorphone.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid drug interaction/safety research"},
+    {"id": "9fdc8e16-d5cb-4542-adcb-43a8fbbbe26f", "title": "Male–female differences in the effects of cannabinoids on sexual behavior and gonadal hormone function", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism research"},
+    {"id": "9fee3bd0-6454-4f05-967f-f86efbadcdd9", "title": "Cannabis-Induced Acute Pancreatitis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "9ff59e3a-3ef1-4dd6-97af-8d283d1b9922", "title": "Pharmacokinetics and disposition of cannabinoids.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacokinetics research"}
+  ],
+  "batch_summary": {
+    "correct": 10,
+    "incorrect": 10,
+    "incorrect_ids": [
+      "9ed4b378-2b2a-439f-b4ea-3748888bfd45",
+      "9ef7fb78-90c0-4044-913f-01e23cdd5876",
+      "9f49d9af-a4df-4811-b2d5-7849175f21c7",
+      "9f4ae886-6949-4627-9236-4f4a5197e074",
+      "9f7ee91c-5c81-42f7-86bd-009fa4f7a133",
+      "9fa6c2e6-8280-4c33-a202-58528ef2b971",
+      "9fd41d83-2de3-4a13-9cfe-d8c3eb96c44e",
+      "9fdc8e16-d5cb-4542-adcb-43a8fbbbe26f",
+      "9ff59e3a-3ef1-4dd6-97af-8d283d1b9922"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "batch_number": 40,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T23:45:00.000Z",
+  "results": [
+    {"id": "2e1d14d8-779b-4623-a34e-cd640774673a", "title": "Vidalyn og videnskaben bag rolige CBD-adaptogener", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM/ADVERTISING - Danish product promo with commercial URLs"},
+    {"id": "2e374890-d713-48cb-9e0a-cd2ee238eb7b", "title": "Evaluation of the neuroprotective effect of cannabinoids in Parkinson's disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuroprotection for PD"},
+    {"id": "2e37f91a-12ce-44de-b6b6-7716035a4140", "title": "Mental health and cannabidiol: an initial test", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "USE CORRELATION study - finding CBD users have higher anxiety/depression - not therapeutic"},
+    {"id": "2e3e77b8-b847-43b2-a32f-3563a5b9f955", "title": "Development of a Novel Nanoemulsion Formulation to Improve Intestinal Absorption of CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery research"},
+    {"id": "2e4778e9-7ced-47a5-b6bc-18eee13f4ed2", "title": "Marked Tachycardia from CBD gummies case report", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety case report"},
+    {"id": "2e5e631b-8adf-4bca-a7e4-0878b0a55289", "title": "Cannabidiol (CBD) in Cancer Management", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic review"},
+    {"id": "2e63442e-908c-41e6-a831-9caaa4a1ed54", "title": "Highly Purified CBD Use and Therapeutic Drug Monitoring in Pregnancy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pregnancy pharmacokinetics"},
+    {"id": "2e8452fe-bf33-401f-8665-6817c7711e11", "title": "Mechanistic study on the peripheral CB1 receptor blockers tricyclic scaffolds", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1R drug design research"},
+    {"id": "2e9319e5-eefe-4293-a569-d6c13919b519", "title": "Nabiximols Oromucosal Spray on Spasticity in MS Patients RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Nabiximols MS spasticity RCT"},
+    {"id": "2ea5a1da-c33e-4c29-8d8d-aaea3af8207d", "title": "Macrophage Polarization in Hepatocellular Carcinoma", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - cancer immunology study"},
+    {"id": "2ea6f389-dbf0-4c2a-830f-da760f8c3923", "title": "Phase I Study Cannabis THC/CBD Smoking/Inhalation Pharmacokinetics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pharmacokinetics Phase I trial"},
+    {"id": "2ea92bcd-05e0-4515-8dc8-ff71dfcf5084", "title": "Medicinal cannabis for symptom control in advanced cancer RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD cancer symptoms RCT"},
+    {"id": "2eb63807-159a-4dd6-9602-c97315a09db9", "title": "Pelican CBD Gummies Reviews 2022: Effective for Tinnitus?", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM/ADVERTISING - product marketing"},
+    {"id": "2eb91eac-7a62-44d8-a4f9-58b67a54225b", "title": "Exercise-Related Signature Genes Potentially Associated with Cocaine Addiction", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - cocaine genetics study"},
+    {"id": "2ec24ad4-ecfc-4a04-9603-45c4feadd6d4", "title": "CB1 receptor antagonist SR141716 oxygen consumption glucose uptake mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 antagonist metabolic research"},
+    {"id": "2ec328bf-ad7d-4943-a3f3-10914cd4902c", "title": "Cannabis and Depression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis depression research"},
+    {"id": "2ec94df6-778d-4711-96f2-497de21d4d98", "title": "Opioid Initiation in Older Patients with Chronic Pain Who Received Authorized Cannabis Prescription", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis as opioid alternative"},
+    {"id": "2ecffef7-a739-45f7-81f5-ab88811e5260", "title": "Cannabidiol Modulates Brain Connectivity in Autistic Children RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism RCT"},
+    {"id": "2edcff77-74b6-4649-ac7c-f9e8ea9208f2", "title": "Cannabinoid Use Among Adult Women: A Scoping Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "USE PATTERNS in women - not therapeutic"},
+    {"id": "2ee00e84-47a5-40d5-b141-430de6ed0ad4", "title": "Autosomal Linkage Scan for Cannabis Use Disorders", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD GENETICS - cannabis use disorder genetics, not therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "2e1d14d8-779b-4623-a34e-cd640774673a",
+      "2e37f91a-12ce-44de-b6b6-7716035a4140",
+      "2ea5a1da-c33e-4c29-8d8d-aaea3af8207d",
+      "2eb63807-159a-4dd6-9602-c97315a09db9",
+      "2eb91eac-7a62-44d8-a4f9-58b67a54225b",
+      "2edcff77-74b6-4649-ac7c-f9e8ea9208f2",
+      "2ee00e84-47a5-40d5-b141-430de6ed0ad4"
+    ]
+  }
+}

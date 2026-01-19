@@ -1,0 +1,43 @@
+{
+  "batch_number": 257,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T06:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "1b8356b7-7a78-47ee-95a1-9710b8069845", "title": "Evaluation of nicotinic receptor subtypes and cannabinoid system in nicotine effects", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid system mechanism"},
+    {"id": "1b8f647c-9533-481b-9fa6-8bd99dd33908", "title": "Combination of cannabidiol and bacitracin against bacterial infections", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antibacterial therapeutic"},
+    {"id": "1b92e61f-2264-4ba5-b85c-472efbb41cee", "title": "Genotoxic assessment of a Cannabis sativa L. extract", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis safety research"},
+    {"id": "1ba22842-8bb9-445e-9d19-befd985643d8", "title": "Identification of a New Chemotype: Cannabigerol-Dominant Plants", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant breeding/agriculture correctly rejected"},
+    {"id": "1ba8460f-0643-42a8-ba91-b8d803637293", "title": "Sublingual and Buccal Delivery: A Historical and Scientific Prescriptive", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "1bb21684-c8d9-4f64-a414-32b52500cdb1", "title": "Ecstasy/MDMA and cannabis: interactive neuropsychobiological effects", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Drug combination effects correctly rejected"},
+    {"id": "1bbf3fbb-cbe2-4d78-aa57-468e80813e05", "title": "Does smoking cannabis affect work commitment?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm/social effects correctly rejected"},
+    {"id": "1bc73233-0447-4190-9c4c-3b8f200ba037", "title": "Probing the endocannabinoid system: Cannabidiol alters fronto-striatal connectivity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD brain mechanism"},
+    {"id": "1bd73902-bdb7-4f07-b66b-2b41d26caf3d", "title": "Occurrence of Synthetic Cannabinoids in Wastewater Treatment Plants", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wastewater/forensic correctly rejected"},
+    {"id": "1bec8f9b-cd37-4b5c-aa14-126d838b9826", "title": "Contexts of drinking and cannabis use by Whites and Hispanics in California", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "1bfb726b-e7b2-4fe0-b202-d970f1e15077", "title": "Maltreatment effects on cognitive control functional connectivity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "1bfe9e60-9564-4d1b-964f-656f8f58c462", "title": "Unravelling gender differences in cannabis cue-reactivity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use/addiction correctly rejected"},
+    {"id": "1c0074ad-a84a-471b-859d-8244c04db514", "title": "Delta-9-Tetrahydrocannabinol (disposition, excretion, psychologic effects)", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC pharmacokinetics"},
+    {"id": "1c1d301a-64d7-44b7-bd72-99109973c490", "title": "Cannabis Marketing and Problematic Cannabis Use Among Adolescents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Marketing/policy correctly rejected"},
+    {"id": "1c29a940-55b7-4c33-9f37-749fe15b3ad2", "title": "SR144528 as Inverse Agonist of CB2 Cannabinoid Receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor mechanism"},
+    {"id": "1c323260-a283-48e7-b53c-b4d070e98f39", "title": "Conversion of water-soluble CBD to THC in synthetic gastric fluid", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Drug testing/forensic correctly rejected"},
+    {"id": "1c36763d-bbbe-43ad-bbf5-64eb23bf6912", "title": "Exploring Genetic Diversity for High CBD Content in Cannabis Accessions India", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "1c50da85-6fe0-41ef-8d11-5e86aa1093b9", "title": "THC is a partial agonist of cannabinoid receptors in mouse brain", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC receptor pharmacology"},
+    {"id": "1c56a7e2-b76e-4f1e-90ef-d6c1994f9e1b", "title": "Stability of cannabidiol (CBD) in solvents and formulations", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD formulation stability"},
+    {"id": "1c613361-a1cc-4803-9fdb-104b3214f654", "title": "Cannabinoid Receptor Agonists and Antagonists", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor pharmacology review"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "1b8356b7-7a78-47ee-95a1-9710b8069845",
+      "1b8f647c-9533-481b-9fa6-8bd99dd33908",
+      "1b92e61f-2264-4ba5-b85c-472efbb41cee",
+      "1bc73233-0447-4190-9c4c-3b8f200ba037",
+      "1c0074ad-a84a-471b-859d-8244c04db514",
+      "1c29a940-55b7-4c33-9f37-749fe15b3ad2",
+      "1c50da85-6fe0-41ef-8d11-5e86aa1093b9",
+      "1c56a7e2-b76e-4f1e-90ef-d6c1994f9e1b",
+      "1c613361-a1cc-4803-9fdb-104b3214f654"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "batch_number": 311,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T19:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "566ce176-5174-4c04-8c1b-6aa7528e3aaf", "title": "Proof of Concept for High-Dose Cannabidiol Pretreatment to Antagonize Opioid Induced Persistent Apnea.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD opioid safety therapeutic"},
+    {"id": "56736bcb-706c-4b41-8dc8-b7234db65a24", "title": "Technology Barriers to Quality of Service Offered By Cyber Cafes: A Case Study of Cyber Cafes in the Nairobi CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "5686c5e0-9bca-4794-a4c6-0704fca2eee9", "title": "Trends and characteristics of cannabis-associated emergency department visits in the United States, 2006–2018", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "56962f61-06e8-43fc-8063-a4ceaa67c5a3", "title": "Effect of Lofexidine and Oral THC on Marijuana Withdrawal and Relapse", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "569fd8f5-3b63-4171-ae7b-b90962083877", "title": "Functional brain connectomes reflect acute and chronic cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis brain effects correctly rejected"},
+    {"id": "56b6b592-2c65-4638-ae12-5175d945c5e4", "title": "Cannabinoid Hyperemesis: A Case Series of 98 Patients.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm CHS correctly rejected"},
+    {"id": "56b914d2-ed0a-4842-a098-6d320721dbc1", "title": "Validation of an UHPLC/DAD method for the determination of cannabinoids in seized materials: Analysis of 213 samples sold in Belgian CBD shops", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical correctly rejected"},
+    {"id": "56d0fe73-be37-4b1d-b20b-6158d9a89779", "title": "Pengaruh Lokasi Strategis dan Kualitas Pelayanan Terhadap Loyalitas Pelanggan Melalui Kepuasan Pelanggan Pada RedDoorz near CBD Ciledug, Kota Tangerang, Provinsi Banten", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "56eb1959-2838-4497-8c11-c546c2c435f7", "title": "Antioxidant and anti-apoptotic effects of cannabidiol in model of ischemic stroke in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD stroke neuroprotection mechanism"},
+    {"id": "56fafb85-3547-4457-9cf5-4a025fc849b2", "title": "(−)-Cannabidiol antagonizes cannabinoid receptor agonists and noradrenaline in the mouse vas deferens", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD receptor pharmacology"},
+    {"id": "5707e918-febb-490e-846e-0875e22a5260", "title": "Interaction of cannabinoid receptor 2 and social environment modulates chronic alcohol consumption", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 alcohol addiction mechanism"},
+    {"id": "570bb268-d63d-4dfe-84da-31a1bc88f199", "title": "[Low Abuse Potential of Plant-Derived Highly Purified Cannabidiol: A Narrative Review].", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD abuse potential safety review"},
+    {"id": "5713f705-fd2b-44d0-a9aa-17a583ba0f06", "title": "First report of Fusarium proliferatum causing crown and stem rot, and pith necrosis, in cannabis (Cannabis sativa L., marijuana) plants", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture plant pathology correctly rejected"},
+    {"id": "57231854-1548-4dba-9ec4-27a4dc681e5b", "title": "Recruitment of cannabinoid type 1 (CB1) receptors on the effect of cannabidiol on the innate defensive responses evoked by mice threatened by Bothrops jararaca", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anxiolytic/panicolytic CB1 mechanism"},
+    {"id": "5732c19f-7af6-43aa-94d6-a036469fb8df", "title": "Time trends in US cannabis use and cannabis use disorders overall and by sociodemographic subgroups: a narrative review and new findings", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD epidemiology correctly rejected"},
+    {"id": "576b4858-5591-4fea-8a93-141b542980e0", "title": "The use of social networking sites: A risk factor for using alcohol, marijuana, and synthetic cannabinoids?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "576bd4ef-aa35-401e-97bb-94f7c3f9a8db", "title": "THC Reverses SIV-Induced Senescence in Astrocytes: Possible Compensatory Mechanism Against HIV Associated Brain Injury?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC HIV neuroprotection mechanism"},
+    {"id": "57707e35-2281-477f-982c-b43817451f5f", "title": "The Making and Implement of the Central Axis Plan of Urban Public Space in Shenzhen CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "577113a5-8fe2-4bfe-8f00-8bd18bd0847f", "title": "Extending ethical consumerism theory to semi-legal sectors: insights from recreational cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market sociology correctly rejected"},
+    {"id": "5773bef9-6d1b-418a-89c2-e0b67343b5f4", "title": "Process optimization for the extraction of Shorea robusta (Sal) seed oil using response surface methodology and its characterization: A sustainable approach to oil valorization", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "566ce176-5174-4c04-8c1b-6aa7528e3aaf",
+      "56eb1959-2838-4497-8c11-c546c2c435f7",
+      "56fafb85-3547-4457-9cf5-4a025fc849b2",
+      "5707e918-febb-490e-846e-0875e22a5260",
+      "570bb268-d63d-4dfe-84da-31a1bc88f199",
+      "57231854-1548-4dba-9ec4-27a4dc681e5b",
+      "576bd4ef-aa35-401e-97bb-94f7c3f9a8db"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "batch_number": 69,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T07:00:00.000Z",
+  "results": [
+    {"id": "4beadbbb-5139-4717-bc6e-5ff545791d19", "title": "Poster 186: Cannabidiol for Post-Operative Pain Control after Arthroscopic Rotator Cuff Repair Demonstrates No Functional Deficits at 1-Year", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD surgical pain therapeutic RCT"},
+    {"id": "4c1dbc5a-cb4b-4338-a9e9-69d92a796f71", "title": "Testing a new cannabidiol cream for vulvar pain relief: what the research shows", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD vulvar pain therapeutic"},
+    {"id": "4c28656f-4425-4529-92ec-2b40f1af7622", "title": "Cannabinoids in Multiple Sclerosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid MS therapeutic"},
+    {"id": "4c3de705-f205-435e-9307-ea911f6d44a0", "title": "The United Chemicals of Cannabis: Beneficial Effects of Cannabis Phytochemicals on the Brain and Cognition", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cognition therapeutic review"},
+    {"id": "4c4ac92d-b946-47f1-a4e6-065d168459da", "title": "Stressed-out endogenous cannabinoids relieve pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid pain mechanism"},
+    {"id": "4c4f4503-c059-4d32-b000-36d477d43186", "title": "Transient CB2 receptor activation triggers irreversible luminal differentiation via chromatin remodeling in breast cancer.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 breast cancer mechanism"},
+    {"id": "4c68fbbd-904e-4696-8aa1-61bcca605684", "title": "Cannabinoids prevent the differential long‐term effects of exposure to severe stress on hippocampal‐ and amygdala‐dependent memory and plasticity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid PTSD/stress therapeutic"},
+    {"id": "4c6b6342-ca88-4f90-8c09-08b1d20a9a97", "title": "Intraplantar β-Caryophyllene Alleviates Pain and Inflammation in STZ-Induced Diabetic Peripheral Neuropathy via CB(2) Receptor Activation.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "β-Caryophyllene diabetic neuropathy therapeutic"},
+    {"id": "4c741d7c-aa6c-49da-8d5a-f7a8d075031e", "title": "Low dose daily CBD beverage consumption for eight weeks does not improve physical and mental health measures in healthy individuals: A randomized clinical trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD health RCT (negative result)"},
+    {"id": "4c76ce3a-ab82-46c7-b7ac-96006a7a6035", "title": "CB2 and TRPV1 receptors in inflammatory state of macrophages from sickle cell anemia pediatric/young adults.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 sickle cell mechanism"},
+    {"id": "4c79d644-46d0-4810-b402-d7cd9a16738f", "title": "Cannabidiol Exposure During Rat Pregnancy Leads to Labyrinth-Specific Vascular Defects in the Placenta and Reduced Fetal Growth", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pregnancy safety research"},
+    {"id": "4c7eb597-6dab-4df2-85a5-ecafbc246e72", "title": "A Brief Background on Cannabis: From Plant to Medical Indications", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis medical indications review"},
+    {"id": "4c7f0d3b-b607-42db-a8c2-66faec15b483", "title": "Effects of chronic cannabidiol in a mouse model of naturally occurring neuroinflammation, neurodegeneration, and spontaneous seizures", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD CLN1 disease neurodegeneration therapeutic"},
+    {"id": "4c848a49-4906-47a4-9dde-19137a95da84", "title": "Genotypic Variation in Photosynthesis and Biomass Partitioning Underlies Agronomic Performance and Cannabinoid Profile in Cannabis sativa Under Drought.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - cannabis cultivation/drought stress"},
+    {"id": "4c986abd-6187-46da-8727-c71174d0e1e3", "title": "Uso de cannabidiol como agente reductor de ansiedad en caninos con Hiperapego", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - CBD for dogs (Spanish)"},
+    {"id": "4c9c4a74-b9d1-40bd-8d6e-e55818a50063", "title": "State of the Art Treatments for Cannabis Dependence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - cannabis dependence treatment"},
+    {"id": "4c9f7d60-35e1-442b-b0c1-4c472b0d151f", "title": "Integrando o uso do cannabidiol na formação médica: enfoque na ética e cuidado ao paciente", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD medical education ethics (Portuguese)"},
+    {"id": "4cb61a9f-a85e-41d7-96bf-199554fb1604", "title": "The impact of oral cannabis consumption during pregnancy on maternal spiral artery remodelling, fetal growth and offspring behaviour in mice.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pregnancy safety research"},
+    {"id": "4cc5ef30-9d6c-4fec-a83c-c93f87459453", "title": "Long-term cannabinoid therapy can ameliorate chronic sleep deprivation-induced behavioral and neuroinflammatory changes in mice.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid sleep therapeutic"},
+    {"id": "4ccc32b0-8f9c-42d2-af17-335bc726e021", "title": "Oral ingestion of CBD-rich hemp extract modulates sterile inflammation differently in male versus female rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD inflammation sex differences mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "4c848a49-4906-47a4-9dde-19137a95da84",
+      "4c986abd-6187-46da-8727-c71174d0e1e3",
+      "4c9c4a74-b9d1-40bd-8d6e-e55818a50063"
+    ]
+  }
+}

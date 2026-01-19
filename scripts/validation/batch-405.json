@@ -1,0 +1,42 @@
+{
+  "batch_number": 405,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T19:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "c0554c96-00ed-488a-8557-641a90f28114", "title": "Cannabidiol (CBD)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Title only too vague correctly rejected"},
+    {"id": "c05c21c0-2148-4297-93bf-e175c79e79cb", "title": "Effects of cannabinoid CB1 receptor antagonist rimonabant in consolidation and reconsolidation of methamphetamine reward memory in mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research"},
+    {"id": "c065cc9a-ad92-4b18-8d1d-174b5fa1a2b8", "title": "The endogenous cannabinoid system and brain development", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS brain development research"},
+    {"id": "c073ff86-936d-4e33-9536-fb316be6203e", "title": "Mode of action of cannabinoids on nociceptive nerve endings", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pain mechanism"},
+    {"id": "c0779963-d520-4874-b3fb-5477c47e46b4", "title": "Psychiatric Disorders and Cannabinoid Receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor psychiatric research"},
+    {"id": "c0986682-7f4c-41ec-8a87-1457f7622022", "title": "Semi-Quantitative On-Site Microfluidic Assay to Detect 11-Nor-9-carboxy-delta 9-Tetrahydrocannabinol (THC-COOH) in Urine", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Drug testing correctly rejected"},
+    {"id": "c0a568b5-d6fd-4373-8f4e-dccbc155c687", "title": "Antibodies to cannabinoid type 1 receptor co‐react with stomatin‐like protein 2 in mouse brain mitochondria", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Technical antibody specificity correctly rejected"},
+    {"id": "c0d46414-7c79-444d-8f13-f9a4611c0c18", "title": "Tobacco, alcohol, cannabis and other illegal drug use among young adults: The socioeconomic context", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "c0d63e7a-f023-4aa9-b2cf-84211c24dc72", "title": "Vasodilator actions of abnormal‐cannabidiol in rat isolated small mesenteric artery", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cardiovascular mechanism"},
+    {"id": "c0eb2892-b0de-4502-b93f-0a44ac202061", "title": "Therapeutic Potential of Cannabinoids in CNS Disease", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid CNS therapeutic review"},
+    {"id": "c0ee8350-0feb-4c9f-ae53-2104e308e548", "title": "Estimating Cannabis Consumption in Milligrams of THC From Self-Reported Hit Size", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use estimation correctly rejected"},
+    {"id": "c108e66b-95c0-4ab9-a3c3-572fd8c0d631", "title": "New ursane triterpenoids from Ficus pandurata and their binding affinity for human cannabinoid and opioid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor pharmacology"},
+    {"id": "c115ee9b-628c-4f7e-af3f-8a2a74ffbfca", "title": "Gender Dysphoria and Neurodevelopmental Disorders: Prevalence of ADHD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "c11ad9ab-95f2-4a28-82a8-72190782fea1", "title": "The Interactive Influence of Cannabis-Related Negative Expectancies and Coping Motives on Cannabis Use Behavior and Problems", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use patterns correctly rejected"},
+    {"id": "c13ffa76-3b02-4151-be59-31b04fbfd9de", "title": "The Structural Mode of Regional CBD Network", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "c15a753b-dbc5-4909-ac6f-eb3611fbe7f4", "title": "Evaluation of the novel multi-points surface thermometry cryoballoon in the treatment of paroxysmal atrial fibrillation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "c170d3b5-67eb-458d-bbe1-d10d9e971dc7", "title": "A community survey of adverse effects of cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm survey correctly rejected"},
+    {"id": "c171c9af-f086-44d6-9a72-4fb51135e3f9", "title": "A Phase 2 Study to Evaluate the Effects of Multiple Oral Doses of AEF0117 on the Subjective Effects of Cannabis in Subjects With CUD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment drug correctly rejected"},
+    {"id": "c172a7e9-a9d2-46c9-a962-a818f1b92191", "title": "Rapid generation of 2-arachidonoylglycerol, an endogenous cannabinoid receptor ligand, in rat brain after decapitation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - 2-AG endocannabinoid research"},
+    {"id": "c1826123-d0cc-4104-8a10-e42b1e9efe65", "title": "Unabis CBD Gummies Review - Rip-off Exposed or Legit Unabis Tropical CBD Gummy Model?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Commercial spam correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "c05c21c0-2148-4297-93bf-e175c79e79cb",
+      "c065cc9a-ad92-4b18-8d1d-174b5fa1a2b8",
+      "c073ff86-936d-4e33-9536-fb316be6203e",
+      "c0779963-d520-4874-b3fb-5477c47e46b4",
+      "c0d63e7a-f023-4aa9-b2cf-84211c24dc72",
+      "c0eb2892-b0de-4502-b93f-0a44ac202061",
+      "c108e66b-95c0-4ab9-a3c3-572fd8c0d631",
+      "c172a7e9-a9d2-46c9-a962-a818f1b92191"
+    ]
+  }
+}

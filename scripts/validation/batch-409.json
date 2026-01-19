@@ -1,0 +1,37 @@
+{
+  "batch_number": 409,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T20:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "c5a9a02a-3fb8-4f96-bfe3-3884ec66556d", "title": "Application of HaloTag technology to expression and purification of cannabinoid receptor CB2", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor research"},
+    {"id": "c5b080df-d433-48d7-82d5-26be50624679", "title": "Controlled Photoiniferter RAFT-Based Development of Linear Polymers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "c5c398b1-d219-493b-8a62-0c8ed13bd3d2", "title": "FACTORS AFFECTING MOTOR VEHICLE TRAVEL INTO NEW YORK CITY'S CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "c5c41017-2367-4a35-ad2f-4ad7262296a1", "title": "Identification of the first endolysin Cell Binding Domain (CBD) targeting Paenibacillus larvae", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Cell Binding Domain) correctly rejected"},
+    {"id": "c5dab393-cd22-4228-8679-748a093d07fb", "title": "Assessment of traffic congestion in the central areas (CBD) of South African cities", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "c5e86921-b98c-4934-8d62-52c1c8dde638", "title": "Cannabidiol Induced Manic Episode: A Case Report", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CBD adverse event correctly rejected"},
+    {"id": "c5ec1482-3d75-481b-8af4-d0a2c8e3e29c", "title": "Associations between self-reported cannabis use frequency, potency, and cannabis/health metrics", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "c5f0c060-a717-4942-af82-9478f2ac5faa", "title": "Cannabidiol inhibits the hyperphagia induced by cannabinoid-1 or serotonin-1A receptor agonists", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD appetite mechanism research"},
+    {"id": "c62656cd-48bd-4a75-b04d-0dbb57cde789", "title": "Inside the world of non-suicidal self-injury e-communities", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "c62c4c77-1e31-484a-ab00-4f7cffebf79d", "title": "A Brief Behavioral Intervention for Co-users of Marijuana (MJ) and Tobacco Among Smokers Calling State Quitlines", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD/tobacco cessation correctly rejected"},
+    {"id": "c633a7cb-1eb3-4038-89d4-53db081330e1", "title": "Kinetics of CBD, Δ9-THC Degradation and Cannabinol Formation in Cannabis Resin at Various Temperature and pH Conditions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product chemistry correctly rejected"},
+    {"id": "c644bd1e-0768-45ad-936c-13818a0516e6", "title": "Capillarity of flax/linseed (Linum usitatissimum L.) and fibre hemp (Cannabis sativa L.) straw fractions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "c6537989-950f-4939-affc-98de3c850ebb", "title": "3′-Functionalized Adamantyl Cannabinoid Receptor Probes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor pharmacology"},
+    {"id": "c65b5317-9e90-4cd4-aeb0-95a9c9c6a037", "title": "Genomic Insights at the Maternal-Fetal Interface: Preeclampsia Subtypes and Clinical Implications", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "c65f9f9a-dfc3-42b8-9d3d-98f73e8aa0ce", "title": "A Catheter-Guided Rendezvous Technique to Perform Endoscopic Retrograde Cholangiopancreatography in Patients With High-Risk Choledocholithiasis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "c69048e2-c3a3-4fca-bf16-0f201d880f11", "title": "Biosynthesis of Terpenophenolic Metabolites in Hop and Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Biosynthesis correctly rejected"},
+    {"id": "c691219c-324a-48dc-b9e7-72bc783aab48", "title": "Mendelian randomization analyses uncover causal relationships between brain structural connectome and risk of psychiatric disorders", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "c69a2095-067c-49b7-845a-d5c80b88eb6f", "title": "A systematic review of analytical methodologies capable of analysing phytocannabinoids in cosmetics", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "c6a63302-d3c9-4aee-8b1b-dc4de726cf54", "title": "Polydrug use during chemsex: single and intersecting sexual effects of commonly used drugs", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Drug use patterns correctly rejected"},
+    {"id": "c6a7e62f-881b-46a0-a414-791c949a83d8", "title": "Second-generation lysocins as therapeutics for treating Pseudomonas aeruginosa infections", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "c5a9a02a-3fb8-4f96-bfe3-3884ec66556d",
+      "c5f0c060-a717-4942-af82-9478f2ac5faa",
+      "c6537989-950f-4939-affc-98de3c850ebb"
+    ]
+  }
+}

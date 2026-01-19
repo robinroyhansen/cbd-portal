@@ -1,0 +1,37 @@
+{
+  "batch_number": 176,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T10:00:00.000Z",
+  "results": [
+    {"id": "c4b2002e-e58e-47bc-80b9-6ee5f64d92e9", "title": "CNR1 Gene (AAT)n Repeats Heroin Abuse Chinese", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor genetics addiction"},
+    {"id": "c4b7df85-c84c-4d06-bdb0-38ed436bdec7", "title": "Cannabinoids Spasticity Multiple Sclerosis Management", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis MS spasticity review"},
+    {"id": "c4dab21c-1449-4d3c-8698-d78afabd0d95", "title": "CBD Journey Parkinson's Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's therapeutic review"},
+    {"id": "c4dd0ac6-e833-4018-9c69-bfd06f0141c0", "title": "Prolonged Cannabinoid Memory Deficits LTP Hippocampus", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology mechanism"},
+    {"id": "c4e10d42-cf93-47e1-a0b1-86c791ed5f4e", "title": "CBD Breast Meat Volatile Compounds Chickens", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - chicken meat study"},
+    {"id": "c4fb697c-d92e-499f-9130-caf1b1d9721f", "title": "Cannabis Chronic Pain Not Ready Prime Time", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic viewpoint"},
+    {"id": "c4ff1bb0-e0e2-4e86-a490-2ec04018c280", "title": "CITED Proteins Cardiac Development Heart Function", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - CITED transcription factors"},
+    {"id": "c5018b34-40fb-4c25-b4b1-0956837a83ff", "title": "CBD Nanoparticles Anti-Fibrotic Heart Failure Mouse", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiac preclinical therapy"},
+    {"id": "c50be847-c189-4ac8-96c3-eac7fae24106", "title": "CBD Neuronal Precursor Genes Gingival MSCs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD regenerative neuronal medicine"},
+    {"id": "c52024de-17db-4f75-b9ab-019bc6960acd", "title": "Fenfluramine Safety Effectiveness Dravet Syndrome", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - fenfluramine drug"},
+    {"id": "c5214822-b1f4-41b8-91c1-6632d5615dc0", "title": "Therapeutic Potential CBD Most Important Achievements", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD comprehensive therapeutic review"},
+    {"id": "c5256936-c783-43ff-9cba-4a0c68f91fb9", "title": "Cannabinoid Receptors Renal Diseases Fibrosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1/CB2 kidney therapeutic mechanism"},
+    {"id": "c531d42f-093c-4a12-a7c8-e6461edb5dd1", "title": "CBD Olsalazine Cyclosporine Colitis Mouse", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD colitis combination therapy"},
+    {"id": "c536c61e-8072-4d2d-97dd-bec949f11dcc", "title": "Arachidonic Acid Markers Heart Failure Bioinformatics", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - arachidonic acid metabolism"},
+    {"id": "c5429919-943a-44ec-bd74-2d8c18592712", "title": "THC Vaped Candida albicans Growth Virulence", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC safety mechanism research"},
+    {"id": "c55eb284-7206-4ee1-95ae-e6e834ec2bdf", "title": "Ageing Neurodegeneration Endocannabinoid System", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS neurodegeneration therapeutic review"},
+    {"id": "c571b019-9178-45d8-aaf2-75949d4abb2b", "title": "OUD Chronic Pain Medical Cannabis 12 Months", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain opioid therapeutic"},
+    {"id": "c57c2fea-79c4-4662-95fa-069c424c222a", "title": "CBD THC Psychotropic Analgesic Pharmacokinetics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD-THC clinical pharmacology"},
+    {"id": "c580e6c8-fd33-4de7-96ac-b9e749e315b7", "title": "Noladin Ether CB1 Aqueous Humor Outflow Glaucoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid glaucoma therapeutic"},
+    {"id": "c5859a51-45d2-4ef9-afeb-4093e95063fb", "title": "CBD LPS Pulmonary Inflammation Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD immune mechanism safety"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "c4e10d42-cf93-47e1-a0b1-86c791ed5f4e",
+      "c4ff1bb0-e0e2-4e86-a490-2ec04018c280",
+      "c52024de-17db-4f75-b9ab-019bc6960acd",
+      "c536c61e-8072-4d2d-97dd-bec949f11dcc"
+    ]
+  }
+}

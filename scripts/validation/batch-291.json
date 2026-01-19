@@ -1,0 +1,38 @@
+{
+  "batch_number": 291,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T14:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "4202cbd4-f4d0-49c2-88bc-75bf04e62039", "title": "Novel Room Temperature Ionic Liquid for Liquid-Phase Microextraction of Cannabidiol from Natural Cosmetics", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical methods correctly rejected"},
+    {"id": "4210a83a-37e1-4de3-a54a-9948977e5952", "title": "Evaluation of the antibacterial and antioxidant potential of the endophytic fungus EFY14 from Cannabis sativa L. leaves through metabolomics and molecular docking.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant-associated organism correctly rejected"},
+    {"id": "422aecf7-74f3-47ca-81aa-bb5801191e92", "title": "Bicycle revolution : a new bicycle network for Auckland - towards an elevated cycleway development in Auckland CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "42373d7c-7a8a-4add-9de8-6375b6939824", "title": "Use of dual affinity tags for expression and purification of functional peripheral cannabinoid receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB receptor research methodology"},
+    {"id": "424c3429-2f51-4e6b-b7d9-f076cec1955f", "title": "Presumptive Neurocysticercosis with Concurrent Bacterial Infection: A Diagnostic Challenge", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "424cac94-37b9-4556-bada-4a18b4aab32b", "title": "Novel Alginate-, Cellulose- and Starch-Based Membrane Materials for the Separation of Synthetic Dyes and Metal Ions from Aqueous Solutions and Suspensions—A Review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "426057f2-cf53-49fe-be7e-8703b86008b3", "title": "Evaluation of Parking Areas in Ramadi CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "426b1b6b-d619-4ac1-a456-af83901c7b60", "title": "Cannabis use and the sperm epigenome: a budding concern?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "428b6c41-1948-4b59-abed-111d53e98122", "title": "Mice lacking the endocannabinoid-synthesizing enzyme NAPE-PLD exhibit sex-dependent dysregulations in responsiveness to oxycodone and a natural reward.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS mechanism research"},
+    {"id": "4297d5cf-eea2-4e35-a4f0-c5df69d3a12f", "title": "Spectroscopy-Based Evaluation of the Antioxidant Capacity of Hemp (Cannabis sativa)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical correctly rejected"},
+    {"id": "429b911d-7b8c-4bd8-808f-518f99939fb3", "title": "The Cannabinoid Pharmacology of Bone Healing: Developments in Fusion Medicine.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid bone therapeutic"},
+    {"id": "42ac9fce-5f39-4e94-99f0-3780cb0771c5", "title": "Adapting Singapore's innovation for Darwin CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "42b7dc6f-48ee-40fe-ad48-92bcc215d49b", "title": "Localization of cannabinoid receptor mRNA in rat brain", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism"},
+    {"id": "42c220a6-7fd7-4529-bbb2-a0583d102891", "title": "Large Balloon Dilation After a Limited Endoscopic Sphincterotomy for Large CBD Stone in Periampullary Diverticulum", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "42c3f6f6-0232-40d1-8b02-69fcefd35004", "title": "Secondary HIV Cholangiopathy as a Cause of Acute Cholangitis: A Case Report.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "42cb8489-5645-48b5-964c-74331ec77e44", "title": "Use of near-infrared spectroscopy for the classification of medicinal cannabis cultivars and the prediction of their cannabinoid and terpene contents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical methods correctly rejected"},
+    {"id": "42de11ca-0dbd-42d1-bc7e-aa91dc685092", "title": "CITES and the CBD: Tensions and Synergies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention) correctly rejected"},
+    {"id": "42e561b0-7d0b-42e6-855e-2b7f26f48ce4", "title": "The Effect of Events on Pedestrian Behavior and its Comparison with Normal Walking Behavior in CBD Area in Indian Context", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "42e8ad79-26ff-4d44-9ffa-892b5119005a", "title": "Alcohol and cannabis use as risk factors for injury – a case-crossover analysis in a Swiss hospital emergency department", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "42fafb21-5620-4f1f-a450-e8409e1042c9", "title": "Decarboxylation Study of Acidic Cannabinoids: A Novel Approach Using Ultra-High-Performance Supercritical Fluid Chromatography/Photodiode Array-Mass Spectrometry", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical/production methods correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "42373d7c-7a8a-4add-9de8-6375b6939824",
+      "428b6c41-1948-4b59-abed-111d53e98122",
+      "429b911d-7b8c-4bd8-808f-518f99939fb3",
+      "42b7dc6f-48ee-40fe-ad48-92bcc215d49b"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "batch_number": 261,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T07:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "2069e4a8-c7fd-47f2-ab51-a23f19012b6b", "title": "Multi-Modal Profiling of Immunomodulatory Effects of Recreational Marijuana in Youth with HIV", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Recreational use effects correctly rejected"},
+    {"id": "2074c5a9-a41b-41a2-82fe-4ab9265a0f2f", "title": "The legal status of cannabis and cannabidiol (CBD) under U.S. law", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Legal/regulatory correctly rejected"},
+    {"id": "20857272-4290-4d9e-acd8-c03004e685e1", "title": "Impact of Supplemental LED Light on CBD Content of Hemp", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "20861933-37bb-41f8-8a97-545985c33856", "title": "Frontal Assessment Battery detecting executive deficits in chronic cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "208db051-90b3-4a2f-83ce-491a1a2b9385", "title": "Trends in perceived harmfulness of tobacco, alcohol, and cannabis in youth", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use perceptions correctly rejected"},
+    {"id": "2091128d-2884-40f2-b9e9-b963a303bfb4", "title": "SR 141716A, a cannabinoid receptor antagonist, produces hyperalgesia in mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor pain mechanism"},
+    {"id": "209e5ddc-84f1-4e38-a289-fb683330caeb", "title": "Eicosanoid mediation of cannabinoid actions", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism"},
+    {"id": "209fa07f-109a-4760-8487-722b780c7454", "title": "High-CBD cannabis extracts inhibit proinflammatory factors via miRNA in intestinal cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anti-inflammatory mechanism"},
+    {"id": "20a719f5-d5bb-4b69-ad65-28cc09c2fc83", "title": "Autosomal linkage analysis for cannabis use behaviors in Australian adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Genetics of use correctly rejected"},
+    {"id": "20acc957-7301-4619-a263-f2d7cc0b3067", "title": "Significance of endocannabinoid receptors in the lower urinary and genital tract", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS urinary/genital function"},
+    {"id": "20c2299c-879a-41b5-88d1-05b57091545c", "title": "Educating Patients on Cannabidiol (CBD)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Educational materials correctly rejected"},
+    {"id": "20d1fbf5-d784-4b9f-88d4-be94713c0495", "title": "Cannabinoids in Cannabis sativa: Method validation LC-MS/MS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical method correctly rejected"},
+    {"id": "20dd50a8-334e-434d-9499-ebfaecb805b0", "title": "The abuse potential of the synthetic cannabinoid nabilone", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Abuse assessment correctly rejected"},
+    {"id": "20ec7864-bf3f-49aa-b793-b123b5c29bf6", "title": "New species of fungi associated with hemp", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant pathology correctly rejected"},
+    {"id": "20fcade1-6250-4325-926b-6a5a25ba9190", "title": "Sustained Release Systems for Antimycotics: Oral Candidiasis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "210350e8-a7b7-4f82-af62-1d6d1a6a917e", "title": "Anandamide Interacts Specifically with Cannabinoid Receptors and Inhibits Adenylate Cyclase", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - foundational ECS mechanism"},
+    {"id": "211fdee6-dd4e-4726-bc37-cdb910824887", "title": "Cannabis produces acute hyperphagia via increased reward valuation for food", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid appetite mechanism"},
+    {"id": "21236dc8-3759-46b2-8f52-33036de488ae", "title": "Disentangling the lasting effects of adolescent cannabinoid exposure", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis developmental harm correctly rejected"},
+    {"id": "213694a6-5b10-4a27-935b-9c3893de3f98", "title": "Medical Cannabis Library: curated database for cannabis therapeutic research", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Database/informatics correctly rejected"},
+    {"id": "213765e7-6ccb-4141-a299-6201ebd92e1e", "title": "Cannabinoids suppress synaptic input to dorsal motor nucleus of vagus nerve", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid vagal mechanism antiemetic"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "2091128d-2884-40f2-b9e9-b963a303bfb4",
+      "209e5ddc-84f1-4e38-a289-fb683330caeb",
+      "209fa07f-109a-4760-8487-722b780c7454",
+      "20acc957-7301-4619-a263-f2d7cc0b3067",
+      "210350e8-a7b7-4f82-af62-1d6d1a6a917e",
+      "211fdee6-dd4e-4726-bc37-cdb910824887",
+      "213765e7-6ccb-4141-a299-6201ebd92e1e"
+    ]
+  }
+}

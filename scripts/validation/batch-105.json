@@ -1,0 +1,36 @@
+{
+  "batch_number": 105,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T16:00:00.000Z",
+  "results": [
+    {"id": "7575aa76-c5e2-4df2-ac73-9628c3a2fd8f", "title": "Synthetic cannabinoid agonists psychosis systematic review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - synthetic cannabinoid psychosis"},
+    {"id": "7585f86e-9ce2-47f0-bf95-706dacaaf1c3", "title": "Metabolic Profile Cannabis Users Biomarkers", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis user metabolomics"},
+    {"id": "7592d5fe-3b0b-4ecd-a814-e8c145414a1e", "title": "CB receptors hepatic fibrosis bile duct ligation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid liver mechanism"},
+    {"id": "7593016a-793d-4b36-a60a-72d3c283ee37", "title": "CBD Colorectal Cancer CB2 independent mutations", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer mechanism"},
+    {"id": "759a8257-797c-44d7-8088-5ba7b43a6fb9", "title": "PEA Stress Craving Pain OUD endocannabinoid", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid OUD therapeutic RCT"},
+    {"id": "75b39f79-3669-482d-9935-b46adadfc76d", "title": "Full-Spectrum CBD depressive behavior inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antidepressant mechanism"},
+    {"id": "75f5374a-d58c-4d07-899f-d892a75a178e", "title": "CBD Isolate Novel Food Safety Assessment FSA RP194", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety regulatory assessment"},
+    {"id": "760a74db-2dab-4d75-abe1-f8ede3648401", "title": "Cannabis Older Adults Risks Benefits Aging", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis aging therapeutic study"},
+    {"id": "761c4bc1-89c5-42f7-a033-ddbe2e8808d4", "title": "CBD sodium nitroprusside ketamine schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia therapeutic"},
+    {"id": "763c07e2-f4bc-4d3c-97d7-8821266e13cd", "title": "CBD Endurance Exercise dose-ranging RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD sports medicine RCT"},
+    {"id": "763f7e46-8a43-45bf-8f9c-680b80fdce60", "title": "CBD Epileptic Encephalopathy EEG Functional Connectivity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy EEG mechanism"},
+    {"id": "76514199-a52d-4041-8287-2fd1ca694c43", "title": "CBD Isolate Novel Food Safety Assessment FSA RP225", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety regulatory assessment"},
+    {"id": "765d46d6-8c2a-4713-b212-4be6e85a568c", "title": "Topical CBD aphthous ulcers RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD oral health therapeutic RCT"},
+    {"id": "767a341b-c07a-4e24-8a5a-28bfde7d4ac1", "title": "Plant Therapies Neuroinflammation PD AD Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neurological review"},
+    {"id": "7687210f-b6f8-4e0e-9c3e-2d8540ebf1dc", "title": "Age-Related THC Effects Cognitive Cardiovascular", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC pharmacodynamics aging"},
+    {"id": "76882cdb-1298-4e30-a146-c0be828a7d6f", "title": "Endocannabinoid System Eye Diseases therapeutic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid ophthalmic review"},
+    {"id": "7690ca9e-de07-48f8-8669-fa4020aa481b", "title": "CBD Pharmacokinetics Epilepsy Drug Monitoring Interactions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy pharmacology"},
+    {"id": "76999f0a-f00c-423a-88c2-437a09a115f8", "title": "Cannabinoid hyperemesis syndrome clinician guide", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - CHS clinical guide"},
+    {"id": "7699de6e-5252-4dc9-a8f4-2f96617c28f5", "title": "CBD Neuroimaging AUD alcohol use disorder mechanisms", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction therapeutic neuroimaging"},
+    {"id": "769c78ce-3942-4cb8-b083-444815d7612d", "title": "CBD Anxiety Research Systematic Review dosing", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety systematic review"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "7575aa76-c5e2-4df2-ac73-9628c3a2fd8f",
+      "7585f86e-9ce2-47f0-bf95-706dacaaf1c3",
+      "76999f0a-f00c-423a-88c2-437a09a115f8"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "batch_number": 38,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T23:15:00.000Z",
+  "results": [
+    {"id": "2c207374-96df-494c-bed4-4a62b40d558a", "title": "Cannabinoid Use Among Italian Elite Athletes", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabinoid USE prevalence - not therapeutic"},
+    {"id": "2c242d74-353c-473c-bd9f-8638498f96db", "title": "Prostate Cancer Patients Response to Pharmaceutical CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for prostate cancer"},
+    {"id": "2c443b6c-87d4-4dd3-9de7-8a22d5e8eb33", "title": "CBD reduces fibrosis in pulmonary hypertension", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for pulmonary hypertension"},
+    {"id": "2c52c612-a389-4b0a-950a-5e5dbc6d94da", "title": "Uncommon Diagnosis in Suspected Cbd Stricture", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD! = Common Bile Duct stricture"},
+    {"id": "2c596aba-8c40-4f16-a542-1384fef35eb0", "title": "Cannabis Withdrawal - DSM-5 Diagnostic Category", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis WITHDRAWAL diagnosis - not therapeutic"},
+    {"id": "2c61d95e-da3c-47e4-9551-bc0d20fe8082", "title": "Familial Liability for Psychosis Sensitivity to Cannabis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis as PSYCHOSIS RISK factor - not therapeutic"},
+    {"id": "2c681179-b14c-4466-b19a-3bd96197e0b3", "title": "Cannabinoids for subjective sleep quality meta-analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids for sleep review"},
+    {"id": "2c6bbae8-b43e-4368-bfb2-bf5184790a0d", "title": "Buprenorphine CBD co-administration survival trauma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interaction safety"},
+    {"id": "2c902324-2e12-49a5-95af-60eac024e3c4", "title": "CBD cardioprotective doxorubicin toxicity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for chemo cardiotoxicity"},
+    {"id": "2c9393ba-66e3-4590-a998-06ad4c767c2a", "title": "Impulsivity and Alcohol Cannabis Co-Use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE patterns - not therapeutic"},
+    {"id": "2ca6cda1-fcd9-4b13-a8d3-47c4414e836c", "title": "CBD engages opioid system for analgesia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain mechanism"},
+    {"id": "2cac339f-4f4e-44a7-b16b-ff8ca47e15f7", "title": "THC for Fear Extinction in PTSD R61 Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC for PTSD trial"},
+    {"id": "2caf9db3-93a0-4aec-af81-42852dc73bc4", "title": "Treatment of Tourette Syndrome with Cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids for Tourette's"},
+    {"id": "2cba375a-051b-4c9f-ba20-795ef9d3efe2", "title": "On-street termini operations Nairobi CBD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD! = Central Business District (Nairobi)"},
+    {"id": "2cc52cec-ec4e-4390-a209-7500fd3962f1", "title": "Cannabis anti-inflammatory HaCaT cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis anti-inflammatory"},
+    {"id": "2cd7500d-8721-4cbc-83c7-61529933de1c", "title": "CB1 absence protects beta cells HF/HS diet", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 diabetes mechanism"},
+    {"id": "2cd80739-7759-424c-98fb-7b7f868a63e5", "title": "Nanoparticle Drones Cannabinoids Lung Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer nanotechnology"},
+    {"id": "2ce31822-9a5d-49f3-bd6c-838d9599d23a", "title": "Full-spectrum CBD for Anxiety Phase 2 trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety trial"},
+    {"id": "2ce98a4d-2054-4036-b939-a16f33c10e97", "title": "Cannabis use disorder and CVD risk in women", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD as CVD RISK factor - not therapeutic"},
+    {"id": "2cec2960-b43c-4311-b124-f987292a8b47", "title": "Survey Synthetic Cannabinoid Consumption Users", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Synthetic cannabinoid ABUSE survey - not therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "2c207374-96df-494c-bed4-4a62b40d558a",
+      "2c52c612-a389-4b0a-950a-5e5dbc6d94da",
+      "2c596aba-8c40-4f16-a542-1384fef35eb0",
+      "2c61d95e-da3c-47e4-9551-bc0d20fe8082",
+      "2c9393ba-66e3-4590-a998-06ad4c767c2a",
+      "2cba375a-051b-4c9f-ba20-795ef9d3efe2",
+      "2ce98a4d-2054-4036-b939-a16f33c10e97",
+      "2cec2960-b43c-4311-b124-f987292a8b47"
+    ]
+  }
+}

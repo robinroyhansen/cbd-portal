@@ -1,0 +1,40 @@
+{
+  "batch_number": 294,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T15:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "4519bf1f-d436-43c5-a7f2-7c62cf328154", "title": "Feeding treats containing cannabidiol (CBD) did not alter canine immune response to immunization with a novel antigen", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "4523f6a5-894c-4678-b2c7-662f458a1510", "title": "Rapid and robust quantification of ten cannabinoids in cannabis oils using FT-NIR spectroscopy coupled with PLS-R models", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical correctly rejected"},
+    {"id": "454b8909-217c-4d92-8e85-6a96d4af252e", "title": "Cannabis Involvement and Nonsuicidal Self-Injury: A Discordant Twin Approach", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "4561042c-97bd-4b0b-9eb7-6321f4d2972f", "title": "BioVectra ramps up cannabidiol output", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industry news correctly rejected"},
+    {"id": "4571f71b-d01a-4887-9081-ddb79d38ffb3", "title": "Validation of a two-dimensional gas chromatography mass spectrometry method for the simultaneous quantification of cannabidiol, Δ9-tetrahydrocannabinol (THC), 11-hydroxy-THC, and 11-nor-9-carboxy-THC in plasma", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical correctly rejected"},
+    {"id": "457519a7-0c13-44f0-ac80-3c7033dbfc59", "title": "Research on FTO/CBD-CdS: Cl thin film photodetector with a vertical structure", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "4575aa5d-d809-4671-82b7-d078f6915fac", "title": "Effects of Cannabidiol (CBD) on Regional Cerebral Blood Flow", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD brain mechanism"},
+    {"id": "4578e1b1-c264-4a10-bb6c-76980f71e225", "title": "Simultaneous Quantification of Cocaine, Amphetamines, Opiates and Cannabinoids in Vitreous Humor", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "458bbbe7-8fbf-45fb-8234-964788fcb372", "title": "Effects of Cannabis and the Cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid effects review"},
+    {"id": "45a15cf9-73b5-483e-82e0-373573b24949", "title": "Structural Requirements for Binding of Anandamide-Type Compounds to the Brain Cannabinoid Receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor binding mechanism"},
+    {"id": "45aaf8f7-1802-4324-9d58-7566f25f4b03", "title": "A Cannabis Reader: Global Issues and Local Experiences, Perspectives on Cannabis Controversies, Treatment and Regulation in Europe", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/regulation correctly rejected"},
+    {"id": "45affc39-ef5b-4302-a3a7-e5579d30b0a8", "title": "Hospital Formula Supplementation Postbreastfeeding Initiation, Neighborhood Economy, and Race", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "45b0de41-0db0-47a0-b339-bc35934260ec", "title": "Cannabis and cannabis-based medicines: potential benefits and risks to health", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis therapeutic review"},
+    {"id": "45b599b0-ea82-494c-8405-cb124550cc33", "title": "Modulation of transmitter release via presynaptic cannabinoid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neurotransmitter mechanism"},
+    {"id": "45bd310d-0947-4887-b3ad-3536e580225f", "title": "Re-understanding CBD: a landscape perspective", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "45d230d4-7981-4828-9c2e-aa853a2c5ebf", "title": "Mo1475 Extraction Balloon Is Superior to Wire Basket Technique in the Management of CBD Stones Less Than or Equal to 10mm- Preliminary Results of a Prospective, Randomised Trial", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "45d8b538-c900-4733-a35e-06dfcd0f5423", "title": "Debulking influenza and herpes simplex virus strains by a wide-spectrum anti-viral protein formulated in clinical grade chewing gum", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "45e28bd7-d5f9-44e2-b7e7-634c1c5241b3", "title": "Barriers to accessing prescribed medical cannabis: qualitative insights from people using non-prescribed cannabis for medicinal purposes in the Netherlands.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis access research"},
+    {"id": "45ef1a5d-bfe0-459a-b50e-7c4e6ff651f2", "title": "Insights into Thai and Foreign Hemp Seed Oil and Extracts' GC/MS Data Re-Analysis Through Learning Algorithms and Anti-Aging Properties", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Phytochemistry correctly rejected"},
+    {"id": "45f3bbdb-28de-42d7-a3f6-7532b59c0665", "title": "Ultrasound-Assisted Extraction of Cannabidiol from Moroccan Cannabis sativa L. (Beldia) and Antioxidant Activity of Its Fractions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "4575aa5d-d809-4671-82b7-d078f6915fac",
+      "458bbbe7-8fbf-45fb-8234-964788fcb372",
+      "45a15cf9-73b5-483e-82e0-373573b24949",
+      "45b0de41-0db0-47a0-b339-bc35934260ec",
+      "45b599b0-ea82-494c-8405-cb124550cc33",
+      "45e28bd7-d5f9-44e2-b7e7-634c1c5241b3"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "batch_number": 97,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T14:00:00.000Z",
+  "results": [
+    {"id": "6cb2d97d-4fee-4ba3-80a4-293b8f8f2097", "title": "HU-331 cannabinoid topoisomerase II cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD-derived anticancer compound"},
+    {"id": "6cbac232-30d3-438e-b91f-3354d5984296", "title": "THC CBD memory ERP study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cognitive research"},
+    {"id": "6cbea1a5-704a-4673-8e6b-8d45e2c9dfc7", "title": "When patient asks about cannabidiol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD clinical guidance"},
+    {"id": "6cd8b360-e79c-48ae-95c1-b96bf371cee2", "title": "Cannabinoids mood anxiety PTSD systematic review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid psychiatric review"},
+    {"id": "6cd917c0-eedc-4690-af9e-caad0b6354e9", "title": "Nabiximols opioid-refractory cancer pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD cancer pain"},
+    {"id": "6cef3344-997d-484e-9963-ec146e59183d", "title": "Structural studies cannabinoids NMR", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid chemistry"},
+    {"id": "6cfbf8e7-febe-4c1b-b7bb-777f51229904", "title": "Synthetic cannabinoid metabolites APICA ADB-PINACA", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "FORENSIC DETECTION - synthetic drug abuse metabolites"},
+    {"id": "6d00ee16-9497-4cc7-a4e9-1bd35abeee8e", "title": "ECS cannabinoids diabetes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid diabetes therapeutic"},
+    {"id": "6d0d9d5f-ae71-42cb-a6bd-87331e0d0ac0", "title": "CBD prednisolone canine atopic dermatitis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dog case report"},
+    {"id": "6d172939-baee-4a33-9c83-0e125af44f88", "title": "CBD healthy volunteers epileptic patients chronic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Classic CBD epilepsy trial"},
+    {"id": "6d1d58ad-d148-40b1-b512-cd11134faffd", "title": "CB2R ligands neurodegenerative disorders SAR", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 neurodegeneration therapeutic"},
+    {"id": "6d1e6378-15d1-48d0-bf42-62df7361936e", "title": "Cannabinoid excretion half-life", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacokinetics"},
+    {"id": "6d2f89ac-3925-487d-b2aa-dcb2081345d7", "title": "CBD antioxidant antidiabetic computational", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD mechanism research"},
+    {"id": "6d3f633f-bd31-4164-9c74-53ccd5d78ccd", "title": "Cannabis use disorder veterans comorbidity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE/CUD - veterans epidemiology"},
+    {"id": "6d4035ec-6f11-43e0-b1e5-17b01969aeb4", "title": "CBD opioid use disorder neuroimaging", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction neuroimaging therapeutic"},
+    {"id": "6d49b7b3-0f63-4c8d-9c69-58a637763135", "title": "CBD MAPK colorectal cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer mechanism"},
+    {"id": "6d7277cb-64fd-4312-a2df-08ea802b14b5", "title": "Cannabis dependence Swiss adolescents", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE/CUD - adolescent dependence"},
+    {"id": "6d83b430-bc49-41e8-b259-924fb1b9c722", "title": "CBD vascular dementia RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD dementia therapeutic RCT"},
+    {"id": "6d8dc4b5-767c-4390-afda-3d5af96347bb", "title": "Cannabis phytochemicals Alzheimer's in silico", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid AD computational"},
+    {"id": "6daa2d22-0289-4086-9f75-2c0d1ea10c6d", "title": "Cannabis aging cognition research needs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Therapeutic/safety research needs"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "6cfbf8e7-febe-4c1b-b7bb-777f51229904",
+      "6d0d9d5f-ae71-42cb-a6bd-87331e0d0ac0",
+      "6d3f633f-bd31-4164-9c74-53ccd5d78ccd",
+      "6d7277cb-64fd-4312-a2df-08ea802b14b5"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "batch_number": 217,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T20:15:00.000Z",
+  "results": [
+    {"id": "f06b1adf-05f5-4772-bf8b-658280b6eca1", "title": "Schizophrenia.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - generic topic title"},
+    {"id": "f070c4a4-0e5b-4f63-9566-42257b94592f", "title": "Cannabis Tourette Children Case", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis Tourette syndrome therapeutic"},
+    {"id": "f07efbd0-ded5-41d5-b79a-fcf700707523", "title": "CBD Psychological Cognitive Cannabis Users", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cognitive psychiatric therapeutic trial"},
+    {"id": "f085210f-876f-497c-93d2-ff08932ff2d2", "title": "CBD Depression Mouse Models", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiolytic antidepressant mechanism"},
+    {"id": "f08a4f02-ead3-47d7-b9db-3eab86eb108e", "title": "Cannabinoids Topical Transdermal Skin", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid dermatology therapeutic review"},
+    {"id": "f092f1cb-437c-4949-98f4-85489e8eab4f", "title": "Medical Cannabis Palliative Cancer Australia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer palliative therapeutic"},
+    {"id": "f0bd2a05-100d-4dcf-8a28-057ecdb2d216", "title": "Marijuana Motives Measure Validation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - assessment tool validation"},
+    {"id": "f0c0c491-9104-4d3b-bfd0-fd84245a448d", "title": "CBD Knee Arthroplasty RCT Epidiolex", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD opioid-sparing pain therapeutic RCT"},
+    {"id": "f0ca32d5-522a-4da2-affd-b3bbe9361a02", "title": "Treatment Marijuana Dependence IATP", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - behavioral intervention"},
+    {"id": "f0d2305e-8cd0-4dad-85a5-0987f1cf0631", "title": "CBD Neuroprotection Neuroinflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection therapeutic"},
+    {"id": "f0d4f502-7952-429e-929f-c25b97ac9f02", "title": "Endocannabinoid Pain Relief Lifestyle", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid pain mechanism RCT"},
+    {"id": "f0e2d82d-a3dd-4ac5-b433-965b5da47cb5", "title": "Anxiety Cannabis Problems Race", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use problems patterns"},
+    {"id": "f0e5524d-b8ef-4c95-8781-c48146abe4ed", "title": "CBD Ovariectomized Mice Corrigendum", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD metabolism therapeutic corrigendum"},
+    {"id": "f0e5b51c-141e-48a1-b1a7-65cb1996b71b", "title": "CBD Obesity Metabolic Syndrome Binge", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD metabolic therapeutic review"},
+    {"id": "f0e62234-24fb-4024-8529-14991b7418d0", "title": "ACOG Cannabis Pregnancy Lactation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - pregnancy risk guideline"},
+    {"id": "f0f12601-da73-4373-8386-42769dd199bc", "title": "CBD PEA Dermatitis Anti-inflammatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/PEA dermatitis therapeutic"},
+    {"id": "f0f7534c-0c4b-442e-81a3-8a161a072a25", "title": "CBD Hepatotoxicity Meta-analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD hepatotoxicity safety research"},
+    {"id": "f1079d05-4c58-4559-8557-bf6e32095de1", "title": "Cannabinoids Adenosine Guinea-pig Ileum", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism pharmacology"},
+    {"id": "f10d8398-9958-44cb-8f48-1f75799aaf92", "title": "PEA FAAH Bipolar Depression RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "PEA endocannabinoid therapeutic RCT"},
+    {"id": "f10ea11a-c27f-47d7-909d-aaedd5ca43bc", "title": "CBD Dopamine Schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia therapeutic mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "f06b1adf-05f5-4772-bf8b-658280b6eca1",
+      "f0bd2a05-100d-4dcf-8a28-057ecdb2d216",
+      "f0ca32d5-522a-4da2-affd-b3bbe9361a02",
+      "f0e2d82d-a3dd-4ac5-b433-965b5da47cb5",
+      "f0e62234-24fb-4024-8529-14991b7418d0"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "batch_number": 349,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T05:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "827f0ec5-479c-4358-a7e0-ea4ccdb51f69", "title": "Psoas Abscess Secondary to Migrated Biliary Stent", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "82978e83-6019-4e90-8441-94b1f59c8596", "title": "The urban regeneration of declining CBD periphery zones", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "82981684-4582-457d-bd2e-bf4d1a38727a", "title": "Automated microextraction of cannabinoids from human urine", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "82a8fd01-3d61-476a-a07c-44d7524e690c", "title": "Enriching CBD in hemp extracts: Wax removal", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction correctly rejected"},
+    {"id": "82cc3d44-1392-460e-a8c0-6e053eb11fe4", "title": "Cannabinoids in Integumentary Wound Care: A Systematic Review", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid wound care therapeutic review"},
+    {"id": "82ce5113-2b54-4c04-b2ea-b1848e726752", "title": "Cannabinoid Receptor Activation Differentially Regulates Adenylyl Cyclase Isozymes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB receptor mechanism research"},
+    {"id": "82e9c915-8447-46b1-a392-c1d7574f8ca1", "title": "The Conversion and Transfer of Cannabinoids from Cannabis to Smoke Stream", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product testing correctly rejected"},
+    {"id": "82f938d5-1b95-4cdf-876d-c9d8e37b707e", "title": "Correction: Polycaprolactone microparticles for CBD subcutaneous administration", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery formulation"},
+    {"id": "82f9c574-eaf8-44c8-a41e-1d8aaf78e429", "title": "The framework of REDD+ through the lens of CBD Natural Ecosystem Values", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "8309288b-b086-4d71-b088-876b084790ab", "title": "Acute and Subchronic Exposure to Hemp Leaf Oil: Impacts on Vital Organs", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - hemp/CBD safety study"},
+    {"id": "830d18e4-e897-450e-9fdc-c1a5a9f30310", "title": "75 years of forensic profiling: A critical review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "830ed96f-74f4-4b86-b055-f94cdc38e83e", "title": "HPLC method for cannabidiol quantification in CBD food supplements", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "8336d0f7-49f2-4285-9b1f-849a517b655c", "title": "Omega ratios and response to adolescent THC exposure in rats", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "8363f7de-9560-42dd-a8bc-8d2f5376d885", "title": "Longitudinal study of hippocampal volumes in heavy cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "836bfc7c-3ba3-4921-9ef7-1f96498daa72", "title": "JB Hi-Fi launches small-format store in Melbourne CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "83903d2e-29db-460d-ba7b-404461c6a982", "title": "FAAH and MAGL Inhibitors Produce Anti-Allodynic Effects via Cannabinoid Receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS pain therapeutic mechanism"},
+    {"id": "83bdd12f-a421-4223-9451-71ff592b84b2", "title": "Clinical outcomes after laparoscopic left hemihepatectomy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "83ccd9b2-84f1-4178-9dee-06d1e06f0a6c", "title": "Effect of nicotine on bronchial cells amplified with CBD co-administration", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm/toxicity study correctly rejected"},
+    {"id": "83cdb817-c51b-433f-82ff-95712150b825", "title": "The effects of cannabis and cannabinoids on the endocrine system", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid endocrine mechanism"},
+    {"id": "83dbc5af-6edd-456f-8751-e826ce127874", "title": "Cannabis Use and Its Impact on Mental Health in Youth", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "82cc3d44-1392-460e-a8c0-6e053eb11fe4",
+      "82ce5113-2b54-4c04-b2ea-b1848e726752",
+      "82f938d5-1b95-4cdf-876d-c9d8e37b707e",
+      "8309288b-b086-4d71-b088-876b084790ab",
+      "83903d2e-29db-460d-ba7b-404461c6a982",
+      "83cdb817-c51b-433f-82ff-95712150b825"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "batch_number": 297,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T16:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "478ff33f-d797-44d6-8036-9659f0d036c5", "title": "Design and Semisynthesis of Aminocannabinoids as Neurological Magic Shotguns.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid drug design therapeutic"},
+    {"id": "47b04d2e-1e8c-43e8-9fc6-63d721ba19fb", "title": "Cannabis sativa: Much more beyond Δ9-tetrahydrocannabinol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid review beyond THC"},
+    {"id": "47b8d576-4289-4906-84d2-63d16b015aeb", "title": "Reichweite des Verhandlungsauftrags: Verhältnis von Artikel 27 BSP zu Artikel 14 (2) CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention) correctly rejected"},
+    {"id": "47ca3b67-b8fd-4030-bbd4-f5da4a1eb896", "title": "Evidence for a cannabinoid receptor in sea urchin sperm and its role in blockade of the acrosome reaction", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research"},
+    {"id": "47d3603b-95c0-437d-8cdc-702ecb57ac95", "title": "Stability characteristics of cannabidiol for the design of pharmacological, biochemical and pharmaceutical studies", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmaceutical stability"},
+    {"id": "47d6514d-f97c-4ea6-9932-b02309d33461", "title": "A vapourized Δ9-tetrahydrocannabinol (Δ9-THC) delivery system part I: Development and validation of a pulmonary cannabinoid route of exposure for experimental pharmacology studies in rodents", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC drug delivery pharmacology"},
+    {"id": "47e46137-2b4b-4a47-8c04-fde511f12f47", "title": "Nematicidal activities of Cannabis sativa L. and Zanthoxylum alatum Roxb. against Meloidogyne incognita", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture pest control correctly rejected"},
+    {"id": "47f60859-795c-4fac-b8bf-5ddaa1d0323d", "title": "Economic feasibility and risk analysis of industrial hemp production: a comparative assessment of floral, fiber, and grain enterprises in North Carolina, USA", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agricultural economics correctly rejected"},
+    {"id": "47f7237b-1423-4f8c-bf1f-9aa6002b3d84", "title": "Sex-dependent effects of cannabis-induced analgesia", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis analgesia research"},
+    {"id": "4812c660-7d72-4765-b96d-8c9fbd44decc", "title": "Catestatin ameliorates tauopathy and amyloidogenesis via adrenergic inhibition", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "482f4ca9-24d0-4937-8987-c1940ed541cc", "title": "Correlation between the Solution Chemistry to Observed Properties of CdTe Thin Films Prepared by CBD Method", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "4836cc93-9d04-4829-8ad2-9d28fc59008a", "title": "Cannabinoid receptor activation modifies NMDA receptor mediated release of intracellular calcium: Implications for endocannabinoid control of hippocampal neural plasticity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid/NMDA mechanism research"},
+    {"id": "4840c1c1-f395-41c3-97ab-d50cd5e012ff", "title": "An optimized approach to study endocannabinoid signaling: evidence against constitutive activity of rat brain adenosine A1 and cannabinoid CB1 receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS/CB1 receptor signaling research"},
+    {"id": "4856f96f-4857-405b-b95e-e67e7394d612", "title": "The effects of leptin in combination with a cannabinoid receptor 1 antagonist, AM 251, or cannabidiol on food intake and body weight in rats fed a high-fat or a free-choice high sugar diet.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/CB1 obesity therapeutic"},
+    {"id": "486b8bd7-2e05-491f-b5bc-ff026c967a7a", "title": "Interactions between Δ9-tetrahydrocannabinol and cannabidiol as evaluated by drug discrimination procedures in rats and pigeons", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC/CBD interaction pharmacology"},
+    {"id": "487049e4-2043-48fb-b891-9c0caff78b70", "title": "Pharmacological evaluation of dimethylheptyl analogs of Δ9-THC: reassessment of the putative three-point cannabinoid-receptor interaction", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor pharmacology"},
+    {"id": "487baee0-fb1d-4231-9f9a-78b713494b0e", "title": "The Building of a CBD-Based Domain Ontology in Chinese", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (software concept) correctly rejected"},
+    {"id": "487f2e61-13c4-450a-91d7-6808354405b1", "title": "Insights into cannabinoid receptor 2 (CB2) anterograde trafficking and pharmacological chaperoning.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor mechanism"},
+    {"id": "489876f5-3070-4484-84c7-c346cf44175d", "title": "Cannabidiol könnte eine wirksame und verträgliche Therapieoption sein", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic review (German)"},
+    {"id": "48adc9fe-82fc-418e-b8a1-e17dfb750952", "title": "The development of a cannabis risk assessment tool for patients with rheumatologic conditions: a Delphi study.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis rheumatology"}
+  ],
+  "batch_summary": {
+    "correct": 6,
+    "incorrect": 14,
+    "incorrect_ids": [
+      "478ff33f-d797-44d6-8036-9659f0d036c5",
+      "47b04d2e-1e8c-43e8-9fc6-63d721ba19fb",
+      "47ca3b67-b8fd-4030-bbd4-f5da4a1eb896",
+      "47d3603b-95c0-437d-8cdc-702ecb57ac95",
+      "47d6514d-f97c-4ea6-9932-b02309d33461",
+      "47f7237b-1423-4f8c-bf1f-9aa6002b3d84",
+      "4836cc93-9d04-4829-8ad2-9d28fc59008a",
+      "4840c1c1-f395-41c3-97ab-d50cd5e012ff",
+      "4856f96f-4857-405b-b95e-e67e7394d612",
+      "486b8bd7-2e05-491f-b5bc-ff026c967a7a",
+      "487049e4-2043-48fb-b891-9c0caff78b70",
+      "487f2e61-13c4-450a-91d7-6808354405b1",
+      "489876f5-3070-4484-84c7-c346cf44175d",
+      "48adc9fe-82fc-418e-b8a1-e17dfb750952"
+    ]
+  }
+}

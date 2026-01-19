@@ -1,0 +1,41 @@
+{
+  "batch_number": 436,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T03:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "e2329731-69fb-4839-ad17-70bd43384d8a", "title": "The gastrointestinal pharmacology of cannabinoids: an update", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - GI cannabinoid pharmacology therapeutic review"},
+    {"id": "e234f568-b8de-41c3-a154-1c11aafc4eee", "title": "Structural modifications of the cannabinoid side chain towards C3-aryl and 1′,1′-cycloalkyl-1′-cyano cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Pure chemistry correctly rejected"},
+    {"id": "e2420de4-1709-4fcd-bb4f-288959b46d94", "title": "Advanced technology for urban mutations: the case of Auckland CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "e266b388-46d4-49a9-a328-df458882a6cd", "title": "Prevalence of Cannabis Use in Electronic Cigarettes Among US Youth", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/epidemiology correctly rejected"},
+    {"id": "e26dad10-b805-4f28-b611-62537f293345", "title": "Cannabis for female orgasmic disorder/difficulty: a systematic review.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - therapeutic systematic review"},
+    {"id": "e27192fc-8d2a-463e-8aff-b64a01c37a6c", "title": "Why People Choose CBD: The Urban Density Gradient: Explaining the Rent Gradient Function", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (urban economics) correctly rejected"},
+    {"id": "e272fb78-49d3-44d3-b0af-c24bc8cb0394", "title": "Microwave-Assisted Subcritical Water Extraction of Hemp Seeds for the Simultaneous Recovery of Proteins and Phenolic Compounds.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food processing/extraction correctly rejected"},
+    {"id": "e278f7e0-f367-4499-ac0b-bfb90cdc9e9f", "title": "Emerging Synthetic Cannabinoids: Development and Validation of a Novel LC-QTOF-MS Assay for Real-Time Detection", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection methods correctly rejected"},
+    {"id": "e282d91d-4e0e-49d3-9ed9-91a3ee205847", "title": "Optimization of the solvent system used to prepare cannabis inflorescence samples for cannabidiol and Δ9-tetrahydrocannabinol quantification", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "e285a843-c1bf-4865-9bb6-852f912ea550", "title": "Enhancing cannabinoid bioavailability: a crossover study comparing a novel self-nanoemulsifying drug delivery system and a commercial oil-based formulation.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - drug delivery/bioavailability research"},
+    {"id": "e2876ef6-f00f-4a92-bcb0-06bc00894aa9", "title": "Strategies to Improve Traffic Congestion in Chongqing Guanyinqiao CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (traffic planning) correctly rejected"},
+    {"id": "e295ff70-206c-4090-8a1b-46e796d6cb27", "title": "Acid-Catalyzed Conversion of Cannabidiol to Tetrahydrocannabinols: En Route to Demystifying Manufacturing Processes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry/synthesis correctly rejected"},
+    {"id": "e2b027fa-09d3-441d-b13d-28ec2135d1e6", "title": "Modeling the genetic and environmental association between peer group deviance and cannabis use in male twins", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Epidemiology/genetics correctly rejected"},
+    {"id": "e2b07952-8479-4505-9ffd-e3d904de7587", "title": "Molecular analysis of genetic fidelity in Cannabis sativa L. plants grown from synthetic seeds", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/plant science correctly rejected"},
+    {"id": "e2b9429f-d587-4557-97b5-d04f19cd2ed9", "title": "Origin, Early Commitment, Migratory Routes, and Destination of Cannabinoid Type 1 Receptor-Containing Interneurons", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor neuroscience mechanism research"},
+    {"id": "e2d511e2-d711-4718-8927-65ae47c07176", "title": "Oral Administration of Cannabis and Δ-9-tetrahydrocannabinol (THC) Preparations: A Systematic Review", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - therapeutic pharmacokinetics review"},
+    {"id": "e2dadf26-517c-4cdc-9083-ae3aeced5606", "title": "Non-psychoactive Cannabidiol Prevents Osteoporosis in an Animal Model and Increases Cell Viability, Proliferation, and Osteogenic Gene Expression in Human Skeletal Stem and Progenitor Cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD osteoporosis therapeutic research"},
+    {"id": "e2e440a9-17df-40cf-ae55-db3bf40c6f35", "title": "The effect of a synthetic cannabinoid agonist (nabilone) on unimodal tactile illusion correlates with psychometric scores in healthy volunteers.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - nabilone mechanism research"},
+    {"id": "e2fee348-f3a1-42fb-9fb2-ff6a03ec98a9", "title": "Where to order Dolly Parton CBD Gummies ?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "e3044a97-0c27-416c-bd66-2bc41dac4523", "title": "Is Green Ape CBD Safe For Use?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "e2329731-69fb-4839-ad17-70bd43384d8a",
+      "e26dad10-b805-4f28-b611-62537f293345",
+      "e285a843-c1bf-4865-9bb6-852f912ea550",
+      "e2b9429f-d587-4557-97b5-d04f19cd2ed9",
+      "e2d511e2-d711-4718-8927-65ae47c07176",
+      "e2dadf26-517c-4cdc-9083-ae3aeced5606",
+      "e2e440a9-17df-40cf-ae55-db3bf40c6f35"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "batch_number": 242,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T02:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "0be6c739-7e75-49f1-b88e-3c18159aeac8", "title": "Hemp fibre width agronomic factors", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "0be9f4db-d322-4cc9-a945-b7c59c1e5676", "title": "CBD gastro retentive tablets absorption", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD formulation/pharmacokinetics"},
+    {"id": "0beebc7d-7a1e-48ae-85a2-5283d5ad604e", "title": "CB1 Antagonist Selonabant ANEB-001 Phase II RCT", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid clinical trial"},
+    {"id": "0bf29080-3c71-4888-9a29-47809045a1d8", "title": "Synthetic cannabinoids THC CBD CBN hair UHPLC", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic method correctly rejected"},
+    {"id": "0bf29653-300a-4906-843f-dcfba2e7cb48", "title": "62 synthetic cannabinoids GC-MS photoionization", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic method correctly rejected"},
+    {"id": "0bf38e28-0e78-41a5-ace4-ab61a030200d", "title": "High dose CBD NORSE epilepsy treatment", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy therapeutic"},
+    {"id": "0bfce36a-5b05-4686-82d7-f83a76e884b1", "title": "Cannabinoids Human Hair GC/MS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic method correctly rejected"},
+    {"id": "0c0e200f-d4c6-4637-8edc-2895389d2afc", "title": "What is a Cannabis User?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Methodological correctly rejected"},
+    {"id": "0c11c063-33eb-44ba-b50d-d48fe0bf4f10", "title": "Gestational alcohol cannabinoid exposure", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "0c181ec5-8545-4dd9-b469-9cdbf5088d0f", "title": "Globalisation cannabis cultivation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/cultivation correctly rejected"},
+    {"id": "0c1d978b-f284-4c9e-a420-e1e9d2d43945", "title": "CB1 Receptor Promiscuous Coupling Computational", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism"},
+    {"id": "0c2b2b57-a456-4d7b-bb70-005db249e8ea", "title": "Real-world CBD epileptic encephalopathies", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy therapeutic"},
+    {"id": "0c4286a7-89b7-4c2e-a63e-ad1aa82101d2", "title": "Electronic cigarettes smoking cessation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "0c5b37b3-9c7d-46bf-9565-be0938bdc64f", "title": "Oral lichenoid drug reaction CBD seed oil", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research"},
+    {"id": "0c697d45-d7db-4afa-9efb-d0d39ff242b3", "title": "GC/MS CBD CBN urine blood plasma", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic method correctly rejected"},
+    {"id": "0c6de14d-4ff2-41ef-970c-89a6033e956f", "title": "Endocannabinoids receptor ligands neuromodulatory", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid mechanism review"},
+    {"id": "0c73113e-2c70-40f8-b3b6-31e4f61d7be5", "title": "PROSPECT STUDY PSP CBD MSA Parkinsonism", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Corticobasal Degeneration) correctly rejected"},
+    {"id": "0c79e093-536f-4e7d-ae7c-8a716e3049ce", "title": "US Epidemiology Cannabis Use Problems", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevalence/harm correctly rejected"},
+    {"id": "0c7c6b68-1aa9-4911-8f81-6019a67832ec", "title": "Microwave-Assisted Industrial Cannabis Extraction", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industrial extraction correctly rejected"},
+    {"id": "0c94e0f2-08c6-44d6-b4e5-8d3eba38ca1e", "title": "Simulated Driving Cannabis Alcohol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "0be9f4db-d322-4cc9-a945-b7c59c1e5676",
+      "0beebc7d-7a1e-48ae-85a2-5283d5ad604e",
+      "0bf38e28-0e78-41a5-ace4-ab61a030200d",
+      "0c1d978b-f284-4c9e-a420-e1e9d2d43945",
+      "0c2b2b57-a456-4d7b-bb70-005db249e8ea",
+      "0c5b37b3-9c7d-46bf-9565-be0938bdc64f",
+      "0c6de14d-4ff2-41ef-970c-89a6033e956f"
+    ]
+  }
+}

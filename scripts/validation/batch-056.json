@@ -1,0 +1,37 @@
+{
+  "batch_number": 56,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T03:45:00.000Z",
+  "results": [
+    {"id": "3e9f5f5f-ad48-4cab-9bd7-0ad50a06e6b5", "title": "Characterization of Cannabinoid Modulation of Sensory Neurotransmission in the Rat Isolated Mesenteric Arterial Bed", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cardiovascular mechanism research"},
+    {"id": "3ea23446-b80b-4269-94c6-918ac787d5dd", "title": "The Use of Cannabis and Its Effects on Postpartum Depression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis postpartum depression therapeutic research"},
+    {"id": "3ea34d08-db2f-4a79-a310-4a95d083994c", "title": "Threat Responsiveness as a Function of Cannabis and Alcohol Use Disorder Severity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - CUD affects brain threat responsiveness"},
+    {"id": "3ec695d5-3622-4898-aab2-dcc9ceef6f70", "title": "The peripheral sympathetic nervous system is the major target of cannabinoids in eliciting cardiovascular depression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cardiovascular mechanism research"},
+    {"id": "3ec93d94-a6c8-4227-81f4-cb14623279e9", "title": "Cannabigerol reverses mechanical allodynia through α2A-adrenergic modulation of thalamocortical signaling in chemotherapy-induced neuropathy.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG chemotherapy neuropathy pain therapeutic"},
+    {"id": "3ed1f211-2f5a-45a6-92e0-a0747cd6ae14", "title": "Possible Enhancement of Photodynamic Therapy (PDT) Colorectal Cancer Treatment when Combined with Cannabidiol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD colorectal cancer therapeutic"},
+    {"id": "3eea98a8-007f-41fb-a952-21a168ee32e5", "title": "Suicidality and Cannabidiol: Opportunities and Challenges", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD suicidality therapeutic review"},
+    {"id": "3f016005-c913-4bfc-93eb-5cbf0ff9da8c", "title": "Defining the Safety and Efficacy of Cannabis for Chronic Pain: Novel Approaches and Reframing Objectives.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis chronic pain therapeutic research"},
+    {"id": "3f0ffd69-6400-49cc-af08-b18e13f5e474", "title": "Modulation of cytokine responses in Corynebacterium parvum-primed endotoxemic mice by centrally administered cannabinoid ligands", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid inflammation/cytokine mechanism research"},
+    {"id": "3f195a16-37e1-4a69-947e-efc0d0a50842", "title": "Cannabidiol for Fibromyalgia -The CANNFIB Trial Protocol for a Randomized, Double-blind, Placebo-controlled, Parallel-group, Single-center Trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD fibromyalgia therapeutic RCT protocol"},
+    {"id": "3f2822da-a9c6-429a-8714-bb0331cecee7", "title": "Antioxidant-Enhanced Nanoparticles Delay the Progression of Osteoarthritis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general antioxidant nanoparticles, not cannabinoid"},
+    {"id": "3f2ede26-4083-4217-b408-e02787324ed1", "title": "Translational Investigation of the Therapeutic Potential of Cannabidiol (CBD): Toward a New Age", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic review - multiple conditions"},
+    {"id": "3f3d294c-031d-4689-8b7a-0ce4d92b4adf", "title": "Cannabidiol (CBD): An Innovative Pharmacological Treatment for Obsessive Compulsive Disorder (OCD)", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD OCD therapeutic research"},
+    {"id": "3f45490c-37e9-43aa-875c-cd6b7966e3b4", "title": "Protective Effects of Cannabidiol (CBD) against Qxidative Stress, but Not Excitotoxic-Related Neuronal Cell Damage—An In Vitro Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection oxidative stress research"},
+    {"id": "3f48a0a2-0ce7-4936-a098-d77c928e11b0", "title": "High-Intensity Exercise and Hippocampal Integrity in Adults With Cannabis Use Disorder: A Randomized Clinical Trial.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - exercise therapy for CUD patients, not cannabinoid therapeutic"},
+    {"id": "3f7b9c95-8fe8-45c6-ad6d-73fda7031b0f", "title": "The Use of Cannabinoids in Colitis: A Systematic Review and Meta-Analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid colitis/IBD therapeutic review"},
+    {"id": "3f7f0bf9-1156-4657-8d9d-f2ffe7c2ce05", "title": "THERAPEUTIC USE OF CANNABINOIDS IN AMYOTROPHIC LATERAL SCLEROSIS: PHARMACOLOGICAL TARGETS AND ACCESS LIMITATIONS IN THE BRAZILIAN PUBLIC HEALTH SYSTEM", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid ALS therapeutic research"},
+    {"id": "3f81410b-40ea-4cc0-b418-3c1f837ac562", "title": "Oral Cannabidiol for Seborrheic Dermatitis in Patients With Parkinson Disease: Randomized Clinical Trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's/seborrheic dermatitis therapeutic RCT"},
+    {"id": "3f86b5d4-0dbe-4ff0-9ce1-03873184272b", "title": "Cannabidiol treatment improves metabolic profile and decreases hypothalamic inflammation caused by maternal obesity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD metabolic/anti-inflammatory therapeutic research"},
+    {"id": "3f9eef88-c55a-4563-8342-800abc0dbae0", "title": "Pharmacotherapy of Neuropathic Pain.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general neuropathic pain pharmacotherapy review"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "3ea34d08-db2f-4a79-a310-4a95d083994c",
+      "3f2822da-a9c6-429a-8714-bb0331cecee7",
+      "3f48a0a2-0ce7-4936-a098-d77c928e11b0",
+      "3f9eef88-c55a-4563-8342-800abc0dbae0"
+    ]
+  }
+}

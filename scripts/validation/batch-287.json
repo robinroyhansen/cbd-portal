@@ -1,0 +1,41 @@
+{
+  "batch_number": 287,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T13:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "3c9d73ee-13af-4bf3-a6c9-d040352f027e", "title": "The Role of Cannabis Legalization in the Opioid Crisis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "3cc8c9bf-7b38-4a13-b824-9fda0f7ae2b5", "title": "The Italian panorama of cannabis light preparation: Determination of cannabinoids by LC-UV", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical methods correctly rejected"},
+    {"id": "3cca8f81-be61-4695-8233-6e3d8ac197d9", "title": "CBD 2019 Reviewers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial content correctly rejected"},
+    {"id": "3cec7f27-c7ed-4c32-aa15-269d58200052", "title": "1000mg CBD Hemp Oil | CBD Oil Online | BURMAN'S HEALTH SHOP", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "3d0b1fbc-25e8-4fde-a8e6-c7533ec1c57a", "title": "The conversion of 3,4-cis- to 3,4-trans-cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic chemistry correctly rejected"},
+    {"id": "3d25d521-efdc-4a03-b75a-4136377d6497", "title": "Cannabis Sativa Oil Promotes Social Interaction and Ultrasonic Communication by Acting on Oxytocin Pathway", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - therapeutic mechanism for social behavior"},
+    {"id": "3d535320-6f7b-46d0-beaa-a35a84d321bf", "title": "Cannabinoid CB1 receptor antagonism reduces conditioned reinstatement of ethanol-seeking behavior in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 mechanism for addiction treatment"},
+    {"id": "3d9518d0-512b-4e49-bc7c-54c93d649086", "title": "Direct Extraction of Hemp Leaf-Derived Cannabidiol (CBD) and Encapsulation into Biopolymer Nanoparticles for Diffusion-Based Drug Release", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery formulation"},
+    {"id": "3dad3750-758f-431f-a13e-c277d7371d9f", "title": "The importance of property-specific attributes in assessing CBD office building quality", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "3db2dede-d97c-4541-b23f-0c79a5db8cd5", "title": "Maternal exposure to the CB1 cannabinoid agonist WIN 55212-2 produces robust changes in motor function and intrinsic electrophysiological properties of cerebellar Purkinje neurons in rat offspring", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prenatal harm correctly rejected"},
+    {"id": "3dc475ac-1f5c-4289-9c70-c7a3f9835722", "title": "Evaluation of iSTART: A Novel Substance Use Prevention Web-App Designed for Diverse College Students.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevention policy correctly rejected"},
+    {"id": "3dcd452c-8d5a-4201-88b6-342f922f633c", "title": "Synthesis, characterization, and temperature-dependent electronic properties of ZnO nanorods using CBD techniques", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "3dfa9fbf-15cd-40e2-a4a0-15e17b89b86b", "title": "Differently abundant proteins in response to both CBD and CBDV.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/CBDV mechanism proteomics"},
+    {"id": "3e0a7921-e1ef-4e39-b272-7e9c5e8356d9", "title": "Micelles-in-Liposome Systems Obtained by Proliposomal Approach for Cannabidiol Delivery: Structural Features and Skin Penetration", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery/skin penetration"},
+    {"id": "3e28571f-5c93-403d-81fc-bccaf6e1c2da", "title": "∆8-THC, THC-O Acetates and CBD-di-O Acetate: Emerging Synthetic Cannabinoids Found in Commercially Sold Plant Material and Gummy Edibles", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/NPS correctly rejected"},
+    {"id": "3e3f2592-a403-4477-90d3-9ddd5451268b", "title": "Developmental pathways of adolescent cannabis use: Risk factors, outcomes and sex-specific differences", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/harm correctly rejected"},
+    {"id": "3e7d0f38-4e55-420e-a690-32e1a061c20b", "title": "Release characteristics of cannabidiol isolate based on polysaccharide edible film: comparative study", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD formulation/delivery"},
+    {"id": "3e7f70e6-1492-4aa0-9425-98bd8cf69339", "title": "Phase engineering of CBD grown tin sulfide films by post-sulfurization and solar cell application", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "3e8fe77b-c6a8-442f-959c-260e7a627ddd", "title": "Cannabinoid inhibition of rat luteal cell progesterone synthesis.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid reproductive mechanism"},
+    {"id": "3eb06851-22a0-416b-85ff-9567124a9148", "title": "Extraction and analysis of cannabinoids: A decade of progress, challenges and future directions.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical methods correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "3d25d521-efdc-4a03-b75a-4136377d6497",
+      "3d535320-6f7b-46d0-beaa-a35a84d321bf",
+      "3d9518d0-512b-4e49-bc7c-54c93d649086",
+      "3dfa9fbf-15cd-40e2-a4a0-15e17b89b86b",
+      "3e0a7921-e1ef-4e39-b272-7e9c5e8356d9",
+      "3e7d0f38-4e55-420e-a690-32e1a061c20b",
+      "3e8fe77b-c6a8-442f-959c-260e7a627ddd"
+    ]
+  }
+}

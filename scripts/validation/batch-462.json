@@ -1,0 +1,41 @@
+{
+  "batch_number": 462,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T07:35:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "feea467d-6bb2-415c-875c-ed178bd71863", "title": "Cannabidiol ameliorates mitochondrial disease via PPARγ activation in preclinical models", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD mitochondrial disease therapeutic mechanism research"},
+    {"id": "fef260ae-340e-422a-b768-e12a0da56623", "title": "US Regulators Permit Kannalife Sciences to Import Cannabidiol for Feasibility Studies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Regulatory/business correctly rejected"},
+    {"id": "ff105287-b6a4-48f6-9c52-ae6848c54c75", "title": "Tempering aversive/traumatic memories with cannabinoids: a review of evidence from animal and human studies", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid PTSD/trauma therapeutic review"},
+    {"id": "ff20d682-84ab-45c7-8018-fd79f39bbb82", "title": "Oral Cannabidiol for Acute Post-Extraction Pain: A Randomized Pilot Study", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pain clinical trial"},
+    {"id": "ff49c315-8c04-437a-88df-b272833a9190", "title": "생물다양성협약(CBD), Global Biodiversity Outlook 3 발간", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "ff4a3ec1-bddd-4e6d-ba4e-3d581e4785da", "title": "Cannabis use is associated with alterations in NLRP3 inflammasome related gene expression in monocyte-derived macrophages from people living with HIV.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid inflammasome/immune mechanism research"},
+    {"id": "ff678f57-bfba-4a7e-a25c-2476ecd774ec", "title": "Cannabinoids in Blood and Urine after Passive Inhalation of Cannabis Smoke", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "ff67ca7f-920b-49f7-a782-feee42705140", "title": "Long‐term stability of cannabinoids in oral fluid after controlled cannabis administration", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "ff680615-e9a2-4790-95c6-16e415ac2ef8", "title": "Structural, Optical and Photo Catalytic Properties of CdS Thin Films Synthesized by Green-CBD Method", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "ff89de06-ebc3-4116-83e4-2be936d2b1ca", "title": "Cannabinoid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor review"},
+    {"id": "ff8b6782-c43b-40d1-b9b2-e5cd14b2fc7c", "title": "Changes in blood cannabinoid concentrations over multiple collection times in driving under the influence of drugs casework.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "ff8dc4ac-e5a0-409b-b026-19731f122181", "title": "Psychopharmacological activity of the active constituents of hashish and some related cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid psychopharmacology research"},
+    {"id": "ff984e9f-467e-4a02-96b8-6e02bb603f44", "title": "High-Performance Liquid Chromatography with DAD Detection for the Determination of Cannabinoids in Commercial Veterinary CBD Oil.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary/lab methods correctly rejected"},
+    {"id": "ffb34f7a-eefb-4bd7-96d7-4a93bc0cce0c", "title": "Agreement between Maternal Cannabis Use during Pregnancy according to Self-Report and Urinalysis in a Population-Based Cohort: The Generation R Study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Methodology correctly rejected"},
+    {"id": "ffbff9b4-d137-4535-8515-dce3908bc754", "title": "Creating jobs: $32 million tender to revitalise and cool Darwin's CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "ffc904a5-b381-4017-b31c-0c03491371a0", "title": "Rhodium-Catalyzed Asymmetric Addition to 4- or 5-Carbonyl-cycloenones through Dynamic Kinetic Resolution: Enantioselective Synthesis of (−)-Cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry correctly rejected"},
+    {"id": "ffcb0ce1-0b4b-49e5-a069-985350589804", "title": "Cannabis Use in Pregnancy: A State of the Science Review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "ffcd646d-146a-4b84-8fb1-fec8e302880b", "title": "Minimum tetrahydrocannabinol dose that produces severe symptoms in children.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "THC toxicity correctly rejected"},
+    {"id": "ffe80754-eb19-4ddf-b032-2b4f68342b1e", "title": "An updated comparison of microarray and RNA-seq for concentration response transcriptomic study: case studies with two cannabinoids, cannabichromene and cannabinol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBC/CBN transcriptomic mechanism research"},
+    {"id": "ffe86059-730d-4bfc-a2c9-bab772a40f16", "title": "Cannabis Research, Policy, and Therapeutics-An International Quasi-Experiment in Cannabis Policy- Part 1 (2026).", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "feea467d-6bb2-415c-875c-ed178bd71863",
+      "ff105287-b6a4-48f6-9c52-ae6848c54c75",
+      "ff20d682-84ab-45c7-8018-fd79f39bbb82",
+      "ff4a3ec1-bddd-4e6d-ba4e-3d581e4785da",
+      "ff89de06-ebc3-4116-83e4-2be936d2b1ca",
+      "ff8dc4ac-e5a0-409b-b026-19731f122181",
+      "ffe80754-eb19-4ddf-b032-2b4f68342b1e"
+    ]
+  }
+}

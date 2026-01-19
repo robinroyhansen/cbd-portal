@@ -1,0 +1,38 @@
+{
+  "batch_number": 123,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T20:30:00.000Z",
+  "results": [
+    {"id": "88a63095-77cf-47c0-b11e-31ef1d6f98fc", "title": "Patterns Cannabis Use IBD Population", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use patterns not therapeutic"},
+    {"id": "88b22611-2f07-495b-af9a-15d3d91cde01", "title": "Corneal Sensory Receptors Ocular Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Pharmacological pain therapies"},
+    {"id": "88badce4-f03f-48e8-a757-c717ec377896", "title": "Cannabis Expectancies Veterans Depressive", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD - cannabis dependence expectancies"},
+    {"id": "88d75078-839f-4ee4-bfd7-0c67210f3394", "title": "CB1 Blockade GLP-1R Insulin Diabetes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid diabetes mechanism"},
+    {"id": "88efc536-5e37-48d9-8ee5-7192f68eb749", "title": "CBD Seizure Drosophila Jujube", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "88f392b1-c80c-4c75-850d-23e6748e707e", "title": "Rimonabant CB1 Obesity Cardiometabolic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid obesity RCT"},
+    {"id": "8910d53a-0e17-4a45-864c-866a0995e4d6", "title": "CB1 Antagonism Liver Fibrosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid liver therapeutic"},
+    {"id": "891a7f9d-1213-4afd-85e4-aefee368464a", "title": "Cannabis Omega-3 Neuropathic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic"},
+    {"id": "892464ee-2fba-46e2-bc2e-bb628684f94a", "title": "CBD Female Sexual Hygiene Product Safety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety study"},
+    {"id": "8945d686-94ae-410f-a7d5-b90d948d31a2", "title": "CBD microRNAs Anti-Seizure", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism"},
+    {"id": "8948227b-8031-4b04-aba2-e3bb41054982", "title": "CBD PTSD RCT Protocol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PTSD therapeutic RCT"},
+    {"id": "895417b3-2855-4ddb-84c2-4e6edf04c2a8", "title": "CBD Low Back Pain Clinical Rationale", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic"},
+    {"id": "895e4123-a0be-4ffc-93d3-8ca2f93d79af", "title": "CBD Use Reasons Stress Anxiety Sleep", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic survey"},
+    {"id": "89625475-37cc-449b-9f0d-6b15ce61b5e8", "title": "CBD Persistent Inflammation Mice Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain/inflammation therapeutic"},
+    {"id": "896a5527-5a19-4c0a-9f21-460abeda813e", "title": "CBD Lennox-Gastaut OLE GWPCARE5", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy RCT long-term"},
+    {"id": "8979805d-9266-4152-8244-b2969b837032", "title": "Synthetic Cannabinoid Use High School Seniors", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - teen synthetic cannabinoid use"},
+    {"id": "8980b847-0703-4254-ab03-c62c2e14f94b", "title": "Pharmacological Interventions Acute Cannabis Effects", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD - treating cannabis intoxication"},
+    {"id": "8983d8c5-502b-4fb0-b578-18b62cbe7657", "title": "Cortisol Schizophrenia Onset Cannabis Exposure", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - schizophrenia onset after cannabis"},
+    {"id": "89909761-650f-4719-9b99-c3cc137dab25", "title": "CBD Cognitive Social Alzheimer's CB1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's therapeutic"},
+    {"id": "899aeef2-4658-400c-b8be-16845ce5862e", "title": "CBD Neuronal ER Stress Concussions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection TBI"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "88a63095-77cf-47c0-b11e-31ef1d6f98fc",
+      "88badce4-f03f-48e8-a757-c717ec377896",
+      "8979805d-9266-4152-8244-b2969b837032",
+      "8980b847-0703-4254-ab03-c62c2e14f94b",
+      "8983d8c5-502b-4fb0-b578-18b62cbe7657"
+    ]
+  }
+}

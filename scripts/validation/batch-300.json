@@ -1,0 +1,40 @@
+{
+  "batch_number": 300,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T17:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "4a9a567c-4429-4200-be6c-5df72102b7b6", "title": "Efforts to secure nicotine and cannabis product placements in popular media by Ploom, Pax, and Juul: an analysis of tobacco industry documents.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industry marketing correctly rejected"},
+    {"id": "4a9fc733-b0cb-446e-9a68-7859f819c011", "title": "Distinct Expression Profiles of the Peripheral Cannabinoid Receptor in Lymphoid Tissues Depending on Receptor Activation Status", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor immune mechanism"},
+    {"id": "4ab471ae-7572-4100-a093-d0260fcf8190", "title": "Gene Mining and Optimization of the Biosynthesis of Cannabidiol in Fusarium solani XG4-2.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Biosynthesis correctly rejected"},
+    {"id": "4ae0a4c2-3e55-477d-8de2-8302364112fb", "title": "Measuring alcohol and cannabis use disorders in an adolescent clinical sample.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD measurement correctly rejected"},
+    {"id": "4b01bd17-ab34-43a9-b424-78d1f8408301", "title": "Cannabis in Costa Rica — A study of chronic marihuana use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "4b1347a7-1f5e-45c3-91f7-ecd9c32844c0", "title": "Formulation and Analytical Evaluation of Liquid Cannabidiol Preparations: Comparative Study of Oil-Based Solutions and Emulsions.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmaceutical formulation"},
+    {"id": "4b2e7aac-61a0-4855-8218-02df6ba5851d", "title": "Drug-Induced Acute Kidney Injury: Mechanisms, Biomarkers, and Therapeutic Strategies.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "4b4a8d2a-2bb9-4b9b-aa41-0fe66ea81207", "title": "Preparation and N2, CO2 and H2 adsorption of super activated carbon derived from biomass source hemp (Cannabis sativa L.) stem", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industrial materials correctly rejected"},
+    {"id": "4b664cb2-5608-4ce5-9b22-f2555b8010b1", "title": "Cannabinoids Enhance NMDA-Elicited Ca2+Signals in Cerebellar Granule Neurons in Culture", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid/NMDA calcium signaling mechanism"},
+    {"id": "4b8fd716-a2b3-4507-afb3-5ea7be318873", "title": "Comparison of CBD and MOCVD Method for ZnO Nanowires Growth Dedicated to Dye Sensitized Solar Cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "4ba14b03-6dd2-464d-9494-2be5c47330e8", "title": "Implementation of the CBD Programme of Work on Protected Areas: Progress And Perspectives", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention) correctly rejected"},
+    {"id": "4ba2d668-8082-4ad5-bd71-9c4a82efacda", "title": "The Paper-Toss Test: enhancing bedside recognition of corticobasal syndrome.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Corticobasal Degeneration) correctly rejected"},
+    {"id": "4ba33d27-54aa-481c-a2b6-fd4d527f7cbb", "title": "Metadynamics simulations and site-directed mutagenesis determine the binding of cannabidiol to the adenosine A(2A) receptor.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD receptor binding mechanism"},
+    {"id": "4bbbb5fa-a7a2-4584-9083-96c5d6c70307", "title": "A Phase 1, Open-label Study of the Absorption, Metabolism, and Excretion of [4-14C] AEF0117 Following a Single Oral Dose in Healthy Male Subjects", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment drug correctly rejected"},
+    {"id": "4bc9496f-236d-4527-b777-835fa51e8de4", "title": "Socioeconomic Disparities in Dental Caries Experience: The National Health and Nutrition Examination Survey (NHANES) 2011-2020.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "4bcb9828-5f2b-4d57-8ad5-137a91516ef9", "title": "Antiparasitic agent emodepside exerts cytotoxicity in human corneal stromal cells by blocking the interaction between mini-chromosome maintenance 6 protein (MCM6) and chromatin licensing and DNA replication factor 1 (CDT1).", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "4bd59e14-a29a-4725-b513-6b010460b8ed", "title": "Cannabis and its cannabinoids analysis by gas chromatography–mass spectrometry with Cold EI", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical methods correctly rejected"},
+    {"id": "4bdc2610-7b4f-4781-b320-c8f8ee6a154d", "title": "Health Canada has issued a Qualifying Notice for the approval of dronabinol/cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Regulatory news correctly rejected"},
+    {"id": "4bdd3e79-404d-4a0b-a112-900a7d675375", "title": "Cannabis and Eicosanoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC as COX-2 inhibitor, anti-inflammatory mechanism"},
+    {"id": "4bebd41c-11cc-4ce5-8e1a-7015341bd2f4", "title": "THC-CBD-Kombination wird unter Alltagsbedingungen geprüft", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC-CBD clinical testing (German)"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "4a9fc733-b0cb-446e-9a68-7859f819c011",
+      "4b1347a7-1f5e-45c3-91f7-ecd9c32844c0",
+      "4b664cb2-5608-4ce5-9b22-f2555b8010b1",
+      "4ba33d27-54aa-481c-a2b6-fd4d527f7cbb",
+      "4bdd3e79-404d-4a0b-a112-900a7d675375",
+      "4bebd41c-11cc-4ce5-8e1a-7015341bd2f4"
+    ]
+  }
+}

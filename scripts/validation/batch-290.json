@@ -1,0 +1,38 @@
+{
+  "batch_number": 290,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T14:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "40930868-b831-43e9-b340-d4e68c881b87", "title": "Su1411 EUS Guided ERCP in CBD Stone Without Fluoroscopy: a Feasible Pilot Study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "409c1313-d15f-4bda-b552-14192fb229e8", "title": "Subjective aggression during alcohol and cannabis intoxication before and after aggression exposure", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "40a8e10f-7d52-4d08-9f8f-b2d549f68303", "title": "Development and Characterization of a High-CBD Cannabis Extract Nanoemulsion for Oral Mucosal Delivery.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery formulation"},
+    {"id": "40b94f8c-1c5c-4bb3-a4f5-35fbce747559", "title": "Utilization of Cannabidiol in Post-Organ-Transplant Care.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD post-transplant therapeutic"},
+    {"id": "40c9c17a-e934-4d9e-96f9-4f239f697a04", "title": "Cannabinoids and Terpenes as Chemotaxonomic Markers in Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Phytochemistry correctly rejected"},
+    {"id": "40d5c8e7-242d-4472-b2bf-3a69d7d4b6ee", "title": "Explore: Kratom Extract + CBD Softgels", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "41271882-e5ac-44a7-9ecb-0aa68932073d", "title": "The adolescent cannabis check-up: Randomized trial of a brief intervention for young cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD intervention correctly rejected"},
+    {"id": "4140150f-ae26-4f20-83f0-112c952a79c1", "title": "Response to Jin et al. (IJDP, 2025, 142, Article 104832): Cannabis consumption and motor vehicle collision: A systematic review and meta-analysis of observational studies.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impaired driving correctly rejected"},
+    {"id": "414a7cb5-33fc-4ad8-8a7a-f4debe148b77", "title": "Cannabidiol, a plant-derived compound, is an emerging strategy for treating cognitive impairments: comprehensive review of randomized trials.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD for cognitive impairment therapeutic review"},
+    {"id": "414cc8f4-aabc-4651-b88d-782548ff5e0f", "title": "Is problematic Internet use associated with alcohol and cannabis use among youth? A systematic review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "4151262e-d97e-403f-907f-a7dcae070d70", "title": "Adolescent Cannabinoid Exposure Permanently Suppresses Cortical Oscillations in Adult Mice", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "415881ea-e2ee-4847-b03b-cf6eca92bc7d", "title": "THIOUREA RECOVERY AND WATER SAVING FROM CdS-CBD EFFLUENTS IN CIS SOLAR CELL MANUFACTURING", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "415c08c3-280b-4efa-8612-4c470e326aee", "title": "Diet-dependent modulation of energy balance by CB1 signaling in peripheral sensory neurons.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 metabolic mechanism"},
+    {"id": "41b18bc7-aeef-4eb3-8fcc-c9f07eb9576f", "title": "Putative Effects of Lead on the Endocannabinoid System: A Literature Review and Summary.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Environmental toxicology correctly rejected"},
+    {"id": "41b7aee7-8b11-4565-9328-657c2eae0cb5", "title": "Drug discovery and preclinical testing of drug candidates for developmental and epileptic encephalopathies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Unclear cannabinoid focus correctly rejected"},
+    {"id": "41c64806-c0c9-41bd-8843-e3efa749bf43", "title": "Contribution of Addictovigilance data to assess adverse-events linked to psychoactive substances in children and adolescents.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Drug safety surveillance correctly rejected"},
+    {"id": "41d08aab-5480-4e88-976a-33319d478212", "title": "Ambulatory management of primary spontaneous pneumothorax in the emergency department: EFFI-PNO protocol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "41dfd5c8-b9f9-44d0-abc9-59b57bc1dfdb", "title": "Characterization of Cannabinoids in Cannabidiol (CBD) Products", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical/quality control correctly rejected"},
+    {"id": "41e71a33-8a23-4fee-8ba5-69c9f0932653", "title": "암모니아의 농도에 따른 CBD-ZnS/CIGS 박막태양전지의 제작 및 분석", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "41e8635f-0290-49fb-b01d-fc694a4a7da3", "title": "Impact of Reduced Cannabis Use on Functional Outcomes (R33 Phase)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD reduction correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "40a8e10f-7d52-4d08-9f8f-b2d549f68303",
+      "40b94f8c-1c5c-4bb3-a4f5-35fbce747559",
+      "414a7cb5-33fc-4ad8-8a7a-f4debe148b77",
+      "415c08c3-280b-4efa-8612-4c470e326aee"
+    ]
+  }
+}

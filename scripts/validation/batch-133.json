@@ -1,0 +1,39 @@
+{
+  "batch_number": 133,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T23:00:00.000Z",
+  "results": [
+    {"id": "93dfe16f-6f35-4bb8-9a77-b45b7caf019c", "title": "CBD ROS Cytokine Myotubes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD muscle mechanism"},
+    {"id": "93fe7b74-097e-471a-beac-7b6c44191f90", "title": "CBD Sleep Disorders Oxidative Stress", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic review"},
+    {"id": "940a2d28-3d82-4efc-845a-19d902fc7ac5", "title": "Cannabinoids HR+ Breast Cancer Treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic review"},
+    {"id": "940bc343-08bf-406d-958a-76045609fbc0", "title": "Cannabis Cannabinoid Autism Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid autism therapeutic review"},
+    {"id": "9421a210-35f9-445b-9f55-65b078d57eba", "title": "Remission Substance Dependence NESARC Epidemiology", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - epidemiological survey substance use patterns"},
+    {"id": "94407cb0-2dc0-49ad-8153-9a11b4da30b9", "title": "IUPHAR Cannabinoid Neuropathic Pain Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain therapeutic review"},
+    {"id": "945214c7-e75c-4acf-8e0a-e85f74522d2e", "title": "Sativex Pharmacokinetics Dogs Veterinary", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - canine pharmacokinetics study"},
+    {"id": "9459febb-7b86-42ba-9cea-335ee4e72248", "title": "CB2 Receptors Cocaine Mice Addiction", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid addiction mechanism"},
+    {"id": "94a6ac5d-80d3-43dc-8588-c4747dd46156", "title": "Mesenchymal Stem Cell Breast Cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - stem cell therapy"},
+    {"id": "94ab645f-237b-43aa-a6b3-ca8f670d011c", "title": "CBD Parkinson's Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's therapeutic"},
+    {"id": "94ad1b10-a752-4940-8f2a-66c538fdfc42", "title": "Nitric Oxide CB2 Neuropathic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "94bd6377-ada7-4a21-8531-61768dd413d1", "title": "CBD Psoriasis Oil RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD skin therapeutic RCT"},
+    {"id": "94c710cf-70f2-4ec1-9de1-194e25ff0902", "title": "CB2 Renal Cell Carcinoma Target", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer research"},
+    {"id": "94c9fd43-a324-45b4-937b-ea74f40bba45", "title": "CB1R PET Imaging OMAR Gender", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor imaging methodology"},
+    {"id": "94dd6293-21c8-4540-87c7-4fa2f027d18a", "title": "CBD Antipsychotic Schizophrenia Trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia therapeutic RCT"},
+    {"id": "94f5a680-1eca-4415-88ed-7fd644dec816", "title": "Cannabis Extracts Skin Cells Hydrogels", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid skin therapeutic"},
+    {"id": "94fd4c39-2cbf-4964-a49e-cc27578cb498", "title": "Mindfulness Intervention CUD RCT", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - behavioral intervention"},
+    {"id": "95053972-e0b9-49d6-8c57-0231a3b0d381", "title": "CCL-106 Cannabinoid Pancreatic Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"},
+    {"id": "950bd3c7-7194-4fcc-ad98-032171155716", "title": "Social Context Cannabis CUD College Students", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use patterns college"},
+    {"id": "951b9fef-b7ea-464a-a9fe-612a4f40228e", "title": "Cannabis Use Patterns Chronic Pain COVID", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use patterns study"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "9421a210-35f9-445b-9f55-65b078d57eba",
+      "945214c7-e75c-4acf-8e0a-e85f74522d2e",
+      "94a6ac5d-80d3-43dc-8588-c4747dd46156",
+      "94fd4c39-2cbf-4964-a49e-cc27578cb498",
+      "950bd3c7-7194-4fcc-ad98-032171155716",
+      "951b9fef-b7ea-464a-a9fe-612a4f40228e"
+    ]
+  }
+}

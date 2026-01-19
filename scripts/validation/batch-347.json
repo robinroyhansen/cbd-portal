@@ -1,0 +1,39 @@
+{
+  "batch_number": 347,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T04:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "801701cf-680b-44a3-92e3-ca702daf95f8", "title": "Screening for cannabis use disorders in adolescent emergency department", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD screening correctly rejected"},
+    {"id": "80287462-ae5c-4169-8141-aa9ee2f29f75", "title": "Cannabidiol has a unique effect on global brain activity: a pharmacological, functional MRI study", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD brain mechanism/pharmacology"},
+    {"id": "802e69a6-b342-4820-954e-32db79351cd7", "title": "Transmembrane Helical Domain of the Cannabinoid CB1 Receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor structure research"},
+    {"id": "8034f62f-5b91-486a-8d8e-e0d7c3a18ccd", "title": "Consequences from simultaneous alcohol and cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "803ff152-abb1-4db0-9311-3ce24e494345", "title": "Future time perspective as predictor of cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "80605d5e-79bb-4595-9794-5279900f4717", "title": "Effects of Smoking Cannabis on Visual Function and Driving Performance", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm/impairment correctly rejected"},
+    {"id": "8060d9a5-c1a4-442b-8896-5bb917ccad6e", "title": "Cannabis Use and Parenting Practices among Young People", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "807a6aa5-7be7-440f-829f-9c5bfc79aa47", "title": "Performance analysis of P-SnS thin films fabricated using CBD technique", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "8088beea-ef31-43b9-aee0-62043b53f38f", "title": "Cannabinoids as Antibacterial Agents: A Systematic and Critical Review", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid antimicrobial therapeutic review"},
+    {"id": "8093e7cd-c362-48d8-9ca9-5679953035ad", "title": "Examining interactions within TPB for cannabis-related driving behaviors", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/impairment correctly rejected"},
+    {"id": "80b6f9e1-7a5a-4673-aba0-1d152e846834", "title": "Genetic diversity of Cannabis sativa germplasm RAPD markers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "80b70b06-c82c-4019-95af-ae1e463f87d8", "title": "Application of waste from biodiesel synthesis for fuel pellets", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "80bfd79c-de06-405d-879b-3fc4c460d23b", "title": "Developmental trajectories of adolescent cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "80d0a479-2ff6-4760-8f87-2bb99b7cbafc", "title": "EPA/DHA Supplementation on Lipid Metabolism of Tenebrio molitor", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "80f368ea-42ad-45fc-99ca-e208f43d31f9", "title": "Socio-economic status STRONG-HF study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "80fa370d-a263-4d75-8932-d77ab7e6b16d", "title": "Effect of heat treatment on CBD grown Al-doped ZnO thin films", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "80fd61d9-35c2-459d-a718-fc59c9a1fe6d", "title": "Enhancement of cannabidiol oral bioavailability through nanostructured lipid carriers", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery formulation"},
+    {"id": "811213da-409c-4097-9b86-f8424366b2fa", "title": "Enhancing prognostic accuracy in sepsis-induced cardiomyopathy ML", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "81349a54-4c80-47e2-9067-4c0a67830413", "title": "Exploring Cannabidiol's Role in Regenerative Medicine: Neural and Skeletal Tissues", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD regenerative medicine therapeutic"},
+    {"id": "8136c26e-176c-4d2d-a3c1-9dc8c424fef6", "title": "Randomized controlled trial of motivational enhancement therapy cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "80287462-ae5c-4169-8141-aa9ee2f29f75",
+      "802e69a6-b342-4820-954e-32db79351cd7",
+      "8088beea-ef31-43b9-aee0-62043b53f38f",
+      "80fd61d9-35c2-459d-a718-fc59c9a1fe6d",
+      "81349a54-4c80-47e2-9067-4c0a67830413"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "batch_number": 37,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T23:00:00.000Z",
+  "results": [
+    {"id": "2b0dc7ac-90c2-45be-a07e-8bb8d67de022", "title": "Intestinal eCBome in TDP-43 FTD Mouse Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid system in dementia"},
+    {"id": "2b1c012c-325d-4a1e-9237-c7ff1ceaff38", "title": "CBD reduces LPS-induced placental inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anti-inflammatory placenta"},
+    {"id": "2b204ca4-e119-4d6f-bc17-bba17493d173", "title": "Endocannabinoid System, Epilepsy and Cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid epilepsy review"},
+    {"id": "2b2348c5-db4d-47f8-bfd8-b8e9af2d01cc", "title": "CB1 overactivity in idiopathic pulmonary fibrosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 for IPF therapeutic target"},
+    {"id": "2b271b4f-9bd8-49bd-9e33-a54f917a03de", "title": "THCV decreases inflammation and inflammatory pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THCV for pain/inflammation"},
+    {"id": "2b463905-3821-402a-bc58-c5bda7f0f4a0", "title": "Species differences in PXR activation by cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology"},
+    {"id": "2b5d2d5d-9a9c-4074-b864-bab2a67e4592", "title": "Medical Cannabis for Gilles de la Tourette Syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for Tourette's"},
+    {"id": "2b836c9e-8688-4702-850f-2b38abd0d6c4", "title": "CBD Analogue Antiallodynic Activity Neuropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug development for pain"},
+    {"id": "2b995fd1-e3a2-4597-bab9-205451c4a617", "title": "New Zealand CBDs evolve post-pandemic", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD! = Central Business Districts (urban planning)"},
+    {"id": "2b99e3e5-8180-4b0e-99ae-b24ff6cca7c0", "title": "CBD prévient stress oxydant cisplatine myotubes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for chemotherapy muscle protection (French)"},
+    {"id": "2b9f9555-2a1a-4274-a34b-c576093f5377", "title": "Cannabinoid Phytocomplex for Osteoarthritic Dogs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid veterinary pain"},
+    {"id": "2baf11e5-5b94-4917-8506-ce02b64c4904", "title": "rTMS Strategies to Treat Cannabis Use Disorder", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE DISORDER treatment - not therapeutic cannabinoid"},
+    {"id": "2bb981f0-be76-4c4c-8ea5-ba2910957cc3", "title": "Cannabinoids and Neuropathic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain review"},
+    {"id": "2bc4a4da-c42c-453e-8713-d3821398cc98", "title": "CBD reduces oxycodone self-administration", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for opioid addiction"},
+    {"id": "2bd28182-d2ee-44bc-ba12-0c1e9c1f75c6", "title": "Cannabis CBD in chronic pain syndromes review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain review"},
+    {"id": "2bdae877-7d1d-44dd-95ea-77c2dd7df13d", "title": "Synthesis Covalent Probes Radiolabeling CB Receptor", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "LAB CHEMISTRY - synthesis for radiolabeling, not therapeutic"},
+    {"id": "2bf96c48-455f-41d5-aa0a-591d22b00d0a", "title": "CBD-Enriched Cannabis for Refractory Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for epilepsy commentary"},
+    {"id": "2c0f55eb-a57a-40f5-a56f-6931361641d1", "title": "Chronic pain treatments Latino adults qualitative", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID focus - general pain treatments"},
+    {"id": "2c0f8290-4d03-49c1-bc00-2a9e808137a2", "title": "Cannabinoid vanilloid receptor agonists learning", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism research"},
+    {"id": "2c12dfa1-2cb7-4807-a08d-7c35e3988a97", "title": "PKC controls CB1 efficacy in neuropathic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 pain mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "2b995fd1-e3a2-4597-bab9-205451c4a617",
+      "2baf11e5-5b94-4917-8506-ce02b64c4904",
+      "2bdae877-7d1d-44dd-95ea-77c2dd7df13d",
+      "2c0f55eb-a57a-40f5-a56f-6931361641d1"
+    ]
+  }
+}

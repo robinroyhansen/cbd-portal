@@ -1,0 +1,37 @@
+{
+  "batch_number": 306,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T18:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "514ade7a-b929-4d34-84e8-9a3c300a15c7", "title": "Tetrahydropyridines: a recent update for their multicomponent synthesis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry no cannabinoid correctly rejected"},
+    {"id": "5175aa87-4c55-4af2-8e49-d477d2dad866", "title": "Combined immunomodulating properties of 3,4‐methylenedioxymethamphetamine (MDMA) and cannabis in humans", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Drug harm study correctly rejected"},
+    {"id": "5184fe03-6892-4a98-a8e5-8d61a83f0fd7", "title": "Intrauterine Cannabis Exposure Affects Fetal Growth Trajectories: The Generation R Study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prenatal cannabis harm correctly rejected"},
+    {"id": "518734dd-f988-4f24-b8a7-cde08826f775", "title": "O uso de canabidiol (CBD) em pacientes pediátricos com transtorno do espectro autista", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD autism therapeutic (Portuguese)"},
+    {"id": "518af55b-1c25-4459-a71f-3b06bd14e2e7", "title": "2016 International Conference on Advanced Cloud and Big Data (CBD)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (computing conference) correctly rejected"},
+    {"id": "51907e8e-7442-4297-ac17-63a27cb32345", "title": "Computational and design of experiment strategies to improve differentiation and quantitation of trace-level cannabinoids by copper cationization paper spray mass spectrometry.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical correctly rejected"},
+    {"id": "5195fd8c-8810-40a3-ab64-ad42adeadb11", "title": "Predictors of medical and non-medical motives of cannabis use in Finland: A cross-sectional survey study.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "51aa7bc4-206e-48fc-94ef-0cf58976e658", "title": "CBD-infused sheet masks, eye gels enhance skin", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Commercial product correctly rejected"},
+    {"id": "51b07250-9200-4448-a50a-1c2ab40d9dad", "title": "Atualização sobre os tratamentos não cirúrgicos para a dor lombar", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "51c82de7-0995-4c76-a986-6b1db153f2ae", "title": "Transcultural Aspects of Cannabis Use: a Descriptive Overview of Cannabis Use across Cultures", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Sociology correctly rejected"},
+    {"id": "51fa2029-320a-4669-98a4-35479f5d4ae1", "title": "Commercial cannabis consumer products part 2: HPLC-DAD quantitative analysis of cannabis cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical correctly rejected"},
+    {"id": "52000d3d-2a02-442d-9d70-2eaa8856a240", "title": "Investigating the association between school substance programs and student substance use: accounting for informative cluster size.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevention correctly rejected"},
+    {"id": "520605ce-64b4-4fc0-9d57-5bdfd624b2b1", "title": "Additional file 1 of Effect of aerosolized nicotine on human bronchial epithelial cells is amplified after co-administration with cannabidiol (CBD): a pilot in vitro study", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/nicotine lung interaction research"},
+    {"id": "521fa2ed-1d04-438a-99c5-de469c9acea0", "title": "Review for \"Stability Study and Structural Insights into Cannabidiol Cocrystals\"", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD cocrystal formulation stability"},
+    {"id": "52259ed2-e969-46be-af56-2a7a3d41e073", "title": "Quantitative and qualitative changes in substance-related administrative offences in road traffic during the SARS-CoV-2 pandemic in Munich.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/policy correctly rejected"},
+    {"id": "522cc5bb-7155-43db-9c75-e3228a48a69a", "title": "An Interventional Study to Facilitate the Development of a Cannabis Impairment Detection Device in Adult Cannabis Users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment detection correctly rejected"},
+    {"id": "522e205b-e0f1-4b50-9adb-fd61edbbf42a", "title": "Conditioned place preferences for virtual reality cannabis cues.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Addiction research correctly rejected"},
+    {"id": "5247246d-3e2a-4ee8-9f6c-0c05c3c996e4", "title": "The Study of Effects of Super-Store and SSM on the Regional Commercial District : Based on CBD of the Gangneung·Wonju·Geoje", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "52479d02-3464-46ba-bd16-2acc2f924c7d", "title": "Cannabinoid Hyperemesis Syndrome: A Case Report and Review of Pathophysiology", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm/CHS correctly rejected"},
+    {"id": "52670459-b01e-4746-9d88-0cea637bdb41", "title": "Study on Plants Landscape Design on Long Wan CBD of Huludao", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "518734dd-f988-4f24-b8a7-cde08826f775",
+      "520605ce-64b4-4fc0-9d57-5bdfd624b2b1",
+      "521fa2ed-1d04-438a-99c5-de469c9acea0"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "batch_number": 134,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T23:15:00.000Z",
+  "results": [
+    {"id": "9522052a-ce29-4e72-b8ed-67fa294acc80", "title": "Recreational Cannabis Driving MC Trial Participation IRD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Medical cannabis research context"},
+    {"id": "9533ce1e-7151-4ec3-9f01-ced26d6ecf2f", "title": "Parkinson CBD Neuroprotective 6-OHDA Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's therapeutic"},
+    {"id": "9542d528-8154-44c7-9244-c289aa507178", "title": "Phytocannabinoids Beta-Cells Glucose Lipid", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid diabetes research"},
+    {"id": "955241e3-1f41-4f46-9473-dc5238cecc20", "title": "CBD Myocardial Infarction Cardioprotective Rabbits", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular therapeutic"},
+    {"id": "95543384-5f42-4dd7-a354-a596de7250f1", "title": "Spice Kidney Failure AKI Synthetic Cannabis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - synthetic cannabinoid kidney injury"},
+    {"id": "955bd1c8-f24f-4851-8699-6e4c24d0cbf6", "title": "Managing Cannabinoid Hyperemesis Syndrome ED", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Therapeutic management CHS"},
+    {"id": "9584adc9-38a0-4442-b0a5-ca34699fc885", "title": "Schizophrenia Cannabis Abuse Positive Symptoms", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabis schizophrenia link"},
+    {"id": "958cb189-d58f-4a28-8332-eebbdcd4ba1b", "title": "CBD VR1 Anandamide Molecular Targets", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD mechanism pharmacology"},
+    {"id": "9592757f-327c-4f66-b875-e7d3c3bbe01a", "title": "KLS-13019 CBD Analogue Chemo Neuropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid therapeutic chemo side effects"},
+    {"id": "95a5b3a9-ea7f-4754-93cd-4f38caf93d54", "title": "A+ Formulations CBD Gummies Hoax Alert", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - marketing advertising content"},
+    {"id": "95a85e96-5f4e-4a58-a672-7cd8e9cce781", "title": "Corpus Callosum Schizophrenia TRS MRI AI", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - schizophrenia neuroimaging"},
+    {"id": "95af6383-53d4-4cbc-96df-96d1e300ba33", "title": "Minor Cannabinoids ER+ Breast Cancer Targets", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"},
+    {"id": "95c2ad6b-5139-4ceb-ae68-d35dc245d5f0", "title": "Environment Schizophrenia Role Cannabis Meta", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabis causes psychosis"},
+    {"id": "95d3584c-d0c0-4919-adf4-5f5df8626d92", "title": "Cannabinoids Therapeutic Pancreatic Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"},
+    {"id": "95f8c7af-a433-4cd4-8f86-2836e39c9ea5", "title": "CBD Nanocarriers Therapeutic Applications", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD delivery therapeutic review"},
+    {"id": "9616a1f8-6b3d-4870-8479-d903f99f50c1", "title": "Cannabinoids Synaptic Plasticity PFC Neurons", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuroscience mechanism"},
+    {"id": "963067ee-094b-445a-a6a2-73d88a069e9c", "title": "History Cannabis Preparations Medicine", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis history therapeutic review"},
+    {"id": "9637c0df-edb4-4e44-acca-149aed1ad014", "title": "Information Needs Men Breast Cancer Internet", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - internet forum analysis"},
+    {"id": "964d22dd-78bd-4b56-ab6e-ff280417e602", "title": "CBD Dog Cat Diseases Scientific Validation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dogs and cats"},
+    {"id": "9656338b-0f43-461f-b80d-b27bc34dcd6d", "title": "Opioid Cannabinoid Heroin Seeking Reinstatement", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid addiction mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "95543384-5f42-4dd7-a354-a596de7250f1",
+      "9584adc9-38a0-4442-b0a5-ca34699fc885",
+      "95a5b3a9-ea7f-4754-93cd-4f38caf93d54",
+      "95a85e96-5f4e-4a58-a672-7cd8e9cce781",
+      "95c2ad6b-5139-4ceb-ae68-d35dc245d5f0",
+      "9637c0df-edb4-4e44-acca-149aed1ad014",
+      "964d22dd-78bd-4b56-ab6e-ff280417e602"
+    ]
+  }
+}

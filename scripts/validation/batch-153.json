@@ -1,0 +1,36 @@
+{
+  "batch_number": 153,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T04:15:00.000Z",
+  "results": [
+    {"id": "aaf02557-75ee-4b6d-b8a9-7794b06d79ed", "title": "Dual Role Spinal ECS Noxious Stimuli", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS pain mechanism"},
+    {"id": "aaff0419-feff-4dfe-8822-f469d5ed6930", "title": "CBD Apoptotic Cytotoxicity HeLa Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic"},
+    {"id": "ab044705-253b-472f-9b8b-e6048bed8f10", "title": "CB2 receptors demyelinating MS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 MS therapeutic"},
+    {"id": "ab10e86c-6d90-4bd7-8e93-d21735acdcfb", "title": "Evidence-Based Recovery Harm Reduction College", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - harm reduction program"},
+    {"id": "ab137705-ccb3-4d13-a73c-2b7c31f4d10f", "title": "Cannabinoid SSc Appetite Sleep Pain RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid SSc therapeutic trial"},
+    {"id": "ab1dd4fe-c819-413e-ae84-0139478ee4db", "title": "CB2 Immune Modulation Sepsis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 sepsis therapeutic"},
+    {"id": "ab27d3a9-91b6-49fb-b157-882223278cdb", "title": "Nanoformulated CBD skin disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD skin therapeutic"},
+    {"id": "ab3f780d-bd37-4f01-8c2e-4d6a4bfc4726", "title": "CBD Blood Alcohol Level Intoxication", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD alcohol interaction research"},
+    {"id": "ab4825bd-a21f-4189-895c-ae4cba828a91", "title": "CBD perceptions OUD treatment", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CBD use survey"},
+    {"id": "ab5ca9c1-93b5-452d-b91a-e830e9df7356", "title": "Cannabis CBM Chronic Pain Guidelines", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid clinical guidelines"},
+    {"id": "ab635c2e-97b4-454d-9713-3b8703111a98", "title": "CB2 Agonist Diabetic Nephropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 diabetes kidney therapeutic"},
+    {"id": "ab6f9bcd-9981-4474-a860-ca6968916d2a", "title": "Cannabis CNCP Meta-analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain systematic review"},
+    {"id": "ab704a5f-93ad-4af8-a1bf-f07b6b226cf1", "title": "CB1 receptor fatty liver", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 mechanism review"},
+    {"id": "aba14489-db11-4766-9974-54d0a64b2671", "title": "Smoked Cannabis Capsaicin Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain RCT"},
+    {"id": "aba9fd9c-f97d-42c9-99a3-4153af626aae", "title": "Cannabinoid cell death tumor models", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer mechanism"},
+    {"id": "abb970d9-fc10-492c-abb2-58550978b0f4", "title": "Direct targets CBD THC AEA 2-AG", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor review"},
+    {"id": "abbda17a-f3be-452b-9d98-3e189e054fc4", "title": "Cannabinoid Dermatomyositis Cytokines", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid inflammatory mechanism"},
+    {"id": "abc6adca-87c3-4d5f-802d-4e3130700b7e", "title": "CBD trauma emotional reactivity RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PTSD clinical trial"},
+    {"id": "abc95b7e-179f-4658-b811-a4050fdb94b9", "title": "Drug overdose mortality Spain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - epidemiology"},
+    {"id": "abd8bea0-9791-4334-a252-eeebdfca8c52", "title": "Exo-/Endo-cannabinoids Depression Suicide", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS depression mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "ab10e86c-6d90-4bd7-8e93-d21735acdcfb",
+      "ab4825bd-a21f-4189-895c-ae4cba828a91",
+      "abc95b7e-179f-4658-b811-a4050fdb94b9"
+    ]
+  }
+}

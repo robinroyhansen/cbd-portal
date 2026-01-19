@@ -1,0 +1,38 @@
+{
+  "batch_number": 173,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T09:15:00.000Z",
+  "results": [
+    {"id": "c1f03ad2-fa81-4118-9123-f46e1ef9ebac", "title": "Cannabinoids Opioids MDMA Addiction Interactions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid addiction mechanism review"},
+    {"id": "c20872bd-582a-489b-90c2-0755680c11d3", "title": "O-1602 Arthritis GPR55 Nociception", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid arthritis pain mechanism"},
+    {"id": "c20b78f9-e397-40a2-8024-2beedb4dc008", "title": "CBD Elite Canadian Athletes Sleep Pain Recovery", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD athletic performance"},
+    {"id": "c21d976e-1767-4083-abf9-3b9aa7fbb649", "title": "Cardiotoxicity Methylone 3,4-DMMC", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - synthetic cathinones"},
+    {"id": "c21fb074-5e02-4eea-9701-2d9355228aaa", "title": "TRIAL FREE Life CBD Oil", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - advertisement"},
+    {"id": "c224d317-df29-47f8-a871-8f4b4d16555b", "title": "CBD Autophagy Microglia Antidepressant", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression mechanism"},
+    {"id": "c23f6b70-7a4a-461c-94c5-ea0eadbe6e63", "title": "CBD: A New Hope? FDA Approval", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic viewpoint"},
+    {"id": "c2680815-c9a0-4ef1-a9e5-bf9826394443", "title": "Hona CBD Gummies Shocking", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - advertisement"},
+    {"id": "c27089e3-bb13-4f21-81e9-f6354e63c067", "title": "CBD Apoptosis Lymphocytes Oxidative Stress Caspase-8", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD immune mechanism"},
+    {"id": "c284ef0a-cca7-4191-b3ac-650dc7c51767", "title": "Age Effect Psychosis Treatment Women IMPaCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis psychosis trial analysis"},
+    {"id": "c29a8791-83b6-4cad-a9f4-9741b9ed1fc6", "title": "CBD miR-143 Cardiomyocyte Heart Regeneration", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiac regeneration"},
+    {"id": "c29db196-18ce-4135-adc4-2562383229be", "title": "Medical Cannabis Intractable Epilepsy Childhood", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis epilepsy review"},
+    {"id": "c29eb67c-3b99-4fc9-a769-4ce04efb339b", "title": "CBD Antitumor HPV Head Neck Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer immune mechanism"},
+    {"id": "c2b4c2f7-08f8-4690-a741-78ffe3d77584", "title": "Pharmacokinetics Metabolism THC CBD CBN", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology"},
+    {"id": "c2c5d3d9-2770-45a6-8f79-008620e18c94", "title": "Prevalence CUD Diagnoses Veterans 2002-2009", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD diagnosis trends veterans"},
+    {"id": "c2cdfe2e-9b5a-449f-9d63-9880105689d0", "title": "CBD Pancreatic Cancer Survival Microbiota", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer survival"},
+    {"id": "c2e39573-9f44-420f-910a-af3a8e6ecf95", "title": "CBD Photodynamic Therapy Malignant Melanoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer combination therapy"},
+    {"id": "c2e46c6f-da87-4622-8fe5-80f7e011faf2", "title": "Cannabinoids Gastrointestinal Mucosal Defense Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid GI therapeutic review"},
+    {"id": "c2e83e54-cc1e-4ea6-a47e-ddbc988da545", "title": "CBD P-gp Inhibition Hypoxia Refractory Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism"},
+    {"id": "c2f0b917-87d8-461a-b075-6b147595cfc7", "title": "Psilocybin Depression Wistar Kyoto Rats", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - psilocybin"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "c21d976e-1767-4083-abf9-3b9aa7fbb649",
+      "c21fb074-5e02-4eea-9701-2d9355228aaa",
+      "c2680815-c9a0-4ef1-a9e5-bf9826394443",
+      "c2c5d3d9-2770-45a6-8f79-008620e18c94",
+      "c2f0b917-87d8-461a-b075-6b147595cfc7"
+    ]
+  }
+}

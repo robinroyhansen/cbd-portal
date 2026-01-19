@@ -1,0 +1,39 @@
+{
+  "batch_number": 457,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T07:05:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "f89ae187-8563-4654-b1f4-edb1a19db9dc", "title": "Cannabinoid receptor interactions with the antagonists SR 141716A and SR 144528", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research"},
+    {"id": "f8a43719-b082-4b71-8043-df8500506940", "title": "Chronic exposure toΔ9-tetrahydrocannabinol fails to irreversibly alter brain cannabinoid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor tolerance mechanism research"},
+    {"id": "f8afaf1f-1fa7-4ad1-8a7f-22b6dd76b151", "title": "Effects of Substrate on the Structure, Morphology and Optical Properties of Ver-tically Aligned ZnO Nanorod Arrays Grown by Low-temperature CBD Method", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "f8c846cd-baaf-4994-b3fc-09af3cec3d96", "title": "Identification of Chemotypic Markers in Three Chemotype Categories of Cannabis Using Secondary Metabolites Profiled in Inflorescences, Leaves, Stem Bark, and Roots", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant chemotaxonomy correctly rejected"},
+    {"id": "f8e88520-70a4-4e9f-8873-ae0a26bd162c", "title": "The initiation of cannabis use in adolescence is predicted by sex‐specific psychosocial and neurobiological features", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "f8f1a855-ecd8-4e00-b34c-280d493bf724", "title": "Prevalence of and trends in current cannabis use among US youth and adults, 2013–2022", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "f8fa5905-a3b7-41b2-afb6-2b0df0131da9", "title": "Neuropsychological sex differences associated with age of initiated use among young adult cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "f8fb6f3d-3244-4ea2-a2ec-72fdfc57cffc", "title": "Long-term consequences of perinatal and adolescent cannabinoid exposure on neural and psychological processes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "f90b4ff3-c0a5-4a10-8c10-4e0d8d64779c", "title": "Substances and substance combinations among accidental substance-related acute toxicity deaths (AATDs) in Canada from 2016 to 2017", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Substance abuse correctly rejected"},
+    {"id": "f924bf27-65fa-4b65-8b0b-595d3d34c3ce", "title": "The Effects of Marijuana on Orientation and Motor Coordination and Brain Metabolism in Regular Smokers of Marijuana.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "f92f43a0-1658-4c9d-ab1d-bdb82fb0ead9", "title": "The chemical composition of ethanolic extracts from six genotypes of medical cannabis (Cannabis sativa L.) and their selective cytotoxic activity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cytotoxic/cancer therapeutic research"},
+    {"id": "f9344fff-cc4d-4b71-ab92-2c037a9e439c", "title": "Case on CBD Lesion During Laparoscopic Cholecystectomy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "f95af0ed-fd7d-496e-9e4d-5bf90174b7e5", "title": "EFFECTS OF CANNABIS ON PSYCHOMOTOR SKILLS AND DRIVING PERFORMANCE: A METAANALYSIS OF EXPERIMENTAL STUDIES", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "f95e89f9-74e5-4780-826e-cbc4da92e2ed", "title": "Evidence for the presence of cannabinoid CB1receptors in mouse urinary bladder", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 bladder mechanism research"},
+    {"id": "f98ad5ad-5da5-467c-a37d-c0c8f6d55d23", "title": "Cannabis sativa-mediated synthesis of gold nanoparticles and their biomedical properties", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Nanotechnology (not cannabinoid therapeutic) correctly rejected"},
+    {"id": "f999e2bd-7185-442c-b173-0c642714275b", "title": "Vertical village In the Heart of Auckland CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "f99cdb00-ddcc-4f3d-969e-e5fd9bc53c20", "title": "Site-specific increases in peripheral cannabinoid receptors and their endogenous ligands in a model of neuropathic pain", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neuropathic pain mechanism research"},
+    {"id": "f9a59bcf-af00-43c7-961c-d4dba0a11419", "title": "Genotype and chemotype insights of high-THC medicinal Cannabis sativa L.: the role of SSR markers in the identification of cultivars.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "f9b61a39-c3aa-40e8-a930-0501866079cc", "title": "Green Synthesis of Gold Nanoparticles Using Root and Leaf Extracts of Vetiveria zizanioides and Cannabis sativa and its Antifungal Activities", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Nanotechnology correctly rejected"},
+    {"id": "f9c4a0e7-575e-4b16-8e3a-50e79afc6357", "title": "Cannabis Use, Anxiety, and Perceptions of Risk among Canadian Undergraduates: The Moderating Role of Gender", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "f89ae187-8563-4654-b1f4-edb1a19db9dc",
+      "f8a43719-b082-4b71-8043-df8500506940",
+      "f92f43a0-1658-4c9d-ab1d-bdb82fb0ead9",
+      "f95e89f9-74e5-4780-826e-cbc4da92e2ed",
+      "f99cdb00-ddcc-4f3d-969e-e5fd9bc53c20"
+    ]
+  }
+}

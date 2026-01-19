@@ -1,0 +1,42 @@
+{
+  "batch_number": 354,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T06:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "88bb3573-2c2a-45fb-9749-e08c868c868a", "title": "Mental health illicit substance abuse beginning in adolescence", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "88d14ea1-2a52-423b-85fc-010ac0a64c0f", "title": "Clinical guidance for cannabidiol-associated hepatotoxicity: A narrative review", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research"},
+    {"id": "88e436a4-d5b9-44bc-91ce-e657b23467b4", "title": "Anandamide and WIN 55212-2 inhibit cyclic AMP formation via non-CB1 receptors in astrocytes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research"},
+    {"id": "88e438e4-913f-413b-896e-8352b37d482c", "title": "Prospects of Cannabidiol for Easing Status Epilepticus-Induced Epileptogenesis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy therapeutic"},
+    {"id": "88f1e2f8-e711-4f69-9d6d-40ab82bf8394", "title": "The relationship between cannabis/hemp use in foods and processing methodology", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food science correctly rejected"},
+    {"id": "88f8b86c-e12a-40d0-bafa-7a6fe7947d33", "title": "TAAT hemp cigarettes unsubstantiated cessation and harm reduction claims", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product/marketing correctly rejected"},
+    {"id": "890118e5-e0db-4cc8-91c2-4bcdc4c4547b", "title": "Paeonol Inhibits Cell Growth Ferroptosis in Glioma Cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "8903b576-d1f5-42de-a2cf-3d1f0cef80d0", "title": "Bile Leak: Is There Optimal Timing for Endoscopy?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "891a534d-10fd-4962-a035-c926275e3cf0", "title": "Cannabinoid Receptors in Sperm", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research"},
+    {"id": "8937f7d9-0495-4196-9909-c6df754ff52e", "title": "THE INFORMATION NETWORKING IN FUKUOKA CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "893c5885-2043-4824-b8dc-b5ee1bb39cd0", "title": "Cannabis Use and Consequences", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "894b2685-8805-4a92-a40f-3d528259c551", "title": "Thujone Exhibits Low Affinity for Cannabinoid Receptors", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Non-cannabinoid compound correctly rejected"},
+    {"id": "895b46e8-f58c-42fd-8b2e-cff273df7c5a", "title": "The Role of Cannabinoids in Periodontal Disease: An Integrative Review", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid oral health therapeutic review"},
+    {"id": "8972af50-76bd-4ffa-b0f8-4deaa831ec71", "title": "Evaluation of Traffic Management Plans in Baghdad CBD Area", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "89849bcf-59c3-4098-bedc-f17c7993d189", "title": "Pretreatment Methods on Cold-Pressed Black Cumin (Nigella sativa L.) Seed Oil", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Different plant correctly rejected"},
+    {"id": "898db9be-717d-4cf9-b86a-7d17f8d0784d", "title": "Comparison of smoked marijuana and oral Δ9-tetrahydrocannabinol in humans", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC pharmacokinetics research"},
+    {"id": "89b048a1-506d-43f3-9c01-b2a7c049662b", "title": "Cannabidiol biases A(2A)-CB(2) receptor heteromer function", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD receptor mechanism research"},
+    {"id": "89d34d5c-08d8-4492-a319-b396bbfd8464", "title": "High doses of oral cannabigerol produce attention deficits in female rats", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cognitive impairment correctly rejected"},
+    {"id": "89dc33bd-56d8-4c16-8ac5-44227660b00b", "title": "Pharmacokinetics of (synthetic) cannabinoids in pigs forensic toxicology", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "89f3534e-04b5-4282-ae1f-31a202698a44", "title": "Wheat starch-based aerogel for cannabidiol encapsulation: enhanced stability", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery formulation"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "88d14ea1-2a52-423b-85fc-010ac0a64c0f",
+      "88e436a4-d5b9-44bc-91ce-e657b23467b4",
+      "88e438e4-913f-413b-896e-8352b37d482c",
+      "891a534d-10fd-4962-a035-c926275e3cf0",
+      "895b46e8-f58c-42fd-8b2e-cff273df7c5a",
+      "898db9be-717d-4cf9-b86a-7d17f8d0784d",
+      "89b048a1-506d-43f3-9c01-b2a7c049662b",
+      "89f3534e-04b5-4282-ae1f-31a202698a44"
+    ]
+  }
+}

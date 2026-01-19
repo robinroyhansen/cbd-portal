@@ -1,0 +1,36 @@
+{
+  "batch_number": 403,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T18:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "bea98dc8-3628-49d6-b815-94831e9fabce", "title": "The inheritance of chemical phenotype in Cannabis sativa L. (II): Cannabigerol predominant plants", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis genetics correctly rejected"},
+    {"id": "bea9c3a7-2a30-4594-aaf3-ca2da2d4c010", "title": "Pilot Study Measuring Patient Reported Outcomes in Cannabinoid Hyperemesis Syndrome (CHS)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CHS treatment correctly rejected"},
+    {"id": "beb69b8d-8261-427a-8972-6f185d30904e", "title": "Enhancing coffee productivity and disease resilience through ecological farming", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Coffee Berry Disease) correctly rejected"},
+    {"id": "bebdcd02-5091-4e8a-baa3-8b9cc256b521", "title": "Dose-dependent teratogenicity of the synthetic cannabinoid CP-55,940 in mice", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabinoid toxicity correctly rejected"},
+    {"id": "bec7c134-fd34-42cd-95cd-b2269a8eac03", "title": "External Factors That Influence Growth of Small and Medium Sized Enterprises in Nairobi's CBD Area", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "bed1926d-ef50-469d-be81-22db652edc3d", "title": "Genotoxic damage assessment using the micronucleus assay in buccal mucosa of different types of smokers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "bed24b8d-d1e4-4a57-b43d-682469638540", "title": "Peptide profiling and antioxidant characterization of the simulated gastrointestinal digest of hemp seed proteins", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Hemp food science correctly rejected"},
+    {"id": "beee1b2f-2ee2-4e36-af9e-2a62f07a6cec", "title": "Drug Recognition Expert (DRE) examination characteristics of cannabis impairment", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment detection correctly rejected"},
+    {"id": "bf089770-02d0-4357-acb8-92132be76301", "title": "Pharmakologische Wertbestimmung von orientalischem Haschisch und Herba cannabis indicae", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Historical pharmacological testing correctly rejected"},
+    {"id": "bf21823e-f439-4741-95e4-ae0c0da0de2f", "title": "Laparoscopic Cholecystectomy Mirizzi Syndrome Due to a Long Dilated Cystic Duct Stump", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "bf382f95-7a54-4844-9f7b-6c1a21ee1b91", "title": "Medicinal Cannabis: History, Pharmacology, And Implications for the Acute Care Setting", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medicinal cannabis pharmacology review"},
+    {"id": "bf3e8c3e-1bda-4982-9f0f-0c712b787b32", "title": "Where To Buy CBD Oil In California", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Commercial/spam correctly rejected"},
+    {"id": "bf59d0bd-82d7-47ff-a9bd-3ba04a70a806", "title": "컴포넌트 특성을 고려한 CBD 방법론의 비교 평가", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Component-Based Development) correctly rejected"},
+    {"id": "bf5abb03-5a9d-4d2d-b91c-d8dcd4695f9d", "title": "Pemberdayaan Siswa SMK Dalam Meningkatkan Kemampuan untuk Persiapan Karir dan Pendidikan di Puncak CBD Apartment", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (location) correctly rejected"},
+    {"id": "bf65c027-3d2b-4579-ba7b-0ae3b6d0224b", "title": "Anandamide-Mediated CB1/CB2 Cannabinoid Receptor-Independent Nitric Oxide Production in Rabbit Aortic Endothelial Cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - anandamide cardiovascular mechanism"},
+    {"id": "bf6a7278-b415-42a3-99d8-9c604740ece8", "title": "A Thematic Text Analysis of Cannabis Edibles Brand Names", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Marketing correctly rejected"},
+    {"id": "bf6ebf04-63b2-4191-a09d-849aea0862fc", "title": "Combining cognitive behavioral therapy and contingency management to enhance their effects in treating cannabis dependence", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "bf7c1cfc-329c-4d1d-87bd-6ecb74969900", "title": "Effect of extraction solvent on total polyphenols content and antioxidant activity of Cannabis sativa L.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"},
+    {"id": "bf801e1a-77ca-4d56-a099-0d7964f802e3", "title": "Isolation of a Physiologically Active Tetrahydrocannabinol from Cannabis Sativa Resin", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Historical THC isolation correctly rejected"},
+    {"id": "bf896968-9653-44d9-b11b-60e78267d24e", "title": "Consumer and health-related traits of seed from selected commercial and breeding lines of industrial hemp", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Hemp breeding correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 18,
+    "incorrect": 2,
+    "incorrect_ids": [
+      "bf382f95-7a54-4844-9f7b-6c1a21ee1b91",
+      "bf65c027-3d2b-4579-ba7b-0ae3b6d0224b"
+    ]
+  }
+}

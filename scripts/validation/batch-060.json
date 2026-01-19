@@ -1,0 +1,41 @@
+{
+  "batch_number": 60,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T04:45:00.000Z",
+  "results": [
+    {"id": "437b1560-aba2-491a-b7e5-6774a620df4b", "title": "Unravelling herbicide stress and its impact on metabolite profiling in Cannabis sativa: an investigative study.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - herbicide stress effects on cannabis plants"},
+    {"id": "438b6117-3130-45a6-b6ad-9d7b8bb05922", "title": "Efficacy of Δ9 -Tetrahydrocannabinol (THC) Alone or in Combination With a 1:1 Ratio of Cannabidiol (CBD) in Reversing the Spatial Learning Deficits in Old Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD cognitive aging therapeutic research"},
+    {"id": "43b3afa3-3281-4ca4-978b-68c536686a04", "title": "Cannabidiol-Enriched Extract Oil for Postoperative Management of Chronic Pelvic Pain Secondary to Endometriosis: A Randomized Clinical Trial—DREAMLAND Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD endometriosis pain therapeutic RCT"},
+    {"id": "43b3f8dd-1d05-419c-b385-f094cae9561c", "title": "Substitution Profile of the Cannabinoid Agonist Nabilone in Human Subjects Discriminating Δ9-Tetrahydrocannabinol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Nabilone as potential CUD replacement therapy"},
+    {"id": "43bc2d04-8c74-4854-892e-fe528fa5d883", "title": "The Effects of an Acute Dose of Cannabidiol on Health and Two-Mile Time Trial Performance-A Pilot Study.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD athletic performance therapeutic"},
+    {"id": "43c54bcd-99dd-41d4-a5ab-758fc854252a", "title": "Efficacy of a 20:1 CBD:THC cannabis herbal extract for pain and inflammation in dogs following tibial plateau leveling osteotomy.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - CBD for dogs, not human health"},
+    {"id": "43d39960-59b3-4d21-93ab-ed420a873f33", "title": "Efficacy and tolerability of full spectrum hemp oil in dogs living with pain in common household settings.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - hemp oil for dogs, not human health"},
+    {"id": "43e25f86-3b94-4aa7-ae95-b0873156f83d", "title": "A 'spicy' encephalopathy: synthetic cannabinoids as cause of encephalopathy and seizure", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - synthetic cannabinoids cause encephalopathy/seizures"},
+    {"id": "43e7f7eb-77d2-4340-95e4-526c1ec6fee4", "title": "Cannabidiol for the Prevention of Graft-Versus-Host-Disease after Allogeneic Stem Cell Transplantation: Results of a Phase I/II Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD GVHD prevention therapeutic"},
+    {"id": "4404c737-ee98-466c-b4f8-e5112b8b43d1", "title": "Ca2+-independent cytotoxicity of menthol in the A549 lung cancer cell line", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - menthol cytotoxicity, not cannabinoid"},
+    {"id": "440e400e-c807-4643-ae8e-75b9a5a07024", "title": "Cannabidiol for Orofacial and Upper-Quarter Pain: A Systematic Evaluation of Therapeutic Potential.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD orofacial pain therapeutic"},
+    {"id": "441a783b-f92c-46a6-9378-2bf417e606ba", "title": "Acute hypertension reveals depressor and vasodilator effects of cannabinoids in conscious rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid hypertension therapeutic mechanism"},
+    {"id": "442de909-7a48-4187-a3d0-443465fe9f41", "title": "Ex vivo study of the vasorelaxant activity induced by cannabigerol in human pulmonary artery- the role of endothelium, sex and selected clinical factors.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG pulmonary vascular therapeutic"},
+    {"id": "4456b47b-4b72-4056-aba1-4c8a7efe25ab", "title": "Endothelium and cannabinoid receptor involvement in levcromakalim vasorelaxation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor vascular mechanism"},
+    {"id": "4457c4b4-c5ab-4439-8ccb-90357f260e84", "title": "Effects of Medical Cannabis Treatment for Autistic Children on Family Accommodation: An Open-Label Mixed-Methods Study.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis autism therapeutic"},
+    {"id": "4463e3f1-e90e-474b-98aa-c20dc63dc9f6", "title": "Dose-Dependent but Non-Interactive Effects of Ochratoxin A and Selenomethionine on Hepatic Lipid Metabolism and Oxidative Stress in Broiler Chickens", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - mycotoxin study in chickens"},
+    {"id": "446d5d8c-2f8e-4e93-9498-4bfb6c3e83ea", "title": "Cannabidiol as a treatment for patients who are clinically at high risk of developing psychosis: learnings from the CANTOP-RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychosis prevention therapeutic trial"},
+    {"id": "4470ff95-1597-49fc-85bf-aaf211adb320", "title": "Does Cannabidiol Have a Benefit as a Supportive Care Drug in Cancer?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer supportive care therapeutic"},
+    {"id": "447fd3bc-d2a2-46e5-9183-0c2dd55f522e", "title": "Cannabidiol (CBD) For the Treatment of Painful Diabetic Peripheral Neuropathy of the Feet: A Placebo-Controlled, Double-Blind, Randomized Trial", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - conference announcement with misattributed abstract"},
+    {"id": "44832af7-6d13-4d31-b795-7bd215bf1f1e", "title": "Self-reported Medical and Nonmedical Cannabis Use Among Pregnant Women in the United States", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use patterns in pregnancy"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "437b1560-aba2-491a-b7e5-6774a620df4b",
+      "43c54bcd-99dd-41d4-a5ab-758fc854252a",
+      "43d39960-59b3-4d21-93ab-ed420a873f33",
+      "43e25f86-3b94-4aa7-ae95-b0873156f83d",
+      "4404c737-ee98-466c-b4f8-e5112b8b43d1",
+      "4463e3f1-e90e-474b-98aa-c20dc63dc9f6",
+      "447fd3bc-d2a2-46e5-9183-0c2dd55f522e",
+      "44832af7-6d13-4d31-b795-7bd215bf1f1e"
+    ]
+  }
+}

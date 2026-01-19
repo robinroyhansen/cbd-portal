@@ -1,0 +1,39 @@
+{
+  "batch_number": 165,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T07:15:00.000Z",
+  "results": [
+    {"id": "b890a1ec-5ae9-4ae1-b54b-d34ec7b3acc3", "title": "Investigation Pharmacokinetic Profile CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PK healthy individuals"},
+    {"id": "b893a8b9-a29b-415d-ae3a-0cbef03f2ff0", "title": "Novel Lipid Formulation CBD Absorption", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD bioavailability formulation"},
+    {"id": "b8acbff2-a4f6-4c2a-9d0d-9066b9d1d957", "title": "THC CBD Androgen Receptor Computational", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor mechanism"},
+    {"id": "b8aeb17c-b122-4af5-8fd6-f29aefd33f7d", "title": "CBD Menstrual-Related Symptoms RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD women's health clinical"},
+    {"id": "b8c6c817-cb37-45d1-929d-6c19bda2446d", "title": "CBD Opioid-Induced Inflammatory Response", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD immune/opioid review"},
+    {"id": "b8dd68d3-4475-4251-928b-fbd104a69632", "title": "Osteopathic manual treatment low back pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - osteopathic treatment"},
+    {"id": "b8f19ee7-d9c8-48c0-b3a7-0aea8b515153", "title": "CBD Epilepsy EEG Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism review"},
+    {"id": "b8fee6cb-5874-4ff2-bf10-69a8a8fc865b", "title": "CBD PTSD Bench to Human Trials", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PTSD therapeutic review"},
+    {"id": "b906eb1b-bf2a-43ba-a690-3736f3d2bfc3", "title": "Bernard Pivot CBD Gummies France", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - advertisement"},
+    {"id": "b925fba1-612e-4183-b172-3acaff7323da", "title": "Cannabis suicide risk first-episode psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - suicide/psychosis risk"},
+    {"id": "b92e06e3-0406-4c20-900d-5d102cc3c703", "title": "THCV Weight Loss Metabolic RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THCV metabolic clinical trial"},
+    {"id": "b9350e82-295c-4b9f-8573-42892f4591b6", "title": "Cannabinoid-impaired Decision-Making CUD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cognitive impairment"},
+    {"id": "b939f06b-9cd0-48f9-8b72-1b5d9d4518de", "title": "CBD TSC Seizures OLE Long-Term", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy long-term safety"},
+    {"id": "b949d034-1bad-48dc-9512-47a8553f3aff", "title": "Medical Cannabis Fibromyalgia Nursing", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis fibromyalgia therapeutic"},
+    {"id": "b960bf93-1111-4758-a68e-b3eff9044b12", "title": "Cannabinoid Parkinson's Basal Ganglia Rat", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Parkinson's mechanism"},
+    {"id": "b9880c2f-43c5-4249-bd06-70c7cc5d680a", "title": "Cannabinoids Fibromyalgia Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis fibromyalgia therapeutic"},
+    {"id": "b988b57a-16ca-4483-9346-56ebcc6f8a90", "title": "Cannabis Use Obesity Young Adults", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use patterns"},
+    {"id": "b989f343-8454-470a-ab1c-fb0078f40ca5", "title": "Heart Failure Risk Medical Cannabis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cardiovascular risk"},
+    {"id": "b9b01a3d-639b-4dde-8640-fb576ddda1a2", "title": "Cannabinoid Antiemetic Pediatric Oncology", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer supportive care"},
+    {"id": "b9b9faca-4c6a-44bf-86ee-15a9cf0540f1", "title": "CBD Nanomicelles Ovarian Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer drug delivery"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "b8dd68d3-4475-4251-928b-fbd104a69632",
+      "b906eb1b-bf2a-43ba-a690-3736f3d2bfc3",
+      "b925fba1-612e-4183-b172-3acaff7323da",
+      "b9350e82-295c-4b9f-8573-42892f4591b6",
+      "b988b57a-16ca-4483-9346-56ebcc6f8a90",
+      "b989f343-8454-470a-ab1c-fb0078f40ca5"
+    ]
+  }
+}

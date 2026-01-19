@@ -1,0 +1,38 @@
+{
+  "batch_number": 252,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T05:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "16723f31-b783-4411-be24-d65407e65c39", "title": "Priming Canine Adipose Tissue-Derived Mesenchymal Stem Cells with CBD-Rich Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "167fd56d-1239-49a4-a9b3-3d4a351d7146", "title": "Dual abstinence from nicotine vaping and cannabis use among young people", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cessation/use patterns correctly rejected"},
+    {"id": "168870fc-c280-4402-8917-57cb3880d2e5", "title": "A novel electrophilic high affinity irreversible probe for the cannabinoid receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor research tool"},
+    {"id": "168ef93f-aac0-4d1f-a328-6f7fdda55d13", "title": "Potential cannabidiol (CBD) repurposing as antibacterial against PB-resistant bacteria", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic antibacterial"},
+    {"id": "16954ef5-b2a2-40f4-8aee-3b88b81d3a4e", "title": "Where to Order Tom Selleck CBD Gummies?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "16a6fa34-0e27-4514-b1b1-48ce2c6cc8a1", "title": "Syndrome cannabinoïde suite à la consommation d'huile de cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Adverse event case report correctly rejected"},
+    {"id": "16a82271-fb37-4c52-acb8-0a487066fa05", "title": "Council House 2 (CH2), Melbourne CBD: A Green Building Showcase", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "16b21624-ffd1-4d62-af61-afc93bbb3378", "title": "Cannabis Therapy in Veterinary Medicine", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "16d1757c-46ff-4a0d-9825-bd6768724ccb", "title": "Adverse effects of cannabis and cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "16d69954-d76a-4c46-9434-02a4dd08517a", "title": "Raw data Oral CBD animal", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Animal data correctly rejected"},
+    {"id": "16d7320f-f806-44ca-a700-0a8cf0fe1087", "title": "From Symptomatic Therapies to Disease-Modifying Approaches for Sodium Channel Disorders", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "16dce1fd-a240-4033-aa64-3536068eb66b", "title": "PET imaging of the cannabinoid receptor 2 ligand in a rat glioma model", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor imaging research"},
+    {"id": "16dd6c58-68d9-43cf-8285-c5c78db061b2", "title": "Cannabis: a multifaceted plant with endless potentials", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General/editorial correctly rejected"},
+    {"id": "16e271a3-724d-4b78-823e-3598e76a50a7", "title": "Cannabinoids decrease acetylcholine release in medial-prefrontal cortex/hippocampus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism research"},
+    {"id": "16e46e5d-2d32-403e-a938-35839b8f7726", "title": "Identification of Recent Cannabis Use: Whole-Blood Cannabinoid Pharmacokinetics", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "16e49ad7-66c7-47af-97be-c64ad97aba39", "title": "Cannabis Outcome Expectancies, Cannabis Use Motives among Frequent Users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "16eee6b9-a5b6-4b58-adfa-d973e6f4a8ab", "title": "Effects of daily THC alone or combined with CBD on cognition in adolescent primates", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Developmental harm correctly rejected"},
+    {"id": "17018a74-f1c3-40fc-b0fd-00c51314b8f6", "title": "Cannabis Provenance by Isotope Ratio Analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "1707670c-05f2-4085-b1f6-3ae9e8a81729", "title": "Correction to: Research on FTO/CBD-CdS thin film photodetector", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "17159ca3-efcb-4616-b01c-269685278c12", "title": "Estimating the Time of Last Cannabis Use from Plasma THC and THCCOOH", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "168870fc-c280-4402-8917-57cb3880d2e5",
+      "168ef93f-aac0-4d1f-a328-6f7fdda55d13",
+      "16dce1fd-a240-4033-aa64-3536068eb66b",
+      "16e271a3-724d-4b78-823e-3598e76a50a7"
+    ]
+  }
+}

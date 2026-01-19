@@ -1,0 +1,42 @@
+{
+  "batch_number": 376,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T12:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "a0c8ee0f-9f5f-45ce-aaab-23f7873827c2", "title": "The cannabinoid receptor: biochemical, anatomical and behavioral characterization", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research"},
+    {"id": "a0ca9c15-1885-4e65-b52f-215ad88d6135", "title": "Why should Cannabis be Considered Doping in Sports?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Opinion/policy correctly rejected"},
+    {"id": "a0cd9c0f-a60b-4e81-8433-de16e939697e", "title": "武汉中央商务区(CBD)建设奠基", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "a1079ee3-de26-4b37-81bd-bee752361513", "title": "[Effect of tetrahydrocannabinol and of cannabidiol on wound healing and regeneration of the planaria Dugesia tigrina].", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC/CBD wound healing research"},
+    {"id": "a10d2b51-88f2-478a-b9bd-ea2448d6ce04", "title": "The detection of cannabinoids in breath after ingestion of cannabis-infused edibles.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "a10fff91-b036-4322-8f73-ae830afa189b", "title": "Selling CBD oil: Implications for pharmacy owners", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Business/policy correctly rejected"},
+    {"id": "a110387d-b257-47bd-b19f-1e5374748fc0", "title": "The failings of per se limits to detect cannabis-induced driving impairment: Results from a simulated driving study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/impairment detection correctly rejected"},
+    {"id": "a11264f9-6b90-4975-85ff-037bde2fedf7", "title": "Pitfalls in the analysis of phytocannabinoids in cannabis inflorescence", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "a12dd1a4-c13b-4ebf-a2b3-7d2e059c9045", "title": "Cannabinoid modulation of time estimation in the rat.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cognitive mechanism research"},
+    {"id": "a15f1442-a21e-4e75-8ade-bab91eedee70", "title": "The activation of the cannabinoid receptor type 2 reduces neutrophilic protease-mediated vulnerability in atherosclerotic plaques", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 cardiovascular therapeutic research"},
+    {"id": "a16abde4-4ca9-4a17-90b4-354a9b3c3d85", "title": "Ensiling conditions and changes of cannabinoid concentration in industrial hemp.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "a1743a9d-8657-4982-b867-e9478466ef31", "title": "CBD e THC na Rede Pública de Saúde do Estado de São Paulo", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/access correctly rejected"},
+    {"id": "a1743cf0-548e-476d-a2b2-f5f276036312", "title": "Progressive Arteritis Associated with Cannabis Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "a1800233-cfe8-4ff7-9f67-cebdb2b31cc6", "title": "CROI 2025: neuropsychiatric complications in people with HIV.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a18cd582-e5a9-4838-bae3-80b08ce0848c", "title": "Altered cannabinoid receptor mRNA expression in peripheral blood mononuclear cells from marijuana smokers", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor expression research"},
+    {"id": "a19ad719-f7f4-4873-b1c4-e8840330c0fd", "title": "Cannabidiol and Δ9-tetrahydrocannabinol induce drug-metabolizing enzymes, but not transporters, in human hepatocytes: Implications for predicting complex cannabinoid-drug interactions.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid drug interaction research"},
+    {"id": "a1b101a9-9183-4e63-b067-04f51188d2f4", "title": "Prevalence and Mental Health Correlates of Electronic Cigarette Use among Pediatric Primary Care Patients", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a1b9e185-5763-4b79-ae1c-66b380b3564f", "title": "Looking for observational signatures of early binary black hole systems", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (circumbinary disk) correctly rejected"},
+    {"id": "a1bcd969-457d-4f19-b3f1-81b70043d37b", "title": "Preparation and in vitro characterization of inhalable cannabidiol dry powder for treating chronic obstructive pulmonary disease.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD COPD therapeutic formulation"},
+    {"id": "a1bfbf98-b629-4127-8904-89dca34dfafd", "title": "Integrated Cannabinoid CB1 Receptor Transmission within the Amygdala-Prefrontal Cortical Pathway Modulates Neuronal Plasticity and Emotional Memory Encoding", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "a0c8ee0f-9f5f-45ce-aaab-23f7873827c2",
+      "a1079ee3-de26-4b37-81bd-bee752361513",
+      "a12dd1a4-c13b-4ebf-a2b3-7d2e059c9045",
+      "a15f1442-a21e-4e75-8ade-bab91eedee70",
+      "a18cd582-e5a9-4838-bae3-80b08ce0848c",
+      "a19ad719-f7f4-4873-b1c4-e8840330c0fd",
+      "a1bcd969-457d-4f19-b3f1-81b70043d37b",
+      "a1bfbf98-b629-4127-8904-89dca34dfafd"
+    ]
+  }
+}

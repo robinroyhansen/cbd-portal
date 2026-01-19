@@ -1,0 +1,38 @@
+{
+  "batch_number": 204,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T17:00:00.000Z",
+  "results": [
+    {"id": "e261c8c3-337b-4c19-8fe2-87d184993a49", "title": "Time Since Cannabis Use CUD Prevalence Youth", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD development patterns"},
+    {"id": "e265de53-fdf1-4f50-ae0c-8f42585f1cba", "title": "CBD Modulatory Extinction Meth-Seeking D2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD meth addiction therapeutic"},
+    {"id": "e29d479d-6b53-414c-8ee2-fd3775f1686d", "title": "Elevated CB1 Receptor PTSD PET", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 PTSD mechanism"},
+    {"id": "e2a37b2e-35c0-41a5-9acc-fce2d73b99b5", "title": "CBD Drug-Resistant Epilepsy Epileptic Spasms", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "e2dcae74-c21e-43d4-a8c6-7ad47bbdaadc", "title": "ECS Cell-Type Knockout Glutamatergic Neurons Stress", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS stress mechanism"},
+    {"id": "e2f31397-0e92-4f71-b92a-82306c93a989", "title": "Cannabis Immune Checkpoint Inhibitor Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer immunotherapy"},
+    {"id": "e2fc6f00-518a-437f-8bb9-d8494c60f576", "title": "CBD Neuroprotective Newborn Hypoxic-Ischemic CB2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neonatal neuroprotection"},
+    {"id": "e312e4ff-bb3a-4c91-bbde-2e8859d8e612", "title": "CBD Schizophrenia Patients French Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia therapeutic"},
+    {"id": "e319e016-b853-40bd-899f-36a70b53a213", "title": "Phytocannabinoids SGLT2 Modulators Type 2 Diabetes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid diabetes therapeutic"},
+    {"id": "e32516ed-b53c-460e-8fb5-db86695361ce", "title": "Mindfulness Recovery Enhancement Substance Craving", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - mindfulness non-cannabinoid"},
+    {"id": "e32b5f4b-487e-4ef2-bfa6-66a1b99c2a00", "title": "CBD Learning Memory Anxiety SAMP8 Alzheimer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's therapeutic"},
+    {"id": "e345f892-ad25-4281-a4de-4e4a7378982f", "title": "CBD Neuroinflammatory Markers PTSD Female Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PTSD therapeutic"},
+    {"id": "e35a2773-0b7f-46ef-b567-64bf1653cc49", "title": "Nutritional Strategies Sleep Athletes Spanish", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID FOCUS - general nutrition review"},
+    {"id": "e365dc60-abbb-4cdf-adaf-d723d56bb2ac", "title": "DehydraTECH CBD GLP-1 Diabetes Obesity Phase 1B", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD diabetes obesity therapeutic"},
+    {"id": "e36f7500-c26f-48ec-8304-d7ac178b069a", "title": "CBD Myokine Cerebral Cardiac Sepsis Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD sepsis therapeutic"},
+    {"id": "e37d693e-3ca2-441e-949d-9117043bc22b", "title": "Survey Cannabis Use Parkinson's Disease US", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use survey"},
+    {"id": "e39395bd-23fa-4b44-a4b5-e181a25fc85e", "title": "CBD Severe Behavioural Problems ID Children RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pediatric behavioral therapeutic"},
+    {"id": "e3956f41-3b17-4db5-883e-b3211e3ae38a", "title": "Cannabinoid Receptor Agonists Cancer Palliative", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"},
+    {"id": "e39d478f-176c-43cd-bcfc-0ed9b470329d", "title": "CBD Protective Chemotherapy Oral Mucositis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD chemo side effects therapeutic"},
+    {"id": "e3a30c73-03f3-485d-896a-217b8c482b31", "title": "CBD THC PK Metabolites Beagle Dogs", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dogs PK"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "e261c8c3-337b-4c19-8fe2-87d184993a49",
+      "e32516ed-b53c-460e-8fb5-db86695361ce",
+      "e35a2773-0b7f-46ef-b567-64bf1653cc49",
+      "e37d693e-3ca2-441e-949d-9117043bc22b",
+      "e3a30c73-03f3-485d-896a-217b8c482b31"
+    ]
+  }
+}

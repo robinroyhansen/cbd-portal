@@ -1,0 +1,39 @@
+{
+  "batch_number": 351,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T05:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "850727db-9f52-4e70-be6c-ed3300ee39e4", "title": "Update on occupational contact urticaria: systematic narrative review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "851deb4c-78d0-46ed-87c9-1a5ece179210", "title": "In vitro effects of cannabidiol in mouse and human Sertoli cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD reproductive mechanism research"},
+    {"id": "85267933-09e8-42aa-a824-c12b8f320ae9", "title": "DOES CBD THEORY SURVIVE THE TEST OF SMALL CITIES", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "852d5156-3ef1-4722-a19c-3e1a768c0448", "title": "Cannabis from cultivar to chemovar", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "854c26e2-a5e8-4f78-bcdb-8be2d78aa011", "title": "Metabarcoding metagenomic data aquatic environmental", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "855121f2-aa14-4612-8081-3f541ab4b539", "title": "MeJA-Induced Plant Disease Resistance", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "85592cef-f169-4a1c-97cb-54bc72232ddf", "title": "The spatial profile of rail trips within the Sydney CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "856b58ba-a958-4cfc-98dd-3bd6aadaa02c", "title": "Cannabis and alcohol: Effects on estimation of time and distance", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm/impairment correctly rejected"},
+    {"id": "858bc286-ab2f-4fcc-8c7b-10237e5b5cc4", "title": "Complex pharmacology of natural cannabinoids: THC partial agonist and CBD antagonist activity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacology mechanism"},
+    {"id": "85919f90-2a15-429b-a040-0fbc0df24043", "title": "Selective Ligands and Cellular Effectors of Endothelial Cannabinoid Receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor research"},
+    {"id": "85c1401c-acd7-45db-b63f-54ae26a3d22d", "title": "Cannabidiol, a Major Phytocannabinoid, As a Potent Atypical Inhibitor for CYP2D6", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug interaction research"},
+    {"id": "85c78044-ba1b-4218-8a90-6ad6d35a65aa", "title": "Processing dynamic facial affect in frequent cannabis-users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm/impairment correctly rejected"},
+    {"id": "85da708e-27b7-43b1-b357-ad895144c01d", "title": "Bioscience CBD Gummies SPAM", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "85db8037-958e-4bc8-bee4-03b36d8d67c6", "title": "Extraction techniques for bioactive compounds of cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"},
+    {"id": "85e1a022-d65e-4198-a754-ffac590c5e8d", "title": "Randomized Placebo-controlled Trial of Cannabidiol for Behavioral Problems in Intellectual Disability", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD clinical trial"},
+    {"id": "860f2116-db29-4599-a62c-f46c435f7c0e", "title": "Fibroblasts as key cellular targets in acupuncture therapy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "86203f1b-4d4a-4b15-844a-8f95cb0e6dcb", "title": "Influence of growth process on CBD-CdS films", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "86253067-4e4b-4019-aa2f-4a3e41398847", "title": "Systematic review of cannabis use related health harms", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "862dab8c-b394-4904-8e2b-df2b5aca5291", "title": "Perception of tobacco, cannabis, and alcohol use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "8677800f-0b9c-4743-86ab-c6998036440f", "title": "CBD-Loaded Nanoemulsion in Canine Mammary Carcinoma Cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary study correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "851deb4c-78d0-46ed-87c9-1a5ece179210",
+      "858bc286-ab2f-4fcc-8c7b-10237e5b5cc4",
+      "85919f90-2a15-429b-a040-0fbc0df24043",
+      "85c1401c-acd7-45db-b63f-54ae26a3d22d",
+      "85e1a022-d65e-4198-a754-ffac590c5e8d"
+    ]
+  }
+}

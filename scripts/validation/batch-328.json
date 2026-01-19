@@ -1,0 +1,42 @@
+{
+  "batch_number": 328,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T00:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "6a44c2ef-110f-4b0c-8abd-7e214f84d104", "title": "Neocosmospora sp.-Derived Resorcylic Acid Lactones with in Vitro Binding Affinity for Human Opioid and Cannabinoid Receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor ligand discovery"},
+    {"id": "6a682e34-d3d6-459e-81c2-2af5771853e9", "title": "Cannabis use behaviors and prevalence of anxiety and depressive symptoms in a cohort of Canadian medicinal cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "6a7e5d9b-f157-447f-8a4b-170c9c7938fc", "title": "Enhancing data compatibility in an evolving landscape: Medical cannabis and polysubstance use protocols in the PhenX Toolkit.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Methodology correctly rejected"},
+    {"id": "6a810c6d-ed55-459c-a670-a7d7b0bd0f0f", "title": "[Cannabinoid receptor 2 inhibition on acantholysis in oral mucosal pemphigus].", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 pemphigus mechanism"},
+    {"id": "6a81be27-b090-43c9-b8f7-354499ec94b8", "title": "Water modulated influence of intramolecular hydrogen-bonding on the conformational properties of Cannabidiol (CBD)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Molecular chemistry correctly rejected"},
+    {"id": "6a8c52cd-c440-4af7-a8d8-853d52545f27", "title": "Driving after cannabis use and compensatory driving behaviors among current cannabis users in Colorado", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "DUIC correctly rejected"},
+    {"id": "6ab3f2ae-f604-4cd5-a220-1522a19c8877", "title": "Gas chromatography–mass spectrometry analysis of endogenous cannabinoids in healthy and tumoral human brain and human cells in culture", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid brain/cancer research"},
+    {"id": "6b2cf3f8-42dc-426a-acef-32d20cee5b30", "title": "A Case Report of the Protein-Losing Enteropathy in a 7-year-old Maltese-Treated Dog with Budesonide in Combination with Cannabidiol Oil", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "6b33eba4-70b2-42a1-abba-86afb02d500b", "title": "Development and validation of a high-throughput LC-MS/MS bioanalytical method for the simultaneous quantification of cannabidiol and metabolites in human plasma.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical correctly rejected"},
+    {"id": "6b39a9e6-5451-4cde-8bde-fff1c54ef0bc", "title": "Evaluations of Skin Permeability of Cannabidiol and Its Topical Formulations by Skin Membrane-Based Parallel Artificial Membrane Permeability Assay and Franz Cell Diffusion Assay", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD topical permeability/formulation"},
+    {"id": "6b53940b-e3ed-419a-a9da-d130b63a8a18", "title": "Cold Plasma Up-Regulated Expressions of WRKY1 Transcription Factor and Genes Involved in Biosynthesis of Cannabinoids in Hemp (Cannabis sativa L.)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant biotechnology correctly rejected"},
+    {"id": "6b549eb9-8c23-478c-a0e5-fa7f793808e9", "title": "Influence of Cannabidiol Use on Visual Function and Optical Quality: A Randomized Controlled Trial.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD RCT visual function"},
+    {"id": "6b8187b8-7731-4fa3-8b39-ea2415bfcc1c", "title": "Expression, Purification, Structural and Functional Characterization of Recombinant 11S Edestin in Escherichia coli, a typical seed storage globulin from Cannabis sativa L.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "6b82903d-7b01-4238-a78f-3ac70c6ba612", "title": "Formulation and in vitro evaluation of liposomal and self-microemulsifying drug delivery systems for oral delivery of cannabidiol.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD oral drug delivery"},
+    {"id": "6b8518ca-6671-4674-969a-613e4cef700a", "title": "HRMS Detector for the New HILIC CBD Method Development in Hemp Seed Oil", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical correctly rejected"},
+    {"id": "6b91d60c-ac37-491b-94d4-e96528cfac0b", "title": "Depictions of Nicotine and Cannabis in Popular US and German Hip-Hop/Rap Music Videos: A YouTube Top 100 Content Analysis.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Media analysis correctly rejected"},
+    {"id": "6b9611ef-aabc-4927-9751-ac8e698e970a", "title": "Formulation of W/O/W Emulsion-Based Chitosan-Alginate Microcapsules for Encapsulation of Cannabidiol and A. annua L. Extract Containing Luteolin and Apigenin: A Response Surface Optimization Approach.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD encapsulation/formulation"},
+    {"id": "6ba96ae8-a168-45fb-9168-a7c7fd8bec3a", "title": "Retail cannabis environment and adolescent use: The role of advertising and retailers near home and school", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/use patterns correctly rejected"},
+    {"id": "6bd945f2-6ad4-4969-86b2-566d88d79d75", "title": "Allosteric Modulation of the CB1 Cannabinoid Receptor by Cannabidiol—A Molecular Modeling Study of the N-Terminal Domain and the Allosteric-Orthosteric Coupling", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD CB1 allosteric mechanism"},
+    {"id": "6be21860-b032-412d-a985-2c6eb358bfef", "title": "Maximising biodiversity potential in Europe's mines and quarries: A key role for EU Nature Restoration Regulation targets", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "6a44c2ef-110f-4b0c-8abd-7e214f84d104",
+      "6a810c6d-ed55-459c-a670-a7d7b0bd0f0f",
+      "6ab3f2ae-f604-4cd5-a220-1522a19c8877",
+      "6b39a9e6-5451-4cde-8bde-fff1c54ef0bc",
+      "6b549eb9-8c23-478c-a0e5-fa7f793808e9",
+      "6b82903d-7b01-4238-a78f-3ac70c6ba612",
+      "6b9611ef-aabc-4927-9751-ac8e698e970a",
+      "6bd945f2-6ad4-4969-86b2-566d88d79d75"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "batch_number": 420,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T23:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "d143164d-ebd0-47a6-ac76-11ebe4eaa74d", "title": "Determination of cannabinoids in biological samples using a new solid phase micro-extraction membrane and liquid chromatography–mass spectrometry", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "d143e1f9-a622-4684-954d-13c110b7b276", "title": "Potency trends of Δ9‐tetrahydrocannabinol, cannabidiol and cannabinol in cannabis in the Netherlands: 2005–15", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Potency analysis correctly rejected"},
+    {"id": "d1485e32-6aa1-4cf9-bcf8-dbb68e14dbef", "title": "Dazed and confused: variability in reported and measured tetrahydrocannabinol content in cannabis edibles", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product analysis correctly rejected"},
+    {"id": "d1583ccf-6d77-48b9-882c-741ad28f74ae", "title": "Halogenated cannabinoid synthesis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry correctly rejected"},
+    {"id": "d15c49af-e1b8-49b4-bffb-fbeaede60f94", "title": "¿Es recomendable usar cannabinoides (CBDs) para la salud de nuestras mascotas?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "d15f3da9-87f8-4dc4-ac52-688746f6030c", "title": "Prevalence of Cannabis Use Among People Who Smoke Cigarettes and Are Scheduled for Lung Cancer Screening", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "d16a9211-e471-4916-9d67-f1af1e2b9691", "title": "Dimerization of G protein-coupled receptors: CB1 cannabinoid receptors as an example", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor dimerization mechanism research"},
+    {"id": "d175e107-6a2b-49de-8a74-074311146c1e", "title": "The Colombian Medical Cannabis Paradox: A Scoping Review of Structural Barriers and Health Inequity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "d1849462-3526-4fdc-85d8-55d3dc69a945", "title": "Ontogenetic development of cannabinoid receptor expression and signal transduction functionality in the human brain", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor brain development mechanism research"},
+    {"id": "d18d89a4-78e1-4c81-987d-d145996c090d", "title": "Asymmetric Synthesis of (−)-Cannabidiol (CBD), (−)-Δ9-Tetrahydrocannabinol (Δ9-THC) and Their cis Analogs", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry correctly rejected"},
+    {"id": "d1bc00f1-6284-413f-9410-10d5cd48195b", "title": "Pathological and Functional Brain Amyloids: A New Concept Explaining the Differences", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "d1bd52e9-770f-469c-89d2-db613cf4fe64", "title": "Low cost CBD ZnS antireflection coating on large area commercial mono-crystalline silicon solar cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "d1c46838-0688-45c4-adb1-45a2b67c7703", "title": "Uvulitis and partial upper airway obstruction following cannabis inhalation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "d1d66866-920c-4e14-9d61-d81b24aed59b", "title": "Endoscopic treatment of choledochal cyst injury complicated by pneumothorax and pneumomediastinum after endoscopic retrograde cholangiopancreatography in a pregnant woman", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "d1d90cbb-c5f8-4c76-8f6c-cc9ffe1958de", "title": "Neuroimaging meta-analysis of cannabis use studies reveals convergent functional alterations in brain regions supporting cognitive control and reward processing", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis effects correctly rejected"},
+    {"id": "d1de683d-2318-4c3a-96c2-a1bd31317d89", "title": "Effect of Fertilization with Urea and Inhibitors on Growth, Yield and CBD Concentration of Hemp (Cannabis sativa L.)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "d20599c2-a477-48f6-aa3d-4ba9e05921c6", "title": "Pharmacological and therapeutic targets for Δ9 tetrahydrocannabinol and cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC/CBD therapeutic targets review"},
+    {"id": "d208e6e5-e285-48d8-b2a5-3dd320c9085f", "title": "INFLUENCE ON TRAVEL TIME FOR LEAVING THE AMSTERDAM CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "d21348d1-e43a-457a-a310-caedc95ac393", "title": "Cannabis for Medical Use: Analysis of Recent Clinical Trials in View of Current Legislation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis clinical trial review"},
+    {"id": "d217d2c1-d7c5-48c0-9d4e-fa59be5d2a2a", "title": "Physiologically Based Pharmacokinetic Modeling of Cannabidiol, Delta-9-Tetrahydrocannabinol, and Their Metabolites in Healthy Adults After Administration by Multiple Routes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC pharmacokinetics research"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "d16a9211-e471-4916-9d67-f1af1e2b9691",
+      "d1849462-3526-4fdc-85d8-55d3dc69a945",
+      "d20599c2-a477-48f6-aa3d-4ba9e05921c6",
+      "d21348d1-e43a-457a-a310-caedc95ac393",
+      "d217d2c1-d7c5-48c0-9d4e-fa59be5d2a2a"
+    ]
+  }
+}

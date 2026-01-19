@@ -1,0 +1,38 @@
+{
+  "batch_number": 348,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T05:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "81409116-0cda-45cc-9cd5-56189b25da99", "title": "Cannabis; Epidemiological, Neurobiological and Psychopathological Issues", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "8178d88d-ff8b-456c-96d2-0b66a118b17d", "title": "Hippocampal interneurons co-express α7 nicotinic receptor and CB1", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor neuroscience research"},
+    {"id": "818aee29-5d92-49c5-abdf-0d897fd17ac5", "title": "War Exposure, Psychiatric Symptoms, and Substance Use in Adolescents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "818c7dd3-915a-4f5b-9b72-e0ce683764a3", "title": "Brazil's Forest Management Policies Violate CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "819af83e-1e3c-423a-a710-b73a57e896cc", "title": "Dragons Den CBD Gummies SPAM", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "819db49b-b044-4526-ae87-984cca110257", "title": "Daily cannabis smoking risk factor for hepatitis C fibrosis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "81a4047e-da59-4109-be25-884a0848c3ea", "title": "Hierarchy and Diversification: Analysis for Structure Character of CBD in China", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "81a688ee-5cb9-4890-a45c-e4671767bce3", "title": "Altered Network Function Hippocampus Cannabinoid Receptors Early Adolescence", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "81ab5d5d-db7e-4a16-9391-9da9fa5c3fb7", "title": "Sensory gating impairments in heavy cannabis users neural oscillations", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "81eade5d-dbc3-4d34-b540-869d11d96013", "title": "CB1 Cannabinoid Receptor Can Sequester G-Proteins", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research"},
+    {"id": "820adf45-223c-47dc-9cc9-083a8d78a8f3", "title": "Modeling Pedestrian Walking at Nasiriya CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "820c0f41-7c3c-42dc-919c-8137e0ca28ae", "title": "Tetrahydrocannabinol separation chromatography", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction correctly rejected"},
+    {"id": "82129f44-5758-45db-9aee-9100e964620d", "title": "The History and Use of Medical Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Historical review correctly rejected"},
+    {"id": "82283894-db0f-416f-b23a-0639103a1090", "title": "Anti-staphylococcal activity soilless cultivated cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture focus correctly rejected"},
+    {"id": "822902b7-1b2e-4fb3-a7d6-fd00e6e101ac", "title": "Iron-catalyzed amino(radio)fluorination of alkenes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "82380fb9-a3dd-4661-8072-da2e59df7bc6", "title": "Effects of Cannabidiol Oil on Anesthetic Requirements in Cats", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary study correctly rejected"},
+    {"id": "825b9d2c-27de-4adf-92ad-3fd0faf83c2d", "title": "Weniger Anfälle mit Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy therapeutic"},
+    {"id": "825df420-8b8c-4893-bcea-fc9a8b7deb95", "title": "Cannabis Smoking in 13th-14th Century Ethiopia", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Archaeological/historical correctly rejected"},
+    {"id": "826cb4dd-e1af-4860-be21-a0ef5d03045c", "title": "Cannabinoid receptor activation mobilization myeloid-derived suppressor cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid immunomodulation mechanism"},
+    {"id": "8271c957-af68-4409-80b9-03252ae596f9", "title": "Forest resources depletion Ethiopia", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "8178d88d-ff8b-456c-96d2-0b66a118b17d",
+      "81eade5d-dbc3-4d34-b540-869d11d96013",
+      "825b9d2c-27de-4adf-92ad-3fd0faf83c2d",
+      "826cb4dd-e1af-4860-be21-a0ef5d03045c"
+    ]
+  }
+}

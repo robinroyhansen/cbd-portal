@@ -1,0 +1,42 @@
+{
+  "batch_number": 298,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T16:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "48ae5912-5bc1-4738-8142-d48b1ad551d1", "title": "Optimization and Evaluation of Cannabis-Based Magistral Formulations: A Path to Personalized Therapy", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis pharmaceutical formulation"},
+    {"id": "48b07d6b-8789-4b7a-a526-f9b247afffe8", "title": "The Transdermal Delivery of Therapeutic Cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid drug delivery"},
+    {"id": "48b9aa61-afa3-4f0d-9df3-bd0d1a41816d", "title": "Anesthetic Considerations For Patients Under The Influence Of Marijuana And/Or Cannabidiol: Anesthesia Interactions And Implications", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/anesthesia drug interactions"},
+    {"id": "48d73e70-8888-41f9-83cb-24413011d2e5", "title": "Biomarkers of Recent Cannabis Use in Blood, Oral Fluid and Breath", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "48ec1728-36fe-43c7-aae5-cba1e58481ff", "title": "Creating a mutually beneficial approach to CBD project.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Ambiguous, likely wrong CBD correctly rejected"},
+    {"id": "48f4292b-69da-4649-bea0-851f67d38c00", "title": "A Mild and Catalyst-Free Synthesis of Cannabidiols and Regioisomers Mediated by Fluorinated Alcohols.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemical synthesis correctly rejected"},
+    {"id": "48f4aa6d-0d8b-4f5d-aa26-5723c901c618", "title": "'If we sell CBD as a 'cure-all' for everything, it will drown out what it is actually effective for'.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial/opinion correctly rejected"},
+    {"id": "491f807b-dcb1-4fd1-ab60-69701c0046c1", "title": "DETECTION AND REMOVAL OF MALICIOUS NODE IN AD-HOC NETWORK USING DSR ROUTING ALGORITHM AND CBDS METHOD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (network security) correctly rejected"},
+    {"id": "4921abf8-ce3e-44b7-8e74-1851d7036317", "title": "Vaping Pure Cannabidiol e-Cigarettes Does Not Produce Detectable Amount of ∆9-THC in Human Blood", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD vaping safety research"},
+    {"id": "492c1b39-fb1d-40fa-9eae-ab73be598621", "title": "Barrier-Strengthening Effects of Cannabidiol on Porcine Peyer's Patches.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD gut barrier mechanism"},
+    {"id": "493669ae-8961-412a-bb3d-8bf2e337eb1e", "title": "Functional CB2 type cannabinoid receptors at CNS synapses", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor mechanism"},
+    {"id": "49369cc6-5cbe-4afb-86d7-24df8989fc42", "title": "Limited 12-hour pharmacokinetic assessment of CBD and CBDA isolates compared to their full-spectrum extracts in healthy adult beagles.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary study correctly rejected"},
+    {"id": "4967c853-418e-4064-9405-6450d14111ac", "title": "Surgical (Open and laparoscopic) management of large difficult CBD stones after different sessions of endoscopic failure: A retrospective cohort study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "498330cc-641d-4597-a556-fd9d91e8cc64", "title": "El desarrollo Científico, Tecnológico y de Mercado del Cannabidiol (CBD)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market/industry analysis correctly rejected"},
+    {"id": "499336b5-d4fe-4f57-831a-ad4db067f93c", "title": "Formulation Development and Evaluation of Cannabidiol Hot-Melt Extruded Solid Self-Emulsifying Drug Delivery System for Oral Applications", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery formulation"},
+    {"id": "49a569eb-181b-4df4-9551-8f83c44be070", "title": "Deciphering Asymmetric Induction in Photoredox Catalysis by Chiral Counteranions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "49a5e353-b9eb-453f-8460-c82d6301dc3e", "title": "Corrigendum to \"A within-subject cross-over trial comparing the acute effects of oral delta-8-tetrahydrocannabinol and delta-9-tetrahydrocannabinol in healthy adults\"", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - Delta-8/Delta-9 THC clinical trial corrigendum"},
+    {"id": "49bb0db4-65d5-48e6-b4e1-9ddc82cd81a7", "title": "Medical cannabis and driving in Australia: Results from the cannabis as medicine survey 2022–2023 (CAMS-22)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/policy survey correctly rejected"},
+    {"id": "49c11418-5827-4035-a68a-74c61bc5b2e3", "title": "Unabis CBD Gummies Critiques - Rip-off Warning Or Unabis Enthusiasm Gummies For Men", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "49d2cbcd-fb45-44f8-a841-83cda3163a74", "title": "[Cannabis and cerebrovascular disease].", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm study correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "48ae5912-5bc1-4738-8142-d48b1ad551d1",
+      "48b07d6b-8789-4b7a-a526-f9b247afffe8",
+      "48b9aa61-afa3-4f0d-9df3-bd0d1a41816d",
+      "4921abf8-ce3e-44b7-8e74-1851d7036317",
+      "492c1b39-fb1d-40fa-9eae-ab73be598621",
+      "493669ae-8961-412a-bb3d-8bf2e337eb1e",
+      "499336b5-d4fe-4f57-831a-ad4db067f93c",
+      "49a5e353-b9eb-453f-8460-c82d6301dc3e"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "batch_number": 194,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T14:30:00.000Z",
+  "results": [
+    {"id": "d7276568-a3ab-4d23-b5a2-c6b197693139", "title": "TRPA1 Lysosome Nrf2 Colorectal Cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - TRP channel without cannabinoid"},
+    {"id": "d7368f33-0e2e-40fb-a1e6-53cb0147940e", "title": "CB Signaling Astrocytes SCN Circadian Rhythms", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid circadian mechanism"},
+    {"id": "d73ed80b-c9bb-4013-b161-bcf9eee798be", "title": "CB Receptor Agonists Mitochondrial Inhibitors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mitochondria mechanism"},
+    {"id": "d75e9453-5fbc-47cb-b416-926bde223f8e", "title": "ECS CB1R Pharmacoresistant TLE Mood Disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS epilepsy/mood mechanism"},
+    {"id": "d7645e96-715f-4efa-ac64-c31fe191603b", "title": "No Additive Cannabis Effect Cognition Schizophrenia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabis cognition effects"},
+    {"id": "d77bf4f0-d0c9-47d5-b522-e5e586172d2b", "title": "CB1 WAVE1 Complex Actin Plasticity Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 mechanism synaptic plasticity"},
+    {"id": "d7a0d921-b750-4ff2-8f9b-73d41bcf1d28", "title": "CBD NSAID Interaction Aseptic Meningitis Case", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interaction case report"},
+    {"id": "d7a4dcd4-4a86-4c38-9d0a-9d9fb91a302d", "title": "CBD Drug-Resistant Epilepsy 51 Dogs Crossover", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dogs epilepsy"},
+    {"id": "d7b9ce56-c6ea-4701-b67e-285bd4032dbb", "title": "HC Providers Intention Recommend Medicinal Cannabis Stigma", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - prescribing attitudes"},
+    {"id": "d7ca1989-5ce8-4bdd-a51c-18174c4aa894", "title": "HU-446 HU-465 CBD Derivatives Encephalitogenic T Cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD derivatives MS therapeutic"},
+    {"id": "d7e38a48-2ae8-4c7c-8b36-0669aed4619b", "title": "CBD Human Brain Function Neuroimaging Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroimaging systematic review"},
+    {"id": "d7e7fda9-57bb-45f8-a29f-ee93ecde77c7", "title": "Structural Dynamic Mechanisms Cannabinoid Receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor structure"},
+    {"id": "d7e9db9c-227c-4c55-927f-fba534869579", "title": "Folate-Chitosan CBD Nanoparticle Breast Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer drug delivery"},
+    {"id": "d7f52dd2-3f37-48bc-a971-abec4290fdde", "title": "VTA Dopamine Cannabinoid Addictive Learning Depression", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - addiction mechanism"},
+    {"id": "d7faea82-1a22-4a85-8575-8d66b08dccba", "title": "Cannabis Dependence Attentional Bias Words", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - dependence bias"},
+    {"id": "d828e225-61fb-4cfc-b52b-1ce55521ba34", "title": "Nabilone Obesity Treatment Letter", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid obesity therapeutic"},
+    {"id": "d82b0e64-cfa7-44cc-8212-c2fb71ee8c36", "title": "Remission Amphetamine Cannabis Cocaine Opioid Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - recovery patterns multiple substances"},
+    {"id": "d837a9ff-4c2c-426a-ad74-b7ff5425602c", "title": "Cannabis Withdrawal Syndrome Validity Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - withdrawal validation"},
+    {"id": "d840039e-e40a-4ac1-8b89-23fade5ebf1c", "title": "ADHD Prevalent Cannabis Use Disorders Treatment Seeking", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - ADHD comorbidity CUD"},
+    {"id": "d84af5b4-a0f0-42bc-a793-6a0700ff4569", "title": "CBD Drop Seizures LGS Post Hoc Analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy clinical analysis"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "d7276568-a3ab-4d23-b5a2-c6b197693139",
+      "d7645e96-715f-4efa-ac64-c31fe191603b",
+      "d7a4dcd4-4a86-4c38-9d0a-9d9fb91a302d",
+      "d7b9ce56-c6ea-4701-b67e-285bd4032dbb",
+      "d7f52dd2-3f37-48bc-a971-abec4290fdde",
+      "d7faea82-1a22-4a85-8575-8d66b08dccba",
+      "d82b0e64-cfa7-44cc-8212-c2fb71ee8c36",
+      "d837a9ff-4c2c-426a-ad74-b7ff5425602c",
+      "d840039e-e40a-4ac1-8b89-23fade5ebf1c"
+    ]
+  }
+}

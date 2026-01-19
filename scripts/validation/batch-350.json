@@ -1,0 +1,41 @@
+{
+  "batch_number": 350,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T05:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "83e08fa9-3a91-428a-a210-cf595a6d33d0", "title": "The cannabinoid WIN55, 212-2 abrogates dermal fibrosis in scleroderma", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid scleroderma therapeutic"},
+    {"id": "84192411-dca3-498c-8b47-572cb8f950df", "title": "Heat technical indicators wall panel from CBD deposits", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (geological/construction) correctly rejected"},
+    {"id": "8426e234-2d16-45e4-99b7-86b00fb4160e", "title": "Influence of Carrier Oil, Sex, and Age on Pharmacokinetic Effects of Vaporized Cannabis Extract", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacokinetics research"},
+    {"id": "845a6f83-de52-446a-9816-1b8836468072", "title": "Vapor pressure measurements on cannabinoids for breathalyzer development", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "8468fadc-e20d-4ade-bde2-3a3983b8b5ca", "title": "Cannabis and the adolescent brain", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "847d0a8f-cd14-4589-bffe-9ace33d9d284", "title": "Cannabis: Evolution and Ethnobotany", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Historical/cultural correctly rejected"},
+    {"id": "847ec651-4b03-4d05-8961-a12acbdc78d5", "title": "Pharmacokinetics of Cannabidiol in Healthy Dogs", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary study correctly rejected"},
+    {"id": "84803656-851f-4d85-8333-6720393d7ed2", "title": "Population Pharmacokinetics of Antiepileptic in Pediatrics", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Not cannabinoid-specific correctly rejected"},
+    {"id": "848bd8f6-6a64-446d-8623-5eeca06d870b", "title": "Antioxidant potential of commercial hemp seed oils and CBD oil", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antioxidant therapeutic properties"},
+    {"id": "849dc8ab-d4f9-4678-b7e3-65714df6af86", "title": "Varnost kanabidiola (CBD) - Safety of cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research"},
+    {"id": "84a1b116-5290-4b20-954f-3c87d1026abe", "title": "Multi-Modal Management of Chronic Equine Gastric Ulcer Syndrome", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary study correctly rejected"},
+    {"id": "84a48079-d4be-49ff-acce-531cfd77d344", "title": "A Reassessment of urban structure land-use patterns distance to CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "84ae082b-78b6-4d0e-8a6c-8de10bf7764b", "title": "Medical cannabis regulation: Brazil scenario", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/regulatory correctly rejected"},
+    {"id": "84b7d57f-e579-4a7b-803a-69f098c590e8", "title": "Optimization of CBD and THC quantification HPLC", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "84c4d048-4c05-4167-bd81-53ec52a2356c", "title": "Supercritical CO2 Extraction Rhododendron adamsii", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Different plant correctly rejected"},
+    {"id": "84d89274-79b9-4774-ac60-966a7535bf35", "title": "Virus-induced gene silencing in Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "84dd14a3-a5c0-4633-bcbb-afbc8baf3c3c", "title": "Efficacy of cannabidiol/THC for substance use disorders umbrella review", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC addiction therapeutic review"},
+    {"id": "84e8c59c-4a46-4be1-85ea-9c2a5e908424", "title": "Effects of Gibberellic Acid on Terpenoids and THC in Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/cultivation correctly rejected"},
+    {"id": "84f04c76-195e-44ad-b23c-d452f733344e", "title": "CB2 renoprotection in acute and chronic kidney injury", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 kidney therapeutic mechanism"},
+    {"id": "84f702b1-216d-4d67-adf3-6c873bae688b", "title": "Abrupt withdrawal of cannabidiol (CBD): A randomized trial", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety (withdrawal) trial"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "83e08fa9-3a91-428a-a210-cf595a6d33d0",
+      "8426e234-2d16-45e4-99b7-86b00fb4160e",
+      "848bd8f6-6a64-446d-8623-5eeca06d870b",
+      "849dc8ab-d4f9-4678-b7e3-65714df6af86",
+      "84dd14a3-a5c0-4633-bcbb-afbc8baf3c3c",
+      "84f04c76-195e-44ad-b23c-d452f733344e",
+      "84f702b1-216d-4d67-adf3-6c873bae688b"
+    ]
+  }
+}

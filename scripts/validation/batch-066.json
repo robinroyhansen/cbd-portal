@@ -1,0 +1,42 @@
+{
+  "batch_number": 66,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T06:15:00.000Z",
+  "results": [
+    {"id": "492c6c8e-b547-4b0f-acd0-317c93ec6f2e", "title": "Faculty Opinions recommendation of Effect of Cannabidiol on Drop Seizures in the Lennox-Gastaut Syndrome.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Lennox-Gastaut epilepsy therapeutic"},
+    {"id": "493212ac-cbbb-426f-a7fb-81cee9295332", "title": "Neuroimaging signatures of mesial temporal lobe epilepsy: A coordinate-based meta-analysis of structural and resting-state functional imaging literature", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - MTLE neuroimaging meta-analysis"},
+    {"id": "495c7ade-540a-4bb2-8dc6-b1ddb86b61f9", "title": "Preliminary study regarding the hepatic parameters in dogs treated with CBD oil", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - CBD in dogs"},
+    {"id": "495ca831-1e8b-465f-9041-0acd7c0f160d", "title": "Anti-Inflammatory Effects of Cannabigerol In Vitro and In Vivo Are Mediated Through the JAK/STAT/NFκB Signaling Pathway", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG anti-inflammatory mechanism"},
+    {"id": "496b6f17-a661-4e69-81ac-8405e3cf96ee", "title": "Associations of cannabis and cigarette use with psychotic experiences at age 18: findings from the Avon Longitudinal Study of Parents and Children", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - psychosis risk"},
+    {"id": "49781694-5c2c-4929-967f-547e0520e0a8", "title": "Population pharmacokinetic modelling revealed large variability in oromucosal absorption of Δ(9)-tetrahydrocannabinol in older patients with poor appetite.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC pharmacokinetics appetite"},
+    {"id": "497fa950-22ee-46cf-a02e-b4310c86cb32", "title": "GPR35-mediated metabolic reprogramming promotes tumorigenesis in digestive cancers", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - GPR35 not cannabinoid receptor"},
+    {"id": "49855b97-39b4-4daf-89d3-c678c8590dbe", "title": "Addiction Susceptibility: Genetic Factors, Personality Traits, and Epigenetic Interactions with the Gut Microbiome", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general addiction genetics"},
+    {"id": "49997e92-828d-4148-b89b-e55d97acd82f", "title": "Investigating how ICT has enhanced SME businesses in Zimbabwe : the case of SMEs in harare's CBD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Central Business District (Zimbabwe business)"},
+    {"id": "499a60cb-9e83-43b4-a4eb-70f0cafa41da", "title": "Cannabidiol exerts anti-inflammatory effects but maintains T effector memory cell differentiation: A Single-Cell Study in Humans.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anti-inflammatory immune mechanism"},
+    {"id": "49a59bc7-ccb1-44a9-b9b0-97b64c804425", "title": "CANNABIDIOL AND CANNABIGEROL LIMIT L-DOPA-INDUCED DYSKINESIA WHEN GIVEN SEPARATELY OR IN COMBINATION TO HEMIPARKINSONIAN RATS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/CBG Parkinson's dyskinesia therapeutic"},
+    {"id": "49a790a8-814f-4878-9298-774bd177eced", "title": "Problems Associated with Using Cannabis to Cope with Stress", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis coping and problematic use"},
+    {"id": "49a81e2f-959d-46fe-ad82-24682dbbf0c7", "title": "Chronic Pain and Posttraumatic Stress Among Patients in Substance Use Treatment: Protocol for NOR-APT, a Longitudinal Cohort Study", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general substance use treatment study"},
+    {"id": "49aacc9c-569b-4a03-b23a-787e9afd242d", "title": "Efficacy and Safety of Hemp-derived, Full Spectrum Cannabigerol (CBG) in Adults", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG efficacy safety therapeutic trial"},
+    {"id": "49c38f06-6d2f-433f-88e5-d4830d48592f", "title": "Cannabis use and misuse prevalence among people with psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use in psychosis"},
+    {"id": "49ccdaef-3c7d-4763-b42c-9b96d05b42c1", "title": "Cannabis Consumption in People Living with HIV: Reasons for Use, Secondary Effects, and Opportunities for Health Education", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis HIV symptom management therapeutic"},
+    {"id": "49e74b18-df57-4ab2-991b-1305c95c1f38", "title": "The μ‐opioid receptor agonist morphine, but not agonists at δ‐ or κ‐opioid receptors, induces peripheral antinociception mediated by cannabinoid receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid opioid pain mechanism"},
+    {"id": "49fc5fa9-61e3-4680-acc0-a70aafc464c0", "title": "Persistent behavioural consequences of chronic adolescent cannabidiol (CBD) in a mouse model with increased susceptibility to Δ(9)-tetrahydrocannabinol and schizophrenia.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia susceptibility mechanism"},
+    {"id": "4a024afc-1a1c-47c1-88e5-e990edc38f55", "title": "Revealing the Specific Contributions of Mitochondrial CB(1) Receptors to the Overall Function of Skeletal Muscle in Mice.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Mitochondrial CB1 muscle mechanism"},
+    {"id": "4a121798-dada-4839-a4b0-5abced8624f1", "title": "Endocannabinoid signaling via cannabinoid receptor 1 is involved in ethanol preference and its age-dependent decline in mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 ethanol preference mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "493212ac-cbbb-426f-a7fb-81cee9295332",
+      "495c7ade-540a-4bb2-8dc6-b1ddb86b61f9",
+      "496b6f17-a661-4e69-81ac-8405e3cf96ee",
+      "497fa950-22ee-46cf-a02e-b4310c86cb32",
+      "49855b97-39b4-4daf-89d3-c678c8590dbe",
+      "49997e92-828d-4148-b89b-e55d97acd82f",
+      "49a790a8-814f-4878-9298-774bd177eced",
+      "49a81e2f-959d-46fe-ad82-24682dbbf0c7",
+      "49c38f06-6d2f-433f-88e5-d4830d48592f"
+    ]
+  }
+}

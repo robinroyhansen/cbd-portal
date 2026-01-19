@@ -1,0 +1,47 @@
+{
+  "batch_number": 4,
+  "studies_validated": 30,
+  "timestamp": "2026-01-18T13:30:00.000Z",
+  "results": [
+    {"id": "05ece07e-cc89-4d4c-8f9a-1e99bf2f889b", "title": "Cannabidiol sensitizes triple-negative breast cancer cells to NK cell-mediated killing", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for breast cancer"},
+    {"id": "05f11364-58d3-47e2-8ad0-41915125713e", "title": "Cannabis use by individuals with multiple sclerosis: effects on...immune parameters", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis and MS immunity"},
+    {"id": "0618cd0a-746f-4d5a-a7ba-94f02c15f5c5", "title": "Efficacy of fcSEMS for refractory CBD stones", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CBD = Common Bile Duct, not cannabidiol - gastroenterology about gallstones"},
+    {"id": "061ec3e1-138e-4266-8509-dcaa876c1e48", "title": "The Effect of Medicinal Cannabis on Pain and Quality-of-Life Outcomes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for chronic pain"},
+    {"id": "062684d1-c844-42d8-99d7-638f9f7b02ec", "title": "Cardiovascular Effects of Cannabidiol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular"},
+    {"id": "062bb270-d9ef-43be-ac87-11041f42876e", "title": "Impact of cannabidiol on myocardial recovery...acute myocarditis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD clinical trial for heart"},
+    {"id": "062c5053-2f3a-47f1-be6f-eb8d7d90b919", "title": "Advances in...cannabinoid–opioid cross‐talk", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid-opioid interaction"},
+    {"id": "0639bd6f-021e-44ca-bf76-067366e9a0a5", "title": "Cannabidiol in the Treatment of Opioid Use Disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for addiction"},
+    {"id": "064356ad-feb2-408c-b6b3-2edaadd7f335", "title": "Lack of cannabidiol effects on sleep-wake cycle in healthy patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD and sleep"},
+    {"id": "065619ff-25ac-44c8-81ba-e975aa517a5e", "title": "Evaluación In Vitro...Nanoemulsiones de Cannabidiol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD nanoemulsion for pain"},
+    {"id": "0661616a-7957-4614-b319-040b875ebde2", "title": "Enhanced Antibacterial...Cannabis sativa and Propolis Extracts", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis antimicrobial"},
+    {"id": "0677d9a7-2bb6-43e9-8fb6-cbd7e06b68ef", "title": "Neuronal and Astrocytic Morphological Alterations...THC...Not Cannabidiol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD effects on neurons"},
+    {"id": "06882362-f56e-44be-b5d1-4f7afa921b38", "title": "The Influence of Cannabis Inhalation During Exercise on Cardiovascular Health", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cardiovascular effects"},
+    {"id": "06a09a05-b176-401f-834e-352285be1e5e", "title": "Peripheral CB1 cannabinoid receptor blockade improves cardiometabolic risk", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 for metabolic health"},
+    {"id": "06a30671-1763-4c21-9991-cbed01602289", "title": "Consumer interest in topical cannabidiol: An examination of online search trends", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Market/consumer analysis of search trends, not health research"},
+    {"id": "06b54722-d3cd-449e-a101-4e13f4f3619b", "title": "Decision letter for Therapeutic Potential of Cannabidiol in Dentistry", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Editorial/decision letter, not actual research"},
+    {"id": "06c80269-276d-4373-af91-7092f30b6e58", "title": "Real-world disproportionality analysis of sleep disturbances...antiseizure medications", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "May include cannabinoid ASMs - kept as approved"},
+    {"id": "06cffeb9-f2d8-4b2b-8e41-13391df5b9d6", "title": "...distress tolerance and cannabis use problems...self-efficacy for quitting", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Addiction treatment factors"},
+    {"id": "06dded32-96da-48df-85da-ba63d78cb161", "title": "A Randomized Controlled Trial of Dronabinol and Vaporized Cannabis in Chronic Low Back Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "RCT of THC for pain"},
+    {"id": "07096d57-6153-4426-bde8-23cd3a3a0aa2", "title": "The hazards of bad sleep—Sleep...as predictors of adolescent...cannabis use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Risk factor study - sleep predicting cannabis use, not health research"},
+    {"id": "07215514-5ad4-4f46-9d91-1718d98ce183", "title": "CB2 Agonist JWH-133...HIV-Infected Macrophage Secretome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 for HIV/inflammation"},
+    {"id": "07320a23-321d-4923-94dd-bffed054a9a0", "title": "Detection of Paracetamol Concentration...Electrochemical Indicator", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Includes endocannabinoid system study - borderline but kept"},
+    {"id": "07347d93-e2b6-4abe-890b-3b7805183a76", "title": "Synthesis and Pharmacological Evaluation...of Halogenated Cannabidiol Derivatives", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD derivatives for anticonvulsant effects"},
+    {"id": "07385812-a8c3-40fc-a04e-756ed8d3bacc", "title": "Role of cannabidiolic acid...cannabigerol/cannabidiol in pain modulation...horses", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids for pain (veterinary)"},
+    {"id": "075c5bee-0b2a-4bbe-9443-6ea04d016a53", "title": "The intersection between cannabis and cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis and cancer"},
+    {"id": "076e5508-53f1-4bf2-a2d7-22b79f00b5a8", "title": "Is cannabis neurotoxic for the healthy brain?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Meta-analysis of cannabis brain effects"},
+    {"id": "076eda0b-4843-426d-8c00-0e3bfab9dfbe", "title": "Co-Dispersion Delivery Systems...Improving...Solubility...of Cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Drug delivery for cannabinoids"},
+    {"id": "07728f25-c568-4eb0-b436-f27aec602ddf", "title": "An Open-Label Trial...ZX008...in Combination With Cannabidiol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD + fenfluramine for epilepsy"},
+    {"id": "07760fa5-7073-4118-ab18-a5ce674a132b", "title": "Psychiatric Symptoms in Cannabis Users", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis psychiatric effects"},
+    {"id": "078eb295-b8c0-4e68-8dfb-f09e121e2e29", "title": "Stress Responsivity of Endocannabinoids...in Plasma and Saliva", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid system and stress"}
+  ],
+  "batch_summary": {
+    "correct": 26,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "0618cd0a-746f-4d5a-a7ba-94f02c15f5c5",
+      "06a30671-1763-4c21-9991-cbed01602289",
+      "06b54722-d3cd-449e-a101-4e13f4f3619b",
+      "07096d57-6153-4426-bde8-23cd3a3a0aa2"
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "batch_number": 112,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T17:45:00.000Z",
+  "results": [
+    {"id": "7cd2cc7e-527c-4fb5-bcd2-919e69babe80", "title": "CBD CDC123 Colorectal Cancer Proteome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic mechanism"},
+    {"id": "7cf5ff8a-5aa9-4a80-a0f3-d8c50e4d3c28", "title": "CBD Narcotics Law Modification Regulation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - CBD regulatory classification"},
+    {"id": "7cfe80f5-7699-4ef8-ba11-b7bcbb04100c", "title": "CBD Prevent Relapse Heroin Addicts Craving", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD opioid addiction therapeutic"},
+    {"id": "7d000a47-c211-4055-a3e9-103d670540fd", "title": "Alcohol Nicotine Cannabis Youth Mental Healthcare", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - substance use patterns youth"},
+    {"id": "7d03da5a-b5f6-4709-b9f4-b6f68b2bff51", "title": "Autism Pharmacological Drug Repositioning Computational", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general autism pharmacotherapy"},
+    {"id": "7d04a399-975b-43b0-92f0-68f22cec85ed", "title": "CBD Krill Oil Dogs Osteoarthritis RCT", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dogs"},
+    {"id": "7d0b2662-d784-40a6-8913-612a27ce920c", "title": "Cannabinoid Receptors Osteoporosis Osteoporotic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism review"},
+    {"id": "7d156d53-579d-4459-a12d-b875eac86399", "title": "CBD Pregnancy Inflammation Neuroprotection LPS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pregnancy neuroprotection"},
+    {"id": "7d211881-13a2-4da2-9d95-79af39450df4", "title": "CBD Omega-3 Sleep Deprivation Cognition Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cognitive neuroprotection"},
+    {"id": "7d3e9de0-4558-4346-9347-bd53506e421b", "title": "Cannabinoids BBB Diabetes Dementia Therapeutic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid diabetes dementia therapeutic"},
+    {"id": "7d53fdb9-f23a-4f55-80b4-c0832575abeb", "title": "Adolescent Cannabis Neuropsychological Decline Twins", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cognitive decline study"},
+    {"id": "7d61d5e9-3285-472d-8616-ce7587af7e0e", "title": "Nicotine Acetylcholine Receptors Addiction Mechanisms", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - nicotine addiction"},
+    {"id": "7d708e0f-cc66-4138-8ee4-fd820f3d73f7", "title": "Cannabis Cardiovascular Adverse Outcomes Tobacco", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cardiovascular adverse outcomes"},
+    {"id": "7d87aca2-2374-49ae-961d-074fe5cafcbc", "title": "Minor Cannabinoids CBC THCV CBN Anti-inflammatory Macrophages", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anti-inflammatory mechanism"},
+    {"id": "7d97964f-6059-48eb-9429-ad4f370972c4", "title": "CBD Analgesic Moroccan Cannabis Khardala", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic"},
+    {"id": "7db69ffc-0e0c-4d6a-a3fb-aac7ce3ad815", "title": "CBD Nanomicelles Oral Mucositis Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD chemo side effect therapeutic"},
+    {"id": "7dd93e8f-5027-40bb-8de7-6df390a8c69e", "title": "Cannabis Behavioral Sequelae Healthy People Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - adverse behavioral effects review"},
+    {"id": "7de4dbef-be7e-4686-948f-25dbedec0343", "title": "Nandrolone Cannabinoid Dependence Steroid", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabinoid dependence"},
+    {"id": "7df76e9b-62c9-4460-8d50-3a93e6359ccf", "title": "Hepatic Neuroendocrine Carcinoma CBD Obstruction", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Common Bile Duct anatomy"},
+    {"id": "7dfa21fc-9ae0-47ea-b442-276dc8ea5811", "title": "CBD Antilisterial Dairy Products Listeria", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - food preservation antimicrobial"}
+  ],
+  "batch_summary": {
+    "correct": 9,
+    "incorrect": 11,
+    "incorrect_ids": [
+      "7cf5ff8a-5aa9-4a80-a0f3-d8c50e4d3c28",
+      "7d000a47-c211-4055-a3e9-103d670540fd",
+      "7d03da5a-b5f6-4709-b9f4-b6f68b2bff51",
+      "7d04a399-975b-43b0-92f0-68f22cec85ed",
+      "7d53fdb9-f23a-4f55-80b4-c0832575abeb",
+      "7d61d5e9-3285-472d-8616-ce7587af7e0e",
+      "7d708e0f-cc66-4138-8ee4-fd820f3d73f7",
+      "7dd93e8f-5027-40bb-8de7-6df390a8c69e",
+      "7de4dbef-be7e-4686-948f-25dbedec0343",
+      "7df76e9b-62c9-4460-8d50-3a93e6359ccf",
+      "7dfa21fc-9ae0-47ea-b442-276dc8ea5811"
+    ]
+  }
+}

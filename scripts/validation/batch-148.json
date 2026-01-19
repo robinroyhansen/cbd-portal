@@ -1,0 +1,39 @@
+{
+  "batch_number": 148,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T03:00:00.000Z",
+  "results": [
+    {"id": "a51fb78a-37e5-43d8-9a1d-a4b18e35ae53", "title": "Plasma Protein Classification Alzheimer's ML", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - AD machine learning"},
+    {"id": "a520bb4e-6ccd-4e3a-a2ef-dde7ab3144b6", "title": "Online feedback intervention cannabis college", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - online intervention"},
+    {"id": "a5257be1-e672-41cb-86a6-bd9e6355bbf3", "title": "Cannabis Oil VPA-Induced Autism Oxidative", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis autism therapeutic"},
+    {"id": "a52e06a7-c0de-4850-b8f9-542c4cd292cb", "title": "CBD epigallocatechin SARS-CoV-2 inhibition", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antiviral mechanism"},
+    {"id": "a53d1c05-2479-4e67-a082-e792cea6aa04", "title": "Immune Responses Regulated by Cannabidiol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD immunomodulation review"},
+    {"id": "a5419598-5f4c-47a4-a0fc-7c0f171ef171", "title": "Cannabis improves symptoms of ADHD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis ADHD therapeutic"},
+    {"id": "a5508b91-00af-4b38-b901-34797802b6b0", "title": "Therapeutic THEDES self-emulsifying CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery"},
+    {"id": "a562ae27-ff58-44f7-8963-c28a1c6d3fb5", "title": "Overlooked Victim Cannabis Hyperemesis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - hyperemesis"},
+    {"id": "a5683c43-6cf5-440e-9f0c-ddee98346fb1", "title": "Smoked Marijuana Neuropathic Pain RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain clinical trial"},
+    {"id": "a5773f73-41a0-4f3a-ae0e-50b61cd04199", "title": "Cannabis cytotoxicity leukemic MAPK", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer mechanism"},
+    {"id": "a589c645-a9ee-4f3b-b79e-390942102728", "title": "Cannabinoid agonists D1 Parkinson's model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Parkinson's mechanism"},
+    {"id": "a5987617-c374-42d6-b03b-721286f82cfa", "title": "Nanoformulations cannabinoids delivery", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid drug delivery review"},
+    {"id": "a5a022ec-8f8e-448d-9f59-e6c11c74e6a0", "title": "Psychological effects synthetic cannabinoids", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - synthetic harm"},
+    {"id": "a5ab95ca-d37a-4b23-8dab-c91fe8e506f6", "title": "Dronabinol/cannabidiol neuropathic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain therapeutic"},
+    {"id": "a5ac8d77-2576-4165-952a-3362aa4789ab", "title": "CBD Derivatives H9c2 Cardioprotection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular development"},
+    {"id": "a5c5c2ac-b6a4-4e26-af52-0beeb3776282", "title": "Andrographolide cannabinoid receptors hepatic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS liver therapeutic"},
+    {"id": "a5ce5370-4cad-4878-8566-055c08c57979", "title": "Cannabinoids PTSD treatment prevention", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid PTSD review"},
+    {"id": "a5e3432c-9958-437b-94ed-507dc3f0e132", "title": "CBD Drug-drug Interaction Potential", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacology safety"},
+    {"id": "a5e8b193-036a-41f5-b3b3-1a6d2712e686", "title": "Acute effects cannabis executive function", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - acute impairment"},
+    {"id": "a5f6430a-bde9-403c-b3e8-2f9ae28d9973", "title": "Cannabis Predictor Early Bipolar Suicide", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - BD/suicide risk"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "a51fb78a-37e5-43d8-9a1d-a4b18e35ae53",
+      "a520bb4e-6ccd-4e3a-a2ef-dde7ab3144b6",
+      "a562ae27-ff58-44f7-8963-c28a1c6d3fb5",
+      "a5a022ec-8f8e-448d-9f59-e6c11c74e6a0",
+      "a5e8b193-036a-41f5-b3b3-1a6d2712e686",
+      "a5f6430a-bde9-403c-b3e8-2f9ae28d9973"
+    ]
+  }
+}

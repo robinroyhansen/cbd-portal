@@ -1,0 +1,41 @@
+{
+  "batch_number": 137,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T00:00:00.000Z",
+  "results": [
+    {"id": "9876632a-870d-4361-8f27-1a8e382fd0a6", "title": "Cannabis Toxin Therapeutic Uses Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis therapeutic and safety review"},
+    {"id": "987d6924-952b-476b-9f7f-1aa8129348f3", "title": "CUD Perioperative Complications Surgery", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - CUD surgical morbidity"},
+    {"id": "9887e3df-c516-4212-9a56-a05b99b356bd", "title": "GWAS Cannabis Dependence Locus", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD genetics study"},
+    {"id": "9889129a-dc4f-4b21-89ea-e4b605ccc003", "title": "Psychosocial Substance Use Suicidal Autistic Social Media", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - social media analysis substance use"},
+    {"id": "98974a11-0d24-470a-80d7-2b5c590c47c4", "title": "Medical Cannabis Pain Inflammation HIV", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis HIV neuropathic pain therapeutic"},
+    {"id": "98ba36e0-7342-4f22-b979-b88127af137e", "title": "CBD Lung Cancer Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic review"},
+    {"id": "98d084d8-e01d-4aff-ba63-760732f9c132", "title": "Sleep Disturbances THA TKA Interventions", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general sleep arthroplasty review"},
+    {"id": "98d52f2f-4cf1-486e-a868-9658e3ac5757", "title": "Epilepsy Biomarkers Metabolomics Cohorts", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - epilepsy metabolomics"},
+    {"id": "98f0efdb-dde1-409e-8291-42e07e3bb62e", "title": "Catatonia Cannabis Withdrawal Case Report", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - withdrawal syndrome"},
+    {"id": "98f4922f-0844-45c2-a09f-146a13d1dcdb", "title": "CBD Regulation EU Harmonization Sought", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - regulatory content"},
+    {"id": "98f693bd-ef22-410c-b623-4a37daa76354", "title": "CBD THC Developmental Zebrafish Toxicity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid developmental safety research"},
+    {"id": "98f9c028-27c9-471e-a7f6-18c147175cdc", "title": "Cannabinoid Agonist Gastric Cancer Cell Cycle", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer mechanism"},
+    {"id": "99026598-94af-42ba-910a-0927cfb0cfa6", "title": "Medical Cannabis Formulations Cancer Patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer therapeutic"},
+    {"id": "990ba15b-64fc-4d3b-a982-92a6fdbb1e28", "title": "CBD Micronutrients Neuroprotection Neurodegeneration", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection therapeutic review"},
+    {"id": "990ea43f-bc8e-483b-9a2a-48b9501a0237", "title": "THC CBD CatSper Sperm Function", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid reproductive pharmacology"},
+    {"id": "990f6dfd-ec46-487c-b589-d315140f7b3a", "title": "CBD Pediatric Epilepsy Long-term Evaluation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic long-term"},
+    {"id": "99185e23-2123-4939-9439-da996e53888e", "title": "Cannabinoid Reinstatement Heroin Seeking Mechanism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid addiction mechanism research"},
+    {"id": "99187ac2-0969-4407-bb10-6b1287af2d29", "title": "Cannabinoids Persistent Cognitive Psychiatric Disorders", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - persistent cognitive/psychiatric harm"},
+    {"id": "9918eed0-2fae-4f3a-8061-0746307f2e38", "title": "Cannabis Terpenes Chronic Pain Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis terpenes pain therapeutic"},
+    {"id": "991c7a84-d3a7-4ce4-be58-3abcef18b301", "title": "Cannabis Therapy Aging Rat Model GMP", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis aging therapeutic research"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "987d6924-952b-476b-9f7f-1aa8129348f3",
+      "9887e3df-c516-4212-9a56-a05b99b356bd",
+      "9889129a-dc4f-4b21-89ea-e4b605ccc003",
+      "98d084d8-e01d-4aff-ba63-760732f9c132",
+      "98d52f2f-4cf1-486e-a868-9658e3ac5757",
+      "98f0efdb-dde1-409e-8291-42e07e3bb62e",
+      "98f4922f-0844-45c2-a09f-146a13d1dcdb",
+      "99187ac2-0969-4407-bb10-6b1287af2d29"
+    ]
+  }
+}

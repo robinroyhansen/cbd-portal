@@ -1,0 +1,41 @@
+{
+  "batch_number": 143,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T01:45:00.000Z",
+  "results": [
+    {"id": "9f7aad08-cd93-4aef-a5ff-830cd2de4ea1", "title": "CBD with NSAIDs in Dogs Mobility Disorders", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dog pain study"},
+    {"id": "9f82f001-70e5-46cd-9f71-89da25498766", "title": "Adverse childhood experiences psychosis risk Lagos", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - psychosis risk factors"},
+    {"id": "9f88bd68-8722-4352-ba12-c048fbe36c69", "title": "CBD Temporomandibular Disorders Scoping Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD TMD therapeutic review"},
+    {"id": "9f9b15a3-1961-440e-99f0-ba72a85f66a5", "title": "CBD Prophylactic Glioblastoma Preclinical", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer prevention mechanism"},
+    {"id": "9fa6f88d-6e86-48b2-bfbe-ca2a3c0b1579", "title": "PARP-1 tumor depression therapeutic", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - PARP-1 enzyme review"},
+    {"id": "9fb5bbdc-c0cc-4086-a46d-ca0dd3d03599", "title": "Cannabis quality control assurance Canada", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - regulatory/QC overview"},
+    {"id": "9fc3186e-8e20-4300-a74a-31cd543ca97d", "title": "Meta-analysis medical cannabis cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer therapeutic meta-analysis"},
+    {"id": "9fe5de94-c679-4ab0-adbd-857e73919fa7", "title": "Auditory Potentials Attention Cannabis Users", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cognitive impairment users"},
+    {"id": "9ff5a43c-e3f7-405a-83c1-c36b6ba28037", "title": "Molecular Imaging Cannabinoid System Parkinson's", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS Parkinson's disease research"},
+    {"id": "9ffa0c00-ece2-4792-a48d-5b7d7ba07a2f", "title": "CBD Multi-Symptom Panacea Dravet Syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Dravet epilepsy review"},
+    {"id": "9ffd86e2-f768-41a7-b668-f5f3f7d00541", "title": "Cannabis Dependence and Tolerance Production", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD/HARM - dependency mechanisms"},
+    {"id": "a01353e0-6240-41c8-82e7-77ddca3620f2", "title": "Cannabinoid-receptor-independent NAE signalling", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS pharmacology mechanism"},
+    {"id": "a01dbace-a71c-4a4f-a3c2-2de29afd5bf0", "title": "Cannabinoids cancer-related anorexia older adults", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer supportive care"},
+    {"id": "a0634b81-9a74-4274-b0f2-eb15b4d5e250", "title": "CBD Reducing Symptomatic Response Muscle Injury", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD muscle recovery RCT"},
+    {"id": "a0671485-c43f-41b8-8346-327a42ba75b1", "title": "Cannabis sativa rhythmic spike REM sleep rat", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis sleep mechanism research"},
+    {"id": "a0723182-fcc1-45e2-b070-21708ac22abd", "title": "Cannabinoid polymorphisms fear extinction learning", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS PTSD/anxiety mechanism"},
+    {"id": "a092d7ff-8666-43d6-8a9e-0e5624b2617d", "title": "Inflammatory Neurotrophic Factors PSP", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - PSP inflammation"},
+    {"id": "a0b09db9-00db-412a-a75d-7ab87204ad46", "title": "Cannabidiol Toxicity Hydroxyquinone Formation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety/toxicology research"},
+    {"id": "a0be4d82-2948-4919-9570-f7e24e708713", "title": "CBD neurometabolite levels alcohol use disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD AUD therapeutic research"},
+    {"id": "a0d235ed-7c25-4d9a-a8c7-c458f23efc2f", "title": "Clustering smoking alcohol cannabis adolescents", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - adolescent substance use"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "9f7aad08-cd93-4aef-a5ff-830cd2de4ea1",
+      "9f82f001-70e5-46cd-9f71-89da25498766",
+      "9fa6f88d-6e86-48b2-bfbe-ca2a3c0b1579",
+      "9fb5bbdc-c0cc-4086-a46d-ca0dd3d03599",
+      "9fe5de94-c679-4ab0-adbd-857e73919fa7",
+      "9ffd86e2-f768-41a7-b668-f5f3f7d00541",
+      "a092d7ff-8666-43d6-8a9e-0e5624b2617d",
+      "a0d235ed-7c25-4d9a-a8c7-c458f23efc2f"
+    ]
+  }
+}

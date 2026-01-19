@@ -1,0 +1,41 @@
+{
+  "batch_number": 360,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T08:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "8fe4a157-4ca6-4cdc-afb8-fc64ffa8f528", "title": "Author Correction: Nature positive rhetoric, risk and reality: sector-scale political ecology at CBD COP16", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "8ff3c9f0-9a9e-4813-9231-f4e834283b58", "title": "Cannabidiol dans la prise en charge de l'épilepsie pharmacorésistante : état des lieux des pratiques", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy therapeutic practice review"},
+    {"id": "900bc7c4-2e31-4a9d-9edd-31e71622babc", "title": "EcoHIV infection promotes atherosclerosis progression in LDLR-deficient mice", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "90191512-5ccf-4f56-a5aa-6b3c23b7d765", "title": "Unraveling the Enigma of Cannabinoid Hyperemesis Syndrome: A Narrative Review of Diagnosis and Management", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Adverse effects/harm correctly rejected"},
+    {"id": "90250a9d-cd94-47a3-bcb4-813b147e3ee2", "title": "CEREBRAL ATROPHY IN YOUNG CANNABIS SMOKERS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "9027cd17-a9b7-427c-8d87-361732b92303", "title": "Effect of an extract of cannabis and of some cannabinols on catecholamine metabolism in rat brain and heart", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid catecholamine mechanism research"},
+    {"id": "9038ccd0-f67c-47cd-9b0c-9dbe87a68fc8", "title": "A prospective study of newly incident cannabis use and cannabis risk perceptions: Results from the United States Monitoring the Future study, 1976–2013", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "904921eb-374f-44b2-8dbc-7bdf3b9e4641", "title": "Cytoskeletal organization following cannabinoid treatment in undifferentiated and differentiated PC12 cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cellular mechanism research (THC/CBD/CBN)"},
+    {"id": "9053ba29-c1dc-4adf-a8f3-4777e4786b5c", "title": "A Study on Parking Behavior Characteristics of Drivers and Developing Parking Choice Model in CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "907f37c1-df8f-4b98-95fb-0ae9a497269b", "title": "Synthèse et analyse conformationnelle de dérivés du cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthesis correctly rejected"},
+    {"id": "9085a30b-5eea-4134-a22b-0fee894a032b", "title": "Perceptions of Delta-8 THC and the Impact of a Brief Educational Video Intervention for College Students", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Education/perception study correctly rejected"},
+    {"id": "9095c88d-2437-4009-b5af-e6de1f24538e", "title": "Sequential endoscopic and laparoscopic treatment for choledocholithiasis: a 30-year experience in the era of evolving techniques", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "90b37641-6bc0-48ae-92d5-0b976d9acc91", "title": "Pharmacotechnical and analytical preformulation studies for cannabidiol orodispersible tablets", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug formulation research"},
+    {"id": "90ba9034-4eb1-4f2e-9f2f-545f842fad2c", "title": "Characterization of Antiretroviral Therapy (ART) Adherence Phenotypes and Psychosocial Symptom Clusters Among Black/African American and Hispanic/Latine Adolescents and Young Adults with HIV", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "90d9d55f-5ff1-4931-9f89-c9ba407c30e5", "title": "Identifying organic contaminants at trespass cannabis grows on federal land in California, USA", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Environmental correctly rejected"},
+    {"id": "90ea96b2-295e-4757-8aa4-db8c90690352", "title": "An Unexpected Activity of a Minor Cannabinoid: Cannabicyclol (CBL) Is a Potent Positive Allosteric Modulator of Serotonin 5-HT1A Receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research"},
+    {"id": "9119a34d-7475-4899-a9ff-963c990fdf7c", "title": "Les jeunes au Canada sont touchés par la crise des opioïdes et ont besoin de traitement", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "912897da-cc10-47a1-997d-e0ba6de6cacb", "title": "A protocol for the delivery of cannabidiol (CBD) and combined CBD and THC by vaporisation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC delivery protocol research"},
+    {"id": "913d19e0-d3e1-4f7b-8fa4-f604031c2cce", "title": "Psychedelic use in individuals living with eating disorders or disordered eating: findings from the international MED-FED survey", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid (psychedelics) correctly rejected"},
+    {"id": "913d6367-456e-4e43-9b85-0393ffe82fcd", "title": "Efecto antiinflamatorio del cannabidiol en la recuperación de deportistas de alto rendimiento: revisión bibliográfica", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anti-inflammatory therapeutic review for athletes"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "8ff3c9f0-9a9e-4813-9231-f4e834283b58",
+      "9027cd17-a9b7-427c-8d87-361732b92303",
+      "904921eb-374f-44b2-8dbc-7bdf3b9e4641",
+      "90b37641-6bc0-48ae-92d5-0b976d9acc91",
+      "90ea96b2-295e-4757-8aa4-db8c90690352",
+      "912897da-cc10-47a1-997d-e0ba6de6cacb",
+      "913d6367-456e-4e43-9b85-0393ffe82fcd"
+    ]
+  }
+}

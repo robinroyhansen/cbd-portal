@@ -1,0 +1,41 @@
+{
+  "batch_number": 270,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T09:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "2a3f32f4-c2ea-411a-bccc-9a0cc534afeb", "title": "Endocannabinoids Modulate N-Type Calcium Channels and G-Protein-Coupled Inwardly Rectifying Potassium Channels via CB1 Cannabinoid Receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 ion channel mechanism"},
+    {"id": "2a43596e-262f-4be1-b146-20f722acce0e", "title": "Variation of Cannabis for phenological development and stem elongation in relation to stem production", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "2a59aaa0-2ca6-4f16-9799-27b31afea8a3", "title": "Anaphylaxis to ingestion of hempseed (Cannabis sativa)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Adverse effect/allergy correctly rejected"},
+    {"id": "2a62a563-131f-4b58-a796-a041b18420e3", "title": "A Clinical and Metabolic Study of Acute Intoxication with Cannabis Sativa and its Role in the Model Psychoses", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis intoxication correctly rejected"},
+    {"id": "2a646cb5-e4fb-44a6-a811-10012eedfd98", "title": "Structural and functional analysis reveals the catalytic mechanism of the broad-spectrum endolysin Ply2741", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2a7740b3-9d54-4155-880b-fd4faae41101", "title": "Cannabis and tobacco use and co-use: Trajectories and correlates from early adolescence to emerging adulthood", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "2a7d7010-9498-48c5-865d-bae08da071bf", "title": "Improvement Level of Service for Congested Intersection in CBD Area of Fallujah City", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "2a886364-a08b-4cd5-8ad8-fe828e5b4cee", "title": "Cannabis versus other illicit drug use among methadone maintenance patients", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use patterns correctly rejected"},
+    {"id": "2a8fae2d-433a-47ea-8804-12a43ccc7420", "title": "Prolonged oral transmucosal delivery of highly lipophilic drug cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery"},
+    {"id": "2a95e9de-fe21-432a-9689-ca19dfb38c80", "title": "Cannabidiol effects on aggressive-like behaviors induced by social isolation in mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD for aggression via CB1/5-HT1A"},
+    {"id": "2a9f15df-8e8a-4beb-bdca-29cf3a8936c3", "title": "Localisation of cannabinoid CB1 receptor immunoreactivity in the guinea pig and rat myenteric plexus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 GI receptor localization"},
+    {"id": "2aabd1a7-5ab8-43f4-80e5-6b3649f5abb8", "title": "Referee report: Are adverse effects of CBD products caused by THC contamination?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial content correctly rejected"},
+    {"id": "2af254b1-5bb2-489c-b51a-4d2c96d92da7", "title": "Is the Cannabinoid CB1 Receptor a 2-Arachidonoylglycerol Receptor? Structural Requirements", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid receptor mechanism"},
+    {"id": "2b1aa4ca-4129-4600-8497-4487e32d4c08", "title": "Adverse outcome pathway of developmental neurotoxicity from prenatal exposures to cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "2b251a88-7d8b-4526-ac99-9c46d75e1f6d", "title": "Investigation of in vitro odonto/osteogenic capacity of cannabidiol on human dental pulp cell", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD dental/regenerative"},
+    {"id": "2b2cf71a-1a1a-45de-9344-f2a2db9f8188", "title": "Unveiling the influence of CAR-negative T-cells in CAR-T therapies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2b2daf82-459a-4259-8d1a-d29644cec747", "title": "Comparative Analysis of Exosome-like Nanoparticles from Portulaca oleracea", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2b3aab53-e96d-4922-84f2-0a053e037f14", "title": "Current legal status of medical marijuana and cannabidiol in the United States", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/legal correctly rejected"},
+    {"id": "2b4c993d-b4df-4d4b-bd37-9690d4ad8b83", "title": "Cannabis use and the risk of tuberculosis: a systematic review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "2b6828e1-8ba5-4551-8acb-d635403dd863", "title": "Phytocannabinoids influence phospholipid metabolism of melanoma cells: Modulation of UVA irradiation effects", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid anticancer mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "2a3f32f4-c2ea-411a-bccc-9a0cc534afeb",
+      "2a8fae2d-433a-47ea-8804-12a43ccc7420",
+      "2a95e9de-fe21-432a-9689-ca19dfb38c80",
+      "2a9f15df-8e8a-4beb-bdca-29cf3a8936c3",
+      "2af254b1-5bb2-489c-b51a-4d2c96d92da7",
+      "2b251a88-7d8b-4526-ac99-9c46d75e1f6d",
+      "2b6828e1-8ba5-4551-8acb-d635403dd863"
+    ]
+  }
+}

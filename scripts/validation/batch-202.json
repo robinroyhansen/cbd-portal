@@ -1,0 +1,41 @@
+{
+  "batch_number": 202,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T16:30:00.000Z",
+  "results": [
+    {"id": "e07cde8e-bc60-43e1-8b2c-5ba127935f00", "title": "CBD Potential Therapeutic Social Anxiety Disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD social anxiety therapeutic"},
+    {"id": "e0a78893-de81-45eb-a435-afc8f6a3be43", "title": "Cannabinoid-Induced Gastric Emptying CB1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid GI mechanism"},
+    {"id": "e0afe01a-580a-47ed-b4fc-1839cd90a0d5", "title": "CBD Amisulpride Cognition Schizophrenia RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia cognition therapeutic"},
+    {"id": "e0b0e27a-2397-4ad9-8788-f60b039f112c", "title": "Meiotic Cytokinesis Cannabis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - plant cell biology/chromosomes"},
+    {"id": "e0ba1a87-21f9-4044-ad0e-8964485e0e28", "title": "Herbal Emollient Atopic Dermatitis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - generic herbal treatment"},
+    {"id": "e0bb32e7-f501-4429-be7c-35d5b95ac786", "title": "Impact Cannabinoids Pregnancy Offspring Outcomes", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - pregnancy/developmental effects"},
+    {"id": "e0bc718e-fd8e-494a-bebd-59c6bc880b75", "title": "CBD Proliferative Gingival Fibroblasts MEK", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD oral health therapeutic"},
+    {"id": "e0bfb2e7-c8b8-4b2f-af18-ae87eae4bf0b", "title": "Pharmacotherapies CUD Systematic Review Meta", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - general pharmacotherapy review"},
+    {"id": "e0c5f437-6d13-4b64-9cad-f936dccea56a", "title": "CBD Antidepressant-Like Mice 5-HT1A", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression preclinical"},
+    {"id": "e0ca3708-5fac-40f1-a36d-e602a49b59e8", "title": "CBD Reduces Anxiety Mice FMRP-Independent", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety preclinical"},
+    {"id": "e0d75913-78ee-493c-9f96-210490b9813e", "title": "Cannabis Use and Psychosis Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis causation review"},
+    {"id": "e0fdd9cd-055d-452f-839c-d6c54bae6e87", "title": "Metabolism THC Rats Tolerant Cannabis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid PK tolerance mechanism"},
+    {"id": "e11099a3-6a44-47d9-ad21-8dbf78d7540e", "title": "Cannabinoid Papillary Thyroid Carcinoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid thyroid cancer"},
+    {"id": "e11761d0-ad8d-4060-a71f-62fec3c44207", "title": "CBD Oil Pain Relief", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic"},
+    {"id": "e11d3ffe-b23c-4a7c-9571-eb4da90246f4", "title": "CBD CBDA Colorectal Cancer Cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/CBDA cancer therapeutic"},
+    {"id": "e122fffd-6859-49eb-a57c-148014c5e4ad", "title": "Genetically Informed Cannabis Schizophrenia Risk", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - genetic schizophrenia risk"},
+    {"id": "e130cd31-0845-4774-8868-6c1511080dda", "title": "Cue-Induced Striatal Activity Cannabis Problem Severity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - addiction cue-reactivity neuroscience"},
+    {"id": "e13dc3ff-01e2-48a8-b21a-c8233961023e", "title": "JBT-101 Lenabasum CB2 Agonist SLE", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 lupus therapeutic"},
+    {"id": "e14a12dd-2522-49ca-94b6-bacaaa0cea72", "title": "CBD Pediatric Anxiety Insomnia PTSD Case", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pediatric anxiety/PTSD"},
+    {"id": "e16d3d16-8da3-4e4c-b7d0-f66058f3e7e6", "title": "Parental Transmission CUD Risk Offspring", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - familial CUD risk transmission"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "e0b0e27a-2397-4ad9-8788-f60b039f112c",
+      "e0ba1a87-21f9-4044-ad0e-8964485e0e28",
+      "e0bb32e7-f501-4429-be7c-35d5b95ac786",
+      "e0bfb2e7-c8b8-4b2f-af18-ae87eae4bf0b",
+      "e0d75913-78ee-493c-9f96-210490b9813e",
+      "e122fffd-6859-49eb-a57c-148014c5e4ad",
+      "e130cd31-0845-4774-8868-6c1511080dda",
+      "e16d3d16-8da3-4e4c-b7d0-f66058f3e7e6"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "batch_number": 310,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T19:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "55aff44f-b248-4a11-b47c-9043b63f1df8", "title": "Demographic, economic, and social status and knowledge of medical and alternative cannabis use among Northeastern Thai citizens: a case study of outpatients at community hospitals along the Thai-Cambodian border.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Knowledge survey correctly rejected"},
+    {"id": "55c44ef4-8fcb-4a4d-b3b2-3c29519f1dfc", "title": "Italy-grown hemp: yield, composition and cannabinoid content", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "55ca6d99-bc75-412e-8a87-63d638114061", "title": "Optimal nitrogen rates and clonal effects on cannabinoid yields of medicinal cannabis.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture cultivation correctly rejected"},
+    {"id": "55cad25c-7edb-48bd-a596-6d264d62edbb", "title": "Selective activation of cannabinoid receptor-2 reduces neuroinflammation after traumatic brain injury via alternative macrophage polarization", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 TBI neuroprotection mechanism"},
+    {"id": "55e49e09-68bd-4466-8efe-4ce859204095", "title": "Cannabinoids And The Cholinergic System", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neurochemistry mechanism"},
+    {"id": "55e7b20a-aee3-4c48-ad60-bb677cfa0655", "title": "Cannabis and its Users in Nepal", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "55f1e6e1-fd3b-42c9-a41d-61e8b1c18530", "title": "Approach for simultaneous cannabidiol isolation and pesticide removal from hemp extracts with liquid-liquid chromatography", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"},
+    {"id": "561fbd0a-70b6-48a9-9aae-5baf4fc004e6", "title": "Minimizing metastabilities in Cu(In,Ga)Se2/(CBD)Zn(S,O,OH)/i‐ZnO‐based solar cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "56328ef7-70bb-4546-a1aa-2c6a23855878", "title": "Phenotypic and genetic characterization of sixteen grain and dual-type industrial hemp varieties (Cannabis sativa L.) for agronomic and yield component traits.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture plant genetics correctly rejected"},
+    {"id": "563529c8-b42d-41bd-a558-0cb6ecd2176f", "title": "Effects of Cannabinoids on Sympathetic and Parasympathetic Neuroeffector Transmission in the Rabbit Heart", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cardiovascular mechanism"},
+    {"id": "5638863e-dcab-476e-9a49-66cb057be450", "title": "Determination of tetrahydrocannabinol and cannabidiol contents in Cannabis sativa L. samples in Togo using gas chromatography-mass spectrometry", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical forensic correctly rejected"},
+    {"id": "563d95f3-9c09-49fc-b47c-7ca4d1fb2e64", "title": "Cannabidiol Literature Scoping Review Protocol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety review protocol"},
+    {"id": "5641d545-cc3c-44f2-b159-7b968d4d5423", "title": "Homeless men - chronically homeless men in Parramatta CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "56422250-d3c8-4626-a80c-15e056919fa5", "title": "Detection of Δ9‐tetrahydrocannabinol (THC) in oral fluid using two point‐of‐collection testing devices following oral administration of a THC and cannabidiol containing oil", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "564e0d95-021f-4dd4-b623-c19188ceb256", "title": "Le cannabidiol (CBD) : aspects analytiques et toxicologiques", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD toxicology/safety review"},
+    {"id": "565242cf-b405-4af8-a36b-228a544c97ad", "title": "Indium Sulfide Thin Films Deposited by CBD Varying the Concentration of Precursors: Studies Based on QCM", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "565293fa-5cd2-4e6d-9839-710f4f370952", "title": "Attitudes about cannabis mediate the relationship between cannabis knowledge and use in active adult athletes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "565438f8-a14f-41e7-8a32-186b2c9437e5", "title": "Prevalence of gestational exposure to cannabis in a Mediterranean city by meconium analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prenatal harm detection correctly rejected"},
+    {"id": "5656cfa6-d124-4706-98b7-9ebb1694cfe6", "title": "Preparing Geriatrics-Trained Physicians to Discuss Medical Cannabis with their Older Adult Patients", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Medical education/access correctly rejected"},
+    {"id": "5660a47f-af95-472c-aa06-43cd599749a1", "title": "Serious psychological distress and daily cannabis use, 2008 to 2016: Potential implications for mental health?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "55cad25c-7edb-48bd-a596-6d264d62edbb",
+      "55e49e09-68bd-4466-8efe-4ce859204095",
+      "563529c8-b42d-41bd-a558-0cb6ecd2176f",
+      "563d95f3-9c09-49fc-b47c-7ca4d1fb2e64",
+      "564e0d95-021f-4dd4-b623-c19188ceb256"
+    ]
+  }
+}

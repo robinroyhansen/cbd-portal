@@ -1,0 +1,40 @@
+{
+  "batch_number": 285,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T13:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "3a804812-8a6a-4b02-88b1-f24adb1afe28", "title": "Nonlinear liquid-liquid chromatography: A comprehensive modeling approach.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "3a87019e-9d4e-4d2d-8acc-df33a2d9c1d6", "title": "Cannabis and amphetamine use and its psychosocial correlates among school-going adolescents in Ghana", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "3a8eb676-0f6e-4c4c-a39c-f63e27d3ee7c", "title": "Is cannabis use normalized, celebrated or neutralized? Analysing talk as action", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Sociology correctly rejected"},
+    {"id": "3a9b7007-8753-4482-8d15-c02a018402c7", "title": "In Vitro Measurements of True Digestibility and Products of Digestion Using Multiple Cultivars of Non-Extracted and CBD-Extracted Industrial Hemp Biomass (Cannabis sativa)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Animal feed correctly rejected"},
+    {"id": "3a9d6d91-04b2-426f-91e3-3b25443d2073", "title": "Analysis of cannabinoids in fiber hemp plant varieties (Cannabis sativa L.) by high-performance liquid chromatography", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical methods correctly rejected"},
+    {"id": "3aa3be46-0c6f-4d22-831e-779cd7823b65", "title": "Cannabinoid pharmacology", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacology review"},
+    {"id": "3aa73733-9c37-44a6-aebe-145eaab5f881", "title": "Stupéfiants, cannabis et cannabidiol (CBD) : la France sous pression de la CJUE", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/legal correctly rejected"},
+    {"id": "3ae9cc91-add0-4621-86c2-a896ee10527f", "title": "Cannabinoids act as necrosis-inducing factors inCannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant biology correctly rejected"},
+    {"id": "3af2c315-1a38-41cc-bebe-3174dc658e83", "title": "Cannabinoids and metabolites in expectorated oral fluid following controlled smoked cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "3b07147b-5e67-4fd7-9721-c8dd1c7b2f8a", "title": "Marine natural products discovery in Australia: From reef to royalty, and the pursuit of Convention for Biological Diversity (CBD) compliance", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention) correctly rejected"},
+    {"id": "3b0edbc8-da7b-48fd-ab69-c145e92e3df4", "title": "Analytical Techniques for Phytocannabinoid Profiling of Cannabis and Cannabis-Based Products—A Comprehensive Review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical methods correctly rejected"},
+    {"id": "3b144407-79ef-4d5b-b460-4bfe0264c054", "title": "Reshaping the tumor lipidome: nanospectroscopic insights into cannabidiol-radiation synergy in MPNST cells - research data", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anticancer synergy"},
+    {"id": "3b37a50e-a8fd-401f-a3e4-3acbdca15983", "title": "Therapeutic Potential of Cannabidiol Cyclodextrin Complex in Polymeric Micelle and Tetrahydrocurcumin Cyclodextrin Complex Loaded in Hydrogel to Treat Lymphedema.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD for lymphedema"},
+    {"id": "3b451efc-195f-4481-af01-8c6fdbd9dedc", "title": "Plasma cannabinoid concentrations and transference during long-term industrial hemp administration in cattle", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "3b4a5453-cab9-46a2-9178-77a60e565a50", "title": "Diagnostic controversies: is CBD part of the \"pick complex\"?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Corticobasal Degeneration) correctly rejected"},
+    {"id": "3b61a395-974e-4106-a300-991150833d9d", "title": "Feasibility of a Randomized, Interventional Pilot Clinical Study of Oral Cannabinoids in People with HIV on Antiretroviral Therapy: CTNPT 028.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid HIV clinical trial"},
+    {"id": "3b801614-d7e1-4c8b-9b8d-2e437cf0cbd5", "title": "CdSBuffer Layer by CBD on 300 mm X 300 mm Glass for CIGS Solar Cell Application", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "3b8989b9-b103-4f02-9a2a-6cae6f4eb545", "title": "Gas chromatographic analysis of naturally occurring cannabinoids: A review of literature published during the past decade", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical methods correctly rejected"},
+    {"id": "3b8ffe37-ffd8-49f7-808d-8c6cc407fb95", "title": "Tolerance but No Spontaneous Withdrawal Following Repeated THC Injections in Male and Female Rats.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC tolerance pharmacology"},
+    {"id": "3b9c845f-765e-455c-abcd-dd9da6af4bbc", "title": "Pharmacological interaction between cannabidiol and ?9-tetrahydrocannabinol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC pharmacology"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "3aa3be46-0c6f-4d22-831e-779cd7823b65",
+      "3b144407-79ef-4d5b-b460-4bfe0264c054",
+      "3b37a50e-a8fd-401f-a3e4-3acbdca15983",
+      "3b61a395-974e-4106-a300-991150833d9d",
+      "3b8ffe37-ffd8-49f7-808d-8c6cc407fb95",
+      "3b9c845f-765e-455c-abcd-dd9da6af4bbc"
+    ]
+  }
+}

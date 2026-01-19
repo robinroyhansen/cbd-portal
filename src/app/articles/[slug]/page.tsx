@@ -315,13 +315,19 @@ export default async function ArticlePage({ params }: Props) {
       )}
 
       {/* Content with auto-linked glossary terms */}
+      {/* Exclude glossary terms that match this article's subject (e.g., don't link "CBD Patches" on the CBD Patches article) */}
       <ArticleContent
         content={article.content}
         glossaryTerms={glossaryTerms}
+        excludeSlugs={[slug.replace(/-guide$/, '')]}
+        stripReferences={article.citations && article.citations.length > 0}
       />
 
       {/* Enhanced Citations Component */}
-      <Citations citations={article.citations || []} />
+      <Citations
+        citations={article.citations || []}
+        topic={article.category?.slug === 'science' ? 'cannabinoids' : undefined}
+      />
 
       {/* Related articles using topic relationships */}
       <RelatedArticles currentSlug={article.slug} />

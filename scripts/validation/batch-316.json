@@ -1,0 +1,41 @@
+{
+  "batch_number": 316,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T21:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "5bcff7ea-39a5-4fdd-ba00-e7f8ae8f3f75", "title": "In the weeds: a baseline view of cannabis use among legalizing states and their neighbours", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "5be6997f-14c7-4926-ba55-a3c4826b9dc7", "title": "Cannabinoid inhibition of adenylate cyclase. Pharmacology of the response in neuroblastoma cell membranes.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor signaling mechanism"},
+    {"id": "5be926a3-f42f-4df3-be68-6ead0749632b", "title": "Cannabidiol Enhances SIRT1 and Autophagy for the Maintenance of Human Mesenchymal Stem Cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD stem cell mechanism"},
+    {"id": "5c1754d8-1544-4390-903e-30034604fd57", "title": "Perioperative Cannabis as a Potential Solution for Reducing Opioid and Benzodiazepine Dependence", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis perioperative opioid-sparing"},
+    {"id": "5c379300-7dac-4538-a031-b3c9d49c6ca5", "title": "Chemical Characterization of Leaves, Male and Female Flowers from Spontaneous Cannabis (Cannabis sativa L.) Growing in Hungary", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant chemistry correctly rejected"},
+    {"id": "5c558ed3-62a4-430f-84c6-19ab9c0fcc50", "title": "Implementation of a generic liquid chromatographic method development workflow: Application to the analysis of phytocannabinoids and Cannabis sativa extracts", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical correctly rejected"},
+    {"id": "5c642408-8554-4167-bd45-3f1bf17c3f3a", "title": "SLV330, a cannabinoid CB1 receptor antagonist, attenuates ethanol and nicotine seeking and improves inhibitory response control in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 antagonist addiction mechanism"},
+    {"id": "5c6e4e72-c04b-4384-914f-ab6f8baa8809", "title": "The cannabinoid receptor antagonist SR�141716 attenuates overfeeding induced by systemic or intracranial morphine", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB antagonist appetite mechanism"},
+    {"id": "5c724a5d-ffcf-4f05-b7cd-18065266b1a6", "title": "A preliminary investigation of the mechanisms underlying cannabinoid tolerance in the mouse vas deferens", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid tolerance mechanism"},
+    {"id": "5c8a8849-56ea-4856-8741-b72baf36cf1d", "title": "U.S. State Marijuana and Delta-8-Tetrahydrocannabinol Laws and Delta-8-Tetrahydrocannabinol Use.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/use patterns correctly rejected"},
+    {"id": "5c912ac2-3cd8-4532-b13c-ae9c641870ee", "title": "Do societal wealth, family affluence and gender account for trends in adolescent cannabis use? A 30 country cross‐national study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Epidemiology correctly rejected"},
+    {"id": "5c962382-4d22-405b-a3ee-041d9b5e8b42", "title": "Alterations and extensions to commercial buildings in the Melbourne CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "5ce045e5-4b28-4a6c-9c35-925db2dcad93", "title": "Expedient Synthesis of Potent Cannabinoid Receptor Agonist (−)-CP55,940", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic chemistry correctly rejected"},
+    {"id": "5ce46812-7896-43d7-91d2-9487b5707b2b", "title": "Effect of Zinc Ion Concentration on Structure, Electrical and Optical Properties of ZnO Prepared by CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "5cf5152c-62e5-40f1-9310-f63b491dcd3c", "title": "How long does CBD take to work", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Consumer content correctly rejected"},
+    {"id": "5cf6a376-1ba1-4761-9696-e1400f0a31c1", "title": "Constituents of Cannabis sativa L. IV: Stability of Cannabinoids in Stored Plant Material", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant chemistry correctly rejected"},
+    {"id": "5d163825-b956-4e3f-9a47-6802bed33c90", "title": "Evaluation of Patient Reported Safety and Efficacy of Cannabis From a Survey of Medical Cannabis Patients in Canada", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis therapeutic outcomes evidence"},
+    {"id": "5d1b7d37-cb9e-49af-bc24-63adfd180d3b", "title": "Cannabis riche en CBD : qu'en est-il réellement ?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Insufficient information correctly rejected"},
+    {"id": "5d1fab7c-8f12-49e0-947f-ab3e7415c992", "title": "CANNABIS AND WORK IN JAMAICA: A REFUTATION OF THE AMOTIVATIONAL SYNDROME*", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Sociological correctly rejected"},
+    {"id": "5d46e1e3-f6ab-46fd-9d03-3fe6fd6d1467", "title": "Is there a cannabis epidemic model? Evidence from France, Germany and USA", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Epidemiology correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "5be6997f-14c7-4926-ba55-a3c4826b9dc7",
+      "5be926a3-f42f-4df3-be68-6ead0749632b",
+      "5c1754d8-1544-4390-903e-30034604fd57",
+      "5c642408-8554-4167-bd45-3f1bf17c3f3a",
+      "5c6e4e72-c04b-4384-914f-ab6f8baa8809",
+      "5c724a5d-ffcf-4f05-b7cd-18065266b1a6",
+      "5d163825-b956-4e3f-9a47-6802bed33c90"
+    ]
+  }
+}

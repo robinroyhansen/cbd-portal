@@ -1,0 +1,41 @@
+{
+  "batch_number": 357,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T07:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "8cb6c088-ce18-4266-8879-d691f4877a21", "title": "Eco friendly extraction of Raphanus sativus leaf bioactives", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Different plant correctly rejected"},
+    {"id": "8ccae92c-4354-4e78-8919-b0c92d272aeb", "title": "Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD review/overview"},
+    {"id": "8ccb1d75-75b8-42d0-bf26-f117a4f13e15", "title": "Legal and Regulatory Issues Governing Cannabis in US", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/regulatory correctly rejected"},
+    {"id": "8ccf8ed8-bc07-480d-a2e2-1863451c29b8", "title": "Novel antagonist implicates CB1 receptor in hypotensive action of anandamide", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 cardiovascular mechanism"},
+    {"id": "8cdb905c-93a6-4f0f-87f5-ef63d568a3d4", "title": "Concurrent availability of cannabinoid and tobacco products in retailers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market/policy correctly rejected"},
+    {"id": "8cdfb3ed-1732-4e5a-9588-1a32890992b7", "title": "Feasibility of group cessation program for cannabis and tobacco co-smokers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "8ce14030-b3d4-478f-abc1-0570e6419d44", "title": "Functional connectivity alterations in brain in chronic cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "8cee1bd3-da74-4986-895f-374ab33531a0", "title": "Analysis of THC and CBD on hair after passive exposures", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "8cf0387c-4bcb-4771-a397-9f54f904540b", "title": "Prototype cannabinoid analgetics, prostaglandins and opiates mechanism", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pain mechanism research"},
+    {"id": "8cf2a248-c6e5-4578-8df4-f74a6d8cbc75", "title": "Application of ToF-SIMS to detection of cannabis-contaminated fingerprints", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "8cf370d1-ad97-424f-bbd8-2fdec743b539", "title": "Effects of cannabis legalization on use of cannabis and other substances", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/use patterns correctly rejected"},
+    {"id": "8d336ffa-6c1b-4b16-9497-8f5b0dedbcd5", "title": "Use of Synthetic Cannabinoids in Patients With Psychotic Disorders", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "8d416720-abf6-47c0-93a6-d62c78828638", "title": "CBD and hemp cigarettes aim to target vapers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product marketing correctly rejected"},
+    {"id": "8d5770da-5710-4fcd-b19d-1a897b19b10b", "title": "Bioinformatics differential expression analysis of CBD in chronic myeloid leukemia", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD cancer mechanism research"},
+    {"id": "8d5857cf-7c0c-4da2-9866-684eebaa5703", "title": "Allosterism and cannabinoid CB1 receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor pharmacology"},
+    {"id": "8d5a69b8-da76-49dc-94c8-851eb42a2c5e", "title": "Cannabinoids in the Treatment of Selected Mental Illnesses", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mental health therapeutic"},
+    {"id": "8d61755d-d7f9-413d-bf50-6274ca5d01db", "title": "Relative response factors in LC to quantify THC using CBD as reference", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "8d627216-8775-4d9f-9c23-0f79c204cd16", "title": "Papierchromatographischen Identifizierung der Haschisch-Inhaltsstoffe", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "8d7432e4-2e46-42db-832b-e77095caee68", "title": "Cannabis Pharmacology: The Usual Suspects and a Few Promising Leads", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis pharmacology therapeutic review"},
+    {"id": "8d77b495-68b8-448c-8077-b5192fb74d5e", "title": "Carboxylation of resorcinols. Synthesis of cannabinoid acids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthesis correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "8ccae92c-4354-4e78-8919-b0c92d272aeb",
+      "8ccf8ed8-bc07-480d-a2e2-1863451c29b8",
+      "8cf0387c-4bcb-4771-a397-9f54f904540b",
+      "8d5770da-5710-4fcd-b19d-1a897b19b10b",
+      "8d5857cf-7c0c-4da2-9866-684eebaa5703",
+      "8d5a69b8-da76-49dc-94c8-851eb42a2c5e",
+      "8d7432e4-2e46-42db-832b-e77095caee68"
+    ]
+  }
+}

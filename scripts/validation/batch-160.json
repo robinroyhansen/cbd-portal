@@ -1,0 +1,38 @@
+{
+  "batch_number": 160,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T06:00:00.000Z",
+  "results": [
+    {"id": "b24ecf6d-8802-4f7c-9263-ed47f8c5ee4b", "title": "CBD inhibits glioma TRPV4 mitophagy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD glioma mechanism"},
+    {"id": "b26e8a51-0de6-4333-91a9-bc4f9741d3de", "title": "Sativex MS neuropathic pain RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis MS pain trial"},
+    {"id": "b273b594-e196-4b71-8947-afb2211b1db1", "title": "Gestational CBD insular cortex", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD developmental research"},
+    {"id": "b287d193-9b9a-46ef-9133-32280d659449", "title": "Cannabinoid receptor nicotine seeking", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS nicotine mechanism"},
+    {"id": "b298617f-3242-418e-8ebe-4ac003e08a90", "title": "Novel psychoactive substances psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - broad NPS review"},
+    {"id": "b2a9f89a-c1ac-4ede-9fed-632a23b2584e", "title": "Oleamide CB1 cannabinoid receptor agonist", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid mechanism"},
+    {"id": "b2b3849e-5d54-42aa-81f5-0e672dfc9ab5", "title": "CBD neuroinflammatory methamphetamine reinstatement", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD meth relapse mechanism"},
+    {"id": "b2cdf3b2-dac8-4efd-ac1a-576da8f0c032", "title": "CBD Cancer Signaling Pathway", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer mechanism review"},
+    {"id": "b2d0756b-dc9a-4b0c-9b35-4a222775e861", "title": "CBD Clinical Trials SUD Outcome Measures", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD SUD trials review"},
+    {"id": "b2d0fe07-0118-461f-b09f-c51b72e2fa3f", "title": "CBD acne Portuguese", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD acne therapeutic review"},
+    {"id": "b2db8301-e3c2-49db-907c-27b49cc0fbe8", "title": "CBD apoptosis thymocytes thymoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer mechanism"},
+    {"id": "b3010f45-73ce-4913-b2ca-3d8136805477", "title": "Cannabis Cannabinoids MS Symptoms Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis MS therapeutic review"},
+    {"id": "b310bb51-1f10-4356-8206-ba1d7575e389", "title": "CB1 deficiency cardiac remodeling", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 cardiovascular mechanism"},
+    {"id": "b31324ef-0f96-45d5-b73b-be92edb337c4", "title": "CBT comorbid cannabis anxiety ICART", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - non-cannabinoid therapy"},
+    {"id": "b3226ad0-d6b7-4088-8978-6394e6d8bb86", "title": "NCX1 TRPA1 colon cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - colon cancer general"},
+    {"id": "b322d65e-e817-46aa-9fb2-3bcfdbfdad73", "title": "Cannabis motor function fMRI discontinuation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - residual effects"},
+    {"id": "b325ab58-248f-4595-a204-4d44dc26241d", "title": "CB1 cognitive dysfunction Parkinson's", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 Parkinson's mechanism"},
+    {"id": "b3268a8c-8dd1-41ec-95ad-b53872fcd9f4", "title": "CVS hospitalisations cannabis Colorado", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - hyperemesis patterns"},
+    {"id": "b3340d2f-6b74-4790-8249-6649ddb13ffa", "title": "CBD Opioid Plasma Levels RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD opioid interaction trial"},
+    {"id": "b337d834-3d63-450b-ba5a-611cefea01e5", "title": "CB2 agonists HIV-1 replication", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 HIV mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "b298617f-3242-418e-8ebe-4ac003e08a90",
+      "b31324ef-0f96-45d5-b73b-be92edb337c4",
+      "b3226ad0-d6b7-4088-8978-6394e6d8bb86",
+      "b322d65e-e817-46aa-9fb2-3bcfdbfdad73",
+      "b3268a8c-8dd1-41ec-95ad-b53872fcd9f4"
+    ]
+  }
+}

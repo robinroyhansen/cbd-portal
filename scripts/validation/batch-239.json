@@ -1,0 +1,41 @@
+{
+  "batch_number": 239,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T01:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "084caeaa-80d6-45d7-b3e3-70515c8e5e08", "title": "Thermotoga maritima endoglucanase Cel12B CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Cellulose-Binding Domain) correctly rejected"},
+    {"id": "08508897-0f23-4e09-99ca-b8f4c8122ead", "title": "Green Roofs in the CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "085ce05c-71ae-4e3f-b4ae-97e7d7c8c105", "title": "Antinociceptive Non-Opioid Active Principles", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General plant chemistry correctly rejected"},
+    {"id": "086a375b-47dd-4f64-8c75-a2c2771ee79f", "title": "Cannabidiol pancreatic ductal adenocarcinoma", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD cancer therapeutic"},
+    {"id": "088c053b-c383-4fc3-8f8b-8a6b1d4e4100", "title": "CogNID Neurodegenerative Disorders Study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "089bdef0-0db3-4722-855b-63be85ad6ba0", "title": "Chemical Bath Deposited Sb2S3 Solar Cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "089e2c80-e248-4923-b748-fc4a749457cd", "title": "Public Green Spaces in Cbds", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "08aa690f-0864-4a80-a21f-a7afe5befb63", "title": "Cholecystectomy after CBD Stone Clearance", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "08dd9348-75a2-496f-965f-eb1a71dfc3c1", "title": "Quantifying cannabis quantity estimation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Recreational patterns correctly rejected"},
+    {"id": "08e1ffd8-cb40-45d9-b2cf-8d318e2d1fe1", "title": "Extraction of bioactives from food wastes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "08fbbfb1-cad1-48fc-bc36-7c383125f1a4", "title": "Cannabinoid-induced Fos expression rat brain", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid brain mechanism"},
+    {"id": "0902baba-943a-493a-9916-fcd18b3a7dcb", "title": "CBD 개발과제 Opportunity Tree", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (software development) correctly rejected"},
+    {"id": "090361fd-49ad-41b6-9479-8361662c08b4", "title": "Cannabinoid inhibition capsaicin DRG CB1", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pain mechanism"},
+    {"id": "09339c4c-3f69-44a2-b4a3-fea97b0c01ab", "title": "α-Glucosidase inhibitory CBD THC", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC diabetes mechanism"},
+    {"id": "09393447-c60c-4dbb-ae06-beab9e59020e", "title": "CBD growth times ZnO microrods silicon", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "09464946-c9c5-4f50-bf81-0f5443611b50", "title": "Cannabinoid ELISA HEIA immunoassay kits", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic testing correctly rejected"},
+    {"id": "0952b5b5-7f68-4099-a948-4dc1db66e1d2", "title": "Adenosine A2A–cannabinoid CB1 receptor striatal", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism"},
+    {"id": "0978c416-060a-454f-bb95-ea19f635afb5", "title": "FLOOR PARKINGS FOR CBD GIS TOOL", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "09795352-c70a-4640-88e6-846461518305", "title": "CB1 receptors colocalize caveolin-1 neuronal", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism"},
+    {"id": "0986634b-9381-4a4a-89ba-814165b55624", "title": "CBD Vancomycin Spray MRSA Respiratory", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic formulation"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "086a375b-47dd-4f64-8c75-a2c2771ee79f",
+      "08fbbfb1-cad1-48fc-bc36-7c383125f1a4",
+      "090361fd-49ad-41b6-9479-8361662c08b4",
+      "09339c4c-3f69-44a2-b4a3-fea97b0c01ab",
+      "0952b5b5-7f68-4099-a948-4dc1db66e1d2",
+      "09795352-c70a-4640-88e6-846461518305",
+      "0986634b-9381-4a4a-89ba-814165b55624"
+    ]
+  }
+}

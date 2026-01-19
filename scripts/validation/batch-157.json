@@ -1,0 +1,39 @@
+{
+  "batch_number": 157,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T05:15:00.000Z",
+  "results": [
+    {"id": "af72bb18-83f3-4d12-8f08-83ccb8dcfe22", "title": "Cannabinoids Neuroinflammation Parkinson's", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid PD therapeutic"},
+    {"id": "af73a324-865d-4c5f-9a7d-2eec18d0337d", "title": "Synthetic cannabinoids aminotransferase CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety comparison"},
+    {"id": "af7cc31a-771b-42ef-801a-5ea386c49be2", "title": "Cannabinoids pediatric epilepsy review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid epilepsy review"},
+    {"id": "af7d4eee-c494-4e36-bac5-818823f11647", "title": "CBD brain function meta-regression FAAH", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroimaging meta-analysis"},
+    {"id": "af8aa880-9ae7-4761-8e5b-1b46f6976691", "title": "CB2 Receptor Chronic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 pain therapeutic review"},
+    {"id": "af99f0b2-b3f4-43a4-b61c-ae6b640a439c", "title": "CardiolRx Myocardial Recovery Myocarditis CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD myocarditis clinical trial"},
+    {"id": "afb5af41-68c2-4160-a3a1-7f7baf2a04b6", "title": "Cannabis Cannabinoids Pharmacology Clinical Use", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology review"},
+    {"id": "afb67457-b89c-4233-a512-c3a2077fda54", "title": "β-Caryophyllene Renin-Angiotensin", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Dietary cannabinoid research"},
+    {"id": "afbdca0b-aae4-4cb0-bb9c-837fb37c5b86", "title": "DMF MMF CBD Neuroprotective", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection mechanism"},
+    {"id": "afee23ca-5260-4e4a-a2f1-ac321dadd87c", "title": "Postoperative Pain Vitreoretinal COX-3", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general anesthesia"},
+    {"id": "affb3157-3702-467e-a1a6-4444a558932a", "title": "CBD Anxiety Sleep Case Series", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety/sleep case series"},
+    {"id": "b028a723-5311-4623-a178-3cb88dfa1d25", "title": "Mobile therapy CUD temptation Iranian", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - non-cannabinoid intervention"},
+    {"id": "b031d5ae-6851-4ac4-b8d2-883e724ab915", "title": "CBD CBDV CXCR4 CB2 colitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/CBDV colitis therapeutic"},
+    {"id": "b04d995f-1521-4d87-bc9b-afa37dacc2ad", "title": "Neurocognition psychosis cannabis use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cognitive effects psychosis"},
+    {"id": "b062615e-714a-42a0-b5a2-39be3bace48c", "title": "CB2 deficiency insulin obesity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 metabolism research"},
+    {"id": "b064b124-dd47-4d29-aeee-5818bd53dc29", "title": "Buprenorphine Opioid Use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - buprenorphine trial"},
+    {"id": "b07032b7-135b-4fbe-aa2c-9f890ad43724", "title": "Esophagitis HIV substance abuse", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - case report substance abuse"},
+    {"id": "b07b7e90-e557-4584-bbd5-23ea88217a79", "title": "Anormalidades cognitivas cannabis Portuguese", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cognitive abnormalities"},
+    {"id": "b07f5b89-4027-4ac8-bdb7-45dca7f4f332", "title": "AM404 anandamide neuropathic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS pain mechanism"},
+    {"id": "b080e8fc-a513-4d12-a98d-4894250b2bee", "title": "Hemp seeds neuroprotective hydrolysates", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Hemp neuroprotection"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "afee23ca-5260-4e4a-a2f1-ac321dadd87c",
+      "b028a723-5311-4623-a178-3cb88dfa1d25",
+      "b04d995f-1521-4d87-bc9b-afa37dacc2ad",
+      "b064b124-dd47-4d29-aeee-5818bd53dc29",
+      "b07032b7-135b-4fbe-aa2c-9f890ad43724",
+      "b07b7e90-e557-4584-bbd5-23ea88217a79"
+    ]
+  }
+}

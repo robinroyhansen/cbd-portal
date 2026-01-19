@@ -1,0 +1,41 @@
+{
+  "batch_number": 39,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T23:30:00.000Z",
+  "results": [
+    {"id": "2cf25582-22c4-4633-b993-28fc4a07faa6", "title": "Cannabidiol, a non-psychotropic plant-derived cannabinoid, decreases inflammation in a murine model of acute lung injury", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anti-inflammatory mechanism"},
+    {"id": "2cfd4d5e-e8c4-41ce-9116-34c184d2f7ee", "title": "Epidiolex (cannabidiol) an Alternative in Reducing the Frequency of Seizures", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy medication"},
+    {"id": "2d000c25-dee6-4952-8ef5-363d496288d6", "title": "Repeated administration of cannabidiol decreases splenic lymphocyte subset numbers in rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD immunology mechanism"},
+    {"id": "2d03549b-c70f-4326-aba4-d6b43266424e", "title": "[A mini-review on anti-tumor effect of cannabidiol]", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer review"},
+    {"id": "2d10f446-c39d-415b-8f3d-6ccd44c43c59", "title": "Dose-dependent effects of cannabidiol in drinking water on yolk fatty acid profile in laying hens", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - poultry/egg research not therapeutic"},
+    {"id": "2d50d973-5951-4c2e-ae1e-75bab32e25ef", "title": "Cannabidiol for the Treatment of Brain Disorders: Therapeutic Potential and Routes of Administration", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD brain disorders therapeutic review"},
+    {"id": "2d574718-6de0-4eb2-a269-007daac941c9", "title": "Quantification of cerebral cannabinoid receptors subtype 1 (CB1) in healthy subjects and schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor imaging research"},
+    {"id": "2d5b117d-4b4f-4ece-bd16-2e2bb2f4605b", "title": "An assessment of the prevalence of cannabis use in eye clinic patients", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "USE PREVALENCE survey - not therapeutic"},
+    {"id": "2d607472-7575-4eb2-aa82-344daeca179a", "title": "Cannabinoid-induced hypotension and bradycardia in rats mediated by CB1-like cannabinoid receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cardiovascular mechanism"},
+    {"id": "2d92a7d1-d727-4cf1-b0d5-f265635a49f2", "title": "Longitudinal associations of cannabis and illicit drug use with depression, suicidal ideation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis as RISK FACTOR for mental health - not therapeutic"},
+    {"id": "2d9425ea-f658-42cd-b920-608591ee9e94", "title": "Consumption patterns and withdrawal symptoms in dual cannabis-tobacco users in Spain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "USE PATTERNS and WITHDRAWAL - not therapeutic"},
+    {"id": "2d97a707-d7d4-47e1-84cd-706e996405d9", "title": "Potential Anticancer Effect of Cannabis sativa L. Dichloromethane Extract", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer mechanism research"},
+    {"id": "2dac6c02-3208-4e53-9e6c-7cc4cdacfc39", "title": "Long-read sequencing of recurrent FGF12 duplications in epilepsy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - gene sequencing study only"},
+    {"id": "2defcbd9-8ff3-4d5d-af09-2aa4a8ce1db0", "title": "CBD and CBG-based beverage powder for delayed onset muscle soreness RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/CBG therapeutic RCT"},
+    {"id": "2dfa6666-5207-4317-a31e-62681d6439f7", "title": "ALAS2 Prevents Neonatal Necrotizing Enterocolitis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - gene study only"},
+    {"id": "2dff2506-b2ae-4c54-8e8f-218d6a6838d4", "title": "Effects of combined CBGA and cannabis-derived terpene nanoformulations on TRPV1 for pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "2e0630e8-f930-4ed9-b735-14b679c533d3", "title": "Cannabidiol in Crayfish could Alleviate Anxiety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety mechanism animal model"},
+    {"id": "2e06ac28-540d-4ded-ac61-0fd3311a80d1", "title": "Diagnostic and Symptomatological Features in Chronic Psychotic Patients According to Cannabis Use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE as psychosis risk - not therapeutic"},
+    {"id": "2e0fa32f-be40-4e08-908d-f5524c2da507", "title": "Does dopamine mediate the psychosis-inducing effects of cannabis?", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARMS/psychosis causation - not therapeutic"},
+    {"id": "2e19e9ae-1fe5-4734-bc94-a372e0c1dcea", "title": "Cannabidiol (CBD) Use in Type 2 Diabetes: A Case Report", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD diabetes therapeutic case report"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "2d10f446-c39d-415b-8f3d-6ccd44c43c59",
+      "2d5b117d-4b4f-4ece-bd16-2e2bb2f4605b",
+      "2d92a7d1-d727-4cf1-b0d5-f265635a49f2",
+      "2d9425ea-f658-42cd-b920-608591ee9e94",
+      "2dac6c02-3208-4e53-9e6c-7cc4cdacfc39",
+      "2dfa6666-5207-4317-a31e-62681d6439f7",
+      "2e06ac28-540d-4ded-ac61-0fd3311a80d1",
+      "2e0fa32f-be40-4e08-908d-f5524c2da507"
+    ]
+  }
+}

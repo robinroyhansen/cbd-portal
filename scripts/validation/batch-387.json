@@ -1,0 +1,41 @@
+{
+  "batch_number": 387,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T14:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "acac98b3-6384-4341-9e8e-0b04bae8e6cb", "title": "The nephrologistʼs guide to cannabis and cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic guidance for kidney patients"},
+    {"id": "acad6b93-6144-46b3-ae0b-2c07ce3ca57a", "title": "Cannabis Tolerance Break Resource Study: T-Break Guide", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD/use management correctly rejected"},
+    {"id": "acba9d46-fe4b-4eee-a366-48654a80756d", "title": "The effects of cannabis intoxication on motor vehicle collision revisited and revised", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment study correctly rejected"},
+    {"id": "ad04f162-55ae-43d7-b560-6fcf64dc07c9", "title": "ESCAPE Study: Cannabidiol Use in Patients Treated for Substance Use Disorders, Prevalence of Use, and Characteristics of Users.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns survey correctly rejected"},
+    {"id": "ad07aea0-5a16-4015-b16e-cea64d09a91d", "title": "Cannabidiol Treatment in a Murine Model of Systemic Lupus Erythematosus Accelerates Proteinuria Development.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic research for lupus"},
+    {"id": "ad096d0e-801c-4d25-8e2e-7a17539cb986", "title": "S.27.01 Pharmacological actions of cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacology research"},
+    {"id": "ad1c1de0-d392-4a65-a199-184111352fe2", "title": "A Survey of Cannabis Use in Offshore Rig Workers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "ad1e3015-4344-4014-86af-14c6ba655a9a", "title": "Traffic control policies to reduce pollution in Perth CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "ad430b10-7a92-4e1a-92cd-ef369690959d", "title": "The Endocannabinoid–Microbiota–Neuroimmune Super-System: A Unifying Feedback Architecture for Systems Resilience, Collapse Trajectories, and Precision Feedback Medicine", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS mechanism research"},
+    {"id": "ad53e753-8811-4c82-84f8-6c637f4e0b57", "title": "Medicinal Cannabis: Policy, Patients, and Providers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "ad66b596-9072-4da9-9299-9b974e424ae9", "title": "The Cannabis Problems Questionnaire: Factor structure, reliability, and validity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD assessment tool correctly rejected"},
+    {"id": "ad715d91-9cd3-488c-a56d-86eb387acef3", "title": "Dual modulation of CNS voltage-gated calcium channels by cannabinoids: Focus on CB1 receptor-independent effects", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid calcium channel mechanism"},
+    {"id": "ad7eb527-5908-4611-b923-ae202d9ef189", "title": "Oil Extraction from Hemp Plant as a Potential Source of Cannabidiol for Healthy Protein Foods", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction/food science correctly rejected"},
+    {"id": "ad82c9c9-1d6b-414d-ab94-7c60aa1d668b", "title": "2024 Twelfth International Conference on Advanced Cloud and Big Data (CBD)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Cloud and Big Data) correctly rejected"},
+    {"id": "ad86d2f6-7638-4e2a-9f3b-42819ca176ed", "title": "Evaluation of disease management approaches for powdery mildew onCannabis sativaL. (marijuana) plants", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "ad87eca4-7c25-4e2b-8ecd-1c6cc8b7b249", "title": "Cannabidiol (CBD) and hemp oil use in veterans using a VA Pain Clinic: a cross-sectional survey study.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic use in pain management"},
+    {"id": "ada54845-2bab-40ca-8042-187763800ca2", "title": "Characterizing smoking topography of cannabis in heavy users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "ada57270-5a40-43f6-8080-d1e8e5226c6c", "title": "Endocannabinoids Stimulate Human Melanogenesis via Type-1 Cannabinoid Receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid mechanism research"},
+    {"id": "adad3b95-6be8-488e-8001-419b3d01cdd2", "title": "Exploring Physicians' Perspectives on Cannabis Use for Therapeutic Purposes With a Focus on Older Versus Younger Adults.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Survey/opinions correctly rejected"},
+    {"id": "adb9cefa-dd1b-411a-a09c-3f9dcfe97cd6", "title": "Sustained Release of Bone Morphogenetic Protein 2/Chitosan-Collagen Scaffold Repairs Rabbit Knee Joint Cartilage Defects.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "acac98b3-6384-4341-9e8e-0b04bae8e6cb",
+      "ad07aea0-5a16-4015-b16e-cea64d09a91d",
+      "ad096d0e-801c-4d25-8e2e-7a17539cb986",
+      "ad430b10-7a92-4e1a-92cd-ef369690959d",
+      "ad715d91-9cd3-488c-a56d-86eb387acef3",
+      "ad87eca4-7c25-4e2b-8ecd-1c6cc8b7b249",
+      "ada57270-5a40-43f6-8080-d1e8e5226c6c"
+    ]
+  }
+}

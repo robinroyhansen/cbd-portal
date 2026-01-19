@@ -1,0 +1,39 @@
+{
+  "batch_number": 83,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T10:30:00.000Z",
+  "results": [
+    {"id": "5bff2d57-ff55-450c-9ef1-7394387311ec", "title": "CBD brain activation psychosis high-risk fMRI", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychosis neuroimaging"},
+    {"id": "5c0204a7-a8de-4e0d-894e-490e1da078a3", "title": "Quetiapine cannabis dependence pilot", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - quetiapine not cannabinoid"},
+    {"id": "5c2b8e33-d35b-47bc-813b-432ab3f54cc5", "title": "CBD CBN hemp hepatotoxic potential hepatocytes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/CBN hepatotoxicity safety"},
+    {"id": "5c33863c-ee7a-4d78-a3f2-6b000fd680e3", "title": "Synaptic density imaging depression", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - neuroimaging methodology"},
+    {"id": "5c5f4e23-295f-4693-b7dc-5462e885790b", "title": "CBD BNST fear conditioning 5-HT1A", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety mechanism"},
+    {"id": "5c71986c-282e-4a0c-92e4-1ed2d52f6271", "title": "CB2 GW842166 brain penetration PET", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 agonist clinical trial"},
+    {"id": "5c747060-e1de-4979-bad2-5f9f2f8d7204", "title": "CBD anandamide IL-17A colonic mucosal damage", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/anandamide IBD therapeutic"},
+    {"id": "5c8c6ca9-6622-4bf9-8d63-1506e09a7c0f", "title": "Prenatal cannabis exposure heroin seeking", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - prenatal exposure effects"},
+    {"id": "5c915fde-8b4a-4bfd-b96f-aa48509470e8", "title": "CBD MOF glioblastoma therapeutic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer formulation research"},
+    {"id": "5c98daad-53da-45f3-9983-6307b543aa84", "title": "THC/CBD works better than THC alone", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD combination therapeutic"},
+    {"id": "5c9a87de-8183-4991-82de-4eafeaa2cc22", "title": "Maternal cannabis use disorder offspring anxiety", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - perinatal epidemiology"},
+    {"id": "5cb76090-8d56-491d-bfad-3f13a33ab8c7", "title": "CBD P2X7 NLRP3 inflammasome depression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression mechanism review"},
+    {"id": "5cbe6174-d2e4-4d96-8b09-4bdedf229e2e", "title": "Anti-tumour actions cannabinoids review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic review"},
+    {"id": "5cbec064-76d4-474d-b97c-05801028f18e", "title": "Cannabinoids tremor motor disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Parkinson's/tremor therapeutic"},
+    {"id": "5cc63e91-837c-44ea-8a64-ae56ee947175", "title": "CBG anti-inflammatory MAPK NF-κB", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG anti-inflammatory mechanism"},
+    {"id": "5d1e461f-a6cf-4b29-b131-63d1d0d5037c", "title": "Chorea levodopa dyskinesia corticobasal", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general neurology"},
+    {"id": "5d524ddc-7d01-447a-8ac7-9177f2773f9c", "title": "CBD stereoselective synthesis anxiolytic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD synthesis/anxiolytic research"},
+    {"id": "5d5e88fd-b5ee-455d-a9c7-5170542a020c", "title": "Acute CBD autonomic balance HRV", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular RCT"},
+    {"id": "5d5f58df-d5e2-4163-8175-09e59efbcd36", "title": "Thieno-oxazine hybrids Alzheimer's", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - novel non-cannabinoid compounds"},
+    {"id": "5d625df8-0e52-4e37-94dd-935d1bd32008", "title": "CB2 system cisplatin hearing loss protection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 otoprotection therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "5c0204a7-a8de-4e0d-894e-490e1da078a3",
+      "5c33863c-ee7a-4d78-a3f2-6b000fd680e3",
+      "5c8c6ca9-6622-4bf9-8d63-1506e09a7c0f",
+      "5c9a87de-8183-4991-82de-4eafeaa2cc22",
+      "5d1e461f-a6cf-4b29-b131-63d1d0d5037c",
+      "5d5f58df-d5e2-4163-8175-09e59efbcd36"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "batch_number": 240,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T02:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "098783d6-f8de-4f08-bd7d-8e1189348dac", "title": "Cannabigerol α2-adrenoceptor agonist 5HT1A antagonist", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBG pharmacology/mechanism"},
+    {"id": "09a38485-60a1-4a59-bd8f-4e2f9d519604", "title": "Bioactives in Food-As-Medicine", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "09a5eaf4-bf94-4fb3-9d7b-f641ec534a4a", "title": "Cannabidiol (title only)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Reference entry correctly rejected"},
+    {"id": "09aead55-4728-45da-a078-45e788bc7bcc", "title": "GC-MS Determination THC CBN CBD in Hair", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "09af2c41-c24b-49cd-a67c-5941f151d2fb", "title": "Cannabis in India: ancient lore modern medicine", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis review"},
+    {"id": "09d2cff1-e97b-43ca-95d5-cfc15730d540", "title": "Cannabinoid Receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor review"},
+    {"id": "09d3165f-09fd-4223-9cfa-56c285ebb38e", "title": "Urinary THC After High-CBD Treatment", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research"},
+    {"id": "09f1c3af-a11e-4f63-8545-0d46581c2141", "title": "Characterisation rat cerebella CB1 receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism"},
+    {"id": "09f98fd2-ccfd-4e01-a13e-f576a24ca25f", "title": "THC removal from hemp seed husks", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industrial processing correctly rejected"},
+    {"id": "0a1316de-4ec9-4c8a-8046-1f889ee95ec5", "title": "Effects of Cannabis Use on Wages", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Socioeconomic correctly rejected"},
+    {"id": "0a1dedb0-6949-4247-aa07-0776ad374a20", "title": "Cannabinoid residue depletion in cattle", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary/agricultural correctly rejected"},
+    {"id": "0a2de333-8867-4003-902e-72672b9b4b06", "title": "Gestational Cannabis effects on offspring", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "0a37a82b-9dd8-44ca-9fb0-73639f0a3cf4", "title": "THC Enhancement of Morphine Antinociception", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pain mechanism"},
+    {"id": "0a5a168f-06aa-42d3-b6b0-8ae8bb419f26", "title": "NIH/3T3 Cell Impedance Biosensors", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "0a743ca7-3c69-4833-82b4-1daa809a2c01", "title": "Therapeutic Implications of Cannabidiol for Humans", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic review"},
+    {"id": "0a87cf8b-4220-4c4b-9429-7e3185430c86", "title": "Analytical methods Cannabis products", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical method correctly rejected"},
+    {"id": "0a8c5b19-d419-481c-b50a-113951aa3e54", "title": "CBD Oil Effects Sedation Healthy Cats", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "0a95b5b2-3a13-4fef-ad08-f55ea3d209c6", "title": "Planting Density Cannabinoid Uniformity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "0a992b62-56c1-42cc-9b91-38a3deb0ae92", "title": "Architecture Familiarization CBD Processes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (software) correctly rejected"},
+    {"id": "0aba2b06-7165-458e-ae6d-73ffcfc991d8", "title": "CBD solver finite array GSM code", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (engineering) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "098783d6-f8de-4f08-bd7d-8e1189348dac",
+      "09af2c41-c24b-49cd-a67c-5941f151d2fb",
+      "09d2cff1-e97b-43ca-95d5-cfc15730d540",
+      "09d3165f-09fd-4223-9cfa-56c285ebb38e",
+      "09f1c3af-a11e-4f63-8545-0d46581c2141",
+      "0a37a82b-9dd8-44ca-9fb0-73639f0a3cf4",
+      "0a743ca7-3c69-4833-82b4-1daa809a2c01"
+    ]
+  }
+}

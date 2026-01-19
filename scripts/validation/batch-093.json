@@ -1,0 +1,40 @@
+{
+  "batch_number": 93,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T13:00:00.000Z",
+  "results": [
+    {"id": "682b78c1-3172-46be-b9a6-ddc55094bdf2", "title": "CBD beta-caryophyllene diabetic neuropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuropathy mechanism"},
+    {"id": "683b508c-e17a-4a7f-b442-607ea5694ed9", "title": "Avidekel oil dementia agitation Phase II RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis dementia therapeutic RCT"},
+    {"id": "6840ee73-047a-481b-83eb-22d6b7af1007", "title": "Sativex neuropathic pain multicentre", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Sativex pain therapeutic trial"},
+    {"id": "6842a0ed-64c0-4e33-bffa-d7ba1fd0080f", "title": "CBD dopaminergic neurons Parkinson's DJ-1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection Parkinson's"},
+    {"id": "68463833-1903-47e6-b781-9fd2102f45a3", "title": "Inflammation stress COVID-19 outcome", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general COVID/inflammation"},
+    {"id": "68494bae-dfe7-467a-8333-210cad1f2250", "title": "CBD doxorubicin breast cancer 4T1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD + chemo cancer therapeutic"},
+    {"id": "686ab1c4-e4c3-4912-baca-fed16ad3b6ad", "title": "False news cannabis cancer cure", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL CONTENT - misinformation commentary"},
+    {"id": "68775112-9412-4a08-a996-6c88e01935f4", "title": "CBD COVID-19 infection patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD COVID therapeutic trial"},
+    {"id": "68897039-433f-4762-9f7a-9c83106024dd", "title": "A+ Formulations CBD Oil premium", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING"},
+    {"id": "689307ed-61f5-4ddd-a800-c722e41a6066", "title": "Cannabis use Dutch brain tumor patients", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use patterns brain tumor"},
+    {"id": "68a69548-47b9-4cc2-9e0c-2313fff184ea", "title": "CB1 endocannabinoid cocaine reinforcement", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid addiction therapeutic mechanism"},
+    {"id": "68c0b815-5ec1-4dba-a27f-aa8c76ea5c9c", "title": "Cannabis use cancer treatment symptom outcomes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer symptom outcomes"},
+    {"id": "68cc732e-01a4-4979-9128-61aa4c7ae24e", "title": "Polysubstance use cocaine disorder", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general addiction"},
+    {"id": "68ce9090-5922-4da9-8f41-956a94aad289", "title": "Fibromyalgia pharmacologic treatment update", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Fibromyalgia pharmacology includes cannabinoids"},
+    {"id": "68e48f8e-a536-42ac-9fa1-657b0be41aee", "title": "CBD MAM model schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychosis therapeutic"},
+    {"id": "68f08a1a-fe16-48cd-9e2e-4111db955a32", "title": "Cannabinoid Hyperemesis Syndrome treatment guidelines", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CHS TREATMENT - cannabis harm condition"},
+    {"id": "68f25d2e-1474-43f0-98d1-0f3ba873cc79", "title": "Cannabinoids antidepressant serotonin mPFC CB1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid depression mechanism"},
+    {"id": "68f5667f-11db-42b2-889e-f181f5c7d7e2", "title": "Cannabis contaminants toxicity pharmacologic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis safety/contaminant research"},
+    {"id": "68ff698d-6d4b-43d6-81e9-e0bcde1d9226", "title": "CBD wound healing delivery anti-inflammatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD wound healing therapeutic"},
+    {"id": "6916ca5b-9df7-49f1-95b0-b2b945e27f53", "title": "Tai Chi eCB postmenopausal women", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - Tai Chi ECS biomarker"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "68463833-1903-47e6-b781-9fd2102f45a3",
+      "686ab1c4-e4c3-4912-baca-fed16ad3b6ad",
+      "68897039-433f-4762-9f7a-9c83106024dd",
+      "689307ed-61f5-4ddd-a800-c722e41a6066",
+      "68cc732e-01a4-4979-9128-61aa4c7ae24e",
+      "68f08a1a-fe16-48cd-9e2e-4111db955a32",
+      "6916ca5b-9df7-49f1-95b0-b2b945e27f53"
+    ]
+  }
+}

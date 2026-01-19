@@ -1,0 +1,36 @@
+{
+  "batch_number": 196,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T15:00:00.000Z",
+  "results": [
+    {"id": "d982033b-e68d-4711-aacb-ead539a4fa31", "title": "CBD Analogues Synthesis Anticonvulsant Resorcinols", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug development"},
+    {"id": "d9836141-b2bc-4b69-b253-6f3bda1fa9c3", "title": "Dronabinol MS Central Pain Cannabinoid Analgesia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain therapeutic"},
+    {"id": "d9887463-f92b-4a4a-98f4-201255071403", "title": "Cannabis Cannabinoids General Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid therapeutic review"},
+    {"id": "d988a1d3-5e9b-41ed-b8b6-e004dd354085", "title": "Cannabis Use Social Anxiety Young Adults Meta", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis/anxiety association"},
+    {"id": "d98d43e5-cbdf-43b6-8890-2f5da8a731f7", "title": "Cannabis Expectancies Anxiety Depression Pain Acute", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis acute therapeutic effects"},
+    {"id": "d9a95b2d-af61-4e45-a276-192aa723c2e0", "title": "Cannabis Cognitive Functioning Adolescents Meta-analysis JAMA", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cognitive effects meta-analysis"},
+    {"id": "d9b06ae1-9427-4b0c-8251-1a3efde4fc28", "title": "LPA Receptor 5 Insular Cortex Neuropathic Pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - LPA receptor pain"},
+    {"id": "d9c93932-ab84-47d7-8236-238851cfe825", "title": "CBN THCV CBD Voluntary Alcohol Consumption Rats AUD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid AUD therapeutic"},
+    {"id": "d9e28b25-8946-4eef-af54-7f2abdd23c0a", "title": "Cannabinoids NAc Shell Excitatory Inputs Electrophysiology", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid reward mechanism"},
+    {"id": "d9ec5672-6423-44e1-912f-9c79742722de", "title": "CBD Derivatives Anticonvulsant Activity Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy drug development"},
+    {"id": "d9f09fea-64a6-4471-95a4-54b4d0f924ed", "title": "CBG Acute Effects Mood Cognition Anxiety Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG therapeutic research"},
+    {"id": "da074684-c821-4d3e-a03b-402ea400c79f", "title": "CBD Drug-Resistant Epilepsy Children Retrospective", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pediatric epilepsy"},
+    {"id": "da1c23d9-ded8-4943-9156-9a7eaf292f52", "title": "CB2 Upregulated Synovium Joint Injury Anti-inflammatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 joint inflammation mechanism"},
+    {"id": "da1c4005-2446-4d86-8bc6-0fd5a6e00c98", "title": "CB1 Striatal Striosomes Substantia Nigra Expression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 basal ganglia mechanism"},
+    {"id": "da25a1f6-cf80-4d39-914a-55ca29bee495", "title": "Synthetic CBD Novel Food Safety Assessment FSA", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety regulatory"},
+    {"id": "da2a628d-4419-429c-83f6-6b4a579b7b78", "title": "Patient Experiences Medicinal Cannabis Qualitative Scoping Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Medical cannabis patient perspective"},
+    {"id": "da2b7cd1-8b25-4c87-a242-505c5771ef63", "title": "CBD Metabolic PCOS Liver Inflammation Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD metabolic therapeutic"},
+    {"id": "da3146c5-ae19-41c2-9917-08f120c0f2c0", "title": "Cannabinoid Therapies Neurodegenerative Disorders Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuroprotective review"},
+    {"id": "da35ac1a-d328-4b02-9e4e-28ef9f17dc4d", "title": "Cannabinoids MS Spasticity Systematic Review Meta", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid MS therapeutic"},
+    {"id": "da409385-37b8-42bf-8bf7-8c0f50457684", "title": "CBD COVID-19 Neuroprotection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD COVID therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "d988a1d3-5e9b-41ed-b8b6-e004dd354085",
+      "d9a95b2d-af61-4e45-a276-192aa723c2e0",
+      "d9b06ae1-9427-4b0c-8251-1a3efde4fc28"
+    ]
+  }
+}

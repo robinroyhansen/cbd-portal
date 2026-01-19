@@ -1,0 +1,42 @@
+{
+  "batch_number": 135,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T23:30:00.000Z",
+  "results": [
+    {"id": "9670b676-2ff8-4a73-9237-e541d0f2808a", "title": "Dependence Symptoms Young Cannabis Users Prospective", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD epidemiology study"},
+    {"id": "967f1458-0b1a-4e1a-8408-af95ef15559a", "title": "CBD Autism EEG Improvements Visuomotor", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism therapeutic"},
+    {"id": "969106bf-742b-42e1-a4b7-3b502a3d00b0", "title": "CB2 Inverse Agonists Isatin Synthesis Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid drug development"},
+    {"id": "96934384-cba4-47ff-a8ee-89d4b06908d1", "title": "Cannabis Vulnerability Psychosis Adolescence TRAILS", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis causation bidirectional"},
+    {"id": "969b31a1-305f-4a94-b523-59c576d8991b", "title": "Cortical Morphology Methamphetamine Psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - methamphetamine study"},
+    {"id": "96bf9c4a-08bd-478c-97eb-acf67974f903", "title": "CBD O-1602 Anti-inflammatory Pancreatitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pancreatitis therapeutic"},
+    {"id": "96fd5522-c320-4ac8-9341-784a226fa29d", "title": "CBD Dravet Syndrome iPSC Mechanism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism research"},
+    {"id": "96fec29a-093d-4ce2-a2af-74cbb25387ac", "title": "IV THC Psychosis Mood Cognitive Effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology research"},
+    {"id": "96fef29e-cb48-4a6f-9c77-a8c67a67d3b6", "title": "CBD Ethanol Binge Drinking Gender Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD alcohol addiction therapeutic"},
+    {"id": "97106fcd-0e68-44d6-aa84-2c0682458e54", "title": "CBD Anti-inflammatory HIV Microglia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD HIV therapeutic"},
+    {"id": "9719268d-bef7-4779-ba47-fa96b890b629", "title": "CBD Energy Intake Glucose Lipid Metabolism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD metabolic pharmacology"},
+    {"id": "9725f2e6-ebc0-4d70-b045-097587a58954", "title": "Synthetic Cannabinoid Toxicology Adverse Effects", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - SC toxicology review"},
+    {"id": "9732132b-a84d-4bcc-a2a9-d5e6b87ac22f", "title": "Full-spectrum Cannabis Women Chronic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic"},
+    {"id": "973bbdf1-31ea-4c04-971a-c010a2f182cb", "title": "CBD Attitudes Knowledge Use Young Adults", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CBD use patterns survey"},
+    {"id": "9740a5b9-dde1-42a4-994d-f4773984e06b", "title": "CB1 CB2 Antagonists Minocycline TBI Neuroprotection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid neuroprotection mechanism"},
+    {"id": "9754a0db-9e9c-4c9a-beed-121e3862360e", "title": "Letter Regarding Cannabis Spinal Fusion", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - letter to editor"},
+    {"id": "97702769-c3db-463a-8034-a392b4af7b05", "title": "Cannabis Potency Medical Recreational Programs", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - dispensary potency market analysis"},
+    {"id": "9772782b-5074-47db-bbf6-80a6cf7108f0", "title": "Caffeine CBD THC Co-administration Effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid drug interaction pharmacology"},
+    {"id": "97847a99-735b-453c-83fc-6b0dfc6806e6", "title": "Comment Topical CBD Athletes Pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - comment on study"},
+    {"id": "9789aa78-d61c-44f3-9c3a-4e1155879db8", "title": "Cannabis Catatonia Rhabdomyolysis AKI Case", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - acute organ injury case"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "9670b676-2ff8-4a73-9237-e541d0f2808a",
+      "96934384-cba4-47ff-a8ee-89d4b06908d1",
+      "969b31a1-305f-4a94-b523-59c576d8991b",
+      "9725f2e6-ebc0-4d70-b045-097587a58954",
+      "973bbdf1-31ea-4c04-971a-c010a2f182cb",
+      "9754a0db-9e9c-4c9a-beed-121e3862360e",
+      "97702769-c3db-463a-8034-a392b4af7b05",
+      "97847a99-735b-453c-83fc-6b0dfc6806e6",
+      "9789aa78-d61c-44f3-9c3a-4e1155879db8"
+    ]
+  }
+}

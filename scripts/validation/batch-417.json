@@ -1,0 +1,36 @@
+{
+  "batch_number": 417,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T22:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "ce24de50-0fed-45cb-8c29-449a73e7b26e", "title": "CBD Grown Aligned ZnO Nanorods Based Methane Sensor and the Effect of Pd Sensitization", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "ce307120-8a1e-44d5-aa75-7788e8fcf5cb", "title": "Is Fentanyl Rebound an Intrinsic Feature of Naloxone Reversal?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "ce346b4f-6325-47ff-90f0-68f377b8c4b4", "title": "No Stone Left Unturned: A Rare Case of Viridans Strep Bacteremia Secondary to Choledocholithiasis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "ce401f74-4de6-4591-9a68-940c457cdd8c", "title": "Development of a novel Δ(9)-THC-specific color test reagent", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "ce409e93-6abf-4647-97e7-38d9c0762cf6", "title": "SOLUTION STRUCTURE OF TYPE X CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (protein domain) correctly rejected"},
+    {"id": "ce63b070-9347-4b71-991c-56980c6acabb", "title": "Keeping off the grass? An econometric model of cannabis consumption in Britain", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "ce7583c3-db09-4972-af39-52fd7df92bdf", "title": "Virulence of Five Root-Knot Nematodes (Meloidogyne spp.) on Nine Industrial Hemp (Cannabis sativa L.) Varieties", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "ce75a9e9-e6e2-4fbf-933d-8cf3007e29fd", "title": "2018 Sixth International Conference on Advanced Cloud and Big Data (CBD)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Cloud and Big Data) correctly rejected"},
+    {"id": "ce91907b-1d78-42fb-be94-0742b586675d", "title": "Protein Fortification of Millet-Based Gluten-Free Snacks Designed for 3D Printing", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "cea6df79-1c5c-4861-85f1-b742d2365fa3", "title": "Cannabis nation: control and consumption in Britain, 1928-2008", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/history correctly rejected"},
+    {"id": "ceb7c35d-84b0-4266-9dda-2fef604ab3d7", "title": "Does Cigarette Smoke Protect Against Development Of Granulomatous Lung Diseases, Such As CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chronic Beryllium Disease) correctly rejected"},
+    {"id": "cebfb17d-f119-45a0-b962-4e27db2cb484", "title": "Chemical analysis of synthetic cannabinoids as designer drugs in herbal products", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "ced18747-54ca-4bcd-bb30-5abc1db3489d", "title": "PARKINFO - A CBD PARKING INFORMATION SYSTEM", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "ced7e9b9-0bcc-4d70-8188-d454102e4fe1", "title": "Associations Between Cannabis Messaging and Derived Psychoactive Cannabis Product Perceptions, Use, and Use Intentions Among a Sample of US Young Adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/marketing correctly rejected"},
+    {"id": "cee85167-8939-40d4-9705-e20b11b53128", "title": "Comparison of clinicopathologic findings and urine drug screen results in cannabis-positive and control dogs", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "cee8f189-2289-4941-88dc-09535a99eec1", "title": "Dose- and tissue-dependent effects of cannabidiol on antioxidant status in developing chicken embryos", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antioxidant mechanism research"},
+    {"id": "cf0fcbe0-e368-45d6-ae1e-9cf56cbc7926", "title": "Evaluation of long-term stability of cannabinoids in standardized preparations of cannabis flowering tops and cannabis oil", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "cf12ba2e-40f5-48d1-8f1a-e95e49d0931f", "title": "A longitudinal study predicting adolescent tobacco, alcohol, and cannabis use by behavioral characteristics of close friends", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "cf1ac89c-7722-472d-acb7-84479269e7f2", "title": "Comparison of preferred double guidewire technique and transpancreatic sphincterotomy for difficult biliary cannulation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "cf36bb22-3d40-4af7-bdc1-13424627c55d", "title": "Effects of the cannabinoid receptor agonist CP 55,940 and the cannabinoid receptor antagonist SR 141716 on intracranial self-stimulation in Lewis rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor reward mechanism research"}
+  ],
+  "batch_summary": {
+    "correct": 18,
+    "incorrect": 2,
+    "incorrect_ids": [
+      "cee8f189-2289-4941-88dc-09535a99eec1",
+      "cf36bb22-3d40-4af7-bdc1-13424627c55d"
+    ]
+  }
+}

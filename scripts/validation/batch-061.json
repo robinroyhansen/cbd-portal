@@ -1,0 +1,41 @@
+{
+  "batch_number": 61,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T05:00:00.000Z",
+  "results": [
+    {"id": "449a54c9-f0ca-4c52-aa08-5a6b9adf6935", "title": "Assessing the Role of Cannabis in Managing Spasticity in Multiple Sclerosis: A Systematic Review and Meta-Analysis.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis MS spasticity therapeutic review"},
+    {"id": "449bf237-fbaf-443e-bf79-d0b9506b0833", "title": "CBD attenuates amygdala response to negative emotional stimuli in individuals with alcohol use disorder - a randomized controlled trial.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD alcohol use disorder therapeutic RCT"},
+    {"id": "44c95ee3-1807-4efb-ae2c-1bc6fcf032df", "title": "A Pilot Randomized Placebo-Controlled Crossover Trial of Medicinal Cannabis in Adolescents with Tourette Syndrome.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis Tourette's therapeutic pilot RCT"},
+    {"id": "44ecaea0-d93e-45cd-9913-3b5a931c85b9", "title": "Endocannabinoid system gene expression in mesocorticolimbic brain regions of individuals with alcohol use disorder: A descriptive study.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS mechanism in addiction research"},
+    {"id": "451f3939-d254-4afb-ad8b-1b88da13c625", "title": "Non-replication of interaction between cannabis use and trauma in predicting psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - cannabis-psychosis risk relationship"},
+    {"id": "45232e2c-2863-41c6-86e0-e7af6472fdbf", "title": "Chitosan-based film-forming systems with cannabidiol: a novel topical strategy for antimicrobial therapy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antimicrobial topical formulation"},
+    {"id": "4529d0fa-8f19-42b6-b05d-5aece2dfaaaf", "title": "Acute Intraoperative Saddle Pulmonary Embolus in a Trauma Patient Undergoing Repair of Tibial Fracture: A Case Report.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - pulmonary embolism case report"},
+    {"id": "452b0a53-af90-45be-ba7a-74dac6520316", "title": "What does color mean about a CBD Oil?👈", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING - Green Garden CBD Oil marketing links"},
+    {"id": "452c6bd9-0180-4dd2-aae7-83d625381e52", "title": "The therapeutic effect of cannabidiol in oral mucosa lesions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD oral mucositis therapeutic scoping review"},
+    {"id": "4537ac00-cea2-4c5d-86f9-6e9378b21532", "title": "Cannabis use among primary care patients with depression and anxiety disorders: cross-sectional analysis in a large health system in Los Angeles, CA", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use patterns, not therapeutic"},
+    {"id": "45397a9e-410c-47da-9f72-a792ea883572", "title": "Cannabis use before age 15 and subsequent executive functioning", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - early cannabis use causes cognitive deficits"},
+    {"id": "4545c89c-07ae-4521-8b80-af1c708b2c75", "title": "Proximal Tubular Cannabinoid-1 Receptor Regulates Obesity-Induced CKD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1R obesity kidney disease mechanism"},
+    {"id": "454862b2-c7e9-4060-9817-02b6635e111a", "title": "Research Hotspots of Traditional Chinese Medicine for Liver Cancer in the Future Directions: A Bibliometric Analysis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - TCM liver cancer bibliometrics"},
+    {"id": "454ebd35-2c1b-4e61-a465-ef14ea7141cc", "title": "Breaking the resistance: a narrative review of the evolution from traditional drugs to precision therapies in epilepsy.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general epilepsy drug review"},
+    {"id": "454f2c72-76ec-422a-8e4d-1a84bf794309", "title": "Cannabinoids for treatment of glaucoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid glaucoma therapeutic review"},
+    {"id": "45515bc8-2241-4046-bdc8-6775abfb7a10", "title": "Cannabinoid CB2Receptors and Fatty Acid Amide Hydrolase Are Selectively Overexpressed in Neuritic Plaque-Associated Glia in Alzheimer's Disease Brains", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2/FAAH Alzheimer's mechanism therapeutic target"},
+    {"id": "455cbc1a-6d74-43ab-b713-91def49125a8", "title": "Effects of cannabidiol, cannabichromene, cannabidivarin, cannabigerol and cannabinol in endometrial cells: Implications for endocrine and senescence modulation.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Multiple cannabinoids endometrial cell mechanism"},
+    {"id": "4562649e-a73a-42c1-bde6-c94339d570e6", "title": "Upregulation of GLT-1 Expression Attenuates Neuronal Apoptosis and Cognitive Dysfunction via Inhibiting the CB1-CREB Signaling Pathway in Mice with Traumatic Brain Injury.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 signaling TBI mechanism research"},
+    {"id": "45643338-c01e-4af3-a309-dee738091193", "title": "Chronic oral dosing of cannabidiol and cannabidiolic acid full-spectrum hemp oil extracts has no adverse effects in horses: a pharmacokinetic and safety study.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - CBD for horses, not human health"},
+    {"id": "4566f4b1-abfc-42e1-96da-d97eca6c3486", "title": "P-1533. In silico Exploration of Cannabidiol Interactions with Outer Membrane Proteins in Salmonella Typhimurium LT2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antimicrobial mechanism research"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "451f3939-d254-4afb-ad8b-1b88da13c625",
+      "4529d0fa-8f19-42b6-b05d-5aece2dfaaaf",
+      "452b0a53-af90-45be-ba7a-74dac6520316",
+      "4537ac00-cea2-4c5d-86f9-6e9378b21532",
+      "45397a9e-410c-47da-9f72-a792ea883572",
+      "454862b2-c7e9-4060-9817-02b6635e111a",
+      "454ebd35-2c1b-4e61-a465-ef14ea7141cc",
+      "45643338-c01e-4af3-a309-dee738091193"
+    ]
+  }
+}

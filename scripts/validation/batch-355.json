@@ -1,0 +1,38 @@
+{
+  "batch_number": 355,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T06:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "89f3a97f-ae5b-4dbe-aca4-d3a3835beae0", "title": "Comprehensive Cannabis Motives Questionnaire development and validation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "8a14b21c-af39-423a-b922-0fdd3d557205", "title": "Impact of Soil Quality on Cannabinoid Content of Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "8a25af56-c4e9-477e-bba4-9140088e4087", "title": "Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD review/overview"},
+    {"id": "8a2b9216-a409-4aee-8405-c5cdfee8adad", "title": "Coronal imbalance in degenerative scoliosis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "8a3f0ea0-b5b3-4e71-a4d0-901faf156a6e", "title": "Management of Mirizzi Syndrome Type I", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "8a6594a7-88cb-4c3d-ac2e-5330722b7907", "title": "Cannabis products and trends VapeScan longitudinal study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "8a6fec02-6be3-4e05-af50-7e4eb0bc9b46", "title": "Photoperiodic Response of In Vitro Cannabis sativa Plants", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "8a709408-b4e5-48bd-b0d3-cf8f30d51817", "title": "Wonder Leaf CBD Oil Reviews SPAM", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "8a83a532-cf7b-4b63-bfa0-27ef846605be", "title": "Role of ion channel TRPV2 in rat basophilic leukemia cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Not cannabinoid-focused correctly rejected"},
+    {"id": "8a8a69ce-35ea-42d1-99cd-1b7290d5a3ab", "title": "Towards the use of cannabinoids as antitumour agents", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cancer therapeutic"},
+    {"id": "8a8b869d-22cd-4732-aaa7-310a6c4a2e4b", "title": "The CBD and the Future", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (likely Convention on Biological Diversity) correctly rejected"},
+    {"id": "8a9b33ee-b9d1-41d5-95ec-ef034da575b0", "title": "Magnetic Nanoparticles Polymer Coating", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "8af1e69b-47d0-48f7-970b-989c501cf03e", "title": "Design of Nutraceutical Gummy Candy with Hydrolysed Hemp", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food product correctly rejected"},
+    {"id": "8b17ab01-fdad-4009-b3af-af5ae6a45e99", "title": "Synthetic cannabinoid isomers characterization MALDI-MS3", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "8b1aef40-3f61-4f2b-b923-2ee9f4200b0c", "title": "Concomitant use of medical cannabis and drugs with risks of interaction in older patients", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis drug interaction safety"},
+    {"id": "8b3b0f80-c4a1-499a-ab37-21fe736fd2c2", "title": "Cannabis sativa Cannabinoids as Functional Ingredients in Snack Foods", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food product/safety correctly rejected"},
+    {"id": "8b43500c-0df3-49ea-b1b1-281fb36585b2", "title": "Phytoremediation of Lead and Chromium Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Environmental remediation correctly rejected"},
+    {"id": "8b622886-b98d-42a3-8a42-3cbb462b497c", "title": "Cannabidiol prevents mucosal HIV-1 transmission", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD HIV prevention therapeutic"},
+    {"id": "8b6664b8-8d44-4476-83c0-f56b486902e9", "title": "Impact of Illicit Drug Use on Facial Fracture Patterns", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "8b82a8e0-0fc9-4e8e-b629-ba2c84d63305", "title": "Recent advances in coffee berry disease (CBD) control in Uganda", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Coffee Berry Disease) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "8a25af56-c4e9-477e-bba4-9140088e4087",
+      "8a8a69ce-35ea-42d1-99cd-1b7290d5a3ab",
+      "8b1aef40-3f61-4f2b-b923-2ee9f4200b0c",
+      "8b622886-b98d-42a3-8a42-3cbb462b497c"
+    ]
+  }
+}

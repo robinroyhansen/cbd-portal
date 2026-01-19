@@ -1,0 +1,41 @@
+{
+  "batch_number": 385,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T14:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "a9d89325-690e-4afd-ae30-400a50bdd1bf", "title": "BioGold CBD Gummies {SCAM & LEGIT} Cheap Price - Effective & Does Work?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "a9df3a4a-f70b-442a-9113-401088587518", "title": "Neuronal localization of cannabinoid receptors and second messengers in mutant mouse cerebellum", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB receptor mechanism research"},
+    {"id": "a9e65e56-5823-41b6-aa4a-465cc0b4ba4a", "title": "To which extent is the interdisciplinary evaluation approach of the CBD reflected in European and international biodiversity-related regulations?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "a9f0acf4-e803-4b93-b2e3-38737b693df7", "title": "Dual Use of Nicotine and Cannabis Through Vaping Among Adolescents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "a9f821d7-9bc1-4d95-a3d1-0af061f40790", "title": "Crystal structure of cannabidiol inclusion complexes in native and methylated beta-cyclodextrins", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD formulation/drug delivery research"},
+    {"id": "aa0d208b-b0d3-4779-baf0-719961696b59", "title": "Research papers Interactions of cotton with CBD peptides", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Cellulose Binding Domain) correctly rejected"},
+    {"id": "aa1c6972-6be4-45af-9cf1-8feb0217f09d", "title": "Cannabinoids disrupt hippocampal sharp wave‐ripples via inhibition of glutamate release", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid memory mechanism research"},
+    {"id": "aa36e0dc-dfc7-4d6d-a7bb-191915823aab", "title": "Charting the therapeutic landscape: a comprehensive evidence map on medical cannabis for health outcomes.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - therapeutic evidence review"},
+    {"id": "aa3f393f-1317-46a1-b88d-1325f9839fe0", "title": "Kinetic studies of the rich interaction of cannabinoids with oxygen-centered radicals and excited carbonyl compounds.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid antioxidant mechanism"},
+    {"id": "aa411a59-6cbe-4907-ab53-525abad74ce4", "title": "Development of an accelerated ageing protocol for the study of phytocannabinoid stability in Cannabis sativa L.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "aa4e34db-6f37-4faf-88ea-e73448c3273d", "title": "Antinociceptive activity of intrathecally administered cannabinoids alone, and in combination with morphine, in mice.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pain therapeutic research"},
+    {"id": "aa59ea0b-39ab-4400-ac00-750b5acc615d", "title": "Change in Cigarette, Other Tobacco Product, and Cannabis Use Among Individuals Who Used or Did Not Use Cannabis During a Smoking Cessation Trial.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "aa5bea66-a3bc-4dd0-8e4a-5023353a4be2", "title": "Legality of Worldwide Cannabis Use and Associated Economic Benefits", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/economics correctly rejected"},
+    {"id": "aa83e3d4-cf0d-407b-b62c-fa093e1b7dbf", "title": "Rhetorical and regulatory boundary-work: The case of medical cannabis policy-making in Israel", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "aa9f07aa-8f42-4c6d-bc1a-65b4e1f9e24b", "title": "Planning of Central-style CBD Preliminary Discuss on Concept Planning of Furong CBD in Changsha City", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "aab41e37-f011-42c1-ae9b-10e06781c915", "title": "High Time to Assess the Environmental Impacts of Cannabis Cultivation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/environmental correctly rejected"},
+    {"id": "aacaa4e3-2a9a-453a-a55d-72dad734c87b", "title": "Motorizing CBD of Tirana. A Before and After Study in Tirana from Sustainability Point of View", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "aaceed7a-93ff-4682-872c-e0eafc3cc135", "title": "Long-Term Consequences of Adolescent Exposure to THC-Rich/CBD-Poor and CBD-Rich/THC-Poor Combinations: A Comparison with Pure THC Treatment in Female Rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC ratio mechanism and safety research"},
+    {"id": "aad6c1aa-7714-416c-95f7-76d0119982e9", "title": "The importance of property‐specific attributes in assessing CBD office building quality", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "aaef0c02-0565-41cc-9d42-c635073e346b", "title": "cAMP–PKA/EPAC signaling pathways: crucial regulators of lipid homeostasis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "a9df3a4a-f70b-442a-9113-401088587518",
+      "a9f821d7-9bc1-4d95-a3d1-0af061f40790",
+      "aa1c6972-6be4-45af-9cf1-8feb0217f09d",
+      "aa36e0dc-dfc7-4d6d-a7bb-191915823aab",
+      "aa3f393f-1317-46a1-b88d-1325f9839fe0",
+      "aa4e34db-6f37-4faf-88ea-e73448c3273d",
+      "aaceed7a-93ff-4682-872c-e0eafc3cc135"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "batch_number": 326,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T23:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "674abed6-bb17-4f3d-839c-8c0024eeceba", "title": "Effects of acute oral Δ9-tetrahydrocannabinol and standardized cannabis extract on the auditory P300 event-related potential in healthy volunteers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment study correctly rejected"},
+    {"id": "677982d6-b7f9-4387-9213-60f2418b4dd0", "title": "Plant-Based Care and Therapy in Ophthalmology", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General plant therapy correctly rejected"},
+    {"id": "6781a362-45d6-4735-9fa5-37c8164123fd", "title": "Stop 'peddling unproven CBD products for use in vulnerable populations like infants and children'", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correctly rejected"},
+    {"id": "679efeb7-66c3-4435-8aae-30ccc5e78694", "title": "Pilot scale treatment of PFAS-contaminated groundwater in a subsurface flow constructed wetland-evaluating multiple plant species.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "67b594f5-25be-401e-8147-d4704137325a", "title": "Chemical diversity, receptor binding affinity, and pharmacology of phytocannabinoids: Insights into neuronal mechanisms.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - phytocannabinoid neuronal pharmacology"},
+    {"id": "67c89201-25b9-42f9-a014-37e4edc33ec0", "title": "CBD 방법론에서 AF 산출물 재활용 방안", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Component-Based Development) correctly rejected"},
+    {"id": "67c9c892-6d34-461c-a747-8142f5ecb097", "title": "Pipette tip micro‐solid phase extraction (octyl‐functionalized hybrid silica monolith) and ultra‐high‐performance liquid chromatography‐tandem mass spectrometry to determine cannabidiol and tetrahydrocannabinol in plasma samples", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical method correctly rejected"},
+    {"id": "67cb99a0-5e02-4e02-967a-9abaf43f55d6", "title": "Exploring The Contours: Navigating Cannabis Use Among Older Adults.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "67e1e71d-ea59-4664-865e-7926512669af", "title": "Thermo-chemical conversion of cannabis biomass and extraction by pressurized liquid extraction for the isolation of cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction method correctly rejected"},
+    {"id": "67f1ef7f-7610-4fbd-a08a-9012598e05aa", "title": "Graphene quantum dots (GQDs)-modified screen-printed electrode for the determination of cannabidiol (CBD) in hemp seeds flour", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical detection correctly rejected"},
+    {"id": "68120e11-c870-47a2-b196-a1303198281a", "title": "A Minireview on Nanosized Hypericin-Based Inducer of Immune Cell Death Under ROS-Based Therapies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "6829a2e8-2b57-4663-96b9-13f0a7e5cc8c", "title": "Culture Based Development (CBD) in a nutshell", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "682b049e-76b1-4f59-b684-7e0a2315479b", "title": "Neural Basis of Δ-9-Tetrahydrocannabinol and Cannabidiol: Effects During Response Inhibition", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC/CBD neural mechanism"},
+    {"id": "6833d3c0-4c66-4799-b203-16cea367184f", "title": "Confederação Brasileira de Desportos (CBD) – Alfinete de lapela", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Brazilian Sports Confederation) correctly rejected"},
+    {"id": "6850ff5a-0d87-4739-aff5-230b0c1f7fb8", "title": "Tranilast Does Not Inhibit TRPV2", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "686ff971-4a7f-42b7-b753-fe7b85122974", "title": "Double gallbladder: a case report and review of literature", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "6873a55c-5779-4beb-952b-9ce4d8695185", "title": "Role of the Endogenous Cannabinoid System in the Regulation of Motor Activity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS motor mechanism"},
+    {"id": "687c5b17-7b97-4a10-bbf9-f6c7e52c9c80", "title": "A Prospective Trial of Varenicline and Incentives for Tobacco Cessation in Adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Tobacco cessation correctly rejected"},
+    {"id": "687ff26c-d8e7-488e-8fef-ec3a14160728", "title": "Helio Pure CBD Oil | HelioPure CBD Gummies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "68ab8de2-03f8-411e-bfa6-b37978432151", "title": "Fabrication of CdSe/Si Thin Films Solar Cell by CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "67b594f5-25be-401e-8147-d4704137325a",
+      "682b049e-76b1-4f59-b684-7e0a2315479b",
+      "6873a55c-5779-4beb-952b-9ce4d8695185"
+    ]
+  }
+}

@@ -17,14 +17,25 @@ export interface GlossaryTerm {
 interface ArticleContentProps {
   content: string;
   glossaryTerms?: GlossaryTerm[];
+  /** Glossary slugs to exclude (e.g., don't link "CBD Patches" on the CBD Patches article) */
+  excludeSlugs?: string[];
+  /** Strip the References/Sources section from markdown (use when structured citations exist) */
+  stripReferences?: boolean;
 }
 
-export function ArticleContent({ content, glossaryTerms = [] }: ArticleContentProps) {
+export function ArticleContent({ content, glossaryTerms = [], excludeSlugs = [], stripReferences = false }: ArticleContentProps) {
   // Build a map of terms and their synonyms for quick lookup
+  // Filter out excluded slugs (e.g., don't link "CBD Patches" on the CBD Patches article)
   const termMap = React.useMemo(() => {
     const map = new Map<string, GlossaryTerm>();
+    const excludeSet = new Set(excludeSlugs.map(s => s.toLowerCase()));
 
     glossaryTerms.forEach(term => {
+      // Skip excluded terms
+      if (excludeSet.has(term.slug.toLowerCase())) {
+        return;
+      }
+
       // Add main term
       map.set(term.term.toLowerCase(), term);
 
@@ -39,7 +50,7 @@ export function ArticleContent({ content, glossaryTerms = [] }: ArticleContentPr
     });
 
     return map;
-  }, [glossaryTerms]);
+  }, [glossaryTerms, excludeSlugs]);
 
   // Sort terms by length (longest first) to match longer terms first
   const sortedTerms = React.useMemo(() => {
@@ -126,7 +137,15 @@ export function ArticleContent({ content, glossaryTerms = [] }: ArticleContentPr
   };
 
   // Remove the first H1 from content since we already have an H1 in the template
-  const processedContent = content.replace(/^#\s+[^\n]+\n\n?/, '');
+  let processedContent = content.replace(/^#\s+[^\n]+\n\n?/, '');
+
+  // Optionally strip References/Sources section when we have structured citations
+  if (stripReferences) {
+    processedContent = processedContent.replace(
+      /\n##\s*(?:References|Sources|Citations)\s*\n[\s\S]*?(?=\n##[^#]|\n---|\n\*Written|\n\*Last|$)/gi,
+      ''
+    );
+  }
 
   return (
     <div className="article-content">

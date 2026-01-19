@@ -1,0 +1,42 @@
+{
+  "batch_number": 188,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T13:00:00.000Z",
+  "results": [
+    {"id": "d1478e30-7262-4c77-88ce-816b36ecd3c6", "title": "Anderson Cooper CBD Google Sites", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - fake celebrity CBD advertisement"},
+    {"id": "d15520dc-b3df-4ff8-97c2-1423a58a4c22", "title": "Correction to Cannabis COPD COVID", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - correction notice only"},
+    {"id": "d161bc2a-aaaf-4e2b-8ebb-ff5205c334b6", "title": "Gut Bacteria Alcohol Cardiac Anandamide", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid cardiovascular mechanism"},
+    {"id": "d16e18c8-3f23-440c-afac-74386cf21560", "title": "JWH-018 Cardiovascular Effects Rat", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - synthetic cannabinoid toxicity"},
+    {"id": "d183dfbf-4d72-424f-bd90-71c2b847bd6c", "title": "THC CBD Alzheimer's Mouse Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Alzheimer's preclinical"},
+    {"id": "d1a72b78-f94e-4805-8b71-3bdc0ffe3165", "title": "CBD Oil Lung Cancer Tumor Regression Case", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer case report"},
+    {"id": "d1b4dc73-7924-4fba-a7ce-91341e83e4df", "title": "CB2 Receptor Ischemia Heart Injury Protection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 cardiac protection therapeutic"},
+    {"id": "d1ca92b2-7394-4843-9574-5266e01d7f7e", "title": "Vitamin B6 Ketogenic Diet Epilepsy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - vitamins/diet only"},
+    {"id": "d1e54026-f30a-4514-b65b-e1cfd5c1775a", "title": "Cannabinoids Colorectal Cancer THC CBD CB83", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer mechanism"},
+    {"id": "d1eb4e29-2ba9-46e5-9ae3-1d1b93225c79", "title": "Hemp Oil + User Experience Survey Thorne", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "COMMERCIAL - product survey/market research"},
+    {"id": "d1ec2a6c-817f-45d5-bc43-24cfdf1501b1", "title": "THC CBD Appetite Stimulating Older Patients RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid appetite clinical trial"},
+    {"id": "d1f454fa-985d-41cc-8a0c-7a2b3b14df67", "title": "Pathways from Cannabis to Psychosis Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis causation review"},
+    {"id": "d21a7093-bb4b-4fbe-ba94-810d4a228591", "title": "CBD Nanoencapsulated Red Brocket Deer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - deer stress behavior"},
+    {"id": "d21ecbef-c7b0-4f6b-ab06-494942ac6c5e", "title": "CBD Cytokine Storm ARDS COVID-19", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD ARDS therapeutic research"},
+    {"id": "d21f69eb-4f1a-4610-b8e0-224782fb72c6", "title": "Heartfulness Meditation Neuroendocrine", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - meditation only"},
+    {"id": "d21ff7b2-1c2e-4149-a6ad-a4b9dc659149", "title": "THC CBD Drosophila Reproduction Effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid reproductive safety research"},
+    {"id": "d23d277a-674a-47ac-a3f1-4bf8e7587a34", "title": "CBD EAE Multiple Sclerosis Tc1 Cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD MS/neuroinflammation therapeutic"},
+    {"id": "d242045b-bde4-4086-8e8c-00bf655e10a9", "title": "Vaporized Cannabis COPD Exercise RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis COPD clinical trial"},
+    {"id": "d244cc74-3d9e-4431-ad6f-bb30a9351ae5", "title": "Zimbabwe CBD HIV/AIDS Crisis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Community-Based Distribution"},
+    {"id": "d245ed7f-2af7-44be-926b-4181d8c53106", "title": "CB2 JWH-015 Breast Cancer Calcium", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 agonist cancer therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "d1478e30-7262-4c77-88ce-816b36ecd3c6",
+      "d15520dc-b3df-4ff8-97c2-1423a58a4c22",
+      "d16e18c8-3f23-440c-afac-74386cf21560",
+      "d1ca92b2-7394-4843-9574-5266e01d7f7e",
+      "d1eb4e29-2ba9-46e5-9ae3-1d1b93225c79",
+      "d1f454fa-985d-41cc-8a0c-7a2b3b14df67",
+      "d21a7093-bb4b-4fbe-ba94-810d4a228591",
+      "d21f69eb-4f1a-4610-b8e0-224782fb72c6",
+      "d244cc74-3d9e-4431-ad6f-bb30a9351ae5"
+    ]
+  }
+}

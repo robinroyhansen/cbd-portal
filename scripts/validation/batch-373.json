@@ -1,0 +1,43 @@
+{
+  "batch_number": 373,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T11:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "9d8f335c-979a-43ea-a089-3bd386cc41fd", "title": "Compromised External Validity: Federally Produced Cannabis Does Not Reflect Legal Markets", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/methodology correctly rejected"},
+    {"id": "9d990241-6bce-455c-852c-08462fc9d476", "title": "Cannabis use disorder: Epidemiology and management", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment study correctly rejected"},
+    {"id": "9d995dce-7ba2-41fb-b7c1-b8ce7c091a98", "title": "Influence of solvent, sex, and age on pharmacokinetic and acute behavioral effects of vaporized cannabis extract in mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacokinetics research"},
+    {"id": "9dac1d96-bea4-45ec-a910-3c1d74a21fab", "title": "Noladin ether, a putative endocannabinoid, inhibits μ-opioid receptor activation via CB2 cannabinoid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS/CB2 receptor mechanism research"},
+    {"id": "9db1f202-571c-4bb3-92c3-fda283e6d2d6", "title": "Zur Kenntnis eines sedativen Wirkstoffes aus dem deutschen Faserhanf (Cannabis sativa)", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis sedative compound research"},
+    {"id": "9dc93416-b624-4db8-b1a3-c28f5cd9a384", "title": "The Endocannabinoid System: Scientific Insight and Biblical Reflection.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial/opinion content correctly rejected"},
+    {"id": "9ddfa2c5-2dd6-4533-a863-80a29d4fd438", "title": "Uruguayan Cannabis Social Clubs: From activism to dispensaries?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/social correctly rejected"},
+    {"id": "9dee8e32-b55f-434d-ad39-67eb7405d3a9", "title": "A chromatographic paper-based electrochemical device to determine Δ⁹-tetrahydrocannabinol and cannabidiol in cannabis oil", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "9e004cca-7993-4723-8bad-3e1105562711", "title": "TILLCANN: a TILLING platform in Cannabis sativa for mutation discovery and crop improvement.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/breeding correctly rejected"},
+    {"id": "9e0182e1-74b7-4d44-8d40-2f827bc954c4", "title": "Cannabidiol attenuated the maintenance and reinstatement of extinguished methylphenidate-induced conditioned place preference in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD addiction therapeutic research"},
+    {"id": "9e04602b-d775-41f7-9423-552992148df0", "title": "Co-use of opioids and cannabis versus single-substance use: a national analysis of US adults.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "9e05c944-ded4-4dfd-8189-b6c8b850da07", "title": "Cannabinol and cannabidiol exert opposing effects on rat feeding patterns", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid appetite mechanism research"},
+    {"id": "9e2ed958-a0f2-4fe0-a0c7-ef44ba255140", "title": "The effect of Cannabidiol (CBD) on paranoid cognitions in humans", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD mental health therapeutic research"},
+    {"id": "9e417026-f5c7-4eb1-a8f0-32fd0e67fac4", "title": "Exploring Challenges Faced by Children Living in the Streets: A Human Rights Perspective. A Case of Chegutu CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "9e748c6f-f7a8-4ed7-9d0b-9dc6a60569aa", "title": "Le cannabidiol prévient l'atrophie induite par le cisplatine dans un modèle de myotubes en culture", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD chemo-protective research"},
+    {"id": "9e79c382-475b-4934-bccd-a8dfc9096053", "title": "The effects of vaped cannabis on the severity of naloxone-precipitated opioid withdrawal.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis for opioid withdrawal therapeutic"},
+    {"id": "9e85de3e-5ecd-421d-8ed1-bccec23efb17", "title": "Selective electrochemical detection of cannabidiol (CBD) and tetrahydrocannabinol (THC) at molecular-imprinted mesoporous Pt-Ir surfaces.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "9eae7b3d-6c78-49be-a982-da7961642593", "title": "INFLUENCE OF ENTREPRENEURIAL MARKETING ON THE GROWTH OF SMES IN KIAMBU TOWN-CBD, KENYA", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "9eb13dac-0d2e-4b7f-bf64-7822f2450378", "title": "Pharmacology and potential therapeutic uses of cannabis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis therapeutic pharmacology review"},
+    {"id": "9eb91134-4b4f-4eb7-9ce4-7623851d3134", "title": "Differentiation of CBD and Δ9-THC isomers using copper-ion complexation and electrospray ionization-tandem mass spectrometry", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 10,
+    "incorrect": 10,
+    "incorrect_ids": [
+      "9d995dce-7ba2-41fb-b7c1-b8ce7c091a98",
+      "9dac1d96-bea4-45ec-a910-3c1d74a21fab",
+      "9db1f202-571c-4bb3-92c3-fda283e6d2d6",
+      "9e0182e1-74b7-4d44-8d40-2f827bc954c4",
+      "9e05c944-ded4-4dfd-8189-b6c8b850da07",
+      "9e2ed958-a0f2-4fe0-a0c7-ef44ba255140",
+      "9e748c6f-f7a8-4ed7-9d0b-9dc6a60569aa",
+      "9e79c382-475b-4934-bccd-a8dfc9096053",
+      "9eb13dac-0d2e-4b7f-bf64-7822f2450378"
+    ]
+  }
+}

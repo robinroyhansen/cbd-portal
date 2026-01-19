@@ -1,0 +1,43 @@
+{
+  "batch_number": 205,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T17:15:00.000Z",
+  "results": [
+    {"id": "e3aa25de-f78d-4fa9-adab-87a919008291", "title": "Neutral CB1 Antagonism Obesity Treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 antagonist obesity therapeutic"},
+    {"id": "e3afd037-a6ac-457b-aa1a-dfa37a3b5be9", "title": "Prevalence CBD Consumption Cancer Patients", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CBD use patterns"},
+    {"id": "e3b35434-bbb7-491e-8509-72be2acd8f29", "title": "CB2 Activation Attenuates Myocardial Infarction", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 cardiac therapeutic"},
+    {"id": "e3bbcb7b-87ce-493f-ac1b-b849bcdb19d2", "title": "Gene-Environment Cannabis Psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis causation"},
+    {"id": "e3e3e0b1-7d5c-4a3f-aea2-1504d90c4298", "title": "Physical Health Substance Use Disorders Turkish", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general SUD health"},
+    {"id": "e3eb49f8-817a-498e-ba00-5e17bf379312", "title": "Alcohol Use Disorder Falls HIV", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - AUD study"},
+    {"id": "e3ffe46f-5424-4237-93bc-91e37081f84d", "title": "Facilitators Barriers Treatment Seeking Cannabis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - treatment-seeking patterns"},
+    {"id": "e41be1bc-ea1d-4abb-8d1b-3f5d63d36e29", "title": "CB1 Antagonist Opiate Withdrawal Morphine", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid opioid mechanism"},
+    {"id": "e4269885-b321-41f4-86f5-335c610ad7cf", "title": "Pharmacology Therapeutic CBD Diabetes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD diabetes therapeutic"},
+    {"id": "e42f220f-c72a-4421-9204-8c45913dfaaf", "title": "CB1 Inhibition Cardiac Function Metabolic Syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 cardiac therapeutic"},
+    {"id": "e4374825-20ce-4abb-963f-283c1cef9172", "title": "Correction CBD Dietary Rabbits", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - rabbits correction"},
+    {"id": "e4728c57-598f-4ce3-9100-f177e0b7d3d6", "title": "RCT Medicinal Cannabis Mental Health Scoping Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis mental health therapeutic review"},
+    {"id": "e47c7efc-21bc-4b5e-b70f-bfa06c1f80a9", "title": "CBD Epilepsy Dogs Exploratory", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dogs"},
+    {"id": "e48b238d-96a3-46c7-8e5d-00045c8dfa34", "title": "CBD Neurodevelopment Schizophrenia ASD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia autism therapeutic"},
+    {"id": "e4a4cb33-d586-4952-8bf2-506a3c03cede", "title": "Oral Cannabinoids Neuropathic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuropathic pain therapeutic"},
+    {"id": "e4a86402-f12a-4538-8255-e5a15f432eb8", "title": "CBD Dietary Supplements Safety Regulatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety regulatory review"},
+    {"id": "e4acd532-ee2c-48f8-a9ce-1f2f9e919899", "title": "Schizophrenia Inpatients Morocco", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - Morocco schizophrenia"},
+    {"id": "e4c76bc9-aa8a-4747-9e1a-774f77d6bbfa", "title": "Microgravity Callogenesis Cannabis Indica Metabolites", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - plant science microgravity"},
+    {"id": "e4caf34d-4770-4347-bd80-daf672056386", "title": "Cannabis Mental Health WRONG ABSTRACT Weightlifting", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - database error/wrong abstract"},
+    {"id": "e4e19df2-515b-417a-bc86-bb7c76f396d1", "title": "CBD Lennox-Gastaut Case Report", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 10,
+    "incorrect": 10,
+    "incorrect_ids": [
+      "e3afd037-a6ac-457b-aa1a-dfa37a3b5be9",
+      "e3bbcb7b-87ce-493f-ac1b-b849bcdb19d2",
+      "e3e3e0b1-7d5c-4a3f-aea2-1504d90c4298",
+      "e3eb49f8-817a-498e-ba00-5e17bf379312",
+      "e3ffe46f-5424-4237-93bc-91e37081f84d",
+      "e4374825-20ce-4abb-963f-283c1cef9172",
+      "e47c7efc-21bc-4b5e-b70f-bfa06c1f80a9",
+      "e4acd532-ee2c-48f8-a9ce-1f2f9e919899",
+      "e4c76bc9-aa8a-4747-9e1a-774f77d6bbfa",
+      "e4caf34d-4770-4347-bd80-daf672056386"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "batch_number": 313,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T20:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "585b0831-16e6-4ab6-80bd-6a0222b0383f", "title": "Effects of synthetic cannabinoids on electroencephalogram power spectra in rats", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid abuse correctly rejected"},
+    {"id": "586531f4-18d1-41ee-8ad5-a2b31c91cd35", "title": "PSPとCBD―その共通点と相違点 大脳皮質基底核変性症(CBD)疫学と予後", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Corticobasal Degeneration) correctly rejected"},
+    {"id": "58a551eb-3c53-44cb-be24-101812373db5", "title": "Cannabidiol as an immune modulator: A comprehensive review.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD immunomodulation review"},
+    {"id": "58b871f9-0201-4111-9915-7ef66cf2247e", "title": "The Cannabis Abuse Screening Test and the DSM‐5 in the general population: Optimal thresholds and underlying common structure using multiple factor analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD screening correctly rejected"},
+    {"id": "58c1ea9a-fcf6-476d-a2dc-1d001bce9e5d", "title": "Anatomical Trickery in Acute Cholecystitis: Very Low Cystic Duct Insertion Near the Ampulla of Vater", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "58ca161d-8a5a-4b88-8be3-cb5798c24bc2", "title": "Safety of synthetic cannabidiol as a Novel food pursuant to Regulation (EU) 2015/2283", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Regulatory/policy correctly rejected"},
+    {"id": "58cd07d5-ec29-412f-84cf-d87ef338032e", "title": "Chemical fingerprinting of single glandular trichomes of Cannabis sativa by Coherent anti-Stokes Raman scattering (CARS) microscopy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical correctly rejected"},
+    {"id": "58d6d960-c251-46db-9f1b-40f261d766b1", "title": "THC in breath aerosols collected with an impaction filter device before and after legal-market product inhalation—a pilot study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "58dcb17d-57d8-45ae-b399-73ae73db23df", "title": "Blood Ethanol Level Influences Presenting Glasgow Coma Scale Interpretation After Traumatic Brain Injury: A Transforming Research and Clinical Knowledge in Traumatic Brain Injury Study.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "59064db1-7cea-4f6b-b09c-fcff505943cc", "title": "Extreme Fluid Accumulation Syndrome or Compartmental Balance Disorder? A Sepsis-Associated Acute Kidney Injury Case Report and Literature Review.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "590e7e8f-71e9-4053-8125-8d0b7a53f00a", "title": "Inhibition of the Cyclic AMP Signaling Cascade and Nuclear Factor Binding to CRE and κB Elements by Cannabinol, a Minimally CNS-Active Cannabinoid", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBN signaling mechanism"},
+    {"id": "5927670e-c181-42ca-93b0-648703c03ac1", "title": "Creating a \"Living Museum\" in the Shenzhen CBD--The Master Plan-ning Concepts of Lotus Hill Park", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "5949c643-9303-4213-974b-33b34aa84e32", "title": "MODULATION OF AUDITORY AND VISUAL PROCESSING BY DELTA-9-TETRAHYDROCANNABINOL AND CANNABIDIOL: AN FMRI STUDY", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC/CBD brain sensory mechanism"},
+    {"id": "594ca990-f128-4b5a-90e8-66c2880642db", "title": "Cannabinoids vs. whole metabolome: Relevance of cannabinomics in analyzing Cannabis varieties", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical/cultivation correctly rejected"},
+    {"id": "5951aec7-3153-455c-be81-60417e78b4b7", "title": "Inhibiting Disulfide Bonding in Truncated Tau297–391 Results in Enhanced Self-Assembly of Tau into Seed-Competent Assemblies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "595b1463-7b7a-44bc-8464-551893a88d61", "title": "\"I'm Treated Way Differently\": The Intersectional Risk Environment of Maternal Cannabis Use.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm/sociology correctly rejected"},
+    {"id": "595d39c1-f9fe-4d29-a027-a8122d8ba71e", "title": "Urinary cannabinoids in monitoring abstinence in a drug abuse treatment program.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/CUD monitoring correctly rejected"},
+    {"id": "597c61ed-0c63-4aab-b09d-5b9f2584b3fd", "title": "Encapsulation of cannabidiol in hemp seed oleosomes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery formulation"},
+    {"id": "5992acb1-52e6-4566-8633-6d3dbc9d8645", "title": "Effects of Cannabinoids on Female Sexual Function", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid sexual function review"},
+    {"id": "59a22161-dd27-480a-ad38-91a4479636bb", "title": "Extraction and detection of delta 9-tetrahydrocannabinol from cannabidiol oils using GC/MS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "58a551eb-3c53-44cb-be24-101812373db5",
+      "590e7e8f-71e9-4053-8125-8d0b7a53f00a",
+      "5949c643-9303-4213-974b-33b34aa84e32",
+      "597c61ed-0c63-4aab-b09d-5b9f2584b3fd",
+      "5992acb1-52e6-4566-8633-6d3dbc9d8645"
+    ]
+  }
+}

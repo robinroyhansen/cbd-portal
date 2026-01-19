@@ -1,0 +1,38 @@
+{
+  "batch_number": 192,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T14:00:00.000Z",
+  "results": [
+    {"id": "d5034b55-315b-4c02-a5ef-31252ac1f149", "title": "CBD Neurodegenerative Disorders Comprehensive Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PD/AD comprehensive review"},
+    {"id": "d50fe871-f740-425d-8400-5c1a082c64e6", "title": "GWAS Lifetime Cannabis Use Meta-analysis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - genetics of cannabis use susceptibility"},
+    {"id": "d52a9eb6-64e0-4cac-ad3b-500605a23b61", "title": "CB2 TRPV1 Synovial Osteoarthritis Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "d53c0170-8723-48e9-8660-63f4598eabe4", "title": "Cannabis Cannabinoids Positive Negative Effects Health", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Balanced therapeutic/risk review"},
+    {"id": "d54207a8-f0af-4ffb-83ef-32590ed7a9c4", "title": "Medicinal Cannabis HIV Neuropathy RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain clinical trial"},
+    {"id": "d54916c4-2fd4-4a78-b75c-33e9ffe30b53", "title": "DAGLα Cerebellar Purkinje Endocannabinoid Deletion", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS mechanism research"},
+    {"id": "d54cc8c8-f686-4d03-98dc-08a5d4b68bbc", "title": "CB1 Receptor Induction Experimental Stroke", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid stroke mechanism"},
+    {"id": "d55e9ddd-681b-499d-beff-2a1e9e55545d", "title": "CBD Affective-Motivational Incision Pain Rat rACC", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD postoperative pain preclinical"},
+    {"id": "d56e374d-e0ba-4397-96e4-5f169afc2a76", "title": "CB2 Upregulation Parkinson's Inflammation Models", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Parkinson's mechanism"},
+    {"id": "d572fafa-80b1-42f7-aa82-832ec03ce07d", "title": "CBD THC Glioblastoma Cell Survival Data", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"},
+    {"id": "d57dbf1f-9ae6-44c4-b668-a04b45514f75", "title": "Cannabis Contributory Cause Psychosis Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis causation review"},
+    {"id": "d5a0145d-e45a-4d6a-b656-a48b290407b1", "title": "SR141716A Anxiolytic CB1 Antagonist Mouse", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anxiety mechanism"},
+    {"id": "d5a33641-eb3c-4593-8cd5-084398a1c458", "title": "Neurodegeneration Huntington's Cannabinoid Receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid HD mechanism"},
+    {"id": "d5b9828a-0d43-4d08-8432-5171e529554e", "title": "Koro Cannabis Smoking Case Reports", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychiatric adverse effect"},
+    {"id": "d5e84ac8-5feb-4cc1-a045-7709c9416980", "title": "Medicinal Cannabis Anxiety Disorders Prescribing Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anxiety therapeutic review"},
+    {"id": "d5ead7ba-fcdd-441d-88e4-031167b45b4f", "title": "CBD Nav1.7 Channels Binding Sites Cryo-EM", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy/pain mechanism"},
+    {"id": "d5f31c5d-c153-4596-9629-d6238c5d4e6b", "title": "CBD Isolate Novel Food Safety Assessment FSA RP343", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety regulatory assessment"},
+    {"id": "d6074e9c-9477-4f17-9226-d5acc551a066", "title": "Cannabis Withdrawal Neurobiological Mechanisms Sex", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - withdrawal neurobiology"},
+    {"id": "d607c6e7-ab3a-4cf1-b44f-8ed64e0d5ed4", "title": "Maternal Cannabis Pregnancy Outcome ALSPAC", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - prenatal exposure outcomes"},
+    {"id": "d6186635-930b-4b18-819a-95baf5d87254", "title": "CBD Antiseizure PPARγ Hippocampal Epileptic Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism preclinical"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "d50fe871-f740-425d-8400-5c1a082c64e6",
+      "d57dbf1f-9ae6-44c4-b668-a04b45514f75",
+      "d5b9828a-0d43-4d08-8432-5171e529554e",
+      "d6074e9c-9477-4f17-9226-d5acc551a066",
+      "d607c6e7-ab3a-4cf1-b44f-8ed64e0d5ed4"
+    ]
+  }
+}

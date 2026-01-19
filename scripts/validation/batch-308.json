@@ -1,0 +1,39 @@
+{
+  "batch_number": 308,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T19:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "539f9c2f-b252-4533-a9cf-8435ec6b5c99", "title": "Validation of a liquid chromatography tandem mass spectrometry (LC-MS/MS) method to detect cannabinoids in whole blood and breath", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "53a4bf16-f3f1-4916-ba6b-703b1a3b193e", "title": "The CPRO Cannabis germplasm collection", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "53a9380a-65ff-4689-81ba-2edf5a86e01d", "title": "Green Lobster CBD Gummies : 4 Reason To Use, [Pros & Cons],Price & Side Effects?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "53b3f8a5-b3eb-4860-9098-65d4f0870c1c", "title": "CANNABIS AND ALCOHOL EFFECTS ON ASSAULTIVENESS IN ADOLESCENT DELINQUENTS*", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "53b954ba-30c2-4a5c-9ccb-791a945c986a", "title": "Interpreting cannabis use and postoperative pain in older adults: methodologic considerations.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis/pain methodology"},
+    {"id": "53c695e9-f1a8-4898-af4d-8cbc3838f395", "title": "The Current State of Unapproved Cannabidiol Product Use in Children.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product use patterns correctly rejected"},
+    {"id": "53c70efe-8e69-4b4d-9c3d-1f7744cecb99", "title": "The Effect of Cannabidiol in Conjunction with Radiation Therapy on Canine Glioma Cell Line Transplanted in Immunodeficient Mice.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anticancer mechanism research"},
+    {"id": "53d1c89a-3606-496b-9ff9-7899e26237b6", "title": "The Role of Biotechnology in Cannabis sativa Propagation for the Production of Phytocannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant biotechnology correctly rejected"},
+    {"id": "53e2a54d-5726-4e54-9cfe-aada8e3cb8f1", "title": "A synthetic cannabinoid FDU-NNEI, two 2H-indazole isomers of synthetic cannabinoids AB-CHMINACA and NNEI indazole analog (MN-18), a phenethylamine derivative N–OH-EDMA, and a cathinone derivative dimethoxy-α-PHP, newly identified in illegal products", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic drugs of abuse correctly rejected"},
+    {"id": "53e5e977-d808-427d-8694-0d37e33c06d3", "title": "Driving Under the Influence of Cannabis: Impact of Combining Toxicology Testing with Field Sobriety Tests", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment testing correctly rejected"},
+    {"id": "53ec38af-1c5d-41a6-aeb4-2c8e5f721524", "title": "Supercritical CO(2) extraction of hemp seeds: A multivariate perspective on the influence of processing parameters on oil composition, antioxidant activity, and enzyme inhibition.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"},
+    {"id": "53f49745-1a58-498b-bdd9-33aa033f97c4", "title": "Excessive Brain Volume Loss Over Time in Cannabis-Using First-Episode Schizophrenia Patients", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "53fa22e4-0cdc-4f26-9837-ac5e685d4387", "title": "A survey study to characterize use of Spice products (synthetic cannabinoids)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic use correctly rejected"},
+    {"id": "541d64ea-c907-4a97-b31a-b4e7cf74870e", "title": "Evaluation of hemp (Cannabis sativa L.) as an industrial crop: a review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "541e3469-5eda-41db-a240-c8d1c8a8bcf5", "title": "The prediction, observation and analysis of a new form of cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CBD chemistry correctly rejected"},
+    {"id": "542b22dc-2ebe-4a7e-b0dd-9f6e9d3aa1fb", "title": "Agonist-Induced Internalization and Trafficking of Cannabinoid CB1Receptors in Hippocampal Neurons", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism"},
+    {"id": "5443d665-692b-4c5c-838a-06765febc42b", "title": "Case reports of identical twins with developmental and epileptic encephalopathy with STXBP1 gene mutations for whom different CBD supplementations were markedly effective", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy case report"},
+    {"id": "544854af-b3ce-4160-8153-1d10095f2b0b", "title": "Expression of cannabinoid receptors and their gene transcripts in human blood cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB receptor expression mechanism"},
+    {"id": "5462b95d-a221-44da-9be9-33d306bbe495", "title": "A Scoping Review of Published Literature on the Contributions of the Natural Health Products (NHPs) Industry to Pharmacovigilance for NHPs", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "5466c302-81fa-4b64-a2db-d7ab3905966a", "title": "Cannabis and psychosis: what causes what?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "53b954ba-30c2-4a5c-9ccb-791a945c986a",
+      "53c70efe-8e69-4b4d-9c3d-1f7744cecb99",
+      "542b22dc-2ebe-4a7e-b0dd-9f6e9d3aa1fb",
+      "5443d665-692b-4c5c-838a-06765febc42b",
+      "544854af-b3ce-4160-8153-1d10095f2b0b"
+    ]
+  }
+}

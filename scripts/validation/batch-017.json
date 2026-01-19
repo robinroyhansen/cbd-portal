@@ -1,0 +1,36 @@
+{
+  "batch_number": 17,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T18:00:00.000Z",
+  "results": [
+    {"id": "14939a4c-a07c-4b17-a6fd-a3a6a6a08097", "title": "Feasibility of a cannabidiol (CBD)-dominant cannabis based medicinal product for the treatment of Long COVID symptoms", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for Long COVID - feasibility trial"},
+    {"id": "149483ac-281c-418c-b1e0-ba7c66e541bb", "title": "Feasibility of a cannabidiol-dominant cannabis-based medicinal product for long COVID", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Same trial, different publication"},
+    {"id": "1495c0b6-d437-46e8-b680-689340621c37", "title": "Cannabidiol modulation of immune cell function: in vitro insights for atopic dermatitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD immunomodulatory for skin"},
+    {"id": "149d255e-5dbb-4b98-9f33-bd49e7aeee05", "title": "The Use of Cannabinoids in Pediatric Palliative Care", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids in pediatric palliative care"},
+    {"id": "14b10b8d-fff7-40bf-927d-705e595c9833", "title": "Cannabidiol attenuates high glucose-induced endothelial cell inflammatory response", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for diabetic vascular complications"},
+    {"id": "14b60426-230a-4524-9da1-e16d264f8389", "title": "Potential clinical benefits of CBD-rich Cannabis extracts over purified CBD in epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD extracts vs purified - meta-analysis"},
+    {"id": "14c25f7c-cab0-4e32-a646-666dfaa8082a", "title": "CB1 cannabinoid receptor-mediated modulation of food intake in mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor and appetite regulation"},
+    {"id": "14c51312-492f-4ea7-bc59-75e6bf4c6578", "title": "Cannabidiol for the Treatment of Epilepsy: Overview of Mechanisms", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for epilepsy review"},
+    {"id": "14c7554c-e995-41bf-acc7-5633ec91c207", "title": "Durable complete response of advanced hepatocellular carcinoma using cannabis oil", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for liver cancer"},
+    {"id": "14cdf482-7d48-41f4-a04b-d4d776e7015e", "title": "Characterization of BAY 38-7271 as Potent Cannabinoid Receptor Agonist with Neuroprotective Properties", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Novel cannabinoid agonist pharmacology"},
+    {"id": "14d1eab0-82ac-4724-bfce-a245f68fab21", "title": "Anxiolytic effect of cannabidiol derivatives in the elevated plus-maze", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD derivatives for anxiety"},
+    {"id": "14d2a108-0cb2-45db-852a-4de69ed6515b", "title": "The Potential Role of Cannabidiol in Cosmetic Dermatology: A Literature Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for skin - review"},
+    {"id": "14d3fa05-de88-49a4-a507-e4c888798077", "title": "Medical Cannabis for Pain and Quality of Life in Chronic Pain Patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for chronic pain - 751 patients"},
+    {"id": "14d62f26-6d40-4e29-ac2b-68ed7c3b32a6", "title": "Exploring Cannabidiol (CBD) and Cannabigerol (CBG) Safety Profile and Skincare Potential", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/CBG safety for skin"},
+    {"id": "14dada45-01c2-4f3f-a0ac-232c93b48650", "title": "Expression of Concern: CBD for Feline Anxiety", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - Expression of concern notice, not research"},
+    {"id": "14def266-46c4-4cc9-8c5b-025877360d70", "title": "Genetic Insights into Cannabis-induced Psychosis: Role of CNR1 Gene", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor genetics and psychosis"},
+    {"id": "14e04522-7ecf-419a-9c3f-4feacf9fe29d", "title": "Cannabidiol attenuates diet-induced metabolic endotoxemia and anxiety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for metabolic/anxiety"},
+    {"id": "14e6c811-10ea-4d59-8c36-ed4d81f6c1bf", "title": "Effectiveness of 0.1% triamcinolone acetonide for recurrent aphthous stomatitis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - triamcinolone (steroid) for mouth ulcers"},
+    {"id": "14f22c78-0b2f-4262-a70e-b1632d8cbfb5", "title": "Cannabidiol During Peri-Adolescence Prevents Schizophrenia Abnormalities in SHR", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD prevents schizophrenia symptoms"},
+    {"id": "15054c8e-5ee9-43b7-9ef0-574227adb37c", "title": "E-cigarette, or Vaping, Product Use Associated Lung Injury (EVALI)", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EVALI/vaping harm epidemiology - not cannabinoid therapeutics"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "14dada45-01c2-4f3f-a0ac-232c93b48650",
+      "14e6c811-10ea-4d59-8c36-ed4d81f6c1bf",
+      "15054c8e-5ee9-43b7-9ef0-574227adb37c"
+    ]
+  }
+}

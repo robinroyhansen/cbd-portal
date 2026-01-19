@@ -1,0 +1,39 @@
+{
+  "batch_number": 280,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T12:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "34fd113a-873d-41d0-9165-8286f271c5bd", "title": "Driving under the influence of cannabis among recreational and medical cannabis users: A population study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "3504a119-fbf5-4b34-8803-f6b65818f788", "title": "The Implications of Cannabis Policy Changes in Washington on Adolescent Perception of Risk, Norms, Attitudes, and Substance Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy effects correctly rejected"},
+    {"id": "352100d2-2cc5-40db-8bc1-0079fada2c0d", "title": "A reciprocal effects analysis of cannabis use and perceptions of risk", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "352519d0-762c-4f9e-9fc4-78b65e7948de", "title": "CBD COP 12 Highlights: Wednesday, 8 October 2014", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "353c4275-6705-462c-b10c-32092b000a81", "title": "Urinary metabolites of cannabidiol in dog, rat and man and their identification by gas chromatography—mass spectrometry", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD metabolism/PK"},
+    {"id": "355019d4-4dce-451c-9fcb-ae7114b7e7ad", "title": "Novel Bacillus-Infecting Phage Bquatquinnuvirus eskimopiis (Strains B450T and B450C), Founder of a New Genus, and the Properties of Its Endolysin", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "35554149-2962-4af8-a63c-4dbef920b2e7", "title": "Assessing the adaptive role of cannabidivarinic acid (CBDVA) in aphid defense in Cannabis sativa.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant biology correctly rejected"},
+    {"id": "35596e20-b5bb-44b5-b8bf-b0bc237f4561", "title": "Liposomal Co-Delivery of Acteoside, CBD, and Naringenin: A Synergistic Strategy Against Gliomas.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anticancer for gliomas"},
+    {"id": "356a8f8e-0069-41f5-b0c1-4348f858fbdb", "title": "Young and under the influence: A systematic literature review of the impact of cannabis on the driving performance of youth", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "35967f68-e07d-43bc-b83f-2c9071466d66", "title": "The Dangers of Practicing Recreational Regulation of Medicinal Cannabis.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "35a704a6-fa54-43b8-8837-fc8cc4469937", "title": "Influence of Hyptis suaveolens growth stage on essential oil composition, antimicrobial and antioxidant activities", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "35ae524a-778a-4957-9a16-943a0ad8093c", "title": "Cannabis as a cause of death: A review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "35aedb2d-417f-41a8-9306-1489dbf754b9", "title": "A Cannabis sativa STR Genotype Database for Australian Seizures: Forensic Applications and Limitations*", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "35cced82-e8d9-41a9-969a-d9b12b7231be", "title": "Mitsonobu reaction of cannabidiol. Synthesis of water-soluble cannabidiol derivatives", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic chemistry correctly rejected"},
+    {"id": "35d27ac1-0949-41e1-a3f7-acf4782d74f3", "title": "Gene Networks Underlying Cannabinoid and Terpenoid Accumulation in Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant biochemistry correctly rejected"},
+    {"id": "35f1d885-1a42-4e1b-b03f-f6273071850e", "title": "Real-world Safety and Effectiveness of Cannabidiol (CBD) in Adults with Treatment-resistant Epilepsies (TREs): Long-term Results from the United States Expanded Access Program (EAP) (P8-1.002)", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy clinical effectiveness"},
+    {"id": "360357bd-dbc0-4d12-b1b3-be3368b8b87d", "title": "Cannabidiol improves cognitive impairment after traumatic brain injury by attenuating neuronal oxidative stress and apoptosis via the SET/PP2A/Akt signaling axis.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD for TBI"},
+    {"id": "3615ff57-97cb-493e-9727-5cbbe9dc2d70", "title": "Discovery of High-Affinity Cannabinoid Receptors Ligands through a 3D-QSAR Ushered by Scaffold-Hopping Analysis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB receptor drug design"},
+    {"id": "361bd50e-a280-4a9b-8e41-a1231e9c83a7", "title": "Flexural Behavior of Orthotropic Steel-LUHPC Composite Bridge Decks: Experimental and Numerical Study.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "362de372-1ab4-4b80-8633-562337d5ff1a", "title": "Cannabis and tobacco smoke are not equally carcinogenic", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm comparison correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "353c4275-6705-462c-b10c-32092b000a81",
+      "35596e20-b5bb-44b5-b8bf-b0bc237f4561",
+      "35f1d885-1a42-4e1b-b03f-f6273071850e",
+      "360357bd-dbc0-4d12-b1b3-be3368b8b87d",
+      "3615ff57-97cb-493e-9727-5cbbe9dc2d70"
+    ]
+  }
+}

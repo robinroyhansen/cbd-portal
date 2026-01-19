@@ -1,0 +1,36 @@
+{
+  "batch_number": 319,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T21:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "5fec7701-d7a8-4a22-aaf8-38eaf7588a5e", "title": "Phytochemical Profiling, Molecular Docking, ADMET Analysis of Zingiber Officinale Peel Extract for the Biogenic Synthesis of ZnO and Fe-Doped ZnO Nanoparticles with Antibacterial and Photocatalytic Potential", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "5ff291d9-05bc-4590-ba40-e812e2aec778", "title": "Cannabidiol Elevates Mechanistic Target of Rapamycin Inhibitor Levels in Patients With Tuberous Sclerosis Complex", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug interaction in TSC patients"},
+    {"id": "6000c637-b2c7-440b-9633-892ceb06357b", "title": "Testing Human Hair for Cannabis. III. Rapid Screening Procedure for the Simultaneous Identification of Δ9-Tetrahydrocannabinol, Cannabinol, and Cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "601da29d-86dd-4c26-9b94-2473b37dcdb3", "title": "Altered striatal reward processing in abstinent dependent cannabis users: Social context matters", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD correctly rejected"},
+    {"id": "601e6696-0858-42a5-b594-a83f0d65c2a2", "title": "Poloxamer 188 stabilized poly (ε-caprolactone) microspheres of voriconazole for targeting pulmonary aspergillosis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "604a2929-cc09-4f9a-9d6a-1c3ab202dcc7", "title": "A Randomized, Controlled Trial of Cannabis in Healthy Volunteers Evaluating Simulated Driving, Field Performance Tests and Cannabinoid Levels", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment testing correctly rejected"},
+    {"id": "6056b2f8-78d8-4bd0-8dd6-da6dfbd16ac2", "title": "Neurospirituality Connectome - Role in Neurology and Reward Deficiency Syndrome (RDS)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "605a6890-c565-4fa0-ab45-a4c3a50ab6b1", "title": "Repellent, Lethal Activity, and Synergism of Cannabis sativa Extracts with Terpenes Against a Laboratory Colony of Triatoma infestans.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agricultural/insecticidal correctly rejected"},
+    {"id": "606da9a6-5696-4023-afa7-f4c207b356d4", "title": "Marijuana Cue-Reactivity & Seeking Behavior in Regular Cannabis Users: A Pilot Test of Glutamatergic Modulation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment non-cannabinoid correctly rejected"},
+    {"id": "6076534f-c973-4f6c-a421-1e3cfdbf256e", "title": "Organspezifische Entwicklung der 9-Tetrahydrocannabinol (THC)- und Cannabidiol (CBD)-Konzentration während der Vegetationsperiode zweier Faserhanfsorten", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "60865fea-bd22-4bfb-9b78-24eba56994d8", "title": "Advances and Perspectives in Tissue Culture and Genetic Engineering of Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant biotechnology correctly rejected"},
+    {"id": "608fdc8b-0d39-48a3-bbc5-419babab6cdc", "title": "State Medical Cannabis Policy Implementation and Racial Disparities in Opioid Prescribing Among Medicare Beneficiaries: A Policy Impact Analysis.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "60a67ca6-02da-4ce3-99fe-1de13b5d7219", "title": "Immune responses in the microenvironment after spinal-cord injury: A bibliometric study from 2005 to 2024", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "60c7409f-bc34-4db7-947f-a48449be8e56", "title": "Under double influence: Assessment of simultaneous alcohol and cannabis use in general youth populations", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "60c919ae-778f-497d-923a-dec7a3ac82d5", "title": "Bridging the Gap Between Acme and UML for CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Component-Based Development) correctly rejected"},
+    {"id": "60ca3038-e013-4ebb-b2ad-c3c80ae4b27d", "title": "An antecedental approach in prevalence analysis of CBD parasites from rural population of eastern part of Meghalaya, India.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "60f46707-11ab-4ba8-ad6d-df879706c167", "title": "ATTITUDES AND PRACTICE PATTERNS OF CANADIAN PHYSIATRISTS REGARDING MEDICAL CANNABIS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Attitudes survey correctly rejected"},
+    {"id": "61074332-5235-4d5c-b5fa-504e907ceb53", "title": "Rapid generation advancement of RIL population and assessing the impact of Rhizobium nodulation on crop yields in Chickpea.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "61074ef8-634f-4773-8080-c861530cd33e", "title": "Sphingolipid metabolism and insulin resistance - Does cannabigerol protect against experimental colitis induced by high-fat high-sucrose diet?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBG colitis therapeutic mechanism"},
+    {"id": "610d54b2-b58b-489c-a2e5-0341e3d0ca88", "title": "Bridging Postcholecystectomy CBD Transections through a Novel Drain Loop Technique", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 18,
+    "incorrect": 2,
+    "incorrect_ids": [
+      "5ff291d9-05bc-4590-ba40-e812e2aec778",
+      "61074ef8-634f-4773-8080-c861530cd33e"
+    ]
+  }
+}

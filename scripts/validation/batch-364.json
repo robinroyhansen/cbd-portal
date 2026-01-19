@@ -1,0 +1,46 @@
+{
+  "batch_number": 364,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T09:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "9463a34d-6fd1-447d-9fe2-2313db28055b", "title": "Cannabinoid receptor 2 mediates the retention of immature B cells in bone marrow sinusoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor immune mechanism research"},
+    {"id": "946c06f7-5074-4ab2-a4bb-b072d7df6355", "title": "The effect of cannabidiol on the pharmacokinetics of carbamazepine in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug interaction research"},
+    {"id": "9472b68a-8b2c-4434-8bb8-d4205e958513", "title": "A Comparison of Methods for Identifying Components in CBD Methodologies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Component-Based Development) correctly rejected"},
+    {"id": "947cc88e-27fd-4d10-b07a-b746086951e9", "title": "Key Transdermal Patch Using Cannabidiol-Loaded Nanocarriers with Better Pharmacokinetics in vivo", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery research"},
+    {"id": "947cdd75-0eed-4d5c-87e9-7fc281788fc4", "title": "Cannabinoids inhibit fibrogenesis in diffuse systemic sclerosis fibroblasts", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid anti-fibrotic therapeutic research"},
+    {"id": "948980fa-8545-4b91-97b4-9d03b5d931a5", "title": "The Antiepileptic Potential of the Cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid epilepsy therapeutic review"},
+    {"id": "949ae2e3-7265-4978-9211-728a559d01b2", "title": "Advances in Computational Modeling and Machine Learning of Cellulosic Biopolymers: A Comprehensive Review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "94a0754f-1508-4869-8e0e-e789eaa5642e", "title": "Biochemical-imagistical prediction of biliary etiology for acute pancreatitis (A.S.ALT-CBD score)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "94b16f3c-2b93-4fcc-8096-78d2488fcd31", "title": "Joint position paper from ACNFP & COT on establishing a provisional acceptable daily intake (ADI) for pure form cannabidiol (CBD) in foods", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety ADI research"},
+    {"id": "94ca7e13-94a9-484a-b6aa-4cc3b9c8c73a", "title": "Assessing the Potential Synergistic/Antagonistic Effects of Citrinin and Cannabidiol on SH-SY5Y, HepG2, HEK293 Cell Lines, and Human Lymphocytes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD cellular effects research"},
+    {"id": "94ca8a24-e60d-4007-9c38-02a1d9abd8d3", "title": "Clinical and financial impact of a 'difficult' laparoscopic cholecystectomy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "94d1d781-ac29-424a-ab61-b01d94c722e4", "title": "Aromatisation-based extract engineering of Cannabis sativa L. Unveils rare cannabinoids with anticancer potential", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cancer therapeutic research"},
+    {"id": "94d75868-16a8-42b2-bb6f-2de2e2843998", "title": "From deficiency to toxicity: Magnesium increases cannabinoid and terpene production in cannabis plants", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "94e048bc-f04e-420f-86c4-4e06c1d05725", "title": "Effects of cannabidiol (CBD) on regional cerebral blood flow", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD cerebrovascular mechanism research"},
+    {"id": "94e8774e-a153-41a9-9dc9-25511f47e0d1", "title": "The formation mechanism of cannabielsoin from cannabidiol with guinea pig hepatic microsomal enzymes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Metabolism/chemistry correctly rejected"},
+    {"id": "94ea3c1a-1c66-43d0-966f-c9d3a5b79735", "title": "Antimicrobial Effect of Cannabidiol on Intracellular Mycobacterium tuberculosis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antimicrobial TB therapeutic research"},
+    {"id": "94f6df50-9fb7-4604-b5fd-55cd329e9482", "title": "Antiproliferative effects of cannabidiol and cannabigerol, two non-psychotropic phytocannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/CBG anticancer mechanism research"},
+    {"id": "954b15f7-fe6d-463b-ad9f-20c2199faae7", "title": "Pharmacological and physiological effects of cannabidiol: a dose escalation, placebo washout study protocol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD clinical trial protocol"},
+    {"id": "955cffcc-12b9-42d2-b88c-e2345fd048dc", "title": "Dutch coffee shops and trends in cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "956cb1e7-3860-405e-9786-7063a5f1653d", "title": "Combination of red and UV-A light enhances hemp (Cannabis sativa L.) inflorescence yield and cannabinoid content", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 8,
+    "incorrect": 12,
+    "incorrect_ids": [
+      "9463a34d-6fd1-447d-9fe2-2313db28055b",
+      "946c06f7-5074-4ab2-a4bb-b072d7df6355",
+      "947cc88e-27fd-4d10-b07a-b746086951e9",
+      "947cdd75-0eed-4d5c-87e9-7fc281788fc4",
+      "948980fa-8545-4b91-97b4-9d03b5d931a5",
+      "94b16f3c-2b93-4fcc-8096-78d2488fcd31",
+      "94ca7e13-94a9-484a-b6aa-4cc3b9c8c73a",
+      "94d1d781-ac29-424a-ab61-b01d94c722e4",
+      "94e048bc-f04e-420f-86c4-4e06c1d05725",
+      "94ea3c1a-1c66-43d0-966f-c9d3a5b79735",
+      "94f6df50-9fb7-4604-b5fd-55cd329e9482",
+      "954b15f7-fe6d-463b-ad9f-20c2199faae7"
+    ]
+  }
+}

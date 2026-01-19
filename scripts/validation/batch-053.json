@@ -1,0 +1,40 @@
+{
+  "batch_number": 53,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T03:00:00.000Z",
+  "results": [
+    {"id": "3bb64c3b-e24d-47cd-84d4-b0a72ba2cc13", "title": "Cannabidiol as a Neuroprotective Agent in Acrylamide-Induced Neurotoxicity: Effects on Oxidative Stress, Inflammation, and Cholinergic Function in Male Mice.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection mechanism research"},
+    {"id": "3bc2a181-8075-40b9-8054-1dac5908dfd5", "title": "Cannabis use is associated with 3 years earlier onset of schizophrenia spectrum disorder in a naturalistic, multi-site sample (N = 1119)", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - cannabis accelerates schizophrenia onset by 3 years"},
+    {"id": "3bde2ef3-4a9d-4b8c-a4d8-e41c63a0ddff", "title": "The Pharmacokinetics and Pharmacodynamics of Hemp-based Topical Cannabinoid Products", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD topical pharmacokinetics research"},
+    {"id": "3c014065-0b7a-4a09-82a8-b11a7bc674e4", "title": "Abstract # OR-1: Cannabidiol Delays Type 1 Diabetes Onset in Non-Obese Diabetic Mice by Decreasing Inflammation within the Microvasculature of the Pancreas", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD diabetes therapeutic research"},
+    {"id": "3c1b5150-c26a-4906-ac57-5cec456e86dd", "title": "Comparing the effects of endogenous and synthetic cannabinoid receptor agonists on survival of gastric cancer cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid gastric cancer therapeutic research"},
+    {"id": "3c3fe88c-0190-431c-a952-14f4e0531868", "title": "Comparative Evaluation of Analgesics in a Murine Bile Duct Ligation Model", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general analgesic comparison study"},
+    {"id": "3c4c6254-0292-4918-a6a3-d46c63eeeb48", "title": "Faculty Opinions recommendation of Cannabidiol in patients with seizures associated with Lennox-Gastaut syndrome (GWPCARE4): a randomised, double-blind, placebo-controlled phase 3 trial.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - Faculty Opinions recommendation, not original research"},
+    {"id": "3c4e1b82-4962-484a-988a-26a2a8604724", "title": "Engineering the MoOx/CIGS Interface for Enhanced Performance and Suppressed Recombination in Industrial Modules", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - solar panel engineering, completely wrong topic"},
+    {"id": "3c5299a7-53f2-4afd-850c-bc95f2dbb995", "title": "A Randomized, Open-Label Trial to Assess Feasibility and Tolerability of Topical Cannabis Balms for the Treatment of Aromatase Inhibitor-Associated Musculoskeletal Syndrome (AIMSS).", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for cancer treatment side effects (AIMSS)"},
+    {"id": "3c5f9bde-55ee-4e25-ac50-bfb5302dac6b", "title": "The Interaction of Stomach Acid, Blood pH, and Liver Metabolism with Acidic Cannabinoids: Partial Decarboxylation, Metabolic Transformation, and Physiological Implications", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THCA/CBDA pharmacokinetics and metabolism research"},
+    {"id": "3c6ecbab-b44f-49e1-a3dc-a73c3d2b9d32", "title": "TRP channels in hepatocellular carcinoma: integrative Mendelian randomization and multi-omics analyses highlight MCOLN3/TRPV4 as candidate dual-effect biomarkers.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - TRP channel genetics (MCOLN3/TRPV4), not cannabinoid-related"},
+    {"id": "3c929cdb-3cf0-4efb-a5ad-82f2ff0421b1", "title": "Expanding the spectrum of NUS1-related progressive myoclonic epilepsy: a novel variant and exploratory use of metformin", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - metformin for epilepsy, not cannabinoid"},
+    {"id": "3c94f8ca-cd35-4238-bfdb-289cf6a13625", "title": "Use of cannabis during pregnancy and birth outcomes in an Aboriginal birth cohort: a cross-sectional, population-based study", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - cannabis during pregnancy causes lower birth weight, preterm birth"},
+    {"id": "3c95fac6-624b-4e7e-9a6a-204d2544b67b", "title": "Exploring the Potential of Nonpsychoactive Cannabinoids in the Development of Materials for Biomedical and Sports Applications.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid biomedical applications development"},
+    {"id": "3caf1eff-7416-4a78-81b6-4e806a02e4c3", "title": "Effectiveness of Full Spectrum Cannabis Extracts in the Treatment of Chronic Pain: An Open Label Study.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis chronic pain therapeutic"},
+    {"id": "3cb2776b-537e-4c21-ac42-601488bfc57c", "title": "Cannabidiol (CBD) Acts as an Antioxidant on Gardnerella vaginalis, Resulting in Reduced Metabolic Activity, Loss of Survivability, and Elimination of Biofilms", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antibacterial therapeutic for vaginosis"},
+    {"id": "3cdaf3d1-b5f5-4efa-b8d4-89e950e1eae0", "title": "Non-psychoactive cannabis extract promotes extinction and reduces reinstatement by priming dose in smoked cocaine-induced conditioned place preference.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for cocaine addiction treatment"},
+    {"id": "3cdef0a8-f88c-4ace-a292-fb92066fb2c8", "title": "Variation in the human cannabinoid receptor CNR1 gene modulates gaze duration for happy faces", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CNR1 gene mechanism research - autism/emotion processing"},
+    {"id": "3ce5ba1e-4e3c-4c5b-8323-d4aeac696845", "title": "A high-fat meal significantly impacts the bioavailability and biphasic absorption of cannabidiol (CBD) from a CBD-rich extract in men and women.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD bioavailability pharmacokinetics research"},
+    {"id": "3cf7749a-3611-41ce-995a-d753c19066fc", "title": "Cannabidiol, a nonpsychotropic plant-derived cannabinoid, decreases inflammation in a murine model of acute lung injury", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD lung inflammation therapeutic research"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "3bc2a181-8075-40b9-8054-1dac5908dfd5",
+      "3c3fe88c-0190-431c-a952-14f4e0531868",
+      "3c4c6254-0292-4918-a6a3-d46c63eeeb48",
+      "3c4e1b82-4962-484a-988a-26a2a8604724",
+      "3c6ecbab-b44f-49e1-a3dc-a73c3d2b9d32",
+      "3c929cdb-3cf0-4efb-a5ad-82f2ff0421b1",
+      "3c94f8ca-cd35-4238-bfdb-289cf6a13625"
+    ]
+  }
+}

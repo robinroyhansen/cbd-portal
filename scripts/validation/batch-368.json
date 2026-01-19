@@ -1,0 +1,39 @@
+{
+  "batch_number": 368,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T10:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "983d5714-1d8b-4906-b3f1-8a6430edbbae", "title": "Nanocomposite-loaded hybrid microneedles reshape dermal microenvironment through senolytic delivery", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "987881be-eb14-4bb7-be4c-b7aba662fa0b", "title": "National human footprint maps for Peru and Ecuador", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "988c93c1-e27e-403d-a8df-929d6ec66890", "title": "Suspected synthetic cannabinoid toxicosis in a dog", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary/harm correctly rejected"},
+    {"id": "9897bffd-5af1-477d-a61a-2c28e97e9728", "title": "Age and sex differences in factors associated with the onset of cannabis use: a cohort study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "98ae747b-7cbc-4fe0-9a45-3d13716a595c", "title": "Pharmacological Interventions for Alcohol Withdrawal Syndrome Among Hospitalized Adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "98b59bf3-fff6-4c58-8b9a-3c059ba19336", "title": "Effects of cannabis tetrahydrocannabinol on endocannabinoid homeostasis in human placenta", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prenatal harm research correctly rejected"},
+    {"id": "98d49095-b91f-4aca-82ad-72f8e5b83baa", "title": "Microwave-assisted extraction of phenolic compounds from Cannabis sativa L.: optimization and kinetics study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction correctly rejected"},
+    {"id": "98d86577-9402-4084-9006-e2b57948e502", "title": "Mechanisms for the coupling of cannabinoid receptors to intracellular calcium mobilization in rat insulinoma β-cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research (diabetes-relevant)"},
+    {"id": "98ed4734-20fa-4baf-9a0e-c17c910a4069", "title": "Real-world simultaneous alcohol and cannabis use: An ecological study of situational motives", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "98f6b260-4f12-4caa-a600-6b4ab88a0c00", "title": "Codelivery of Paclitaxel and Cannabidiol in Lipid Nanoparticles Enhances Cytotoxicity against Melanoma Cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD cancer therapeutic research"},
+    {"id": "98f8d19a-8ed1-4193-b057-36ea2825b73b", "title": "Cooling the Concrete Jungle: A Hybrid Statistical and Machine Learning Approach to Urban Heat Island Mitigation in Auckland Cbd", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "98fb0f5a-7667-40b3-8816-d795924ef9a4", "title": "Cannabis, risk and normalisation: evidence from a Canadian study of socially integrated, adult cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/sociology correctly rejected"},
+    {"id": "99019083-86a3-4dcd-ab23-6e357a5f2ee8", "title": "Development and validation of a fast TEIS-TQMS screening method for the identification of 8 NPS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods/forensic correctly rejected"},
+    {"id": "9903f0fa-856b-4e73-886b-300c670c60f0", "title": "Forty-Three Fatalities Involving the Synthetic Cannabinoid, 5-Fluoro-ADB", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/harm correctly rejected"},
+    {"id": "9921100f-ab5e-4a0c-882d-322a3832cde3", "title": "Hemp Seeds (Cannabis sativa L.) as a Valuable Source of Natural Ingredients for Functional Foods—A Review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food science correctly rejected"},
+    {"id": "993012f5-9539-46fd-bcec-83548a40768e", "title": "Essential CBD Extract Avis France - Gummies Avantages Commentaires Prix, acheter", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "9932dac3-6d66-4ed1-b452-7c74e6b36af4", "title": "Selective Activation of Cannabinoid CB2 Receptors Suppresses Hyperalgesia Evoked by Intradermal Capsaicin", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor pain mechanism research"},
+    {"id": "9968126a-83ca-4586-aed2-546433bb6826", "title": "Interactions among the cannabinoids in the antagonism of the abdominal constriction response in the mouse", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pain mechanism research"},
+    {"id": "997a67e2-4faa-4e7d-9d25-642205e828b8", "title": "A study on the sustainability of a non-motorised transport CBD in Upington", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "997c044e-b81b-45dc-b507-eadd3c82d425", "title": "Cannabidiol (CBD) as an emerging nutraceutical ingredient from industrial hemp: regulation, production, extraction, nutraceutical properties, and functionality", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD properties/functionality review"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "98d86577-9402-4084-9006-e2b57948e502",
+      "98f6b260-4f12-4caa-a600-6b4ab88a0c00",
+      "9932dac3-6d66-4ed1-b452-7c74e6b36af4",
+      "9968126a-83ca-4586-aed2-546433bb6826",
+      "997c044e-b81b-45dc-b507-eadd3c82d425"
+    ]
+  }
+}

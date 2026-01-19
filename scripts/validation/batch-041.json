@@ -1,0 +1,38 @@
+{
+  "batch_number": 41,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T00:00:00.000Z",
+  "results": [
+    {"id": "2ee8b290-aad4-4a3a-ab86-ef30d10231f2", "title": "Prevalence of CBD Use in Outpatient Hand Surgery Clinic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain/function therapeutic research"},
+    {"id": "2ef91731-7897-468a-b1de-d2e34dbcf33e", "title": "Immunomodulatory effects of orally administered cannabinoids in MS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids for MS"},
+    {"id": "2f006b53-2b48-4d20-8a29-8ce1d98a2c4f", "title": "CBD Mouthwash for Gingivitis Clinical Trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD oral health clinical trial"},
+    {"id": "2f0b6bd5-7c9f-44b7-b2e9-56585bf05234", "title": "CT Radiomics-Deep Learning Model for Pancreatic Tumors", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - imaging AI study"},
+    {"id": "2f1b2a7d-518e-4f7d-82e3-9ea0b6d652d6", "title": "Endocannabinoid Influence on Addiction and Neurodegeneration", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS mechanism research"},
+    {"id": "2f1e2a97-6512-4688-8508-6f3ff1209aa6", "title": "CBD Counteracts THC Psychotropic Side-Effects via ERK1-2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD mechanism research"},
+    {"id": "2f29317c-e2b7-4763-9307-a2938ff0a9f3", "title": "Benzodioxoles Novel CB1R Inverse Agonists for Obesity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid drug development for obesity"},
+    {"id": "2f3c0b41-2935-4b4a-83ee-9e2955c7fdd1", "title": "Cannabinoid receptor 2 deficiency exacerbates inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 inflammation mechanism"},
+    {"id": "2f4182c2-3f75-4981-8099-6b5c0ae3fe91", "title": "Targeting Human Cancer Cells with CBD: Apoptotic Cytotoxicity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anticancer research"},
+    {"id": "2f4bdbc0-8d76-4677-9668-90ac0eb89e38", "title": "CBD prevents social avoidance and cocaine reward in stress model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for stress/addiction mechanism"},
+    {"id": "2f536c19-911a-4fc0-87c4-1c96f8b9c946", "title": "CBD use among elite Canadian athletes for sleep pain recovery", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic effects in athletes"},
+    {"id": "2f6def62-3453-4134-8038-fc969d5822f1", "title": "Cannabinoids in the landscape of cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer review"},
+    {"id": "2f7e88cb-7669-4f3f-b39f-8d7140723949", "title": "Algorithm for Pharmacological Treatment of GAD in Older Patient", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID focus - general anxiety treatment algorithm"},
+    {"id": "2f8720d2-17cb-47c8-8644-209a0020f065", "title": "Safety Issues Concerning Medical Cannabis and Cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid safety review"},
+    {"id": "2f9bd429-7bfc-4fd7-ab9d-b4f5ebc4c054", "title": "CBD improves deficits in maternal immune activation model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for neurodevelopmental disorders"},
+    {"id": "2fa4f3d5-2d4f-41aa-bfb9-43cada58584d", "title": "CBD enhances atezolizumab efficacy in triple negative breast cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer immunotherapy"},
+    {"id": "2fa5c31c-eefe-4136-9814-e97869fd2dab", "title": "Competence by Design in Cardiac Surgery Resident Training", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - medical education study"},
+    {"id": "2fa8539a-dfe7-4bd8-b72d-188e2c94e310", "title": "CBD Effectiveness and Safety in Non-seizure Indications Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic systematic review"},
+    {"id": "2faa1314-dcee-45ce-8fac-968c3f175627", "title": "Effect of Carotid Body Denervation (CBD) on Breathing", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Carotid Body Denervation (physiology)"},
+    {"id": "2fbba798-2e93-49cd-ac1e-dc59a69831cd", "title": "VEGF containing collagen-binding domain on fat graft survival", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Collagen-Binding Domain (protein structure)"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "2f0b6bd5-7c9f-44b7-b2e9-56585bf05234",
+      "2f7e88cb-7669-4f3f-b39f-8d7140723949",
+      "2fa5c31c-eefe-4136-9814-e97869fd2dab",
+      "2faa1314-dcee-45ce-8fac-968c3f175627",
+      "2fbba798-2e93-49cd-ac1e-dc59a69831cd"
+    ]
+  }
+}

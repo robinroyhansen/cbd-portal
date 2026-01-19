@@ -1,0 +1,36 @@
+{
+  "batch_number": 49,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T02:00:00.000Z",
+  "results": [
+    {"id": "37afe6dd-1db7-484a-972f-4c8e65ea1ed4", "title": "A submicron emulsion of HU-211 reduces intraocular pressure in rabbits", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Synthetic cannabinoid glaucoma research"},
+    {"id": "37b71bff-09ab-4c6f-8448-2524cde42ad5", "title": "Same-Day Sedative and Night-Time Sleep Effects Following Combined Cannabinoid Formulations", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid sleep therapeutic research"},
+    {"id": "37b72566-ddb6-4135-bb57-874d4c5a8b1e", "title": "Item response theory analysis of diagnostic criteria for alcohol and cannabis use disorders in adolescents", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD diagnostic criteria study - not therapeutic"},
+    {"id": "37b86832-1e76-4eb0-93bd-33983e57db23", "title": "Computer-based psychological treatment for comorbid depression and problematic cannabis use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD treatment - CBT for cannabis misuse"},
+    {"id": "37e1131e-e414-4608-bf7d-bffc57adbff5", "title": "It's All in the Rhythm: The Role of Cannabinoids in Neural Oscillations and Psychosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuroscience mechanism research"},
+    {"id": "37ecb1b9-c2cd-4cfa-947b-b9a8cf758214", "title": "Involvement of peripheral cannabinoid and opioid receptors in β-caryophyllene-induced antinociception", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 pain mechanism research"},
+    {"id": "37ee8c38-78e4-4558-9e8e-dd5b2f7d4601", "title": "The Use of Cannabidiol in Treating Psychiatric Disorders: A Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychiatric therapeutic review"},
+    {"id": "380dc483-b20e-4b2b-8ffe-19482c9393c7", "title": "High-intensity interval training combined with cannabidiol supplementation improves cognitive impairment in Alzheimer's disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's therapeutic research"},
+    {"id": "3811ad1c-2398-428a-a9a6-a7d6e23a0762", "title": "Metabolic syndrome in people with a psychotic illness: is cannabis protective?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis metabolic protective research"},
+    {"id": "3820c543-da44-4f85-9cef-de00774e8bca", "title": "Transdermal Delivery of Cannabidiol Nanoparticles for Treatment of Skin Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD skin cancer therapeutic"},
+    {"id": "383b8261-0bac-4060-912c-a172ff3b62c9", "title": "Cannabis as a Substitute for Opioid-Based Pain Medication: Patient Self-Report", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain opioid-sparing research"},
+    {"id": "383c4e9c-4068-46f9-9622-69a01c5288a0", "title": "Antipsychotic effect of cannabidiol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia therapeutic"},
+    {"id": "383e7f8c-82a8-431b-9b2e-cf164dea72fb", "title": "The effects of combined THC and CBD on ADHD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid ADHD therapeutic research"},
+    {"id": "384c92eb-b089-4408-ae27-4741bf36102c", "title": "The Cannabinoid Receptor Type 1 Is Essential for Mesenchymal Stem Cell Survival and Bone Health", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 bone health mechanism research"},
+    {"id": "3850460b-59f2-4058-ae87-3909b5fc71c0", "title": "Urinary Metabolomic Changes and Potential Exercise-Induced Muscle Damage Biomarkers in Rowing Training", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - athletic metabolomics study"},
+    {"id": "3855ce49-46de-4354-9618-0f4fe05a75f1", "title": "A preliminary study of the effects of cannabidiol (CBD) on brain structure in patients with epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy safety research"},
+    {"id": "386ecb56-cc7d-405c-9c3b-50670056cd30", "title": "Anti-inflammatory dopamine- and serotonin-based endocannabinoid epoxides", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid anti-inflammatory mechanism"},
+    {"id": "388755cd-d978-43e1-a859-7d5dca406580", "title": "Therapeutic Efficacy of Cannabidiol (CBD): a Review of the Evidence", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic review"},
+    {"id": "388cc35c-0149-40a6-9c95-653d965b38bd", "title": "The therapeutic potential of novel cannabinoid receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor therapeutic review"},
+    {"id": "388f1b9a-e8d9-43af-b977-6171518b74aa", "title": "Constitutive Activity of the Cannabinoid CB1 Receptor Regulates Mu Opioid Receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1-opioid interaction mechanism research"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "37b72566-ddb6-4135-bb57-874d4c5a8b1e",
+      "37b86832-1e76-4eb0-93bd-33983e57db23",
+      "3850460b-59f2-4058-ae87-3909b5fc71c0"
+    ]
+  }
+}

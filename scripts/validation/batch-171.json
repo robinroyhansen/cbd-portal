@@ -1,0 +1,38 @@
+{
+  "batch_number": 171,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T08:45:00.000Z",
+  "results": [
+    {"id": "c01d3a6d-67bc-496e-adea-6b01bbbcc2f9", "title": "Isolation Structure THC Cannabinoids Hashish 1971", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID FOCUS - pure chemistry isolation"},
+    {"id": "c030e428-5122-4a80-bf33-98dfee3e468b", "title": "Catatonia Secondary Synthetic Cannabinoid Use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - catatonia adverse effect"},
+    {"id": "c03f2c82-5fec-4fda-93eb-0f4a301d9e79", "title": "Opioid-sparing Effects Cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain opioid-sparing"},
+    {"id": "c04a3613-7a97-4c9d-af58-a755cedd8534", "title": "Sleep Related Movement Disorders Elderly Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general sleep review"},
+    {"id": "c0599011-59fc-41f5-b493-77441c86e3dd", "title": "AI-Based Screening OUD Hospitalized Adults", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - AI OUD screening"},
+    {"id": "c06ea2ba-5fa1-4125-b2ba-eb63a3c1167d", "title": "CBD Methamphetamine Autophagy Oxidative Stress", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction neuroprotection"},
+    {"id": "c073d831-43af-4fba-a0d8-115e5751012d", "title": "CBD THC Essential Tremor Double-Blind RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis tremor clinical trial"},
+    {"id": "c08533d2-9639-4408-b7ab-ea51a062df9c", "title": "Light-Activatable Cannabinoid Prodrug Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer prodrug"},
+    {"id": "c088aefa-814f-4d90-8691-efb4dfd78e9f", "title": "Cannabis Oil Cancer Symptoms N-of-1 RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer symptoms RCT"},
+    {"id": "c0918350-eb2a-43da-81b2-d4a47d30476b", "title": "Therapeutic Approaches Autism Spectrum Disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis autism therapeutic review"},
+    {"id": "c092e7aa-826a-412e-af9b-77d2506c6c76", "title": "Chronic Cannabis Abuse NGF Schizophrenic Patients", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - schizophrenia risk factor"},
+    {"id": "c0a4f4a5-656a-4513-89d2-1dc50b0418b3", "title": "Pharmacokinetic Interactions Drugs Cannabis Products", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis drug interactions overview"},
+    {"id": "c0c7a220-94ac-4fa9-8183-e31c5f714db9", "title": "CBD Modulates IL-1β IL-6 Monocytes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD immune modulation"},
+    {"id": "c0cbbff2-2991-43e0-89ac-561ea4631b54", "title": "CBD Potentiates HCN4 Channels", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiac ion channel mechanism"},
+    {"id": "c0ccdd6e-941d-4a98-bd17-8efa6facf9ce", "title": "Liver-Targeted CBD Nanoparticles Acute Liver Injury", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD hepatoprotection drug delivery"},
+    {"id": "c0d98b8b-08be-4a49-82fb-7f2cb9e80341", "title": "CBD Non-Seizure Outcomes LGS Dravet BECOME", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy behavioral outcomes"},
+    {"id": "c0da3545-00c4-4219-b693-0ea31f8c8c1d", "title": "CBD Triple-Negative Breast Cancer NK Cell", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer immune sensitization"},
+    {"id": "c0e60ca2-f18f-470a-a98b-ea7413286a1e", "title": "CBD Beta-Caryophyllene Combination Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD terpene synergistic pain"},
+    {"id": "c0f6f49f-5ce8-46e8-bff5-3d0e15c535c3", "title": "CBD Therapeutic Potential Oral Disorders Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD oral health systematic review"},
+    {"id": "c1046ec6-180a-4f22-ac6c-5cc786afd33a", "title": "CBD Blood Pressure Urotensin Hypertension Trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD hypertension RCT sub-analysis"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "c01d3a6d-67bc-496e-adea-6b01bbbcc2f9",
+      "c030e428-5122-4a80-bf33-98dfee3e468b",
+      "c04a3613-7a97-4c9d-af58-a755cedd8534",
+      "c0599011-59fc-41f5-b493-77441c86e3dd",
+      "c092e7aa-826a-412e-af9b-77d2506c6c76"
+    ]
+  }
+}

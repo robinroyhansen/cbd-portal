@@ -1,0 +1,37 @@
+{
+  "batch_number": 81,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T10:00:00.000Z",
+  "results": [
+    {"id": "598fb8e7-ca45-43dd-917a-2df78918357d", "title": "Cannabinoids therapeutic cardiovascular disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1/CB2 cardiac therapeutic review"},
+    {"id": "59905f94-0fd4-4e9a-bc66-6931c6656bb7", "title": "THC electrophysiological cardiac conduction", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC cardiac electrophysiology"},
+    {"id": "5991c473-2707-405c-8f74-5a6095f7496f", "title": "CB1 antagonist ghrelin mesolimbic dopamine", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 mechanism research"},
+    {"id": "59a8fbd8-fb48-4633-90b2-9347988acf05", "title": "PTSD cannabis depression associations veterans", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use patterns"},
+    {"id": "59ac5bc7-05b9-412b-a393-c9ff2b89601d", "title": "Cannabis anxiety daily life naturalistic", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use patterns"},
+    {"id": "59cb7cb7-8c16-46b5-b00a-d07653fec406", "title": "CBD/THC CANSLEEP chronic insomnia RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD insomnia therapeutic RCT"},
+    {"id": "59de2a70-7dd5-4e1f-aab6-b24e36be8c8d", "title": "PPARγ hepatocellular carcinoma target", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - PPARγ nuclear receptor, not cannabinoid"},
+    {"id": "59fa1ca4-cbe6-4b51-a3aa-48d51142dd5e", "title": "CBD transcriptomic response hypothalamus neurons", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD mechanism transcriptomics"},
+    {"id": "5a1d2591-9727-4844-a2be-9affa2eb5668", "title": "Hydrogel delivery non-opioid analgesics", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general drug delivery technology"},
+    {"id": "5a4729ea-a5ff-4109-95e0-86479764b120", "title": "Medicinal cannabis in oncology", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer therapeutic"},
+    {"id": "5a49a6a0-c7c7-4487-9820-1ea0aa95aca5", "title": "Cannabis oxycodone fibromyalgia pain RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis fibromyalgia therapeutic RCT"},
+    {"id": "5a4d472b-14b6-4464-a36b-71df622f619b", "title": "Lipid nanoparticle CBD skin delivery", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD formulation skin research"},
+    {"id": "5a4e8a44-1dc2-4863-bd72-4ddf71c3b7f1", "title": "CBD abuse potential preclinical assessment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety research"},
+    {"id": "5a6d0941-a1a7-4b12-86c5-dca728fdd2a6", "title": "CB receptors myocardial injury", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1/CB2 cardiac mechanism"},
+    {"id": "5a74b63b-b833-4d63-a539-6280eac2c2fa", "title": "CB1 stress cocaine self-administration", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 addiction mechanism"},
+    {"id": "5a8241a4-f1e5-49f1-85a0-d1d3de2831fd", "title": "CBG rosacea vascular inflammatory modulator", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG skin therapeutic"},
+    {"id": "5abf4554-bce6-4787-8ea7-a7afc27a6303", "title": "CBD inhibits cue-induced heroin seeking", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction therapeutic"},
+    {"id": "5ad3dece-1e8b-4bf3-b34f-118c19ce3270", "title": "Fifty years CBD anticonvulsant research Brazil", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy historical review"},
+    {"id": "5b13ed03-2105-40db-bcff-3aa494fd9055", "title": "THC:CBD CINV chemotherapy RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD CINV therapeutic RCT"},
+    {"id": "5b32f830-64e8-4817-b6ce-e1adf50c778c", "title": "THC/CBD developmental toxicity transcriptomic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD developmental safety research"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "59a8fbd8-fb48-4633-90b2-9347988acf05",
+      "59ac5bc7-05b9-412b-a393-c9ff2b89601d",
+      "59de2a70-7dd5-4e1f-aab6-b24e36be8c8d",
+      "5a1d2591-9727-4844-a2be-9affa2eb5668"
+    ]
+  }
+}

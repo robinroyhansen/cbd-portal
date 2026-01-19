@@ -1,0 +1,41 @@
+{
+  "batch_number": 100,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T14:45:00.000Z",
+  "results": [
+    {"id": "6fd49307-6e1f-4861-8114-445b519b5ea0", "title": "Cardiovascular risk cannabis systematic review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cardiovascular risk meta-analysis"},
+    {"id": "6fd97e47-8a19-47e3-b656-ae0f7e82abff", "title": "SUD patients medical cannabis pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Medical cannabis pain in SUD patients"},
+    {"id": "6fda14f4-1f1d-4fc2-8784-c54d07e8ccfa", "title": "CB1 agonists calcium influx neurons", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor mechanism"},
+    {"id": "6fdc88c7-708f-40db-96b9-bcb29619991e", "title": "CBD aggression betta fish", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - fish study"},
+    {"id": "70056188-41d0-4841-acb5-b2771dd416a6", "title": "Cannabinoid receptor IOP rabbits glaucoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid glaucoma mechanism"},
+    {"id": "7015848d-4000-4d94-a8e9-950c46ef7803", "title": "CBD anxiety prenatal birthrate mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety/safety research"},
+    {"id": "7020833f-8118-42e4-9e4a-d21963d6a08f", "title": "Parietal lobe volume CUD adolescents", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - brain deficits from CUD"},
+    {"id": "702b29bc-96aa-425b-bfc6-a11b9b3c1226", "title": "CBD-Rich cannabis autism ADHD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism therapeutic"},
+    {"id": "705b9119-ac50-41fb-90cd-a0524a5428c2", "title": "CBD everolimus pharmacokinetic interaction", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interaction safety"},
+    {"id": "705f7087-5282-44ca-8940-069a737e9d30", "title": "Plasma biomarkers amyloid tau Alzheimer's", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - AD biomarker research"},
+    {"id": "70767c93-bc09-43c1-ac69-e862dd7fd0f7", "title": "Cannabigerol ischemia neuroprotection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG stroke therapeutic"},
+    {"id": "70799947-cbc5-49d6-bcf6-89b31a361a22", "title": "Psychosocial pharmacological CUD treatment", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - treating addiction"},
+    {"id": "70879e88-9757-4b7e-a006-72b58fe87ff8", "title": "CBD inflammatory bowel disease overview", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD IBD therapeutic"},
+    {"id": "70af3390-6daf-4de1-b5d3-1fb8da7885fe", "title": "Medical cannabis fibromyalgia treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis fibromyalgia therapeutic"},
+    {"id": "70bf7932-a9ac-4b15-af46-eb718ccf79ea", "title": "Cortical maturation adolescent cannabis users", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - brain changes from use"},
+    {"id": "70c61e20-936b-4037-9c2b-3fbd56c4f616", "title": "Triphasic blood pressure cannabinoids mechanism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cardiovascular mechanism"},
+    {"id": "70cea291-d7ba-4d07-b200-f6d383c51977", "title": "Synthetic cannabinoids A4 paper zonulin", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "FORENSIC - synthetic cannabinoid abuse"},
+    {"id": "70cebc9e-6806-4434-a24a-393420fb2d77", "title": "Drug use cirrhosis hepatocellular carcinoma", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general drug epidemiology"},
+    {"id": "70effd16-fe83-457a-bb52-61b6953d27cd", "title": "CB1 receptor electroacupuncture analgesia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "70f0b1f9-f4fc-443f-8ba6-c0f7e7a25f28", "title": "Cannabis sativa natural constituents review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis phytochemistry"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "6fd49307-6e1f-4861-8114-445b519b5ea0",
+      "6fdc88c7-708f-40db-96b9-bcb29619991e",
+      "7020833f-8118-42e4-9e4a-d21963d6a08f",
+      "705f7087-5282-44ca-8940-069a737e9d30",
+      "70799947-cbc5-49d6-bcf6-89b31a361a22",
+      "70bf7932-a9ac-4b15-af46-eb718ccf79ea",
+      "70cea291-d7ba-4d07-b200-f6d383c51977",
+      "70cebc9e-6806-4434-a24a-393420fb2d77"
+    ]
+  }
+}

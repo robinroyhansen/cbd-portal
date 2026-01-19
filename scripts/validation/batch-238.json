@@ -1,0 +1,42 @@
+{
+  "batch_number": 238,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T01:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "06978263-56a5-4689-9106-6120247c9366", "title": "Chromatographic Analyses Cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical method correctly rejected"},
+    {"id": "06ab48e6-c1e3-495e-985a-861acdc8b128", "title": "Cannabis as a medicine?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis review"},
+    {"id": "06ac22d2-e488-4bda-b90b-6bfabdf8c968", "title": "Synthetic cannabinoids far from soft drugs", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm correctly rejected"},
+    {"id": "06c82fa2-e252-4afe-a28f-17b1dc569a93", "title": "CB1 Receptors Ethanol Self-Administration", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 addiction mechanism"},
+    {"id": "06d365b4-4205-4112-bfff-caa3381bb322", "title": "Cannabis initiation adolescents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevalence correctly rejected"},
+    {"id": "070208bc-6fc2-4cd9-aa66-349787b0d8bb", "title": "Medical Marijuana Opioid Perceptions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevalence correctly rejected"},
+    {"id": "072ca224-e6ff-4acb-9ce7-ed22cc358ff2", "title": "Detecting Drugs Exhaled Breath", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "072d100d-6329-4013-b386-20d4066bc25b", "title": "Cannabis recreativo marihuana", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Recreational correctly rejected"},
+    {"id": "0735be37-2df0-4f3d-b593-5294bd9ae7b7", "title": "CCK Endogenous Cannabinoid Fear Extinction", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS PTSD mechanism"},
+    {"id": "073f5c3c-8feb-41b5-a9ba-3e9e409a5d19", "title": "CBD Cyclodextrin Spray Drying", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD formulation"},
+    {"id": "0753d667-226f-43b9-9a93-ecc08d9e4456", "title": "Cannabis use violence mental illness", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm correctly rejected"},
+    {"id": "0764c5ee-61dc-439f-89a2-409e0c833ebd", "title": "WIN55212-3 neutral antagonist CB2", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor pharmacology"},
+    {"id": "0767533d-e0f5-4187-86a5-61cc06999baa", "title": "Lighting Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "07a3acf2-4e82-4d9c-bd4e-ff38097282ae", "title": "Cannabinoids neurotransmission subthalamic", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid brain mechanism"},
+    {"id": "07b35150-50ae-4aea-a0ec-476550b4e919", "title": "CRISPR nephrotoxicity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "07c15a03-5041-4a2b-8632-be33dc8a69f2", "title": "Endocannabinoid mTORC1 TSC kidney", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS therapeutic TSC"},
+    {"id": "07f9576d-6135-4c3f-9222-aae4fa489382", "title": "Hemp CBD What is Medicine", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "081295ff-328c-45c1-8b91-049907f22756", "title": "Digital Health Cannabis Tobacco", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevalence correctly rejected"},
+    {"id": "0821e284-4d38-4d81-a64c-5010626a866d", "title": "Cannabinoids NMDA locus coeruleus CB1", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neuroscience"},
+    {"id": "0834acb4-657b-48d4-89ea-470deccf0f80", "title": "Wild species sustainability", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "06ab48e6-c1e3-495e-985a-861acdc8b128",
+      "06c82fa2-e252-4afe-a28f-17b1dc569a93",
+      "0735be37-2df0-4f3d-b593-5294bd9ae7b7",
+      "073f5c3c-8feb-41b5-a9ba-3e9e409a5d19",
+      "0764c5ee-61dc-439f-89a2-409e0c833ebd",
+      "07a3acf2-4e82-4d9c-bd4e-ff38097282ae",
+      "07c15a03-5041-4a2b-8632-be33dc8a69f2",
+      "0821e284-4d38-4d81-a64c-5010626a866d"
+    ]
+  }
+}

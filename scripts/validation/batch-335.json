@@ -1,0 +1,43 @@
+{
+  "batch_number": 335,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T01:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "72e4dd03-4d03-4d43-aea4-055030d0591d", "title": "Evaluation of the in vivo receptor occupancy for the behavioral effects of cannabinoids using a radiolabeled cannabinoid receptor agonist", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor pharmacology"},
+    {"id": "72e9e61f-e84f-4dd4-b576-ea68e3f359b5", "title": "Effect of oral VCE-004.8, a cannabidiol quinol derivative, on experimental autoimmune encephalomyelitis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD derivative MS therapeutic"},
+    {"id": "72ed97f7-03dc-42f0-8195-96141e4e1daa", "title": "Lack of positive allosteric modulation of mutated α1S267I glycine receptors by cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism"},
+    {"id": "72f078c9-7512-49a6-96ea-66725b28b46c", "title": "Update on the medical management of fibrous dysplasia of the bone.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "72f86967-0b77-4a45-934c-4da34a06e7ca", "title": "Cannabidiol in medical marijuana: Research vistas and potential opportunities", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic review"},
+    {"id": "72fd4eab-5b35-4565-815f-1e5cd0f4b536", "title": "Nature positive rhetoric, risk and reality: sector-scale political ecology at CBD COP16.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "73062b63-7b09-4b9e-934d-ff359fea9443", "title": "Duration of Marijuana Concentration in Breast Milk- A Pilot Study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "732087f4-bd4b-42c2-bf43-db48228e8072", "title": "Figures 6 and 7 - Effects of cannabidiol (CBD) administered 1 or 2 hours before the forced swim and open field tests in male and female FSL rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antidepressant mechanism"},
+    {"id": "73293216-165a-4ea3-974f-919456e205c4", "title": "An Exploratory Typology of Tobacco-Related Misleading Content on Social Media", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "732f8894-3f6e-40f9-af56-55b58e52aeb1", "title": "Determination of cannabinoids in hemp food products by use of headspace solid-phase microextraction", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food testing correctly rejected"},
+    {"id": "73325f3b-940d-4714-8dab-23184ca0c49e", "title": "Cannabidiol extending beyond neuroprotection toward neuronal repair: A potential regenerative modulator", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD neurorepair mechanism"},
+    {"id": "73396543-4008-4fac-95df-2e16b68acdf4", "title": "Δ9-Tetrahydrocannabinol (THC) and Cannabidiol (CBD)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General reference correctly rejected"},
+    {"id": "7377206f-5edc-4924-9503-543e9413bb83", "title": "Hemp-Derived Iron Oxide Nanoparticles for Biomedical Applications: Synthesis, Characterization, and Therapeutic Potential.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - hemp biomedical application"},
+    {"id": "7377ea00-1cb8-423f-a3ae-35ac052e149d", "title": "IGFBP-3 and IGFBP-5 associate with the cell binding domain (CBD) of fibronectin", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Cell Binding Domain) correctly rejected"},
+    {"id": "739c7a2d-56ee-47dd-b913-d64a25dd195a", "title": "Acute changes in immune biomarkers under low and moderate dose alcohol in light and heavy drinkers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "739e5007-39b5-47ab-912a-b82f8b36ebf4", "title": "Cannabigerol - A potent regulator of insulin sensitivity in rat's skeletal muscle via targeting the sphingolipid metabolism and PI3K/Akt/mTOR pathway?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBG insulin sensitivity mechanism"},
+    {"id": "73a6f24a-c74f-41e2-9273-404882712b4f", "title": "Thidiazuron-induced high-frequency direct shoot organogenesis of Cannabis sativa L.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "73b9b745-4a89-47d5-8b5c-46bc5a3d28a1", "title": "Cannabinoids Enriched Extracts from Industrial Hemp Residues", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction correctly rejected"},
+    {"id": "73bd0cc8-e88b-4d63-94c7-54d70008a442", "title": "Characterization of two cloned human CB1 cannabinoid receptor isoforms.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor characterization"},
+    {"id": "73d14b3f-d27b-4688-b38c-48922d660298", "title": "Chronic cannabis use and the sense of coherence", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "72e4dd03-4d03-4d43-aea4-055030d0591d",
+      "72e9e61f-e84f-4dd4-b576-ea68e3f359b5",
+      "72ed97f7-03dc-42f0-8195-96141e4e1daa",
+      "72f86967-0b77-4a45-934c-4da34a06e7ca",
+      "732087f4-bd4b-42c2-bf43-db48228e8072",
+      "73325f3b-940d-4714-8dab-23184ca0c49e",
+      "7377206f-5edc-4924-9503-543e9413bb83",
+      "739e5007-39b5-47ab-912a-b82f8b36ebf4",
+      "73bd0cc8-e88b-4d63-94c7-54d70008a442"
+    ]
+  }
+}

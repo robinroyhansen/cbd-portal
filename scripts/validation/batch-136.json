@@ -1,0 +1,37 @@
+{
+  "batch_number": 136,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T23:45:00.000Z",
+  "results": [
+    {"id": "978e15d2-48a6-4ddf-92b4-58cfba49a4e0", "title": "Pharmacology Cannabinoids Chronic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain therapeutic review"},
+    {"id": "979c741c-0bbd-49ee-add2-efee32c39fad", "title": "CBD THC Microglial Amyloid Alzheimer's Mouse", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Alzheimer's therapeutic"},
+    {"id": "979d7599-841a-4005-854c-f5a0b10c660a", "title": "CBD MK-801 Schizophrenia Rodent Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia therapeutic"},
+    {"id": "979e4a06-60a0-44ef-8cd1-9b1c97c0d989", "title": "Propofol Antinociceptive CB1 CB2 Mediated", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "97a96239-afef-4fec-b30a-908ee7158e05", "title": "Cannabis Chronic Non-Cancer Pain Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic review"},
+    {"id": "97c2b074-acbc-4f6e-baa3-6eca8bad4d5f", "title": "Protein Disulfide Isomerase TRPV1 Hyperalgesia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - TRPV1 modulation pain study"},
+    {"id": "97d4d89d-f794-4130-8eb5-872221b4f29b", "title": "CBD Ovariohisterectomia Canina Spanish", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dogs surgery analgesic"},
+    {"id": "97ebb0ed-e212-4d1f-91b3-641cba923779", "title": "Novel Pharmacological Targets Cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology review"},
+    {"id": "97f272dc-2b12-4a41-bd5c-6f9caafd72ea", "title": "CB1 GABAergic Neurons Brain Aging", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuroprotection mechanism"},
+    {"id": "97f408fe-d630-40e2-bc4a-77ae795ed45e", "title": "Cannabinoids Migraine Clinical Evidence Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid migraine therapeutic review"},
+    {"id": "97f885e0-d045-4f0e-85d5-75db89ee5e70", "title": "Synthetic Cannabinoid Death Characteristics Forensic", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - SC deaths forensic study"},
+    {"id": "97f9c96c-1088-47e8-b6f4-fd691b33268e", "title": "LEI-101 CB2 Agonist Cisplatin Nephrotoxicity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid kidney therapeutic chemo protection"},
+    {"id": "98081f3d-86b9-4168-a66e-4d717a87dcc5", "title": "Myocardial CB1 Receptor Imaging Obesity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor imaging"},
+    {"id": "9809a1e0-5302-45d5-804b-714aa313fca1", "title": "CBD Melatonin Ozone Triple-Negative Breast Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer integrative case report"},
+    {"id": "980e0ded-bb02-4aa9-b7fb-3d62847c6315", "title": "CBDTech CBD Epilepsy Pharmacokinetics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic formulation"},
+    {"id": "9819e601-7eb1-4fed-bda6-40dd5be91ed7", "title": "Cannabinoids Lithium Vomiting Suncus", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anti-emetic therapeutic"},
+    {"id": "9822bdb5-86f0-4e74-83ad-d054022a1a80", "title": "CBD Safety Side Effects Review Clinical", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety review"},
+    {"id": "9825f761-55f4-4e0e-a7ee-470d15565699", "title": "Digital Interventions Problematic Cannabis Users", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - digital behavioral intervention"},
+    {"id": "984c2d1c-1aaf-4b66-91fb-5dd26fc7483c", "title": "Marijuana Opioids Pain Hospice Symptom", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis palliative care therapeutic"},
+    {"id": "9873139e-f4f9-4ec7-b184-8ec3ba668c0f", "title": "CBD THC Anxiety Effects Normal Subjects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "97c2b074-acbc-4f6e-baa3-6eca8bad4d5f",
+      "97d4d89d-f794-4130-8eb5-872221b4f29b",
+      "97f885e0-d045-4f0e-85d5-75db89ee5e70",
+      "9825f761-55f4-4e0e-a7ee-470d15565699"
+    ]
+  }
+}

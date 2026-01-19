@@ -1,0 +1,40 @@
+{
+  "batch_number": 174,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T09:30:00.000Z",
+  "results": [
+    {"id": "c302dda6-ad63-4be5-b3ba-130ec3086bbe", "title": "CBD Alcohol Cue Reactivity Craving Anxiety RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD alcohol addiction RCT"},
+    {"id": "c3058cc2-9bec-4e8d-93f5-0941cb1e545d", "title": "CB1 Receptor Dopamine Prefrontal Cortex Food", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid feeding mechanism"},
+    {"id": "c31a52bd-d24f-4645-b470-cea212be3702", "title": "Research Progress CBD Antitumor Effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer mechanism review"},
+    {"id": "c31c5f62-adf2-4124-9f62-37500e11e1bb", "title": "CBD Nasal Delivery Neuropathic Pain NLCs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain drug delivery"},
+    {"id": "c3266abb-f13a-4ea7-b1c4-81009874e8b5", "title": "Hemp Oil Calamari Broccoli Supplement Tolerability", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Hemp supplement safety"},
+    {"id": "c3383f7d-7288-4873-9660-6a5a4ba114af", "title": "CBD Teratogenic Effects Zebrafish Shh Signaling", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - zebrafish study"},
+    {"id": "c33c6a30-c5aa-4d13-b33d-15f97671751d", "title": "Clinical Pharmacokinetics Cannabinoids THC CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology review"},
+    {"id": "c34e0b9c-490a-4584-9fe9-01cc54ebf2e0", "title": "ChenwhangBosindan(CBD) Hot Water Extract Alzheimer's", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Korean herbal formula"},
+    {"id": "c36786fc-888f-47e7-a74a-0cd3f05f99c8", "title": "Low Dose CBD Glucose Tolerance Obesity Pilot", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD metabolic pilot study"},
+    {"id": "c38f63f0-19b1-42ef-ac23-aff3e542595b", "title": "Epilepsy Newer ASMs Prescription Patterns Sweden", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ASM prescription including CBD"},
+    {"id": "c3979eac-eb5f-4e07-bf09-b232b92e2053", "title": "MariCanna RX CBD Reviews Google Sites", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - advertisement"},
+    {"id": "c399c236-18b8-4c68-b767-d201cfd1c7b3", "title": "CBD Photoprotective Effects UVB DNA Damage Skin", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD skin photoprotection"},
+    {"id": "c39ee240-7377-4ac0-b696-ded6d079e9fe", "title": "Cannabinoid Hyperemesis Syndrome Endocrine-Metabolic", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - CHS pathophysiology"},
+    {"id": "c3aef3ff-cca7-44ac-aea0-53d05d0c3925", "title": "THC Exposure Human Prefrontal Cortex Development", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - prenatal THC effects"},
+    {"id": "c3b6b16b-8928-4981-ba3f-00a893b4b616", "title": "Black Eagle CBD Gummies Updated Does It Work", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - advertisement"},
+    {"id": "c3b7e5d4-d8a6-45d9-9969-99aadbe0291a", "title": "CBD MOR Periodontal Stem Cells Neuronal Differentiation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD regenerative medicine"},
+    {"id": "c3d1378e-be3e-4393-a49d-c018912c0d0e", "title": "Cannabinoid Tolerance Dependence Laboratory Animals", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology review"},
+    {"id": "c3e5e5e9-b04b-4e00-9f54-7314c6fea92b", "title": "11β-Hydroxysteroid Dehydrogenase Clofutriben Adipose", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - enzyme inhibitor"},
+    {"id": "c3ed786f-e942-4b4a-abb0-4c8f9e783ac3", "title": "Update CBD Drug-Resistant Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy review"},
+    {"id": "c3f829b8-19b4-4683-a603-19200db5d60d", "title": "CB2 Receptor Cancer Induced Bone Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer bone therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "c3383f7d-7288-4873-9660-6a5a4ba114af",
+      "c34e0b9c-490a-4584-9fe9-01cc54ebf2e0",
+      "c3979eac-eb5f-4e07-bf09-b232b92e2053",
+      "c39ee240-7377-4ac0-b696-ded6d079e9fe",
+      "c3aef3ff-cca7-44ac-aea0-53d05d0c3925",
+      "c3b6b16b-8928-4981-ba3f-00a893b4b616",
+      "c3e5e5e9-b04b-4e00-9f54-7314c6fea92b"
+    ]
+  }
+}

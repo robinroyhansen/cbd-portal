@@ -1,0 +1,39 @@
+{
+  "batch_number": 167,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T07:45:00.000Z",
+  "results": [
+    {"id": "bb05d9e6-5c73-4f81-ac40-9d157294db97", "title": "Hemp fatty acid Martina Franca jacks", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - donkey reproduction"},
+    {"id": "bb21b3db-fbfc-474a-aeac-bd4d6730b2a0", "title": "Substance Use COVID-19 Pandemic Americas Scoping", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - substance use patterns"},
+    {"id": "bb304933-26e8-49f4-998b-5c81d8edb05a", "title": "Cannabinoids Acute Pain Systematic Review Meta-analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain meta-analysis"},
+    {"id": "bb4ac5f9-c077-4c1e-8704-551ff7a7582b", "title": "Cannabinoid Antinociception Rhesus Monkeys Amygdala", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "bb63cf27-7cb4-478a-81cf-73a7f2d0d2b6", "title": "Social Anxiety Cannabis Use Adolescence Longitudinal", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use patterns adolescence"},
+    {"id": "bb97757e-4a50-4ffb-bf20-a4123c36af62", "title": "Medicinal Cannabinoids Palliative Care", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis palliative care therapeutic"},
+    {"id": "bb9861a8-0459-420f-a247-b960d9ea9687", "title": "CBD Efficacy Neuroblastoma In Vitro In Vivo", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pediatric cancer research"},
+    {"id": "bb9f5b63-d40a-4f75-84b4-b698202c532c", "title": "Sex-Dependent Vulnerability Cannabis Abuse Adolescence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - abuse vulnerability"},
+    {"id": "bba4f627-a135-47aa-8a88-eab4e7ded90c", "title": "CB1 Receptors Basal Ganglia Huntington's Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS neurodegeneration mechanism"},
+    {"id": "bba5f18a-dd8d-472e-9964-4481c8b4635a", "title": "CBD-Chemotherapy Nanocapsules Glioblastoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer drug delivery"},
+    {"id": "bbb55b76-9103-4bf6-a4c8-b4c67db6bbd2", "title": "CBD Dravet Syndrome Cost NNT Analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy health economics"},
+    {"id": "bbd043df-af2d-4ebd-a2d2-d31439f871f0", "title": "Two Psychotic Episodes Associated Cannabis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis case report"},
+    {"id": "bbe78157-0609-4d7c-898f-7a0be777eccd", "title": "CBD Ayahuasca Interactions Healthy Volunteers RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interaction RCT"},
+    {"id": "bbf13b7a-3fbf-40dd-a298-02d9a5fa4d8b", "title": "Antipsychotic Effects Cannabidiol Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia therapeutic review"},
+    {"id": "bc1f299c-441b-4921-9aba-acfe09c54077", "title": "Cannabinoid Pharmacology Cardiovascular Protective", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cardioprotection mechanism"},
+    {"id": "bc1f73cf-ad19-48c5-9c32-39ee904925b0", "title": "THC CBD Metabolic Syndrome Microbiome Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid metabolic research"},
+    {"id": "bc200067-9794-4774-86be-fb995472020d", "title": "Phytocompound Suicide Prevention CBC CBG Serotonin", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mental health mechanism"},
+    {"id": "bc290ad0-9168-4c2e-b0da-708ca796566a", "title": "Intention Use Cannabis Adolescents COVID", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use intentions"},
+    {"id": "bc3d777a-53d5-453c-b62c-c3b88eee1521", "title": "CBD Circadian Clock PER2 Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD sleep/circadian mechanism"},
+    {"id": "bc4d72a7-8187-489f-9cae-37aa3159ed87", "title": "Benefits CBD Oil IBS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD IBS therapeutic review"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "bb05d9e6-5c73-4f81-ac40-9d157294db97",
+      "bb21b3db-fbfc-474a-aeac-bd4d6730b2a0",
+      "bb63cf27-7cb4-478a-81cf-73a7f2d0d2b6",
+      "bb9f5b63-d40a-4f75-84b4-b698202c532c",
+      "bbd043df-af2d-4ebd-a2d2-d31439f871f0",
+      "bc290ad0-9168-4c2e-b0da-708ca796566a"
+    ]
+  }
+}

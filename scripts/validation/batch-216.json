@@ -1,0 +1,43 @@
+{
+  "batch_number": 216,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T20:00:00.000Z",
+  "results": [
+    {"id": "ef3c7e04-be9e-4766-a6ec-0d9acc38df34", "title": "CVS Diagnostic Guidelines Children", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - diagnostic guidelines not treatment"},
+    {"id": "ef402687-98e0-4814-b2bb-43eefc3fcf1b", "title": "COVID-19 Addictive Behaviors Poland", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - addiction patterns during COVID"},
+    {"id": "ef8391b0-de28-4187-b908-c9706f4e5678", "title": "CUD Daily Cannabis Use US 2002-2016", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD epidemiology US"},
+    {"id": "efafa6a4-1436-48e7-b83c-25cccc12aef0", "title": "CBDA 5-HT1A Vomiting Nausea", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBDA antiemetic mechanism therapeutic"},
+    {"id": "efbbdbf0-2f05-4ec3-ad8b-6521fc319a74", "title": "CBD Anti-inflammatory Placental", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD inflammation therapeutic"},
+    {"id": "efbdc18f-0484-4572-bc68-6f487bf32a6a", "title": "TCM Neuroprotective Plants Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general TCM herbal review"},
+    {"id": "efdb8520-318c-4fcc-b8f4-a83166602572", "title": "CBD THC Essential Tremor RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC tremor therapeutic RCT"},
+    {"id": "effa1985-b266-49d1-b209-a7cbfe5a546a", "title": "SC-Induced Psychosis Management Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - SC-induced psychosis treatment"},
+    {"id": "f0069514-fe44-46bd-b4c8-08daceacd532", "title": "Medical Cannabis Epilepsy Evidence", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis epilepsy therapeutic review"},
+    {"id": "f006a90b-d553-4b20-ad0a-be7a2dddb2f6", "title": "Cannabis Cancer Pain Treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer pain therapeutic"},
+    {"id": "f017bccd-a75c-403a-9f3b-bcc11a09e74d", "title": "LOFT Psychosis 20-Year Protocol", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis follow-up study"},
+    {"id": "f0323d48-e318-4bcf-a431-a532d80eb206", "title": "ZYN002 CBD Fragile X RCT RECONNECT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Fragile X Syndrome therapeutic RCT"},
+    {"id": "f0404367-d2f8-49bc-81bf-b6640bc4fa57", "title": "Cannabis First Episode Psychosis Meta", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabis in FEP meta-analysis"},
+    {"id": "f0443abe-c3b1-41b7-85cb-ee79221fb98f", "title": "CUD Diagnoses Mental Health 2013-2022", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD diagnosis epidemiology"},
+    {"id": "f04b6ac3-ba17-44a4-8ee0-d3c539743251", "title": "CBD Glioma Apoptosis Human Canine", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer mechanism comparative oncology"},
+    {"id": "f051a237-5f5c-4afc-a11b-0d360ad94f21", "title": "Cannabis CBD Attitudes Adolescents Parents", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - attitudes perceptions survey"},
+    {"id": "f058bb39-37dc-4ead-ad36-a2222935bbc9", "title": "CBD Psychiatric Disorders Overview", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychiatric therapeutic review"},
+    {"id": "f05a3b0c-9fef-4809-9f1f-1b66c1ad4917", "title": "CBD Social Anxiety Psychotic Case", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety depression psychosis therapeutic"},
+    {"id": "f060529b-7140-491c-8312-92274650e307", "title": "CB Receptor Pain Relief", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB receptor pain therapeutic mechanism"},
+    {"id": "f065674d-b3b6-489e-a48d-33f4fd87550e", "title": "Cannabinoids Avian Retinal Cells", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - avian/bird cells"}
+  ],
+  "batch_summary": {
+    "correct": 10,
+    "incorrect": 10,
+    "incorrect_ids": [
+      "ef3c7e04-be9e-4766-a6ec-0d9acc38df34",
+      "ef402687-98e0-4814-b2bb-43eefc3fcf1b",
+      "ef8391b0-de28-4187-b908-c9706f4e5678",
+      "efbdc18f-0484-4572-bc68-6f487bf32a6a",
+      "effa1985-b266-49d1-b209-a7cbfe5a546a",
+      "f017bccd-a75c-403a-9f3b-bcc11a09e74d",
+      "f0404367-d2f8-49bc-81bf-b6640bc4fa57",
+      "f0443abe-c3b1-41b7-85cb-ee79221fb98f",
+      "f051a237-5f5c-4afc-a11b-0d360ad94f21",
+      "f065674d-b3b6-489e-a48d-33f4fd87550e"
+    ]
+  }
+}

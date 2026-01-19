@@ -1,0 +1,42 @@
+{
+  "batch_number": 397,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T17:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "b8c0a2a5-3852-427e-b7e7-008710d1d629", "title": "Physiological functions and pharmacological targeting of transient receptor potential channels", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "TRP channels no clear cannabinoid focus correctly rejected"},
+    {"id": "b8d1135e-492a-48e1-8234-39920074b3bc", "title": "A Meta-Analytic Review of School-Based Prevention for Cannabis Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use prevention correctly rejected"},
+    {"id": "b8d78880-485b-4243-83ab-bed045c50ff5", "title": "The Melbourne Journey Towards Improved City Liveability: A Revival of a Dead City (Case of Melbourne CBD)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "b8ddb814-bc65-41d9-a477-d4d60a2f2146", "title": "Expression of a brain-type cannabinoid receptor (CB1) in alveolar Type II cells in the lung: regulation by hydrocortisone", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor expression research"},
+    {"id": "b8e02b99-3000-4ba6-ab66-0c2d0c6c5023", "title": "Prevalence and correlates of alcohol, cannabis, and tobacco use disorder in DSM-5 generalized anxiety disorder", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use disorder prevalence correctly rejected"},
+    {"id": "b8e8ad53-02a4-4ded-b5a1-da7bfe1119c5", "title": "Larvicidal Activity of Hemp Extracts and Cannabidiol against the Yellow Fever Mosquito Aedes aegypti", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Insecticide application correctly rejected"},
+    {"id": "b8f1aca4-40b2-4d25-a731-d41dd4c06608", "title": "Reciprocal Influences of HIV and Cannabinoids on the Brain and Cognitive Function", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid brain mechanism research"},
+    {"id": "b8f53ea5-a304-4a8a-8f77-6fcc5d20032b", "title": "Influence of intracerebral administration of NO agents in dorsal hippocampus (CA1) on cannabinoid state-dependent memory", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid memory mechanism research"},
+    {"id": "b90ba04a-104f-41dd-bd3a-995972722007", "title": "Tetrazole-biarylpyrazole derivatives as cannabinoid CB1 receptor antagonists", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 antagonist pharmacology"},
+    {"id": "b915333d-2326-4505-ab8d-2194c2ffec38", "title": "Role of GLT-1 transporter activation in prevention of cannabinoid tolerance by the beta-lactam antibiotic, ceftriaxone, in mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid tolerance mechanism"},
+    {"id": "b9271d7b-c02a-41ed-ac9f-e6b0cec8ee81", "title": "Slovenian Consumers' Perceptions and Use of CBD Through the Lens of Motivation, Opportunity, and Ability Theory", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Consumer survey correctly rejected"},
+    {"id": "b9521256-f8a0-48e7-a7b2-716dd5244397", "title": "Unveiling cellular changes in leukaemia cell lines after cannabidiol treatment through lipidomics", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anticancer mechanism research"},
+    {"id": "b973d24a-bf40-4db8-9e92-c888353c9b0f", "title": "Acute and prolonged toxicity assessment of Cannabis sativa extract in rodents and lagomorphs", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Preclinical toxicity correctly rejected"},
+    {"id": "b982bebd-0c60-4213-b5a6-03304f028363", "title": "A new approach towards the growth of cadmium sulphide thin film by CBD method and its characterization", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "b9a29dc4-ce0b-4086-93e0-ba781d3fddda", "title": "Risk scores for choledocholithiasis perform poorly in patients with hemolytic diseases", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b9a2bcd8-7431-459b-92f8-20f98f1712d9", "title": "Childhood conduct disorder trajectories, prior risk factors and cannabis use at age 16", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm/risk correctly rejected"},
+    {"id": "b9c3e58b-b0d8-4151-bc48-3eeed2f289f5", "title": "Cannabis and bipolar disorder: does quitting cannabis use during manic/mixed episode improve outcomes?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm bipolar correctly rejected"},
+    {"id": "b9c5ae10-9232-4920-a8ea-f562cb3b074e", "title": "Neuroprotective and Neuromodulatory Effects Induced by Cannabidiol and Cannabigerol in Rat Hypo-E22 cells and Isolated Hypothalamus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/CBG neuroprotection mechanism"},
+    {"id": "b9c64bbd-7766-4940-a71c-54fc8f553a46", "title": "Expression in Escherichia coli and characterisation of the human central CB1 and peripheral CB2 cannabinoid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1/CB2 receptor characterization"},
+    {"id": "b9f1cc50-dd16-4820-84fe-683ecbc0b638", "title": "Comorbid Cannabis and Tobacco Use in Adolescents and Adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "b8ddb814-bc65-41d9-a477-d4d60a2f2146",
+      "b8f1aca4-40b2-4d25-a731-d41dd4c06608",
+      "b8f53ea5-a304-4a8a-8f77-6fcc5d20032b",
+      "b90ba04a-104f-41dd-bd3a-995972722007",
+      "b915333d-2326-4505-ab8d-2194c2ffec38",
+      "b9521256-f8a0-48e7-a7b2-716dd5244397",
+      "b9c5ae10-9232-4920-a8ea-f562cb3b074e",
+      "b9c64bbd-7766-4940-a71c-54fc8f553a46"
+    ]
+  }
+}

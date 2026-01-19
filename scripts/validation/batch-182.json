@@ -1,0 +1,39 @@
+{
+  "batch_number": 182,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T11:30:00.000Z",
+  "results": [
+    {"id": "cb7ff7d1-0dc6-4ad8-8551-58595d50b362", "title": "CBD Painful Pelvic Floor Conditions Treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pelvic pain therapeutic"},
+    {"id": "cb842e86-6b50-42a4-a833-ec9b48b6fc46", "title": "CBD Neutrophils Cancer-Promoting Phenotype", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety mechanism research"},
+    {"id": "cb8fa923-e77e-4122-a325-9386dacf05f0", "title": "Cannabis Chronic Pain UK Medical Registry", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain clinical registry"},
+    {"id": "cb93307d-10bb-46ed-b328-dd16d6130e3b", "title": "Cannabinoids Treatment Inflammation Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid inflammation therapeutic review"},
+    {"id": "cb9a2d3e-2530-44b7-9537-a85136fac915", "title": "Cannabis Use Perceptions Fertility Patients", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use patterns infertility"},
+    {"id": "cb9d04e4-571b-405a-95ba-f67801a118e5", "title": "Medical Cannabis Epilepsy Evidence Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis epilepsy evidence review"},
+    {"id": "cb9da274-2847-40d9-935c-d597f18d75a1", "title": "Hemodynamic Responses Post-Traumatic Headache", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - headache hemodynamics"},
+    {"id": "cbae7d0c-b158-4974-9126-85081d34b71c", "title": "Cannabichromene Apoptosis Ferroptosis Pancreatic Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBC pancreatic cancer therapeutic"},
+    {"id": "cbc03ced-0ed6-4916-84a2-35361c533a22", "title": "CBD Breast Cancer Chemotherapy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD breast cancer therapeutic"},
+    {"id": "cbc06b43-4769-49e3-8ee3-9291b590b307", "title": "Cannabis Psychosis Mortality Swedish Cohort 50373", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - mortality risk"},
+    {"id": "cbc36c26-d079-415e-adff-8f8c3af9ea83", "title": "Cannabinoids Atopic Dermatitis Therapeutic Potential", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid eczema therapeutic"},
+    {"id": "cbd373ab-83bc-4d12-b62f-f44a25f777de", "title": "CBD Autism Boys Severe Behaviors RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism clinical trial"},
+    {"id": "cbf91efb-2759-44ab-9ed8-580e1a6c0eaf", "title": "Cannabinoids Glaucoma Never-Ending Story Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid glaucoma therapeutic review"},
+    {"id": "cc158d21-d150-4559-b81c-93c64585915e", "title": "Adolescent Cannabis Unprotected Sex Women", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - risky behavior association"},
+    {"id": "cc1a3f5b-2402-48bf-91c9-7b8b7baebe43", "title": "Cannabis Depressive Symptoms Suicidal Ideation Adolescents", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - depression suicide risk"},
+    {"id": "cc226374-83a1-4bba-be88-e1ec18eb9b4d", "title": "VER-01 Cannabis Extract Low Back Pain RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain multicenter RCT"},
+    {"id": "cc415e14-cd58-4ed1-9fdf-ac0cec7e8135", "title": "Medical Benefits Elderly Cannabis CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis CBD elderly therapeutic review"},
+    {"id": "cc44d843-598c-4093-a399-b381529e469a", "title": "CBD Polymeric Micelles Autism Nose-to-Brain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism drug delivery"},
+    {"id": "cc5b1649-8ee2-4110-932c-88f4baa9f9b8", "title": "THC Reelin Schizophrenia Dual-Hit Model MIA", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - THC schizophrenia model"},
+    {"id": "cc639402-421a-427c-8fc7-c12b258b6732", "title": "CBD Use Potential Harm Viewpoint", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety scientific viewpoint"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "cb9a2d3e-2530-44b7-9537-a85136fac915",
+      "cb9da274-2847-40d9-935c-d597f18d75a1",
+      "cbc06b43-4769-49e3-8ee3-9291b590b307",
+      "cc158d21-d150-4559-b81c-93c64585915e",
+      "cc1a3f5b-2402-48bf-91c9-7b8b7baebe43",
+      "cc5b1649-8ee2-4110-932c-88f4baa9f9b8"
+    ]
+  }
+}

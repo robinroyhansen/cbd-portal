@@ -1,0 +1,36 @@
+{
+  "batch_number": 32,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T21:45:00.000Z",
+  "results": [
+    {"id": "255065e0-a87e-4ad4-a07c-e80f2e14d82c", "title": "Cannabinoid for Non-Cardiac Chest Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Dronabinol for NCCP RCT"},
+    {"id": "255a5cfa-56f6-43d2-aef2-b112571f28a3", "title": "Lisdexamfetamine for methamphetamine withdrawal", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - amphetamine drug"},
+    {"id": "25673f26-807d-4e1d-8418-75e5bdf4a806", "title": "Cannabinoid Receptor Sensitivity in Huntington's Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid for Huntington's disease"},
+    {"id": "25738fa1-0543-4be9-8e0e-247a39a0f5aa", "title": "Rimonabant and AM251 potentiate GABAA receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB antagonist mechanism"},
+    {"id": "2577f3a9-3423-48b6-823b-a65640cea165", "title": "CBG Modulates CB2 and Attenuates Neuropathic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG for neuropathic pain"},
+    {"id": "25a8ee1d-a34d-4df6-bc03-e75331256772", "title": "VAMS to Monitor CBD Levels in Epilepsy Patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic drug monitoring"},
+    {"id": "25bcd922-b3f0-4609-8953-b8f26f1ce20c", "title": "CB1 inactivation inhibits angiogenesis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 for eye disease/angiogenesis"},
+    {"id": "25c2bbf7-0f29-48db-9ae9-b0878000956e", "title": "CBD-based Therapy for Non-bacterial Prostatitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for prostatitis trial"},
+    {"id": "25c744c8-c764-466f-802d-0c7433c886f7", "title": "Orphan designation: CBD for Lennox-Gastaut", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy regulatory"},
+    {"id": "25e15432-bdee-4815-93ca-904821261b67", "title": "Pharmacokinetics of CBD: Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics review"},
+    {"id": "25e3adf2-fe80-4a7d-8878-7700e2da1e28", "title": "CBD reduces seizure frequency in Dravet syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for Dravet syndrome"},
+    {"id": "25e83b37-8356-495f-9fc8-5857495c7c91", "title": "Essential Oils for ESKAPE Pathogens", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general essential oils"},
+    {"id": "25ea6709-a40a-4848-93aa-32609fc28b73", "title": "Broad-Spectrum CBD Produces Detectable WADA Cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD doping safety for athletes"},
+    {"id": "25f6a84a-121e-434c-a776-b1897e412926", "title": "THC and CBD Modulation of Sensory Processing - fMRI", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD brain imaging research"},
+    {"id": "2611403a-b279-4e7d-8503-323b2cde5a5a", "title": "CBD improves metabolic profiles in PCOS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for PCOS/obesity"},
+    {"id": "26147230-2d2e-4cc0-9152-d6a5a1d90a7b", "title": "CBD does not attenuate THC attentional bias", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC interaction study"},
+    {"id": "261487a4-bd3c-425d-a2c1-f61d3cda7c6c", "title": "Cannabinoid + acetaminophen for SCI pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid for SCI pain"},
+    {"id": "26199394-ac9b-415c-ac38-7e66b4322745", "title": "CBD Reducing Alcohol Self-Administration in Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for alcohol use disorder"},
+    {"id": "26259119-a7d5-4f69-9ca3-3b4a486bfdba", "title": "Cannabinoid activation of PPARs for inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid PPAR anti-inflammatory"},
+    {"id": "263d2f9c-5c73-47e9-a9b4-625db6702ff4", "title": "MPD vs CBD for cardiac arrest calls", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD! = Criteria Based Dispatch (emergency dispatch)"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "255a5cfa-56f6-43d2-aef2-b112571f28a3",
+      "25e83b37-8356-495f-9fc8-5857495c7c91",
+      "263d2f9c-5c73-47e9-a9b4-625db6702ff4"
+    ]
+  }
+}

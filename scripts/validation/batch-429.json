@@ -1,0 +1,38 @@
+{
+  "batch_number": 429,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T01:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "db5151d5-6cb6-4fd3-bf9c-9d317f344456", "title": "Bio-integration of rhizobacteria and biogenic silver nanoparticles against Pseudomonas syringae pv. syringae causing plum bacterial canker.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "db533f33-e1db-4714-9840-86f71f486303", "title": "Psychosocial interventions for cannabis use disorder", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "db5e0e80-1bd4-4635-b1e0-11b951bc4316", "title": "The 'entourage effect' or 'hodge-podge hashish': the questionable rebranding, marketing, and expectations of cannabis polypharmacy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market critique correctly rejected"},
+    {"id": "db78887b-a3f8-45e1-b663-d7fde0762595", "title": "Effects of chronic administration of delta-9-tetrahydrocannabinol and cannabidiol on rat testicular esterase isozymes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis reproductive harm correctly rejected"},
+    {"id": "db8c2651-c897-43f8-b08e-235e1d80497c", "title": "Prevention of Postoperative Coronal Imbalance in Patients with Adolescent Idiopathic Scoliosis with a Major Lumbar Curve: The Intraoperative Crossbar Coronal-Balancing Technique.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "db8eee3d-e153-490a-96c6-0536e09c169a", "title": "Opportunities and challenges in developing orally administered cannabis edibles", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product development correctly rejected"},
+    {"id": "dba3427c-ad8c-45cc-8754-fd8f55250147", "title": "Black Drug Dealers In A White Welfare State: Cannabis Dealing and Street Capital in Norway", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Sociology/criminology correctly rejected"},
+    {"id": "dba3e06e-6625-4de5-b2f5-efaa4c92b58a", "title": "ChemInform Abstract: SYNTHESES OF TRITIUM‐LABELLED TETRAHYDROCANNABINOL AND CANNABIDIOL", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry/synthesis correctly rejected"},
+    {"id": "dba72e69-fc4b-4e6f-b70d-3b0d426728de", "title": "Cannabis and nicotine/tobacco co-use and its association with cognitive and neural outcomes: A systematic review.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "dba8cc99-7d42-4227-a16f-14933b3f97da", "title": "A Novel Metabolite, an Oxepin Formed from Cannabidiol with Guinea-pig Hepatic Microsomes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD metabolism/pharmacology research"},
+    {"id": "dbdd8607-a024-4d75-9ae2-4282933c262b", "title": "Extraction of CBD and Δ9-THC from three varieties of fibre hemp by different concentrations of ethanol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"},
+    {"id": "dbde775f-8222-4bc8-87aa-0361d3d83122", "title": "Legalized Cannabis in Colorado Emergency Departments: A Cautionary Review of Negative Health and Safety Effects", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "dbe8d43e-6ed6-4187-8521-37b3060f84dc", "title": "Role of cannabinoid CB1 receptors on macronutrient selection and satiety in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 appetite mechanism research"},
+    {"id": "dbf49e73-3475-4153-9276-474fef726ab2", "title": "Evidence of Potential Drug Interactions Between Cannabidiol and Other Drugs: A Scoping Review to Guide Pharmaceutical Care.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug interaction safety research"},
+    {"id": "dbf54409-835d-4870-bdb7-4f95e6db07ea", "title": "Liver Transcriptomic Profiles of Ruminant Species Fed Spent Hemp Biomass Containing Cannabinoids.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "dc329806-d686-41c4-b48e-384629a23a46", "title": "Electronic Clinical Challenges and Images in GI Endoscopic Ultrasound in CBD Stone", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "dc50c259-48ff-4cfd-81d1-26c215c3c7a9", "title": "The Achilles Heel of Medical Cannabis Research—Inadequate Blinding of Placebo-Controlled Trials", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Methodology/editorial correctly rejected"},
+    {"id": "dc689e09-8452-4704-9889-be7b0a48180f", "title": "Effect of orally administered cannabidiol oil on daily tonometric curve in healthy Italian Saddle horses.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "dc6db019-455c-46c3-a523-678780f8950d", "title": "A simple, sensitive and rapid bioanalytical method for quantifying cannabidiol (CBD), 7-OH-CBD and 7-COOH-CBD in human plasma.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "dc74f4aa-8438-499b-bdc9-0fedcec6ea93", "title": "Cannabidiol inhibits TGF-β1-induced epithelial-mesenchymal transition in human conjunctival epithelial cells by interrupting TGF-β/Smad signaling", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anti-fibrotic mechanism research"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "dba8cc99-7d42-4227-a16f-14933b3f97da",
+      "dbe8d43e-6ed6-4187-8521-37b3060f84dc",
+      "dbf49e73-3475-4153-9276-474fef726ab2",
+      "dc74f4aa-8438-499b-bdc9-0fedcec6ea93"
+    ]
+  }
+}

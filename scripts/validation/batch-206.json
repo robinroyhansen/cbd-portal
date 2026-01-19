@@ -1,0 +1,37 @@
+{
+  "batch_number": 206,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T17:30:00.000Z",
+  "results": [
+    {"id": "e4f07d32-bbb4-435d-900d-117509c40d54", "title": "Medical Cannabis Sleep Quality Changes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis sleep therapeutic"},
+    {"id": "e51b53da-9873-4df9-a6c6-566eeda242b1", "title": "CBD Reduces Synaptic Strength Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism human"},
+    {"id": "e523d5e6-8872-46d9-b030-50c9f155e370", "title": "Sleep Modulates CB1 Receptor Pons Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS sleep mechanism"},
+    {"id": "e52ee28c-9d41-4d7a-8136-b14d4ceaf044", "title": "Cannabis Plant Complex System Cannabinoid Compositions", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - plant breeding phenology heritability"},
+    {"id": "e53966c2-a635-47b9-80a8-085d4b6106cc", "title": "Pharmacological Interventions Autism Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - generic pharma interventions review"},
+    {"id": "e539d101-26e4-4b3d-b850-afc8ae59a434", "title": "Oral THC Neuropathic Pain RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC pain therapeutic RCT"},
+    {"id": "e5421227-d83d-40fb-8bf2-c43e7f420a6c", "title": "miR-139 CB2 Alzheimer's SAMP8", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 Alzheimer's mechanism"},
+    {"id": "e542ca56-bd2e-4536-9a0a-9580a660938f", "title": "Cannabis Pain Coaching Veterans Pilot", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain optimization intervention"},
+    {"id": "e54e0072-e661-4552-a21c-93eb1a90f111", "title": "Puerarin-Gadolinium Rheumatoid Arthritis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - kudzu extract not cannabinoid"},
+    {"id": "e55075be-e3e7-4e07-ada4-9aee995be8fc", "title": "CB1 Dopaminergic Circuit Anxiety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 anxiety mechanism"},
+    {"id": "e55b7f1c-8b34-4fda-8cc0-0ab1d692c6e2", "title": "CBD Cytochrome P-450 Hexobarbital", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interaction PK"},
+    {"id": "e55e64c6-da8d-4f7c-a29a-9a6c38c6d374", "title": "CBD PLGA Nanoparticles Alzheimer's", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD delivery Alzheimer's therapeutic"},
+    {"id": "e5656746-c451-4c6b-8524-6b6107b80452", "title": "CBD Cardiovascular Hypertension Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular therapeutic"},
+    {"id": "e56b6489-50f6-42bf-925c-4b70f690f876", "title": "ECS Dysregulation MS Progression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS MS mechanism"},
+    {"id": "e5826a3a-184b-4e45-8f59-d90504a06192", "title": "CBD Generalized Anxiety Disorder Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety therapeutic review"},
+    {"id": "e59ade97-6a40-48c7-8edc-79e8303f1161", "title": "Cannabinoid Blood Concentrations Analgesia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis PK pain relationship"},
+    {"id": "e59ed96b-27d3-4752-9756-396d8507057c", "title": "Purines Targeting CB2 Neuroprotection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2-targeting neuroprotective agents"},
+    {"id": "e5a858ac-00f6-469c-8ba3-1a55c9dba38d", "title": "Nicotine Predicts CUD Symptoms Youth", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD risk factor study"},
+    {"id": "e5b3e80f-f468-4886-b767-f9ba35884f06", "title": "CBD Ocular Pressure Glaucoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD glaucoma therapeutic"},
+    {"id": "e5d9322b-eca6-4d7b-8f4d-d4f7ca7658eb", "title": "CBD THC Elevated Plus Maze Anxiety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anxiety mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "e52ee28c-9d41-4d7a-8136-b14d4ceaf044",
+      "e53966c2-a635-47b9-80a8-085d4b6106cc",
+      "e54e0072-e661-4552-a21c-93eb1a90f111",
+      "e5a858ac-00f6-469c-8ba3-1a55c9dba38d"
+    ]
+  }
+}

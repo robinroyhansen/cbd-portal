@@ -1,0 +1,42 @@
+{
+  "batch_number": 278,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T11:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "32c4edd7-603d-480e-bb2d-b517a96dcb12", "title": "Suprapapillary Puncture of CBD for Selective Biliary Access - A Novel Technique", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "32e8593d-dd66-4a19-a8bc-62372c7afebe", "title": "Cannabinoid Receptor-induced Neurite Outgrowth Is Mediated by Rap1 Activation through Gαo/i-triggered Proteasomal Degradation of Rap1GAPII", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 neurite outgrowth mechanism"},
+    {"id": "33139210-2e7a-4300-bf14-304b5da69415", "title": "カンナビジオール(CBD)を正しく理解するために", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial/educational correctly rejected"},
+    {"id": "332e8e18-1909-4d1d-9dc6-72e94243102a", "title": "Parent and caregiver perceptions of cannabidiol products may put children at risk for unintentional exposure", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Safety perception correctly rejected"},
+    {"id": "333608a7-e040-44a5-b5e1-98e75b6fe9eb", "title": "Medical cannabis: Regulatory review in United States, European Union and United Kingdom.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/regulatory correctly rejected"},
+    {"id": "333bebcc-cccf-4675-bd79-799f39d79fca", "title": "Determination of ∆-9-Tetrahydrocannabinol (THC), 11-hydroxy-THC, 11-nor-9-carboxy-THC and Cannabidiol in Human Plasma using Gas Chromatography–Tandem Mass Spectrometry", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical methodology correctly rejected"},
+    {"id": "334349dd-6170-45d3-a64a-055b1ce0d0f4", "title": "Development and validation of analytical method for detection and quantification of cannabidiol, ?9-THC and metabolites in oral fluid by LC-MS/MS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical methodology correctly rejected"},
+    {"id": "3345b687-826b-4167-8fb5-e99f29092428", "title": "A Study on Integration of Web Service considering Message Security and CBD for e-business environment", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "334a6710-debb-494b-a294-49d2988b9630", "title": "The potential protective and therapeutic effects of cannabidiol oil on experimental Leukemia induced by DMBA in male rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anticancer for leukemia"},
+    {"id": "334c2a02-2c26-47bf-a4dd-23c26edf13bb", "title": "Robertet, Klersun, Alponics partner to vertically integrate hemp-derived CBD in Switzerland", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Business/industry news correctly rejected"},
+    {"id": "3355d8fb-1678-4863-bdfd-54219bdebc8d", "title": "Towards rational design of cannabinoid receptor 1 (CB1) antagonists for peripheral selectivity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 antagonist drug design"},
+    {"id": "335b0185-2441-4c22-b756-dd5d236bcfff", "title": "Practice on CBD and Exhibition Traffic Planning and Design in Large City——A Case for Pazhou-Yuancun in Guangzhou City", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "335b7a81-d9bc-4c2e-8725-cf66357d0152", "title": "Novel endogenous peptide agonists of cannabinoid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid system mechanism"},
+    {"id": "33651370-0042-4cd8-a9fc-9f566e0f57b3", "title": "Characterization of P-glycoprotein Inhibition by Major Cannabinoids from Marijuana", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid P-gp pharmacology"},
+    {"id": "337cc6ad-d5b6-4c01-8fb9-c8907caec3d9", "title": "Cannabis users exhibit increased cortical activation during resting state compared to non-users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "337dbe58-b40a-449d-ae77-f3e40b882b66", "title": "Cannabinoids reveal importance of spike timing coordination in hippocampal function", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid brain mechanism"},
+    {"id": "3388d6ed-997d-4a50-a79a-9ded4d964d58", "title": "Effects of self-administered cannabidiol in a patient with multiple system atrophy", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD for MSA case report"},
+    {"id": "33b6cbdc-4668-4f32-b5dc-3a4985b2bc8e", "title": "Factors associated with different cannabis supply methods: results from the French 2017 ESCAPAD and Health Barometer surveys", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "33d4edc8-677f-458a-b185-3441f13e17d3", "title": "https://supplements4fitness.com/guy-fieri-cbd-oil/", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "33d4f613-0b8a-44d9-ac44-4be30c428d8d", "title": "Protective Action of Cannabidiol on Tiamulin Toxicity in Humans-In Vitro Study.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD protective therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "32e8593d-dd66-4a19-a8bc-62372c7afebe",
+      "334a6710-debb-494b-a294-49d2988b9630",
+      "3355d8fb-1678-4863-bdfd-54219bdebc8d",
+      "335b7a81-d9bc-4c2e-8725-cf66357d0152",
+      "33651370-0042-4cd8-a9fc-9f566e0f57b3",
+      "337dbe58-b40a-449d-ae77-f3e40b882b66",
+      "3388d6ed-997d-4a50-a79a-9ded4d964d58",
+      "33d4f613-0b8a-44d9-ac44-4be30c428d8d"
+    ]
+  }
+}

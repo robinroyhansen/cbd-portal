@@ -1,0 +1,39 @@
+{
+  "batch_number": 166,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T07:30:00.000Z",
+  "results": [
+    {"id": "b9c1a08e-9e61-47b8-b45e-b116c65a1388", "title": "Assessment training CBD workers Nigeria", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Community-Based Delivery"},
+    {"id": "b9c7c088-6402-4f96-96e5-77295c63be9a", "title": "CBD vs Pharmacological Treatment Crack Disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction RCT"},
+    {"id": "b9e3e758-c4db-4dba-bd35-fed001baea2d", "title": "Echinacea alkylamides CB2 TNF-α", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 receptor immune mechanism"},
+    {"id": "b9f8b46c-83fb-4321-98d2-d7f43aab22ba", "title": "Substance-Induced Psychoses Antipsychotic Efficacy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - antipsychotic treatment"},
+    {"id": "b9fa72e4-106f-450c-8918-92f3f6968022", "title": "Cannabinoid Apoptosis Prostate Colon Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer mechanism"},
+    {"id": "ba0ba9d7-2a83-48dc-8f56-bf4965f23c46", "title": "CBD Nanomedicines Cancer-Associated Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer pain drug delivery"},
+    {"id": "ba268bd9-2d6f-44c8-abfa-9050f14fe609", "title": "Medical Cannabis Use Australia CAMS-20", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Medical cannabis therapeutic survey"},
+    {"id": "ba46573e-48d6-49fc-95c2-b5e1c75a3e69", "title": "Cannabis Transition Psychosis UHR Meta-analysis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis risk"},
+    {"id": "ba4cf032-c992-4341-90ab-19df3be7620e", "title": "Cannabis Extracts Neuropathic Pain Brachial Plexus", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain RCT"},
+    {"id": "ba5182d8-8f92-4470-b9f3-4c5b97478eea", "title": "Cannabis Use Patterns Cyclic Vomiting Syndrome", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use patterns CVS"},
+    {"id": "ba85d533-62f6-4407-ac8d-0a4c22c03200", "title": "Cannabinoids Gliomas Systematic Review 2022-2025", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid glioma systematic review"},
+    {"id": "ba8be49d-7392-4ce2-b6b4-755947d23770", "title": "CBD Therapeutic Effect Plaque Psoriasis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psoriasis therapeutic"},
+    {"id": "ba9b33dd-d38f-4d45-95ff-4edd052c6ff3", "title": "Cannabis Delivery Systems Neuroprotective", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis neuroprotection formulation"},
+    {"id": "ba9cc9fd-e88a-4937-9ec1-9299b67c8f17", "title": "CBD Refractory Epilepsies Treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy literature review"},
+    {"id": "baa243d0-dad1-4cce-b615-44cb8c1b3a11", "title": "Mental Health Differences Cannabis Users Dependence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - mental health effects"},
+    {"id": "bae739fa-550d-4fc6-9612-40d439411380", "title": "Does CBD Make Cannabis Safer RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety research RCT"},
+    {"id": "baf7d373-1dd1-4a09-8ee3-e3231caac0a2", "title": "Cannabinoid Fear Response FAAH Inhibitor RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid PTSD mechanism"},
+    {"id": "baf87ae1-9a4f-49dc-a073-542c66c51485", "title": "Cannabinoids General Anesthetics Mechanisms", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology"},
+    {"id": "baf92aa4-6701-419b-8e23-ad6161e6dec0", "title": "Tom Selleck CBD Gummies Reviews", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - advertisement"},
+    {"id": "bb047a1e-ce51-4e25-840d-96fe1eeebf44", "title": "CBD TSC Seizures 3-Year OLE Results", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy long-term safety"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "b9c1a08e-9e61-47b8-b45e-b116c65a1388",
+      "b9f8b46c-83fb-4321-98d2-d7f43aab22ba",
+      "ba46573e-48d6-49fc-95c2-b5e1c75a3e69",
+      "ba5182d8-8f92-4470-b9f3-4c5b97478eea",
+      "baa243d0-dad1-4cce-b615-44cb8c1b3a11",
+      "baf92aa4-6701-419b-8e23-ad6161e6dec0"
+    ]
+  }
+}

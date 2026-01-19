@@ -1,0 +1,38 @@
+{
+  "batch_number": 98,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T14:15:00.000Z",
+  "results": [
+    {"id": "6dab4ae7-7c5e-400b-b5aa-7cc7caa3b2ea", "title": "CBD therapeutic and legal aspects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic/regulatory review"},
+    {"id": "6dbb9159-c581-46ef-a1cc-a0aa87e26678", "title": "Cannabinoid drugs neurotoxic neuroprotective", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuroprotection review"},
+    {"id": "6dcb1cdd-6f50-435e-95e7-111dbae70a6e", "title": "Cannabis tissue fibrosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis anti-fibrotic therapeutic"},
+    {"id": "6dda014f-a7c6-451c-95de-3a587238a720", "title": "Actigraphy sleep SUDs protocol", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general SUD methodology"},
+    {"id": "6dee3697-21cb-4724-aa90-f17f44d28055", "title": "CBD antispasmodic antidiarrheal K+ channels", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD GI therapeutic mechanism"},
+    {"id": "6e02cffc-0f61-4edd-9434-d539b9aec591", "title": "Cannabis and Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic"},
+    {"id": "6e25090e-e319-490d-95c1-f75a210b6f48", "title": "Abnormal cannabidiol CBG-DMH IOP", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid glaucoma therapeutic"},
+    {"id": "6e37fa88-9b4d-4852-a2bc-0ac3c3ffc7e9", "title": "Additional file CBD bioavailability", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - supplementary material file"},
+    {"id": "6e636cc8-345a-4a38-b774-78c82fdfb941", "title": "Cannabis MDMA ecstasy heart rate", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cardiovascular mechanism"},
+    {"id": "6e7454c4-694d-4208-89c6-823a60c8b158", "title": "Cannabinoids cervical cancer nanotechnology", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"},
+    {"id": "6e7ffc72-5994-4ddf-ba8a-e4b8e381565c", "title": "CBD motor neuron disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD MND/ALS therapeutic"},
+    {"id": "6e85597d-d15a-486f-aff7-e7b00a015685", "title": "4′-F-CBD HU-910 neuroinflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Synthetic cannabinoid anti-inflammatory"},
+    {"id": "6e9d5438-4783-4ee9-a643-7855a4e11f56", "title": "Cannabinoid receptors urinary bladder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid bladder therapeutic"},
+    {"id": "6ea04ea9-76a5-4112-9fab-ee544108eefd", "title": "Cannabis oil systemic sclerosis appetite RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis autoimmune therapeutic RCT"},
+    {"id": "6eaa2f03-ce6c-455f-806d-34c88450aad5", "title": "Cannabinoids glioma oxidative stress", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid brain cancer mechanism"},
+    {"id": "6eada983-d81f-44f9-a5db-73d04b8f50c4", "title": "Serratia marcescens pericarditis cardiac tamponade", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - bacterial infection cardiology"},
+    {"id": "6eb1818a-293e-4e12-88ae-001da0466c93", "title": "Cannabis use disorder neurobiology treatment", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - treating cannabis addiction"},
+    {"id": "6eb7c35d-6db5-4796-a396-7d02129165c3", "title": "Fx CBD Gummies Reviews Price", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING"},
+    {"id": "6ebb2181-4053-41ab-a7af-fae341526477", "title": "CB1 receptor ion transport guinea pig ileum", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 GI mechanism"},
+    {"id": "6ec205e3-981c-4d0d-8043-8f7ceecdd96e", "title": "CBD pancreatic cancer EMT MALAT1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "6dda014f-a7c6-451c-95de-3a587238a720",
+      "6e37fa88-9b4d-4852-a2bc-0ac3c3ffc7e9",
+      "6eada983-d81f-44f9-a5db-73d04b8f50c4",
+      "6eb1818a-293e-4e12-88ae-001da0466c93",
+      "6eb7c35d-6db5-4796-a396-7d02129165c3"
+    ]
+  }
+}

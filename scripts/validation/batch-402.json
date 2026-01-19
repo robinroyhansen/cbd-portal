@@ -1,0 +1,40 @@
+{
+  "batch_number": 402,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T18:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "bdcabd20-c33e-4a5d-b575-3ad42af06883", "title": "A PRACTICAL AND NATURAL TAXONOMY FOR CANNABIS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis taxonomy correctly rejected"},
+    {"id": "bdd29684-9dd1-4fda-9d94-74220bf563da", "title": "Time to retire the term atypical Parkinsonism", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "bdd2ef27-364e-423a-97ca-853f4696b289", "title": "Inhibition of CYP2A6-mediated nicotine metabolism", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "bdd7a6c6-b205-407f-97fc-5cd5827ce1d7", "title": "Cannabidiol modulates hippocampal dependent learning and alters the accompanying synaptic plasticity in the ventral hippocampus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD hippocampal learning/plasticity mechanism"},
+    {"id": "bddc5992-06a6-4619-8f6c-78709b7e089c", "title": "Optimization Design of Traffic Marking in Urban CBD Area", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "bde2b1ce-6f41-4bfc-a5ad-6caf9c6c5372", "title": "Birth and early developmental screening outcomes associated with cannabis exposure during pregnancy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis prenatal harm correctly rejected"},
+    {"id": "bdfc283e-2783-4063-b9bf-0f86428c3c93", "title": "Detection and quantification of selected cannabinoids in hair samples by liquid-liquid extraction and LC-MS/MS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "bdfdafd6-130a-4e2d-be4d-e69a8168ad85", "title": "Curcumin modulates cannabinoid receptors in liver fibrosis in vivo and inhibits extracellular matrix expression in hepatic stellate cells by suppressing cannabinoid receptor type-1", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor liver fibrosis mechanism"},
+    {"id": "be0853af-0844-41eb-9036-96e97fa582a7", "title": "Paraventricular hypothalamic CB1 cannabinoid receptors are involved in the feeding stimulatory effects of Δ9-tetrahydrocannabinol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 appetite mechanism research"},
+    {"id": "be0f291b-8bcd-4cc1-91d0-9e8cb4f99c10", "title": "Sustainable extraction of cannabidiol using alkaline leaching coupled with green deep eutectic solvents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"},
+    {"id": "be15e1ef-2b08-46d5-bd06-10283846cca1", "title": "CBD as a Concept and Place", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (urban planning) correctly rejected"},
+    {"id": "be303e55-ed3e-46bb-946d-63501f3fef8d", "title": "Effects of sex and pre-exposure on Δ9-tetrahydrocannabinol (THC) vapor self-administration in rats", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "THC addiction correctly rejected"},
+    {"id": "be349ed6-0694-492d-9f19-d21446a9085c", "title": "Novel Thermoset Formulations from Cannabidiol (Cbd) Oil", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industrial materials correctly rejected"},
+    {"id": "be4ba55e-7a00-4a07-bd6f-f33269b8e1d7", "title": "Study on the dynamics of street parking and mobility at different times of the day in the CBD: Case of Muindi Mbingu streets in Nairobi", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "be6ebf38-8ae4-47f0-97bd-a8b3f6906450", "title": "Cannabinoid receptors and their role in the regulation of the serotonin transporter in human placenta", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research"},
+    {"id": "be87973b-92f2-48b4-9c52-1ae5bda9a90c", "title": "Assessing the Market Readiness for Medical Cannabis in Greece: A Qualitative Study of Patient Perspectives", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market survey correctly rejected"},
+    {"id": "be88c13a-4910-43b1-82da-bf16ea62d6d5", "title": "Pathways into ecstasy use: The role of prior cannabis use and ecstasy availability", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Gateway drug patterns correctly rejected"},
+    {"id": "bea63ce4-3764-47a0-9386-d3bc43417aaf", "title": "Cannabidiol potentiates phenobarbital-induced cell death in the developing brain", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CBD developmental toxicity correctly rejected"},
+    {"id": "bea6764c-904a-4ca2-a8af-cf7b64bc1992", "title": "Synthesis and Pharmacological Evaluation in Mice of Halogenated Cannabidiol Derivatives", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD derivative pharmacology"},
+    {"id": "bea69ebc-dfb1-49ec-9135-ad771fb3c4fa", "title": "Hepatic expression of cannabinoid receptors CB1 and CB2 correlate with fibrogenesis in patients with chronic hepatitis B", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1/CB2 liver fibrosis research"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "bdd7a6c6-b205-407f-97fc-5cd5827ce1d7",
+      "bdfdafd6-130a-4e2d-be4d-e69a8168ad85",
+      "be0853af-0844-41eb-9036-96e97fa582a7",
+      "be6ebf38-8ae4-47f0-97bd-a8b3f6906450",
+      "bea6764c-904a-4ca2-a8af-cf7b64bc1992",
+      "bea69ebc-dfb1-49ec-9135-ad771fb3c4fa"
+    ]
+  }
+}

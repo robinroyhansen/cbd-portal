@@ -1,0 +1,37 @@
+{
+  "batch_number": 127,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T21:30:00.000Z",
+  "results": [
+    {"id": "8bf38c6b-0a17-459a-be68-85332532abd3", "title": "Cannabis Insomnia RCT ZTL-101", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis sleep therapeutic RCT"},
+    {"id": "8c00f18c-473f-42e1-af0f-e36f7b7f0d37", "title": "CBD LGS Dravet UK Early Access", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "8c022a6f-b81e-48fb-a9ff-980dd1cbcca3", "title": "CBD Alcohol Use Disorder RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction therapeutic RCT"},
+    {"id": "8c04c90e-b2c2-4fa3-b1d0-744d9a9ca5dc", "title": "CBD Pain Psychiatrists", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic guidance"},
+    {"id": "8c4e153a-b161-41a0-81bf-cb49693efbe1", "title": "2-AG Platelets Cannabinoid Receptor", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid mechanism"},
+    {"id": "8c57e929-f44f-44d4-89ff-3f9a396fa6c1", "title": "CBD NK Cells Mental Health Sleep Immune", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD immune therapeutic research"},
+    {"id": "8c5acce6-e122-4a68-8bb7-bc1ff361eb2d", "title": "Psychotic Episode Treatment Race Ethnicity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - treatment disparities study"},
+    {"id": "8c710ef5-9969-49ff-bef9-5959bc03d327", "title": "CBD Parents Children Epilepsy Thailand", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic survey"},
+    {"id": "8c73b341-365c-4cad-afdf-de9ed7bba492", "title": "Cannabinoids Tourette Neuroleptics Adjunct", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Tourette's therapeutic"},
+    {"id": "8c800264-e963-4669-87bf-16c3b2194154", "title": "Cannabinoids Anxiolytic Periaqueductal Gray", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anxiety mechanism"},
+    {"id": "8c80747c-f741-4d09-b53e-5631e3bca5e0", "title": "MIA MRI Rat Offspring Poly(I:C)", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - maternal immune activation"},
+    {"id": "8c9d40c6-07dd-44b8-95a0-687c36173924", "title": "CBD Oral Anti-arthritic Collagen Arthritis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD arthritis therapeutic"},
+    {"id": "8ca76d95-dfea-4a83-b68f-893bd8887026", "title": "Cannabinoids Difficult Pain Sativex", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain therapeutic"},
+    {"id": "8ca790a6-ba58-46fa-92e2-55479ed62334", "title": "Fluorinated Cannabinoid Cytokine Microglial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anti-inflammatory mechanism"},
+    {"id": "8cbafe74-b6b1-480f-a51d-ea1f2e06f25b", "title": "Medical Cannabis Chronic Pain Efficacy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic"},
+    {"id": "8cd76231-49da-46a2-bcb0-537ea6883dbb", "title": "CBD:THC Spasticity Cerebral Palsy Children", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis CP/spasticity therapeutic"},
+    {"id": "8cda3f51-a08e-4a96-8bcb-184fd516cdc2", "title": "Urinary Metabolic Ratio Pain Drugs", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - drug metabolism analysis"},
+    {"id": "8ced7d1d-ef9e-482c-9261-fe613bf2ec23", "title": "CBD Use Breast Cancer Population", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic"},
+    {"id": "8d1004f1-1ac7-4dab-944a-b7a08057173a", "title": "CBD Batten Disease NCL Treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neurological therapeutic"},
+    {"id": "8d15bd0e-dcbe-4ff3-afcb-8beffff764d4", "title": "Long COVID Disability Australia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - long COVID impact study"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "8c5acce6-e122-4a68-8bb7-bc1ff361eb2d",
+      "8c80747c-f741-4d09-b53e-5631e3bca5e0",
+      "8cda3f51-a08e-4a96-8bcb-184fd516cdc2",
+      "8d15bd0e-dcbe-4ff3-afcb-8beffff764d4"
+    ]
+  }
+}

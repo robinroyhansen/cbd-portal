@@ -1,0 +1,41 @@
+{
+  "batch_number": 276,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T11:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "30d59de5-fdf0-4473-be27-061e709e6795", "title": "Trial-and-error train fare design scheme for addressing boarding/alighting congestion at CBD stations", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "30dc1342-33fc-4710-8f1a-d8783e2b6740", "title": "Blockade of cannabinoid-induced antinociception by norbinaltorphimine, but not N,N-diallyl-tyrosine-Aib-phenylalanine-leucine, ICI 174,864 or naloxone in mice.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid antinociception mechanism"},
+    {"id": "30e55a09-04d7-4cb8-a1cf-d8bf754a9e78", "title": "Association between county level cannabis dispensary counts and opioid related mortality rates in the United States: panel data study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/epidemiology correctly rejected"},
+    {"id": "30e7ac98-ba46-4d52-846b-8bd32d4dbe55", "title": "Synthetic Cannabinoid Use and Sports‐Related Concussion Risk Among US Adolescents: Implications for School Health Screening and Prevention", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid harm correctly rejected"},
+    {"id": "30f0b4c0-e5cb-43c4-9e51-9ed79c6f4fdc", "title": "MUSC Specialized Center of Research Excellence (SCORE) on Sex Differences: Stress-Reactivity and Cannabis Use in Cannabis-Using Older Adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment/cognition correctly rejected"},
+    {"id": "30f0c119-0823-4ba6-9381-da6b613d5e42", "title": "On-Line Solid Phase Extraction High Performance Liquid Chromatography Method Coupled With Tandem Mass Spectrometry for the Therapeutic Monitoring of Cannabidiol and 7-Hydroxy-cannabidiol in Human Serum and Saliva", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical methodology correctly rejected"},
+    {"id": "311bb327-051c-4ef1-9be0-99030d28bd35", "title": "Propagation of Cannabis for Clinical Research: An Approach Towards a Modern Herbal Medicinal Products Development", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/cultivation correctly rejected"},
+    {"id": "311d1629-60a6-409c-a202-553d6f009688", "title": "CBD as a cure‐all? The impacts of state‐level legalization of prescription cannabidiol (CBD) on opioid prescriptions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy study correctly rejected"},
+    {"id": "31281840-057c-481e-8e36-bff1c82ef327", "title": "Cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Generic title/editorial correctly rejected"},
+    {"id": "312a73cd-7c19-4e69-864f-06ac5ea2df0e", "title": "Cannabinoid pharmacology and therapy in gut disorders", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid GI therapeutics"},
+    {"id": "312bc096-e76c-4904-962f-c164e379c022", "title": "Cannabidiol: State of the art and new challenges for therapeutic applications", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic review"},
+    {"id": "313bb8a0-e43a-4ee7-b9ff-d41763445e56", "title": "https://ipsnews.net/business/2022/01/31/organixx-cbd-gummies-review-benefits-usa-made-formula/", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "31438463-d16d-4aeb-b81e-dcbc01fa13a2", "title": "Evidence for a Cannabinoid Receptor in Immunomodulation by Cannabinoid Compounds", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor immunomodulation"},
+    {"id": "31531d46-6a2d-45e5-b617-8f6f948434d4", "title": "Effect of MAPbBr3 HTL and CBD Deposited Cd1–xZnxS ETL Band Offset on Lead Halide Perovskite Solar Cell", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "315a3b60-a67b-4ceb-9174-ee8ea499a496", "title": "Stimulation of cannabinoid receptor agonist 2-arachidonylglycerol by chronic ethanol and its modulation by specific neuromodulators in cerebellar granule neurons", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid 2-AG mechanism"},
+    {"id": "315e4c84-f749-40a8-b033-ed5ceeeac641", "title": "Sumac Polyphenols as Pan-Herpesvirus Inhibitors", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "315f608d-b9cf-48b1-9e8b-1cc29b84f125", "title": "Cannabinoid modulation of prefrontal–limbic activation during fear extinction learning and recall in humans", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid fear/anxiety mechanism"},
+    {"id": "3194b80c-29fe-4327-9f84-960d2cd67a89", "title": "Acute cannabidiol (CBD), tetrahydrocannabinol (THC) and their mixture (THC:CBD) exert differential effects on brain activity and blood flow in rats: A translational neuroimaging study.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC brain mechanism"},
+    {"id": "31aedbb3-18f4-4d25-b5b9-c9f9563dfcef", "title": "Cannabidiol induces apoptotic cell death in human trophoblast BeWo cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CBD pregnancy harm correctly rejected"},
+    {"id": "31af1048-5d92-4212-9bfe-feb433f01ced", "title": "Estimation of the proportion of population cannabis consumption in Australia that is accounted for by daily users using Monte Carlo Simulation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "30dc1342-33fc-4710-8f1a-d8783e2b6740",
+      "312a73cd-7c19-4e69-864f-06ac5ea2df0e",
+      "312bc096-e76c-4904-962f-c164e379c022",
+      "31438463-d16d-4aeb-b81e-dcbc01fa13a2",
+      "315a3b60-a67b-4ceb-9174-ee8ea499a496",
+      "315f608d-b9cf-48b1-9e8b-1cc29b84f125",
+      "3194b80c-29fe-4327-9f84-960d2cd67a89"
+    ]
+  }
+}

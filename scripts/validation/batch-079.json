@@ -1,0 +1,39 @@
+{
+  "batch_number": 79,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T09:30:00.000Z",
+  "results": [
+    {"id": "5709762c-d51f-47ba-8b03-4187934141f4", "title": "Epilepsy, neuroinflammation and CBD review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy/neuroinflammation therapeutic"},
+    {"id": "57161073-9a8c-46b3-9c40-588b2cabce39", "title": "Cannabinoids modulate locus coeruleus neurons", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neural mechanism"},
+    {"id": "5721c7b6-aea6-4941-8559-aa84e2fd5f82", "title": "Endocannabinoid signaling ACC Alzheimer's", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS Alzheimer's mechanism"},
+    {"id": "573378c4-2cd4-43c5-9c93-708f7598c1d4", "title": "Cannabinoids for persistent post-surgical pain knee", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid surgical pain RCT"},
+    {"id": "57366db7-71f6-439a-9a8d-239afb027015", "title": "New delivery approach oral CBD pharmacokinetics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD formulation research"},
+    {"id": "575bbb07-9626-4e83-bcef-5d2201ed56a1", "title": "Cannabis genome toxicity congenital anomalies cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - genotoxicity"},
+    {"id": "575ef6a2-a8f4-4061-bfec-55e08e8f466e", "title": "CBD for skeletal muscle injury signaling", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD muscle injury therapeutic"},
+    {"id": "577212c2-a04c-4b37-a096-21e8157cfc72", "title": "Hair regrowth with topical CBD case study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD alopecia therapeutic"},
+    {"id": "5774b975-c28d-436a-a2e6-da90ec5e4764", "title": "CBD inverted U-shaped dose-response public speaking", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiolytic dose-response"},
+    {"id": "57a373b8-d607-4bea-8b6d-5c81d33644c8", "title": "Gender differences symptoms suicide CUD treatment seekers", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD demographics"},
+    {"id": "57ae0d09-eb67-468a-8714-195796da39e4", "title": "CBD in treatment and management of pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic"},
+    {"id": "57b80379-ec06-40c4-80ab-3f6f8e25ae84", "title": "Network meta-analysis CBD stiripentol Dravet", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Dravet syndrome meta-analysis"},
+    {"id": "57d4c6a8-242c-490b-b734-e1700f77c8d9", "title": "Cannabis and Psychosis causality debate", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis epidemiology"},
+    {"id": "57e2f8e1-554b-4a91-9620-1cb8a251bfb2", "title": "Anthocyanin-rich extract reduces ileal inflammation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - anthocyanin diet study"},
+    {"id": "57e55880-5247-4c74-aaef-b349b637dafb", "title": "Cannabis for spinal cord injury spasticity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis spasticity therapeutic"},
+    {"id": "57ec5f1f-4a5f-439d-b5a5-dcb005f910a5", "title": "Structure of cannabis dependence community", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - addiction epidemiology"},
+    {"id": "5804dff8-ddbb-4a4b-a89a-d4960b3701dd", "title": "CBD normalizes brain activity antipsychotic psychosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antipsychotic mechanism"},
+    {"id": "580b9a9d-5c44-40ee-bdc0-d8f3b5b5b9f9", "title": "CBD pregnancy doses alter offspring behavior", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pregnancy safety research"},
+    {"id": "580eec09-b6bf-45ec-a2da-41ce302c6d31", "title": "CBD opposing effects neuroendocrine tumor pheochromocytoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic"},
+    {"id": "5811b178-b8f1-4120-995f-e223bde5265a", "title": "Cannabis use risky sexual behavior cognition", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - risky behavior"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "575bbb07-9626-4e83-bcef-5d2201ed56a1",
+      "57a373b8-d607-4bea-8b6d-5c81d33644c8",
+      "57d4c6a8-242c-490b-b734-e1700f77c8d9",
+      "57e2f8e1-554b-4a91-9620-1cb8a251bfb2",
+      "57ec5f1f-4a5f-439d-b5a5-dcb005f910a5",
+      "5811b178-b8f1-4120-995f-e223bde5265a"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "batch_number": 295,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T15:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "45fa0609-d430-40c4-a8d9-cf35a58ab83d", "title": "Green Synthesis of Silver Nanoparticles Using Cannabis sativa Extracts and Their Anti-Bacterial Activity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Nanotechnology correctly rejected"},
+    {"id": "45fbda3e-6c51-4ee0-af4f-290c505f50d8", "title": "Medicinal cannabis: knowledge, beliefs, and attitudes of Colombian psychiatrists", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis healthcare provider research"},
+    {"id": "45fe224f-4d31-47bb-87c1-e25452f8e280", "title": "Effect of Rhizophagus irregularis on Growth and Quality of Cannabis sativa Seedlings", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "4606a741-5a56-47a8-9807-1a7fb853033c", "title": "CBD-1 organizes two independent complexes required for eggshell vitelline layer formation and egg activation in C. elegans", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (C. elegans protein) correctly rejected"},
+    {"id": "460e47fd-2d9c-47cb-a166-57a86de3b4ce", "title": "Cannabinoid CB2 receptor: a new target for controlling neural cell survival?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 neuroprotection therapeutic"},
+    {"id": "461462c0-326e-4654-bd49-001b5de0adea", "title": "Effects of Exogenous and Endogenous Cannabinoids on GABAergic Neurotransmission between the Caudate-Putamen and the Globus Pallidus in the Mouse", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neurotransmission mechanism"},
+    {"id": "462ae837-21a8-4c4b-a309-ce798e89b4ce", "title": "Effects of the 2009 Medical Cannabinoid Legalization Policy on Hospital Use for Cannabinoid Dependency and Persistent Vomiting", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/CUD correctly rejected"},
+    {"id": "463c2875-1c90-4f52-b14c-d4da0509de06", "title": "CBD office location patterns : a Vancouver case study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "463d14e6-0400-42cd-924c-4d9250bbddb6", "title": "Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD overview entry"},
+    {"id": "46487b5a-e7df-492c-9c4c-c8111b990ef2", "title": "Short-term effects of cannabidiol after global hypoxia-ischemia in newborn piglets", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD neuroprotection"},
+    {"id": "465daf80-7867-4845-ac56-33d523105d3a", "title": "Synthetic cannabinoids in Mayotte over a year in time and space: an example of high-frequency evolution of market.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid market correctly rejected"},
+    {"id": "4660b4a5-bb60-48fd-8045-d15f30f5ea7c", "title": " Longitudinal Neurocognitive Trajectories in a Large Cohort of Youth Who Use Cannabis: Combining Self-Report and Toxicology ", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "466de9b3-f643-468d-a326-9f6ad051e471", "title": "Accommodating population growth in the CBD: changes, opportunities and challenges for multi-level community living in Adelaide, South Australia", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "466dfb02-5c77-4321-abca-733566d1ec65", "title": "98/01397 Characterization of CulnSe2/CdS thin-film solar cells prepared using CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "467b6062-3469-4c08-bd0c-b174714bbace", "title": "Prenatal exposure to tobacco and cannabis: Effects on autonomic and emotion regulation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "467fea32-f914-4116-8158-eb78bda61275", "title": "Organic Line CBD Oil: Healthline's picks of the best CBD oils", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "468050a6-3ac2-4134-bd02-93878b73fbaf", "title": "Is cannabis legalization associated with treatment completion? A study of pregnant women admitted for cannabis use in substance use treatment facilities, 2020-2022.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "4689d79b-bb17-4712-9ef7-be0f2e1f48a2", "title": "Evolution and Classification of Cannabis sativa (Marijuana, Hemp) in Relation to Human Utilization", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant taxonomy correctly rejected"},
+    {"id": "46919681-9a7f-4ba0-a2d4-b5f17ae9a2ac", "title": "The Endogenous Cannabinoid Anandamide and Its Synthetic Analog R(+)-Methanandamide Are Intravenously Self-Administered by Squirrel Monkeys", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid reward mechanism"},
+    {"id": "469bfb04-4b9f-4044-a49a-4b3b1ca8639e", "title": "Verbal learning and memory in adolescent cannabis users, alcohol users and non-users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "45fbda3e-6c51-4ee0-af4f-290c505f50d8",
+      "460e47fd-2d9c-47cb-a166-57a86de3b4ce",
+      "461462c0-326e-4654-bd49-001b5de0adea",
+      "463d14e6-0400-42cd-924c-4d9250bbddb6",
+      "46487b5a-e7df-492c-9c4c-c8111b990ef2",
+      "46919681-9a7f-4ba0-a2d4-b5f17ae9a2ac"
+    ]
+  }
+}

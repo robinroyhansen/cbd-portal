@@ -1,0 +1,37 @@
+{
+  "batch_number": 249,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T04:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "12cc8c05-4236-468b-8350-12f37e52e96e", "title": "Intrinsic Frequency Vowels Childhood Apraxia", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "12e127ff-d004-40b7-9291-3370a0b29512", "title": "SWOT Analysis Beijing CBD Financial", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "12f1fe65-48f5-437c-8b1d-844e4ee24432", "title": "Genome-wide seed storage protein Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "12f3668c-385f-4ef0-bf3b-1ff112d8c410", "title": "Cannabinoids synthetic retrosynthetic analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Physical chemistry correctly rejected"},
+    {"id": "13085b36-eac4-4d32-af62-e9756bc0442e", "title": "Cannabis Use Treatment ADHD Cocaine", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use effects correctly rejected"},
+    {"id": "130ca9b2-9f3f-44c2-93fd-03592dfaa4fc", "title": "Neurovascular Signaling Gliovascular", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "13127caa-77cc-412e-9913-f4d6352497c6", "title": "Hemp CBD Schedule I Drug DEA", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Regulatory news correctly rejected"},
+    {"id": "1316b6b3-3c19-4ca0-a9a2-83327b77fbaf", "title": "Agroinfiltration Cannabinoid Hemp", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "13181a9a-7149-4fe9-8c14-49bf7e0f8f94", "title": "CP47,497 JWH073 Spice CB1 agonists", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoids correctly rejected"},
+    {"id": "132ce19e-107c-4fa4-ab77-4ee5a7cf23e4", "title": "Brain structure older cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "134941ea-8f55-4054-9e8a-93d6840c1980", "title": "CBD-rich hemp extract aversive memory RCT", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic clinical trial"},
+    {"id": "13811bb9-50f7-4d24-aa5a-24a16b5178c5", "title": "Development International CBD Nanjing", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "139309b0-296c-4e76-b223-5c4747b2bd59", "title": "Phloroglucinol glucoside Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant chemistry correctly rejected"},
+    {"id": "139be880-1012-4dec-a698-6909e97cb1ce", "title": "Extrusion hempseed hull phenolic", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food processing correctly rejected"},
+    {"id": "13a81df5-adda-4f9c-a50e-1a3948330347", "title": "Cannabinoid Quantification UHPLC-MS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical method correctly rejected"},
+    {"id": "13b183b5-8e5f-4f58-8289-7da2c9ed100c", "title": "Comparing cannabis with tobacco", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "13cdbb81-767c-4921-ae9b-cf28e47bfa11", "title": "Essential Oils Flea Control", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "13d0729c-4e28-410e-813e-307b843ce27f", "title": "Cannabis impact alcohol-related cirrhosis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis potential liver therapeutic"},
+    {"id": "13d9c6f7-26ff-4377-99c0-42fdfdedcd3e", "title": "Anandamide CB1 blockade protective cerebral ischemia", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid stroke protection"},
+    {"id": "13e5372d-9d34-4309-b2ff-23fab9d2e856", "title": "CBD COP-10", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "134941ea-8f55-4054-9e8a-93d6840c1980",
+      "13d0729c-4e28-410e-813e-307b843ce27f",
+      "13d9c6f7-26ff-4377-99c0-42fdfdedcd3e"
+    ]
+  }
+}

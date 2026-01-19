@@ -1,0 +1,36 @@
+{
+  "batch_number": 149,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T03:15:00.000Z",
+  "results": [
+    {"id": "a6176c3e-5991-4431-9a75-0096a736368c", "title": "Pharmaceutical interviews CBD oncology DDIs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interactions cancer"},
+    {"id": "a634c0aa-aa04-419d-8c92-9ce4b868a907", "title": "CBD vs Alprazolam Postoperative Pain TKA", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain clinical trial"},
+    {"id": "a6466738-eb0d-47b9-a17b-0b218d66cbca", "title": "Cannabinoids NanoCelle PK Cancer Patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid delivery clinical"},
+    {"id": "a6482791-364c-42dd-8ae4-c83cf0683f39", "title": "CBD exercise cancer survivors CIPN", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD chemotherapy neuropathy"},
+    {"id": "a654ddab-3714-4f39-bc5a-eb441dd3c76c", "title": "Minor Cannabinoids CBD CBG CBN CBC neurons", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "a664bb2f-0625-4428-8d60-b88d192bba29", "title": "CBD lipid nanocarriers analgesic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain formulation"},
+    {"id": "a687eb63-9888-44de-b966-6652c7af22a8", "title": "Cannabinoid Nabilone OCD Adults", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid OCD clinical trial"},
+    {"id": "a68a75dc-8f2d-4254-9842-164a82fdc5e2", "title": "Recovery laparoscopic management CBD stones", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - common bile duct"},
+    {"id": "a6aea39b-1d76-4c2a-8c32-fb4ef1561969", "title": "CBD antioxidant chlorpyrifos goldfish brain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection mechanism"},
+    {"id": "a6c61326-43b2-4c1c-b941-05a6b838e054", "title": "CBD Oxidative Neuroinflammation Alzheimer's", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD AD therapeutic review"},
+    {"id": "a6e0e4c8-70f0-4bd3-942a-ff41e135164d", "title": "How I Manage Gall Bladder Cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general oncology"},
+    {"id": "a6e94504-7c20-4146-8c1c-0ea6c22d11d4", "title": "Time-lapse Imaging CBD Microglial Stroke", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD stroke therapeutic"},
+    {"id": "a6f931ef-00e9-4e6e-b657-964d0797757b", "title": "CBD Rivastigmine Memory Impairment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cognitive therapeutic"},
+    {"id": "a71c13f2-843a-4f18-a8d1-e15f4208d4d0", "title": "Cardiovascular Risk Cannabis Products Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cardiovascular safety"},
+    {"id": "a721d2d8-86e7-4746-8177-711557273f19", "title": "CB2r cardiac contractility redox rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cardiovascular mechanism"},
+    {"id": "a75d5c55-33b8-45bd-8add-4cdc47319074", "title": "Corrigendum CBD sexual hygiene product", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - corrigendum"},
+    {"id": "a76649ea-19c0-4ef2-9adf-340e903a50e6", "title": "CBD-related terpene N-acyl-hydrazones analgesic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD-related drug development"},
+    {"id": "a76a376b-3c6d-4c37-899f-b0f1103afb02", "title": "Lipid-Drug Conjugates CBD Cutaneous Delivery", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery review"},
+    {"id": "a79388fa-e98e-408c-9f2b-d0afd7a98de8", "title": "CBD Disrupts Malme-3M Metabolism Glycolytic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer mechanism"},
+    {"id": "a79c826d-366e-463e-a23a-f15323c75ab9", "title": "CBD Therapeutic Potential Dentistry Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD dental therapeutic review"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "a68a75dc-8f2d-4254-9842-164a82fdc5e2",
+      "a6e0e4c8-70f0-4bd3-942a-ff41e135164d",
+      "a75d5c55-33b8-45bd-8add-4cdc47319074"
+    ]
+  }
+}

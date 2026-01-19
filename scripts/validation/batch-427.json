@@ -1,0 +1,39 @@
+{
+  "batch_number": 427,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T00:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "d826721a-250d-417f-b98c-b16aee1a1ce6", "title": "Opioid and Cannabinoid Modulation of Precipitated Withdrawal in Δ9-Tetrahydrocannabinol and Morphine-Dependent Mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid-opioid withdrawal mechanism research"},
+    {"id": "d86a1ed7-b485-415b-99ea-bbfcaa82460c", "title": "Unraveling the mystery of placebo effect in research and practice: An update", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "d87592bb-2f58-4ed2-a9a9-3fc00cd1c518", "title": "Antiproliferative and antioxidant effect of polar hemp extracts (Cannabis sativa L., Fedora cv.) in human colorectal cell lines", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - hemp extract antiproliferative cancer research"},
+    {"id": "d8813d42-975e-4c0c-92ae-cf2797565089", "title": "Exceptionally Potent Chiral Anandamide Analogs.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid analog research"},
+    {"id": "d8879077-eaf8-407a-8b1d-1c46f33371c2", "title": "Unique treatment potential of cannabidiol for the prevention of relapse to drug use", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD relapse prevention therapeutic research"},
+    {"id": "d88c56bf-8965-4fdf-a1f9-8ac4b1be3b30", "title": "Emergent Medical Illnesses Related to Cannabis Use.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "d8c6bcfd-6e2e-4499-b82e-e9fd02fa0e97", "title": "Defining molecular glues with a dual-nanobody cannabidiol sensor", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CBD used as research tool correctly rejected"},
+    {"id": "d8e1e9e5-c6a5-464b-8241-6ec317ea6517", "title": "Delta 9-Tetrahydrocannabinol Signaling Through Cannabinoid Receptor 1 Alters Trophoblast Differentiation.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis reproductive harm correctly rejected"},
+    {"id": "d8e3dcc6-ad3f-4630-bbbe-6309429a0da9", "title": "Effect of Light Quality on Cannabinoid Content of Cannabis sativa L. (Cannabaceae)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/cultivation correctly rejected"},
+    {"id": "d8e69316-e276-4fd8-9ff8-d74862d421a7", "title": "Surgical Treatment of Bile Duct Stones after Failed Endoscopic Management.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "d92199ff-585f-4e93-93dc-fa7b10f86c0e", "title": "Collagen-binding C-type natriuretic peptide enhances chondrogenesis and osteogenesis.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "d9466c7c-1c53-4ce5-b87b-19b7a4b28566", "title": "Cannabinoids Inhibit the Formation of New Synapses between Hippocampal Neurons in Culture", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis cognitive harm mechanism correctly rejected"},
+    {"id": "d97e9a4c-23e6-4648-89dc-791aa1b44b1e", "title": "Over the counter low-dose cannabidiol: A viewpoint from the ACRE Capacity Building Group", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "d9849f9c-0c17-49f9-9049-19ca0ec5d711", "title": "An efficient BTX sensor based on ZnO nanoflowers grown by CBD method", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "d99984c7-2bd7-422f-a243-09f609000715", "title": "Cloning and expression of a recombinant human CBD (carbohydrate binding domain) : a comparison between two expression models", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Carbohydrate Binding Domain) correctly rejected"},
+    {"id": "d9a079f4-32e8-4f1f-9f64-c2202ddabe15", "title": "Cannabis and Temporal Disintegration in Experienced and Naive Subjects", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis cognitive impairment correctly rejected"},
+    {"id": "d9b2a0db-5275-4f01-9262-313367241a9d", "title": "北京CBD东扩究竟\"扩\"出了什么", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "d9b93ae9-cbc1-4348-8b5c-8d3d92176500", "title": "EFFECTS OF CANNABIS ON SEX HORMONES AND TESTICULAR ENZYMES OF THE RODENT", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis reproductive harm correctly rejected"},
+    {"id": "d9c3b270-5392-4a90-b965-feac78cd52dc", "title": "A new insight into Cannabis sativa (Cannabaceae) utilization from 2500-year-old Yanghai Tombs, Xinjiang, China", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Historical/archaeological correctly rejected"},
+    {"id": "d9cd4df7-16e1-4792-b208-6bccf012c5a5", "title": "Design and synthesis of amphiphilic cannabichromene derivatives with antimicrobial potential.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBC antimicrobial therapeutic research"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "d826721a-250d-417f-b98c-b16aee1a1ce6",
+      "d87592bb-2f58-4ed2-a9a9-3fc00cd1c518",
+      "d8813d42-975e-4c0c-92ae-cf2797565089",
+      "d8879077-eaf8-407a-8b1d-1c46f33371c2",
+      "d9cd4df7-16e1-4792-b208-6bccf012c5a5"
+    ]
+  }
+}

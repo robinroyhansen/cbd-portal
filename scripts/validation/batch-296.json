@@ -1,0 +1,43 @@
+{
+  "batch_number": 296,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T16:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "469e2e4d-79f2-4eb2-b616-7384d15baa3a", "title": "15 companies warned for illegally selling cannabidiol products", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Regulatory news correctly rejected"},
+    {"id": "46b107ea-cc14-4fa2-937a-8ae909d38422", "title": "Referee report. For: Are side effects of cannabidiol (CBD) products caused by tetrahydrocannabinol (THC) contamination? [version 3; peer review: 2 approved, 1 approved with reservations]", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research"},
+    {"id": "46b46936-d3ac-4eb5-8b01-83699de22b92", "title": "Cannabis and mental health.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "46cfc3cf-fbac-43f0-8f04-228a6ba02953", "title": "The Relationship between TRIPs and the CBD: A Way Forward?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention) correctly rejected"},
+    {"id": "46d95923-22ee-4320-9efa-c9db6ba539b0", "title": "Internalizing symptoms are indirectly associated with simultaneous alcohol and cannabis use through specific motives for simultaneous use: A longitudinal study of young adults.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "46dcf67f-1c5d-4195-8f56-b65c6a7ea65f", "title": "The effects of cannabinoids on the regulation of reproduction", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid reproductive mechanism"},
+    {"id": "46de793c-bf82-4a65-bdb5-6355f1e070af", "title": "Blunted highs: Pharmacodynamic and behavioral models of cannabis tolerance", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacodynamics"},
+    {"id": "46e63ebd-6819-48aa-8ae0-25cd8f31e67a", "title": "Cannabinoid CB1 Receptors Mediate the Gastroprotective Effect of Neurotensin.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 gastroprotection mechanism"},
+    {"id": "46eb81d4-ee43-454d-bac1-54073fd12147", "title": "What's the Difference Between Hemp-Derived CBD Oil and Hemp Seed Oil?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General information correctly rejected"},
+    {"id": "47085ca3-8d97-4c77-b115-4001f7d341e2", "title": "Anatomical White Matter Tracts Span the Cortical Hierarchy to Support Cognitive Diversity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "470b1e69-fe08-4495-af86-3977c5d53e6c", "title": "Redefining preoperative imaging-based localization of adenomas in primary hyperparathyroidism patients candidates for minimally invasive surgery.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "4725b374-1f28-458b-b9d4-029e0441b5a6", "title": "Cannabis‐Derived Compounds Against Plasmodium sp.: A Systematic Review of Preclinical Studies", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid antimalarial therapeutic"},
+    {"id": "47336a30-e72b-47bd-a059-81697d628230", "title": "Self-administration of cannabinoids by experimental animals and human marijuana smokers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Addiction correctly rejected"},
+    {"id": "47356d5c-f056-452a-bc24-9d1126fb63f7", "title": "Cannabinoids and Cerebellar-Motor Functioning", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment study correctly rejected"},
+    {"id": "4735f262-73a6-45d2-882c-eef57b15bccf", "title": "Involvement of cannabinoid receptors in the amygdala and prefrontal cortex of rats in fear learning, consolidation, retrieval and extinction", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid anxiety/fear mechanism"},
+    {"id": "47459314-8931-44a8-af1b-5b7f0beb6cda", "title": "Recommendations for the Clinical Management and Prevention of Pediatric Cannabis Edible Ingestions.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Poisoning management correctly rejected"},
+    {"id": "476a1c30-3197-4ad3-84a4-e46728bd7b17", "title": "Colon carcinogenesis is inhibited by the TRPM8 antagonist cannabigerol, a Cannabis-derived non-psychotropic cannabinoid", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBG anticancer therapeutic"},
+    {"id": "4773a64d-4f45-4e2b-9737-482e9afb763d", "title": "Conception of novel protein-polysaccharide complex coacervation based on Hemp proteins and Kudzu starch for the microencapsulation of Limosilactobacillus reuteri DSM 17938 probiotic strain.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food science correctly rejected"},
+    {"id": "477a6c3f-75e1-479e-b06c-51eb4ea0cf03", "title": "CBD Disrupts Malme-3M Cell Metabolism via Glycolytic Shift and Redox Imbalance.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anticancer mechanism"},
+    {"id": "47801dd6-032c-4884-9bc7-affd77ac1194", "title": "In vitro metabolism of cannabidiol in the rabbit: Identification of seventeen new metabolites including thirteen dihydroxylated in the isopropenyl chain", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD metabolism pharmacokinetics"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "46b107ea-cc14-4fa2-937a-8ae909d38422",
+      "46dcf67f-1c5d-4195-8f56-b65c6a7ea65f",
+      "46de793c-bf82-4a65-bdb5-6355f1e070af",
+      "46e63ebd-6819-48aa-8ae0-25cd8f31e67a",
+      "4725b374-1f28-458b-b9d4-029e0441b5a6",
+      "4735f262-73a6-45d2-882c-eef57b15bccf",
+      "476a1c30-3197-4ad3-84a4-e46728bd7b17",
+      "477a6c3f-75e1-479e-b06c-51eb4ea0cf03",
+      "47801dd6-032c-4884-9bc7-affd77ac1194"
+    ]
+  }
+}

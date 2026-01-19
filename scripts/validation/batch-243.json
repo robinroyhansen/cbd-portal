@@ -1,0 +1,39 @@
+{
+  "batch_number": 243,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T02:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "0c952de8-fb19-4ffb-a021-863d30b7db17", "title": "7 cannabinoids cannabis oil GC-MS validation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical method correctly rejected"},
+    {"id": "0ca19489-c702-4d53-94e3-e9cf58291ce9", "title": "Delta-8 vs Delta-9-THC Driving Impairment", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment/harm correctly rejected"},
+    {"id": "0ca5c321-5df8-4b52-8a9e-1b378996f6c1", "title": "Bright Side CBD Male Enhancement Reviews", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "0ccce5d8-3257-4e46-a6c4-7d9bf726bea2", "title": "Stimulant cannabis alcohol college students", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevalence correctly rejected"},
+    {"id": "0ccf5e6d-e571-423e-bc58-1ce55e81840f", "title": "Drug use Japanese Junior High 2016-2024", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevalence correctly rejected"},
+    {"id": "0ce2e328-dfcb-462b-add7-c7c080de87df", "title": "Coronal malalignment lumbar scoliosis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "0cf172a0-5a2d-4b97-ae47-debf6ed3305d", "title": "Driving Medical Marijuana Opioid 50+", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Driving/impairment correctly rejected"},
+    {"id": "0d08a38e-0755-42b8-a5db-143c5b765e4f", "title": "Semisynthetic Cannabinoids Poland Legal Analytical", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/regulatory correctly rejected"},
+    {"id": "0d0e66f0-567b-4258-81cb-307a18cb3cda", "title": "CBD Cannabinoids Antibacterial Enterococcus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic antibacterial"},
+    {"id": "0d16367a-054d-4953-8277-d2c0046c1341", "title": "Cannabinoid receptors cat GI tract", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "0d19ff18-01ff-4633-93e3-17b044c8aabe", "title": "CUDIT Cannabis Use Disorders Test revision", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD screening correctly rejected"},
+    {"id": "0d230931-d161-4269-8118-75b0491da4c3", "title": "Phytocannabinoids Neurological Disorders", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic review"},
+    {"id": "0d276ab2-92a9-402f-9f75-2482c3b44230", "title": "THC and CBD in the Body", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacology"},
+    {"id": "0d4ff411-ef75-4e03-b8b6-da880f996850", "title": "Public health monitoring cannabis Europe", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevalence/public health correctly rejected"},
+    {"id": "0d60173d-f1ed-4220-90f6-02311a5d3de9", "title": "CBD guidance MPA networks Canada", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "0d87cf67-6326-49b7-96b8-f419a05c1897", "title": "Alcohol cigarette cannabis legalization tax", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "0d90bbbe-17d3-4164-94b8-0b7be6c3368e", "title": "Overdose opioid survivors", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "0d9c4484-ef4c-4b5a-869b-e00bb8807ec2", "title": "Cannabinoid receptor GTPγS binding ethanol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism"},
+    {"id": "0da69ed3-f54e-420d-a6f3-99c953a16d10", "title": "Medical cannabis drug interaction older patients", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis safety research"},
+    {"id": "0db13381-051d-479d-a5fe-b78228162810", "title": "Cannabis Illegal Sources Legal Markets", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market/consumer correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "0d0e66f0-567b-4258-81cb-307a18cb3cda",
+      "0d230931-d161-4269-8118-75b0491da4c3",
+      "0d276ab2-92a9-402f-9f75-2482c3b44230",
+      "0d9c4484-ef4c-4b5a-869b-e00bb8807ec2",
+      "0da69ed3-f54e-420d-a6f3-99c953a16d10"
+    ]
+  }
+}

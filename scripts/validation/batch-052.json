@@ -1,0 +1,38 @@
+{
+  "batch_number": 52,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T02:45:00.000Z",
+  "results": [
+    {"id": "3ac182cf-6d6c-423c-9ba8-4b4459efea67", "title": "CANNABIDIOL PROTECTS DOPAMINERGIC NEURONS AGAINST PARAQUAT- AND MANEB-INDUCED CELL DEATH THROUGH SAFEGUARDING DJ-1 CYS106 AND INHIBITING CASPASE 3 INDEPENDENTLY OF CANNABINOID RECEPTORS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's neuroprotection mechanism"},
+    {"id": "3acef47f-a314-4bfd-a847-11751c4a273d", "title": "Cannabis, schizophrenia and other non-affective psychoses: 35 years of follow-up of a population-based cohort", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis HARM - 35-year study showing cannabis causes schizophrenia/psychosis"},
+    {"id": "3ae6e778-05a5-47b7-8a07-45353a5cfa89", "title": "Cannabinoid CB1‐receptor mediated regulation of gastrointestinal motility in mice in a model of intestinal inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 intestinal inflammation mechanism research"},
+    {"id": "3ae983ff-85b7-4bd4-9241-19f42504ed1d", "title": "SARS-CoV2 induced respiratory distress: Can cannabinoids be added to anti-viral therapies to reduce lung inflammation?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid COVID anti-inflammatory therapeutic"},
+    {"id": "3aebcf8f-0660-469c-a7fc-283df7cbab86", "title": "Synergistic Anticancer Effects of Fibroblast Growth Factor Receptor Inhibitor and Cannabidiol in Colorectal Cancer.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD colorectal cancer therapeutic"},
+    {"id": "3aeced8e-0a0b-419c-af2d-c116d9fec9e2", "title": "Therapeutic approach to fibromyalgia: a consensus statement on pharmacological and non-pharmacological treatment from the neuropathic pain special interest group of the Italian neurological society.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general fibromyalgia treatment consensus, no cannabinoid focus"},
+    {"id": "3afdb4f5-35dc-4236-a993-10f48e585c62", "title": "CB1‐independent inhibition of dopamine transporter activity by cannabinoids in mouse dorsal striatum", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid dopamine mechanism research"},
+    {"id": "3b2a72eb-91ef-464d-98cd-a2eb2005a912", "title": "Understanding the Medical Chemistry of the Cannabis Plant is Critical to Guiding Real World Clinical Evidence", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis medical chemistry therapeutic evidence review"},
+    {"id": "3b2e671f-2534-4ae7-8a4e-f8e3406ec95f", "title": "Aktuelle Rechtsprechung bestätigt Novel Food-Einstufung von Hanfextrakten und Cannabidiol (CBD) in Lebensmitteln – Betäubungsmitteleinstufung von Cannabislebensmitteln ist weiterhin unklar", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - German CBD Novel Food regulatory legal status"},
+    {"id": "3b49f5cf-5ceb-40e8-b7c9-00ba7e438d32", "title": "Cannabidiol for Adjuvant Treatment of Seizures Associated with Lennox–Gastaut Syndrome and Dravet Syndrome: An Evidence Review Group Perspective of a NICE Single Technology Appraisal", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy NICE health technology assessment"},
+    {"id": "3b534158-5463-4a47-8ea6-990dd75cb65f", "title": "Targeting Gastrointestinal Cancers with Cannabidiol: Mechanisms, Challenges, and Therapeutic Implications.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD GI cancer therapeutic review"},
+    {"id": "3b579bbf-5c14-4512-a32f-1739f3e7b6b8", "title": "Cannabinoid CB2 Receptor Gene and Environmental Interaction in the Development of Psychiatric Disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 depression/anxiety mechanism research"},
+    {"id": "3b6f6d51-d4de-4cc4-96e2-7621fc0e18d9", "title": "[#Shocking Exposed] Tom Selleck CBD Gummies, More Other Searches", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING - celebrity CBD gummies marketing"},
+    {"id": "3b71ee0a-757d-47d4-8076-bcfc474ff309", "title": "Long-Term Efficacy and Safety of Inhaled Cannabis Therapy for Painful Diabetic Neuropathy: A 5-Year Longitudinal Observational Study", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis diabetic neuropathy 5-year therapeutic study"},
+    {"id": "3b74000b-2fc0-4c51-9e4e-c02bbfdd1847", "title": "SYNTHESIS AND OPTIMIZATION OF MAGNESIUM ALUMINOMETASILICATE-TEMPLATED MESOPOROUS NANOPARTICLES FOR CANNABIDIOL DELIVERY: A NOVEL APPROACH", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery formulation research"},
+    {"id": "3b747241-0fd3-4ba7-8fd8-f72afa62f884", "title": "Towards cannabis and cannabinoid treatment of multiple sclerosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid MS therapeutic review"},
+    {"id": "3b885e32-cd75-400d-b1da-6e717df2bce4", "title": "Medical Cannabis for Gynecologic Pain Conditions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis gynecologic pain systematic review"},
+    {"id": "3b932560-6d46-4497-99b1-8fe4c7d9d4f2", "title": "Family Climate and Intention to Use Cannabis as Predictors of Cannabis Use and Cannabis-Related Problems among Young University Students", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use patterns and problems among university students"},
+    {"id": "3ba26b69-8cf4-4592-a5a9-ea1c43ede9bb", "title": "Activation of 5HT1A receptors mediates the anxiolytic effects of cannabidiol in a PTSD model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PTSD anxiety mechanism research"},
+    {"id": "3bb566ba-cbf8-4093-aeca-6e50c9da3631", "title": "Evidence that CB-1 and CB-2 cannabinoid receptors mediate antinociception in neuropathic pain in the rat", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuropathic pain mechanism research"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "3acef47f-a314-4bfd-a847-11751c4a273d",
+      "3aeced8e-0a0b-419c-af2d-c116d9fec9e2",
+      "3b2e671f-2534-4ae7-8a4e-f8e3406ec95f",
+      "3b6f6d51-d4de-4cc4-96e2-7621fc0e18d9",
+      "3b932560-6d46-4497-99b1-8fe4c7d9d4f2"
+    ]
+  }
+}

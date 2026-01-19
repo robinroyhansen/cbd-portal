@@ -1,0 +1,37 @@
+{
+  "batch_number": 139,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T00:30:00.000Z",
+  "results": [
+    {"id": "9a85bc1e-771d-49bc-afa4-dd81c8ca308f", "title": "CBD Neuroprotection Sciatic Nerve Transection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection therapeutic"},
+    {"id": "9a988704-cf95-49bf-b1ff-bdbee00b4c9d", "title": "Paediatric Brain Tumour Treatments Challenges", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general pediatric oncology"},
+    {"id": "9aa00efc-efd7-486e-8453-0f156f9d9d95", "title": "Toxic Effects Cannabis Cannabinoids Animal Data", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - toxicity review"},
+    {"id": "9ab5d681-9f59-4b48-ad8f-7febcd13f47d", "title": "CBD Celecoxib Glioblastoma Cytotoxicity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic"},
+    {"id": "9adf6c11-ac63-406c-808b-e939b3fc858d", "title": "Obstructive Sleep Apnea Pharmacological Treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Likely includes cannabinoid options"},
+    {"id": "9aeb1d6a-7454-40cb-a4a9-02ebd5ca1410", "title": "CardiolRx CBD Recurrent Pericarditis Pilot", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular therapeutic"},
+    {"id": "9aef83bc-22de-4621-991f-969837877e15", "title": "Naltrexone Cannabis Opioid Use Disorder Network", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - naltrexone for CUD/OUD"},
+    {"id": "9b124ad5-ec8c-4983-b3a4-8a05d1c28d74", "title": "Cannabis Cancer Causal Genetic Perspective", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis-cancer relationship research"},
+    {"id": "9b1313f4-9704-4b8a-9f14-32ada85b1900", "title": "Preoperative Cannabis Postoperative Pain Opioid", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis perioperative pain context"},
+    {"id": "9b1c8f01-aaac-4cdc-8dbc-ae8cd72686ee", "title": "CBD Anandamide PEA OEA Sex-Specific", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacology endocannabinoids"},
+    {"id": "9b2e01d6-d9fc-4903-bf89-5bc807eb9196", "title": "Ethanol Cannabinoids Zebrafish FASD Model", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - developmental toxicity"},
+    {"id": "9b3585ee-c734-4f7a-ac2c-2e5a9bbe390a", "title": "Cannabis Crohn's Disease Overview Treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis IBD therapeutic review"},
+    {"id": "9b4562c7-4a73-4b0a-b2ce-c18cb8a98da9", "title": "CBD Glioblastoma Five-Year Survival", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer integrative treatment"},
+    {"id": "9b513c75-c4fd-4196-b83b-572b3c96c401", "title": "Cannabinoids Autism Neuroinflammation Healing", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid autism therapeutic"},
+    {"id": "9b605cd3-564b-4f3c-aad5-ea87b8741edd", "title": "β-Caryophyllene Neuroprotection Neuroinflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 agonist terpene therapeutic"},
+    {"id": "9b64bd68-fb2d-477a-aec1-2d87f5f1d73f", "title": "CBD Neurofibromatosis Pain Mood Case Report", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain/mood therapeutic case"},
+    {"id": "9b7f516a-961d-4474-8c7d-3ba35550b9c1", "title": "CBD Brain Connectivity Autism ASD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism mechanism research"},
+    {"id": "9b942f60-f686-4b43-ab95-ca51b91456f2", "title": "THC CBD Intrathecal Neuropathic Pain Mouse", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain therapeutic"},
+    {"id": "9b9d3a6d-04f2-494b-8aec-176e4237b3df", "title": "Cannabis Pain Spinal Cord Injury Qualitative", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic"},
+    {"id": "9ba18ec6-75d2-4936-b74e-3d739dda8be9", "title": "Animal Models Opiate Cocaine Cannabis Use", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Addiction research methodology"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "9a988704-cf95-49bf-b1ff-bdbee00b4c9d",
+      "9aa00efc-efd7-486e-8453-0f156f9d9d95",
+      "9aef83bc-22de-4621-991f-969837877e15",
+      "9b2e01d6-d9fc-4903-bf89-5bc807eb9196"
+    ]
+  }
+}

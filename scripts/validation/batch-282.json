@@ -1,0 +1,38 @@
+{
+  "batch_number": 282,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T12:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "3775e142-45f7-4915-bfde-cbf20a11ee27", "title": "Cenicafé 1 : Nueva variedad de porte bajo altamente productiva resistente a la roya y al CBD con mayor calidad física del grano.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Coffee Berry Disease) correctly rejected"},
+    {"id": "377b148d-3aa0-41db-a039-2adf6c45350c", "title": "Histone deacetylase 6 inhibits STING-dependent antiviral immunity via site-specific deacetylation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "37811a6c-eb87-44dc-8377-63226ee8053b", "title": "AM630 antagonism of cannabinoid-stimulated [35S]GTPγS binding in the mouse brain", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor antagonist pharmacology"},
+    {"id": "3784ad39-6305-4b74-a213-ee834df70875", "title": "Sex Enhancement Supplement | CBD | BURMAN'S HEALTH SHOP", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "3785eec3-b76d-487c-85f7-95dc8455a017", "title": "Pharmacokinetic properties of the synthetic cannabinoid JWH-018 and of its metabolites in serum after inhalation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid forensic correctly rejected"},
+    {"id": "37860529-6fac-460e-9c24-e0b41da23de8", "title": "Cannabinoids: Extraction Methods, Analysis, and Physicochemical Characterization", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"},
+    {"id": "37897c97-2116-4eed-ad14-b89c04713585", "title": "Altered surface trafficking of presynaptic cannabinoid type 1 receptor in and out synaptic terminals parallels receptor desensitization", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor trafficking mechanism"},
+    {"id": "378b6971-c05e-4909-8ece-8e4b7a230ae3", "title": "A Study on Micro Approach Method for Improvement of Urban Goods Movement on CBD - Focusing on CBD in Japan -", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "3799c938-090c-410a-8bd8-79e431b295ec", "title": "Detecting spatiotemporal clusters of tobacco and cannabis use and co-use to inform smartphone-based interventions.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "379ad2f9-109b-45cf-9b6b-cbe04d689e75", "title": "Correlates of driving under the influence of cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "37adc16e-198a-46f4-8d3c-f073bde3b54d", "title": "Effect of harvest date on combustion related fuel properties of industrial hemp (Cannabis sativa L.)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/biofuel correctly rejected"},
+    {"id": "37d0b853-cc9a-4ff9-8b4e-1f66fa76f411", "title": "Absence of age verification for delivery of online purchases of CBD and Delta-8: implications for youth access to CBD and Delta-8 Products", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/regulatory correctly rejected"},
+    {"id": "37db2892-b9c6-4dd1-8643-0b54052fb851", "title": "Nutritional and Antioxidant Comparison of Oil Press Cakes and Wheat Flours", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "37e8a9bc-7883-4f20-b7a1-b880550a496e", "title": "Cannabis xxiv. A new convenient synthesis of cannabinol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic chemistry correctly rejected"},
+    {"id": "37f7cbfd-ab99-4199-bb14-5a9976f42ecd", "title": "Targeting the Cannabinoid CB2 Receptor: Mutations, Modeling and Development of CB2 Selective Ligands", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 drug development"},
+    {"id": "381a5dc2-2514-4f54-9c52-1a5eaa8f8600", "title": "Unraveling the genetic diversity of Cannabis sativa L.: Phenotypic and molecular assessment, drivers of variation, and implications", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "384e4ab5-fea1-414a-8a06-682b807d37b1", "title": "Growth dynamics of CBD-assisted CuS nanostructured thin-film: optical, dielectric and novel switchable device applications", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "386226b2-5ea5-4dda-8668-441f41dcc349", "title": "Development of pXeDNA3.1-LacZ, a Dual-System Plasmid for Membrane Protein Expression in Xenopus and Mammalian Cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "38775820-a8e1-48f5-be20-7b70ca967ca5", "title": "Cannabinoids: Biosynthesis and Biotechnological Applications", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant biochemistry correctly rejected"},
+    {"id": "38868ead-701d-418b-bf58-6161e34777e4", "title": "WIN55,212-2-Mediated Inhibition of HIV-1 Expression in Microglial Cells: Involvement of Cannabinoid Receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid antiviral for HIV"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "37811a6c-eb87-44dc-8377-63226ee8053b",
+      "37897c97-2116-4eed-ad14-b89c04713585",
+      "37f7cbfd-ab99-4199-bb14-5a9976f42ecd",
+      "38868ead-701d-418b-bf58-6161e34777e4"
+    ]
+  }
+}

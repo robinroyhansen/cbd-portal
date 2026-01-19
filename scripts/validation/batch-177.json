@@ -1,0 +1,40 @@
+{
+  "batch_number": 177,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T10:15:00.000Z",
+  "results": [
+    {"id": "c59b5944-5d75-40c4-9360-75fd48fd5ffe", "title": "Synthetic Cannabinoids Cytokine Rheumatoid FLS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid arthritis mechanism"},
+    {"id": "c5a4b2b6-0b93-4bcc-b8e1-fe9eae98ef47", "title": "Wonder Leaf CBD Oil Reviews #1 Formula", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - product advertisement"},
+    {"id": "c5c1fcfc-73ee-4959-98c9-c862da1075a1", "title": "Synthetic Cannabinoids Menace Health Risks Toxicity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - synthetic cannabinoid toxicity"},
+    {"id": "c5f42daf-a72a-4897-a2b4-bc1b3dc87848", "title": "Note CBD All In A Name Scheduling", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD regulatory viewpoint"},
+    {"id": "c6008d4d-565a-4ff3-833b-030b9f696a5b", "title": "mGluR5 Negative Allosteric Modulators Pharmacology", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - mGluR5 modulators"},
+    {"id": "c600a726-4136-4480-9b35-bba1cb92a756", "title": "Medical Cannabis Safety Efficacy Cancer Population", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer therapeutic prospective"},
+    {"id": "c61ff5ec-191d-4629-a789-067233446fe4", "title": "Tacoma Farms CBD Google Groups Spam", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - forum spam"},
+    {"id": "c621a01f-56ec-4299-8709-b299d2f3dd0e", "title": "CB1 Blockade Insulin Resistance Diabetic Nephropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 diabetes kidney therapeutic"},
+    {"id": "c62b2da9-a9e3-4991-9cda-3eaebcd37f62", "title": "CBD Refractory Epilepsy Parental Caregiver Perspectives", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy qualitative study"},
+    {"id": "c6318f5e-6d96-484a-9a5a-16a477e057db", "title": "CBD No Better Placebo Low Back Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain trial negative result"},
+    {"id": "c67fea10-6356-4aaf-b3a9-3c9a3ffa08cd", "title": "CBD Sleep Quality Review Mechanisms Clinical Evidence", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD sleep therapeutic review"},
+    {"id": "c6a18f4f-4483-4a9b-b3a0-532b43ef3df7", "title": "Truman CBD Male Enhancement Gummies", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - male enhancement product"},
+    {"id": "c6b4e7a2-908c-4c4c-a7d2-852007737f91", "title": "Dronabinol Enhance Hydromorphone Analgesia Humans", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC opioid pain clinical"},
+    {"id": "c6b6b03e-2a70-4bad-9638-d3c900ed61a7", "title": "Cannabinoid Interaction Brain Reward Systems", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology addiction mechanism"},
+    {"id": "c6c52da4-ae42-4bc1-a4ee-425c22a9d02f", "title": "CBD Cytotoxic Neonatal Rat Neurons Brain Development", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - developmental neurotoxicity"},
+    {"id": "c6d5f808-60ae-43b2-b5bf-40dc546cbfc8", "title": "CBD Seizures Pharmacoresistant Epilepsy Meta-Analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy systematic review"},
+    {"id": "c6e232ff-b6d4-444f-af28-a2d25a9682a6", "title": "CBD Effects Peripheral Clock Circadian", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD circadian clock mechanism"},
+    {"id": "c6e434e7-9a33-4c8f-a4c8-c976cea09c98", "title": "Structure CBD Absorption Spectra Dihydric Phenols 1940", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD chemistry historical"},
+    {"id": "c6e95094-70bc-4d7f-982f-76b048854455", "title": "CBD Protects Intestinal Barrier Inflammation Oxidative", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD IBD therapeutic mechanism"},
+    {"id": "c6fc32fd-b8c1-4871-8d08-41d5471c0d24", "title": "Bridge Peer Health Navigation RCT SMI", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - peer support intervention"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "c5a4b2b6-0b93-4bcc-b8e1-fe9eae98ef47",
+      "c5c1fcfc-73ee-4959-98c9-c862da1075a1",
+      "c6008d4d-565a-4ff3-833b-030b9f696a5b",
+      "c61ff5ec-191d-4629-a789-067233446fe4",
+      "c6a18f4f-4483-4a9b-b3a0-532b43ef3df7",
+      "c6c52da4-ae42-4bc1-a4ee-425c22a9d02f",
+      "c6fc32fd-b8c1-4871-8d08-41d5471c0d24"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "batch_number": 390,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T15:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "b0b0d290-d6d7-40bb-ac1e-83af80e00bd7", "title": "A Pyridone Analogue of Traditional Cannabinoids. A New Class of Selective Ligands for the CB2 Receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor pharmaceutical research"},
+    {"id": "b0bd4fe1-17c1-4f3b-91bc-4c1fc488d0e2", "title": "Virucidal activity of Cannabis sativa L. (hemp) root and stem extracts against Japanese encephalitis virus: role of stigmasterol.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis antiviral therapeutic research"},
+    {"id": "b0d01ba5-0c74-4c94-a32f-025ae485c9ff", "title": "The Prevalence of Vaping and Smoking as Modes of Delivery for Nicotine and Cannabis among Youth in Canada, England and the United States", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "b0d020ab-b709-4034-ac01-d321f8e81afa", "title": "A community-centered approach to psychedelics", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b0e97d92-2d39-4849-8219-63569a948633", "title": "Association of Combined Patterns of Tobacco and Cannabis Use in Adolescence With Psychotic Experiences", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "b0f798d8-1129-463b-818f-ef648f6d756b", "title": "GrownMD CBD Gummies *SHOCKING INGREDIENTS* How it Uses & Working", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "b10734c1-5a00-4128-840c-02e407b5ff59", "title": "Rapid Specific PCR Detection Based on THCAS and CBDAS for the Prediction of Cannabis sativa Chemotypes: Drug, Fiber, and Intermediate.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/genetics correctly rejected"},
+    {"id": "b1122aab-5492-4e60-826c-7decb8591777", "title": "Small bowel adenomyoma: an incidental intraoperative finding during hepatecojejunostomy for CBD injury", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "b11663eb-4610-4380-a407-fb1d530a70af", "title": "Metabolomic Analysis of Cannabinoid and Essential Oil Profiles in Different Hemp (Cannabis sativa L.) Phenotypes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry/agriculture correctly rejected"},
+    {"id": "b1715925-9f22-46aa-bb5c-0349c9079f01", "title": "Meta‐analysis and review of cannabinoids extraction and purification techniques", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"},
+    {"id": "b18fa9c0-da77-4365-be55-7770516a88f3", "title": "Descriptive Analyses of Major and Minor Cannabinoid Use in a College Student Sample.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "b19e9cb7-fad1-4170-a9eb-739d510e85e0", "title": "[Cannabis and alcohol in traffic].", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "b1c710d1-6124-45ed-aaee-d27716b7bb88", "title": "A novel approach to the synthesis of the cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic chemistry correctly rejected"},
+    {"id": "b1cb56bc-63bd-47fc-8684-1e49d00cfa43", "title": "Structural and Physicochemical Characteristics of Oil Bodies from Hemp Seeds (Cannabis sativa L.)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food science correctly rejected"},
+    {"id": "b1cd711a-2d15-4a85-8cf4-3f4e6a3103d0", "title": "Smart Cannabis: A Prescription Digital Therapeutic Framework for Enhancing Medical Cannabis Care.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis therapeutic care framework"},
+    {"id": "b1d8b191-23c2-4d06-bb96-20cdac597fca", "title": "Infant Death due to Cannabis Ingestion.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "b1ebf494-7bc7-442f-952b-68a7ef3c46b2", "title": "Reversible and regionally selective downregulation of brain cannabinoid CB1 receptors in chronic daily cannabis smokers", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research"},
+    {"id": "b1f2c224-77e3-4e44-95aa-b0ed34ed985b", "title": "Optimization of Supercritical Extraction of Cannabidiol Using Response Surface Methodology", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"},
+    {"id": "b2004163-edce-4d49-9731-822fa328148f", "title": "Clinical Outcomes and Patient Profiles in the UK Medical Cannabis Registry: A k-Means Clustering Analysis.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis clinical outcomes research"},
+    {"id": "b2064e85-3efb-43ab-bce5-296a7af044d8", "title": "A 'standard joint'? The role of quantity in predicting cannabis-related problems", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD assessment correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "b0b0d290-d6d7-40bb-ac1e-83af80e00bd7",
+      "b0bd4fe1-17c1-4f3b-91bc-4c1fc488d0e2",
+      "b1cd711a-2d15-4a85-8cf4-3f4e6a3103d0",
+      "b1ebf494-7bc7-442f-952b-68a7ef3c46b2",
+      "b2004163-edce-4d49-9731-822fa328148f"
+    ]
+  }
+}

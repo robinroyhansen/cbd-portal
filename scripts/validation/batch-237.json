@@ -1,0 +1,41 @@
+{
+  "batch_number": 237,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T01:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "05e68295-f95c-448f-95d7-c27d01e51182", "title": "Domino's Pizza Giant CBD Bintaro", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "05f0a02c-1591-4e79-b240-c75c2b4a55e1", "title": "Transaktionsmarknaden Stockholm CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "06010cc7-6678-4ef1-a1b1-89e40cae3939", "title": "Cannabis dependence criteria", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD patterns correctly rejected"},
+    {"id": "060bfac6-5897-49b6-a0bc-e97521d1340e", "title": "Electrophysiological effects cannabinoid globus pallidus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid brain mechanism"},
+    {"id": "061601c0-cb7a-484f-963e-fd5bcb8ef721", "title": "Anatomy of a Joint dosing", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Not therapeutic correctly rejected"},
+    {"id": "06202e2e-c61c-45e3-9556-bb1ca7482633", "title": "CBD COP 12 Highlights", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "06214d32-38a3-4bd2-8030-39c457e209bd", "title": "Skin cells UVA antioxidants", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "06285d71-a222-4f09-8cdd-0b0803aff832", "title": "Faculty Opinions CBD memory", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correctly rejected"},
+    {"id": "06401e4c-71ab-430c-b144-c956f854535c", "title": "Lenabasum CB2 Agonist Abuse Potential", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 agonist drug development"},
+    {"id": "06437120-10ac-4457-8722-8440380c6def", "title": "Antimicrobial Effects CBD Oral Pathogens", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antimicrobial therapeutic"},
+    {"id": "065beea3-81e2-47ab-8580-28c205c44f22", "title": "Cholecystostomy Acute Cholecystitis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "065e57aa-f4dd-4ce7-9a81-16ba39913f84", "title": "CB1 receptors tyrosine hydroxylase neurons", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid dopamine mechanism"},
+    {"id": "0665b711-94d7-41e0-9c87-7a3f0cdaf522", "title": "Brain Neuroimaging Cannabis Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm correctly rejected"},
+    {"id": "067f3f81-ccbd-4174-b4a1-11be8205ac9c", "title": "Copper oxide nanographene CO2", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "067fea75-68f4-4922-a788-64b425387942", "title": "CBD-Rich Extract Neuroinflammation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD neuroinflammation therapeutic"},
+    {"id": "0689eb6d-dac1-41d3-baf3-980876db963f", "title": "Laparoscopic CBD Stones", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "068ac975-46c3-415f-a1d8-6d0f97e8e34f", "title": "CBD Risperidone Zebrafish Comparison", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic comparison"},
+    {"id": "0692ca9f-2b78-4a83-a7b6-67039d84f899", "title": "Anandamide 2-AG Endocannabinoids Endotoxic Shock", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid mechanism"},
+    {"id": "069349fe-8cb9-4a32-af01-c36d2364a4ae", "title": "Cannabinoids host resistance Listeria herpes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm correctly rejected"},
+    {"id": "069395df-6834-4b84-af08-9b6653933b08", "title": "Pelican CBD Gummies Scam", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "060bfac6-5897-49b6-a0bc-e97521d1340e",
+      "06401e4c-71ab-430c-b144-c956f854535c",
+      "06437120-10ac-4457-8722-8440380c6def",
+      "065e57aa-f4dd-4ce7-9a81-16ba39913f84",
+      "067fea75-68f4-4922-a788-64b425387942",
+      "068ac975-46c3-415f-a1d8-6d0f97e8e34f",
+      "0692ca9f-2b78-4a83-a7b6-67039d84f899"
+    ]
+  }
+}

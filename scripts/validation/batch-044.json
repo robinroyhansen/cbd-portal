@@ -1,0 +1,41 @@
+{
+  "batch_number": 44,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T00:45:00.000Z",
+  "results": [
+    {"id": "31cfd2a1-351f-4d83-85ce-f18b5b2e4858", "title": "2-AG is neuroprotective after brain injury", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid neuroprotection"},
+    {"id": "31ddcc60-451d-4318-8cb2-135b0643a024", "title": "Updated Risk Assessment of CBD in Foods", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety research"},
+    {"id": "31ee2584-38d6-422d-b291-2c3955e8e5e3", "title": "Peer Review #2 of CBD brain uptake paper", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PEER REVIEW document - editorial content"},
+    {"id": "32002402-52e5-4c52-844f-a95fa298a40a", "title": "CBD interactions with oxycodone analgesia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interaction pain research"},
+    {"id": "3207588b-c05b-4f63-b78a-33c93616bf75", "title": "Daily Cannabis Use Associated With Lower CNS Inflammation in HIV", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis anti-inflammatory in HIV"},
+    {"id": "3215a87c-0378-4165-b0eb-48764e9e0934", "title": "CBD alleviates PFOS-induced liver inflammation and fibrosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD hepatoprotective research"},
+    {"id": "32648311-6699-46b6-8a8c-2b91fbd26882", "title": "High-potency cannabis associated with more positive symptoms psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis CAUSES psychosis symptoms - harm study"},
+    {"id": "326948e3-2ae1-40e6-a919-eff520148494", "title": "CBD-induced transcriptomic changes and cellular senescence Sertoli cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD reproductive safety research"},
+    {"id": "32791b92-faf1-4095-a723-b5838f8d2660", "title": "Treatment for Severe Pain in Mast Cell Activation Syndrome case report", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID in title - pain case report"},
+    {"id": "327e9c9d-d84e-4a88-8cd8-10ffdbb57310", "title": "Phytocannabinoids in Parkinson's disease models systematic review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Parkinson's review"},
+    {"id": "3284dd3d-662f-43a1-8136-4941bcf7aee9", "title": "Review on obesity management diet exercise pharmacotherapy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID confirmed in title - general obesity review"},
+    {"id": "3287d2a4-7dce-4238-9ec7-81a88e20c64b", "title": "N-Acetylcysteine for Youth Cannabis Use Disorder", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Treatment of CUD - not therapeutic cannabinoid use"},
+    {"id": "328849ec-04fb-4269-a7d0-85c17b5a0a34", "title": "Fibromyalgia syndrome treatment options review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID confirmed - general fibromyalgia review"},
+    {"id": "329deeb2-df18-4b2b-9bf1-234773f65cd9", "title": "Treating depression with cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid depression treatment"},
+    {"id": "32a3e167-0cba-482e-a090-5ab72f592e6e", "title": "Antitumor Effects of CBD on Osteosarcoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD bone cancer research"},
+    {"id": "32a5d1ff-d6c3-4525-8e62-48500f053081", "title": "Phage PL-1 endolysin lactic acid bacteria platforms", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - phage biotechnology"},
+    {"id": "32baab92-76e3-4c32-87c4-5a25964f82b0", "title": "Low-Dose CBD Not Effective for Crohn's Disease RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Crohn's clinical trial"},
+    {"id": "32cee4f4-da62-4fea-8c84-70b81ca2d0c2", "title": "Patient-reported cannabis use in renal cell carcinoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis use in cancer patients"},
+    {"id": "32e5fbde-a5df-4627-9f15-2dace998f624", "title": "Effects of Extended Cannabis Abstinence in Major Depression", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis ABSTINENCE helps depression - cannabis as harm"},
+    {"id": "32e8f3e9-affe-4237-bf3c-e9f1b88e9f33", "title": "Cannabinoid Receptors as Therapeutic Targets Food Intake Body Weight", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid obesity therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "31ee2584-38d6-422d-b291-2c3955e8e5e3",
+      "32648311-6699-46b6-8a8c-2b91fbd26882",
+      "32791b92-faf1-4095-a723-b5838f8d2660",
+      "3284dd3d-662f-43a1-8136-4941bcf7aee9",
+      "3287d2a4-7dce-4238-9ec7-81a88e20c64b",
+      "328849ec-04fb-4269-a7d0-85c17b5a0a34",
+      "32a5d1ff-d6c3-4525-8e62-48500f053081",
+      "32e5fbde-a5df-4627-9f15-2dace998f624"
+    ]
+  }
+}

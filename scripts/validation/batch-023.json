@@ -1,0 +1,37 @@
+{
+  "batch_number": 23,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T19:30:00.000Z",
+  "results": [
+    {"id": "1b0cafb5-9efd-4941-9306-bd7e0c52648b", "title": "Inhibition of cervical cancer cell proliferation by cannabidiol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for cervical cancer"},
+    {"id": "1b1487ac-afe5-4207-a2d7-41734cc1207a", "title": "Surgery-Oriented Classification for Adult Congenital Biliary Dilation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD! = Congenital Biliary Dilation - hepatobiliary surgery"},
+    {"id": "1b21c028-9121-42bf-b6f7-513e72609bd6", "title": "End of the line for cannabinoid receptor 1 as an anti-obesity target?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor and obesity"},
+    {"id": "1b39909d-029c-4af5-9d70-b56fa6e6c781", "title": "Vaporized cannabis versus placebo for acute migraine - RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for migraine trial"},
+    {"id": "1b44be63-63a1-48b8-8ba5-26e5f052b850", "title": "CBD and β-caryophyllene in SCN1A-A1783V mice for Dravet syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for Dravet syndrome"},
+    {"id": "1b4beab1-bf16-4255-9f01-02ce1a20debd", "title": "Cannabis use in ADHD: A scoping review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis/ADHD research"},
+    {"id": "1b646b9c-9b68-4d1c-b4ca-1619bc0c3cf8", "title": "Cannabinoids attenuate cancer pain and proliferation in mouse model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid for cancer pain"},
+    {"id": "1b66ef81-2c0e-4e53-b004-1ffb9e957fcc", "title": "Neuropsychobiological Evidence for CB2 Receptors in the Brain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 receptor brain expression"},
+    {"id": "1b721fc8-8f45-48b1-bb23-0298bdffab23", "title": "Topical 5% CBD Plus Myrcene for Vestibulodynia - Multi-Centric RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for vulvar pain - trial"},
+    {"id": "1b73bb2d-7a15-431a-b369-1ef79711198b", "title": "CBD reduces brain damage in neonatal rat model of arterial ischemic stroke", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection"},
+    {"id": "1b87b929-b3c9-441d-99ce-525176e2bd7e", "title": "Early Cannabis Use and Estimated Risk of Later Onset of Depression", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE as risk factor - not therapeutic"},
+    {"id": "1b9d1712-02b9-4057-9199-02d732498126", "title": "Analgesic Effects of Cannabis Sativa Extract in Knee Osteoarthritis - CANOA trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for OA - clinical trial"},
+    {"id": "1bb2f96f-7bf4-49c8-a576-f4c250e2d742", "title": "CBD dampens propagation of hippocampal hyperactivity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD mechanism in epilepsy"},
+    {"id": "1bbeb92a-66e3-4978-8f56-b8270a0eb1ae", "title": "THC/CBD oromucosal spray for central neuropathic pain in MS - RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Sativex for MS pain"},
+    {"id": "1bcf0be5-bf89-4c27-ab7a-90b22225c58d", "title": "Cannabidiol: Anxiety Relief or Fool's Gold? - literature review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for anxiety review"},
+    {"id": "1bd020c0-8d78-49cb-999d-8b178f862392", "title": "Therapeutic Potential of CBD for Skin Health and Disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for skin conditions"},
+    {"id": "1bd56d89-6f11-4e5b-b03a-80f855808aec", "title": "Chronic cannabis users: Further analysis of objective test results", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis USE effects study - not therapeutic"},
+    {"id": "1be19fb7-cfde-4ba5-9432-851ff95e886e", "title": "Immune system: A possible nexus between cannabinoids and psychosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid-immune-psychosis mechanism"},
+    {"id": "1be2e8d5-d0b5-4f2f-8a73-0cc3c91f3c76", "title": "Complex case of gallbladder and CBD stones treated with Cholecystectomy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD! = Common Bile Duct stones - surgery"},
+    {"id": "1bf25a23-1420-4dfe-b4a8-48b0792ccb30", "title": "CBD aminoquinone derivative VCE-004.8 for traumatic brain injury", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD derivative neuroprotection for TBI"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "1b1487ac-afe5-4207-a2d7-41734cc1207a",
+      "1b87b929-b3c9-441d-99ce-525176e2bd7e",
+      "1bd56d89-6f11-4e5b-b03a-80f855808aec",
+      "1be2e8d5-d0b5-4f2f-8a73-0cc3c91f3c76"
+    ]
+  }
+}

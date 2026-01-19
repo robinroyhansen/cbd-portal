@@ -1,0 +1,40 @@
+{
+  "batch_number": 9,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T15:45:00.000Z",
+  "results": [
+    {"id": "0cb98c8e-002d-4aae-8612-da36febb4de1", "title": "Cannabinoid Signaling and Autophagy in Oral Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism in oral health"},
+    {"id": "0cbc4901-4c65-43aa-afb9-3219a3a3444d", "title": "Association Between Smoking and Opioid Requirement and Pain Intensity...Meta-Analysis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "About tobacco smoking and opioids - no cannabinoid focus"},
+    {"id": "0ccca391-5e43-4c6d-8727-11c9ed72a50a", "title": "Nabilone for Non-motor Symptoms in Parkinson's Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Nabilone (THC analog) RCT for Parkinson's"},
+    {"id": "0cd90fa0-7eb6-4d49-88d9-f76d11ea353d", "title": "Impact of varying water stress periods on Cannabis sativa growth...and CBD content", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis AGRICULTURE - cultivation/growing, not health research"},
+    {"id": "0cdc3c3e-3ea4-4e2d-9edb-d13fda9051e4", "title": "Placebo effects in RCT assessing CBD treatment for psychological distress", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for depression/distress"},
+    {"id": "0d11d5d2-6110-4c47-8615-c29fb16fece5", "title": "Cannabidiol in canine epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for veterinary epilepsy"},
+    {"id": "0d1289bd-3a62-4c68-b423-9ea6599269e3", "title": "Cannabidiol als Hilfssubstanz in der Opioidtherapie? (German)", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD reduces opioid addiction potential"},
+    {"id": "0d1b38a0-b82b-4baa-ae0e-0d4ef346ee9e", "title": "EverGreen CBD Gummies? Elements, Unwanted effects...", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - marketing content for CBD gummies"},
+    {"id": "0d2b5a40-fc43-4beb-ad30-53989dc1887a", "title": "Self-Isolation: A Significant Contributor to Cannabis Use during the Covid-19 Pandemic", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Use patterns/prevalence study, not health research"},
+    {"id": "0d2e28cd-4b78-4dce-9e32-fab9b9ba3980", "title": "GPR55 plays a role in mechanical hyperalgesia...inflammatory and neuropathic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor (GPR55) pain research"},
+    {"id": "0d2e6a34-87c3-4b1f-8d4e-385a8c6dc092", "title": "Cancer cachexia: molecular basis and therapeutic advances", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cancer cachexia review - no cannabinoid content in title"},
+    {"id": "0d37a4e6-15aa-42a0-8cb0-1aa378f5369e", "title": "Two cases of 'cannabis acute psychosis' following oral cannabis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis safety/adverse effects case reports"},
+    {"id": "0d39fad8-938e-4d36-a0b1-54571dafb97a", "title": "Cannabis Use and Risk of Relapse in First-Episode Psychosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis effects on psychosis - safety research"},
+    {"id": "0d3ee221-2934-4788-b85d-bbf04f637d40", "title": "BDNF/CB1R Expression and Postoperative Pain and Recovery", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1R (cannabinoid receptor) and pain"},
+    {"id": "0d40fabe-3e02-43fa-b1a3-226aeec8578c", "title": "Cannabidiol as a Therapy for Experimental Subarachnoid Hemorrhage", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for stroke/SAH - preclinical"},
+    {"id": "0d4df9e6-c9ef-473d-94ba-1e0a4766a97c", "title": "The complexities of the cardiovascular actions of cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cardiovascular effects review"},
+    {"id": "0d5350a7-eb4d-484e-b1b9-432eafd8b94d", "title": "Evaluation of Cannabidiol in Animal Seizure Models by the ETSP", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for epilepsy - preclinical"},
+    {"id": "0d6d3285-09eb-4f8e-98e8-fa178144682b", "title": "Preclinical research in obesity-associated metabolic diseases", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Obesity research - no cannabinoid mention"},
+    {"id": "0d87196c-e13b-4599-841a-982242f3dd76", "title": "Ultra-low-dose-THC preventive treatment...5xFAD mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC for Alzheimer's - preclinical"},
+    {"id": "0d879357-5a1d-4553-bb54-5eafa992e391", "title": "Dietary CBD supplementation...in Landes geese", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Poultry FARMING/agriculture with CBD - not health research"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "0cbc4901-4c65-43aa-afb9-3219a3a3444d",
+      "0cd90fa0-7eb6-4d49-88d9-f76d11ea353d",
+      "0d1b38a0-b82b-4baa-ae0e-0d4ef346ee9e",
+      "0d2b5a40-fc43-4beb-ad30-53989dc1887a",
+      "0d2e6a34-87c3-4b1f-8d4e-385a8c6dc092",
+      "0d6d3285-09eb-4f8e-98e8-fa178144682b",
+      "0d879357-5a1d-4553-bb54-5eafa992e391"
+    ]
+  }
+}

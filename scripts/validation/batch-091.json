@@ -1,0 +1,41 @@
+{
+  "batch_number": 91,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T12:30:00.000Z",
+  "results": [
+    {"id": "65cddc4c-714d-4a31-b11c-a17fa3809900", "title": "CB1 glucose intolerance rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor metabolism mechanism"},
+    {"id": "65d99955-ef1d-4491-b42a-87e3d052ef4d", "title": "MS following CB1 antagonist treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 antagonist MS pathogenesis case"},
+    {"id": "65ddefdf-52bd-4b13-8f69-538cc8d40073", "title": "Endocannabinoid signaling epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS epilepsy mechanism"},
+    {"id": "65e092db-467a-45f8-b9cd-a8ffbae14777", "title": "Cannabinoid epigenetics sperm teratology", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - epigenetic teratogenicity"},
+    {"id": "65f092ab-71d5-4bd9-99fb-031809469bd4", "title": "Stress cue-induced marijuana craving", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - craving/seeking behavior"},
+    {"id": "65f4a34a-9406-4c64-9e82-5af814f4d482", "title": "CBD neuronal differentiation Akt Erk CB1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neurogenesis mechanism"},
+    {"id": "660cce43-1819-4ac6-a30f-37db92d18fe5", "title": "CBD anti-inflammatory acne", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD dermatology therapeutic"},
+    {"id": "662ce4e3-bac4-4da0-88f1-0e835a3533f6", "title": "Alkaloids piperine colorectal cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - piperine alkaloids"},
+    {"id": "6642407b-ae6b-4714-8b91-d2ae1fe393c4", "title": "CBD anxiety clinical trials review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety therapeutic review"},
+    {"id": "6646a499-f04e-4dc3-a602-9f81390c3378", "title": "Cannabinoids endocrine system", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid endocrine review"},
+    {"id": "66518ef8-9590-4a2b-8f65-0f015783ec62", "title": "CBD cardiovascular health disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular review"},
+    {"id": "665f35cc-86ec-4302-8ee0-e30785e7e860", "title": "Cannabis use stroke risk", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - stroke risk epidemiology"},
+    {"id": "6669eac7-27d5-40c0-a028-1524f307a06e", "title": "Tai Chi knee OA endocannabinoid biomarker", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID THERAPEUTIC - Tai Chi with ECS biomarker"},
+    {"id": "666f0308-e103-4226-836a-0253a582d3a4", "title": "CBD prophylactic glioblastoma preclinical", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer prevention preclinical"},
+    {"id": "66810b70-7b98-48c5-8d56-137622356d8f", "title": "Uno CBD Gummies Shark Tank", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING"},
+    {"id": "66930fa3-3b3c-4d3f-9218-6e115227003f", "title": "Cannabinoid-seeking reinstatement rats", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "ADDICTION - cannabinoid relapse mechanisms"},
+    {"id": "66950871-5051-48b0-868b-ce70958938c8", "title": "CBD TRPV2 channel sensitization 2-APB", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD ion channel mechanism"},
+    {"id": "66a3847b-4bbe-4876-9f98-c65083c0eee8", "title": "CUD prevalence anxiety disorders", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD/anxiety comorbidity"},
+    {"id": "66a70503-4d1d-43e1-a91b-b5502234f3ed", "title": "CB1 expression Huntington's transgenic mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor Huntington's research"},
+    {"id": "66ce0a63-6d95-4532-b37f-b35f23861fd7", "title": "Cannabis suppresses MS nystagmus", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis MS symptom case report"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "65e092db-467a-45f8-b9cd-a8ffbae14777",
+      "65f092ab-71d5-4bd9-99fb-031809469bd4",
+      "662ce4e3-bac4-4da0-88f1-0e835a3533f6",
+      "665f35cc-86ec-4302-8ee0-e30785e7e860",
+      "6669eac7-27d5-40c0-a028-1524f307a06e",
+      "66810b70-7b98-48c5-8d56-137622356d8f",
+      "66930fa3-3b3c-4d3f-9218-6e115227003f",
+      "66a3847b-4bbe-4876-9f98-c65083c0eee8"
+    ]
+  }
+}

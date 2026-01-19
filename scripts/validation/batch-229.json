@@ -1,0 +1,37 @@
+{
+  "batch_number": 229,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T23:15:00.000Z",
+  "results": [
+    {"id": "fe58b715-b419-441c-8065-6eea57e33933", "title": "Liposomal-CBD HIV HAND Microglia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD HIV neuroprotection therapeutic"},
+    {"id": "fe638b18-f8e6-4ea2-ab86-bff7ae70667e", "title": "CBD Alzheimer's Genes MSCs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's mechanism"},
+    {"id": "fe673e20-f078-4bbf-8789-e61ec1e417e5", "title": "CB1 cerebellar granule cell NOS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor mechanism"},
+    {"id": "fe693dcb-9589-4e1a-a666-948281534c22", "title": "Anandamide hippocampal antiepileptiform", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid epilepsy mechanism"},
+    {"id": "fe7af24d-0261-40f9-8be8-fe10677522d3", "title": "CBD sunscreen UVB keratinocytes melanocytes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD skin protection therapeutic"},
+    {"id": "fe9aa9e5-dfe0-4845-b51d-ed64cbada1e9", "title": "Lorcaserin 5HT-2C cannabis CUD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - non-cannabinoid lorcaserin"},
+    {"id": "fea5d3a8-37ef-47d0-83d6-5f5a4d0fa914", "title": "CB1 cannabinoid anticonvulsant", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 epilepsy mechanism"},
+    {"id": "feb35622-5ce3-4b30-bbe9-d7118d16d2d6", "title": "Phospholipid Ceramide CBD UV rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anti-inflammatory mechanism"},
+    {"id": "fee62e4a-0e7b-486e-88e2-69ae72196eba", "title": "CBD NLC gel skin cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD skin cancer therapeutic"},
+    {"id": "fef00cfd-08e9-4a7d-b485-d964781ec2d2", "title": "Cannabidiol friend or foe", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic review"},
+    {"id": "fef00e63-29ed-40de-9a15-f983dc32ea25", "title": "Optimization Seizure Prevention CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy optimization"},
+    {"id": "ff07bdaa-3126-47d5-85fe-f508b3a71fb0", "title": "CBD Phase 2a Urticaria CSU", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD urticaria therapeutic RCT"},
+    {"id": "ff249ee6-1798-4544-a7a0-8b1e5635d6fc", "title": "PGC-1α ChREBP Neuropathic Pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - PGC-1α fatty acid oxidation"},
+    {"id": "ff339234-b837-4d08-ae5a-d776acf77d06", "title": "Cannabis arteritis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabis-induced arteritis"},
+    {"id": "ff36d6eb-afa3-4668-8f50-10bf3d7b7c2a", "title": "CANNABINOID RECEPTORS THERAPEUTIC TARGETS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor therapeutic review"},
+    {"id": "ff3dfcb7-c261-41fa-8f43-1e4f3426fd43", "title": "Motivational interviewing cannabis psychotic", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - non-cannabinoid intervention"},
+    {"id": "ff6822d1-cea8-4184-9e50-aaf0b03db838", "title": "CBD LGS Dravet TSC Retrospective", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "ff74ea7e-1990-45b3-b164-bbb607b83249", "title": "Restraint stress alcohol endocannabinoid", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid memory mechanism"},
+    {"id": "ff7ea0c6-120b-43c4-a465-14f541ea9aa4", "title": "CB2 AM1241 Myocardial Fibrosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 cardiac fibrosis therapeutic"},
+    {"id": "ffa81b7a-9332-44af-aafa-126fd745e426", "title": "CBD Neuroprotective Hypoxic-Ischemic Piglets", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "fe9aa9e5-dfe0-4845-b51d-ed64cbada1e9",
+      "ff249ee6-1798-4544-a7a0-8b1e5635d6fc",
+      "ff339234-b837-4d08-ae5a-d776acf77d06",
+      "ff3dfcb7-c261-41fa-8f43-1e4f3426fd43"
+    ]
+  }
+}

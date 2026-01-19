@@ -1,0 +1,45 @@
+{
+  "batch_number": 448,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T06:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "ef58388c-2992-4f17-ade4-f27a79cc77e1", "title": "3D Printed Bigel: A Novel Delivery System for Cannabidiol-Rich Hemp Extract.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery"},
+    {"id": "ef5e88aa-70ad-43a1-8d13-86c496b8ca6f", "title": "Primary Macrophage Chemotaxis Induced by CB2 Agonists Occurs Independently of CB2", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor mechanism research"},
+    {"id": "ef8243a1-21f0-4dc2-91f8-bd29a1dc194a", "title": "The History of CBD/THC Vapes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM/irrelevant correctly rejected"},
+    {"id": "ef89acb0-387a-4aae-8bfb-4765c109d80f", "title": "Antibacterial activity of cannabis extract against bee pathogen", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary (bees) correctly rejected"},
+    {"id": "ef8db313-ea96-46e2-b8f9-ac3608df90a3", "title": "Minimizing the adverse public health effects of cannabis legalization", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "ef940753-806c-44a0-a406-f63be8ff3955", "title": "Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Too generic correctly rejected"},
+    {"id": "ef9c7a21-005a-4966-a110-5cab1a4bc108", "title": "Cannabidiol and positive effects on object recognition memory in Fragile X Syndrome", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic research for Fragile X"},
+    {"id": "efa0fff1-c621-4963-a1f6-5ace1aee0cb8", "title": "Cannabidiol attenuates epileptic phenotype in mouse model of developmental and epileptic encephalopathy", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy therapeutic research"},
+    {"id": "efab89af-b2f0-420e-8cc6-1ed4ab6d7b29", "title": "Medical Cannabis Use by Rheumatology Patients Following Recreational Legalization", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns survey correctly rejected"},
+    {"id": "efb9f229-a868-468d-9893-1eec261fc2da", "title": "CGS based solar cells with In2S3 buffer layer deposited by CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "efbb4c31-4d14-44c0-9be6-64d58b43d5a7", "title": "Substance use, mental health, and help-seeking in college students", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General substance use correctly rejected"},
+    {"id": "efc2eb42-4750-44cd-baea-433dcb8b6762", "title": "Child and adolescent externalising behaviour and cannabis use disorders", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD correctly rejected"},
+    {"id": "f02c5a14-378d-42d1-a442-db5419489a6c", "title": "A pilot study of dronabinol for the treatment of pain in sickle cell disease", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pain clinical trial"},
+    {"id": "f02e7268-94c9-4e64-b92e-7c7e87d2ffdd", "title": "Hallucinations Following Acute Cannabis Dosing: A Case Report", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis adverse effects correctly rejected"},
+    {"id": "f03448a4-ec12-47e3-922a-d0a4bb3361a4", "title": "Terpenes and Cannabinoids in Supercritical CO2 Extracts: Antiradical and Antibacterial Activity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - therapeutic potential research"},
+    {"id": "f0361ee4-b3ce-4539-a9f9-1cdca1f1ee13", "title": "The Place of Cannabinoids in the Treatment of Gynecological Pain", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pain therapeutic"},
+    {"id": "f04b075e-f555-438e-9304-529dda840248", "title": "Comparative effects of cannabinoids on food, sucrose and water consumption by rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid appetite mechanism"},
+    {"id": "f04f2b1a-cedb-44a0-adee-3853fb6af068", "title": "Le cannabidiol: une popularité justifiée?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD review"},
+    {"id": "f05c3c32-5895-429b-94e3-216fa7abc998", "title": "Evidence for an interaction between CB1 and oxytocin receptors in food and water intake", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism"},
+    {"id": "f06c8f8f-a8a7-47ae-8f14-a7a97eeed613", "title": "Cannabinoids in Clinical Practice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid clinical review"}
+  ],
+  "batch_summary": {
+    "correct": 9,
+    "incorrect": 11,
+    "incorrect_ids": [
+      "ef58388c-2992-4f17-ade4-f27a79cc77e1",
+      "ef5e88aa-70ad-43a1-8d13-86c496b8ca6f",
+      "ef9c7a21-005a-4966-a110-5cab1a4bc108",
+      "efa0fff1-c621-4963-a1f6-5ace1aee0cb8",
+      "f02c5a14-378d-42d1-a442-db5419489a6c",
+      "f03448a4-ec12-47e3-922a-d0a4bb3361a4",
+      "f0361ee4-b3ce-4539-a9f9-1cdca1f1ee13",
+      "f04b075e-f555-438e-9304-529dda840248",
+      "f04f2b1a-cedb-44a0-adee-3853fb6af068",
+      "f05c3c32-5895-429b-94e3-216fa7abc998",
+      "f06c8f8f-a8a7-47ae-8f14-a7a97eeed613"
+    ]
+  }
+}

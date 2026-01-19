@@ -1,0 +1,41 @@
+{
+  "batch_number": 245,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T03:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "0ebc2903-46ce-40e7-9c50-1a12aac2b86f", "title": "Canadian Physiatrists Attitudes Medical Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Survey/attitudes correctly rejected"},
+    {"id": "0ebd1c4a-4ea3-40c3-90cc-56ecdb7ba159", "title": "Cannabinoid Biosynthesis Noncanonical Synthases", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Biosynthesis correctly rejected"},
+    {"id": "0ecfd347-a1ef-4fe9-a3d4-f82a68b0f401", "title": "Enantiospecific Synthesis Synthetic Cannabinoid Agonists", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid forensic correctly rejected"},
+    {"id": "0edb1fb2-a267-44c8-a050-7e3384ec5a48", "title": "CBD NMDA glutamate ketamine interaction humans", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmacology research"},
+    {"id": "0ef6f4d6-63d4-49f4-87aa-7d4e8765dc1c", "title": "Prenatal THC mouse brain development", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "0f0b7128-b4e4-4611-95fc-dc26b0d96852", "title": "Cannabis and Culture", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cultural correctly rejected"},
+    {"id": "0f0cd5fa-fcab-4401-aee8-3f2edd5a1f20", "title": "Cannabis use and paranoia Meta-analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "0f0eb264-6506-4b27-a374-a3288b01e91b", "title": "Cannabidiol rifampicin pharmacokinetics", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug interaction"},
+    {"id": "0f1976bc-f55e-43fa-aad0-2d5f18b22f60", "title": "CdS Thin Films CBD Technique", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "0f1b23e5-8362-4b42-8590-ae4640033eab", "title": "Adolescent cannabis cognition brain", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "0f32b143-e3b0-4671-b256-0f5541a6e512", "title": "Hemp essential oil hydro-distillation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "0f365040-b083-4ce7-b381-b7c8d3492410", "title": "Leaf Metabolome UV-C Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "0f3f016d-c391-4b34-b7cb-c53f5814090a", "title": "Cannabis sativa weed allergen", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis allergen correctly rejected"},
+    {"id": "0f5b11a4-9c44-4134-9a6b-d399745a866c", "title": "CBD macrophage polarization PI3K/Akt", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD immune mechanism"},
+    {"id": "0f9699b9-3148-429e-a074-5c4814bf29ea", "title": "Cannabinoids hippocampal principal cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid brain mechanism"},
+    {"id": "0fa27a62-87a5-4f33-8171-a6f330d82e76", "title": "Glucagon-like peptide-1 medicines neurological", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "0faa9a06-f068-40d0-a9c6-4393f5687618", "title": "Cannabinoids Perioperative Care Anesthesiologists", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid clinical guidance"},
+    {"id": "0faafbd7-2a56-4174-b4cb-42f9b4275301", "title": "CBD THC serum anandamide healthy volunteers", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC pharmacology"},
+    {"id": "0fb765ee-1209-4bcb-8822-65fb318b1fdb", "title": "Cannabinoid Vaping Toxicological Effects", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Vaping harm correctly rejected"},
+    {"id": "0fb90c6e-1b1b-4d7b-af81-7add4c45278c", "title": "UDP-Glucuronosyltransferase Inhibition Cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid drug interactions"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "0edb1fb2-a267-44c8-a050-7e3384ec5a48",
+      "0f0eb264-6506-4b27-a374-a3288b01e91b",
+      "0f5b11a4-9c44-4134-9a6b-d399745a866c",
+      "0f9699b9-3148-429e-a074-5c4814bf29ea",
+      "0faa9a06-f068-40d0-a9c6-4393f5687618",
+      "0faafbd7-2a56-4174-b4cb-42f9b4275301",
+      "0fb90c6e-1b1b-4d7b-af81-7add4c45278c"
+    ]
+  }
+}

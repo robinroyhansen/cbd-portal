@@ -1,0 +1,38 @@
+{
+  "batch_number": 119,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T19:30:00.000Z",
+  "results": [
+    {"id": "84afc34f-25b3-4591-8af3-e062360d128b", "title": "MAGL ABHD6 ABHD12 2-AG Endocannabinoid Signalling", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid mechanism"},
+    {"id": "84d093b8-3f06-4066-baf6-79b13e5ac66d", "title": "Cannabinoids Therapeutic Use THC:CBD Spray Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid therapeutic review"},
+    {"id": "84d4f800-14c8-4128-88ce-4585a55b8ef4", "title": "IL-1β CB1 Glutamate Striatum Sensitivity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid inflammation mechanism"},
+    {"id": "84e6c09b-5931-45c9-ac11-8c2f90222e80", "title": "WHO Cannabis Rescheduling Medical Applications", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - WHO regulatory policy"},
+    {"id": "84ee9c8c-4a37-48cc-b6a0-76d9cf5eaf46", "title": "CSF Anandamide Cannabis Psychotic Symptoms", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabis psychosis link"},
+    {"id": "84f539f1-2a72-481a-a6df-3f3328c9949f", "title": "CBD Epilepsy Brazil Current Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "84fa589b-58ef-4f3c-b29e-f3d217142aca", "title": "Neonatal LPS Cannabinoid Receptor Effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism"},
+    {"id": "85080b54-224e-4112-9a33-b20b7ce03eda", "title": "CBD Cats Osteoarthritis Therapeutic Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - cats"},
+    {"id": "8512cbe9-696d-4a07-93bc-a29845f42992", "title": "CBD Epilepsy Spain Expanded Access", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "85236c3d-84d8-42c8-bdb5-2bacff6b77ac", "title": "Cannabinoid Drug Interactions Tobacco PK", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacokinetics"},
+    {"id": "8528d013-9ea9-4004-b440-467a78d3cbff", "title": "CBD Anti-inflammatory Acute Lung Injury", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anti-inflammatory therapeutic"},
+    {"id": "8530a54f-e537-44ed-a00a-4fa077b9eb00", "title": "Cannabinoids Indinavir Nelfinavir PK HIV", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid HIV drug interactions"},
+    {"id": "85333963-16cd-404c-8194-5e64035caedd", "title": "Cannabis Coronary Thrombosis MI Young Man", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cardiovascular harm"},
+    {"id": "85345069-504f-4555-9393-924c3ad94cc8", "title": "Cannabis Use Disorder Australia Survey Factors", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD onset patterns"},
+    {"id": "85751efd-ce21-4ef5-ab7c-33b8820dae75", "title": "CBD Glial Cells Prefrontal Cortex Obesity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection"},
+    {"id": "857bcb6d-cc1b-4ca7-a59b-61b5f979a197", "title": "CBD Neurodegeneration Mechanisms Clinical", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection therapeutic"},
+    {"id": "8581fb6f-e6b3-4f46-9353-50e1588521d8", "title": "Cannabinoids Hippocampal Oscillator Optogenetics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism"},
+    {"id": "858ef50b-f7e6-445a-85ba-5de13df33201", "title": "Cannabis CBD Interview Gorter Clinical Trials", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis clinical research"},
+    {"id": "859eb334-de88-4fc5-b8a6-49d5f91a64b1", "title": "Cannabis IBD Review Regulatory Scientific", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis IBD therapeutic review"},
+    {"id": "85a2fa75-7d71-4cd1-a2ec-7c1dcbd7fd12", "title": "CBD Alcohol Use Disorder Treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "84e6c09b-5931-45c9-ac11-8c2f90222e80",
+      "84ee9c8c-4a37-48cc-b6a0-76d9cf5eaf46",
+      "85080b54-224e-4112-9a33-b20b7ce03eda",
+      "85333963-16cd-404c-8194-5e64035caedd",
+      "85345069-504f-4555-9393-924c3ad94cc8"
+    ]
+  }
+}

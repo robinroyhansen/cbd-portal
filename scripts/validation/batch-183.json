@@ -1,0 +1,39 @@
+{
+  "batch_number": 183,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T11:45:00.000Z",
+  "results": [
+    {"id": "cc7865e0-3aa0-431a-a676-e601eb52852e", "title": "CB2 Agonist AM1241 Seizure Severity PTZ Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 seizure pharmacology"},
+    {"id": "ccc989f1-20d5-4dd1-947d-9989edf3151a", "title": "Cannabinoids BBB Brain Disposition Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC CBD BBB pharmacology"},
+    {"id": "ccd8dcc4-4193-450b-8e3a-1d37344b2200", "title": "CBD Molecular Mechanism Therapeutic Narrative Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD comprehensive therapeutic review"},
+    {"id": "cceb46d3-3bc0-4772-a528-bcfe8e9c2162", "title": "CUD Treatment Utilization Barriers USA", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - non-cannabinoid treatment access"},
+    {"id": "cd07b5b5-38f9-4466-9019-5dcb80f27276", "title": "CBD Inflammation Oxidative Stress Therapeutic Strategy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD inflammation therapeutic"},
+    {"id": "cd103785-2fc9-4cb4-a0de-7e3ebe7004a4", "title": "Diverse TRPV1 Responses Cannabinoids Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain ion channel mechanism"},
+    {"id": "cd25c3d7-0063-4cba-9d2f-3842dd3f0bbc", "title": "CBD Water Daphnia magna Neurogenic Pacemaker", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - invertebrate water flea"},
+    {"id": "cd32492d-2816-4732-b5f4-3190f507a0ec", "title": "Cannabis Subclinical Psychotic Adolescence Dutch", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - adolescent psychosis risk"},
+    {"id": "cd37f5d9-8c98-41dc-af92-576e8c8e1221", "title": "CBD Cannabis Prostate Cancer RBBp6 PC3", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD prostate cancer therapeutic"},
+    {"id": "cd3fdb4d-a499-481c-a77b-e46996fcb759", "title": "Cardiovascular Response Cannabis Exercise Recovery", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cardiovascular safety research"},
+    {"id": "cd4d25c3-ad80-4f03-9797-0a7697bd87fa", "title": "CBD Oil No Entourage Effect Cancer Viability", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer entourage research"},
+    {"id": "cd59a74f-6143-4fdb-b6d0-88b8efdf07dd", "title": "ZnxCd Thin Films CBD Semiconductor", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Chemical Bath Deposition"},
+    {"id": "cd63752f-2f0f-42f0-bcde-04bd6803aa91", "title": "CBD Laws Non-Opioid Pain Overdose Rates", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD policy opioid reduction"},
+    {"id": "cd6a3c49-ad9a-4fff-ad11-2825a7eccd5a", "title": "Salmonella Resistance Cannabidiol Mechanisms MDR", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antimicrobial research"},
+    {"id": "cd709691-1fc1-4b7c-a608-63376196f6d0", "title": "Addictive Behaviours First-Generation Students Scoping", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - student substance use patterns"},
+    {"id": "cd78ef2a-472a-492c-b17c-86e38d8fc368", "title": "Cannabinoid Content Plant Organs Strains Geography", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - plant chemistry strains"},
+    {"id": "cd7b5be4-4ec7-45e3-a6fc-1143202869b1", "title": "CBD Placental Permeability BCRP Xenobiotics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD placental safety pharmacology"},
+    {"id": "cd7de2f4-4df7-44b4-86d3-22a80df46f6c", "title": "CBD Alzheimer's Mouse Model Trem2 Regulation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's therapeutic"},
+    {"id": "cd84995e-5e2f-47bb-a804-aabdc4888127", "title": "FGFR Inhibitor CBD Colorectal Cancer AACR", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD colorectal cancer combination"},
+    {"id": "cd981244-a999-4724-8382-fd3f3a03d746", "title": "CBD Traitement Cocaïne RCT Placebo French", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cocaine addiction RCT"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "cceb46d3-3bc0-4772-a528-bcfe8e9c2162",
+      "cd25c3d7-0063-4cba-9d2f-3842dd3f0bbc",
+      "cd32492d-2816-4732-b5f4-3190f507a0ec",
+      "cd59a74f-6143-4fdb-b6d0-88b8efdf07dd",
+      "cd709691-1fc1-4b7c-a608-63376196f6d0",
+      "cd78ef2a-472a-492c-b17c-86e38d8fc368"
+    ]
+  }
+}

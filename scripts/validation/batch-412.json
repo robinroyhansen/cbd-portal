@@ -1,0 +1,42 @@
+{
+  "batch_number": 412,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T21:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "c8bbf0e2-bd32-4da4-8e32-8e67bcb04937", "title": "Adverse effects of cannabis on health: an update of the literature since 1996", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm study correctly rejected"},
+    {"id": "c8d022af-7ce0-4ba8-8a1f-4ac394d715fc", "title": "Analysis of Severe Complications and Death in CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Congenital Biliary Dilatation) correctly rejected"},
+    {"id": "c8db3f8d-0a40-47c8-9bb5-3c12bcfde794", "title": "Impact of Anatomical Variations of Right Hepatic Artery on Biliary Obstruction and Liver Fibrosis in Pediatric Congenital Biliary Dilatation Patients", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Congenital Biliary Dilatation) correctly rejected"},
+    {"id": "c8e14153-99bb-4a07-ac7d-c2e832524ce6", "title": "Active Constituents of Psilocybin Mushroom Edibles", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "c904addf-6bcc-415d-9fc8-e71ab08a39a3", "title": "Cannabinoids From Trema micranthum (L.) Blume (Cannabaceae): A Cannabinoid Profiling System", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods/profiling correctly rejected"},
+    {"id": "c9098b4b-56f3-405b-94b6-f25d5e9ce46e", "title": "Cannabidiol (CBD) no tratamento de dor crônica", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD chronic pain therapeutic review"},
+    {"id": "c911bda2-308b-4c35-9cb5-185ac836fb92", "title": "STRUCTURAL ORGANIZATION AND QUANTITATIVE ANALYSIS OF MAIN CELLS OF HEPATIC SINUSOIDAL WALL OF RATS AFTER 8 WEEKS OF EXPERIMENTAL EXPOSURE TO CANNABIDIOL OIL", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD hepatic safety/mechanism research"},
+    {"id": "c9164b07-a827-468d-b40a-1c0e65acd7a4", "title": "Conversion of cannabidiol to Δ9-tetrahydrocannabinol and related cannabinoids in artificial gastric juice, and their pharmacological effects in mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmacokinetics/pharmacology research"},
+    {"id": "c922b6b4-212f-40b7-878e-a12f0f928971", "title": "Effects of cannabidiol (CBD) on the inhibition of melanoma cells in vitro", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD cancer therapeutic research"},
+    {"id": "c926b1e1-e66e-4f3e-a588-d1f9bf3fe387", "title": "https://supplements4fitness.com/living-tree-cbd-gummies/", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Commercial spam correctly rejected"},
+    {"id": "c92f0a90-4b27-4931-8425-b66fc03e903b", "title": "Differential effects of Ecstasy and cannabis on self-reports of memory ability", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm study correctly rejected"},
+    {"id": "c9333a5a-ee76-4671-9e89-700972d566cd", "title": "Minor Cannabinoid Use Among Medical Cannabis Patients", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "c9458fe2-ab67-4002-8e97-a70e8d08f5ed", "title": "Modulation of pulmonary immune function by inhaled cannabis products and consequences for lung disease", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm study correctly rejected"},
+    {"id": "c946eb9e-6259-473e-8932-b93eaf683349", "title": "PET Molecular Imaging of the Endocannabinoid System in Psychiatric Disorders", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS psychiatric mechanism/imaging research"},
+    {"id": "c9472894-4633-4c88-af69-821adc3c420f", "title": "Cannabinoids: Metabolites Hydroxylated in the Pentyl Side Chain", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods metabolite analysis correctly rejected"},
+    {"id": "c95296e8-7099-451b-8e69-b084ce6c6f25", "title": "FDA Regulation of Cannabidiol (CBD) Consumer Products: Overview and Considerations for Congress", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/regulatory correctly rejected"},
+    {"id": "c9594d41-614c-4b39-baf1-43a4a1888d04", "title": "AM251, cannabinoids receptors ligand, improves recognition memory in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB receptor memory mechanism research"},
+    {"id": "c9698010-65b0-4210-8b98-65974221c5b5", "title": "Combination of Cannabidiol with Taurine Synergistically Treated Periodontitis in Rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD oral health therapeutic research"},
+    {"id": "c96bdbd7-7a67-4d94-bd9f-871875f534b3", "title": "Activation of cannabinoid receptor CB1 leads to aberrant myelination in development", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis developmental harm correctly rejected"},
+    {"id": "c9714d88-43d0-4716-9d1e-98f87721382b", "title": "Cannabinoid CB1 receptor deficiency increases contextual fear memory under highly aversive conditions and long-term potentiation in vivo", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor fear/memory mechanism research"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "c9098b4b-56f3-405b-94b6-f25d5e9ce46e",
+      "c911bda2-308b-4c35-9cb5-185ac836fb92",
+      "c9164b07-a827-468d-b40a-1c0e65acd7a4",
+      "c922b6b4-212f-40b7-878e-a12f0f928971",
+      "c946eb9e-6259-473e-8932-b93eaf683349",
+      "c9594d41-614c-4b39-baf1-43a4a1888d04",
+      "c9698010-65b0-4210-8b98-65974221c5b5",
+      "c9714d88-43d0-4716-9d1e-98f87721382b"
+    ]
+  }
+}

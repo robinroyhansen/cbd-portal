@@ -1,0 +1,41 @@
+{
+  "batch_number": 430,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T01:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "dc75ff1d-2fc9-4d03-88c3-3114aa0247c0", "title": "Modeling the kinetics of cellulose hydrolysis using EGV with and without CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Cellulose Binding Domain) correctly rejected"},
+    {"id": "dc7bf43e-51ab-4ff9-98e4-81a46f09e40d", "title": "Enhanced brain-targeting and efficacy of cannabidiol via RVG-Exo/CBD nanodelivery system", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD brain delivery formulation research"},
+    {"id": "dc7e462f-452d-4053-9745-b043138f5329", "title": "The CB1 Cannabinoid Receptor Is the Major Cannabinoid Receptor at Excitatory Presynaptic Sites in the Hippocampus and Cerebellum", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor brain mechanism research"},
+    {"id": "dcab871e-6085-405f-a922-677a35f30661", "title": "Comparison of Δ9-tetrahydrocannabinol in venous and capillary blood following ad libitum cannabis smoking by occasional and daily users.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods/forensic correctly rejected"},
+    {"id": "dcae8dcb-9137-4e2b-9a28-34bac6ba4c9e", "title": "A qualitative examination of college students' perceptions of cannabis: insights into the normalization of cannabis use on a college campus", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "dcc07293-26ce-4fbd-a731-f7aea3939b90", "title": "Postoperative Pancreatitis Following Intraoperative Cholangiography: A Case Report.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "dcd42963-9eba-4320-88fd-b84586555ef7", "title": "Temperament multi-trajectory groups across adolescence: Associations with adulthood psychopathology and polygenic scores in TRAILS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "dcdc23af-f13d-4983-a2ae-08f601624646", "title": "Fucoidan Therapy for Extraintestinal Diseases: Targeting the Microbiota–Gut–Organ Axes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "dd198862-bfb9-4114-8b5e-821571e9628c", "title": "FABP1: A Novel Hepatic Endocannabinoid and Cannabinoid Binding Protein", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS hepatic mechanism research"},
+    {"id": "dd2df226-da21-4657-8a6e-9b920b64b2e0", "title": "Antiplasmodial activity and interaction between cannabidiol and artemisinin", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antimalarial therapeutic research"},
+    {"id": "dd420f0b-fe75-46a5-902e-f87429e265b3", "title": "Is the association of cannabis use and stroke frequency-dependent: A cross-sectional analysis of the NIH all of us research program.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis cardiovascular harm correctly rejected"},
+    {"id": "dd52d504-1579-43ca-990c-60674b5cd220", "title": "High level of cannabinoid receptor 1, absence of regulator of G protein signalling 13 and differential expression of Cyclin D1 in mantle cell lymphoma", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor cancer expression research"},
+    {"id": "dd672b38-e13d-4e81-9305-8834ecf09227", "title": "Isolation and characterization of microorganisms from mangrove soil of CBD Belapur creek, Navi Mumbai, MS India", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (location name) correctly rejected"},
+    {"id": "dd71eca4-5012-4a38-92a1-52048d32ee32", "title": "Milk intake and survival in newborn cannabinoid CB1 receptor knockout mice: evidence for a \"CB3\" receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research"},
+    {"id": "dd79118e-96f9-4c75-b5c6-055a6e0fb7bb", "title": "Expression of human peripheral cannabinoid receptor for structural studies", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor structural research"},
+    {"id": "dd832866-4a6f-4fcb-bd7a-ae9e27520573", "title": "Surface modification of CBD-grown CdS thin films for hybrid solar cell applications", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "dd852501-e048-4071-98b5-c526f6d4ecbc", "title": "Cannabis: An ancient friend or foe? What works and doesn't work", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Too general/editorial correctly rejected"},
+    {"id": "dd8bee60-fdb2-4180-8c0a-472a23685faa", "title": "Burning mouth syndrome: updates on pathogenesis and diagnostic algorithms", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "ddc5353a-edea-43b6-9336-3d1ad11d22df", "title": "A Randomized Pilot Trial of ICanChange, a Mobile Health Intervention to Reduce Cannabis Use in Young Adults With Psychosis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "ddc5c5d6-cc8e-42d0-b333-e43835d9481c", "title": "Medical cannabis: strengthening evidence in the face of hype and public pressure", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "dc7bf43e-51ab-4ff9-98e4-81a46f09e40d",
+      "dc7e462f-452d-4053-9745-b043138f5329",
+      "dd198862-bfb9-4114-8b5e-821571e9628c",
+      "dd2df226-da21-4657-8a6e-9b920b64b2e0",
+      "dd52d504-1579-43ca-990c-60674b5cd220",
+      "dd71eca4-5012-4a38-92a1-52048d32ee32",
+      "dd79118e-96f9-4c75-b5c6-055a6e0fb7bb"
+    ]
+  }
+}

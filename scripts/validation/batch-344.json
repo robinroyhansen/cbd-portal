@@ -1,0 +1,41 @@
+{
+  "batch_number": 344,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T04:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "7c4d254c-df00-46a8-97ee-4f9281044bfd", "title": "CBD 지향의 재공학 방법론 개발을 위한 메타 모델의 정의", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Component-Based Development) correctly rejected"},
+    {"id": "7c768167-8641-4a27-b18d-f6b8cf55ac84", "title": "Trait Emotion Regulation as a Predictor of Mental Health and Substance Use During a Period of Chronic Stress", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "7c81879f-2e05-4417-ac32-9d957b96fc7a", "title": "Time series analysis of the skyline and employment changes in the CBD of Melbourne", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "7c842132-af7a-4dc2-b541-79df809c6526", "title": "Lance-Adams Syndrome: Current Understanding and Management", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "7c8a8cae-b23e-48ec-9296-796bdd9ce896", "title": "Cannabis: a psychopharmacological review", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid psychopharmacology review"},
+    {"id": "7c8dcec5-1005-4743-a042-c23a9abe1172", "title": "Charlie Stayt CBD Gummies SPAM", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "7ca26a9a-957c-423f-8509-f7125135a767", "title": "Antiobesity effects of the novel in vivo neutral cannabinoid receptor antagonist LH 21", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB receptor obesity therapeutic"},
+    {"id": "7ca5d812-7961-4a36-9711-aab1b7c8d622", "title": "Cannabinoids Inhibit Network-Driven Synapse Loss between Hippocampal Neurons in Culture", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neuroprotection mechanism"},
+    {"id": "7ccd422c-04f0-45b6-967d-de8a88132f04", "title": "Early cannabinoid exposure influences neuroendocrine and reproductive functions in male mice", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "7cef59bd-9f18-4520-87bc-b85d45a9f285", "title": "Changing capitalization of CBD-oriented transportation systems: evidence from Philadelphia", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "7cf44b4c-5b4e-4b7c-92fd-00a7d87f5ec4", "title": "Increase in Adverse Reactions Associated with Use of Synthetic Cannabinoids — Anchorage, Alaska", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "7d2063ba-370d-4813-b924-85bc8bf24f74", "title": "Cannabis and cannabinoids in cancer pain management", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cancer pain therapeutic review"},
+    {"id": "7d22d841-18a7-401a-8d6f-b65858c9f7d2", "title": "Advances in Extraction and Quantification of Minor Phytocannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction correctly rejected"},
+    {"id": "7d3472f7-866e-4487-9b05-b2ecbc914e36", "title": "SLV330, a cannabinoid CB1 receptor antagonist, ameliorates deficits in cognitive tasks in rodents", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 cognitive therapeutic mechanism"},
+    {"id": "7d3d0e31-8076-4c25-a559-5b1dcdfaf23b", "title": "Establishment of CRISPR/Cas9-mediated targeted mutagenesis in Hemp", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "7d3dd1cc-6676-4142-a2fc-926a3a7a75e5", "title": "Anandamide, an endogenous cannabinoid, inhibits calcium currents as a partial agonist", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS mechanism research"},
+    {"id": "7d5e2992-2772-4745-b0a2-d15b2780f95f", "title": "Formulation and Analytical Evaluation of Liquid Cannabidiol Preparations", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug formulation study"},
+    {"id": "7d69e15d-1ceb-4f3b-a260-b757f637cf86", "title": "Effective isolation of cannabidiol and cannabidiolic acid by centrifugal partition chromatography", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction correctly rejected"},
+    {"id": "7d7cdbe3-eaa4-4ef9-bdd5-e2003c2ab944", "title": "Kalibrering och tillämpning utav CBD-modellen", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Cairns-Blake-Dowd mortality model) correctly rejected"},
+    {"id": "7d9cddd4-23e6-4c73-a347-814d31f5f813", "title": "Potential Clinical Impact of Cannabidiol (CBD) in Canine and Feline Behavior", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary study correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "7c8a8cae-b23e-48ec-9296-796bdd9ce896",
+      "7ca26a9a-957c-423f-8509-f7125135a767",
+      "7ca5d812-7961-4a36-9711-aab1b7c8d622",
+      "7d2063ba-370d-4813-b924-85bc8bf24f74",
+      "7d3472f7-866e-4487-9b05-b2ecbc914e36",
+      "7d3dd1cc-6676-4142-a2fc-926a3a7a75e5",
+      "7d5e2992-2772-4745-b0a2-d15b2780f95f"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "batch_number": 315,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T20:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "5aabaaef-3b30-4d22-af50-a67f1ecb2afb", "title": "Past-Year Use Prevalence of Cannabidiol, Cannabigerol, Cannabinol, and Δ8-Tetrahydrocannabinol Among US Adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "5abca725-31f5-4877-9021-ec1207520b00", "title": "An Effective Method to Design CBD Components in Enterprise JavaBeans (EJB)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Component-Based Development) correctly rejected"},
+    {"id": "5adbecb9-524f-4e4c-bbe8-56fe2c1aa606", "title": "Novel Adamantyl Cannabinoids as CB1 Receptor Probes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor pharmacology probes"},
+    {"id": "5ae9ee48-2184-43a5-8a31-7c21e059b20b", "title": "7 Things You Should Not Do With CBD Branding", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "5aecc9bc-a2ba-481d-b3ce-b4e30e9be753", "title": "Psychiatric and Neurocognitive Adverse Events in Young Users of Nonmedical Nitrous Oxide.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "5afbef64-7e02-4c43-a15d-0846bba9c8a8", "title": "The Ibadan Market Project: An Urban Model for CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Community-Based Distribution) correctly rejected"},
+    {"id": "5aff1f5d-31a8-42b5-9d73-54ef730553f1", "title": "Financial support for biodiversity protection in developing countries — does the CBD mechanism lead to an appropriate level of biodiversity protection?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "5b00c08e-d58f-47fc-a66a-facc6a39fa7f", "title": "Update: Beanstandungen von CBD‐ und Hanfprodukten auch 2021 noch sehr hoch", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Regulatory/quality correctly rejected"},
+    {"id": "5b083c41-8611-4dfa-8d11-c5c1142c66d9", "title": "Exploring the Presence of Cannabinoids in Hemp-Infused Fermented Milk Drinks: An Analysis of Pre- and Post-Fermentation Levels", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food analysis correctly rejected"},
+    {"id": "5b0c1d59-ee61-42dd-b541-0ebfa2643eb7", "title": "Cannabinoid Receptor Type 2 Agonist JWH-133 Stimulates Antiviral Factors and Decreases Proviral, Inflammatory, and Neurotoxic Proteins in HIV-Infected Macrophage Secretome.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 agonist HIV antiviral mechanism"},
+    {"id": "5b1bb5a2-4924-4905-ae7e-6d9f1ceeedcf", "title": "Cannabis and cannabinoid drug development: evaluating botanical versus single molecule approaches", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid drug development"},
+    {"id": "5b25af4a-6671-46f8-a084-bb8ba2a08633", "title": "Cannabis use as an indicator of risk for mental health problems in adolescents: a population-based study at secondary schools", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "5b2b7477-5ec5-44c2-a4f5-8c4ea91df4db", "title": "Cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Insufficient information correctly rejected"},
+    {"id": "5b309c7f-8312-45e2-8967-9266e60b2006", "title": "Societal issues and policy implications related to the use of cannabinoids, cannabis, and cannabis-based medicines for pain management", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy review correctly rejected"},
+    {"id": "5b4090ed-02ed-44ac-b4a4-4209573cbc21", "title": "[Severe dysmenorrhea and endometriosis].", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "5b5531c8-de43-4423-b8bc-ab7d2e022a83", "title": "Evaluating the Effectiveness of Competency-Based Didactic Approach (CBDA) in Pediatric Nursing Education: A Mixed-Method Study.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid (CBDA education) correctly rejected"},
+    {"id": "5b849ad3-05ab-4aaa-95b0-ec04d99d4a6a", "title": "Controlled in vitro release of CBD from oleosomes via modulation of their membrane density.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery formulation"},
+    {"id": "5b890b95-a889-4baa-b230-c7bb4b4006fa", "title": "Cannabinoids and Extracellular Vesicles as Potential Biomarkers and Therapeutic Targets in Neuropsychiatric Disorders: A Hypothesis-Driven Review.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neuropsychiatric therapeutic review"},
+    {"id": "5ba8c639-6d15-4a35-841f-66ac30ab1265", "title": "THE EFFECT OF THIOUREA QUANTITY VARIATION ON STRUCTURAL AND OPTICAL PROPERTIES OF CdS FILMS DEPOSITED USING CBD TECHNIQUE", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "5bad9b22-2a6b-4f72-9e04-68da3a57b3d5", "title": "Cannabis sales increases during COVID-19: Findings from Alaska, Colorado, Oregon, and Washington", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market/sales correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "5adbecb9-524f-4e4c-bbe8-56fe2c1aa606",
+      "5b0c1d59-ee61-42dd-b541-0ebfa2643eb7",
+      "5b1bb5a2-4924-4905-ae7e-6d9f1ceeedcf",
+      "5b849ad3-05ab-4aaa-95b0-ec04d99d4a6a",
+      "5b890b95-a889-4baa-b230-c7bb4b4006fa"
+    ]
+  }
+}

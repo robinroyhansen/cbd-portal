@@ -1,0 +1,41 @@
+{
+  "batch_number": 211,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T18:45:00.000Z",
+  "results": [
+    {"id": "ea3086ee-7a8f-4ee8-9feb-224ba0f10c04", "title": "Psychotic Disorders Hospitalizations Cannabis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis hospitalizations"},
+    {"id": "ea315c2c-d4d8-44f1-84da-62f641c42eea", "title": "CBD Alzheimer's Molecular Pathogenesis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's therapeutic"},
+    {"id": "ea391c8e-6091-4d00-a065-0600f95fd05c", "title": "Structure-Activity THC Metabolites", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology SAR"},
+    {"id": "ea3c59da-25d5-4eba-9722-3ff42042e162", "title": "CBD Social Relating Anxiety Autistic Children RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism therapeutic RCT"},
+    {"id": "ea4059d2-ac60-4678-ab40-3a500d886577", "title": "CBD Motivational Anxiety MDPV Bath Salts", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction therapeutic"},
+    {"id": "ea62539d-fe7a-49d2-a841-6a3dea862c21", "title": "Cannabis Cannabinoids IBD UC CD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid IBD therapeutic review"},
+    {"id": "ea930799-6030-4deb-99e3-7a7ef66b9f4b", "title": "CB1 Antagonist AM251 Burn Pain Allodynia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid burn pain therapeutic"},
+    {"id": "eaa734d0-bac6-4c11-95cc-fd0a3b61907b", "title": "CBD Antinociceptive Trigeminal Neuralgia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic"},
+    {"id": "eaab5829-191d-47b7-8f89-f0a0904fdba0", "title": "CBD Peripubertal MAM Schizophrenia Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia therapeutic"},
+    {"id": "eaaf807f-35a5-4a81-9ade-de1cc5efce87", "title": "THC Pregnenolone Psychosis-Like Effects", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology mechanism"},
+    {"id": "eab17f1b-32cf-4615-b3b9-ae7668299479", "title": "Inhaled Cannabis Diabetic Neuropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis diabetic neuropathy therapeutic"},
+    {"id": "eabfb253-f89e-4b07-9979-62fc4778e8c4", "title": "Herbal Medicine Colorectal Cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general herbal medicine review"},
+    {"id": "eaddc354-2b4c-4dcf-9bf3-17782b71fe3d", "title": "Safety Toxicology Cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid safety therapeutic review"},
+    {"id": "eae0ac59-43ae-47be-bb76-a7320ebf22d0", "title": "Edestin Peptides Exercise Endurance Mice", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - hemp seed protein study"},
+    {"id": "eaedd549-40a0-4df9-80b0-4f005056f80b", "title": "Cannabinoids for Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid epilepsy therapeutic review"},
+    {"id": "eaede3b5-0f90-4801-95be-a21cc9118f22", "title": "CBD Ophthalmic Disease Dogs Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dogs ophthalmic"},
+    {"id": "eaf7c636-8dfb-41c2-a349-d914719070a8", "title": "Medication Adherence Model Depression", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - medication adherence modeling"},
+    {"id": "eafd550e-99ce-46f0-ac10-b360e21384f0", "title": "Pancreatic Carcinoma Acute Pancreatitis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - pancreatic cancer diagnosis"},
+    {"id": "eb03ad8a-d587-4ffb-95ef-684f1c3b8f3f", "title": "TGA DSC THCV THC Boiling Points", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "LAB METHODS - analytical chemistry boiling points"},
+    {"id": "eb0f601c-456c-4455-a64e-685ffb41a554", "title": "CBD Equine Adipose Stem Cells", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - horses equine"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "ea3086ee-7a8f-4ee8-9feb-224ba0f10c04",
+      "eabfb253-f89e-4b07-9979-62fc4778e8c4",
+      "eae0ac59-43ae-47be-bb76-a7320ebf22d0",
+      "eaede3b5-0f90-4801-95be-a21cc9118f22",
+      "eaf7c636-8dfb-41c2-a349-d914719070a8",
+      "eafd550e-99ce-46f0-ac10-b360e21384f0",
+      "eb03ad8a-d587-4ffb-95ef-684f1c3b8f3f",
+      "eb0f601c-456c-4455-a64e-685ffb41a554"
+    ]
+  }
+}

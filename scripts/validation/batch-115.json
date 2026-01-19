@@ -1,0 +1,40 @@
+{
+  "batch_number": 115,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T18:30:00.000Z",
+  "results": [
+    {"id": "80af6836-77d3-4ec2-8ed8-eb170e471c48", "title": "Parkinson's Disease Global Collaboration", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general PD research"},
+    {"id": "80d6f9ae-ad7d-4f6c-8b0f-fca2d6b333e6", "title": "Cannabis Cardiovascular Disease Risks Benefits", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cardiovascular review"},
+    {"id": "80f6fccf-7950-4736-ba33-d99fb986fa5a", "title": "Patient Perceptions Prenatal Cannabis Clinicians", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - prenatal cannabis use patterns"},
+    {"id": "80fc2a29-c034-4937-b254-06caf5fc4a70", "title": "Barriers Cannabis Cessation Quitting", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - cannabis cessation barriers"},
+    {"id": "810342dd-4b57-4c95-8115-739444f06b00", "title": "Cannabis Sleep Architecture Meta-analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis sleep therapeutic review"},
+    {"id": "810b5e38-ea2e-4bd6-87a5-ebf4f80b0215", "title": "Liberty CBD Gummies Shark Tank Scam Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING - product spam promotion"},
+    {"id": "812189d2-617a-4001-a641-dce5f2a87cdc", "title": "Sweat Testing Cannabis Detection", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "FORENSIC DETECTION - drug testing"},
+    {"id": "81326067-903e-4aec-be44-97f1681c1840", "title": "Cannabinoids Metabolic Syndrome Neuroinflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid therapeutic review"},
+    {"id": "8141721f-fedc-47ef-9b99-ca9cf7d1c627", "title": "Sativex MS Spasticity Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis MS spasticity therapeutic"},
+    {"id": "814b5d89-b555-4958-8098-9c7014297f19", "title": "CB1 Receptor Subcellular Distribution Forebrain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor mechanism"},
+    {"id": "814dbb9a-db5d-410a-ba8b-fdb37b82a21e", "title": "Smoked Cannabis Neuropathic Pain RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic RCT"},
+    {"id": "81628fbd-6fdb-4809-a9b8-08fb828dcca5", "title": "CBD Anxiolytic Neurogenesis Hippocampus Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety mechanism"},
+    {"id": "81771c69-68e7-4829-907b-12231149951d", "title": "Cannabis Cancer Risk Carcinogenicity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabis cancer risk causation"},
+    {"id": "8184c6e7-aadd-4437-81b7-91fa5eba2fdd", "title": "THC Cannabis Oil Fibromyalgia RCT Brazil", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis fibromyalgia therapeutic RCT"},
+    {"id": "819c56d8-4f5c-447d-b79e-b162cb3dafce", "title": "CBD Patient Perceptions Social Media UK US Canada", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD patient experience research"},
+    {"id": "819faed9-1683-4ff3-8972-265ae251bac5", "title": "CBD Endometriosis Inflammation Angiogenesis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD endometriosis therapeutic"},
+    {"id": "81a68191-9a10-44fc-a8d9-9312ba5fa368", "title": "FABP5 Cannabinoid Signaling Anxiety Depression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid anxiety depression mechanism"},
+    {"id": "81adfea3-30f1-4be2-806d-d177bd71beec", "title": "Cannabis Extracts Zebrafish Epilepsy Anticonvulsant", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis epilepsy therapeutic"},
+    {"id": "81bea703-f8ad-48a7-b89b-2d439fae6c95", "title": "Cannabis IgE Hypersensitivity Laboratory Personnel", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabis allergy reactions"},
+    {"id": "81bffffb-2963-4b7e-89e0-ce6f70fe73a0", "title": "CBD Cognitive Neurology Aging Neuroprotection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD aging cognitive therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "80af6836-77d3-4ec2-8ed8-eb170e471c48",
+      "80f6fccf-7950-4736-ba33-d99fb986fa5a",
+      "80fc2a29-c034-4937-b254-06caf5fc4a70",
+      "810b5e38-ea2e-4bd6-87a5-ebf4f80b0215",
+      "812189d2-617a-4001-a641-dce5f2a87cdc",
+      "81771c69-68e7-4829-907b-12231149951d",
+      "81bea703-f8ad-48a7-b89b-2d439fae6c95"
+    ]
+  }
+}

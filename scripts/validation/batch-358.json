@@ -1,0 +1,39 @@
+{
+  "batch_number": 358,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T07:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "8d848c39-7e9d-4a9b-b9d1-36a1264a218f", "title": "College Students' Perceptions of the Safety of Marijuana and Cannabidiol Use While Breastfeeding", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Perception survey correctly rejected"},
+    {"id": "8d8610cd-8424-4853-adf0-233230b46f8b", "title": "Perceptions of negative reinforcement in the natural environment: Characterizing subjective alcohol- and cannabis-contingent relief", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "8db31903-3084-483f-8d77-20f969132811", "title": "Central effects of the cannabinoid receptor agonist WIN55212-2 on respiratory and cardiovascular regulation in anaesthetised rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cardiovascular/respiratory mechanism research"},
+    {"id": "8dde43d9-388b-4588-aea0-965db3c773fb", "title": "The constraint based decomposition (CBD) training architecture", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (machine learning) correctly rejected"},
+    {"id": "8de35d20-2643-4c59-82ce-d5427c7c3fdd", "title": "Web Service Security model Using CBD Architecture", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Component-Based Development) correctly rejected"},
+    {"id": "8de9f63e-05d8-40a3-8ebe-8eaeb4695928", "title": "Synthetic Cannabinoid Intoxication: A Case Series and Review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "8dfcfbde-d8af-4593-b1df-c4df303fe129", "title": "Exogenous Administration of Delta-9-Tetrahydrocannabinol Affects Adult Hippocampal Neurotransmission in Female Wistar Rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC neurotransmission mechanism research"},
+    {"id": "8e077a41-6d03-4fa6-aed8-2ba1814b4e9a", "title": "Genetic Architecture of Flowering Time and Sex Determination in Hemp (Cannabis sativa L.): A Genome-Wide Association Study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "8e0ae3dd-109d-45c1-9fc5-322b8af846bc", "title": "Analysis of Plant-Based and Herbal Therapies in Periodontal Treatment: Clinical Applications, Mechanistic Insights, and Efficacy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Not cannabinoid-focused correctly rejected"},
+    {"id": "8e0e43dd-fec3-4f31-b07b-1f2ce7141eac", "title": "Super cbd gummies -REVIEWS SCAM ALERT & READ MUST BEFORE Buy In 2022?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "8e13427d-276c-403c-b44a-a8dedfecc011", "title": "Synthesis and pharmacology of a hybrid cannabinoid", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacology research"},
+    {"id": "8e14b876-dabe-447d-a52f-375bc583690b", "title": "Effect of intracerebroventricular (ICV) injection of antimicrobial peptide expressed in the body-2 (LEAP-2) and its interaction with cannabinoid and ghrelin systems on food intake in broiler chickens", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "8e1d0e6b-7711-46c0-afb8-87c300e2d46b", "title": "Cannabinoids Tetrahydrocannabinol, Cannabinol, Cannabidiol, Tetrahydrocannabivarin and 11-nor-9-carboxy-THC in Hair", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "8e2e4cfc-e28b-47d5-9818-44490f8ea1e0", "title": "Cannabis-Induced Catatonia Complicated by Rhabdomyolysis, Acute Kidney Injury, and Sympathetic Overactivity: A Case Report", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "8e31f954-d2f7-426f-9734-e40ae768c77b", "title": "Cannabis microbiome sequencing reveals several mycotoxic fungi native to dispensary grade Cannabis flowers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product safety correctly rejected"},
+    {"id": "8e32fade-cd56-497c-b132-88a8716fd5fe", "title": "PTL401, a New Formulation Based on Pro-Nano Dispersion Technology, Improves Oral Cannabinoids Bioavailability in Healthy Volunteers", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid drug delivery/bioavailability clinical study"},
+    {"id": "8e54a0ee-1c38-43d4-a1eb-cb0f2f9aeccc", "title": "Cannabis and Sexuality", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "8e5a3930-e3a8-4737-b868-f588b5559557", "title": "Cannabidiol and endogenous opioid peptide-mediated mechanisms modulate antinociception induced by transcutaneous electrostimulation of the peripheral nervous system", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pain mechanism research"},
+    {"id": "8e75470a-f5e9-4fcb-9ef8-4c72ee7ff120", "title": "Frequency of adolescent cannabis smoking and vaping in the United States: Trends, disparities and concurrent substance use, 2017-19", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "8ea65aa6-5b8a-4300-a5c4-bd7690c7afad", "title": "Cannabis Retailer Advice on Blunt, Tobacco, and Cannabis Use During Pregnancy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market/policy correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "8db31903-3084-483f-8d77-20f969132811",
+      "8dfcfbde-d8af-4593-b1df-c4df303fe129",
+      "8e13427d-276c-403c-b44a-a8dedfecc011",
+      "8e32fade-cd56-497c-b132-88a8716fd5fe",
+      "8e5a3930-e3a8-4737-b868-f588b5559557"
+    ]
+  }
+}

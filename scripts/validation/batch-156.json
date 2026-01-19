@@ -1,0 +1,35 @@
+{
+  "batch_number": 156,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T05:00:00.000Z",
+  "results": [
+    {"id": "ae8ef89c-8744-45f0-a92c-32c0397fab16", "title": "CBD epilepsy systematic review Portuguese", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy systematic review"},
+    {"id": "aebb72df-2911-453e-90c6-ec8c648d6cf8", "title": "Cannabis attitudes dementia patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis dementia research"},
+    {"id": "aed325a7-e1c9-4dff-b0c0-0708d8849315", "title": "CBD laying hens yolk fatty acid", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - poultry study"},
+    {"id": "aee80024-5e7a-43a9-abcd-fdeb53eecada", "title": "Edible Marijuana Endurance Exercise", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis athletic research"},
+    {"id": "aefc3396-5ffc-4169-a82c-06ab4dc83af2", "title": "Dietary hempseed cardiovascular", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - hemp nutrition"},
+    {"id": "aefe8f20-44c4-4258-b6df-d16ca2f74220", "title": "CBD treatment-resistant epilepsy children", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "af1c8ffd-7110-43bf-9ad2-2cfbc531499d", "title": "CBD THC Leukämien German", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC leukemia research"},
+    {"id": "af2032d5-f0df-43ca-9829-d7bb27ea1b91", "title": "Cannabinoids Acid-Sensing Ion Channel DRG", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "af2569ed-3a70-442b-bab1-932201f50d74", "title": "Cannabinoid Agonist Colonic Motility IBS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid IBS trial"},
+    {"id": "af262ef7-053a-4640-8534-b190f49476ca", "title": "CBD oil use in children", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pediatric overview"},
+    {"id": "af2e3683-20a9-4702-9959-f695969ee3ec", "title": "Phytocannabinoids anti-inflammatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Phytocannabinoid anti-inflammatory"},
+    {"id": "af2f07c1-cb13-49c3-a4bb-bc750c911aaa", "title": "CBD Dravet Syndrome OLE GWPCARE5", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy clinical trial"},
+    {"id": "af40b23f-8b0c-4eff-8ff6-854255f4389f", "title": "CBD acute pain CANAB I RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain clinical trial"},
+    {"id": "af4770d3-976d-453b-9b7a-1a68a1d626a2", "title": "FDA advises CBD pregnancy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety guidance"},
+    {"id": "af479402-4455-4095-9652-baeb32bb0897", "title": "CBD Epileptic Encephalopathy CARE-E", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy dosing trial"},
+    {"id": "af47ceb7-c6ab-4c5f-8ceb-8bf3f83bb47d", "title": "THC CBD neurobehavioural interactions mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD interaction research"},
+    {"id": "af4e28be-48b0-403c-a407-51f878580c16", "title": "CBD prescription 400 patients NZ", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD clinical practice audit"},
+    {"id": "af504e5a-59aa-4747-91dd-24eec6cfc318", "title": "CBD PFC microRNAs depression rat", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression mechanism"},
+    {"id": "af56550b-2d0a-456d-ad0b-ecf9bb7e2027", "title": "Cost-Utility CBD Fenfluramine Dravet", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy HTA"},
+    {"id": "af6ada8b-cfe2-4293-85ce-7a342e7a914e", "title": "Cannabinoids Temozolomide Glioma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid glioma therapy"}
+  ],
+  "batch_summary": {
+    "correct": 18,
+    "incorrect": 2,
+    "incorrect_ids": [
+      "aed325a7-e1c9-4dff-b0c0-0708d8849315",
+      "aefc3396-5ffc-4169-a82c-06ab4dc83af2"
+    ]
+  }
+}

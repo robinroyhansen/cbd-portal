@@ -1,0 +1,40 @@
+{
+  "batch_number": 76,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T08:45:00.000Z",
+  "results": [
+    {"id": "540d1ca5-d1d9-46b1-a8bb-c0639492aa1c", "title": "Oral THC suppresses cannabis withdrawal symptoms", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - THC for withdrawal"},
+    {"id": "541d920e-db74-4aee-baee-b5ec1858a152", "title": "CB2 ablation protects against TAU neurodegeneration", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 Alzheimer's/tauopathy mechanism"},
+    {"id": "5420a33d-dc9a-4d5f-a739-eabc3855b8ae", "title": "Therapeutic potential CBD in depression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression therapeutic"},
+    {"id": "54300654-39b7-4b7e-aade-baca2cca21a2", "title": "Molecular and Cellular Mechanisms of CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD mechanism comprehensive review"},
+    {"id": "5437744e-bcb5-4160-98f4-78bf256a60c6", "title": "CBD pathways in breast cancer proliferation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD breast cancer therapeutic"},
+    {"id": "5471bb00-3c9b-4ea7-86a5-237211d02b33", "title": "Cannabis cognitive impairment in oncology treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis safety monitoring therapeutic use"},
+    {"id": "54782c52-b15d-4d38-948f-185bae0acdc4", "title": "Oral CBD palliative care cancer RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer palliative RCT"},
+    {"id": "547b09d5-fa8c-4eb3-a90d-a23c9e5d7a74", "title": "CBD alleviates psoriasis via JAK2-STAT3", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psoriasis therapeutic"},
+    {"id": "5485777f-9586-4526-a546-167819e93c8d", "title": "Cannabinoid system dysregulation childhood epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid epilepsy mechanism"},
+    {"id": "54995dcc-d13d-49aa-9683-fd7c2b87c965", "title": "CBD effects on prolactin/GH/cortisol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD endocrine effects research"},
+    {"id": "549d3e17-adba-472d-b944-8eb91ab02339", "title": "Jejunal loop obstruction surgical case", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - surgical case report"},
+    {"id": "54a0ac63-7b51-480f-9d3a-c0fad9574410", "title": "Cannabis use in clinical high risk psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis risk"},
+    {"id": "54b0e738-e795-40bd-b2ed-5daa9f4ea362", "title": "CBD metabolites effects on neural stem cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pregnancy/developmental safety"},
+    {"id": "54c000be-221f-452b-87db-8358514b9dab", "title": "Special Issue Enteric Neuropathy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - journal special issue"},
+    {"id": "54c927ba-4b35-43fc-aae4-d453b26239ca", "title": "Cannabinergic indoles CB1 radioiodinatable imaging", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid imaging tool development"},
+    {"id": "54cd5fef-358f-4282-8cbf-f08c69aea787", "title": "CB1 receptor localisation rat brain antibodies", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor brain mapping"},
+    {"id": "54d116be-fc6e-4a63-9634-2db812874346", "title": "Selecting stress model depression rodents", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - methodology paper"},
+    {"id": "54ed1cad-213a-4fdb-afee-3075eb5359ef", "title": "Rapid methadone metabolism OUD case", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - methadone pharmacokinetics"},
+    {"id": "54ffe996-7a38-4666-8dff-7ede6cc5206e", "title": "CBD/THCV for paclitaxel neuropathic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid chemotherapy neuropathy"},
+    {"id": "5501acf6-ab70-420f-887c-403ca5738fbb", "title": "T cell exhaustion in cancer progression", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - cancer immunology"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "540d1ca5-d1d9-46b1-a8bb-c0639492aa1c",
+      "549d3e17-adba-472d-b944-8eb91ab02339",
+      "54a0ac63-7b51-480f-9d3a-c0fad9574410",
+      "54c000be-221f-452b-87db-8358514b9dab",
+      "54d116be-fc6e-4a63-9634-2db812874346",
+      "54ed1cad-213a-4fdb-afee-3075eb5359ef",
+      "5501acf6-ab70-420f-887c-403ca5738fbb"
+    ]
+  }
+}

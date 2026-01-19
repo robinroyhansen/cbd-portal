@@ -1,0 +1,40 @@
+{
+  "batch_number": 325,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T23:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "663e6aab-b437-49e3-9ace-c15eb86dd55f", "title": "Industrial hemp (Cannabis sativa L.) as a possible source of cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/extraction correctly rejected"},
+    {"id": "6649ce1c-6122-4427-b248-f52287d0252a", "title": "Editorial: Therapeutic potential of cannabinoids: from health to disease.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic editorial"},
+    {"id": "6659d51e-5f81-46a1-8491-3644ee9ac952", "title": "Study on issues of Chinese CBD development", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "665c53ac-20f0-4441-a6f7-e88a7b0e9ada", "title": "Motor actions of cannabinoids in the basal ganglia output nuclei", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid motor mechanism"},
+    {"id": "665ed850-ae3e-4f24-a0c1-efbed9ac52a6", "title": "Polysubstance use in early adulthood and associated factors in the Republic of Ireland: An analysis of a nationally representative cohort.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Epidemiology correctly rejected"},
+    {"id": "666052f6-1207-4224-8c0e-c8f6a8201199", "title": "Skin Deposition and Permeation Kinetics of Cannabidiol and Delta-9-Tetrahydrocannabinol from Cannabis Extract Containing Gels", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC topical pharmacokinetics"},
+    {"id": "6664fc61-7b90-493f-84f7-5ff26320abc2", "title": "Interaction of Cannabis Use and Aging: From Molecule to Mind", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis aging harm correctly rejected"},
+    {"id": "667eeaa5-e21e-42bb-99b0-8a08dde986f0", "title": "Cannabis Cue Reactivity and Craving Among Never, Infrequent and Heavy Cannabis Users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD study correctly rejected"},
+    {"id": "6691392a-c347-4d7d-bcb3-66baa24a42e3", "title": "Perceived access to cannabis and ease of purchasing cannabis in retail stores in Canada immediately before and one year after legalization", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/use patterns correctly rejected"},
+    {"id": "66a763d4-262b-4fec-a895-7ec16101652d", "title": "Impact of enzymatic and alkaline hydrolysis on CBD concentration in urine", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/analytical correctly rejected"},
+    {"id": "66daa663-3606-4b58-a978-df697bc361a7", "title": "Oxygenated Metabolites of Anandamide and 2-Arachidonoylglycerol: Conformational Analysis and Interaction with Cannabinoid Receptors, Membrane Transporter, and Fatty Acid Amide Hydrolase", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid receptor pharmacology"},
+    {"id": "66e10e5c-dd5d-4dab-bb5b-314e7f9a080b", "title": "Neurophysiological functioning of occasional and heavy cannabis users during THC intoxication", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment correctly rejected"},
+    {"id": "66f0df59-86eb-4c31-b61b-7243288d755e", "title": "Cannabis in Europe: Dynamics in perception, policy and markets", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/sociology correctly rejected"},
+    {"id": "6713cbd2-3840-4731-a6d3-f3f48411c47f", "title": "Quality of hemp (Cannabis sativa L.) stems as a raw material for paper", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industrial correctly rejected"},
+    {"id": "67202174-dd15-43cc-beeb-03ef403f8c10", "title": "Age of Cannabis Use Onset and Adult Drug Abuse Symptoms: A Prospective Study of Common Risk Factors and Indirect Effects", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Gateway/harm study correctly rejected"},
+    {"id": "6721521d-2ccf-4bbf-92a0-ed3befca851e", "title": "Cannabidiol inhibits TGF-β1-induced epithelial-mesenchymal transition in human conjunctival epithelial cells by interrupting TGF-β/Smad signaling.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD EMT inhibition mechanism (eye disease)"},
+    {"id": "6737e426-3f1b-4c70-91ee-9c872bf7cc63", "title": "Reducing cannabinoid abuse and preventing relapse by enhancing endogenous brain levels of kynurenic acid", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment (non-cannabinoid) correctly rejected"},
+    {"id": "6739971b-b7f1-4fe2-8bdb-036b00dc2e92", "title": "Conformationally Constrained Fatty Acid Ethanolamides as Cannabinoid and Vanilloid Receptor Probes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB/TRPV1 receptor pharmacology"},
+    {"id": "6741ee95-4814-4bda-8845-fc7de7780d0b", "title": "Solitary cannabis use in adolescence as a correlate and predictor of cannabis problems", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "67455350-cdff-4e40-9f5d-dd68ac97b516", "title": "Relationship Between TRIPS Agreement and CBD, Traditional Knowledge and Folklore", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "6649ce1c-6122-4427-b248-f52287d0252a",
+      "665c53ac-20f0-4441-a6f7-e88a7b0e9ada",
+      "666052f6-1207-4224-8c0e-c8f6a8201199",
+      "66daa663-3606-4b58-a978-df697bc361a7",
+      "6721521d-2ccf-4bbf-92a0-ed3befca851e",
+      "6739971b-b7f1-4fe2-8bdb-036b00dc2e92"
+    ]
+  }
+}

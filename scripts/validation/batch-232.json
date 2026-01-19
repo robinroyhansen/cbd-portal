@@ -1,0 +1,42 @@
+{
+  "batch_number": 232,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T00:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "0109b2cb-a25a-4571-9cd1-15204427402d", "title": "CBDfx Berry Chill Shot BURMAN'S HEALTH SHOP", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "010dc241-8d19-47cb-af72-5e04b71c3e59", "title": "Cannabis dystonia Wilson's disease", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis dystonia therapeutic case"},
+    {"id": "010dc8ba-337b-4dbd-b4d4-ebe843323a92", "title": "Prostaglandins cannabis cannabinoid structure", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism"},
+    {"id": "01160cda-935e-4219-9f43-d1357b4c79ee", "title": "Low-Grade Glioma Spontaneous Regression", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "012056c2-757b-4b1d-aaeb-5dd6b9683ec5", "title": "Industrial hemp bioenergy Canada", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "0129e8cd-429d-4765-8bbd-1efcddd1bed4", "title": "CBD prepulse inhibition amphetamine", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD psychosis therapeutic"},
+    {"id": "012e2de6-153e-42d0-a6b6-b2103a9c41eb", "title": "Chemistry morphology medical cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "014d0d19-06c7-45fb-89a5-157a0da8c3f7", "title": "Linear Ubiquitination Cell Fate", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "0160cce7-75d6-456f-b628-7c1c0db1f0ed", "title": "Neurological aspects drug misuse", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General harm correctly rejected"},
+    {"id": "0168b71b-bcf1-46c6-ae2c-24e900f897b9", "title": "CBD reserpine parkinsonism", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD Parkinson's therapeutic"},
+    {"id": "016ea7d4-e5b5-46f7-ba4a-ac0db5085562", "title": "CBD 7-OH-CBD TDM LC-MS/MS epilepsy", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic monitoring epilepsy"},
+    {"id": "017087b2-c5c8-413a-86f0-27bb59f37d00", "title": "Oral Fluid Cannabinoids abstinence", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "0194166a-b9fb-44f6-9af7-e1ab5a05dfb2", "title": "Panama Geisha coffee", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "01980d00-3c0f-42d3-a63e-cf40dbf2298e", "title": "Nuclear Hormone Receptors Cannabinoid", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism"},
+    {"id": "01a30716-1da9-4a00-bf2b-2208b92c5d3d", "title": "Laparoscopic Cholecystectomy", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "01aaa15e-c637-4ad1-bb9c-6eca5b1ed3a1", "title": "Hemp seeds chemical composition", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "01abafc2-9ffe-4e27-a624-bbf32f6ee18d", "title": "Liposomal CBD Celecoxib Glioblastoma", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD cancer therapeutic"},
+    {"id": "01b4f80a-1b95-4687-90e0-c27c7aa7bd99", "title": "Opioid stimulant xylazine patterns", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "01c110a5-ba99-4db1-bf8b-54666f0502b8", "title": "Infralimbic CBD behavior cellular activation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD mechanism"},
+    {"id": "01c2253c-71af-4970-b1a8-6ffc2ecdd423", "title": "Cannabis sativa feed broilers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "010dc241-8d19-47cb-af72-5e04b71c3e59",
+      "010dc8ba-337b-4dbd-b4d4-ebe843323a92",
+      "0129e8cd-429d-4765-8bbd-1efcddd1bed4",
+      "0168b71b-bcf1-46c6-ae2c-24e900f897b9",
+      "016ea7d4-e5b5-46f7-ba4a-ac0db5085562",
+      "01980d00-3c0f-42d3-a63e-cf40dbf2298e",
+      "01abafc2-9ffe-4e27-a624-bbf32f6ee18d",
+      "01c110a5-ba99-4db1-bf8b-54666f0502b8"
+    ]
+  }
+}

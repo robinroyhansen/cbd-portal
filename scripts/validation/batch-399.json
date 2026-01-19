@@ -1,0 +1,37 @@
+{
+  "batch_number": 399,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T17:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "bad872ec-ec89-442b-b7db-50e77d524f03", "title": "Recent Self-Reported Cannabis Use Is Associated With the Biometrics of Delta-9-Tetrahydrocannabinol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use assessment methods correctly rejected"},
+    {"id": "badb0b29-21f6-42fd-a4bb-14eac2de3954", "title": "Brain Type 1 Cannabinoid Receptor Availability in Patients with Anorexia and Bulimia Nervosa", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor research in eating disorders"},
+    {"id": "badde7b0-9d54-40ce-a38d-3c62699d4b0e", "title": "Novel thermoset formulations from cannabidiol (CBD) oil", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industrial materials correctly rejected"},
+    {"id": "bae065a4-d2ec-456a-a428-1dbe1962fa2f", "title": "A ratiometric molecularly imprinted electrochemical sensor for carbendazim detection", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "baf36822-b820-4a93-a5ad-d80857b4f6c6", "title": "Pancreatopleural fistula in childhood", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "bb09e19c-7aa5-4995-b744-5055ea4e5ba8", "title": "In Web We Trust: The Promised Cannabidiol Effects on Obesity as a Matter of Language and Marketing on Webpages", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Marketing analysis correctly rejected"},
+    {"id": "bb0e7bd2-5286-4cd5-b563-40161cffae83", "title": "The Genomic Characteristics of a Novel Partitivirus Infecting Industrial Hemp in Yunnan, China", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant disease correctly rejected"},
+    {"id": "bb13a825-f609-40fb-ac1d-a9d211e5a02b", "title": "Non-Destructive Near-Infrared Technology for Efficient Cannabinoid Analysis in Cannabis Inflorescences", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "bb265bbc-b90d-46fe-80b8-bf39e343efa5", "title": "Influence of photoperiodism on cannabinoid content of Cannabis sativa L.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "bb2778e3-4e81-4a3b-ad0b-9da008be37c7", "title": "Introducing client collective housing in a medium‐to‐high density development around the CBD of Auckland", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "bb28d355-5bb1-452b-a05a-ab32e8b0b721", "title": "Quantity of Melatonin and CBD in Melatonin Gummies Sold in the US", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product labeling analysis correctly rejected"},
+    {"id": "bb2d8677-0ccb-46f9-a215-0368c1a7ca78", "title": "Chronic effects of cannabis use on the human reward system: An fMRI study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "bb3a3c05-aaf1-4719-a02f-0debc6182d17", "title": "Component of Cannabis, Cannabidiol, as a Possible Drug against the Cytotoxicity of Aβ(31–35) and Aβ(25–35) Peptides", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD Alzheimer's beta-amyloid mechanism research"},
+    {"id": "bb3a50cb-e8f6-49bc-87a1-058984586016", "title": "Cannabis Use May Hinder Female Fertility", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "bb4afd1a-9bb7-4f45-b2f9-21d32871ab30", "title": "A proposed methodology for measuring public transport accessibility to employment sites in the Auckland CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "bb4e9784-2cde-427b-aba1-41a396095197", "title": "Symptoms of obsessive-compulsive disorder predict cannabis misuse", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "bb67ffee-1a16-4b4f-a370-f52877a51b60", "title": "Examining cannabidiol use in children", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pediatric safety/efficacy review"},
+    {"id": "bb71d599-2921-4bd3-a5ab-d4d275254c43", "title": "Cannabidiol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Title only too vague correctly rejected"},
+    {"id": "bb7a7007-7503-4c76-9a29-ea0641521bdc", "title": "Cladistic Relationships and Landscape Genetics of the Endangered Indian Peacock Softshell Turtle", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "bb7ac164-d2c1-4a62-b54f-a55c6bdbb350", "title": "Effects of Functional Impairments and Frailty on the Association of Cognitive Impairment with Total Healthcare Costs", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "badb0b29-21f6-42fd-a4bb-14eac2de3954",
+      "bb3a3c05-aaf1-4719-a02f-0debc6182d17",
+      "bb67ffee-1a16-4b4f-a370-f52877a51b60"
+    ]
+  }
+}

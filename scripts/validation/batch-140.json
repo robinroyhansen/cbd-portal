@@ -1,0 +1,36 @@
+{
+  "batch_number": 140,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T00:45:00.000Z",
+  "results": [
+    {"id": "9bc96c94-69a5-4a6c-b0e2-1bf6526d2640", "title": "Cannabis Substance Use Discrimination Psychotic", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE/HARM - cannabis psychotic experiences"},
+    {"id": "9bd5e863-e722-4cdd-b80b-83a7efb179e7", "title": "CBD Mechanisms Epilepsy TRPV1 GPR55 ENT1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism Epidiolex"},
+    {"id": "9bd84dc0-2472-4b8b-ad71-7183bae1b06b", "title": "CBD Healthy Adults Pain RCT Hemp", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety pain therapeutic RCT"},
+    {"id": "9bdc7b57-4005-496d-854a-578791995b74", "title": "CBD Reproductive Developmental Toxicity OECD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD developmental safety research"},
+    {"id": "9bec962a-2e06-4623-8e45-4b0c29045ad5", "title": "CBD Neuroprotection Parkinson's trkA PC12", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's mechanism"},
+    {"id": "9bf0785d-a359-47b0-853b-60394cc3670a", "title": "CBD Cardiovascular Disease Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular therapeutic review"},
+    {"id": "9bf33f93-dd48-4d6d-9dae-9b233dfb4193", "title": "CB1 Receptors Dipyrone Analgesia Mechanism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid system pain mechanism"},
+    {"id": "9c099bf3-5db6-4b4e-bb85-870d24466d0b", "title": "CBD Chronic Pain Dermatomyositis Fibromyalgia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic case"},
+    {"id": "9c0d1dbc-c430-4b7c-bf53-f3edde9e5a13", "title": "CBD Heart Failure HFpEF Treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular therapeutic"},
+    {"id": "9c15c9e8-f291-4264-b312-6783dad5f044", "title": "CB2 Diabetes Mellitus Therapeutic Complications", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid diabetes therapeutic"},
+    {"id": "9c28d3a0-6a07-4f4e-ad75-55b7aca11b05", "title": "Anti-Seizure Medications Clinical Guidelines", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Includes CBD/Epidiolex third-generation ASM"},
+    {"id": "9c2a0b46-9dd1-4dc8-bcd6-270987672914", "title": "Cannabis Impulsivity Neuroimaging Prefrontal", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - brain impulsivity changes"},
+    {"id": "9c3cef4b-b72c-46c9-84d5-bc6074c2e062", "title": "Autism Spectrum Disorder Pediatrician Overview", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general autism review"},
+    {"id": "9c43362c-8d78-40ec-bf50-5e3b85d1a914", "title": "Argan Oil CBD Parkinson's 6-OHDA Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's therapeutic"},
+    {"id": "9c45155f-6091-4c03-ba23-dd79d1862e3d", "title": "Medical Cannabis Chronic Pain Clinical Guideline", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic guideline"},
+    {"id": "9c54f6d6-bbd7-4126-8ecf-6c3ceb422031", "title": "CB1 CB2 Disruption Tourette ADHD Phenotype", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid system Tourette/ADHD mechanism"},
+    {"id": "9c59a4e8-399d-440a-870a-6164f1af86e0", "title": "NADA N-acyl-dopamines CB1 Ligands Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology anti-cancer"},
+    {"id": "9c667aa7-d275-4747-a4ad-7c7b65219b8a", "title": "CBD Neuroprotection TBI Oxidative Stress", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD TBI therapeutic"},
+    {"id": "9c7acbe7-e270-4e68-b976-14a5f2f7eec6", "title": "CBD Ozone Pancreatic Cancer Cytotoxicity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pancreatic cancer therapeutic"},
+    {"id": "9c957659-c87e-4fcc-914f-1380601ba03f", "title": "CBD Glucose Tolerance Gut Microbiota", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD diabetes gut microbiome therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "9bc96c94-69a5-4a6c-b0e2-1bf6526d2640",
+      "9c2a0b46-9dd1-4dc8-bcd6-270987672914",
+      "9c3cef4b-b72c-46c9-84d5-bc6074c2e062"
+    ]
+  }
+}

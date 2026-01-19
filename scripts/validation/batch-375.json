@@ -1,0 +1,40 @@
+{
+  "batch_number": 375,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T11:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "9ffba02f-9bd5-4905-abd0-0f67b2180805", "title": "Navigating Cross-Border E-Commerce: Prioritizing Logistics Partners with Hybrid MCGDM.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a004dda7-d002-43a6-9b03-80f30908ddc0", "title": "Prescribed Drugs and Interpersonal Violence: A Case–Non-Case Study in the Spanish Pharmacovigilance Database", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "a01ec882-6da8-4949-976b-6db803e90f61", "title": "Structural, Morphological and Optical Comparison of In-S Films Deposited by CBD and Ultrasonic Pyrolytic Spraying, as a Buffer Layer in CIGS So-lar Cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "a01f920f-a658-4cee-95ca-302f570fd36b", "title": "IS THERE A ROLE FOR CANNABIDIOL AND ASSOCIATIONS IN THE CARE OF PATIENTS WITH SYSTEMIC LUPUS ERYTHEMATOSUS?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD lupus therapeutic research"},
+    {"id": "a0253941-a683-4ed5-be30-b8b7b6fcc5c3", "title": "A Study on the Securement Measure of Land-for-Public-Use for the Vitalization of CBD Redevelopment in Preparation of a Declining Population", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "a037e59b-da53-42e7-913a-4ae48651c675", "title": "Natures Only CBD Gummies Mayim Bialik - Reviews v1", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "a03d2b3b-37b4-4eb3-a8c0-112a62a75794", "title": "Telling true from false: cannabis users show increased susceptibility to false memories", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "a04d35b9-216e-4741-8fc0-829f4e8dc790", "title": "NMR assignments of the major cannabinoids and cannabiﬂavonoids isolated from flowers of Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "a05d931b-30d0-407e-8733-7b0b1cfebb52", "title": "Evaluation of dispensaries' cannabis flowers for accuracy of labeling of cannabinoids content", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Quality control correctly rejected"},
+    {"id": "a062bc8a-1956-4ec0-8ef9-bfc6b830ae8a", "title": "Kaempferol Regulates Lipid Homeostasis, Endocannabinoid System, and PPARα in Rat Cerebral Cortex Following BCCAO/R.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS ischemia mechanism research"},
+    {"id": "a06ce08d-31f3-431a-9fec-b86c0ce2a64f", "title": "Impacts of medical and non-medical cannabis on the health of older adults: Findings from a scoping review of the literature", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm/risk focus correctly rejected"},
+    {"id": "a070c13b-76ea-443c-9055-58210c36480a", "title": "Fidelity to Motivational Interviewing and subsequent cannabis cessation among adolescents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "a070eaed-7ec7-4130-bba4-745a91b4740a", "title": "Safety considerations for patients using cannabis.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis safety research"},
+    {"id": "a07201d7-a6b8-4442-9f28-2238bc0823b8", "title": "Mechanical, thermal and ballistic performance of epoxy composites reinforced with Cannabis sativa hemp fabric", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industrial hemp correctly rejected"},
+    {"id": "a07acf66-91b4-4167-95a1-b125d011c810", "title": "Confirmatory non-invasive and non-destructive differentiation between hemp and cannabis using a hand-held Raman spectrometer", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "a08bd592-fa17-4c09-83a1-c7bd36d8325f", "title": "Survival rate of patients with combined hepatocellular cholangiocarcinoma receiving medical cannabis treatment: A retrospective, cohort comparative study.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis cancer therapeutic clinical study"},
+    {"id": "a0956866-3d8f-4924-8cf9-c5b41f722fe2", "title": "Cannabis for medical purposes: cultivating science, weeding out the fiction", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correctly rejected"},
+    {"id": "a0aa7167-9667-4e81-b22e-7230b943006b", "title": "Antinociceptive actions of cannabinoids following intraventricular administration in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pain mechanism research"},
+    {"id": "a0ac2342-27d1-459b-ae07-cbab4e689d35", "title": "The Adolescent Cannabis Problems Questionnaire (CPQ-A): Psychometric properties", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD screening tool correctly rejected"},
+    {"id": "a0b5650d-8837-4cb7-b77f-cc435ce1a035", "title": "(—)-Δ9-Tetrahydrocannabinol Antagonizes the Peripheral Cannabinoid Receptor-mediated Inhibition of Adenylyl Cyclase", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC/CB2 receptor mechanism research"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "a01f920f-a658-4cee-95ca-302f570fd36b",
+      "a062bc8a-1956-4ec0-8ef9-bfc6b830ae8a",
+      "a070eaed-7ec7-4130-bba4-745a91b4740a",
+      "a08bd592-fa17-4c09-83a1-c7bd36d8325f",
+      "a0aa7167-9667-4e81-b22e-7230b943006b",
+      "a0b5650d-8837-4cb7-b77f-cc435ce1a035"
+    ]
+  }
+}

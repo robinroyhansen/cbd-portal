@@ -1,0 +1,36 @@
+{
+  "batch_number": 231,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T23:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "0005c8f7-27f1-4839-9a52-c4c841a38a40", "title": "Adolescent cannabis use disorders", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD patterns correctly rejected"},
+    {"id": "0007ac37-8896-4418-9907-3d7a5d75dc7b", "title": "CBD epilepsia refractaria Peru", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial/policy piece correctly rejected"},
+    {"id": "001d7e15-1eec-4a23-8d3e-8ec4459dfdd8", "title": "THC levels labelling packaging", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/labeling correctly rejected"},
+    {"id": "0025b1dd-b38b-427c-b5d5-2abf3f73b876", "title": "CBD Apo-lipoprotein Neurological Disorders Review", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD neurological disorders therapeutic review"},
+    {"id": "00315279-a95a-4c79-b7a5-22f8b82ab82f", "title": "CBDs shopping centres retailing", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business Districts) correctly rejected"},
+    {"id": "00434900-bfb7-459c-9032-24c97bda4641", "title": "CBD THC metabolites urine marijuana", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "005a16db-9b50-4e2f-8dec-6daa3a26e936", "title": "THC HIV transgenic rats motivation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Neutral/negative finding correctly rejected"},
+    {"id": "005e9a0a-1b76-4e9d-9f66-1cc3e8efcb33", "title": "Medical Marijuana Neurocognition Escalation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "0065b1ef-9570-4cbc-b502-d3fbcc8bf8dc", "title": "Cannabis pregnant woman child", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm correctly rejected"},
+    {"id": "006cec93-54aa-45db-a41e-d8b077bc3cec", "title": "Stigma cannabis users Germany", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevalence/social correctly rejected"},
+    {"id": "00726d98-1c85-4d05-85c1-b4bc4f30aacc", "title": "Sleep Impairment Ecstasy Cannabis Users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm correctly rejected"},
+    {"id": "009d6a40-3255-4b1e-9bf1-ae7d043f4769", "title": "Historical Geography of Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "History/policy correctly rejected"},
+    {"id": "00ad1137-38ca-4014-993b-8c1dd679424f", "title": "Addictions risk behaviors adolescence", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General addiction correctly rejected"},
+    {"id": "00bbad91-decb-42ee-9040-cfc0380d0a6f", "title": "Adolescent cannabis educational attainment", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm correctly rejected"},
+    {"id": "00c12146-dbd2-4eff-aaed-30783d8edad6", "title": "Yeast cell factories recombination", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "00c828b2-c50d-4e55-a80e-63cfbf0839e1", "title": "Alcohol cannabis special issue introduction", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correctly rejected"},
+    {"id": "00d5db5b-0e56-4ffe-83f9-087e8d9366af", "title": "Land use simulation West African megacities", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "00e41c25-8fd6-41da-a5b1-3ff6f17fd735", "title": "Multiscale CBD MoM linear system", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Characteristic Basis Decomposition) correctly rejected"},
+    {"id": "00e6c533-ae06-43d4-8163-6b01598b1f1b", "title": "Cannabielsoin (CBE) CB1 Agonist", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBE cannabinoid receptor mechanism"},
+    {"id": "00eb99fa-1ce4-421d-ae3a-7a597bd1c870", "title": "Faculty Opinions CBD schizophrenia", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 18,
+    "incorrect": 2,
+    "incorrect_ids": [
+      "0025b1dd-b38b-427c-b5d5-2abf3f73b876",
+      "00e6c533-ae06-43d4-8163-6b01598b1f1b"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "batch_number": 114,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T18:15:00.000Z",
+  "results": [
+    {"id": "7f504f3e-cc4d-4380-b33c-d827a7856c0f", "title": "FDA Cannabis Pharmaceutical Authorization", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - FDA regulatory approval editorial"},
+    {"id": "7f5948c6-44b2-4d1e-817d-746c6ea3073d", "title": "CBD Epilepsy Rationale Therapeutic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "7f5f1828-69a2-4066-a03c-a621f25f1b7e", "title": "CBD Long-Term Self-Dosing Drowsiness Testosterone Liver", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety long-term effects"},
+    {"id": "7f668e25-40e9-4dab-9d00-49dec63b88f4", "title": "Medicinal Cannabis Prescribing Australia Rise", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - prescribing trends regulatory"},
+    {"id": "7f7c841f-5167-433d-80da-8573dde12901", "title": "L-DOPA CB1 Dopamine Receptor Parkinson's", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Parkinson's mechanism"},
+    {"id": "7fa22b33-3228-4929-82c1-c2985b610fce", "title": "CB2 Receptor Microglial Inflammation EAE", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid neuroinflammation mechanism"},
+    {"id": "7fa5cc7d-5fa5-402d-bf8f-ea3513bc6ecf", "title": "CBD Glycine Receptor Alpha-1 Modulation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain/inflammation mechanism"},
+    {"id": "7fc2b085-8794-4d77-9a69-f48746515b88", "title": "CBD Fluoxetine Pain Depression Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain depression therapeutic"},
+    {"id": "7fca0fe2-130b-46cd-a001-9f04758062ac", "title": "Cervical Lymph Node Metastasis Cancer India", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - cancer case series"},
+    {"id": "7fda910d-3b70-4aea-af52-88f2323368b2", "title": "Cannabinoids Autism Epidemiological USA Teratology", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabinoid autism causation claim"},
+    {"id": "801609dd-31ff-4f82-a108-9c4ee843c3d3", "title": "Nano-Enhanced Diets Liver Disease MASLD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - liver disease nano diets"},
+    {"id": "802215b5-39d0-43fc-b87a-6a46832e9a29", "title": "THC CBD Drug-Gene Interactions Pharmacogenomics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD THC pharmacokinetics"},
+    {"id": "8039ca61-e841-4583-b1ef-292015463b83", "title": "Lipid Nanoparticles Cannabinoid Delivery CB13", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain delivery therapeutic"},
+    {"id": "805cdfc3-4469-47ba-aee1-6924e58ef364", "title": "CB1 Antisense Oligodeoxynucleotide Antinociception", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "80782430-c94a-41f9-8fdf-dcf861aaccd5", "title": "Cannabis Endocannabinoids Schizophrenia Genesis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabis schizophrenia causation"},
+    {"id": "808d6c2f-a02d-4dc3-a644-d2a860df57b5", "title": "Cannabis Problems Dependence Population Measurement", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis dependence measurement"},
+    {"id": "80968a8c-d4d4-40db-8a45-6e0403fd7066", "title": "Grape Pomace Yogurt Keratinocytes Antioxidant", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - food science grape yogurt"},
+    {"id": "809b970d-3839-4602-ac4b-9e3a36853c94", "title": "Medicinal Cannabis Therapeutic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis therapeutic review"},
+    {"id": "80a21f4d-a61e-460c-9559-8eb72255bdec", "title": "CBD COX-1 COX-2 Neutrophils Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anti-inflammatory mechanism"},
+    {"id": "80a5a9b5-f3f4-4046-bbd5-1f5098f8782b", "title": "Endocannabinoid Obesity Hedonic Food Pleasure", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid obesity mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "7f504f3e-cc4d-4380-b33c-d827a7856c0f",
+      "7f668e25-40e9-4dab-9d00-49dec63b88f4",
+      "7fca0fe2-130b-46cd-a001-9f04758062ac",
+      "7fda910d-3b70-4aea-af52-88f2323368b2",
+      "801609dd-31ff-4f82-a108-9c4ee843c3d3",
+      "80782430-c94a-41f9-8fdf-dcf861aaccd5",
+      "808d6c2f-a02d-4dc3-a644-d2a860df57b5",
+      "80968a8c-d4d4-40db-8a45-6e0403fd7066"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "batch_number": 452,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T06:35:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "f2e3f7b4-a9ca-409c-9c3e-a7bc65f10c03", "title": "An in vitro evaluation of common botanical extracts on carboxylesterase 1 catalytic activity.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No clear cannabinoid focus correctly rejected"},
+    {"id": "f30c72ce-9a68-4d40-8e79-295c7bfaf3ce", "title": "Effects of prenatal cannabis exposure on offspring mental health: A focus on the role of the immune system.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis prenatal harm correctly rejected"},
+    {"id": "f31dfd44-5da5-4b03-a16d-b0e8652c1bf6", "title": "Rapid LC-QTOF-MS screening method for semi-synthetic cannabinoids in whole blood.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "f32562ad-14ed-40ce-b5da-f2f28f4a59dd", "title": "Effects of pH on the characteristics of ZnS thin films grown by using the CBD method", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "f3262254-5a7b-46ca-8284-ae2f70464820", "title": "Combination of cannabinoids, delta-9-tetrahydrocannabinol (THC) and cannabidiol (CBD), mitigates experimental autoimmune encephalomyelitis (EAE) by altering the gut microbiome", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid autoimmune/MS therapeutic research"},
+    {"id": "f3274693-829e-4f3e-a006-804b27eb551f", "title": "Minor Phytocannabinoids: A Misleading Name but a Promising Opportunity for Biomedical Research", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - minor cannabinoid biomedical review"},
+    {"id": "f3282a87-7a4c-4b80-8054-beb91d149ee5", "title": "Neglected CBD stent masquerading as cholangiocarcinoma - a rare case scenario", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "f32eb6d6-f8a0-4c31-98e5-94250b2de107", "title": "Less than labelled, but more than safe: Quantification of cannabidiol content in food supplements and hemp seed oils Using a validated UHPLC-PDA method", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods/product testing correctly rejected"},
+    {"id": "f330ab22-d18d-48cd-ba14-6620b9f4e189", "title": "Triangulating web & general population surveys: Do results match legal cannabis market sales?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market analysis correctly rejected"},
+    {"id": "f347eb85-47b5-401c-9853-ad53244039e0", "title": "Chapter 3: A Few Words about Hemp and CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General/editorial correctly rejected"},
+    {"id": "f3521066-39de-4d03-acb4-5772075d3073", "title": "CB1 Cannabinoid Receptor Antagonists", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 antagonist mechanism research"},
+    {"id": "f36c6226-9f4c-4c74-bffa-eca89c1e9ed2", "title": "CBD product push: Tilray buying hemp food brand Manitoba Harvest", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Business news correctly rejected"},
+    {"id": "f374ac1c-f53a-4edd-abba-3ea4341673e1", "title": "Alcohol and cannabis use predicted by affect-urgency interactions in everyday life", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "f387da1d-0cb4-4102-bdd7-91c2b1b8f863", "title": "Cannabinerolic acid, a cannabinoid from Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry correctly rejected"},
+    {"id": "f3956569-381f-413b-a4d3-fdbd5dfb5953", "title": "Cannabinoid receptor type 2 promotes kidney fibrosis through orchestrating β-catenin signaling", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 kidney fibrosis mechanism research"},
+    {"id": "f3a677bc-a2da-4e5c-b4ca-9d433f92052d", "title": "Cannabis Use Disrupts Eyeblink Conditioning: Evidence for Cannabinoid Modulation of Cerebellar-Dependent Learning", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "f3caec83-d1ee-4a05-8f37-671214961277", "title": "Clinical Implications and Methodological Challenges in the Study of the Neuropsychological Correlates of Cannabis, Stimulant, and Opioid Abuse", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Substance abuse correctly rejected"},
+    {"id": "f3e09aef-a6a8-4e2e-ac5b-343a15600cb9", "title": "Cannabinodiol: Conclusive identification and synthesis of a new cannabinoid from Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry correctly rejected"},
+    {"id": "f3e8d916-b5fc-439c-b906-98eb99069425", "title": "Expression and biological effects of CB1 cannabinoid receptor in rat parotid gland", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 mechanism research"},
+    {"id": "f3f4f532-f7b3-48f7-8ae8-0598d927e572", "title": "Cannabis et psychose.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "f3262254-5a7b-46ca-8284-ae2f70464820",
+      "f3274693-829e-4f3e-a006-804b27eb551f",
+      "f3521066-39de-4d03-acb4-5772075d3073",
+      "f3956569-381f-413b-a4d3-fdbd5dfb5953",
+      "f3e8d916-b5fc-439c-b906-98eb99069425"
+    ]
+  }
+}

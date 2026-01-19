@@ -1,0 +1,40 @@
+{
+  "batch_number": 455,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T06:55:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "f61dd0d0-d0a5-4044-a9a9-77b22fef13b4", "title": "Cannabinoid receptor antagonists and fatty acids alter endocannabinoid system gene expression and COX activity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS mechanism research"},
+    {"id": "f629dd84-abe8-40bd-827c-182099aa95b5", "title": "How synthetic cannabinoid user profiles and consumption patterns can affect wastewater-based epidemiology.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid patterns correctly rejected"},
+    {"id": "f631d55f-ac34-4e85-b4e2-4a8dc1fa42e5", "title": "Study on the Methods of Urban CBD Traffic Improvement——A Case of Wuyi CBD in Changsha", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "f6481bdd-fa6a-4b39-b7a4-5c1d630676d4", "title": "Testing human blood for cannabis by GC-MS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "f64b5afc-5145-4e37-9f7f-5bf708e8c200", "title": "Characterization of By-Products from Commercial Cannabidiol Production", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction/production correctly rejected"},
+    {"id": "f653ae59-441b-4e4e-9e16-6d0794905ee8", "title": "Structural, optical and morphological studies of SILAR grown ZnO thin film and double coated CBD grown ZnO thin film", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "f6583c4e-b110-4732-b4a7-ca83f2426068", "title": "P-1533. In silico Exploration of Cannabidiol Interactions with Outer Membrane Proteins in Salmonella Typhimurium LT2", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antimicrobial mechanism research"},
+    {"id": "f662f883-9929-42b3-b077-c2b2ebf2d6b0", "title": "Hemp Leafz CBD Gummies v1", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "f673e7c5-a25a-4dab-9705-e88ee1dd4a52", "title": "PlantForm-Grown Shoots of Rhaponticum carthamoides (Willd.) Iljin as a Source of Caffeoylquinic Acid Derivatives and Antioxidant Potential of Shoot Extract", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "f6942df8-ea40-467d-a136-b8303e474d63", "title": "Exposure to Cannabis Marketing in Social and Traditional Media and Past-Year Use Among Adolescents in States With Legal Retail Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "f6a0c24f-cb23-4398-a0b2-c72fbfeb4253", "title": "Metabolism of Cannabis. IX. Cannabinol: Structure of a major metabolite formed in rat liver", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid metabolism research"},
+    {"id": "f6a13f8e-2d4b-46cd-9139-2c4244e8c260", "title": "Preparation of stable isotope-labeled peripheral cannabinoid receptor CB2 by bacterial fermentation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor research"},
+    {"id": "f6b4db48-ced2-479b-86e7-8f323a0476f8", "title": "Profiling Vulnerability in Youth and Predicting Educational Attainment in Young Adulthood", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "f6d676d5-705d-4e9e-96d3-6fe2a3152e87", "title": "Proteomic characterization of copper stress response in Cannabis sativa roots", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant biology correctly rejected"},
+    {"id": "f6ec9e6c-df24-406c-8023-3248a0ef7dc5", "title": "Cannabidiol Supplements in Romania: Bridging the Gap Between Marketed Claims and Clinical Reality.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market analysis correctly rejected"},
+    {"id": "f71e5ed6-7ed5-4cfa-a56d-4a35940bfe6d", "title": "The active principles of Cannabis indica resin. I", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Historical chemistry correctly rejected"},
+    {"id": "f723dd82-c488-4c4d-8556-4f3ccf051582", "title": "The cannabis experiment", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General correctly rejected"},
+    {"id": "f724506b-cafa-4889-a7df-940bcf8c8a9c", "title": "A tale of two cannabinoids: The therapeutic rationale for combining tetrahydrocannabinol and cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic rationale review"},
+    {"id": "f72461a4-cac3-4e6f-af55-a59252e30128", "title": "S21-01 EFSA perspective: Cannabidiol (CBD) as a novel food", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Regulatory correctly rejected"},
+    {"id": "f7315f11-b63e-4604-8d7d-aebff3cf7349", "title": "Unlocking the Reverse Targeting Mechanisms of Cannabidiol: Unveiling New Therapeutic Avenues", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD GPR18 mechanism/therapeutic research"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "f61dd0d0-d0a5-4044-a9a9-77b22fef13b4",
+      "f6583c4e-b110-4732-b4a7-ca83f2426068",
+      "f6a0c24f-cb23-4398-a0b2-c72fbfeb4253",
+      "f6a13f8e-2d4b-46cd-9139-2c4244e8c260",
+      "f724506b-cafa-4889-a7df-940bcf8c8a9c",
+      "f7315f11-b63e-4604-8d7d-aebff3cf7349"
+    ]
+  }
+}

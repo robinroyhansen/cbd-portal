@@ -1,0 +1,40 @@
+{
+  "batch_number": 339,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T02:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "766c9474-0888-41bf-893b-fbc75c127a8e", "title": "Toward a Cannabis Terroir: Untargeted Metabolomic Profiling Using GC-HRMS and LC-HRMS/MS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical correctly rejected"},
+    {"id": "76849ae2-0cfc-4c8c-b9df-f2dfaebcad3c", "title": "Dynamic Four-Membered Rings with 2π Aromaticity.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "768f4a61-d005-47a1-868d-d77eee8e9c7a", "title": "The characteristics of Raman spectroscopy of isomer CBD- and THC-Au nanoparticles", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical correctly rejected"},
+    {"id": "76beef55-1a6f-49e6-89a2-57d361918902", "title": "Inhibitory effects of the cannabinoid agonist HU 210 on rat sexual behaviour", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "76de8fbc-0886-4855-9685-eaf1282ec55f", "title": "Insecticidal properties of essential oil of Cannabis sativa against mosquito larvae.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "76f4869e-055a-4aa5-8a72-debd8069edcb", "title": "Structural properties of nano-textured ZnO films deposited by CBD-method", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "76f8693e-2921-47cf-95fc-9ece87ab59de", "title": "Species comparison and pharmacological characterization of rat and human CB2 cannabinoid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor pharmacology"},
+    {"id": "76fb9cac-48b0-42a6-84ec-1fd942a027ba", "title": "Cannabidiol in refractory status epilepticus: A review of clinical experiences", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy clinical review"},
+    {"id": "76feea06-6ee6-4a46-a7aa-32624f375a25", "title": "Effect of ultrasound pre-treatment of hemp seed on supercritical CO2 extraction of oil", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction correctly rejected"},
+    {"id": "7703d84e-d7c1-4b4a-bb3b-de3b32d35957", "title": "10 CBD Company Health Claims: Please Read (FDA warning)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Regulatory news correctly rejected"},
+    {"id": "77165f14-843d-4425-a552-5780b3381263", "title": "An improved sulfur iodine cycle for sour gas purification", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "77366540-3c5e-4476-b1ee-4e9331e3d846", "title": "The Exploration of Cannabis Beverage Substitution for Alcohol: A Novel Harm Reduction Strategy.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm reduction correctly rejected"},
+    {"id": "773a10b6-d7ff-4c6b-8165-62d0662805d5", "title": "Synthesis, radiolabeling and evaluation of novel 4-oxo-quinoline derivatives as PET tracers for imaging CB2 receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 PET tracer development"},
+    {"id": "7760e27e-bc5f-4fd7-874b-82ab5a97d974", "title": "Patient Decision Aid for Medication-Assisted Treatment for Opioid Use Disorder", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "77612949-4aa7-4794-b2f4-f41739b1c418", "title": "Perioperative Repercussions of Cannabis Use-Implications for GI Endoscopy Sedation.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Perioperative correctly rejected"},
+    {"id": "77869d29-bff8-436a-bdea-a744d335f66c", "title": "Grief-Related Psychopathology from Complicated Grief to DSM-5-TR Prolonged Grief Disorder", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "779906e5-204e-470a-a090-d276d25448e3", "title": "CBDs efficacy in mitigating THC-induced adverse cognitive and psychological outcomes: A systematic review and meta-analysis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD protective effects review"},
+    {"id": "779f7934-37dc-4a39-ba0a-b0b69e4f9e42", "title": "Urinary Pharmacokinetic Profile of Cannabidiol (CBD), THC and Their Metabolites", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC pharmacokinetics"},
+    {"id": "77afc2d4-99f4-49c9-92d6-70ec94b4cc4c", "title": "Use and caregiver-reported efficacy of medical cannabis in children and adolescents in Switzerland", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis pediatric efficacy"},
+    {"id": "77ba2ad4-b2d1-4b89-8ffa-04d26ee0fb1c", "title": "CBD Nootropic Supplements | CBD | BURMAN'S HEALTH SHOP", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "76f8693e-2921-47cf-95fc-9ece87ab59de",
+      "76fb9cac-48b0-42a6-84ec-1fd942a027ba",
+      "773a10b6-d7ff-4c6b-8165-62d0662805d5",
+      "779906e5-204e-470a-a090-d276d25448e3",
+      "779f7934-37dc-4a39-ba0a-b0b69e4f9e42",
+      "77afc2d4-99f4-49c9-92d6-70ec94b4cc4c"
+    ]
+  }
+}

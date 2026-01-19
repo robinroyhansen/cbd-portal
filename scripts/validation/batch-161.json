@@ -1,0 +1,39 @@
+{
+  "batch_number": 161,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T06:15:00.000Z",
+  "results": [
+    {"id": "b3478c13-728f-453c-a0d7-9cbded5edd8d", "title": "Electroacupuncture CB2 atopic dermatitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 skin mechanism"},
+    {"id": "b35ce013-406d-444b-812e-f9342244a102", "title": "Nabilone PTSD Insomnia Correctional", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid PTSD/pain therapeutic"},
+    {"id": "b3699060-a061-4bad-a009-495a6fd7ec81", "title": "CBD Innate Immunity Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD immune review"},
+    {"id": "b38085c8-0872-482d-aa8d-07d43377b0c8", "title": "Cannabinoids Dementia Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid dementia systematic review"},
+    {"id": "b39e4817-ac70-49f8-a882-8c9fed88c5f5", "title": "CBD Oral Solution ASD Phase 2 RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism clinical trial"},
+    {"id": "b3b3bf45-0826-4089-9a3a-97d36663d22b", "title": "Bromhexine tiamulin Staphylococcus dogs", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - veterinary infection"},
+    {"id": "b3c4c955-365f-42bf-86f0-989e5c010a79", "title": "WIN55,212-2 Opioid Emesis Ferrets", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - ferret study"},
+    {"id": "b3d73283-bbcc-41f8-b82a-c14ab162a452", "title": "Cannabis Tobacco Co-Use Psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis risk"},
+    {"id": "b3e971c0-fb8c-402b-8d26-4e8a83b1c9ad", "title": "Cannabis craving social stress anxiety", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - craving patterns"},
+    {"id": "b3fa610a-f048-49e5-afa9-15232222a95b", "title": "CBD Terpene SARS-CoV-2 Infectivity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antiviral research"},
+    {"id": "b3fc1af7-e831-4b7b-88f0-20a9f05d5d17", "title": "CBD Addictive Behaviors Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction therapeutic review"},
+    {"id": "b3fc31bd-57c9-4d1f-be6c-0622f2fbb082", "title": "Embryonic CBD Zebrafish Swimming", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - fish study"},
+    {"id": "b40d7fd1-ff2a-40e4-81f7-0f817a7eecf4", "title": "WIN55,212-2 Neural Repair Hypoxia-Ischemia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuroprotection"},
+    {"id": "b411629c-1e92-4303-8946-677fb4f5018b", "title": "CB1 Receptor Allosteric Modulators Binding", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor mechanism"},
+    {"id": "b41bce62-2393-4ec1-b72c-e92b2f11d764", "title": "CBD urinary test medical marijuana", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD testing clinical utility"},
+    {"id": "b44ecb68-3e36-4374-9ef7-20da839de0b3", "title": "CBD Safety Novel Food Assessment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety evaluation"},
+    {"id": "b461d97f-9645-49d6-be5a-6b1c3aafaa34", "title": "Lethal Stroke Cisplatin Cannabis Inhalation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - stroke case report"},
+    {"id": "b4645129-c4d8-42b1-82c4-9fb3363c86d1", "title": "CB2 mRNA pallidal complex Macaca", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 brain distribution"},
+    {"id": "b477a82f-c6a9-42f5-bd96-1d8f628cdfa4", "title": "Sex Gender Cannabis Treatment Outcomes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CUD treatment sex differences"},
+    {"id": "b488714d-92bb-4085-914d-0714a2eeee0c", "title": "PEA Equisetum Chronic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "PEA endocannabinoid-like pain"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "b3b3bf45-0826-4089-9a3a-97d36663d22b",
+      "b3c4c955-365f-42bf-86f0-989e5c010a79",
+      "b3d73283-bbcc-41f8-b82a-c14ab162a452",
+      "b3e971c0-fb8c-402b-8d26-4e8a83b1c9ad",
+      "b3fc31bd-57c9-4d1f-be6c-0622f2fbb082",
+      "b461d97f-9645-49d6-be5a-6b1c3aafaa34"
+    ]
+  }
+}

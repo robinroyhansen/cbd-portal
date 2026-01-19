@@ -1,0 +1,37 @@
+{
+  "batch_number": 284,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T13:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "397b118f-746a-4c26-8385-ee146e1c0561", "title": "AOAC Cannabis Analytical Science Program", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical methods correctly rejected"},
+    {"id": "397f7aca-7f1d-43a0-9f99-3097638be0f4", "title": "Effects of Cannabis and Alcohol on Psychological Tests", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "399b8ead-deb0-41f2-a7e6-43279419c918", "title": "Microglial activation underlies cerebellar deficits produced by repeated cannabis exposure", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "39a144d6-ca96-4775-a116-1734bc224f95", "title": "Assisted Extraction of Hemp Oil and Its Application to Design Functional Gluten-Free Bakery Foods.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food science correctly rejected"},
+    {"id": "39a7e09a-2b3b-4f56-85d1-fd3d83496837", "title": "Clarifying the Gateway Hypothesis and Conflict of Interest in Cannabis Research.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Commentary correctly rejected"},
+    {"id": "39ad5cbb-fb51-4b18-8d44-1b687f69d400", "title": "Behavioral Economic Analysis of Medical Marijuana Use in HIV+ Patients Prospective Cohort Study", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis HIV therapeutic"},
+    {"id": "39c6a497-abc7-4c28-b2f4-ccb5f65230cb", "title": "A qualitative study of same session co-use of nicotine and cannabis among adolescents and young adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "39dab640-45bc-4ecd-8867-5dfa06b43b79", "title": "Miniaturized one-step extraction for the analysis of tetrahydrocannabinol ∆(9)- and ∆(8)- isomers, phytocannabinoids, and hexahydrocannabinol in whole blood using liquid chromatography tandem mass spectrometry.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/analytical correctly rejected"},
+    {"id": "39e7d826-616e-4c87-8a54-3a05cd0d7f94", "title": "Physical withdrawal in rats tolerant to Δ9-tetrahydrocannabinol precipitated by a cannabinoid receptor antagonist", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC tolerance/withdrawal pharmacology"},
+    {"id": "3a05a8bc-26dd-4758-9a10-6e2d110d928f", "title": "Enhanced novelty-induced corticosterone spike and upregulated serotonin 5-HT1A and cannabinoid CB1 receptors in adolescent BTBR mice", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Descriptive animal research correctly rejected"},
+    {"id": "3a0b1008-2e37-4ed7-9923-83833367e2ed", "title": "Facial emotion recognition deficits in abstinent cannabis dependent patients", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "3a1298fe-0e46-4ebd-bd76-b937c0329470", "title": "Tu1444 - Management of CBD Stones in a Combined Endoscopic and Laparoscopic Service over a 5 Year Period", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "3a131dd5-ae23-49c7-8e7a-2c770a11b827", "title": "Five outpatient treatment models for adolescent marijuana use: a description of the Cannabis Youth Treatment Interventions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "3a377066-0080-4476-9fb4-d4c33dddce9f", "title": "Fetal Exposure to Cannabinoids: Exposure, Methylation and Neurodevelopmental Effects", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prenatal harm correctly rejected"},
+    {"id": "3a60be2a-e233-4339-890b-322b0ff6602f", "title": "Developing a GIS-Based Tourist Walkability Index Based on the AURIN Walkability Toolkit—Case Study: Sydney CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "3a650b8e-1e5a-4a75-8f29-dcebe021d5f4", "title": "An Experimental Study of the Effects of Daily Cannabis Smoking on Behaviour Patterns", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "3a688854-95c7-4dfc-a861-bdb75309507d", "title": "Cannabis and the Brain", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm review correctly rejected"},
+    {"id": "3a6d8665-a288-4a22-8951-109d590d7b13", "title": "https://supplements4fitness.com/living-tree-cbd-gummies/", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "3a72a8d4-f090-4ac6-9d0b-ccc854f568ac", "title": "Where there's smoke, there's fire: cannabis allergy through passive exposure", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis allergy correctly rejected"},
+    {"id": "3a7df3a9-de3b-4b6e-b19b-998658035a99", "title": "Primary care provider attitudes, experiences and practices about cannabidiol (CBD) and barriers to patient-provider communication about CBD use: A qualitative study", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD medical practice research"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "39ad5cbb-fb51-4b18-8d44-1b687f69d400",
+      "39e7d826-616e-4c87-8a54-3a05cd0d7f94",
+      "3a7df3a9-de3b-4b6e-b19b-998658035a99"
+    ]
+  }
+}

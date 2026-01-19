@@ -1,0 +1,39 @@
+{
+  "batch_number": 244,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T03:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "0dc7c7fd-3256-4824-8f2c-79637b16d14a", "title": "TGA DSC boiling points THCV THC", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Physical chemistry correctly rejected"},
+    {"id": "0dcc2bf1-b870-4226-9ae8-b01de050b885", "title": "CBD at 5-HT1a Receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD mechanism research"},
+    {"id": "0ddd038b-100c-42ed-a3eb-d873a631ed78", "title": "Ionic Mechanisms Pituitary Cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "0deee541-efb6-44f6-89e9-1093ab6fbc09", "title": "Safety transdermal CBD gel children epilepsy", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research"},
+    {"id": "0e0f67e7-8555-48ad-ab5e-d8ad45355bbe", "title": "CBD Liposomes Cellulose Sanitary Material", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic drug delivery"},
+    {"id": "0e0fe0d8-c9e5-4088-9867-9a4ce40e2cda", "title": "Adverse practice experiences residents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "0e389419-9710-4fa0-a8f8-41ecdc8066f7", "title": "Compressive properties Hemp stalks", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "0e396849-7636-4b29-925e-d27ffb32bb38", "title": "Central sites cannabinoid antinociception rat", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pain mechanism"},
+    {"id": "0e3bbe58-c97a-496b-97ab-93c8e738b194", "title": "Analytical Chemistry Cannabis Quality Regulation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical/regulatory correctly rejected"},
+    {"id": "0e411e49-ada0-4b94-ae6b-5c42f12c654a", "title": "Workplace cannabis use Canadian workers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevalence correctly rejected"},
+    {"id": "0e560d5f-bd33-448b-8d87-0978fbce5158", "title": "CBD Aichi Biodiversity park tourism", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "0e5ad807-e9fa-4ef6-a6cd-1a4fc466bdc9", "title": "Computational cannabinoid receptors drug design", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid drug design research"},
+    {"id": "0e5c8661-a81b-4027-82ba-ab34933308b9", "title": "Cannabis XVIII Pyrolysis CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemical decomposition correctly rejected"},
+    {"id": "0e7aa787-9e79-4476-9cae-59589c2c173f", "title": "GFAAS Pb As Cd Cannabidiol Extracts", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical QC correctly rejected"},
+    {"id": "0e7c245c-0ddd-49a9-aad9-a1458c9f9e5c", "title": "Canadian Cannabis Act 2018", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/legal correctly rejected"},
+    {"id": "0e7de2b5-77be-473a-99ea-7f86f5f69566", "title": "Cellulose-binding domain CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "0e800f5e-5bb1-4aa7-a246-242ffb047dc1", "title": "Culture matters cannabis landscape", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cultural/social correctly rejected"},
+    {"id": "0e96fcff-0d82-44eb-b473-8a5ea0772bab", "title": "Cannabis Use Nicotine Vaping Cessation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Substance use patterns correctly rejected"},
+    {"id": "0ea1fc79-bf24-485a-bb32-2e00c60ddd15", "title": "Behaviours children intellectual disability", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "0eaf4130-0f96-49ef-bce7-50de7c83816a", "title": "Hemp Seed Oil Fermented Salami", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food science correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "0dcc2bf1-b870-4226-9ae8-b01de050b885",
+      "0deee541-efb6-44f6-89e9-1093ab6fbc09",
+      "0e0f67e7-8555-48ad-ab5e-d8ad45355bbe",
+      "0e396849-7636-4b29-925e-d27ffb32bb38",
+      "0e5ad807-e9fa-4ef6-a6cd-1a4fc466bdc9"
+    ]
+  }
+}

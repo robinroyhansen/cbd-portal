@@ -1,0 +1,43 @@
+{
+  "batch_number": 289,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T14:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "3fb1cd8e-4ff0-409e-9241-c92c833c76a0", "title": "Cannabidiol (CBD) – An update", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic review"},
+    {"id": "3fc203b8-af42-4a1c-82c6-4722a567c62e", "title": "Noise level variation in the CBD with height", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "3fccd099-d029-4594-9d5b-db0cb8eb4cfe", "title": "The pharmacology of cannabinoid receptors and their ligands: an overview", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor pharmacology"},
+    {"id": "3fde17cb-877f-43bf-b70f-0238e288ae49", "title": "Retinal pharmacodynamic and pharmacokinetic profile of cannabidiol in an in vivo model of retinal excitotoxicity.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD retinal neuroprotection"},
+    {"id": "3fe02fb8-feea-4c84-9cde-ea88f7c7f83b", "title": "Prevalence and correlates of cannabis use and dependence in young New Zealanders.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "3fe09777-f884-4aad-9a67-e0ca5a2cdc5e", "title": "Residual effects of prolonged cannabis treatment on shuttle-box avoidance in the rat", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Descriptive animal research correctly rejected"},
+    {"id": "3fed93cc-d63a-43f9-9cbb-0ae3e416e07b", "title": "Cannabis Use and Outcomes in Patients with Chronic Pancreatitis: A National Inpatient Sample Analysis.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "3ff6f09a-3796-430d-9abc-5854ab8e2c47", "title": "Quantitation of Cannabidiol (CBD) in brain regions and plasma following intranasal administration of a CBD nanoformulation.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmacokinetics/delivery"},
+    {"id": "3ffab92f-43fa-48bf-9c5d-37dd62787e10", "title": "Cannabinoid receptors and the regulation of immune response", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid immune mechanism"},
+    {"id": "3ffdc764-d3d2-4520-87cb-fd430c3cf467", "title": "A Phase I, open-label, randomized, crossover study in three parallel groups to evaluate the effect of Rifampicin, Ketoconazole, and Omeprazole on the pharmacokinetics of THC/CBD oromucosal spray in healthy volunteers", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC/CBD drug interaction clinical trial"},
+    {"id": "3fff4fb8-98df-4b4d-96bc-8fb23794498c", "title": "Status Epilepticus After an Exploratory Ingestion of Cannabis Edibles.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "4002e4c3-68fd-44be-9012-8811f546812e", "title": "Counseling Young Cannabis Users by Text Message", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "400bfb98-d359-462c-9bf5-daf43f1880e7", "title": "Fabricating Nanoemulsions of Terpene By-Products from Cannabidiol (CBD) Production and Their Use for Control of Callosobruchus Maculatus in Vigna Radiata Seed", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/pest control correctly rejected"},
+    {"id": "402d7f3e-9a67-4e95-a62e-9a6baa0d04fc", "title": "Differences in the relative potency of SR 141716A and AM 251 as antagonists of various in vivo effects of cannabinoid agonists in C57BL/6J mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor antagonist pharmacology"},
+    {"id": "403b4b48-88a4-45a1-abae-c2de8f940872", "title": "Complicated Hydatid Cyst Presentation: A Case Study on the Intersection of Cystobiliary Fistula, Bile Duct Obstruction, and Cholangitis: A Case Report.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "404cc162-46e1-45f3-8a3b-aa95360f4385", "title": "Questioning assumptions about the abuse potential of medical cannabis and cannabinoids: narrative review and commentary.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis safety review"},
+    {"id": "4059a660-96b8-442a-9ccc-41f6d8c620ad", "title": "Effect of Potassium (K) Supply on Cannabinoids, Terpenoids and Plant Function in Medical Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "405ab3c8-e9ab-436b-9d89-fd6c86f20792", "title": "Trichomes and Cannabinoid Content of Developing Leaves and Bracts of Cannabis sativa L. (Cannabaceae)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant biology correctly rejected"},
+    {"id": "405c5832-af1e-4837-8ff9-ed1d5205fd12", "title": "Analysis of the respiratory effects of cannabinoids in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid respiratory mechanism"},
+    {"id": "408503f7-7c36-4532-a6d0-80fecd33319d", "title": "A study on the influence of molecular properties in the psychoactivity of cannabinoid compounds", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SAR psychoactivity correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 11,
+    "incorrect": 9,
+    "incorrect_ids": [
+      "3fb1cd8e-4ff0-409e-9241-c92c833c76a0",
+      "3fccd099-d029-4594-9d5b-db0cb8eb4cfe",
+      "3fde17cb-877f-43bf-b70f-0238e288ae49",
+      "3ff6f09a-3796-430d-9abc-5854ab8e2c47",
+      "3ffab92f-43fa-48bf-9c5d-37dd62787e10",
+      "3ffdc764-d3d2-4520-87cb-fd430c3cf467",
+      "402d7f3e-9a67-4e95-a62e-9a6baa0d04fc",
+      "404cc162-46e1-45f3-8a3b-aa95360f4385",
+      "405c5832-af1e-4837-8ff9-ed1d5205fd12"
+    ]
+  }
+}

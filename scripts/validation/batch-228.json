@@ -1,0 +1,41 @@
+{
+  "batch_number": 228,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T23:00:00.000Z",
+  "results": [
+    {"id": "fd2bc61e-da63-4ba0-8f96-14fd91acaaf4", "title": "Update tic disorders Tourette syndrome", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general Tourette review"},
+    {"id": "fd2e1093-a9a5-48fe-94c7-c9c3880850ae", "title": "IHL-42X dronabinol acetazolamide Phase I bioavailability", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Dronabinol PK bioavailability trial"},
+    {"id": "fd3727d4-f4d5-40d3-b149-b258649382b6", "title": "Topical CBD CIPN Neuropathy RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD CIPN neuropathy therapeutic RCT"},
+    {"id": "fd6360ea-1a0f-49ce-b355-4b99d64735ec", "title": "Synthetic cannabinoids acute toxicity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - synthetic cannabinoid toxicity"},
+    {"id": "fd75d8a7-a5da-47dc-9a68-16fe1a016ae6", "title": "Cannabinoid pharmacology cancer research", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"},
+    {"id": "fda25ee6-2d4b-4d30-a7e7-0370ca50e815", "title": "CBD LGS Lennox-Gastaut Pooled Results", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy LGS therapeutic"},
+    {"id": "fda725e9-0cd6-4d99-8c8a-0bf5097eae43", "title": "CB2 FAAH beta amyloid Down's syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Alzheimer's mechanism"},
+    {"id": "fda9c73f-1281-4ad6-9598-58b185508cf2", "title": "Cannabinoid-based Pharmacology Substance Use Disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid addiction therapeutic review"},
+    {"id": "fdbd4446-cbf7-4792-9fc2-cedbb184c206", "title": "Cannabis withdrawal adolescents relapse", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - withdrawal/relapse adolescents"},
+    {"id": "fdc5b9fa-4891-4981-b6f7-1c27f0faa6f1", "title": "Electroacupuncture CB1 Fibromyalgia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 fibromyalgia mechanism"},
+    {"id": "fde5cb38-fa9c-49b1-ba1b-3d9004dec3c5", "title": "WIN 55,212-2 Clonidine Neostigmine Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "fdef6126-fdfa-4335-894b-ce8647fc07c3", "title": "CBD Knowledge Beliefs Cancer Patients", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - patient knowledge survey"},
+    {"id": "fe08509d-283f-4543-ad1a-5e4239151eac", "title": "CBD medicinal usage stress cocaine", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction therapeutic"},
+    {"id": "fe0ec279-bac6-4947-902c-e6b62a46d87c", "title": "Opioid consumption OPTIMA Study", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - opioid agonist study"},
+    {"id": "fe186ee0-12be-42a0-85dd-6751c490ed22", "title": "Guanfacine cannabis withdrawal sleep", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - non-cannabinoid guanfacine"},
+    {"id": "fe28eaf4-e789-4d25-b38e-7570fe2a6191", "title": "Sativex cancer-related pain RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Sativex cancer pain therapeutic RCT"},
+    {"id": "fe292d50-34ec-4c9d-8e2e-f8bc979332ef", "title": "Cannabinoids and Psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis association"},
+    {"id": "fe2bfe2c-90b1-4419-a3e1-7494ecf16636", "title": "Understanding Medical Cannabis Guide CBD THC", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Medical cannabis therapeutic review"},
+    {"id": "fe3baa36-eee2-4c8e-808f-a3e135fbfd25", "title": "Therapeutic Potential Cannabis CBD Pharmaceuticals", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid therapeutic potential review"},
+    {"id": "fe43ded0-9ca0-46cd-bdba-53063f0da1aa", "title": "Cannabis use course outcome depression", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - depression outcome"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "fd2bc61e-da63-4ba0-8f96-14fd91acaaf4",
+      "fd6360ea-1a0f-49ce-b355-4b99d64735ec",
+      "fdbd4446-cbf7-4792-9fc2-cedbb184c206",
+      "fdef6126-fdfa-4335-894b-ce8647fc07c3",
+      "fe0ec279-bac6-4947-902c-e6b62a46d87c",
+      "fe186ee0-12be-42a0-85dd-6751c490ed22",
+      "fe292d50-34ec-4c9d-8e2e-f8bc979332ef",
+      "fe43ded0-9ca0-46cd-bdba-53063f0da1aa"
+    ]
+  }
+}

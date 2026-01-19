@@ -1,0 +1,38 @@
+{
+  "batch_number": 19,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T18:30:00.000Z",
+  "results": [
+    {"id": "168312ef-ee77-4552-94db-e52a09a7929c", "title": "ABC transporters in placental efflux of THC", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC pharmacokinetics/safety in pregnancy"},
+    {"id": "168ea0c4-18c9-4802-8f0a-1f41f110ec84", "title": "Cannabidiol Attenuates Palmitic Acid-Induced Injury in Hepatocytes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD liver protection via autophagy"},
+    {"id": "169219e0-e808-4027-ba22-c6a574ff7b11", "title": "Cannabis Use Disorder Predisposes Pain Following TAVR", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis-related clinical outcome"},
+    {"id": "16969fbc-b122-4543-8bf4-ffc185a279f5", "title": "In vitro, ex vivo, and clinical evaluation of anti-aging gel with EPA and CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for skin aging - clinical study"},
+    {"id": "16af2c19-9c76-48f3-b752-53c09211565f", "title": "Antipsychotic prescribing patterns on inpatient behavioral health", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general psychiatry prescribing patterns"},
+    {"id": "16b11023-4cd9-4998-a45d-a4ab31107ae4", "title": "S1P(3) Receptor and endocannabinoid 2-AG in Endometriosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid 2-AG mechanism"},
+    {"id": "16b68711-c43b-4967-901e-5da4b439001c", "title": "Rapid suppression of neuropathic pain by nano-formulated CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD nano for neuropathic pain"},
+    {"id": "16ccf534-3204-432f-af5b-1c29c6ba0405", "title": "Cannabis Reduces Prescription Opioids and Improves Quality of Life", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for opioid reduction - 1145 patients"},
+    {"id": "16e81b89-794e-44b0-8ad2-caf06d8ea394", "title": "Patient-reported outcomes in medical cannabis for chronic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for chronic pain"},
+    {"id": "1701cc0a-ceee-4a32-8fb0-e1d33bc544af", "title": "Cannabis extracts for chronic pain: 34 N of 1 studies", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD for chronic pain trials"},
+    {"id": "1704ac65-b2bc-4db6-b480-52a7936f5c5b", "title": "Decision letter for CBD attenuates seizures in CDKL5R59X mice", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - decision letter, not research"},
+    {"id": "17296069-7d5d-4395-85c8-59ff53d98be0", "title": "Pharmacokinetic studies of THC and CBD in humans", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacokinetics review"},
+    {"id": "173a144a-5cf7-4138-aad8-40a0e759caa8", "title": "Effects of Cannabis on the Adolescent Brain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis neurodevelopmental safety"},
+    {"id": "174408a4-a20b-44c9-bb10-73f137299cf4", "title": "Therapeutic Alliance for Adolescent Cannabis Users in Treatment", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis ADDICTION treatment methodology - not cannabinoid therapeutics"},
+    {"id": "17473ad2-3588-4028-bf92-c173b32eaae7", "title": "Cannabidiol: an anxiolytic or an antipsychotic new drug?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for anxiety/psychosis"},
+    {"id": "17496f36-60d6-462a-8c8c-1be6c3a6895f", "title": "UK Medical Cannabis Registry for fibromyalgia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for fibromyalgia"},
+    {"id": "1752d2dd-bfb3-4119-8af9-450d67ee2417", "title": "Cannabinoids Inhibit Acetylcholinesterase and Butyrylcholinesterase", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid enzyme inhibition mechanism"},
+    {"id": "175863a4-4c9a-4f67-adc1-547b79788c7f", "title": "Supplementary Figures from CBD Induces Cell Death in Breast Cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SUPPLEMENTARY material only - not complete study"},
+    {"id": "1759bbca-9052-4531-9d1e-a8a775cf1850", "title": "Development of Substance Use Disorder eConsult", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general SUD telemedicine system"},
+    {"id": "175b2bde-8599-44bf-8fa2-3df9f24f693e", "title": "High-loading cannabidiol powders for inhalation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery formulation"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "16af2c19-9c76-48f3-b752-53c09211565f",
+      "1704ac65-b2bc-4db6-b480-52a7936f5c5b",
+      "174408a4-a20b-44c9-bb10-73f137299cf4",
+      "175863a4-4c9a-4f67-adc1-547b79788c7f",
+      "1759bbca-9052-4531-9d1e-a8a775cf1850"
+    ]
+  }
+}

@@ -158,6 +158,26 @@ export default async function ResearchPage() {
     studyStats.total = allResearch.length;
   }
 
+  // Get year distribution for publication trends chart
+  let yearDistribution: Record<number, number> = {};
+  try {
+    const { data: yearData } = await supabase
+      .from('kb_research_queue')
+      .select('year')
+      .eq('status', 'approved')
+      .gte('year', 2000);
+
+    if (yearData) {
+      yearData.forEach((item: { year: number }) => {
+        if (item.year) {
+          yearDistribution[item.year] = (yearDistribution[item.year] || 0) + 1;
+        }
+      });
+    }
+  } catch (e) {
+    // Ignore errors
+  }
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
       {/* Page Header */}
@@ -216,6 +236,53 @@ export default async function ResearchPage() {
           <div className="text-xs md:text-sm text-purple-600 font-medium mt-1">Preclinical</div>
         </Link>
       </div>
+
+      {/* Publication Trends Chart */}
+      {Object.keys(yearDistribution).length > 0 && (() => {
+        const currentYear = new Date().getFullYear();
+        const years = Array.from({ length: currentYear - 2000 + 1 }, (_, i) => 2000 + i);
+        const maxCount = Math.max(...Object.values(yearDistribution), 1);
+        const minYear = Math.min(...Object.keys(yearDistribution).map(Number));
+        const maxYear = Math.max(...Object.keys(yearDistribution).map(Number));
+
+        return (
+          <div className="mb-8 bg-white rounded-xl border border-gray-200 p-4 max-w-4xl mx-auto">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-sm font-semibold text-gray-700">Publication Trends ({minYear}–{maxYear})</h3>
+              <span className="text-xs text-gray-500">{studyStats.total} studies indexed</span>
+            </div>
+            <div className="flex items-end gap-px h-20" aria-label="Research publications by year">
+              {years.map(year => {
+                const count = yearDistribution[year] || 0;
+                const height = count > 0 ? Math.max((count / maxCount) * 100, 3) : 0;
+                const isRecent = year >= currentYear - 2;
+
+                return (
+                  <div key={year} className="flex-1 flex flex-col items-center group relative">
+                    <div
+                      className={`w-full rounded-t transition-colors ${
+                        isRecent ? 'bg-green-500 hover:bg-green-600' : 'bg-blue-400 hover:bg-blue-500'
+                      }`}
+                      style={{ height: `${height}%` }}
+                      title={`${year}: ${count} studies`}
+                    />
+                    {year % 5 === 0 && (
+                      <span className="text-[9px] text-gray-400 mt-1">{year}</span>
+                    )}
+                    {/* Tooltip on hover */}
+                    <div className="absolute bottom-full mb-1 hidden group-hover:block bg-gray-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap z-10">
+                      {year}: {count} studies
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="text-xs text-gray-400 mt-2 text-center">
+              CBD research has grown significantly since 2000, with a surge following the 2018 Farm Bill
+            </p>
+          </div>
+        );
+      })()}
 
       {/* Research Interface */}
       <ResearchPageClient initialResearch={allResearch} />

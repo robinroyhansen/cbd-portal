@@ -1,0 +1,38 @@
+{
+  "batch_number": 125,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T21:00:00.000Z",
+  "results": [
+    {"id": "8a94a70b-ae61-465a-be52-f38b629bbcd3", "title": "Cannabidiols Impact Depression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression therapeutic"},
+    {"id": "8a9aaad2-377f-4f0e-889d-9a251afb3bfb", "title": "CBD Drug-Resistant Seizures Dravet", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic RCT"},
+    {"id": "8a9baf51-a0a3-4510-81b8-65a716cd12b9", "title": "Olfactory Testing Parkinson's Diagnostic", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - olfactory diagnostic tool"},
+    {"id": "8a9bf677-a27e-4fe9-bf8c-c372d931828b", "title": "Cannabis Stress Response Coping Challenge", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabis ineffective for stress coping"},
+    {"id": "8a9d82fb-98dc-4cb5-bb20-b09ec4d337f9", "title": "CBD THC Pharmacokinetics Beagle Dogs", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dog pharmacokinetics study"},
+    {"id": "8a9e97ab-e70b-451f-a6eb-b91809e18b02", "title": "Random Forest SUD Transitions Cannabis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - SUD prediction modeling"},
+    {"id": "8aa04fe2-5d55-469d-953a-2c0fae8ca60b", "title": "Pediatric Autism Epilepsy Cannabinoid Case", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid autism/epilepsy therapeutic"},
+    {"id": "8aa58351-131f-49fd-a8c2-ef25ac9977af", "title": "Cannabinoids NAFLD Mechanistic Therapeutic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid liver therapeutic"},
+    {"id": "8ab06507-3553-4eac-9958-752d3e87c1b0", "title": "CBD Parkinson's Positive Effects Portuguese", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's therapeutic"},
+    {"id": "8ab2c75e-4ff0-4b5a-bc6d-6a1e77226f03", "title": "Cannabinoids Overview Nausea MS Neuroprotection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid therapeutic review"},
+    {"id": "8ace1ce8-b164-4952-9405-862d6f535c19", "title": "CBD Pharmacoresistant Epilepsy Children", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "8ae52e2f-0d15-41db-9261-7caec85a4c56", "title": "Cannabis Depression Anxiety 3-year Prospective", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis safety study - no harm"},
+    {"id": "8af2bf7f-0545-4fae-870e-9705ce66a9d6", "title": "Sublingual Cannabinoids Intraocular Pressure", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid glaucoma therapeutic"},
+    {"id": "8b0d3da0-1a7e-42b9-8d72-1c885754f0f0", "title": "CBD Analogues Oxepin CNS Activity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology"},
+    {"id": "8b118d34-bb19-4121-956c-acdb7d4c5059", "title": "CBD Nanoparticles Flash NanoPrecipitation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery formulation"},
+    {"id": "8b1f6cd8-1b2f-46bf-b4f4-080b25d1792f", "title": "Cannabis MS Neuropathic Pain Chemo Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis therapeutic systematic review"},
+    {"id": "8b222a60-4897-49eb-975c-01cb3e18f9f9", "title": "CBD Refractory Epilepsy Case Report", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "8b26f0b6-13dd-43ec-86fa-617dd325150e", "title": "Cannabis Oral Environment Xerostemia Candida", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - oral side effects"},
+    {"id": "8b27560d-f1af-4138-9d77-28401c37454e", "title": "CB1 Pain Neurotoxicity Chemotherapy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid chemo/pain therapeutic"},
+    {"id": "8b2a20c9-aa90-464b-a935-bcef52757bfc", "title": "CBD Nitric Oxide Inflammation Oxidative Stress", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anti-inflammatory therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "8a9baf51-a0a3-4510-81b8-65a716cd12b9",
+      "8a9bf677-a27e-4fe9-bf8c-c372d931828b",
+      "8a9d82fb-98dc-4cb5-bb20-b09ec4d337f9",
+      "8a9e97ab-e70b-451f-a6eb-b91809e18b02",
+      "8b26f0b6-13dd-43ec-86fa-617dd325150e"
+    ]
+  }
+}

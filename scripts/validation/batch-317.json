@@ -1,0 +1,41 @@
+{
+  "batch_number": 317,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T21:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "5d65a2c8-b3ad-4793-8593-85da25d997f7", "title": "Evaluating Intake Estimation Methods for Young Children's Diets", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "5d8f5dc7-39b7-4aee-9e97-85d4613dc662", "title": "Functional consequence of pathogenic GABRA3 variants determines whether X-linked inheritance is dominant or recessive", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "5dc2da5b-4776-4de9-944e-b62a1ae73d43", "title": "The Seed of Industrial Hemp (Cannabis sativa L.): Nutritional Quality and Potential Functionality for Human Health and Nutrition", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Hemp nutrition correctly rejected"},
+    {"id": "5df767c0-fe4f-4b52-8b30-3df921ae260c", "title": "Methods for Clinical Research Involving Cannabis Administration", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Research methodology correctly rejected"},
+    {"id": "5e20b881-6d4e-464d-9053-da081a950ad9", "title": "The cannabinoid receptor agonist WIN 55,212-2 facilitates the extinction of contextual fear memory and spatial memory in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid fear memory extinction mechanism"},
+    {"id": "5e22070a-57ac-482a-a953-6d8572b2fe97", "title": "Cannabinoid‐induced hormone changes in monkeys and rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid endocrine mechanism"},
+    {"id": "5e2266eb-0477-4733-b8fc-15fca3de54cf", "title": "Assessing the Impact of Recreational Cannabis Legalization on Cannabis Use Disorder and Admissions to Treatment in the United States", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/CUD correctly rejected"},
+    {"id": "5e6424ae-25bb-4a11-a9df-db9103f769bf", "title": "Proteomic characterization of hempseed ( Cannabis sativa L.)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "5e78bbd2-04bd-4078-96f5-2d1cd000bb92", "title": "Streptavidin-CBD purification v1", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Cellulose Binding Domain) correctly rejected"},
+    {"id": "5e7ea39c-d09d-4f75-a6eb-7906ae9f7bd2", "title": "GLAND DISTRIBUTION AND CANNABINOID CONTENT IN CLONES OF CANNABIS SATIVA L.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "5e836c63-5e43-493e-a06c-44d7d9fb58c9", "title": "Simplified guideline for prescribing medical cannabinoids in primary care.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - clinical prescribing guidance"},
+    {"id": "5eb881c0-8bc1-47d4-a94b-557d2bb71181", "title": "Correction to: Authors' Reply to Letter to the Editor: Continued improvement to genetic diversity indicator for CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "5ec2fc73-270e-4476-af4b-313796cf8ed7", "title": "Letter to the Editor on \"Cannabis Use is Associated With Lower Urinary Tract Symptoms in Pediatric Patients-A Large Claims Database Study\".", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial letter correctly rejected"},
+    {"id": "5ecebdc4-fd50-4e57-a44a-3a99626e3a29", "title": "Effects of cannabidiol (CBD) on regional cerebral blood flow", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD brain blood flow mechanism"},
+    {"id": "5ee1fd3a-958d-45bd-b773-0e9378f5eff8", "title": "Divergent effects of cannabidiol on the discriminative stimulus and place conditioning effects of Δ9-tetrahydrocannabinol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC pharmacological interaction"},
+    {"id": "5ee30ecc-1f68-45c5-912d-737952c35b39", "title": "The cannabinoid system in the retrosplenial cortex modulates fear memory consolidation, reconsolidation, and extinction", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid fear memory mechanism"},
+    {"id": "5eed0fca-b721-4be1-9fac-115d243277d3", "title": "Keeping off, stepping on and stepping off: the steppingstone theory reevaluated in the context of the Dutch cannabis experience", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/sociology correctly rejected"},
+    {"id": "5eef1bfd-ff83-41ce-8191-33ce1422ceb0", "title": "OPTICAL PROPERTIES OF ZnO FILMS PREPARED BY CBD TECHNIQUE", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "5eef93ee-0e53-4728-bf79-998e27affd8c", "title": "Cannabis use and mood disorders: a systematic review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "5ef727d3-c6b5-4f6d-a11a-bae0fcdbd1c5", "title": "Cannabinoids, cannabinoid receptors and tinnitus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid tinnitus mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "5e20b881-6d4e-464d-9053-da081a950ad9",
+      "5e22070a-57ac-482a-a953-6d8572b2fe97",
+      "5e836c63-5e43-493e-a06c-44d7d9fb58c9",
+      "5ecebdc4-fd50-4e57-a44a-3a99626e3a29",
+      "5ee1fd3a-958d-45bd-b773-0e9378f5eff8",
+      "5ee30ecc-1f68-45c5-912d-737952c35b39",
+      "5ef727d3-c6b5-4f6d-a11a-bae0fcdbd1c5"
+    ]
+  }
+}

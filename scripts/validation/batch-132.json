@@ -1,0 +1,38 @@
+{
+  "batch_number": 132,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T22:45:00.000Z",
+  "results": [
+    {"id": "92a36976-3187-48bc-ab19-b23f9b00511c", "title": "CBD Epilepsy Therapeutic Basics Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic review"},
+    {"id": "92a8dd18-1785-4396-ae4e-0dfbb3fd1cb1", "title": "Glycosylation Alzheimer's Tauopathies", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - sugar code glycosylation study"},
+    {"id": "92b01ca5-fc45-4964-aed3-93ebf843c97d", "title": "Cannabinoids Viral Infections Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid therapeutic review"},
+    {"id": "92b0de1f-a173-447d-817b-24209ccc417f", "title": "CBD Anxiety RCT Nanodispersible Solution", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety therapeutic RCT"},
+    {"id": "92bef9ac-351e-4ca6-8c3c-cb88f8752173", "title": "Green Algae Cannabinoid Bioproduction", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "LAB METHODS - algae biosynthesis production"},
+    {"id": "92d5c658-56fb-4c67-91c7-44433d2984af", "title": "Cannabis Raw Plant Sport Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Sports medicine context"},
+    {"id": "92fa9d5d-2266-477b-9566-7437d415efcd", "title": "CBD Hydrogel Macrophage Chronic Enteritis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD IBD therapeutic"},
+    {"id": "93028cc4-3a1b-4ca7-87af-94764bd2e0d3", "title": "CBD Urine Anti-Doping WADA Detection", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "FORENSIC DETECTION - anti-doping testing"},
+    {"id": "930ee6b8-b3bd-4287-a127-e473d830f750", "title": "CBD Electrospinning Wound Patch Wearable", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD wound therapeutic delivery"},
+    {"id": "93214e97-a862-46cc-b974-bd89a4ca084d", "title": "Microglial Activation Nociplastic Pain PET", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - neuroimaging pain study"},
+    {"id": "93377577-be9f-470b-8570-639fb1856743", "title": "CBD Dravet Syndrome Pharmacokinetics Efficacy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "93415815-9f6c-4f9c-9888-abf71e82b929", "title": "CBD Parkinson's Disease Psychosis Trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's therapeutic"},
+    {"id": "9358bd72-0d46-4b17-9d9d-b01f33a72863", "title": "Electroacupuncture CB1 Cerebral Ischemia Neuroprotection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid system mechanism"},
+    {"id": "936d84a8-d765-4f4c-a4f7-0b0ea9e8bc4e", "title": "CBD Myotonic Dystrophy Steinert Case Report", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD rare disease therapeutic"},
+    {"id": "93ab8c83-d555-425f-9cb4-b6fb9a212df0", "title": "Cannabis Oil Breast Cancer Chemotherapy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer therapeutic"},
+    {"id": "93b3d5fe-33b6-44d9-a1fb-7b6512532ec8", "title": "5F-MDMB-PICA Metabolite Identification CB Activity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "FORENSIC DETECTION - synthetic cannabinoid metabolites"},
+    {"id": "93b9a753-9f4d-4acc-a588-37005c5bb525", "title": "Cannabis Chemistry Biochemistry Review 1976", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Foundational cannabis science"},
+    {"id": "93c0559c-db5b-4d30-9d5e-cfd03b3bd523", "title": "CBME Neuropathic Pain Allodynia RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Sativex pain therapeutic RCT"},
+    {"id": "93c8682c-fe24-4946-8496-8d201df2cc77", "title": "CBD Psychiatric Disorders Neuroplastic Mechanisms", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic mechanism review"},
+    {"id": "93d15440-f95a-426e-8e2a-7a70a2d67aaa", "title": "CBD Metallothionein Disulfiram Cancer Interaction", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interaction pharmacology"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "92a8dd18-1785-4396-ae4e-0dfbb3fd1cb1",
+      "92bef9ac-351e-4ca6-8c3c-cb88f8752173",
+      "93028cc4-3a1b-4ca7-87af-94764bd2e0d3",
+      "93214e97-a862-46cc-b974-bd89a4ca084d",
+      "93b3d5fe-33b6-44d9-a1fb-7b6512532ec8"
+    ]
+  }
+}

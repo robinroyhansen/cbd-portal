@@ -1,0 +1,36 @@
+{
+  "batch_number": 8,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T15:30:00.000Z",
+  "results": [
+    {"id": "0b4bd239-bc5e-4bcf-b6da-a1089b44c55d", "title": "The impact of cannabis co-use and cannabis use disorder on interest in and barriers to tobacco cessation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CUD impact on smoking cessation - addiction research"},
+    {"id": "0b5603da-efc0-4359-82cb-f6bce274f111", "title": "Cannabis Products and Use Patterns Associated with Cannabis Use Disorder Symptoms Among Youth", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Use patterns/prevalence study, not health treatment research"},
+    {"id": "0b66be9e-451b-48fe-aec4-92921e28fad7", "title": "Synthetic cannabinoid WIN 55,212-2 reduces CHIKV replication...in macrophages", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid antiviral mechanism research"},
+    {"id": "0b8e4fbb-b1bd-4709-bc5c-c501d6559736", "title": "Single-cell Spatial Transcriptional Profiling...Pathogenic Tau in Mouse Model of Neurodegeneration", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Tau/neurodegeneration profiling - no cannabinoid content"},
+    {"id": "0bae7b54-98cd-41fa-9938-0c22b8006732", "title": "Understanding the intersections between mental health, HIV and teenage pregnancy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Mental health/HIV/pregnancy - no cannabinoid content"},
+    {"id": "0bcaa906-5c18-47ea-82d5-16cb5a471d01", "title": "Perspectives toward cannabidiol (CBD) among youth in Early Psychosis Intervention programs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD perceptions in psychosis patients - qualitative"},
+    {"id": "0bd301e9-3e8a-4804-8c0c-51814b9aaf53", "title": "Amyotrophic Lateral Sclerosis, the Endocannabinoid System, and Exogenous Cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids for ALS"},
+    {"id": "0bee72e9-b574-4df3-8402-9c7c2d133ef8", "title": "Cannabidiol reduces seizure rate in rare form of epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for epilepsy"},
+    {"id": "0bf8df32-7321-438e-b1f7-6356d977b579", "title": "Computational GWAS...CNR1 and DRD2 Receptors...Cannabis Use Disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor genetics research"},
+    {"id": "0c17ffea-603b-498d-8da1-903d5d1c7d14", "title": "Presence and regulation of cannabinoid receptors in human retinal pigment epithelial cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1/CB2 in eye - AMD therapeutic potential"},
+    {"id": "0c1fedaa-2128-42af-a228-45c9dbade713", "title": "Impacto do canabidiol na ansiedade e distúrbios do sono em TEA (Portuguese)", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for autism anxiety and sleep - integrative review"},
+    {"id": "0c48016b-31df-4a12-a552-be006c1d6734", "title": "Attitudes, beliefs, and changing trends of CBD oil use among Alzheimer's caregivers", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for Alzheimer's - caregiver perceptions"},
+    {"id": "0c4eeb44-abb0-40f0-88db-ae5c1927cbc0", "title": "Cannabis use and sleep quality in daily life", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for sleep"},
+    {"id": "0c4fceae-9ee3-435b-b8b9-6079daae1f8e", "title": "Pharmacokinetics of Oral Minor Cannabinoids in Blood and Brain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Minor cannabinoid PK"},
+    {"id": "0c733595-200f-4783-84d5-9c30f85ee379", "title": "Trial of Cannabidiol for Drug-Resistant Seizures in the Dravet Syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Famous CBD Dravet trial"},
+    {"id": "0c73c28c-0cf7-4e9c-9b7a-26e0face652a", "title": "A Comprehensive Review of Cannabis in Patients with Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for cancer review"},
+    {"id": "0c7b5ba1-01c9-49be-867c-ecef354ba653", "title": "Cannabidiol Alleviates the Damage to Dopaminergic Neurons in...Parkinson's Disease Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for Parkinson's - preclinical"},
+    {"id": "0c7bc511-bffd-44d2-84df-4e346cb25f75", "title": "Elucidating interplay between myrcene and cannabinoid receptor 1...neuropathic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 and terpene for pain"},
+    {"id": "0c7e116b-4ea9-4dc0-9758-1c62a558c8c7", "title": "Cannabidiol alleviates neuroinflammation and attenuates neuropathic pain via targeting FKBP5", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD mechanism for neuropathic pain"},
+    {"id": "0ca642a2-072a-42cd-aa71-64a6b477a8ff", "title": "The cannabinoid system and its pharmacological manipulation – a review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid system pharmacology review"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "0b5603da-efc0-4359-82cb-f6bce274f111",
+      "0b8e4fbb-b1bd-4709-bc5c-c501d6559736",
+      "0bae7b54-98cd-41fa-9938-0c22b8006732"
+    ]
+  }
+}

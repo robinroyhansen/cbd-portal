@@ -1,0 +1,40 @@
+{
+  "batch_number": 146,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T02:30:00.000Z",
+  "results": [
+    {"id": "a30cecd6-a768-4d99-bc6b-625a1f22b1f4", "title": "Fetal CBD exposure pain prefrontal cortex", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD developmental safety"},
+    {"id": "a3204b97-d0f6-4932-8870-41af9ef6fc1b", "title": "Mitochondrial Variants Brain Connectivity Aging", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - aging neuroscience"},
+    {"id": "a3219d49-9c0c-4f70-849b-cf298aee4462", "title": "Cannabis CBD HIV TREM2 Neuropathogenesis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD HIV neuroprotection"},
+    {"id": "a32a9bb3-180d-468d-998f-df4bd908d0de", "title": "Marijuana and Madness Cannabinoids Psychosis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis association"},
+    {"id": "a33984b4-e1c7-45ad-9354-cb1c44f9a605", "title": "Clinical-pathological correlations NACC Alzheimer's", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - AD pathology"},
+    {"id": "a343f4b6-24c9-428b-8b97-5d74224637bb", "title": "Cannabinoids ablate TNFα microglial LPS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anti-inflammatory"},
+    {"id": "a350cd75-8bf0-4787-8319-2b7fc42b360d", "title": "CB1 Inverse Agonist SR141716A Vomiting", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 anti-emetic mechanism"},
+    {"id": "a360344d-74c3-493e-ae60-167d41c889d1", "title": "Positive Cannabis-Urintests CBD-Produkte", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "FORENSIC - CBD drug testing"},
+    {"id": "a36db5ab-1fd6-473d-ab1c-662b2779fa08", "title": "Chitosan CBD Nanoparticles Alopecia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD formulation hair loss"},
+    {"id": "a3707abe-d0c2-4fcd-b48d-8cfc669cc388", "title": "Oral toxicity evaluation cannabidiol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety toxicology"},
+    {"id": "a37390c3-a342-4c32-a733-24c4d2c32aeb", "title": "CBD hydrogel microneedle psoriasis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psoriasis therapeutic"},
+    {"id": "a37c39ae-dffe-4b55-a993-7a7e93b44c4b", "title": "Lower negative symptoms cannabis schizophrenia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD in schizophrenia"},
+    {"id": "a37c696c-d0cb-4d80-b1d7-c1bb7577f285", "title": "CBD THC Pharmacokinetics Pharmacodynamics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics"},
+    {"id": "a38105a8-20dd-4523-83b7-806e700ccd91", "title": "Viniferin Vitis vinifera Neuroinflammation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - grape compound"},
+    {"id": "a3938cab-e9ff-4598-8a2a-e7dc4ee37199", "title": "CBD heroin withdrawal behavioral molecular", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD opioid withdrawal"},
+    {"id": "a3ac43f7-bd6e-4acf-aa86-06e605ea9e31", "title": "Vaping cannabis reduce tobacco smoking", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis tobacco patterns"},
+    {"id": "a3b1ad20-e281-48f0-8cdf-345942b697bb", "title": "Cannabidiol Psychiatrie psychiatric disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychiatric review"},
+    {"id": "a3b2fa81-1f56-49d2-9c09-31630a0ed779", "title": "Cannabidiol Voltage-Gated Sodium Channels", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism"},
+    {"id": "a3b4cb06-b187-41b9-9536-dc4a0ad4658f", "title": "Cannabis metabolic dysfunction obese mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis obesity therapeutic"},
+    {"id": "a3b4cfbf-fcad-4384-98b9-be9159bcf2a4", "title": "CB1 Receptor Imaging Biomarker Brown Adipose", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS obesity mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "a3204b97-d0f6-4932-8870-41af9ef6fc1b",
+      "a32a9bb3-180d-468d-998f-df4bd908d0de",
+      "a33984b4-e1c7-45ad-9354-cb1c44f9a605",
+      "a360344d-74c3-493e-ae60-167d41c889d1",
+      "a37c39ae-dffe-4b55-a993-7a7e93b44c4b",
+      "a38105a8-20dd-4523-83b7-806e700ccd91",
+      "a3ac43f7-bd6e-4acf-aa86-06e605ea9e31"
+    ]
+  }
+}

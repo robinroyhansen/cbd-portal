@@ -1,0 +1,39 @@
+{
+  "batch_number": 318,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T21:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "5efe776b-3bb4-4729-a872-0e1cc9d8e24b", "title": "Synthesis and CB1 cannabinoid receptor affinity of 4-alkoxycarbonyl-1,5-diaryl-1,2,3-triazoles", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic chemistry correctly rejected"},
+    {"id": "5f25a7e9-1dd5-4221-aba4-44bb41e69f0a", "title": "Inhibition of Tacrolimus Metabolism by Cannabidiol and Its Metabolites In Vitro.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug interaction safety"},
+    {"id": "5f2ceb40-725d-4ba6-86e3-c8919a92fa5c", "title": "Early cannabinoid exposure influences neuroendocrine and reproductive functions in mice: II. Postnatal effects", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Developmental harm correctly rejected"},
+    {"id": "5f3543f8-ed22-4fe9-834e-c95d48c78413", "title": "The cannabidiol craze and the opioid crisis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correctly rejected"},
+    {"id": "5f409d53-2728-4637-aaf2-df56de47f3f2", "title": "In vivo comparative study of hemp straw exposure and cannabidiol oil administration in horse urine", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary/forensic correctly rejected"},
+    {"id": "5f43332b-b931-48a1-9fe1-bcd4197efcaf", "title": "The role of the cannabinoid system in fear memory and extinction in male and female mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid fear memory mechanism"},
+    {"id": "5f603100-14c7-4229-9f91-433e610a887f", "title": "Identification of fasciclin-like arabinogalactan proteins in textile hemp (Cannabis sativa L.): in silico analyses and gene expression patterns in different tissues", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "5f6145ca-b889-44da-a2b5-180f31085f99", "title": "Gender moderates the impact of stereotype threat on cognitive function in cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis cognitive harm correctly rejected"},
+    {"id": "5f7c598e-2577-4e10-ab8d-0fd210edfd6b", "title": "Patterns and correlates of cannabidiol product and marijuana co-use in a sample of U.S. young adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "5f7ca117-1032-4db0-adb5-3edf97f5c4e0", "title": "Aversiveness and Meaningfulness of Uncomfortable Experiences with Edible Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "5f85387f-5a7a-4f4f-9d24-14ab9dc996ec", "title": "Long-term effects of adolescent-onset and persistent use of cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "5f8ba321-d706-4baf-a4f9-c5d954134404", "title": "Cannabidiol increases gramicidin current in human embryonic kidney cells: An observational study", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD ion channel mechanism"},
+    {"id": "5f9607e4-182c-49fc-91d9-838d806d3e6f", "title": "The Consequences of Fickle Federal Policy: Administrative Hurdles for State Cannabis Policies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "5f97d3ef-a414-4725-8b24-9000ad66778f", "title": "The Detection of Δ9-THC, Δ8-THC, Δ10-THC and CBD in Hair Specimens.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "5fa0f8a3-7e2c-4c48-bc81-1fd3ad83efd4", "title": "Evolution of the Cannabinoid and Terpene Content during the Growth of Cannabis sativa Plants from Different Chemotypes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "5fa1d96e-ac0a-4681-b1ca-a41eedf4cfc0", "title": "Reassessing Clinical Relevance of Cannabidiol-Associated Liver Enzyme Elevations.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD hepatotoxicity safety"},
+    {"id": "5fac5ca3-b117-48db-beba-70c9fe82a625", "title": "Neuroprotection by the cannabidiol aminoquinone VCE-004.8 in experimental ischemic stroke in mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD derivative stroke neuroprotection"},
+    {"id": "5fad746a-3c72-4489-9cab-961a8dbcbcfa", "title": "Pilot study: impacts of cannabinoids from industrial hemp and repeated transportation events on cattle health and immune status", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "5fc6a92f-d213-4464-bcab-25b61bad25dc", "title": "Cannabis sativa-mediated biosynthesis of copper-zinc-selenium nanocomposites: phytochemical profiling, antioxidant properties, and molecular docking insights", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Nanotechnology correctly rejected"},
+    {"id": "5fd86c31-bbfa-43d6-952f-3d18b534d636", "title": "Study on Location Planning Method of On-Street Loading Bays in CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "5f25a7e9-1dd5-4221-aba4-44bb41e69f0a",
+      "5f43332b-b931-48a1-9fe1-bcd4197efcaf",
+      "5f8ba321-d706-4baf-a4f9-c5d954134404",
+      "5fa1d96e-ac0a-4681-b1ca-a41eedf4cfc0",
+      "5fac5ca3-b117-48db-beba-70c9fe82a625"
+    ]
+  }
+}

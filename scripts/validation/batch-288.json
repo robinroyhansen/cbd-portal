@@ -1,0 +1,41 @@
+{
+  "batch_number": 288,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T14:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "3eb7a03b-6874-4b37-848b-d03b6d4c53c5", "title": "Adolescent cannabis use and later development of schizophrenia: An updated systematic review of longitudinal studies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "3ee4ad08-7aee-4d4f-99c5-dffac96a0922", "title": "Effect of spatial scale on urban land-use pattern analysis in different classification systems: An empirical study in the CBD of Tokyo", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "3eeb8533-75d8-46a0-b2cd-fe4377272f45", "title": "Banal Terrorism: Re-Appropriating Terror-Prevention Concrete Bollards in Melbourne's CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "3ef8da63-f597-478b-83f1-c569ec4dfe79", "title": "The Trouble with CBD Oil", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic review including safety/efficacy"},
+    {"id": "3f0fc5b0-3824-411c-8c5c-95e63dae6fea", "title": "Cannabis, cannabinoid receptors, and endocannabinoid system: yesterday, today, and tomorrow", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS mechanism review"},
+    {"id": "3f27fc96-917a-4f61-a6a8-c080377a453e", "title": "Synthesis of galactooligosaccharides by CBD fusion β-galactosidase immobilized on cellulose", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (cellulose-binding domain) correctly rejected"},
+    {"id": "3f3c2071-d244-4031-ba01-87e6b0bb4ec7", "title": "Nucleus accumbens functional connectivity at age 20 is associated with trajectory of adolescent cannabis use and predicts psychosocial functioning in young adulthood", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "3f3f4ccb-6802-4ea1-8135-163db7c67f64", "title": "Newly developed short-length exposed-tip intraductal radiofrequency ablation probe for intra-ampullary adenocarcinoma of the ampulla of Vater", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "3f44fa83-9fc8-438b-b411-cbde997bf073", "title": "Cannabis Use, Employment, and Income: Fixed-Effects Analysis of Panel Data", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/socioeconomic correctly rejected"},
+    {"id": "3f457231-e126-44a2-81ee-7aa7dc06b563", "title": "Suicides in Tricity and Gdańsk County in 2010–2023: insights from demographic and toxicological data", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "3f488762-0700-49c1-9ed1-d5fc88daa4f7", "title": "Determination of the Negative Allosteric Binding Site of Cannabidiol at the CB1 Receptor: A Combined Computational and Site-Directed Mutagenesis Study.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD CB1 receptor mechanism"},
+    {"id": "3f52b87b-74ec-4b63-bd3a-287200a33a62", "title": "Chronic use of marijuana decreases cannabinoid receptor binding and mRNA expression in the human brain", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism"},
+    {"id": "3f583d47-ffda-4d66-b1f9-0b1962260a83", "title": "Development of Amorphous Solid Dispersions of Cannabidiol: Influence of the Carrier, the Hot-Melt Extrusion Parameters and the Use of a Crystallization Inhibitor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug formulation"},
+    {"id": "3f7405b3-b304-4242-9364-2cd13764f0b5", "title": "Study on Hemp. III. Methods for Determination of Tetrahydrocannabinol and Cannabidiol in Different Growing Period of Hemp", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical methods correctly rejected"},
+    {"id": "3f7a1e71-2fad-4fa4-8cd4-a76c0ac02e11", "title": "Daily Cannabis Use: A Novel Risk Factor of Steatosis Severity in Patients With Chronic Hepatitis C", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "3f833807-4b59-4549-9ab2-ec9becc894e0", "title": "Are cannabinoids endogenous ligands for the VR1 capsaicin receptor?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid TRPV1 receptor mechanism"},
+    {"id": "3f8e7a82-1fed-4de3-965e-26ca7f739d2f", "title": "Microbial analysis of spices and herbs obtained from market places around Gweru CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "3f923111-1ca0-4264-85ab-e43a2485b4f6", "title": "Intersectional analysis of cannabis use, stigma and health among marginalized Nigerian women", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/sociology correctly rejected"},
+    {"id": "3f990606-258b-47ce-9c7f-d204ee359d77", "title": "About EndoCure CBD Products", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "3fa6c93b-87fe-4ab5-aa84-5d8567c9072c", "title": "The Therapeutic Potential of Cannabis and Cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic review"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "3ef8da63-f597-478b-83f1-c569ec4dfe79",
+      "3f0fc5b0-3824-411c-8c5c-95e63dae6fea",
+      "3f488762-0700-49c1-9ed1-d5fc88daa4f7",
+      "3f52b87b-74ec-4b63-bd3a-287200a33a62",
+      "3f583d47-ffda-4d66-b1f9-0b1962260a83",
+      "3f833807-4b59-4549-9ab2-ec9becc894e0",
+      "3fa6c93b-87fe-4ab5-aa84-5d8567c9072c"
+    ]
+  }
+}

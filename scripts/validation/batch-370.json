@@ -1,0 +1,42 @@
+{
+  "batch_number": 370,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T10:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "9a66a072-2dd9-410f-ba9d-428b185850e3", "title": "Cannabidiol Treatment for Neurological, Cognitive, and Psychiatric Symptoms in Sturge-Weber Syndrome", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD neurological therapeutic for Sturge-Weber syndrome"},
+    {"id": "9a77ded9-612d-4818-a71f-961d2bd0d643", "title": "Photoluminescence studies on CdS-CBD films grown by using different S/Cd ratios", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "9a7ac3d9-f65a-4e15-8788-b8ace3d6cafa", "title": "Effects of cannabidiol administration on body weight gains in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD metabolic mechanism research"},
+    {"id": "9a7c8bfa-7c30-4c8e-9f6e-b643bdab4ed6", "title": "Amino Acid-Promoted Synthesis of 2H-Chromenes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthesis correctly rejected"},
+    {"id": "9a89f4f7-0919-44cd-8c37-a3e17a272108", "title": "Phase formation of hexagonal wurtzite ZnO through decomposition of Zn(OH)2 at various growth temperatures using CBD method", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "9aa1f377-7e53-41da-9999-09919dd19b22", "title": "Cannabinoids in medicine: A review of their therapeutic potential", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic review"},
+    {"id": "9ab1b486-690a-4458-a140-c001343ebbba", "title": "Origin of the Different Binding Affinities of (9R)- and (9S)-Hexahydrocannabinol (HHC) for the CB(1) and CB(2) Cannabinoid Receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research"},
+    {"id": "9abc5c9f-6015-42b3-ba03-a920e134df08", "title": "Increased cigarette craving following prior-day cannabis use among females who smoke combustible cigarettes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "9ac0e293-6a63-4cb5-875d-0b7b901343a8", "title": "Cannabis and Amphetamine Use and Associated Factors Among School-Going Adolescents in Nine African Countries", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "9acb4f5e-e7f0-4cee-bd8b-a95a247e0276", "title": "Cannabidiol, a non-psychoactive cannabinoid compound, affects metalloproteinases and pro-survival intracellular pathways in u87-mg human glioma cell line", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD cancer mechanism research"},
+    {"id": "9adbf6c1-d39c-4f6a-8412-3ade6be8d20d", "title": "Randomised Controlled Trial Evidence on Medicinal Cannabis for Treatment of Mental Health and Substance Use Disorders: A Scoping Review", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis mental health therapeutic review"},
+    {"id": "9ae82d6a-9e0f-416f-abe5-e1a4b4d9a7ca", "title": "Sex differences in the self-administration of cannabinoids and other drugs of abuse", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "9ae991fb-c97b-4834-99b9-c3bb5a303f09", "title": "Thin Mint Flavored CBD Vape | CBD Vape | BURMAN'S HEALTH SHOP", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Advertising correctly rejected"},
+    {"id": "9b1b75bc-2a2e-4c55-bac1-1bc4e025a3b3", "title": "Biosynthesis of cannabinoid precursor olivetolic acid in genetically engineered Yarrowia lipolytica", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Biosynthesis correctly rejected"},
+    {"id": "9b1c449e-ee82-4183-919f-1b10fb2d53a1", "title": "Inspirations of Foreign CBD Transportation Construction to Beijing CBD Transportation Construction", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "9b276ccd-5fc6-4910-a7bb-c4b9ea00d8ad", "title": "Implication of Cannabinoids in Neurological Diseases", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neurological therapeutic review"},
+    {"id": "9b2f1944-e7e3-46c3-8cf5-11dc2205f4d3", "title": "S3293 Unexplained Sepsis After TIPS: A Rare Case of TIPS–CBD Fistula Diagnosed by ERCP", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "9b485ce9-b784-40e6-adc8-cb883327f0b4", "title": "Patients' Perspectives and Experiences of Cannabinoids to Manage Symptoms of Chronic Kidney Disease: An In-Depth Interview Study", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic for CKD"},
+    {"id": "9b509b60-16da-4ca5-ac54-2387b4852755", "title": "Medical Cannabis and Industrial Hemp Tissue Culture: Present Status and Future Potential", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "9b59ad34-bbc1-47df-b0ae-88f6c7cee670", "title": "Reasons for using cannabidiol: a cross-sectional study of French cannabidiol users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "9a66a072-2dd9-410f-ba9d-428b185850e3",
+      "9a7ac3d9-f65a-4e15-8788-b8ace3d6cafa",
+      "9aa1f377-7e53-41da-9999-09919dd19b22",
+      "9ab1b486-690a-4458-a140-c001343ebbba",
+      "9acb4f5e-e7f0-4cee-bd8b-a95a247e0276",
+      "9adbf6c1-d39c-4f6a-8412-3ade6be8d20d",
+      "9b276ccd-5fc6-4910-a7bb-c4b9ea00d8ad",
+      "9b485ce9-b784-40e6-adc8-cb883327f0b4"
+    ]
+  }
+}

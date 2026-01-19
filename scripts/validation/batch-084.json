@@ -1,0 +1,40 @@
+{
+  "batch_number": 84,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T10:45:00.000Z",
+  "results": [
+    {"id": "5d6f464b-3b4e-4e17-95d0-e03b325fd079", "title": "CBD and Epilepsy sifting winnowing buzz", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy review"},
+    {"id": "5d6faaf7-c814-4d2e-b860-4f4d23fa07d3", "title": "CBD reduces adverse cannabis effects schizophrenia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia RCT"},
+    {"id": "5d753fbc-c847-4049-8489-2751e49ce11c", "title": "FAAH inhibitor PF-04457845 for CUD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - treating cannabis addiction"},
+    {"id": "5d7d74c3-18f9-4d48-9cd4-43f024aa1b0a", "title": "Cannabis substitution alcoholism treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis alcohol addiction therapeutic"},
+    {"id": "5d863ae8-20fd-4106-9823-d7d46f6267e1", "title": "THC dependence rhesus monkeys", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - dependence study"},
+    {"id": "5d94cbe0-45f0-4be4-aa67-b37bbae02ef8", "title": "Suture-button suspensionplasty thumb arthritis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - orthopedic surgery"},
+    {"id": "5d95d831-a1a1-4af6-b678-50bf752606f6", "title": "Cannabis oils neuroprotection C. elegans", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC Alzheimer's model"},
+    {"id": "5dbcd09d-19ed-4ed8-982d-31fa85f35f0b", "title": "Post-pandemic San Francisco CBD pedestrian", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Central Business District"},
+    {"id": "5dc95c09-7f61-4926-8d30-776553a2d263", "title": "HU-211 cannabinoid NMDA receptor blocker", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Synthetic cannabinoid neuroprotection"},
+    {"id": "5dd2b5b6-2850-435b-aa34-82bde828d1a7", "title": "Seizures associated synthetic cannabinoid use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - synthetic cannabinoid adverse effects"},
+    {"id": "5dd93680-b753-4b29-9054-8ab1a1e6d4eb", "title": "CBD learned helplessness depression rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression therapeutic"},
+    {"id": "5de3166b-b7af-4870-b092-ce0ed74af854", "title": "TRPV1 cannabinoid antinociceptive antiemetic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid mechanism review"},
+    {"id": "5e0499df-e6aa-49d3-84f2-c44297517a5d", "title": "J4 ENT1 inhibitor tuberous sclerosis seizures", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - ENT1 inhibitor"},
+    {"id": "5e0a1855-e676-4427-a196-b3ac7fbb11e3", "title": "Hemp oil wellness stress resilience", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Hemp oil therapeutic RCT"},
+    {"id": "5e178627-6c83-4b11-833e-2f328dd12f1a", "title": "CBD pharmacology amygdala anxiety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety mechanism"},
+    {"id": "5e1b7348-48b1-4381-a8b8-be4c11884a0f", "title": "Childhood maltreatment cannabis psychosis risk", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis epidemiology"},
+    {"id": "5e2d1f4f-b037-4064-a7cd-a02a39f759d6", "title": "Medical cannabis autism safety efficacy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis autism therapeutic"},
+    {"id": "5e6a9279-6d36-4aea-8c78-0612573fd9ff", "title": "CBD neuroprotection acrylamide neurotoxicity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection research"},
+    {"id": "5e723d44-f368-473b-a1b5-a2ae6aad8dfe", "title": "CBD neuropathic pain PPARγ", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic"},
+    {"id": "5e7e8b7f-f362-484e-9ffb-1d47dc6df306", "title": "Plant vs synthetic CBD epilepsy patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy patient perspective"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "5d753fbc-c847-4049-8489-2751e49ce11c",
+      "5d863ae8-20fd-4106-9823-d7d46f6267e1",
+      "5d94cbe0-45f0-4be4-aa67-b37bbae02ef8",
+      "5dbcd09d-19ed-4ed8-982d-31fa85f35f0b",
+      "5dd2b5b6-2850-435b-aa34-82bde828d1a7",
+      "5e0499df-e6aa-49d3-84f2-c44297517a5d",
+      "5e1b7348-48b1-4381-a8b8-be4c11884a0f"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "batch_number": 395,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T16:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "b67ebad0-4a38-4359-96a1-f137a769f3cb", "title": "Supplementary Data from Marijuana and Cannabidiol Use Prevalence and Symptom Management Among Patients with Cancer", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use prevalence supplementary data correctly rejected"},
+    {"id": "b681318f-fee3-41db-8e1d-f55b18b14627", "title": "Ultrasound-assisted green extraction of antioxidant and antimicrobial resins from Cannabis sativa for potential pharmaceutical applications.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methods correctly rejected"},
+    {"id": "b681d918-46e3-45b5-b6c3-444f9a9941f2", "title": "Frequency of body focused repetitive behaviors and comparison to self-injurious behaviors in patients with tic disorders.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b6866a17-c5e3-4f43-a16a-da9574468699", "title": "Validation of a Microsampling-Compatible Liquid-Liquid Extraction Method for Cannabinoid Quantitation in 50 µL of Whole Blood using LC-MS/MS.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "b6899185-35c5-431d-b756-f3844096a89b", "title": "Dual-Function Plant-Derived Nanovesicles From Regenerated Cannabis sativa Roots for Immunotherapy and Vaccine Delivery.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis-derived therapeutic delivery system"},
+    {"id": "b690b17c-e418-4111-848c-27327f34f7a0", "title": "Biosynthesis, Chemical Synthesis, and Pharmacological Evaluation of Lyngbyapeptin A as a GPCR Antagonist of Motilin, Cannabinoid, and Amylin Receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor pharmacology"},
+    {"id": "b69cc1a0-8f0b-479a-aeeb-ef3228f35183", "title": "The cannabinoid acids, analogs and endogenous counterparts", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid/endocannabinoid research"},
+    {"id": "b69e36d6-713d-4ebf-9cd3-2960d1c9190c", "title": "Identifying adverse childhood experiences and mental health needs among a small sample of pregnant women who use cannabis.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "b6a63821-6ef8-4c89-932a-b675d1a7e0ab", "title": "Deciphering the oncogenic role of key genes in HNSC: insights from multi-omics and functional studies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b6b0d20f-83e2-4926-8b12-57e05ed8dea7", "title": "Brain Network Signature of Autoscopic Phenomena in Humans", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b6b71fba-9b1b-484c-9f25-1b04da048faa", "title": "Subsurface drip irrigation reduces weed infestation and irrigation water use while increasing inflorescence and cannabinoid yield in an outdoor tunnel Cannabis sativa L. production system.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "b6dd627e-662b-43b1-82bf-054a94453ea8", "title": "Role for Neuronal Nitric-Oxide Synthase in Cannabinoid-Induced Neurogenesis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neurogenesis mechanism"},
+    {"id": "b6df4530-097e-43f4-a091-bd92c30608fb", "title": "Extraction and analysis of different Cannabis samples by headspace solid‐phase microextraction combined with gas chromatography‐mass spectrometry", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "b6fb8f13-b43c-4ae5-a81c-55869ad261c6", "title": "Corporate Strategies to Market PAX Vaporizers for Cannabis Use Under Federal Restrictions in the United States.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Marketing correctly rejected"},
+    {"id": "b703f0f4-47bb-4b16-9297-d9b27151e56f", "title": "The Effects of Cannabidiol on the Microbiome of Larval Zebrafish", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "b70fbf4e-b658-4d30-a9a8-817412a8660a", "title": "Transcriptomic analysis of wild Cannabis sativa: insights into tissue- and stage-specific expression and secondary metabolic regulation.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "b71dd715-d074-41b7-b009-74675ae999f2", "title": "Cannabis abuse and the course of recent onset schizophrenic disorders", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "b7272e34-0ae8-4f03-834c-8a1b79bf4dbf", "title": "Prolonged incubation with Δ9-tetrahydrocannabinol but not with cannabidiol induces synaptic alterations and mitochondrial impairment in immature and mature rat organotypic hippocampal slices", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research (CBD doesn't cause impairment)"},
+    {"id": "b7313f10-2638-4c28-8de5-90977aef6b45", "title": "Cannabidiol Increases Proliferation, Migration, Tubulogenesis, and Integrity of Human Brain Endothelial Cells through TRPV2 Activation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD TRPV2 BBB mechanism research"},
+    {"id": "b73991e5-c05d-4e57-91d3-a71a86d4a219", "title": "Experimental investigation and thermodynamic modelling of cannabidiol and curcumin in different solvents", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD formulation/solubility research"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "b6899185-35c5-431d-b756-f3844096a89b",
+      "b690b17c-e418-4111-848c-27327f34f7a0",
+      "b69cc1a0-8f0b-479a-aeeb-ef3228f35183",
+      "b6dd627e-662b-43b1-82bf-054a94453ea8",
+      "b7272e34-0ae8-4f03-834c-8a1b79bf4dbf",
+      "b7313f10-2638-4c28-8de5-90977aef6b45",
+      "b73991e5-c05d-4e57-91d3-a71a86d4a219"
+    ]
+  }
+}

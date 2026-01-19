@@ -1,0 +1,40 @@
+{
+  "batch_number": 264,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T08:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "23a5355f-a6d3-4114-a895-b2e8c386fe8d", "title": "Cannabidiol (CBD) induces functional CD4+ CD25+ FOXP3+ Tregs", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD immunomodulation inducing Tregs"},
+    {"id": "23a6d210-fe05-493d-a06c-1f50a97a88d1", "title": "A systematic review of reviews on comprehensive community initiatives to prevent or reduce alcohol and other drug harms", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/harm reduction correctly rejected"},
+    {"id": "23d763d1-bf7a-42dc-90dd-457087db7361", "title": "A Preliminary Study of Pollen Dispersal in Cannabis sativa in Relation to Wind Direction", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "23f2b883-bf48-4a62-9a77-3658ce8a3be4", "title": "Metabolomics and Pharmacometabolomics: Advancing Precision Medicine in Drug Discovery and Development", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "23f4f9e5-a6f6-4721-b8cf-b37ecf375eea", "title": "Differential effect of cannabinol and cannabidiol on THC-induced responses during abstinence in morphine-dependent rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid interaction in opioid withdrawal"},
+    {"id": "23f5d538-2118-4253-95ab-5d5a3cfd6ec6", "title": "3D-Printed cannabidiol stent for local treatment of urinary tract infections", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery for UTI treatment"},
+    {"id": "240bbf40-4ace-474d-a62d-64c4a3fd9eab", "title": "CBD 프로세스 지원을 위한 컴포넌트 저장소의 구축", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "241004f4-fc0f-4cfb-9feb-95240a44755c", "title": "The therapeutic effects of Cannabis and cannabinoids: An update from the National Academies of Sciences, Engineering and Medicine report", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - NASEM therapeutic effects review"},
+    {"id": "24242c31-12a1-4807-b901-b42b116399ad", "title": "Growth of CBD-In2S3 buffer layer for CIGS solar cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "245bfe88-3bc0-4d07-9ddc-3eda12bc32c0", "title": "Medical Cannabis as an Opiate Alternative", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis for pain/opioid substitution"},
+    {"id": "2465cb79-8dfa-49a6-8fd6-ddfc8d9f180f", "title": "Microwave- and Ultrasound-Assisted Extraction of Cannabinoids and Terpenes from Cannabis Using Response Surface Methodology", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methodology correctly rejected"},
+    {"id": "246d56d2-19ee-4974-8e90-98c3d0ff0467", "title": "Synthesis of an experimental gel containing cannabidiol oil and evaluation of effects on bleached bovine enamel", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD dental application"},
+    {"id": "246fa3be-b30a-401d-bfa5-826ac4c17dbd", "title": "Demographic Profiles, Etiological Spectrum, and Anatomical Locations of the Post-Hepatic Obstructive Jaundice", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2474bc9a-f91f-4407-84af-e2faa8e8c9aa", "title": "Chemical bath deposited (CBD)-ZnO buffer layer for CIGS solar cells", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "247ba04f-db2e-4d8c-85f1-dae50333ba17", "title": "Do medical cannabis laws encourage cannabis use?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy study correctly rejected"},
+    {"id": "24a0daac-e83d-433e-91a1-c50ff9bb4ded", "title": "Labeling Accuracy of Cannabidiol Extracts Sold Online", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product testing correctly rejected"},
+    {"id": "24a299fd-99cc-4206-b8e7-72aacb9ab075", "title": "Postoperative Dysphagia Management in Hemifacial Spasm", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "24a42d13-6a92-40a8-aff5-8fc6fed80c12", "title": "Brain Imaging of Cannabinoid Receptors in Women", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis use effects imaging correctly rejected"},
+    {"id": "24c43683-90ef-4ef5-bef8-ea04ed3bbfc2", "title": "Study on Application of BIM Technology in Outer Curtain Wall Project of CBD Tower in New Capital of Egypt", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "24d27e1d-2cb5-461e-96e7-9ab76a51431d", "title": "Pilot-Scale Preparation of Broad-Spectrum CBD: Extraction Optimization and Purification", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction methodology correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "23a5355f-a6d3-4114-a895-b2e8c386fe8d",
+      "23f4f9e5-a6f6-4721-b8cf-b37ecf375eea",
+      "23f5d538-2118-4253-95ab-5d5a3cfd6ec6",
+      "241004f4-fc0f-4cfb-9feb-95240a44755c",
+      "245bfe88-3bc0-4d07-9ddc-3eda12bc32c0",
+      "246d56d2-19ee-4974-8e90-98c3d0ff0467"
+    ]
+  }
+}

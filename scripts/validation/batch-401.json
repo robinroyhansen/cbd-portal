@@ -1,0 +1,36 @@
+{
+  "batch_number": 401,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T18:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "bcc35848-29b0-4fc8-a677-ec0b79a37b4b", "title": "Improving wastewater-based epidemiology to estimate cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "bcc6e6cf-239a-4408-91cd-c23986774c51", "title": "Back on track: Feasibility and efficacy randomized trial of a two-week online self-guided intervention for cannabis use reduction", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "bcc9bc08-3ad4-477f-a958-5c5224a98fdd", "title": "Cannabis Horticulture", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "bcce1636-6de4-4c56-be4b-fcbec07ba6f0", "title": "Effects of Progressive Aerobic Training on Executive-Reward Network Connectivity and Symptoms of Internet Gaming Disorder", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "bcdb5320-12e6-4cf5-a2d4-ed0cdfe8a8bb", "title": "Dried haematic microsamples and LC–MS/MS for the analysis of natural and synthetic cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "bce81152-239d-4eb5-a57b-834bc16503ed", "title": "Intersecting challenges: Substance use and mental health disparities across self-reported disability status", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "bd07c444-f0a2-4a29-8f9f-a2c9693198b4", "title": "Tobacco and cannabis co-use: Drug substitution, quit interest, and cessation preferences", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis cessation correctly rejected"},
+    {"id": "bd143f0e-c58b-44ff-a196-91a8cc28dddc", "title": "Improving the water solubility of cannabidiol using a peptide carrier", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD formulation/delivery research"},
+    {"id": "bd375c1c-d9a9-468f-8fe8-ca9fb4b10356", "title": "Structural Investigation of Beta-Cyclodextrin Complexes with Cannabidiol and Delta-9-Tetrahydrocannabinol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC formulation chemistry"},
+    {"id": "bd3e2a2c-61c9-4760-aa64-3ae281ca5e54", "title": "Identification par chromatographie en phase gazeuse du Δ-9 tetrahydrocannabinol dans le plasma humain", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "bd4046a2-deb0-4b3c-b9fe-8bd8dd59a47a", "title": "Adverse health effects of non-medical cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "bd4590ae-4890-4e7b-b3c2-8ef89eaa8302", "title": "Validation and Quantitation of Fifteen Cannabinoids in Cannabis and Marketed Products Using HPLC", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "bd775dbf-ca5e-4b24-baf2-e8f7e22bc631", "title": "New product intros (Ad5-EBOV; cannabidiol; dupilumab...)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product news correctly rejected"},
+    {"id": "bd77fa14-333c-4d3e-bd73-536351c8b253", "title": "CRISP: A cost-efficient, high-throughput pipeline for sex-identification in Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "bd8422a9-8f81-47ae-b474-e693aff16c90", "title": "Chronic Cannabis Abuse, Delta-9-tetrahydrocannabinol and Thyroid Function", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "bd9bba33-f869-4e88-a315-5629fba7ff0c", "title": "Elevated relative humidity significantly decreases cannabinoid concentrations while delaying flowering development", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "bda7ddbf-bdcb-4f20-8c0c-c3c3dd5b2973", "title": "Sex chromosomes and quantitative sex expression in monoecious hemp", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "bdaaa854-c167-4688-b025-15ebae7b0ccd", "title": "Photosensitive nanostructured TiO2 grown at room temperature by novel bottom-up approached CBD method", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "bdb7a580-32bb-463c-83f3-0e7feb83b75e", "title": "Psychiatric Sequelae of Spice, K2, and Synthetic Cannabinoid Receptor Agonists", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid harm correctly rejected"},
+    {"id": "bdc72423-5fdc-4106-b71a-8ee94c399418", "title": "Clinical characteristics and treatment resource utilization among patients with substance use disorders", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SUD treatment correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 18,
+    "incorrect": 2,
+    "incorrect_ids": [
+      "bd143f0e-c58b-44ff-a196-91a8cc28dddc",
+      "bd375c1c-d9a9-468f-8fe8-ca9fb4b10356"
+    ]
+  }
+}

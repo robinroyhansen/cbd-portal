@@ -1,0 +1,43 @@
+{
+  "batch_number": 377,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T12:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "a1c02a4c-a8fe-4b63-93ff-2ecf4224adcb", "title": "Interpretation of Cannabis Findings in the Hair of Very Young Children: Mission Impossible", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "a1c154fe-e54d-4b1f-904e-94e36ad75fab", "title": "CBD en el tratamiento de la esquizofrenia", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD schizophrenia therapeutic"},
+    {"id": "a1c4e346-405e-4551-946d-81736b57042a", "title": "Interaction of plant cannabinoids with the multidrug transporter ABCC1 (MRP1)", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid drug interaction research"},
+    {"id": "a1daf78d-ded7-4847-bd38-5752d54f849d", "title": "The CB1 Cannabinoid Receptor Juxtamembrane C-Terminal Peptide Confers Activation to Specific G proteins in Brain", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research"},
+    {"id": "a1ee0f96-2795-430f-8cbf-adabf5d57e19", "title": "CBD: Rising star or popular fad?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correctly rejected"},
+    {"id": "a1f37e4e-8f0d-4b7d-985c-2179fbc81739", "title": "Differential activation of G protein‐mediated signaling by synthetic cannabinoid receptor agonists", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor signaling mechanism research"},
+    {"id": "a2072770-be52-4d43-8831-0f052f803d0f", "title": "Cannabis Use and Perinatal Health Research", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Commentary correctly rejected"},
+    {"id": "a222af5d-d6ce-4bed-b841-7c8c6941d5ed", "title": "O USO DA Cannabis sativa – CANABIDIOL (CBD) NAS PERSPECTIVAS CONTEMPORANEAS COMO RECURSO TERAPEUTICO", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic review"},
+    {"id": "a22ed0a9-0100-46e5-bc87-344834b1938b", "title": "Toxicology of Marijuana, Synthetic Cannabinoids, and Cannabidiol in Dogs and Cats", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "a23369de-7e6d-4379-8b28-7148fc71b7be", "title": "Role of intra-accumbal cannabinoid CB1 receptors in the potentiation, acquisition and expression of morphine-induced conditioned place preference", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism research"},
+    {"id": "a237b549-17d7-4442-ac0e-c4966c116e9e", "title": "Recent advances in the metabolism of cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid metabolism/pharmacology review"},
+    {"id": "a2487577-51c1-4225-bbc0-00b66522e640", "title": "Chromosome-level Haploid Assembly of Cannabis sativa L. cv. Pink Pepper.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Genetics/breeding correctly rejected"},
+    {"id": "a24c707e-0df4-4fd3-9840-fdc298847c4e", "title": "Cholecystectomy can reduce the recurrence of CBD stones in the patients with CBD and GB stones", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "a274199c-1369-4448-9ad4-ba6b2ccebaba", "title": "Post Cholecystectomy Choledochoduodenal Fistula: A Case Report.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "a27cb7fc-37d5-40b8-83eb-ebb362f50249", "title": "Cannabidiol Lipid Nanoparticles Stabilize Gut-Brain-Bone Axis Integrity and Enhance Neuroplasticity in Stressed Rats: A Comparison with Atomoxetine and Escitalopram.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD neuroplasticity therapeutic"},
+    {"id": "a290b681-5345-4c34-803a-ce10e4027363", "title": "One-step diffusion membrane assisted CBD synthesis and characterization of Cu2SnS3thin films", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "a290d0cc-94bf-41f4-bf4e-be5eeff511cc", "title": "Elixinol introduces its first USDA Organic CBD tincture", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Advertising correctly rejected"},
+    {"id": "a2a5bcc7-3224-4424-98be-8e5197077f1d", "title": "A Technical Review of Canada's Other Effective Area-Based Conservation Measures: Alignment with DFO Guidance, IUCN-WCPA Guidance and CBD SBSTTA Guidance", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "a2be968d-12b0-4991-b186-3bde6aed65e9", "title": "Enhanced CB1 receptor function in GABAergic neurons mediates hyperexcitability and impaired sensory-driven synchrony of cortical circuits in Fragile X Syndrome model mice.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor mechanism for Fragile X Syndrome"},
+    {"id": "a2d272eb-c07d-46c2-8829-51447e87f579", "title": "The New Runner's High? Examining Relationships Between Cannabis Use and Exercise Behavior in States With Legalized Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 10,
+    "incorrect": 10,
+    "incorrect_ids": [
+      "a1c154fe-e54d-4b1f-904e-94e36ad75fab",
+      "a1c4e346-405e-4551-946d-81736b57042a",
+      "a1daf78d-ded7-4847-bd38-5752d54f849d",
+      "a1f37e4e-8f0d-4b7d-985c-2179fbc81739",
+      "a222af5d-d6ce-4bed-b841-7c8c6941d5ed",
+      "a23369de-7e6d-4379-8b28-7148fc71b7be",
+      "a237b549-17d7-4442-ac0e-c4966c116e9e",
+      "a27cb7fc-37d5-40b8-83eb-ebb362f50249",
+      "a2be968d-12b0-4991-b186-3bde6aed65e9"
+    ]
+  }
+}

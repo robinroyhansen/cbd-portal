@@ -1,0 +1,41 @@
+{
+  "batch_number": 144,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T02:00:00.000Z",
+  "results": [
+    {"id": "a0e229fe-85db-438b-81b4-b571428028a7", "title": "CBD long-term efficacy treatment-resistant focal epilepsies", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy long-term efficacy"},
+    {"id": "a0fe01ff-95ae-4aa6-8f54-74f02d9e9716", "title": "CBD Cannabis Extract Anxiety Postoperative Pain Endodontic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD dental pain/anxiety RCT"},
+    {"id": "a1098c37-199a-40c4-8ded-4036399bb5f8", "title": "Cannabinoid receptors in the kidney", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS kidney disease research"},
+    {"id": "a10dd789-c875-4f71-b038-7045cf811420", "title": "CBD oil in children: More questions than answers", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - opinion piece"},
+    {"id": "a110d444-b31f-444b-bb99-528a4bcf6084", "title": "Venlafaxine-XR cannabis dependence depressive disorders", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - venlafaxine for CUD"},
+    {"id": "a11ac25a-7cbc-42dd-b85b-283180918ac7", "title": "Author response CBD CDKL5R59X knock-in mice", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - author response"},
+    {"id": "a127dd92-fc4e-4ba9-9433-96b90c6c3cc2", "title": "CB1 CB2 receptors inflammatory nociception", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "a12c8938-279d-4314-a856-d56213d62bdb", "title": "CBD Medication Alcohol Use Disorder Baboons", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD AUD therapeutic research"},
+    {"id": "a1435bc4-2506-4a62-913c-85bfdf008072", "title": "Cannabis Postoperative Pain Analgesic Consumption", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain management outcomes"},
+    {"id": "a161b928-f051-49de-b54b-52f6a8de1a6e", "title": "CBD cognition psychomotor function RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety cognition clinical trial"},
+    {"id": "a16b417e-6158-4f92-9af4-65443cfbe77c", "title": "CBD WIN 55 Treatment Anxiety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anxiety mechanism"},
+    {"id": "a17bf8d4-839d-49fb-928d-efa78a7e176b", "title": "CBD impairs neural tube closure mouse embryo", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD developmental safety research"},
+    {"id": "a18fc190-720c-4734-b7f1-aa9f3704da74", "title": "CB1 Receptors Sim1 Neurons Energy Expenditure", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS obesity mechanism"},
+    {"id": "a191c688-452b-4a2d-912a-8e8a8958cc0d", "title": "Chronic Pubertal Cannabinoid Impairs Cognition", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - adolescent cognitive harm"},
+    {"id": "a19ef22c-bd89-4f0a-afd6-b3a19956b361", "title": "Manganese CDS Thin Films Cbd Schottky Diodes", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Chemical Bath Deposition"},
+    {"id": "a1ecb91e-b1b5-4fc4-a2a2-9b6e38b3c54b", "title": "Review for CBD metallothionein disulfiram", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - peer review"},
+    {"id": "a1f11236-c4c8-4388-a68b-210b3810ecf6", "title": "Low-dose cannabidiol safety profile", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety research"},
+    {"id": "a1ff35d6-c959-4fe8-96ac-62dcc0d90bd5", "title": "Neural mechanisms risky decision adolescent CUD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD/HARM - adolescent CUD brain"},
+    {"id": "a2134101-6be2-46f1-9cbc-f732886cb458", "title": "Contingency Management Marijuana Dependence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - behavioral intervention"},
+    {"id": "a21791e9-ce6b-4556-86c3-4f1b33e029bc", "title": "Endocannabinoid Levels IBS Pain Symptoms", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS IBS pathophysiology"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "a10dd789-c875-4f71-b038-7045cf811420",
+      "a110d444-b31f-444b-bb99-528a4bcf6084",
+      "a11ac25a-7cbc-42dd-b85b-283180918ac7",
+      "a191c688-452b-4a2d-912a-8e8a8958cc0d",
+      "a19ef22c-bd89-4f0a-afd6-b3a19956b361",
+      "a1ecb91e-b1b5-4fc4-a2a2-9b6e38b3c54b",
+      "a1ff35d6-c959-4fe8-96ac-62dcc0d90bd5",
+      "a2134101-6be2-46f1-9cbc-f732886cb458"
+    ]
+  }
+}

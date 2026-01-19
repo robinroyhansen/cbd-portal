@@ -1,0 +1,39 @@
+{
+  "batch_number": 236,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T01:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "04f80702-a0cd-4309-bb5e-4212ebd7ebfc", "title": "Liveability Auckland CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "04f86138-b902-49a1-9daf-73bea1fcdfee", "title": "Neural Dynamics Social Cognition", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "04fbfed7-437d-4565-a470-0981cfef340f", "title": "Chemical Quantification CBD THC Extracts", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "QC method correctly rejected"},
+    {"id": "05070c94-cab7-4050-9e69-ecd9cbaed6c0", "title": "宜居理念CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "05103cbf-8c1e-4fcb-a8f6-ad2f2e500379", "title": "Phytochemical Analysis Cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "0511043b-cc11-43b8-9933-c9e1916067aa", "title": "CBDS Technique MANET", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "051d312a-9052-4ebc-989b-45aa01794da5", "title": "CB1 CB2 receptor expression human gliomas", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cancer mechanism"},
+    {"id": "051dc008-ee14-43bf-9bdd-9093b9ff40da", "title": "CBD transcriptomic profiles Sertoli cells", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research"},
+    {"id": "0535715b-6d84-4c4f-9f3d-a5a46fdc9653", "title": "Pharmacokinetic oral fluid CBD THC", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Drug testing correctly rejected"},
+    {"id": "053cf518-4b22-4b82-9c0a-acaf6ca85d61", "title": "Human Sperm CB1 Activation Inhibits", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid reproductive mechanism"},
+    {"id": "053fb77a-2c49-4d97-adc4-8fd245fd9364", "title": "Cannabis Usage Tourism", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Recreational patterns correctly rejected"},
+    {"id": "0544736c-7d4e-462e-ba86-b6dec2e7f7d9", "title": "CBD marijuana hemp difference", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Consumer info correctly rejected"},
+    {"id": "054ecd02-abf7-4c9b-b460-d8874f3b9cda", "title": "Lemmel syndrome jaundice", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "055acc1f-9243-4fd0-b39f-a83ff4b56c10", "title": "Δ8-THC Δ9-THC Mass Spectrometry", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "058c11af-39d0-4779-bde9-26c6d17420a5", "title": "Dronabinol impairs driving", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm correctly rejected"},
+    {"id": "0594af3d-07ac-4f37-99f7-8041f1849af2", "title": "Cannabinoid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism review"},
+    {"id": "05b18401-ad20-4c81-9d82-c07e664c200b", "title": "Underground Space Perth CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "05ca5e17-ebdd-4cdb-b45f-6f3784b2d10e", "title": "BiTe thin films CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "05dc08a5-5c19-48c2-85d6-3401ea623f5b", "title": "CBD Products Fraud Mislabeling", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Consumer protection correctly rejected"},
+    {"id": "05dda697-4165-4a69-a567-58ffa23ccc34", "title": "Cannabinoids gastrointestinal diseases therapeutic", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid GI therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "051d312a-9052-4ebc-989b-45aa01794da5",
+      "051dc008-ee14-43bf-9bdd-9093b9ff40da",
+      "053cf518-4b22-4b82-9c0a-acaf6ca85d61",
+      "0594af3d-07ac-4f37-99f7-8041f1849af2",
+      "05dda697-4165-4a69-a567-58ffa23ccc34"
+    ]
+  }
+}

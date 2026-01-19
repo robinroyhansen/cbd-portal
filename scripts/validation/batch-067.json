@@ -1,0 +1,37 @@
+{
+  "batch_number": 67,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T06:30:00.000Z",
+  "results": [
+    {"id": "4a12a02e-adee-400e-a433-d71cd720bfc4", "title": "Cannabis use and cannabis use disorder", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD STUDY - general overview of CUD"},
+    {"id": "4a17ba69-5dda-4f84-85aa-7ac6d9e95d05", "title": "Effects of fixed or self-titrated dosages of Sativex on cannabis withdrawal and cravings", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - Sativex for cannabis dependence"},
+    {"id": "4a21f7f8-d8c4-4cdf-a9a2-54de7dd4661f", "title": "Data Sheet 1_Molecular pathogenesis of Alzheimer's disease onset in a mouse model: effects of cannabidiol treatment.pdf", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's therapeutic mechanism"},
+    {"id": "4a2760ad-e3ec-4b3f-93f3-0717d6358f16", "title": "Cannabidiol Attenuates Sensorimotor Gating Disruption and Molecular Changes Induced by Chronic Antagonism of NMDA receptors in Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antipsychotic mechanism"},
+    {"id": "4a280ca0-6f8b-4792-8495-80a4b55a1930", "title": "Table 1_Buprenorphine and cannabidiol co-administration reduces survival in a mouse model of orthopedic trauma.docx", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety/drug interaction research"},
+    {"id": "4a3c4d30-816b-47d6-ad0b-edce0dd632fa", "title": "Polyamines protect porcine sperm from lipopolysaccharide-induced mitochondrial dysfunction and apoptosis via casein kinase 2 activation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - porcine sperm/polyamines study"},
+    {"id": "4a42979c-570c-4b30-9264-f38410a3edcc", "title": "Cannabinoids for the treatment of spasticity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid spasticity therapeutic review"},
+    {"id": "4a43da7a-d47c-4daa-90bc-4f1f04e29ff0", "title": "Cannabidiol: Safe and Effective for Epilepsy?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic review"},
+    {"id": "4a551ce1-d654-4dd5-aab8-a8a9b240c5c1", "title": "Cannabinoid Receptor 2 Protects against Acute Experimental Sepsis in Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 sepsis protective therapeutic"},
+    {"id": "4a569ef2-d318-48a3-84f7-694a8c78305b", "title": "Manajemen dan Rekayasa Lalu Lintas Kawasan CBD Kota Bekasi", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Central Business District (Bekasi, Indonesia traffic)"},
+    {"id": "4a6718f8-47aa-44e7-9787-835882fb4037", "title": "Evaluating the Acute Effects of the Cannabinoid Dronabinol and the Opioid Hydromorphone Alone and in Combination: A Double-Blind, Randomized, Placebo-Controlled Trial in Knee Osteoarthritis.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Dronabinol OA pain therapeutic RCT"},
+    {"id": "4a752c97-25a0-4e51-b99b-2ad9c863824b", "title": "Looking Beyond Traditional Pain Outcomes to Better Evaluate Cannabis's True Potential and Limitations in Chronic Pain Management", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis chronic pain therapeutic perspective"},
+    {"id": "4a931278-f4fb-40e9-a01b-fd20385aad48", "title": "Decreased melanoma CSF-1 secretion by Cannabigerol treatment reprograms regulatory myeloid cells and reduces tumor progression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG melanoma cancer therapeutic"},
+    {"id": "4a968c38-d7e6-4586-ab4b-7af530248c0f", "title": "Cannabinoid hyperemesis syndrome: A disorder of the HPA axis and sympathetic nervous system?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CHS mechanism research"},
+    {"id": "4a98ee66-3743-48fe-bfc1-08b2062fd01d", "title": "Cannabinoids shift the basal ganglia microRNA m(6)A methylation profile towards an anti-inflammatory phenotype in SIV-infected rhesus macaques.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid HIV/SIV anti-inflammatory"},
+    {"id": "4aa01a62-034f-4b9e-8116-326bcbded180", "title": "A double-blind, randomized, placebo-controlled study of the safety and effects of CBN with and without CBD on sleep quality.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBN/CBD sleep quality therapeutic RCT"},
+    {"id": "4aa3635c-539c-46cf-bd0b-504b1a7fe059", "title": "Cannabidiol (CBD) Reduces Epileptic Seizures in the Asian Population: Cross-sectional Study for Intractable Epilepsy Patients in Japan", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy Japan therapeutic"},
+    {"id": "4aa48c27-cef8-4ce7-af20-51875dd4a0a2", "title": "The antipsychotic potential of cannabidiol: clinical implications for patients with psychosis and comorbid cannabis use disorder", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychosis therapeutic"},
+    {"id": "4aa7288e-ae20-466a-8332-46a6cd95e5a8", "title": "Cannabinoid CB1 antagonist SR 141716A attenuates reinstatement of heroin self-administration in heroin-abstinent rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 antagonist heroin addiction therapeutic"},
+    {"id": "4aced30a-3951-4cdc-b9c4-9186e446b342", "title": "Cannabidiol, a nonpsychotropic phytocannabinoid, induces apoptosis in cultured murine microglia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD microglia apoptosis mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "4a12a02e-adee-400e-a433-d71cd720bfc4",
+      "4a17ba69-5dda-4f84-85aa-7ac6d9e95d05",
+      "4a3c4d30-816b-47d6-ad0b-edce0dd632fa",
+      "4a569ef2-d318-48a3-84f7-694a8c78305b"
+    ]
+  }
+}

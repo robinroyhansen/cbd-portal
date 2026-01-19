@@ -1,0 +1,38 @@
+{
+  "batch_number": 342,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T03:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "7a50afc5-014d-4c61-a542-0a74613658d0", "title": "The greenhouse gas emissions of indoor cannabis production in the United States", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "7a57bc8e-eb5d-4354-a48b-42e3f5b7ada0", "title": "The Role of Digital Influencers in Strategic Marketing in Nairobi, CBD, Kenya", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "7a5872bd-b534-424b-866f-59050c02a274", "title": "Combined effect of alcohol and cannabis on simulated driving", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm correctly rejected"},
+    {"id": "7a58e20c-fe97-4e22-a04f-85f2bc3eab54", "title": "Cannabinoids and the gut: New developments and emerging concepts", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid GI therapeutic"},
+    {"id": "7a71c3ed-be69-4ae6-a7eb-bd2d6caf2af6", "title": "A System Dynamics Approach to Parking Pricing Optimization Based on a CBD Parking Survey", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "7a739fb6-9b02-4ddf-abd6-e3f9e65e1fbe", "title": "A longitudinal examination of daily patterns of cannabis and alcohol co-use among veteran cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "7a925187-5795-41ef-946a-7e1cac871a8b", "title": "Expression of Putative Defense Responses in Cannabis Primed by Pseudomonas and Bacillus and Infected by Botrytis cinerea", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "7a9c43dc-aa53-44fb-9ef7-f2691c6a0b6f", "title": "Effects of long term storage on secondary metabolite profiles of cannabis resin", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product science correctly rejected"},
+    {"id": "7aa2c694-2a9a-4f8c-8769-23fdb5d02d04", "title": "Methcathinone Neurotoxicity in the Rat Prefrontal Cortex", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "7aa79213-a242-4b73-a82e-71bbbf0d616a", "title": "Approaches for Cannabinoid Glycosylation Catalyzed by CrUGT74AN3 and BlCGTase", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry correctly rejected"},
+    {"id": "7aa85b64-0b5f-4d29-bb70-885a27f08bd5", "title": "Down-regulation of tissue inhibitor of metalloproteinases-1 in gliomas: a new marker of cannabinoid antitumoral activity?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cancer mechanism"},
+    {"id": "7ab9068d-b1eb-4ea2-8b12-8a2c8c583910", "title": "Human skin permeation of Δ8-tetrahydrocannabinol, cannabidiol and cannabinol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid transdermal delivery"},
+    {"id": "7aefbfc6-5440-4827-ac00-5200c8c53062", "title": "A call for weed research in industrial hemp", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "7afd0146-a8de-4cc3-a8e5-5066d11cdb3b", "title": "Contributions of social influences and expectations of use to cannabis use in high-school students", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "7b0f8761-84af-4552-bd1d-63827c3a6fe7", "title": "Quantification of selected synthetic cannabinoids and THC in oral fluid by LC-MS/MS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "7b2b79ec-ce9a-415e-a072-efc4d0dc42e6", "title": "INFORMAÇÃO TECNOLÓGICA E PANORAMA PATENTÁRIO DAS APLICAÇÕES E USO DO CANABIDIOL (CBD)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Patent/market analysis correctly rejected"},
+    {"id": "7b307359-5864-4c95-9638-19c52d00cf32", "title": "Impact of Dietary Fat and Oral Delivery System on Cannabigerol Pharmacokinetics in Adults", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBG pharmacokinetics"},
+    {"id": "7b56d0b5-b2cf-4aa2-82b7-90a9509a358b", "title": "Parking generation by facilities in the CBD of Dar es Salaam City", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "7b6bd1c6-868d-456a-9217-6d28d3590337", "title": "N-Acetylcysteine for Smoking Cessation in Tobacco and Cannabis Co-Use: A RCT", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "7b8ceed1-20d7-4797-9d07-064867db5b97", "title": "Cannabis and crash risk among older drivers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "7a58e20c-fe97-4e22-a04f-85f2bc3eab54",
+      "7aa85b64-0b5f-4d29-bb70-885a27f08bd5",
+      "7ab9068d-b1eb-4ea2-8b12-8a2c8c583910",
+      "7b307359-5864-4c95-9638-19c52d00cf32"
+    ]
+  }
+}

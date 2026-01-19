@@ -1,0 +1,38 @@
+{
+  "batch_number": 426,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T00:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "d68e4def-d391-4f22-bbb7-b7fc16dd16f9", "title": "Does cannabis use affect prospective memory in young adults?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis cognitive harm correctly rejected"},
+    {"id": "d6996bc5-73a7-4171-a3dc-0b111c400ea9", "title": "Cannabinoids in neurology – Brazilian Academy of Neurology", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/clinical guidance correctly rejected"},
+    {"id": "d6d9dd94-df8e-4991-aefe-76cf1c7ab73b", "title": "Safety of Drugs Used in Difficult-to-Treat Epileptic Syndromes: A Disproportionality Analysis Using the Eudravigilance Database", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General drug safety correctly rejected"},
+    {"id": "d7125420-2e12-415f-9ddc-c52bfb695607", "title": "Effect of Topical Hemp (Cannabis sativa L.) Seed Oil on Knee Osteoarthritis: A Randomized Double-Blind Controlled Trial.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Hemp seed oil (not cannabinoids) correctly rejected"},
+    {"id": "d712eab0-beba-439d-ae07-67d1bba043f5", "title": "Dissociative-like Neurotoxicity Following Analytically Confirmed Exposure To Hexahydrocannabinol (HHC).", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabinoid toxicity correctly rejected"},
+    {"id": "d722370e-f04d-40b5-ac35-836537a3f357", "title": "Genotype and chemotype insights of high-THC medicinal Cannabis sativa L.: the role of SSR markers in the identification of cultivars", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "d730de52-7360-4178-b274-42265bada7e3", "title": "Cannabis Policy: Moving Beyond Stalemate", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "d73f7850-0215-4c03-ab15-d20db7fdd78f", "title": "Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD research entry"},
+    {"id": "d7459567-ba00-4eed-b9d1-94f598627bb6", "title": "Danish cannabis policy revisited: Multiple framings of cannabis use in policy discourse", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "d766fab0-2e76-42eb-89f9-19f02f5c7229", "title": "CaMPARI2 Enables Stimulus-Locked Whole-Brain Activity Mapping at Cellular Resolution in Unrestrained Larval Zebrafish", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "d77d9df8-0484-4fd9-9800-6b727a715e9b", "title": "Hearing Loss in Young Adults: Risk Factors, Mechanisms and Prevention Models", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "d7a9dd86-e906-4e02-881e-022b18309543", "title": "Psychometric properties of the CAST and SDS scales in young adult cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD assessment correctly rejected"},
+    {"id": "d7aae50e-9e19-4341-b649-487f5c45d801", "title": "Cannabinoid CB1 receptor and serotonin 3 receptor subunit A (5‐HT3A) are co‐expressed in GABA neurons in the rat telencephalon", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1-serotonin receptor coexpression mechanism research"},
+    {"id": "d7c4b1fe-df56-4962-a912-6b4b813232c7", "title": "Cannabidiol use in France in 2022: Results from a nationwide representative sample of adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "d7cc8769-65c9-47cd-8981-5409b97d2c3c", "title": "Medical cannabis use in Canada: vapourization and modes of delivery", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "d7e18e4a-4b43-4d25-95fa-a1ceec1ccf2a", "title": "Downregulation of cannabinoid receptor 1 from neuropeptide Y interneurons in the basal ganglia of patients with Huntington's disease and mouse models", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor Huntington's disease mechanism research"},
+    {"id": "d7e22ded-829b-482b-8336-6b4d66ad6db1", "title": "Habitat Specialisation Impacts Clownfish Demographic Resilience to Pleistocene Sea-Level Fluctuations.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "d7e23f06-aeb3-49b3-a2fc-c65cd706ca15", "title": "FDA Issues Warning to CBD Product Suppliers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/regulatory correctly rejected"},
+    {"id": "d7ee25e8-ce6a-408e-a0d6-8e457cfa6d36", "title": "Comment on Lachenmeier et al (2020) \"Are side effects of cannabidiol (CBD) products caused by tetrahydrocannabinol (THC) contamination?\"", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research commentary"},
+    {"id": "d80fcf81-e6a9-48d4-8599-d5dc0649bd43", "title": "Adolescents' Cannabis Knowledge and Risk Perception: A Systematic Review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/prevention correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "d73f7850-0215-4c03-ab15-d20db7fdd78f",
+      "d7aae50e-9e19-4341-b649-487f5c45d801",
+      "d7e18e4a-4b43-4d25-95fa-a1ceec1ccf2a",
+      "d7ee25e8-ce6a-408e-a0d6-8e457cfa6d36"
+    ]
+  }
+}

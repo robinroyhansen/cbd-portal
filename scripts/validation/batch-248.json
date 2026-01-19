@@ -1,0 +1,40 @@
+{
+  "batch_number": 248,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T04:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "117d4519-5da9-4bf6-a0cd-b4efb46fb01b", "title": "Bronsted Lewis Acid CBD Conversion", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthesis chemistry correctly rejected"},
+    {"id": "118cf0a7-2c53-4228-822d-18914b2bccce", "title": "Trends Cannabis Use Older Adults US", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevalence correctly rejected"},
+    {"id": "11b10168-634c-4bbc-b9f1-3dd075c1b1cf", "title": "Loneliness Alcohol Cannabis College Students", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "11c064d8-22e6-4cf0-addf-6da39ffa7f5e", "title": "Youth homelessness suicide risk", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "11ce45a3-0d83-44aa-884c-c457adfb3041", "title": "Youth streets Durban CBD sexuality", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "11d0b0b4-1819-4c89-80b9-1ed280a2b4fd", "title": "Glossaire termes concepts CBD Aichi", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention Biological Diversity) correctly rejected"},
+    {"id": "11dd4b62-349c-425e-a47e-b66832a4677c", "title": "Neurexins Alternative Splicing CB1 Signaling", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 mechanism research"},
+    {"id": "11ea7e92-b04d-4720-96ab-753d4b39c8ba", "title": "Buprenorphine naltrexone OUD cannabis outcomes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "OUD treatment correctly rejected"},
+    {"id": "11f117ad-c5f5-4027-9d1f-34c1335fc1e7", "title": "Perinatal cannabinoid sociosexual behavior", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "122701da-fdf8-436a-a73b-7821810086f1", "title": "Cytotoxicity CBD metabolites HepG2", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research"},
+    {"id": "1256cc20-1206-4cb3-85d9-88b1d9e5dc03", "title": "CBD Role Regenerative Medicine Neural Skeletal", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic review"},
+    {"id": "126739ab-aaee-424b-bb3e-84c6d4f8be8c", "title": "Forest Mountain Farms CBD Gummies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "1270bc49-06f7-4758-9267-6ce0eb9d4451", "title": "Minor Cannabinoids CBD CBG CBN CBC sensory neuron", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism (pain/sensory)"},
+    {"id": "1283b638-ff46-47db-87f4-fbe3c75883e0", "title": "Economic Relationship Alcohol Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Economic correctly rejected"},
+    {"id": "128dfbfc-3612-4d14-af1f-284fe002f585", "title": "Prevention Alcohol Tobacco Drug Youth Schools", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevention/policy correctly rejected"},
+    {"id": "129a49f2-8b8c-4568-ad7a-d456fb750ec1", "title": "Exits Returns Homelessness Older Adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "129fb738-f74c-4dee-ab4d-e9a1b4bc8806", "title": "Absence Cerebral Atrophy Chronic Cannabis Users", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis safety research (positive finding)"},
+    {"id": "12b47421-46ca-4509-b443-6b4f3983dcca", "title": "Osteoclastogenesis Inhibition CB2 Receptor Inverse Agonists", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 bone therapeutic mechanism"},
+    {"id": "12b505ed-81d2-4a82-9236-217795ababad", "title": "Ruminal nutrient Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/animal feed correctly rejected"},
+    {"id": "12c1ed9c-caa4-4ed4-86fa-25b2c19b92ff", "title": "Husband's Participation CBD Citangkil Health", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Indonesian family planning) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "11dd4b62-349c-425e-a47e-b66832a4677c",
+      "122701da-fdf8-436a-a73b-7821810086f1",
+      "1256cc20-1206-4cb3-85d9-88b1d9e5dc03",
+      "1270bc49-06f7-4758-9267-6ce0eb9d4451",
+      "129fb738-f74c-4dee-ab4d-e9a1b4bc8806",
+      "12b47421-46ca-4509-b443-6b4f3983dcca"
+    ]
+  }
+}

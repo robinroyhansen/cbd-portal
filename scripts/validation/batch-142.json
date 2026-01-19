@@ -1,0 +1,34 @@
+{
+  "batch_number": 142,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T01:30:00.000Z",
+  "results": [
+    {"id": "9df7ada3-50d0-4381-8921-d44a313f10ba", "title": "LH‐21 and abnormal cannabidiol improve β‐cell function", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor diabetes mechanism"},
+    {"id": "9dfad521-4e3b-4218-8447-084a7421ea01", "title": "Systematic review cannabinoids antinociceptive animal models", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain meta-analysis"},
+    {"id": "9e0e6fa1-bc99-4183-87ad-ae0efd54d164", "title": "Cannabis cannabinoids administration routes pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain network meta-analysis"},
+    {"id": "9e230c47-fbdf-481b-bd50-268e18c000f6", "title": "Radioligands PET imaging CB2 receptor", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 imaging neuroinflammation research"},
+    {"id": "9e3ccd55-76c3-4b11-ab12-de8583c49020", "title": "Critical Aspects CBD Oral Bioavailability", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics clinical"},
+    {"id": "9e446513-2e1b-4ee2-a377-3ce715d97f6b", "title": "Cannabinoids modulate cell survival embryoid bodies", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor cell biology"},
+    {"id": "9e6541f2-743c-4360-94ee-c6bb14cfaba9", "title": "Cannabis Cannabinoid Use COVID-19 Scoping Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid COVID-19 therapeutic review"},
+    {"id": "9e66d2c4-760c-43db-afa7-0b1ebaabda75", "title": "Cannabis sativa to CBD Neurodegenerative Diseases", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD AD/PD therapeutic review"},
+    {"id": "9e8c85aa-4b30-4282-88ef-63805825ae59", "title": "Cannabinoids cancer immunotherapy early death", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid safety cancer research"},
+    {"id": "9eb70fdb-85f8-4a35-aa25-afb51f8c7800", "title": "ZYN002 CBD Gel Fragile X Syndrome RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Fragile X clinical trial"},
+    {"id": "9ed3b9fb-f16a-4809-abe9-dd6e1c6f74ed", "title": "Review THC CBN CBD CBG Psychobiological", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology comparison"},
+    {"id": "9ee1bb1a-d40b-478a-95a6-bb0b11aad508", "title": "Bimekizumab safety plaque psoriasis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - IL-17 inhibitor psoriasis"},
+    {"id": "9ef8b184-cd1a-48c6-9a4e-2509e5cb04a8", "title": "CBD Treatment Psychosis Addiction Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychiatric therapeutic review"},
+    {"id": "9f01558d-cfb7-412b-a1fe-96ae248dd50c", "title": "Medicinal cannabis childbearing women morning sickness", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis nausea pregnancy efficacy"},
+    {"id": "9f2468e6-edc8-4c91-b46f-a002aa9e708c", "title": "GPR3 CBD inflammatory astrocytes microglia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroinflammation mechanism"},
+    {"id": "9f275676-26a7-4766-bde3-2e3101b22c6e", "title": "CBD capsules may treat cannabis addiction", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD as CUD therapeutic intervention"},
+    {"id": "9f2f2cc5-2128-423f-b49d-8ddd7017b033", "title": "CBD Chemotherapy Epigenetic Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer adjuvant therapy"},
+    {"id": "9f30cddd-c7e7-4cd8-8c2a-5ff2a12020d0", "title": "Cannabinoid derivatives anti-myeloma activity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid multiple myeloma therapeutic"},
+    {"id": "9f5ce144-a865-490e-aba1-a46387dcb900", "title": "CBD Genotype-Specific Safety Pharmacokinetics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacology safety research"},
+    {"id": "9f79ca79-3ea6-4bdd-85d7-dd0c224abe7a", "title": "CB2 anti-inflammatory endotoxin-induced uveitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid uveitis therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 19,
+    "incorrect": 1,
+    "incorrect_ids": [
+      "9ee1bb1a-d40b-478a-95a6-bb0b11aad508"
+    ]
+  }
+}

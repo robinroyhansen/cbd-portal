@@ -1,0 +1,41 @@
+{
+  "batch_number": 393,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T16:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "b416d2f3-3b15-4120-a423-1f816daac12c", "title": "Antimicrobial and Anti-Infective Potential of Herbal Creams in Dermatology: Efficacy, Safety, and Challenges in Skin Infection Management", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No clear cannabinoid focus correctly rejected"},
+    {"id": "b43302e8-6284-4df8-bc74-13d5f55f6615", "title": "Beyond with CBD – value-free analysis of values", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Unclear/wrong CBD correctly rejected"},
+    {"id": "b45ae729-c6c8-46cb-a1b3-b92ea032dee8", "title": "Young Adults' Use of Prescription Opioids and Cannabis Postoperatively: A Qualitative Study.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "b45d387f-60f3-4013-8faa-ddfb5329ab48", "title": "Cannabidiol goes nuclear: The role of PPARγ", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD PPARγ mechanism research"},
+    {"id": "b470b51b-b4bc-4e38-95c0-663ee4ff50d5", "title": "Pharmacological and biochemical interactions between opioids and cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacology research"},
+    {"id": "b48e3495-eeb2-44d1-a516-0e09fc59d025", "title": "Genome-wide association study and HLA genotyping for beryllium disease susceptibility in a European descent population.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b4941d3a-3e24-4311-bb82-9ff0da8d6386", "title": "The Role of Medicinal Cannabis in Clinical Therapy: Pharmacists' Perspectives", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Survey/opinions correctly rejected"},
+    {"id": "b4a2291b-10f5-49a9-b571-e8a8bdd9d297", "title": "Quantitative summary on the human pharmacokinetic properties of cannabidiol to accelerate scientific clinical application of cannabis.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmacokinetics review"},
+    {"id": "b4b219d8-54ff-4cf1-8b18-1bb471a571a6", "title": "Differential modulation of withdrawal reflexes by a cannabinoid in the rabbit", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism research"},
+    {"id": "b4b5ef0e-a1c6-4973-bbe2-64080eec45fb", "title": "Are reasons for first using cannabis associated with subsequent cannabis consumption (standard THC units) and psychopathology?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/cannabis harm correctly rejected"},
+    {"id": "b4d43e7f-ee51-4dfe-98de-4dd6c668cf13", "title": "Oral Fluid Cannabinoids in Chronic Cannabis Smokers during Oral Δ9-Tetrahydrocannabinol Therapy and Smoked Cannabis Challenge", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Drug testing/CUD treatment correctly rejected"},
+    {"id": "b4e2e665-79a6-4794-8a07-5d7e29b59d48", "title": "Biomarkers of Response to Low-Dose Aspirin in Familial Adenomatous Polyposis Patients", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b4e4ce41-63bf-4e4d-b44c-42b9486d5d59", "title": "Re-imagining combination vaccines for travel medicine.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b4e9fafa-2d00-4070-ba4b-11604fe2a2d6", "title": "Family burden among US adults experiencing secondhand harms from alcohol, cannabis or other drugs.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "b4fbdde8-730b-440a-b4d4-ac64d970f16c", "title": "Cannabidiol Attenuates the Appetitive Effects of Δ9-Tetrahydrocannabinol in Humans Smoking Their Chosen Cannabis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD protective effect research"},
+    {"id": "b5034f0e-4645-48c3-8278-bb5d3d116dc5", "title": "Prenatal tobacco-cannabis co-use: A mixed-methods, convergent parallel study.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "b5173024-47d4-4b2f-b69a-63ca71881020", "title": "A dataset to support wildland fire and fuel management in Greece created with stochastic wildfire simulations", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b52295c8-6878-40cc-9f53-ea101f3be3f4", "title": "A Novel Synthetic Cannabinoid Derivative Inhibits Inflammatory Liver Damage via Negative Cytokine Regulation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid anti-inflammatory therapeutic"},
+    {"id": "b559f10b-3d4a-464b-ac82-e745786b0c93", "title": "Person-environment transactions of impulsive traits and day-level alcohol use: A narrative review.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b56af4e9-6d94-4ff9-a987-de7d239a55d4", "title": "Sex Differences in Neural Response to Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD human neural mechanism study"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "b45d387f-60f3-4013-8faa-ddfb5329ab48",
+      "b470b51b-b4bc-4e38-95c0-663ee4ff50d5",
+      "b4a2291b-10f5-49a9-b571-e8a8bdd9d297",
+      "b4b219d8-54ff-4cf1-8b18-1bb471a571a6",
+      "b4fbdde8-730b-440a-b4d4-ac64d970f16c",
+      "b52295c8-6878-40cc-9f53-ea101f3be3f4",
+      "b56af4e9-6d94-4ff9-a987-de7d239a55d4"
+    ]
+  }
+}

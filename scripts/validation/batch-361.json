@@ -1,0 +1,40 @@
+{
+  "batch_number": 361,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T08:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "914199f5-6a0f-4990-a1a0-3fc83d9e0d14", "title": "Influences of Parenting Practices on the Risk of Having a Chance to Try Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/prevention correctly rejected"},
+    {"id": "9148daeb-8e89-4b32-9e8c-9695bdc9517c", "title": "Photochemical decomposition of cannabidiol in its resin base", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry/stability correctly rejected"},
+    {"id": "914c72b0-e18e-48b2-9a4f-09312ec67685", "title": "Simple GFAAS Method for Determination of Pb, As, and Cd in Cannabidiol Extracts Used for Therapeutic Purposes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "914e0f60-1c44-4c68-87e7-7eaa97514597", "title": "Agronomic research on hemp (Cannabis sativa L.) in The Netherlands, 1987-1993", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "9150d6b5-d8a6-4b5f-a434-0230e9b09e8a", "title": "Cannabinoid type 1 receptor-containing axons innervate NPY/AgRP neurons in the mouse arcuate nucleus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor appetite mechanism research"},
+    {"id": "9151e7a1-114f-4b4f-a76c-c360c1a76777", "title": "Picasso CBD & Endocure CBG Flower", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product advertising correctly rejected"},
+    {"id": "915e3abc-b872-4bd3-b344-6e379a4604f1", "title": "ChemInform Abstract: THE CRYSTAL AND MOLECULAR STRUCTURE OF CANNABIDIOL", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry correctly rejected"},
+    {"id": "9183a229-26b7-43f8-bc33-7893abe06526", "title": "Rhabdomyolysis and Acute Kidney Injury Requiring Dialysis as a Result of Concomitant Use of Atypical Neuroleptics and Synthetic Cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm/toxicity correctly rejected"},
+    {"id": "91915d70-5920-4af6-9807-96b01345debb", "title": "The therapeutic potential of cannabis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis therapeutic potential review"},
+    {"id": "91a1db6f-3646-416f-8a19-14bdf6b4d964", "title": "Reduction in Cannabis Use and Functional Status in Physical Health, Mental Health, and Cognition", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment/cessation correctly rejected"},
+    {"id": "91beecad-2f8f-408b-882e-83b43d159256", "title": "Kinetic multiplex assay to assess biased signaling of clinical GPCR agonists", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "91d37611-16ae-4080-80ab-8a3c3147b06c", "title": "The role of central CB2 cannabinoid receptors on food intake in neonatal chicks", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "91d63dee-9119-4c49-a276-1e98b792d277", "title": "Cannabidiol attenuates haloperidol-induced catalepsy and c-Fos protein expression in the dorsolateral striatum via 5-HT1A receptors in mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD movement disorder mechanism research"},
+    {"id": "91dbda40-65e2-4fa6-b016-cfc5132b85db", "title": "Prevalence of synthetic cannabinoids in blood samples from Norwegian drivers suspected of impaired driving during a seven weeks period", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "91e4b569-680d-4782-a698-de8bacb53111", "title": "Cannabidiol in Dermatology: Progress and Pitfalls", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD dermatology therapeutic review"},
+    {"id": "91e6b9db-40fb-43ab-a9e7-b38ab97943e4", "title": "[A reporter gene assay for determining antibody-dependent cell-mediated phagocytosis activity of HER2-targeted antibody drug conjugate]", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "91e953ed-d007-4b9b-9a1e-3dd16331e502", "title": "The cannabinoid antagonist SR141716A facilitates memory acquisition and consolidation in the mouse elevated T-maze", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid memory mechanism research"},
+    {"id": "91f05eaf-7fa1-451c-b941-782d87ccc483", "title": "Separation and Identification of Cannabis Components by Different Planar Chromatography Techniques (TLC, AMD, OPLC)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "91f37d46-392f-4692-b06d-074f58b92fea", "title": "Factors associated with lower-risk cannabis use in adults in their mid-thirties", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "91fa0021-23b9-447c-a1da-c7b51f509830", "title": "Cannabinoids in immune system-related diseases: From bench to clinic", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid immune therapeutic review"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "9150d6b5-d8a6-4b5f-a434-0230e9b09e8a",
+      "91915d70-5920-4af6-9807-96b01345debb",
+      "91d63dee-9119-4c49-a276-1e98b792d277",
+      "91e4b569-680d-4782-a698-de8bacb53111",
+      "91e953ed-d007-4b9b-9a1e-3dd16331e502",
+      "91fa0021-23b9-447c-a1da-c7b51f509830"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "batch_number": 334,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T01:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "71988f2c-b487-4fb7-82bf-df7b96466836", "title": "Changes of photosynthesis-related parameters and productivity of Cannabis sativa under different nitrogen supply", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "719a3287-40aa-46d7-8c20-50808beb6193", "title": "Optimizing an Ex Vitro RUBY-Equipped Method for Hairy Root Transformation of Peanuts", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "719ea14f-766f-442b-b570-638568eb05d0", "title": "Charlie Stayt CBD Gummies - How Does This Product Works?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "71c729e6-a6fc-4558-bf05-3108d4897791", "title": "Effect of Central Injection of Anandamide on LPS-Dependent Suppression of GnRH/LH Secretion in Ewes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "71d94492-775e-4694-b5c1-f2aa90fbbd34", "title": "Estimating modal choice for CBD trips in Melbourne", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "71dd6497-107e-40ee-b47c-d26efa89710e", "title": "Beyond potency: A proposed lexicon for sensory differentiation of Cannabis sativa L. aroma.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Sensory science correctly rejected"},
+    {"id": "71ef64c2-c210-4896-851a-ef9973035597", "title": "Assessment of cannabinoid induced gene changes: tolerance and neuroprotection", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neuroprotection mechanism"},
+    {"id": "72003f9c-bd9b-4d9c-a8f3-8e3dbaf4a174", "title": "24 Effects of Oral Supplementation of Cannabidiol on Young Stallion Behavior", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "7203fe09-f05f-4079-b53e-5ee31698790a", "title": "The Botany of Cannabis sativa L.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "7229547f-4712-40ae-9a8b-46cd1b55789c", "title": "Genetic variation in FAAH is associated with cannabis use disorders in a young adult sample of Mexican Americans", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD correctly rejected"},
+    {"id": "722da16d-2634-459a-95fc-c61213f171cf", "title": "Cannabinoids and the endocannabinoid system in the regulation of cytochrome P450 metabolic activity-a review.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid P450 drug interaction review"},
+    {"id": "723bb22e-8e9d-4bcf-8fec-8b89bfa46415", "title": "Metabolism and distribution of cannabinoids in rats after different methods of administration", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacokinetics"},
+    {"id": "724df80e-2202-4b72-b74b-9f79fb06a02c", "title": "Occurrence of Hop Latent Viroid in Cannabis sativa with Symptoms of Cannabis Stunting Disease in California", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant disease correctly rejected"},
+    {"id": "72530ded-6178-4053-aabb-277d421eb357", "title": "Cannabis consumption and prosociality", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "72554897-ff5d-47ff-886d-b36a6658e630", "title": "Perioperative care of cannabis users: A comprehensive review of pharmacological and anesthetic considerations", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Perioperative risks correctly rejected"},
+    {"id": "728f040b-8da2-43a2-a065-16e42ec0e4e6", "title": "Acute Effects of Synthetic Cannabinoids: Update 2015", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "72bb6885-5dd4-4ce4-ac63-c63b0b8f816e", "title": "Simple Extraction of Cannabinoids from Female Inflorescences of Hemp (Cannabis sativa L.)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction correctly rejected"},
+    {"id": "72c14a25-52c4-401f-923c-3482fa0bc432", "title": "Antidepressant-like effect of Δ9-tetrahydrocannabinol and other cannabinoids isolated from Cannabis sativa L.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid antidepressant mechanism"},
+    {"id": "72ccaf39-2eb1-4653-8d94-e927da8d425e", "title": "The CBD Decision 14/8", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "72dc1262-00e0-4d2b-b7d2-3bcd451b8065", "title": "Position Statement: A Pragmatic Approach for Medical Cannabis and Patients with Rheumatic Diseases", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis rheumatology clinical guidance"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "71ef64c2-c210-4896-851a-ef9973035597",
+      "722da16d-2634-459a-95fc-c61213f171cf",
+      "723bb22e-8e9d-4bcf-8fec-8b89bfa46415",
+      "72c14a25-52c4-401f-923c-3482fa0bc432",
+      "72dc1262-00e0-4d2b-b7d2-3bcd451b8065"
+    ]
+  }
+}

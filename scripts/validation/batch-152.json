@@ -1,0 +1,43 @@
+{
+  "batch_number": 152,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T04:00:00.000Z",
+  "results": [
+    {"id": "a9e735e7-9500-4db6-a93d-55c549d63c21", "title": "Cannabis Reduction Mood Improvement Female", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cessation benefits"},
+    {"id": "a9fdb872-1914-4601-94bd-d39f95ad4cc9", "title": "Delta-8-THC subjective effects D9-THC CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology"},
+    {"id": "aa2ad87f-57e5-462e-8ae3-b6cfa999a5bd", "title": "CBD Alzheimer In Silico Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD AD therapeutic"},
+    {"id": "aa2fe965-c455-403f-b410-385ac5458ab8", "title": "CBD carbon monoxide nanocomplexes cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic"},
+    {"id": "aa3950f8-234b-4e79-8c7e-5710f196f351", "title": "CB1 krox-24 Human Astrocytoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer mechanism"},
+    {"id": "aa3ad26e-c635-4e33-84cd-3ec9843bfd8a", "title": "Review for CBD Dentistry", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - peer review"},
+    {"id": "aa3e6b00-a862-4c44-b118-bd34ad715b77", "title": "CBD THC Chronic Pain Treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain clinical"},
+    {"id": "aa43b0dd-23e8-4d31-acb4-20b6f4f2179f", "title": "Expectancies CBD anxiety symptoms", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety research"},
+    {"id": "aa473c5e-f323-409f-bee4-db4b1bd6268e", "title": "CBD refractory epilepsy dogs review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dog epilepsy"},
+    {"id": "aa5597f9-69be-44cf-8ae8-251f2eb010b5", "title": "CB1 CB2 deletion influenza inflammatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS immune mechanism"},
+    {"id": "aa598d75-590c-48f2-97f9-efc059b5cd28", "title": "Cannabis Predictor MI Hospitalization", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - MI risk"},
+    {"id": "aa67c3e9-35b6-404d-a4b1-1f48c2747ea6", "title": "CBD Canine Epilepsy Jack Case Study", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dog case"},
+    {"id": "aa6b30a9-1269-478f-a3c4-d01872799143", "title": "CBD MCF-7 Pulse Electric Field", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic"},
+    {"id": "aa6dad84-4a00-4923-bc34-972e1d330ada", "title": "CB1 Signaling Embryo Neurodevelopment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS developmental neurobiology"},
+    {"id": "aa6f048e-2684-4d8c-bd1d-a3e54c8f79ae", "title": "CB1 Striatal Neuron Vulnerability", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS neuroprotection"},
+    {"id": "aaa0ec6e-88ec-40ed-b235-eb0b5bca0e81", "title": "Liposomal CBD goats PK", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - goat study"},
+    {"id": "aab6f502-2359-439d-a483-541d6c964eb7", "title": "Maternal Cannabis Consumption Pregnancy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - prenatal exposure"},
+    {"id": "aac1b4e8-6713-44ff-b80e-fd428c8c8c39", "title": "Bio Lyfe CBD Gummies Reviews Pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - advertisement"},
+    {"id": "aacb3b8a-6043-48a6-9d79-efbfce74a196", "title": "Psychoactive Substances Cognitive MS", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - substance use MS"},
+    {"id": "aae80482-3e99-4f2a-b71c-9d69e83658f0", "title": "Substance use Military PTSD Pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - military substance use"}
+  ],
+  "batch_summary": {
+    "correct": 10,
+    "incorrect": 10,
+    "incorrect_ids": [
+      "a9e735e7-9500-4db6-a93d-55c549d63c21",
+      "aa3ad26e-c635-4e33-84cd-3ec9843bfd8a",
+      "aa473c5e-f323-409f-bee4-db4b1bd6268e",
+      "aa598d75-590c-48f2-97f9-efc059b5cd28",
+      "aa67c3e9-35b6-404d-a4b1-1f48c2747ea6",
+      "aaa0ec6e-88ec-40ed-b235-eb0b5bca0e81",
+      "aab6f502-2359-439d-a483-541d6c964eb7",
+      "aac1b4e8-6713-44ff-b80e-fd428c8c8c39",
+      "aacb3b8a-6043-48a6-9d79-efbfce74a196",
+      "aae80482-3e99-4f2a-b71c-9d69e83658f0"
+    ]
+  }
+}

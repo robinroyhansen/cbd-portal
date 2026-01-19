@@ -1,0 +1,39 @@
+{
+  "batch_number": 224,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T22:00:00.000Z",
+  "results": [
+    {"id": "f86b91c0-cb10-47ec-bd11-a4e2e5cd508b", "title": "Cannabis Female Reproductive Health", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - reproductive health risks"},
+    {"id": "f8741c05-623e-4e1d-a3b7-f5f78cd349b4", "title": "Cannabis Root Extract Anti-nociceptive", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis root therapeutic"},
+    {"id": "f88d3477-815d-42c0-a967-43680bc34830", "title": "Sativex Cannabis Dependence Treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid CUD therapeutic"},
+    {"id": "f88db1d3-0209-4821-a05c-2b6567ce29bc", "title": "Capsaicin CHS Treatment Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - CHS treatment non-cannabinoid"},
+    {"id": "f893d83e-a289-4a21-84bc-c881af99c345", "title": "CBD Topical Pain Anti-inflammatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD topical pain therapeutic"},
+    {"id": "f89454db-698e-4d62-96b3-28ae2ea1439b", "title": "CBD Sleep Stress Focus Supplement", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD sleep stress therapeutic"},
+    {"id": "f89c2f42-5645-482b-ad1c-a3fd26114f75", "title": "Cannabis CBD THC IBD Navigating", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis IBD therapeutic"},
+    {"id": "f8a2f176-6c68-4875-b6ae-bbf2aa2840a4", "title": "CBD Drug Development Therapeutic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic comprehensive review"},
+    {"id": "f8a44aa9-e368-499d-853e-fd0c3f55fd72", "title": "CBD Bioanalytical Plasma Method", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD PK methodology"},
+    {"id": "f8a9443f-fc19-4b8d-8f25-a6b43a38bcba", "title": "Inhaled Cannabis Neuropathic Pain Meta", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis neuropathic pain therapeutic"},
+    {"id": "f8abe923-3c33-40a7-b74a-17fed5279201", "title": "Plant Vesicles Genitourinary Tumors", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general plant vesicles"},
+    {"id": "f8cc3311-1dc4-46f2-aeca-3b8c7fb1ddce", "title": "CBD Cardiovascular Disease Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular therapeutic"},
+    {"id": "f8d380e4-1f44-4954-89b4-69add7447728", "title": "Cannabinoids Skin Inflammation Pathophysiology", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid dermatology therapeutic"},
+    {"id": "f8f681be-5325-45f8-9cfc-e478478c374e", "title": "CBD Neuroprotective Acrylamide Neurotoxicity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection therapeutic"},
+    {"id": "f90262e4-d576-466a-9c8f-eb8321bc1266", "title": "Photodetectors Perovskite Passivation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - materials science"},
+    {"id": "f917ed2e-04ca-4dbd-84b7-65c846f95b26", "title": "Kara's Orchards CBD Gummies UK", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - CBD gummies advertisement UK"},
+    {"id": "f92c2fb8-4695-47e3-aaf0-d3966fa63948", "title": "CBD Oral Toxicity 13-week Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD toxicity safety research"},
+    {"id": "f93d55b4-76ec-4d24-bdee-b9c480424b21", "title": "Rimonabant Dopamine Food Reward", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 antagonist eating mechanism"},
+    {"id": "f940eadb-0fab-4ab1-85f8-e5e7ac9d0556", "title": "Cannabinoids Gastric Neural Transmission", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid GI mechanism"},
+    {"id": "f9412ffb-cdb1-4d98-8091-25c50a454d94", "title": "Cannabinoid Self-injury Meta-analysis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - self-injury association"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "f86b91c0-cb10-47ec-bd11-a4e2e5cd508b",
+      "f88db1d3-0209-4821-a05c-2b6567ce29bc",
+      "f8abe923-3c33-40a7-b74a-17fed5279201",
+      "f90262e4-d576-466a-9c8f-eb8321bc1266",
+      "f917ed2e-04ca-4dbd-84b7-65c846f95b26",
+      "f9412ffb-cdb1-4d98-8091-25c50a454d94"
+    ]
+  }
+}

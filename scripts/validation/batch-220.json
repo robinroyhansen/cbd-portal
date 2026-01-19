@@ -1,0 +1,39 @@
+{
+  "batch_number": 220,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T21:00:00.000Z",
+  "results": [
+    {"id": "f3a95132-dbca-4da9-9bf8-3a69b82405a8", "title": "Sexual Assault Substance Use COVID", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - substance use patterns"},
+    {"id": "f3b94739-b38d-4557-92c9-87ceb2f8a2e1", "title": "Medicinal Cannabis Therapeutic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis therapeutic review Brazil"},
+    {"id": "f3c48c32-dadb-4251-83ef-cb2545ab5519", "title": "Cannabinoid Orthodontic Tooth Movement", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid dental therapeutic"},
+    {"id": "f3d39f6b-3ecf-47a5-ad59-87c192febfab", "title": "CBD Parkinson's Motor Symptoms RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's therapeutic RCT"},
+    {"id": "f3e804b6-5570-4229-8fde-046f3924e3e1", "title": "Medicinal Plants CINV Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Medicinal plants CINV therapeutic"},
+    {"id": "f3e9c147-6918-429d-bf48-af80303f89fd", "title": "Cannabis CBD Brain Connectivity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD brain function mechanism therapeutic"},
+    {"id": "f3ee64b9-7e9a-4d8c-a740-ad17e0cbf83c", "title": "Cannabis Lung Cancer Risk Pooled", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - lung cancer risk assessment"},
+    {"id": "f3f61764-5719-417f-aeb7-8363c10e35f3", "title": "CBD Dravet LGS Open Label", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "f3f88ee0-2c3a-4735-82fd-8cf62298b650", "title": "Cannabis Use Reduction Verification CUD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - biochemical verification methodology"},
+    {"id": "f3fdd7d9-31d6-4334-8455-d534dfb0d88c", "title": "Clobazam Stiripentol Dravet PK", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - conventional AEDs"},
+    {"id": "f400108c-4231-4a69-b460-87087ae93ca3", "title": "F-18 Tau Imaging Alzheimer's", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - imaging agents"},
+    {"id": "f40bcbe5-a91a-4cb7-a9a6-9c6bd9c77345", "title": "CB1 Receptors Guinea-pig Intestine", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor mechanism pharmacology"},
+    {"id": "f42bd2b6-00e8-4e51-b5fe-6572565df3c1", "title": "Cannabis MS Spanish Patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis MS therapeutic patient survey"},
+    {"id": "f42e741c-c4b8-4f3f-bb4c-557646cee466", "title": "Cannabinoids Ghrelin AMPK Cardiac", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid metabolic cardiac mechanism"},
+    {"id": "f42ee81f-80d0-44f0-9a5c-07a68cae3f2b", "title": "Cannabis Cardiac Deaths Ireland", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cardiac death investigation"},
+    {"id": "f43da0e6-a740-418b-ba6c-9ff985337dfa", "title": "CBD Social Defeat Anxiety Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety therapeutic mechanism"},
+    {"id": "f458c5fe-be8c-412d-b6b7-1c6f465fe573", "title": "Cutannabinoid Skin Therapeutic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid dermatology therapeutic review"},
+    {"id": "f46f7368-82be-4d93-8d92-54d376770bf9", "title": "AHA Cannabis Cardiovascular Statement", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cardiovascular review"},
+    {"id": "f46fceee-e03a-46d6-8b25-72a8c84a6069", "title": "Cannabis Anxiety Critical Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis anxiety review"},
+    {"id": "f496b710-36ac-4865-8b35-b4253f7dbb26", "title": "CB2 Triple-Negative Breast Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 cancer mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "f3a95132-dbca-4da9-9bf8-3a69b82405a8",
+      "f3ee64b9-7e9a-4d8c-a740-ad17e0cbf83c",
+      "f3f88ee0-2c3a-4735-82fd-8cf62298b650",
+      "f3fdd7d9-31d6-4334-8455-d534dfb0d88c",
+      "f400108c-4231-4a69-b460-87087ae93ca3",
+      "f42ee81f-80d0-44f0-9a5c-07a68cae3f2b"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "batch_number": 449,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T06:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "f07d1438-48fc-4b84-8234-b368d0876b8d", "title": "Oral delivery of cannabidiol: Revealing the formulation and absorption challenges", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery research"},
+    {"id": "f07f5ae0-5574-4d82-9e6d-2601043aff00", "title": "The association between cannabis use and testicular function in men: systematic review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm (fertility) correctly rejected"},
+    {"id": "f09a5bf2-f49c-46ad-a82d-90d8bf43d080", "title": "Pancreatitis-related benign biliary strictures: a review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "f09f6673-db7f-45fa-ae51-3ec39b3e874f", "title": "State Initiatives to Promote Cannabis Industry Entrepreneurship Among DICAs", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/business correctly rejected"},
+    {"id": "f0a2ca9f-461b-4b95-a8ff-432c73903f03", "title": "Jekyll and Hyde: Two Faces of Cannabinoid Signaling in Male and Female Fertility", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS fertility mechanism review"},
+    {"id": "f0a87c42-7fd5-455a-99fc-6037524172b6", "title": "Exploring cannabidiol variations, genetic diversity in industrial hemp", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/genetics correctly rejected"},
+    {"id": "f0aaad0d-af81-48b7-918a-a2bfaf3494e1", "title": "The therapeutic potential of cannabinoids for movement disorders", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic review"},
+    {"id": "f0ce8134-1db2-4335-99d5-019232990fc8", "title": "Data gaps in the risk assessment of Cannabidiol (CBD) as a Novel Food", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research"},
+    {"id": "f0ee9231-a88d-4966-bcab-857c0ee47f82", "title": "Cannabis-related driving impairment assessed by driving simulator: pilot study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "f0f46059-27cb-44c2-b47d-6b89de4a22d1", "title": "Prevalence and maternal risk factors of small for gestational age infants", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "f0f6cd85-91d9-437a-88be-dae43afc02ed", "title": "Cannabis and pediatric cannabis exposure - evidence from Poison Centers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm (poisoning) correctly rejected"},
+    {"id": "f10d140a-1f49-4d66-bddd-aaf302dbe708", "title": "Synthetic cannabinoids as designer drugs: identification and analytical data", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic analysis correctly rejected"},
+    {"id": "f125f6bb-7688-4a84-b87c-add47cb49dba", "title": "Extreme-phenotype GWAS identifies cannabinoid pathway genes in Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "f12bf13a-6a5b-41e2-a3bd-ea27f52751b5", "title": "Learning Foreign Language: Cerebellar Sub-Regions With CB1-rich Cortical Areas", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1/ECS cognition mechanism research"},
+    {"id": "f13e1f3e-62bc-4a11-ae44-4bb5c7c726f8", "title": "Secondary choledocholithiasis caused by fish bones: case report", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "f13f01a8-118c-4a99-901a-ab2a42a70db4", "title": "Cannabis in Africa: a survey of its distribution and study of use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "f1462929-0775-4023-a105-31729b124778", "title": "Bile Duct Stenosis in a Free-Ranging Juvenile American Black Bear", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary/wrong CBD correctly rejected"},
+    {"id": "f14feb88-bdec-4953-ace0-f87d9eecf703", "title": "The AhR Is a Critical Regulator of the Pulmonary Response to Cannabis Smoke", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm (lung) correctly rejected"},
+    {"id": "f150f90b-0e32-49f4-bf85-aa8bdb848bc8", "title": "Uso Terapêutico do canabidiol (CBD) no tratamento de doenças inflamatórias da pele", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD skin therapeutic research"},
+    {"id": "f16a069b-c6d7-4e4b-9e0d-e61ee21856e0", "title": "Validation of LC-MS/MS method for analyzing cannabinoids in oral fluid", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "f07d1438-48fc-4b84-8234-b368d0876b8d",
+      "f0a2ca9f-461b-4b95-a8ff-432c73903f03",
+      "f0aaad0d-af81-48b7-918a-a2bfaf3494e1",
+      "f0ce8134-1db2-4335-99d5-019232990fc8",
+      "f12bf13a-6a5b-41e2-a3bd-ea27f52751b5",
+      "f150f90b-0e32-49f4-bf85-aa8bdb848bc8"
+    ]
+  }
+}

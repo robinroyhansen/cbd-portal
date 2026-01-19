@@ -1,0 +1,41 @@
+{
+  "batch_number": 111,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T17:30:00.000Z",
+  "results": [
+    {"id": "7bddad39-405b-4de7-a25e-cc7a1a659c79", "title": "Health Plans Addiction Spain Information Systems", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - addiction health systems Spain"},
+    {"id": "7be06ee5-770a-4c50-9003-555335823b9b", "title": "CBD Phase 2 Autism Children Adolescents", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism therapeutic RCT"},
+    {"id": "7bf164a6-b1b9-4930-81bd-466478b71c98", "title": "PTSD Adolescence Cannabis Use Time Perspective", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - PTSD leads to cannabis use"},
+    {"id": "7bf65c8d-3963-43b5-91eb-9f6a15190700", "title": "Indocyanine Green Cholecystectomy Fluorescence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - surgical imaging"},
+    {"id": "7bf9532e-f37e-41a4-9f70-5ea6f9ec31cd", "title": "CBD CBDA HU-580 Nausea Vomiting Rats Shrews", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD nausea therapeutic mechanism"},
+    {"id": "7c10808f-63eb-4560-bdd3-ef9135f84589", "title": "CBD Dog Aging Project Demographics Behavioral", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dogs"},
+    {"id": "7c10bbd5-f592-4595-994a-6720fc9b6f05", "title": "CBD Gastroparesis Diabetic Idiopathic RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD gastroparesis therapeutic RCT"},
+    {"id": "7c10fa7c-d050-45ab-828b-e8f0552281b5", "title": "Dronabinol Lofexidine Cannabis Use Disorder RCT", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - cannabis use disorder treatment"},
+    {"id": "7c2a3bb3-a960-43c3-8d0d-79c996c02592", "title": "Sativex Pain Sleep Clinical Trials", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis therapeutic pain sleep"},
+    {"id": "7c3cce7f-fd40-4dd1-9ca4-b7c21ed3ae49", "title": "CBD Nicotine Seizures Glymphatic Neuroprotection", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection mechanism"},
+    {"id": "7c619749-2533-409d-8965-08b4f17ae5ba", "title": "Phytocannabinoids Terpenes Anti-inflammatory Tregs Th17", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anti-inflammatory mechanism"},
+    {"id": "7c73af5f-26bb-40b1-8e82-c48c3e9ed45e", "title": "Pharmacotherapies Cannabis Dependence Cochrane", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - cannabis dependence pharmacotherapy"},
+    {"id": "7c7ddbe8-9442-49d7-93cc-2825909e3778", "title": "Amyrin Cannabinoid Receptors Pain Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain anti-inflammatory mechanism"},
+    {"id": "7c7f492d-f0aa-4d4d-b5ca-b4ec706e16d1", "title": "Dexanabinol HU-211 IOP Glaucoma Rabbit", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid glaucoma therapeutic"},
+    {"id": "7c8c4dbe-80a8-428d-ba84-df36ea04e5bb", "title": "Dopaminergic System Mobility Resilience Aging", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - dopamine mobility aging"},
+    {"id": "7c8eb65b-dfa5-4f71-9cf7-0f8f34137887", "title": "Medical Cannabis Opioid Taper Pain RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis opioid reduction therapeutic"},
+    {"id": "7c9b6c93-d7d2-4684-a567-e689e9f2ac63", "title": "CBD Safe Use Refractory Epilepsy Mini Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy safety review"},
+    {"id": "7ca2b673-b202-46b2-8c0b-95c289a913ac", "title": "Alcohol Cannabis Dependence Link Internet Survey", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - alcohol moderates cannabis dependence"},
+    {"id": "7cb6e13f-8b43-4579-9842-74ddd9a593ed", "title": "Cannabinoids Parkinson's Neuroprotection Motor", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Parkinson's therapeutic"},
+    {"id": "7cd18b2b-ca78-43c7-ba4c-14dc4e242770", "title": "Cannabis Sickle Cell Pain Scoping Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain sickle cell therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "7bddad39-405b-4de7-a25e-cc7a1a659c79",
+      "7bf164a6-b1b9-4930-81bd-466478b71c98",
+      "7bf65c8d-3963-43b5-91eb-9f6a15190700",
+      "7c10808f-63eb-4560-bdd3-ef9135f84589",
+      "7c10fa7c-d050-45ab-828b-e8f0552281b5",
+      "7c73af5f-26bb-40b1-8e82-c48c3e9ed45e",
+      "7c8c4dbe-80a8-428d-ba84-df36ea04e5bb",
+      "7ca2b673-b202-46b2-8c0b-95c289a913ac"
+    ]
+  }
+}

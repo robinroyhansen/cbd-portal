@@ -1,0 +1,39 @@
+{
+  "batch_number": 305,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T18:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "502c7cc3-027a-4de0-aebc-63ac26268d7a", "title": "Molecular cytogenetic analysis of monoecious hemp (Cannabis sativa L.) cultivars reveals its karyotype variations and sex chromosomes constitution", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "502cf53e-caba-4081-86c7-6046c8c091ea", "title": "Does Cannabidiol Attenuate the Acute Effects of ∆9-tetrahydrocannabinol Intoxication in Individuals Diagnosed With Schizophrenia? A Double-blind, Randomised, Placebo-controlled Experimental Study", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD schizophrenia clinical trial"},
+    {"id": "50371a5a-695a-43a3-b74a-0a5a7a9a2b99", "title": "AM630 is an inverse agonist at the human cannabinoid CB1 receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor pharmacology"},
+    {"id": "503ef537-75a8-4797-b82a-149761cbde36", "title": "CBD og Ramsar i småsamfund", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention) correctly rejected"},
+    {"id": "506018f6-a5da-4b15-9698-e2784a8c1e87", "title": "Influence of deposition temperature on the structural, morphological, optical and photoelectrochemical properties of CBD deposited Cu2SnS3 thin films", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "50616b13-cb41-4c0f-b831-a8bfeb9778b9", "title": "Does Trema micranthum (L.) Blume Produce Cannabinoids?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant chemistry correctly rejected"},
+    {"id": "50621866-5eac-41f4-9fbd-896af4bce389", "title": "An overview of the nonclinical toxicology of cannabidiol oral solution, the first approved therapeutic cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety/toxicology"},
+    {"id": "5073a69a-1e16-4035-be9d-71b99d468e7d", "title": "Safety and feasibility of robot-assisted surgery for pediatric patients weighing ≤ 10 kg with congenital biliary dilatation.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "507aca16-3d46-4630-898c-e93722fa90bd", "title": "US Adult Illicit Cannabis Use, Cannabis Use Disorder, and Medical Marijuana Laws", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/CUD epidemiology correctly rejected"},
+    {"id": "507f810a-f6a8-4aba-9af5-f95f5eb7bfd3", "title": "1-Alkyl-3-(1-naphthoyl)pyrroles: A new class of cannabinoid", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid chemistry correctly rejected"},
+    {"id": "507fa47a-c82d-4d7f-baae-0ca18eb01e77", "title": "Detection of Black Hole Attacks in Mobile Ad Hoc Networks via HSA-CBDS Method", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (network security) correctly rejected"},
+    {"id": "50845ddf-9630-4fcf-a02a-0840ac98127a", "title": "High light intensity enhances cannabinoid biosynthesis through concerted gene expression in hemp (Cannabis sativa) flowers.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant cultivation correctly rejected"},
+    {"id": "508c7d50-6062-4cb9-b743-9aa36bdb5a6a", "title": "Unmasking hazardous compounds in cannabidiol-containing oils using planar bioassays and high-resolution mass spectrometry.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product safety analysis correctly rejected"},
+    {"id": "50998082-3a5b-4d8a-b945-0536b419febc", "title": "A Characterization of Synthetic Cannabinoid Exposures Reported to the National Poison Data System in 2010", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid poisoning correctly rejected"},
+    {"id": "50a7f7ca-ed8a-45a8-82c6-5b2cd3d0a6fd", "title": "How does it work Green Dolphin CBD Gummies?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "50ff3e3f-1cc7-43f7-b3f1-6c0d0a98b3ef", "title": "Preoperative cannabinoid exposure and postoperative pain: A narrative review.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid perioperative pain"},
+    {"id": "5102d590-9947-480a-86a2-fefed4e24a74", "title": "EMCDDA framework and practical guidance for naming synthetic cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid nomenclature correctly rejected"},
+    {"id": "51137869-897e-403d-b5a1-161277558d78", "title": "Pfam scores for the AID, CBD, and DBD domains of RpoN proteins from Actinomycetota species.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (protein domain) correctly rejected"},
+    {"id": "51399421-b368-4577-8bfd-e988695c9075", "title": "Demographic Predictors of Medicinal Cannabis Users' Perceived Level of Physician Support for Medicinal Cannabis Prescriptions in New Zealand.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Access survey correctly rejected"},
+    {"id": "51459949-e509-4ca3-8f15-5f76a9f60e9c", "title": "Acute cannabidiol treatment attenuates ethanol-induced place preference and reduces aggressivity in group-housed male rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD alcohol/aggression therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "502cf53e-caba-4081-86c7-6046c8c091ea",
+      "50371a5a-695a-43a3-b74a-0a5a7a9a2b99",
+      "50621866-5eac-41f4-9fbd-896af4bce389",
+      "50ff3e3f-1cc7-43f7-b3f1-6c0d0a98b3ef",
+      "51459949-e509-4ca3-8f15-5f76a9f60e9c"
+    ]
+  }
+}

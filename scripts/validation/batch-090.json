@@ -1,0 +1,39 @@
+{
+  "batch_number": 90,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T12:15:00.000Z",
+  "results": [
+    {"id": "64aaf832-bf24-42a6-aa98-74da3b6125de", "title": "CBD atopic dermatitis JAK/STAT CB2", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD skin inflammation mechanism"},
+    {"id": "64afeca3-fb3f-4f44-8ec4-2682cded93bd", "title": "Medical cannabis heart failure risk cohort", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cardiovascular safety"},
+    {"id": "64b8a756-0c07-49c5-a64d-1a2ad4f5044e", "title": "Solid lipid nanoparticle ocular therapeutics", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general drug delivery"},
+    {"id": "64d8b0b7-f64f-47b4-9c23-46714ef998d7", "title": "Cannabis anti-inflammatory analgesic computational", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain/inflammation therapeutic"},
+    {"id": "64faaef4-05b4-4e31-85bc-7c6702ff0d70", "title": "CBD MDSC miRNA generation cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD immune mechanism"},
+    {"id": "64fc4217-c420-4695-b66d-98485d1b23f8", "title": "Photodynamic therapy nanotechnology cancer", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general oncology"},
+    {"id": "64ffba7c-144b-45e7-b8ea-4a85bc974250", "title": "CIPN management oncologic patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid neuropathy (assumed)"},
+    {"id": "6503b245-01ec-4c65-976a-f2197afdbe7b", "title": "THC/CBD melanogenesis human melanocytes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD skin mechanism"},
+    {"id": "650666cf-86dd-4cad-8c17-262d6530454b", "title": "Alcohol cannabis psychosis conversion", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis epidemiology"},
+    {"id": "651227f5-3099-4628-b30d-f213f1a92ec7", "title": "CBD teratogenic zebrafish Shh signaling", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD developmental safety/toxicology"},
+    {"id": "65417e26-4c72-45fc-a4ba-be71f74a97e9", "title": "Cannabis use depression genetic comorbidity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis/depression genetics"},
+    {"id": "65491f6e-8f66-4560-b361-38794ce1b93e", "title": "CBD-Rich Cannabis ASD ADHD symptoms", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism/ADHD therapeutic"},
+    {"id": "654d72cd-e331-4c77-b339-d54f75bece21", "title": "Cannabinoid adverse events cancer systematic review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer safety review"},
+    {"id": "654faa1e-a08e-4e57-805d-451f0d509d6d", "title": "CBD LPS depressive behaviors mitochondria", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression mechanism"},
+    {"id": "657c6dbd-ca1a-47e3-99d4-31e7965c9079", "title": "Cannabinoids HER2 ovarian cancer inhibitors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"},
+    {"id": "6580dca0-d5fd-44e7-bde1-f4a8400b2059", "title": "CBD lipid formulation pharmacokinetics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD bioavailability study"},
+    {"id": "658f6f42-5e48-417b-810d-0898e7b41675", "title": "MAFLD ICG fluorescence cholangiography", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - surgical imaging (ICG)"},
+    {"id": "65b71ed7-40cc-46b0-b773-9f10d42dbf15", "title": "CB1 mitochondrial biogenesis adipose muscle liver", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor metabolism"},
+    {"id": "65ba6d38-6cb8-410d-acb7-8169f4ac7673", "title": "Web-based cannabis treatment program RCT", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - quit cannabis program"},
+    {"id": "65cd1ac3-f16a-4e12-a122-feeddcc6c6b7", "title": "CBD vaginal suppositories menopause RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD women's health therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "64b8a756-0c07-49c5-a64d-1a2ad4f5044e",
+      "64fc4217-c420-4695-b66d-98485d1b23f8",
+      "650666cf-86dd-4cad-8c17-262d6530454b",
+      "65417e26-4c72-45fc-a4ba-be71f74a97e9",
+      "658f6f42-5e48-417b-810d-0898e7b41675",
+      "65ba6d38-6cb8-410d-acb7-8169f4ac7673"
+    ]
+  }
+}

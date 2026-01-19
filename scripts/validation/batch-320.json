@@ -1,0 +1,37 @@
+{
+  "batch_number": 320,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T22:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "61231bc8-e663-4f8d-8ce9-4f459f20ad98", "title": "Neurofilament Light Chain in Cerebrospinal Fluid and Blood in Multiple System Atrophy: A Systematic Review and Meta-Analysis.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "61392c93-4db2-4db6-b179-c4548bd24ba8", "title": "Motivational and cognitive inhibitory control in recreational cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "616d56b3-c7a7-471c-9c01-8d4c7f5774ca", "title": "脱氧雪腐镰刀菌烯醇（CBD 1 ）的毒性探讨:CBD 1 对DNA合成的抑制作用观察", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (mycotoxin CBD 1/deoxynivalenol) correctly rejected"},
+    {"id": "618a4426-c7b1-4940-81a5-1ff910fc859b", "title": "Examining Motivations for and Quality of Alcohol and Marijuana Protective Behavior Strategy Use: Improving Prevention of Hazardous Young Adult Substance Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Substance use prevention correctly rejected"},
+    {"id": "6196bbf2-c166-4021-afac-2c7feb6bf3a7", "title": "[Validation of the Spanish version of the POSIT(UAS) as a broad-spectrum tool for the early detection of problematic alcohol and substance use in adolescence].", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Screening tool validation correctly rejected"},
+    {"id": "619f7406-9ea8-4dc8-b8c9-76b641bec851", "title": "The Adolescent Cannabis Check-Up: Feasibility of a brief intervention for young cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD intervention correctly rejected"},
+    {"id": "61bfa515-d8a1-41f8-ad2e-2e95a0af2d51", "title": "Thermal insulation potential of non-industrial hemp (Moroccan cannabis sativa L.) fibers for green plaster-based building materials", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industrial hemp correctly rejected"},
+    {"id": "61caa37c-4598-439a-86c7-1e4e2d502997", "title": "Mapping regulatory models for medicinal cannabis: a matrix of options", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "61d1abd5-1e9b-41cf-80af-40e34bb1a3d0", "title": "Chemical Profiling and Characterization of Different Cultivars of Cannabis sativa L. Inflorescences by SPME-GC-MS and UPLC-MS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical/plant chemistry correctly rejected"},
+    {"id": "61d22aa9-8e45-4a0d-aa27-42b1d10d09a5", "title": "Molecular and cellular basis of cannabinoid and opioid interactions", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid/opioid system interaction mechanism"},
+    {"id": "61db7085-a8a7-45ef-abb4-1822c211bb23", "title": "CBD Capsules (5-20MG) | CBD Capsules | BURMAN'S HEALTH SHOP", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "61ded6db-04fa-4ea9-afe4-673ebb00e5e7", "title": "Randomized, Controlled Cross-over Comparison of Cannabinoid to Oral Opioid for Postoperative Photorefractive Keratectomy Pain Control", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid RCT for post-surgical pain"},
+    {"id": "61f46e3e-912e-477f-a1d6-b75f611867f5", "title": "Cannabis Pathogens X: Phoma, Ascochyta and Didymella Species", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant pathology correctly rejected"},
+    {"id": "61f9df35-5d79-41c7-acb8-b07da7c1b6fc", "title": "Cannabidiol suppresses emergency MDSCs generation by disturbing EEF1B2-mediated C/EBPβ protein synthesis in colorectal adenomas", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anticancer mechanism via MDSC suppression"},
+    {"id": "62327f57-7f3f-4ba9-aa8d-952e03fc0ebe", "title": "Cannabinoid Concentrations in Spot Serum Samples 24-48 Hours After Discontinuation of Cannabis Smoking", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "62391afe-192a-49f3-ad2a-f10d6765907a", "title": "Psychiatric symptoms in cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "6240f86b-13bc-4803-9b97-87c8e2771bb4", "title": "The Legal Lacunae of UNCLOS and CBD to The Access and Benefit Sharing of Marine Genetic Resources in The Area Beyond National Jurisdiction", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Convention on Biological Diversity) correctly rejected"},
+    {"id": "62468c75-495c-4192-a6a9-03ac843821e6", "title": "Cannabis careers revisited: Applying Howard S. Becker's theory to present-day cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Sociology correctly rejected"},
+    {"id": "624d286c-3a6e-4092-8ee8-8624e0d55191", "title": "Cannabis Legalization and Adolescent Use of Electronic Vapor Products, Cannabis, and Cigarettes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/epidemiology correctly rejected"},
+    {"id": "624efdb3-6982-4a0c-a565-382a031e6e62", "title": "Genetic Heterogeneity Underlying Familial Short Stature", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "61d22aa9-8e45-4a0d-aa27-42b1d10d09a5",
+      "61ded6db-04fa-4ea9-afe4-673ebb00e5e7",
+      "61f9df35-5d79-41c7-acb8-b07da7c1b6fc"
+    ]
+  }
+}

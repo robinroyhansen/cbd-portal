@@ -1,0 +1,39 @@
+{
+  "batch_number": 42,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T00:15:00.000Z",
+  "results": [
+    {"id": "2fbce1e8-76c9-433d-b622-400e3ef6835b", "title": "Recent Advances Cannabinoids Against Gliomas Systematic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid brain cancer review"},
+    {"id": "2fc4157f-036c-47b6-bcc2-b4f940b62e97", "title": "CBD Fast-antidepressant Effects in Rodent Models", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression mechanism research"},
+    {"id": "2fd5549e-1790-45db-b018-f407dd3e0035", "title": "Changes in THC and CBD concentrations in cannabis over time", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis potency trends research"},
+    {"id": "2fe1afaf-02ec-43aa-b0dd-3c64f46ee002", "title": "Perceived risk cannabis use with/without psychotic disorders", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "USE perception study - not therapeutic"},
+    {"id": "2ff7097c-3a88-4e31-8bec-a588f548a890", "title": "CBD modulates excitatory-inhibitory ratio counter hippocampal hyperactivity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neurological mechanism"},
+    {"id": "30066841-b421-4cae-8a96-2567e4157ef1", "title": "Concurrent Substance Use during rTMS for Psychiatric Disorders", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Substance use management - not therapeutic cannabinoid"},
+    {"id": "3007a119-9244-4c3f-80de-fc3a239adc6c", "title": "Utbud och preferenser kontorshyresmarknaden Stockholm CBD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "WRONG CBD - Stockholm Central Business District (Swedish real estate)"},
+    {"id": "301bcdc5-744e-404d-b2fb-c5c06ab36947", "title": "Why clinical neuropsychology matters in schizophrenia care", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID focus - schizophrenia neuropsychology"},
+    {"id": "301eec13-2e22-44bd-8bc2-cb32c7c7693f", "title": "Transdermal CBD for hand osteoarthritis trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD arthritis clinical trial"},
+    {"id": "3020bc41-9321-411f-896f-9219e528ae45", "title": "Cannabinoids and ECS in cancer bibliometric analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid research mapping"},
+    {"id": "3023587d-50dc-4767-8089-6deca1ea21d0", "title": "Is cannabis an anti-antipsychotic?", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis WORSENING psychosis - harm study"},
+    {"id": "3026604d-5e4e-4433-9f08-d090251ac024", "title": "Therapeutic use of cannabis and cannabinoids evidence mapping", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Therapeutic cannabinoid evidence review"},
+    {"id": "302e43a2-e31f-4ccd-899d-fb8eadcc7328", "title": "β-Caryophyllene renin-angiotensin system anosmia neuroinflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 agonist terpene mechanism"},
+    {"id": "3045e89b-ce3c-404a-a085-0b1dad2b9bb3", "title": "CBD for Early Psychosis clinical trial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD antipsychotic RCT"},
+    {"id": "3048227c-0860-4502-9d5c-11fab7718a2e", "title": "CBD for Low Back Pain Lumbar Spinal Stenosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain observational study"},
+    {"id": "304dc09c-94cf-4434-81b1-bdc15e000b70", "title": "Therapeutisch gebruik van cannabidiol in psychiatrie (Dutch)", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychiatric therapeutic review"},
+    {"id": "306deb2c-3712-4c5e-b148-306925a2b128", "title": "Cannabinoid receptors anandamide transport blood-brain barrier", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid mechanism research"},
+    {"id": "30736bd8-e2cb-410e-9e4f-7758a64908c6", "title": "Predictors of Replacing Alcohol With Cannabis Among Adult Women", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "USE patterns - alcohol substitution study"},
+    {"id": "307abe98-f6ab-4d0f-a410-76a4bb03a54f", "title": "Cannabis Oil Sleep Quality in Systemic Sclerosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis therapeutic for autoimmune sleep"},
+    {"id": "307ca4ed-4365-4942-aa02-5ec198f662fe", "title": "2-AG and Endocannabinoid/Eicosanoid Crosstalk Acute Pain Knee Arthroplasty", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid pain mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "2fe1afaf-02ec-43aa-b0dd-3c64f46ee002",
+      "30066841-b421-4cae-8a96-2567e4157ef1",
+      "3007a119-9244-4c3f-80de-fc3a239adc6c",
+      "301bcdc5-744e-404d-b2fb-c5c06ab36947",
+      "3023587d-50dc-4767-8089-6deca1ea21d0",
+      "30736bd8-e2cb-410e-9e4f-7758a64908c6"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "batch_number": 147,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T02:45:00.000Z",
+  "results": [
+    {"id": "a3b55072-b003-44d6-a15d-4d2bf5e256aa", "title": "Exercise adjunctive treatment CUD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - exercise for CUD"},
+    {"id": "a3bae80a-978c-4384-b694-7aba2b738ad3", "title": "Synthetic Cannabinoid PLGA Nanoparticles", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid drug delivery"},
+    {"id": "a3bf6ce0-cac1-414d-8bff-d15ae6e9b066", "title": "Cannabinol sleep architecture rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBN sleep mechanism"},
+    {"id": "a3d16a44-9043-489d-beb1-a0b57e850685", "title": "CBD Doxorubicin Breast Cancer 4T1", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer combination"},
+    {"id": "a3d1d0d1-4007-4cbc-8a46-cd37d8de0e98", "title": "Faculty Opinions CBD treatment-resistant epilepsy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - F1000 recommendation"},
+    {"id": "a3d7332a-3465-4cbe-b954-152416ffc8ab", "title": "CBD COVID-19 CANDIDATE Study RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD COVID-19 clinical trial"},
+    {"id": "a40e61dd-edf1-46f9-833f-d6bd6a60dfd9", "title": "Anti-SARS-CoV2 MPro THC CBD CBN", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid antiviral mechanism"},
+    {"id": "a4104a42-1805-43e9-b71f-c77bade1aaf1", "title": "CBD Beta-Caryophyllene Permanent Ischemia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid stroke therapeutic"},
+    {"id": "a444c05d-b427-4eab-ab4b-e284d6b71b25", "title": "Predicting violence cocaine cannabis alcohol clients", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - violence in users"},
+    {"id": "a4848ac0-0ded-406d-91b7-94f09a4d299d", "title": "CBD EEG treatment-resistant epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy brain research"},
+    {"id": "a48ef9eb-3c4d-4f31-a9f8-56575acd68da", "title": "Biolyfe CBD Gummies Shark Tank Reviews", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - promotional ad"},
+    {"id": "a49218fb-3f9c-4752-bf4d-fba23ed43f32", "title": "Pro-neurogenic CBD Psychiatric Disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neurogenesis psychiatric"},
+    {"id": "a49f0d1f-9049-42bc-b8f0-e92ac61a21c5", "title": "Rapeseed oleosomes CBD bioavailability", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery"},
+    {"id": "a4a49069-2a53-4c2f-b278-d05425db1a9e", "title": "CANNABIS AND SCHIZOPHRENIA", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis"},
+    {"id": "a4b67a47-8f80-40ab-8b97-51b8578a3fe0", "title": "Opium Addiction Liver Biliary Stones", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - opium"},
+    {"id": "a4cc40ec-6a75-497e-8da9-2e59e44a50c9", "title": "Chronic stress CB1 receptor hippocampal", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS stress mechanism"},
+    {"id": "a4d3c9ae-2948-49a0-810c-70474276d6d8", "title": "CBD Infarct Volume Inflammatory Ischemic Stroke", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD stroke therapeutic"},
+    {"id": "a4eb2e61-7301-43d2-9cdf-31f4e817ca89", "title": "Indolopyridone Cannabinoid Ligand Antiinflammatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid drug development"},
+    {"id": "a4eee144-e01b-4c34-85a0-b2933b2914bd", "title": "Hemp Cream Uremic Pruritus Hemodialysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pruritus RCT"},
+    {"id": "a4f1316b-bf31-4409-b557-5841b5ab0c3f", "title": "CBD THC Safety Stress Pain Responses", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid safety/pain research"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "a3b55072-b003-44d6-a15d-4d2bf5e256aa",
+      "a3d1d0d1-4007-4cbc-8a46-cd37d8de0e98",
+      "a444c05d-b427-4eab-ab4b-e284d6b71b25",
+      "a48ef9eb-3c4d-4f31-a9f8-56575acd68da",
+      "a4a49069-2a53-4c2f-b278-d05425db1a9e",
+      "a4b67a47-8f80-40ab-8b97-51b8578a3fe0"
+    ]
+  }
+}

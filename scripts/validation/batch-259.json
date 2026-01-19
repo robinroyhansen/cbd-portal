@@ -1,0 +1,39 @@
+{
+  "batch_number": 259,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T06:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "1d78551f-211c-40ae-9039-7875da66548f", "title": "Study of Kinetic Growth of Zn(O,S) Thin Films Deposited by CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "1d7d8691-1123-426f-8502-9ebfd4e2bb12", "title": "FDA warns CBD companies making medical claims", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Regulatory news correctly rejected"},
+    {"id": "1dab878f-94ca-46d0-bd29-a0f0e74de227", "title": "Cannabidiol exerts antiinflammatory effects maintains T effector memory cell differentiation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anti-inflammatory mechanism"},
+    {"id": "1dadbd10-d248-4f04-8a40-6510a70622a5", "title": "Activation of STAT3 involved in neuroprotection via CB1 receptors in rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 neuroprotection mechanism"},
+    {"id": "1dae05b8-d681-4101-8687-b15fc4b30923", "title": "Affect and cannabis use in daily life: review and recommendations", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "1db0ca88-e5a0-4c82-9d15-ac124015f7df", "title": "Correction to: Genetic Tools in Rodents to Study Cannabinoid Functions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Correction notice correctly rejected"},
+    {"id": "1db3128c-0c2e-4796-ad62-d8bffdf59f06", "title": "Long term exposure to dietary cannabinoids inhibits ethanol tolerance in Drosophila", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Invertebrate model correctly rejected"},
+    {"id": "1db36ddd-4b4a-4c1e-8d2d-b8d73e7f29fa", "title": "Features preceding the clinical criteria for possible CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "1dc25923-d8aa-4c9a-958a-c6c894c8dfc5", "title": "Characterization of Cytochrome P450 3A Inactivation by Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug interaction mechanism"},
+    {"id": "1dca5bdf-1cec-48cf-b62b-2bb83b38c5aa", "title": "Phase I/II study of carfilzomib, bendamustine, and dexamethasone (CBD) in myeloma", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "1dca5faf-d72e-484b-8a02-7bba5dc3e4f9", "title": "Comparative study of nano-structured CdS thin films prepared by CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "1dcc07f1-432f-4cb7-b662-bc6eda5fdd90", "title": "Effects of Cannabinoids on Preimplantation Mouse Embryo Development via CB1-R", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis reproductive harm correctly rejected"},
+    {"id": "1dea56b3-6623-4d69-8ea5-1d1b682b3d0e", "title": "Use of Cannabidiol as Novel Treatment for Oral Stereotypic Behaviour in a Horse", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "1deb92d0-d46b-49fa-9124-9b0d08ccf17b", "title": "Cannabidiol (CBD) oil toxicity mimicking Sjogrens syndrome complications", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CBD toxicity/adverse effect correctly rejected"},
+    {"id": "1df10c80-847f-4467-bb87-0b3bbeddba7a", "title": "Blood concentrations of synthetic cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "1e0b5aa6-e5ba-48d1-a97c-da7662842b35", "title": "Celastrol alleviates renal fibrosis by upregulating CB2 expression", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 renal fibrosis therapeutic"},
+    {"id": "1e14af73-0947-4762-be83-722c93fe4853", "title": "Synthesis of bibenzyl cannabinoids, hybrids found in Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic chemistry correctly rejected"},
+    {"id": "1e23f1bc-f418-4f30-9c90-7e69529aacf3", "title": "Morpho-Anatomy of Marijuana (Cannabis sativa L.)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant morphology correctly rejected"},
+    {"id": "1e4e2c59-507b-4d7e-9a0a-ecb84a7e742e", "title": "Substances of Health Concern: Label Accuracy of CBD in Commercial Tinctures", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product testing correctly rejected"},
+    {"id": "1e5233c0-ebf7-4a12-b1fd-19eb57b1b086", "title": "Antifungal Activity of High Potency Cannabis sativa Against Cryptococcus neoformans", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis antifungal therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "1dab878f-94ca-46d0-bd29-a0f0e74de227",
+      "1dadbd10-d248-4f04-8a40-6510a70622a5",
+      "1dc25923-d8aa-4c9a-958a-c6c894c8dfc5",
+      "1e0b5aa6-e5ba-48d1-a97c-da7662842b35",
+      "1e5233c0-ebf7-4a12-b1fd-19eb57b1b086"
+    ]
+  }
+}

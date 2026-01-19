@@ -1,0 +1,38 @@
+{
+  "batch_number": 413,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T21:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "c978f90e-4a1a-4bab-8cc2-73bd94e75d25", "title": "Extraction, isolation and purification of tetrahydrocannabinol from the Cannabis sativa L. plant using supercritical fluid extraction and solid phase extraction", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "c981a7bb-3f7f-4b5b-b70c-605233491cb2", "title": "The Supply of Cannabis for Medical Use Through Cannabis Social Clubs in Belgium", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/distribution correctly rejected"},
+    {"id": "c98b2991-2f5d-4fcc-af96-bb45b61efa89", "title": "Ethical issues in medical cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/ethics correctly rejected"},
+    {"id": "c98f744c-3daf-4aa5-a0dc-a8462de936b8", "title": "Physicochemical, Functional, and Antioxidant Properties of Pectic Polysaccharides Extracted from Three Bast Fibrous Plants", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "c99539a1-c5ff-4674-9c92-26588c31a14f", "title": "Antimicrobial studies of the leaf of cannabis sativa L.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis antimicrobial therapeutic research"},
+    {"id": "c9954680-323c-4bd7-bd5b-e97edc9ee3ca", "title": "Detection of Cannabinoids in Oral Fluid Specimens as the Preferred Biological Matrix for a Point-of-Care Biosensor Diagnostic Device", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/detection correctly rejected"},
+    {"id": "c9977885-ec64-4236-af63-a78daa7315b0", "title": "A Long-term, Open Label, Safety and Tolerability Study of Cannabis Based Medicine Extract in Patients Who Have Participated in a GW Clinical Study Using Cannabis Based Medicine", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis medicine safety clinical trial"},
+    {"id": "c9980c70-2751-4884-8cf3-6ff18032b352", "title": "Understanding Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Too general correctly rejected"},
+    {"id": "c9a7cbf2-e8a0-42e1-9a19-3b6a7d447b90", "title": "Re: Interpreting cannabis use and postoperative pain in older adults: methodologic considerations", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correctly rejected"},
+    {"id": "c9ac3460-24c2-4ed4-a973-67e298759873", "title": "Review of Biologic Matrices (Urine, Blood, Hair) as Indicators of Recent or Ongoing Cannabis Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/detection correctly rejected"},
+    {"id": "c9c2a202-bf4c-4e65-ad72-7ac2bc534fff", "title": "Patterns of brain function associated with cannabis cue-reactivity in regular cannabis users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis addiction correctly rejected"},
+    {"id": "c9c71685-2e48-494c-9504-5df5cfa1b25a", "title": "The influence of cannabis on glucoregulation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis metabolic harm correctly rejected"},
+    {"id": "c9d7b18a-45d5-427c-9259-2f1a3be96a33", "title": "Toward a Translationally Relevant Preclinical Model of Cannabis Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Addiction research model correctly rejected"},
+    {"id": "c9db4e8a-ac03-4bf1-accb-a92a52de452c", "title": "A Report of a Rare Case of Choledocholithiasis Complicated by Proximal Basket Rod Rupture Requiring Surgical Intervention", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "ca05ff90-e87a-4064-9039-b8afed809066", "title": "A multicenter study on the use of purified cannabidiol for children with treatment-resistant developmental and epileptic encephalopathies", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pediatric epilepsy clinical study"},
+    {"id": "ca315da1-81ee-4469-8be4-c2f6ddc59273", "title": "Identification of a new cannabidiol n-hexyl homolog in a medicinal cannabis variety with an antinociceptive activity in mice: cannabidihexol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - novel cannabinoid pain therapeutic research"},
+    {"id": "ca405868-39b8-4073-aee8-3376db771e36", "title": "CBD regulation will keep criminals from contaminating the marijuana plant: Canopy Growth CEO", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "News/editorial correctly rejected"},
+    {"id": "ca413ddb-15d1-4634-80be-7d3db70af616", "title": "Identifying Stigma Phenotypes in Social Media Narratives of Substance Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Social study correctly rejected"},
+    {"id": "ca6ac2dc-33db-484c-97ca-ac0bd29cca24", "title": "Extraction Method and Analysis of Cannabinoids in Cannabis Olive Oil Preparations", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "ca6d4fe3-abfb-4cf9-afbc-d4265ad683bf", "title": "Phytocannabinoids in Cannabis sativa: Recent Studies on Biosynthetic Enzymes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Biosynthesis correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "c99539a1-c5ff-4674-9c92-26588c31a14f",
+      "c9977885-ec64-4236-af63-a78daa7315b0",
+      "ca05ff90-e87a-4064-9039-b8afed809066",
+      "ca315da1-81ee-4469-8be4-c2f6ddc59273"
+    ]
+  }
+}

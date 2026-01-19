@@ -1,0 +1,39 @@
+{
+  "batch_number": 341,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T03:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "795d76d1-de53-4c65-b46d-cb3f612d6702", "title": "Design and synthesis of coumarin-based pyrazole–pyrazoline hybrid derivatives", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "7968ef22-7817-4fe6-97b0-87b8b371a45a", "title": "A randomised controlled trial of vaporised THC and CBD alone and in combination: acute intoxication effects", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Intoxication correctly rejected"},
+    {"id": "796ee0ab-606a-40f6-8e3f-98c24f398eb7", "title": "Clinical and Preclinical Evidence for Functional Interactions of Cannabidiol and THC", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC therapeutic interactions"},
+    {"id": "7972fa2c-266a-4d14-8b10-f7be321c6f0f", "title": "Structural analysis of the human cannabinoid receptor one carboxyl‐terminus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor structure"},
+    {"id": "79764bc7-3839-4a80-96be-5cccc71bde4f", "title": "Cannabis Use in Pregnant and Breastfeeding Women: Behavioral and Neurobiological Consequences", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "797ebade-2242-4fc9-bae7-b06b0945b97b", "title": "How are pro- and anti-cannabis messaging exposures related to US young adult cannabis use?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "7981e21c-af81-45a4-a21e-5b99573708f6", "title": "Research for the CBD-Based Testing Method", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Component-Based Development) correctly rejected"},
+    {"id": "79892537-d94c-4382-8d4f-d2275709881d", "title": "RNF219 RING Finger Domain Mutants", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "7997a12f-7fb4-4ef6-bb11-19b0f16b4c07", "title": "Cannabis: Effects on memory and the cholinergic limbic system.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm/impairment correctly rejected"},
+    {"id": "79ad7051-2797-4f8b-9ba7-ae5907bfd6f0", "title": "Predictors of CBD calculi in preoperative laparoscopic cholecystectomy patients", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "79c384fb-2b71-429b-9931-ca5f7da812db", "title": "Evaluation of Biological Insecticides to Manage Corn Earworm in CBD Hemp, 2020", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "79cfaf4d-6a76-461f-9f56-62cae9ad1f9c", "title": "Cannabidiol (antiepileptic) retrosynthesis IV", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthesis correctly rejected"},
+    {"id": "79db8a49-e964-42d9-baf7-85b3d76a6230", "title": "Combined extraction and spray-freeze-drying of Cannabis sativa Flos provides stable lyophilizate particles of cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid drug formulation"},
+    {"id": "79defacb-d444-4c6a-ba27-b5c8eee2ed61", "title": "Cannabidiol impairs fear memory reconsolidation in female rats through dorsal hippocampus CB1", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD PTSD/fear mechanism"},
+    {"id": "79f19b49-2537-42e3-89e8-09178ef6f89a", "title": "Cannabidiol/clobazam", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/clobazam drug interaction"},
+    {"id": "79f98cd2-2a23-477c-99ab-b17c74737dd0", "title": "Implementing Care for Cannabis and Other Drug Use in Adult Primary Care", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "79fdc2c9-0487-462e-8aa0-ad91d231dea1", "title": "Genome-wide association studies of lifetime and frequency of cannabis use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "7a066e08-0192-4560-97e5-6961ffda36b3", "title": "Effect of CZTS/CdS interfaces deposited with sputtering and CBD methods", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "7a1b374c-297c-4aff-9819-dd3579198c04", "title": "Substance Use and Addiction among IDPs in Benue state", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Addiction correctly rejected"},
+    {"id": "7a2cd1ec-a2f1-4373-8b5b-6056001b196d", "title": "A responsible CBD market: Closing the gaps in testing and supply chains", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Market correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "796ee0ab-606a-40f6-8e3f-98c24f398eb7",
+      "7972fa2c-266a-4d14-8b10-f7be321c6f0f",
+      "79db8a49-e964-42d9-baf7-85b3d76a6230",
+      "79defacb-d444-4c6a-ba27-b5c8eee2ed61",
+      "79f19b49-2537-42e3-89e8-09178ef6f89a"
+    ]
+  }
+}

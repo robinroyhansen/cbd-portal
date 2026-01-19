@@ -1,0 +1,40 @@
+{
+  "batch_number": 324,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T23:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "64e3707f-3dd0-40c7-8f82-55e6c6846bcd", "title": "Cannabis sativa L. is allelopathic", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "64f31e6f-2877-4837-83c1-5c2cc24f8c9d", "title": "Clinical Approach to Acute Recreational Drug Intoxication in the Emergency Setting: A Practical Guide Based on Swiss Experience", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Drug toxicity/harm correctly rejected"},
+    {"id": "651d1906-33b0-4af0-8bc5-13933493a714", "title": "Blockade of cannabinoid-induced antinociception by naloxone benzoylhydrazone (NalBZH)", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid-opioid pain mechanism"},
+    {"id": "652587d2-3954-438d-bef1-8745f55aaa8a", "title": "Cannabinoids and Hallucinogens for Headache", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid headache/migraine therapeutic review"},
+    {"id": "6556cda5-459d-45e0-81ab-ffd9a721c528", "title": "The Cannabis Terpenes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Terpene chemistry correctly rejected"},
+    {"id": "656a4098-dcd2-41b8-bdcb-db1645a8827f", "title": "Coma après mésusage d'un sirop « Delta-9 CBD » acheté sur internet", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Toxicity case correctly rejected"},
+    {"id": "65725a2b-4d64-47fb-b003-705efc8141bc", "title": "Driving Under the Influence of Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "659c03e4-6186-4a7e-90b0-6d2ce5542439", "title": "Cannabis Product Ingestions in Pediatric Patients: Ranges of Exposure, Effects, and Outcomes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Pediatric toxicity correctly rejected"},
+    {"id": "65adb493-388c-4d11-9514-7d9b71c66f56", "title": "Emergency Department Patients Presenting after Oral versus Inhaled Cannabinoid use: A Retrospective Analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "ED toxicity correctly rejected"},
+    {"id": "65af48ed-a503-45b2-a184-cd1b364c42f3", "title": "Car parking and the growth of the CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "65b3c19f-adbb-4a05-864c-3abf320e40f0", "title": "Pharmacists advised to check legal status of CBD products before supply or risk indemnity breach", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Regulatory correctly rejected"},
+    {"id": "65b631ee-1a9a-4f3d-87fb-8313c60c0462", "title": "Methanol-Assisted CO2 Fixation by Hydroxyl-Containing Amidine Leading to Polymeric Ionic Liquid and Cross-Linked Network Formation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "65c2bcff-efd9-447a-95ce-30538253f35c", "title": "The effects of Cannabidiol (CBD) and Delta-9-Tetrahydrocannabinol (THC) on the recognition of emotions in facial expressions: A systematic review of randomized controlled trials", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC emotion recognition SR of RCTs"},
+    {"id": "65cb74b0-29fd-4d2a-a93f-09656ca4c8aa", "title": "The cannabinoid system and visual processing: A review on experimental findings and clinical presumptions", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid visual system review"},
+    {"id": "65ece250-0bec-407a-a18f-a2f0f2517d95", "title": "Bioactive Chemical Composition of Cannabis Extracts and Cannabinoid Receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis extract CB1/CB2 receptor activity"},
+    {"id": "660c0c5a-677d-4a9f-bc5b-d5029b686aaf", "title": "Medical use of cannabis: Italian and European legislation.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/legal correctly rejected"},
+    {"id": "66189ee9-13a3-4fb5-bc67-e7fddf7fc69d", "title": "Cannabidiol/clobazam/lacosamide interaction", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug interaction"},
+    {"id": "661c5d84-d434-4021-8659-904c8b373af3", "title": "Powerful D-CBDS Approach for collaborative Attackers on MANET", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong acronym (networking) correctly rejected"},
+    {"id": "6622bbe9-21e3-4bd2-867c-0faf68bcb042", "title": "Metabolomics and Transcriptomic Analysis Revealed the Mechanism of Yeast Extract Inducing and Regulating the Synthesis of Terpenoids in Hemp Adventitious Roots.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant biotechnology correctly rejected"},
+    {"id": "663d5664-19d4-4bcc-8c0f-588927ccddc1", "title": "The Cannabinoid Delta-9-tetrahydrocannabinol Disrupts Estrogen Signaling in Human Placenta", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "THC pregnancy harm correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "651d1906-33b0-4af0-8bc5-13933493a714",
+      "652587d2-3954-438d-bef1-8745f55aaa8a",
+      "65c2bcff-efd9-447a-95ce-30538253f35c",
+      "65cb74b0-29fd-4d2a-a93f-09656ca4c8aa",
+      "65ece250-0bec-407a-a18f-a2f0f2517d95",
+      "66189ee9-13a3-4fb5-bc67-e7fddf7fc69d"
+    ]
+  }
+}

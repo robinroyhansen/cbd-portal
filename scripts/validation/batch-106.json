@@ -1,0 +1,39 @@
+{
+  "batch_number": 106,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T16:15:00.000Z",
+  "results": [
+    {"id": "769d2fba-8307-4abc-975a-87ffa65eb87c", "title": "Mental Health Mammography Women Veterans", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - womens health study"},
+    {"id": "76a8305e-2494-4411-8165-bc71ce1bb310", "title": "CBD Autism Spectrum Disorder comorbidities Portuguese", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism therapeutic review"},
+    {"id": "76c1dac7-dba1-4672-a38d-a42934ed5a5e", "title": "Cannabis Dispensaries First-Trimester pregnancy recommendations", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pregnancy safety research"},
+    {"id": "76c9e048-a751-4284-acdf-203acb093776", "title": "Zinc obesity diabetes hypertension cardiovascular", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - zinc nutrition"},
+    {"id": "76d5b941-bf11-4158-b3c3-32912a813e29", "title": "CBD MAPK Colorectal Cancer bioinformatics", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer mechanism"},
+    {"id": "76d81967-5f8b-4a19-ae3a-cf70ccd836ab", "title": "CBD hemp extract opioid reduction chronic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain opioid reduction"},
+    {"id": "76d86e0c-9ac6-48a7-a8db-1eacb24b3952", "title": "CBD cholangiocarcinoma gemcitabine-resistant ER stress", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic"},
+    {"id": "76e49a1a-0965-49dd-a028-afe463cfa723", "title": "Cannabinoid Tolerance Dependence", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacology"},
+    {"id": "7712871c-620c-4689-88e5-3d2808adbbe1", "title": "CBD Neuroprotective Blood-Retinal Barrier Diabetes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD diabetic complication neuroprotection"},
+    {"id": "7713fa08-d628-45ba-b7a4-5c8c81a0046d", "title": "Cannabinoid Anti-Tumor G6PD in silico", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer mechanism"},
+    {"id": "77173978-4b09-41e2-be6e-07190de997f3", "title": "CBD Pharmacokinetics Connemara ponies", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - pony pharmacokinetics"},
+    {"id": "77183842-d688-4017-aa62-85a7ec841ce4", "title": "CBD Lozenges Streptococcus mutans Oral antimicrobial", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD dental antimicrobial RCT"},
+    {"id": "771b92d7-5ce9-47ab-9e20-45a4494f6d9a", "title": "CBD Gingival Inflammation Periodontal RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD dental therapeutic RCT"},
+    {"id": "771caa0f-8593-42b6-b267-9aa62b37285d", "title": "Synthetic Cannabinoids Psychosis Psychopharmacology", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - synthetic cannabinoid psychosis"},
+    {"id": "773b81e9-b3fa-48d8-81c4-7ffe14e9d250", "title": "THC CBD Sativex Pharmacokinetics oral oromucosal", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pharmacokinetics"},
+    {"id": "774ff1e5-d0a9-49e3-b784-2c3e530af7c5", "title": "CBD Novel Food Safety Assessment FSA RP521", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety regulatory"},
+    {"id": "776003c6-c813-45f8-bd73-2dae2ecc3614", "title": "Hemp Seed Proteins Antioxidant Antiproliferative", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - hemp seed protein nutrition"},
+    {"id": "7767c7c2-55d5-4d84-8ecc-66d27f73d882", "title": "CBD O-1602 intestinal motility LPS inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD GI therapeutic mechanism"},
+    {"id": "7768f18c-d472-4147-99cb-79871c32e148", "title": "Alexithymia Cannabis Use Disorder adolescents", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CUD characteristics"},
+    {"id": "776a261a-806b-4474-9194-1e1a8fec3fef", "title": "CBD verbal episodic memory healthy young RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cognitive enhancement RCT"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "769d2fba-8307-4abc-975a-87ffa65eb87c",
+      "76c9e048-a751-4284-acdf-203acb093776",
+      "77173978-4b09-41e2-be6e-07190de997f3",
+      "771caa0f-8593-42b6-b267-9aa62b37285d",
+      "776003c6-c813-45f8-bd73-2dae2ecc3614",
+      "7768f18c-d472-4147-99cb-79871c32e148"
+    ]
+  }
+}

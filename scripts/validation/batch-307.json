@@ -1,0 +1,41 @@
+{
+  "batch_number": 307,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T18:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "52a4dddf-8ff6-4970-88cc-fab9daaac309", "title": "Study on Stability of Remifentanil, Sufentanil, and Their Metabolites in Human Whole Blood and Urine", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "52b72dbb-e282-4146-a45f-e5f27e349dc0", "title": "Synthese und Chiralität des (‐)‐Cannabidiols Vorläufige Mitteilung", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CBD synthetic chemistry correctly rejected"},
+    {"id": "52ba67ea-6690-4408-88c5-626c59ba18c2", "title": "CB1 receptor signaling regulates Cx43 hemichannel trafficking and phosphorylation in astrocytes: implications for gliotransmission.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 astrocyte mechanism"},
+    {"id": "52d58900-687d-4666-9c32-3d8c05216642", "title": "Opportunities for Use: Explaining Associations Between Retail Availability and Use of Alcohol and Cannabis Among Youth.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "52d7bf95-eca0-4f13-98cb-f53838b3614a", "title": "Extractions of Medical Cannabis Cultivars and the Role of Decarboxylation in Optimal Receptor Responses", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis receptor pharmacology"},
+    {"id": "52f80fc9-99ca-475f-b89d-ee231656f0cd", "title": "Enhancing Cannabidiol Bioavailability: Development and Evaluation of an Amorphous Cannabidiol Powder Formulation.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD bioavailability formulation"},
+    {"id": "52fa2682-4190-4d81-9f3d-317e5bddda5d", "title": "Quinazoline-2,4(1H,3H)-dione derivatives as new class of CB1 Agonists: A pharmacophore-based virtual screening workflow and drug discovery", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 agonist drug discovery"},
+    {"id": "52fecbe4-e8f6-4d33-8ad0-90e16a3dd34f", "title": "Tobacco and Cannabis Use and co-Use, and Cannabis Refusal Self-Efficacy Among Black Men: A Cross-Sectional Study Examining Differences Between Men Who Have Sex with Men (MSM) and Non-MSM.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "530404ce-09a7-4a39-9856-32b6e1e26516", "title": "Forecasting property market cycles : an application of the RICS model to the Sydney CBD office market", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "5304aa4a-ad86-479d-9436-7db5f295c96d", "title": "Preparation of Cinnamon Essential Oil/Succinic Acid-Modified Cyclodextrin and Their Application in Grass Carp Preservation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "53371689-d06d-468c-a7b9-b29bf67e2f2b", "title": "Cannabinoids cool the intestine", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid intestinal mechanism"},
+    {"id": "533b3aa3-84e2-4f0f-8f4d-0e940cb912ba", "title": "A historical overview of chemical research on cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Historical chemistry correctly rejected"},
+    {"id": "533e47ac-8902-43a4-b17d-6f8b651393a2", "title": "Conjugation of Synthetic Cannabinoids JWH-018 and JWH-073, Metabolites by Human UDP-Glucuronosyltransferases", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid abuse correctly rejected"},
+    {"id": "534a7911-6d4a-4adb-a55b-fd564c030c47", "title": "Magnetic Molecularly Imprinted Polymers for the Separation and Enrichment of Cannabidiol from Hemp Leaf Samples", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction technology correctly rejected"},
+    {"id": "535277cf-9af3-4209-9e96-34e1630e7710", "title": "[#Exposed] Pelican CBD Male Enhancement Gummies[Urgent Update!] Shocking Side Effects or Real Customer Results?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "535693aa-a474-4382-9423-b434820f25b7", "title": "Synthetic cannabinoid and cathinone use among US soldiers.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic abuse correctly rejected"},
+    {"id": "536140b4-190a-4391-bd20-0c06fed582ef", "title": "Classification and Analysis of Personal and Commercial CBD Tweets", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Social media analysis correctly rejected"},
+    {"id": "53678c62-a9a8-4081-ab22-1fae26b94436", "title": "Enrichment of Cellulosic Waste Hemp (Cannabis sativa) Hurd into Non-Toxic Microfibres", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industrial hemp correctly rejected"},
+    {"id": "53766439-587e-4b41-a685-bbf4d007f55f", "title": "Modeling of ligand binding to G protein coupled receptors: cannabinoid CB1, CB2 and adrenergic β2AR", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB receptor modeling"},
+    {"id": "5385d415-f144-4263-aa59-65cfd9ac7113", "title": "Anticonvulsant Action and Long-Term Effects of Chronic Cannabidiol Treatment in the Rat Pentylenetetrazole-Kindling Model of Epilepsy", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "52ba67ea-6690-4408-88c5-626c59ba18c2",
+      "52d7bf95-eca0-4f13-98cb-f53838b3614a",
+      "52f80fc9-99ca-475f-b89d-ee231656f0cd",
+      "52fa2682-4190-4d81-9f3d-317e5bddda5d",
+      "53371689-d06d-468c-a7b9-b29bf67e2f2b",
+      "53766439-587e-4b41-a685-bbf4d007f55f",
+      "5385d415-f144-4263-aa59-65cfd9ac7113"
+    ]
+  }
+}

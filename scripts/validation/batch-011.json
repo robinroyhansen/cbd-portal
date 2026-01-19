@@ -1,0 +1,37 @@
+{
+  "batch_number": 11,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T16:15:00.000Z",
+  "results": [
+    {"id": "0e7e6cca-2891-4769-abac-50b010b9fa7e", "title": "The Pharmacogenetics of Cannabis in the Treatment of Chronic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pharmacogenetics for pain"},
+    {"id": "0e89bd16-8e16-478a-8965-49d72a120a13", "title": "High CBD extract (CBD-X) modulates inflammation...rheumatoid arthritis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for rheumatoid arthritis"},
+    {"id": "0eac5a35-d0b4-4354-a4ea-ab96197d2214", "title": "Cortical inhibition deficits in schizophrenia with comorbid cannabis abuse", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis effects in schizophrenia"},
+    {"id": "0ebb1ae5-a0e5-4b61-a5e9-07ab7238f57c", "title": "Cannabinoids and the Endocannabinoid System in the Treatment of Nausea and Vomiting", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids for nausea"},
+    {"id": "0ed57981-4633-4190-a4fa-322738753082", "title": "Cannabis and Amphetamine Use Among Adolescents in Five Asian Countries", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Prevalence study - patterns of adolescent drug use"},
+    {"id": "0ee0b893-c850-4fb6-af8a-a41bbdf3460b", "title": "Feeding performance, kinematics and skills change with age in a granivorous songbird", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "BIRD STUDY - absolutely no cannabinoid content!"},
+    {"id": "0ef3f055-08a2-43e3-81af-ad80d54a04b9", "title": "People with psychotic disorders are vulnerable to cannabis adverse health outcomes", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis safety in psychosis"},
+    {"id": "0efba0ad-e8ab-487d-b89c-96e4c90eaf31", "title": "Efficacy of highly purified cannabidiol (CBD) in typical absence seizures", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for epilepsy"},
+    {"id": "0efe16e7-241d-46e8-a238-4abee4469091", "title": "Integrative, Non-Pharmacological Pain Management...Lumbar Spine Degeneration", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Non-pharmacological (no drugs) pain management - no cannabinoid"},
+    {"id": "0effca5b-d5be-4a79-b842-60f7cc265979", "title": "n-3 fatty acids deficiency alters cannabinoid receptor signaling pathway", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid system research"},
+    {"id": "0f03c258-81fd-47a9-b41b-c5d782e7860c", "title": "Quantifying the Clinical Significance of Cannabis Withdrawal", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CUD withdrawal research"},
+    {"id": "0f10ace4-9dfc-4ed0-8e4a-4d9e0b2179bc", "title": "'Cannabis psychosis'", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis and psychosis"},
+    {"id": "0f14a904-1afa-46f0-a1e4-4eb07c5b3123", "title": "Biomedical benefits of cannabinoids?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid therapeutic review"},
+    {"id": "0f233ab8-873e-432b-aa83-9d17c5b594e7", "title": "Cannabis and mental illness in adolescents: a review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis mental health effects"},
+    {"id": "0f3fc67b-30e6-480e-a4fd-4bb2e6e71257", "title": "Self-medication hypothesis of depression and aggression in cannabis users", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis effects on depression/aggression"},
+    {"id": "0f47a192-090e-4af2-80e2-81556a93f3a0", "title": "Cannabis use and risk of testicular germ cell tumour", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis and cancer risk"},
+    {"id": "0f4b5f03-e3db-4b7c-8bc5-e7bbaa9f579f", "title": "Cannflavin B ameliorates...autism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis compound for autism"},
+    {"id": "0f5d99f2-1ed1-427a-aba4-fd6da025e7e4", "title": "Obesity and Cannabis Use: Results From 2 National Surveys", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Prevalence/epidemiological study"},
+    {"id": "0f6c37e3-3ad9-4ad3-86bc-df1f3db30773", "title": "Immunohistochemical localization of the neural cannabinoid receptor in rat brain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor localization"},
+    {"id": "0f7b3960-714d-4b54-87ce-37843967936d", "title": "Cannabidiol Partially Blocks the Excessive Sleepiness in Hypocretin-deficient Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for narcolepsy"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "0ed57981-4633-4190-a4fa-322738753082",
+      "0ee0b893-c850-4fb6-af8a-a41bbdf3460b",
+      "0efe16e7-241d-46e8-a238-4abee4469091",
+      "0f5d99f2-1ed1-427a-aba4-fd6da025e7e4"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "batch_number": 336,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T02:00:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "73d9d8f3-53f9-44d4-b9fe-45f49c0125b3", "title": "The knowledge and attitude of pharmacists regarding the therapeutic use of cannabinoid-based medications", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Attitudes correctly rejected"},
+    {"id": "73e5d6c9-5804-4f26-a638-42443582401c", "title": "Extraction of cannabinoids from hemp using high pressure solvents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Extraction correctly rejected"},
+    {"id": "73e8d5b9-55b1-42e4-b4d5-d101c9cab611", "title": "Combining experiment and prediction to explore surface chemistry and dissolution.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "73f54996-8d81-4e93-ae56-45cd3085faee", "title": "Development of Clean-Label Protein- and Fiber-Enriched Dry Pretzels Using Hemp Seed By-Products", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food product correctly rejected"},
+    {"id": "73fbce87-3973-45b0-96bc-99c7f1bfc7a2", "title": "Cannabidiol-Loaded Lipid Nanoparticles Incorporated in Polyvinyl Alcohol and Sodium Alginate Hydrogel Scaffold for Enhancing Cell Migration and Accelerating Wound Healing.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD wound healing formulation"},
+    {"id": "73fcb31c-928f-466e-8fbe-60ea53c8af55", "title": "Differential expression of cannabinoid CB2 receptor mRNA in mouse immune cell subpopulations and following B cell stimulation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 immune mechanism"},
+    {"id": "740f225f-482c-4bcc-a104-61f1577a3e73", "title": "Secondary metabolism in cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant science correctly rejected"},
+    {"id": "7411009d-4fef-413f-81b8-511eff443629", "title": "Exploring THC labelling preferences to communicate the strength of cannabis products", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Consumer research correctly rejected"},
+    {"id": "74163842-35c1-484e-a554-ddc6885e3f90", "title": "The binding of novel phenolic derivatives of anandamide to brain cannabinoid receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor pharmacology"},
+    {"id": "74282f38-dda6-4600-9050-3da8849f57e9", "title": "Sourcing the provenance of cannabis crops using inter-element association patterns fingerprinting", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "7436f3af-56f6-4170-a20d-17a94c388513", "title": "From ARFID to Binge Eating: A Review of the Sensory, Behavioral, and Gut–Brain Axis Mechanisms in Autism Spectrum Disorder", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "743f250f-708c-431c-8efd-53e08ea62dca", "title": "Development and Validation of a High-Throughput Lc-Ms/Ms Bioanalytical Method for CBD and Metabolites in Human Plasma", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical correctly rejected"},
+    {"id": "74446381-37d4-4a95-ab11-892c370faf4a", "title": "Hair Regrowth with Novel Hemp Extract: A Case Series", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - hemp therapeutic case series"},
+    {"id": "744c3e12-f061-4e97-93e8-9ea7c367ef21", "title": "The Volatile Oil Composition of Fresh and Air-Dried Buds of Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant chemistry correctly rejected"},
+    {"id": "745e7478-03e4-4ad9-ac8c-7c0ba4c2d910", "title": "Who becomes cannabis dependent soon after onset of use? Epidemiological evidence", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD correctly rejected"},
+    {"id": "7468a000-e595-434b-b601-142a4d5532e7", "title": "Infant with altered consciousness after cannabis passive inhalation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "7483bf20-56f2-4707-8dd2-852a8b87f7e8", "title": "Emergence of the Second Peak Density around the CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "749692fe-f8a0-4c32-9d08-73b47863b5de", "title": "Does how you use matter? The link between mode of use and cannabis-related risk", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm/use patterns correctly rejected"},
+    {"id": "749bc7e7-b6d2-4e45-b920-91663cb8b1ae", "title": "The apical vertebral rotational correction of the lumbosacral fractional curve", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "749e1ee9-9b2b-4b43-87e4-5e52e51b3bba", "title": "Abstract 1394 Cannabidiol enhances lipid droplet deposition along with the expression of FABP4 and AGPAT in 3T3-L1 preadipocytes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD adipocyte mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "73fbce87-3973-45b0-96bc-99c7f1bfc7a2",
+      "73fcb31c-928f-466e-8fbe-60ea53c8af55",
+      "74163842-35c1-484e-a554-ddc6885e3f90",
+      "74446381-37d4-4a95-ab11-892c370faf4a",
+      "749e1ee9-9b2b-4b43-87e4-5e52e51b3bba"
+    ]
+  }
+}

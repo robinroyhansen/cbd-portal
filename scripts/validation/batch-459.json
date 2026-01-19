@@ -1,0 +1,40 @@
+{
+  "batch_number": 459,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T07:20:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "fb7a23b4-7c62-4ba0-9ac7-6360f8b4ff1b", "title": "Determination of cannabinoids in cannabis products using liquid chromatography–ion trap mass spectrometry", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "fb996c34-5b91-4f0d-9267-eb3967d820cc", "title": "Novel Intravenous Nanoemulsions Based on Cannabidiol-Enriched Hemp Oil-Development and Validation of an HPLC-DAD Method for Cannabidiol Determination.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD nanoemulsion drug delivery research"},
+    {"id": "fb9ad1db-14ee-421b-a9a3-245bb6578384", "title": "Pilot study: impacts of cannabinoids from industrial hemp and repeated transportation events on cattle health and immune status.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "fb9ad7ce-20d4-497e-b046-539bd794fcf7", "title": "Cannabidiol attenuates methamphetamine-induced oxidative neurotoxicity via regulating transient receptor potential vanilloid type 1.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD neuroprotection mechanism research"},
+    {"id": "fb9b1b1f-1e62-4f14-80a5-c53a6aa553b1", "title": "Modulation of Neurotransmission by Cannabinoids in the Basal Ganglia", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid neuroscience mechanism research"},
+    {"id": "fbba4cc6-4f51-4a3c-bf66-23ef7f667c78", "title": "Changes in clinical features and severity in patients presenting to European emergency departments with acute cannabis toxicity over the 10-year period from 2013 to 2022.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis toxicity correctly rejected"},
+    {"id": "fbc2fedc-498d-483a-8b6e-3cda3e2f7bfa", "title": "CBD商圈挑起\"高端百货\"之战", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "fbd6e889-d8bc-4686-87d1-59c684fbb725", "title": "Synthesis of quinolinyl and isoquinolinyl phenyl ketones as novel agonists for the cannabinoid CB2 receptor", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 agonist drug development research"},
+    {"id": "fbe2ee36-951e-4f6a-805b-f53f79fe6b30", "title": "E—CBD\"立体\"招商", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "fbe8679e-f886-43a5-8263-4038cf853780", "title": "The association between benzodiazepine proliferation in the unregulated drug supply and experiences of violence: A gender-based analysis.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "fc164ed7-d213-4a45-b28a-3692af6d0406", "title": "Cannabis, Cannabidiol Oils and Tetrahydrocannabinol—What Do Veterinarians Need to Know?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "fc1bfa90-f332-416a-9a9b-91c862d020ae", "title": "Cannabidiol effects in stem cells: A systematic review.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD stem cell therapeutic research"},
+    {"id": "fc1ea779-8d87-4855-b609-fb253ef02398", "title": "CBD: entre la moda, la panacea y la prohibición", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correctly rejected"},
+    {"id": "fc251555-2096-4ebd-ab83-70ed365ca8f0", "title": "In Vitro Stability of Free and Glucuronidated Cannabinoids in Blood and Plasma Following Controlled Smoked Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "fc3e834e-e9be-437e-80aa-8b252f5d87c2", "title": "Agrobacteriuminfection of hemp (Cannabis sativaL.): establishment of hairy root cultures", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant biotechnology correctly rejected"},
+    {"id": "fc434f81-d4b2-42b3-9e2a-e3e830253234", "title": "Mississippi-grown marihuana —Cannabis sativa cultivation and observed morphological variations", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "fc4f2365-9e20-4203-a04d-f41ae6c8e3e3", "title": "A Joint Conversation: People With Cystic Fibrosis' Perception of Healthcare Teams' Knowledge, Comfort, and Barriers in Discussing Substance Use.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General substance use correctly rejected"},
+    {"id": "fc50bb57-659d-47ae-a6d9-f8eaa894b163", "title": "Effect of Cannabis sativa L. Seed (Hempseed) on Serum Lipid and Protein Profiles of Rat", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Nutrition correctly rejected"},
+    {"id": "fc634793-32b1-4864-bb0a-1a0028f72262", "title": "Associations between cigarette smoking and cannabis dependence: A longitudinal study of young cannabis users in the United Kingdom", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD correctly rejected"},
+    {"id": "fc6ef1ba-edfa-4740-b22e-d00a4c3cae34", "title": "A detailed characterization of the effects of four cannabinoid agonists on operant lever pressing", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid pharmacology research"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "fb996c34-5b91-4f0d-9267-eb3967d820cc",
+      "fb9ad7ce-20d4-497e-b046-539bd794fcf7",
+      "fb9b1b1f-1e62-4f14-80a5-c53a6aa553b1",
+      "fbd6e889-d8bc-4686-87d1-59c684fbb725",
+      "fc1bfa90-f332-416a-9a9b-91c862d020ae",
+      "fc6ef1ba-edfa-4740-b22e-d00a4c3cae34"
+    ]
+  }
+}

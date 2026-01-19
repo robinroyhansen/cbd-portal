@@ -1,0 +1,37 @@
+{
+  "batch_number": 266,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T08:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "2603e82b-62b4-4eb8-bf35-2500ee544142", "title": "Interactions of Marijuana and Opioids: Pharmacodynamic Effects", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Abuse-related effects correctly rejected"},
+    {"id": "2606035e-67f4-4fa7-b384-8705037a998c", "title": "Cannabis use perceptions in cystic fibrosis post-legalization", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns survey correctly rejected"},
+    {"id": "2609bf97-c324-4c52-9448-a3293f661ab7", "title": "Specific atrophy patterns distinguish tau and TDP-43 pathology", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2634ee18-8ace-480c-82b2-0c1789504b9c", "title": "Early Life Exposure to THC Causes Persistent Growth, Behavior Outcomes in Zebrafish", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "26398e87-f86b-4e62-b155-35d34edb1df3", "title": "Hemp leaf photosynthesis in relation to nitrogen content and temperature", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "263be662-5678-4e09-8af5-9b86b26e54b3", "title": "Short-Term Incubation of H9c2 Cardiomyocytes with Cannabigerol Attenuates Diacylglycerol Accumulation in Lipid Overload", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBG cardioprotective mechanism"},
+    {"id": "264a2835-bc89-41f9-86e0-dc8140f83019", "title": "Ethephon application stimulates cannabinoids and plastidic terpenoids production in Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "264a2c6d-22fa-4089-949e-512ba467126f", "title": "Medical Marijuana and Treatment Personalization: The Role of Genetics and Epigenetics in Response to THC and CBD", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - pharmacogenomics of THC/CBD"},
+    {"id": "26669322-68ad-4307-9bfb-923b0ae5715f", "title": "Health-Related Messages About Herbs, Spices, and Other Botanicals", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "2669ee6d-9f58-4b39-8e8e-44c382d19095", "title": "Forensic Characterization of Cannabidiol Oils from China", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "266a9067-c2b4-4766-95df-ff1b3a7e49e8", "title": "Discovery of indole alkaloids with cannabinoid CB1 receptor antagonistic activity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 drug development"},
+    {"id": "267120be-0293-4c59-b9f3-eb9b73087a40", "title": "Peak-experience and the entheogenic use of cannabis in world religions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cultural/religious use correctly rejected"},
+    {"id": "2673cf49-245a-41f8-acf2-0f28bd2b7d9a", "title": "Spray-Dried Inclusion Complex of Apixaban with β-Cyclodextrin Derivatives", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2699f1af-16a8-4f9c-9975-a91b0bf00c74", "title": "The CBD Initiative on Genetic Use Restriction Technologies (GURTs)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "26baaae7-de45-4e7d-bf59-d6ba24e1a128", "title": "UPLC-MS determination of cannabis metabolite in surface water and wastewater", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Environmental detection correctly rejected"},
+    {"id": "26c0503c-9e8a-4a9e-9e0d-ef8029241065", "title": "Urinary Excretion Profile of Cannabinoid Analytes Following Acute Administration", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic/analytical correctly rejected"},
+    {"id": "26d8ff4d-6671-495c-9711-395e742a1167", "title": "Decision letter for CBD as Phosphodiesterase 9 Inhibitor", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial content correctly rejected"},
+    {"id": "26e260f0-c3d3-466f-8e0f-4ff586a06900", "title": "Methamphetamine use disorder study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "26e6ce5e-d8b6-44b2-9aea-034b1394d896", "title": "Are side effects of CBD products caused by THC contamination?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product testing/quality correctly rejected"},
+    {"id": "26eb08ff-1765-4656-a3bd-ab188320b697", "title": "Totality of the Evidence Suggests Prenatal Cannabis Exposure Does Not Lead to Cognitive Impairments", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm study correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "263be662-5678-4e09-8af5-9b86b26e54b3",
+      "264a2c6d-22fa-4089-949e-512ba467126f",
+      "266a9067-c2b4-4766-95df-ff1b3a7e49e8"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "batch_number": 265,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T08:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "24ecfd37-ab65-407d-be69-e111464cc3fa", "title": "CBD Cannabis Extract: Pharmacokinetic Studies", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmacokinetics"},
+    {"id": "24fba629-3f16-41a0-9707-1ec9de9664bf", "title": "Venom Peptides Across Asian and American Tarantulas", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "250fd0c3-2cb4-4a62-86cb-37c12d21d6bb", "title": "Central administration of oxytocin reduces hyperalgesia in mice: Implication for cannabinoid and opioid systems", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid system pain mechanism"},
+    {"id": "251c1501-6d74-4eaa-8d8b-f851b1546553", "title": "Optimization of Chemical Functionalities of Indole-2-carboxamides To Improve Allosteric Parameters for the Cannabinoid Receptor 1 (CB1)", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 allosteric modulator drug development"},
+    {"id": "25241203-c613-4934-b079-ec7a92eadfdd", "title": "Genetic structure of Cannabis sativa var. indica cultivars", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "2527b811-e573-40c0-8163-4247a84f2df8", "title": "Concerns, Beliefs and Attitudes of Pharmacists About Medical Cannabis Use in Poland", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Survey/attitudes correctly rejected"},
+    {"id": "2544543d-cf74-403c-9227-41f2dc8b5f5a", "title": "Nitrous oxide use and psychiatric disorders", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "2547a4aa-a03e-4b7d-b57a-6bcc9fc55be4", "title": "Differentiation of drug and non-drug Cannabis using a single nucleotide polymorphism (SNP) assay", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "25871e1d-0792-4047-8baf-65da5cb5ac51", "title": "CHARACTERIZATION OF ZnO NANOFILMS DEPOSITED BY CBD-AμW", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "258c1667-65f9-43b0-b7a5-e526a84bd717", "title": "Chemometric Optimization of BF3·OEt2-Mediated Cyclization of Cannabidiol to THC Isomers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic chemistry correctly rejected"},
+    {"id": "2592dc5a-e02c-4469-bcc1-9b2e0d297b6e", "title": "Identification of Putative Precursor Genes for the Biosynthesis of Cannabinoid-Like Compound in Radula marginata", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant biosynthesis correctly rejected"},
+    {"id": "259ba3c2-4feb-4d53-9116-db4c5e4062d6", "title": "Effect of Cannabidiol on Crystallization Behavior and Physical Properties of Cocoa Butter and Palm Oil", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food formulation correctly rejected"},
+    {"id": "25a94b29-0712-49a1-bf6f-1885e5829dd4", "title": "Base-catalysed double-bond isomerizations of cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic chemistry correctly rejected"},
+    {"id": "25b27a1f-abd4-4611-884b-133bf0111aed", "title": "Knowledge, attitudes and practices about Cannabis light among Italian undergraduates", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Survey/attitudes correctly rejected"},
+    {"id": "25b954f3-898e-4a9b-8cf5-68777415bdc0", "title": "A review of Cannabis diseases", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant pathology correctly rejected"},
+    {"id": "25c56e10-b1fc-47d8-8a23-7b1d4a7a9914", "title": "CANNABIDIOL COMO ALTERNATIVA DE MANEJO EN ANSIEDAD EN UN PACIENTE CON SÍNTOMAS PSICÓTICOS Y CONSUMO DE CANNABIS", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD clinical case for anxiety/psychosis"},
+    {"id": "25e44061-e661-4a0a-a3f3-8b164be64eab", "title": "Prevalence of cannabidiol use and correlates in U.S. adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "25e772c9-8f69-4e7a-bf0a-70762b6f78b5", "title": "e-비지니스 환경에서 메시지 보안을 고려한 웹 서비스와 CBD 통합", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "25f52ee9-232f-48c9-8b7f-abf3becfe13a", "title": "Motor effects of the non-psychotropic phytocannabinoid cannabidiol that are mediated by 5-HT1A receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD 5-HT1A mechanism"},
+    {"id": "25fb3a1b-d622-49d0-89b7-657200cce724", "title": "A spicy kind of high: a profile of synthetic cannabinoid users", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid use correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "24ecfd37-ab65-407d-be69-e111464cc3fa",
+      "250fd0c3-2cb4-4a62-86cb-37c12d21d6bb",
+      "251c1501-6d74-4eaa-8d8b-f851b1546553",
+      "25c56e10-b1fc-47d8-8a23-7b1d4a7a9914",
+      "25f52ee9-232f-48c9-8b7f-abf3becfe13a"
+    ]
+  }
+}

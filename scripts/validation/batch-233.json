@@ -1,0 +1,39 @@
+{
+  "batch_number": 233,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T00:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "01d23fea-4e32-4d8b-bfa8-a4171273ef25", "title": "Parenting styles cannabis adolescents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Prevalence correctly rejected"},
+    {"id": "01ef8406-1a3f-4075-8561-9d96d9006268", "title": "Capsular bag size children cataract", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "01f02156-ef79-4a13-b1f9-f36cfaed9f2b", "title": "Drug harm prevention adolescents NZ", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General harm correctly rejected"},
+    {"id": "02010bbc-a7c5-402e-8b2d-3ea34bf385e5", "title": "CUTICLE TRICHOMES CANNABIS SATIVA", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "02070e98-4616-4687-96b1-746d261839c3", "title": "Working Memory Training Cannabis Use Disorders", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "0209957e-8f16-40da-a68b-720581a4419f", "title": "Anatomy One CBD Gummies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "020d7d04-9db3-47ef-8be0-ad54292487b8", "title": "Hemp Protein Maltodextrin Spray-Drying", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "0216217d-6774-4aac-9401-c36bb508ccf8", "title": "Guide to Cannabidiol CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Consumer guide correctly rejected"},
+    {"id": "0233b79c-fda2-4628-b4f9-9d5eeb76535e", "title": "Cannabis road safety driving", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm correctly rejected"},
+    {"id": "0244ad7a-865f-450d-8c4c-9d954892b6da", "title": "Alcohol Cannabis Simultaneous Concurrent", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm patterns correctly rejected"},
+    {"id": "0269e8f7-4138-497e-a1a0-17071c006d0b", "title": "Periampullary diverticulum ERCP", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "027bf4ff-cf83-496c-a16d-69d1f4976105", "title": "Macrophage Ferroptosis Liver Fibrosis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "02976530-4775-47e1-877e-a044d526a5c6", "title": "Cannabinoid receptors immune cells regulation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism"},
+    {"id": "02b0dd4f-5e3a-44ff-892f-7ac10feec07d", "title": "CBD potentiating THC hepatic enzymes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug interaction safety"},
+    {"id": "02b6859e-7e3d-41b2-92cf-6103bc593c8d", "title": "Emotion Dysregulation Stress Cannabis Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD patterns correctly rejected"},
+    {"id": "02c304bb-d5b1-4bf9-83c5-189ff2c6f081", "title": "CB1 CB2 THC T Helper Cell Legionella", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid immune mechanism"},
+    {"id": "02c6a572-2b20-4573-93a4-18c982f1ce35", "title": "Endogenous cannabinoid system basal ganglia", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS mechanism"},
+    {"id": "02c7f7d0-c8ef-4005-9369-db68eff221c8", "title": "Truman CBD Male Enhancement Gummies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "02d9d851-fd06-472a-afaf-6bb6319a1b51", "title": "CdxPb1−xS films CBD ethylenediamine", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (chemical bath deposition) correctly rejected"},
+    {"id": "02e46a0a-5173-4157-b0ab-fd15f0f4f382", "title": "CBD Gliomas Therapeutic Nanocarrier", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD cancer therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "02976530-4775-47e1-877e-a044d526a5c6",
+      "02b0dd4f-5e3a-44ff-892f-7ac10feec07d",
+      "02c304bb-d5b1-4bf9-83c5-189ff2c6f081",
+      "02c6a572-2b20-4573-93a4-18c982f1ce35",
+      "02e46a0a-5173-4157-b0ab-fd15f0f4f382"
+    ]
+  }
+}

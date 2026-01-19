@@ -1,0 +1,41 @@
+{
+  "batch_number": 77,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T09:00:00.000Z",
+  "results": [
+    {"id": "5513ea85-e0e5-4d25-8f21-d5399ddc1411", "title": "Semaglutide reduces cannabis use disorder incidence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - semaglutide for CUD"},
+    {"id": "55177a28-4c9a-4f9c-bd40-82908bbad3a9", "title": "Cannabidiol for refractory epilepsy (Spanish)", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "5529ffa5-0329-410e-9a66-e9b9a2bb8b61", "title": "THC/CBD spray oral mucosa rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Nabiximol oral safety research"},
+    {"id": "553269b3-8e82-406b-948a-1d8d9ac31409", "title": "Cannabis use related to anhedonia adolescents", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - negative effects"},
+    {"id": "553a8ba7-e1eb-4636-8c29-3bd2cf2fa799", "title": "Clinical pain associated with cannabis demand", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use patterns"},
+    {"id": "5541c0cd-97db-4382-bce9-73bf6a1ecfa8", "title": "Arizona budtender recommendations morning sickness", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - budtender dispensary survey"},
+    {"id": "556c3a58-ae54-4a42-bc59-6a4654e0e95e", "title": "CBD children drug-resistant epilepsy Pakistan", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pediatric epilepsy developing country"},
+    {"id": "558369b9-3e81-432b-be2c-7b7b50852c95", "title": "Hemp CBD for alcohol use disorder RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic for alcohol addiction"},
+    {"id": "5590f055-022e-42af-b9c4-f114befaff15", "title": "Neurocircuitry cannabis cue reactivity CUD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - CUD neurobiology"},
+    {"id": "55985691-d98e-4107-b0fb-c5215674b8d7", "title": "THC/CBD alter cytokine production immune cells", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD immune mechanism"},
+    {"id": "559d14c3-cbd2-44c2-959c-913472748929", "title": "Cannabis Psychosis review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis"},
+    {"id": "55a089d4-30e9-4c69-825e-7ac5f20f0268", "title": "CB1 inhibition of melanogenesis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid skin mechanism"},
+    {"id": "55a8900c-cc17-471b-b36a-c8fae22bbd13", "title": "CBN/CBD regulate microglial migration neuroinflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2/CBD neuroprotection mechanism"},
+    {"id": "55f2f25a-65dc-4a9a-908e-350e7f9499c3", "title": "Cannabinoids and inflammation in HIV", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD HIV inflammation therapeutic"},
+    {"id": "560d1e3b-5527-4ee0-a390-cc240d3464aa", "title": "Water stress CBD-dominant Cannabis sativa", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "AGRICULTURE - cultivation"},
+    {"id": "560de97f-665e-4355-ae3d-10bf957bcfaf", "title": "CB2 inverse agonist SMM-189 TBI visual deficits", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "SMM-189 TBI therapeutic"},
+    {"id": "561b76d8-8a3a-4c79-919e-5fc80e55f1a8", "title": "Pathways to Psychosis in Cannabis Abuse", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis pathways"},
+    {"id": "561f1ca3-1e9d-4992-aa50-861eb67426fb", "title": "UK medical cannabis registry depression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Medical cannabis depression outcomes"},
+    {"id": "562ca9fd-de7d-40c0-9aa8-c79378193cd8", "title": "Dexanabinol HU-211 septic shock", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Synthetic cannabinoid sepsis therapeutic"},
+    {"id": "563acc84-e78e-451e-a5c3-109ae48f81f8", "title": "Cannabis suppositories sexual pain post-cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis sexual dysfunction therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "5513ea85-e0e5-4d25-8f21-d5399ddc1411",
+      "553269b3-8e82-406b-948a-1d8d9ac31409",
+      "553a8ba7-e1eb-4636-8c29-3bd2cf2fa799",
+      "5541c0cd-97db-4382-bce9-73bf6a1ecfa8",
+      "5590f055-022e-42af-b9c4-f114befaff15",
+      "559d14c3-cbd2-44c2-959c-913472748929",
+      "560d1e3b-5527-4ee0-a390-cc240d3464aa",
+      "561b76d8-8a3a-4c79-919e-5fc80e55f1a8"
+    ]
+  }
+}

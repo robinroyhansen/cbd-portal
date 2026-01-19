@@ -1,0 +1,39 @@
+{
+  "batch_number": 85,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T11:00:00.000Z",
+  "results": [
+    {"id": "5e8aab24-1a16-42b9-8f62-e4d38c70bbfd", "title": "Cannabis and breastfeeding concerns", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - breastfeeding safety concerns"},
+    {"id": "5e8ad3e6-0833-4782-8ad8-86e3f9f46ad0", "title": "CB1 receptor trafficking therapeutic implications", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 mechanism therapeutic"},
+    {"id": "5ede4dbe-b22d-4d99-a982-ba5392b613f1", "title": "MI with synthetic adamantyl-cannabinoid case", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cardiac adverse event"},
+    {"id": "5edeb1d0-a22d-421f-bc66-bae57a3766a9", "title": "IBD pathological mechanisms therapeutic perspectives", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general IBD review"},
+    {"id": "5f020306-3619-48c3-965b-7d58e2c46b17", "title": "THC/CBD cannabis-based medicine MS spasticity RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis MS spasticity RCT"},
+    {"id": "5f0f82e8-1974-40c4-abec-445891fd662b", "title": "CBD liver enzymes exercise", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD athletic safety research"},
+    {"id": "5f42aad0-b1dc-4c03-b591-7751040f5b9e", "title": "Cannabinoids CINV pharmacokinetics review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid CINV therapeutic review"},
+    {"id": "5f68055f-6a98-4090-b133-d3f48a9aae33", "title": "CBD nanoemulsions autism VPA rat model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD autism therapeutic"},
+    {"id": "5f6e6344-812a-4b8b-8f4b-196f7cf5d725", "title": "Suicidality risk cannabis umbrella review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - suicidality epidemiology"},
+    {"id": "5f6ff153-d70f-4729-9b44-a1e70128d42d", "title": "Cannabinoids DNA-damaging agents colorectal cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"},
+    {"id": "5f878907-97c8-4d24-b5c1-925d31088266", "title": "Ziprasidone vs clozapine schizophrenia CUD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - antipsychotics for CUD"},
+    {"id": "5f94caf6-23fe-48a3-8007-5d6113826cc9", "title": "CB2 agonist D4 antagonist binge eating", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 eating disorder therapeutic"},
+    {"id": "5f982415-e9db-4455-99e5-6ac4dee737ed", "title": "CBD HU308 corneal injury hyperalgesia inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD ocular pain/inflammation therapeutic"},
+    {"id": "5f9cf9b6-3678-44e9-b3cf-ce1bf056985c", "title": "Hemp oil agarose oleogels shortbread cookies", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - food science culinary"},
+    {"id": "5fa59070-f8e3-4138-93bb-10f680980ada", "title": "THC CBD antioxidant molecular DFT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD antioxidant mechanism"},
+    {"id": "5fa8dde7-8015-425e-88da-aba7f795da0c", "title": "Cannabinoids opioids IBD treatment review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid IBD therapeutic review"},
+    {"id": "5fab8c21-c380-4968-98a8-e13a94345812", "title": "CBD cannabis sports medicine physician perceptions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD sports medicine survey"},
+    {"id": "5fc3a38e-6091-451c-b9f5-8314070392a4", "title": "CBD pregnancy offspring behavior metabolism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pregnancy safety research"},
+    {"id": "5fc918e0-b921-4fbd-abf5-f8076e27332b", "title": "CB1 antagonist rimonabant wheel running mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 exercise mechanism"},
+    {"id": "5fdb60cc-2ca2-44f3-bc9e-9328f5f1f5e6", "title": "CBD paclitaxel allodynia prevention female mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD chemotherapy neuropathy therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "5e8aab24-1a16-42b9-8f62-e4d38c70bbfd",
+      "5ede4dbe-b22d-4d99-a982-ba5392b613f1",
+      "5edeb1d0-a22d-421f-bc66-bae57a3766a9",
+      "5f6e6344-812a-4b8b-8f4b-196f7cf5d725",
+      "5f878907-97c8-4d24-b5c1-925d31088266",
+      "5f9cf9b6-3678-44e9-b3cf-ce1bf056985c"
+    ]
+  }
+}

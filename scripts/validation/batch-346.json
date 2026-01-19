@@ -1,0 +1,46 @@
+{
+  "batch_number": 346,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T04:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "7edb2290-ed35-4618-9fc9-3edf3738b004", "title": "Chewing Gum as a Delivery System for Cannabidiol: A Commentary", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery system"},
+    {"id": "7ee0b2d4-f009-45fc-a216-1db0e8351c0a", "title": "Un Enfoque Holístico para la Optimización Física: Crossfit y la Regeneración Muscular con Cbd", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD muscle recovery/inflammation therapeutic"},
+    {"id": "7ee6ff73-c6b4-4a7e-8e57-2a03d482b3c8", "title": "Brain Neuroimaging in Cannabis Use: A Review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Harm study correctly rejected"},
+    {"id": "7f0c0239-f474-4221-85dc-58f98ffef52d", "title": "TRAFFIC SPEED-FLOW IN THE SINGAPORE CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "7f0f4a42-ff6c-40c8-a508-31192df7945d", "title": "Anwendung von CBD Pflegecreme und CBD Suppositorien bei vulvovaginaler Atrophie", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic gynecological conditions"},
+    {"id": "7f11ef98-e38a-46fd-9726-1a1f689fd363", "title": "Cannabis is more than simply Δ9-tetrahydrocannabinol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic review"},
+    {"id": "7f264e5a-463a-4841-972b-fe623d3e8b30", "title": "Cannabinoid type-1 receptor blockade restores neurological phenotypes in Down syndrome", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor Down syndrome therapeutic"},
+    {"id": "7f40d48e-cea6-4b1e-93f6-b0833917fd4b", "title": "The antibacterial and antibiofilm role of cannabidiol against periodontopathogenic bacteria", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antimicrobial oral health therapeutic"},
+    {"id": "7f53d64c-8739-4ef7-8758-c2a6c94cf3c4", "title": "The Cannabinoid System as a Potential Novel Target for Alcohol-Associated Liver Disease", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid liver disease therapeutic"},
+    {"id": "7f57f4b0-ff4f-48fe-bf68-a12025a8ae2a", "title": "Comparative study of encapsulated cannabidiol ternary solid dispersions", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug formulation research"},
+    {"id": "7f5a88a0-65ca-4b49-82c6-bf4a05ecaa18", "title": "CBD grown ZnO thin films: Optical and structural analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "7f68c6c1-965e-41ab-8287-baea0824626c", "title": "Association of Physical Activity, Sedentary Behavior, and Cannabis Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "7f80f597-cf8c-4225-91db-5fb5d58eaa55", "title": "Cholecystectomy with ERCP and CBD Stenting", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "7f9f827b-1e1b-4784-8fef-1a2c3548cd36", "title": "Antineoplastic activity of cannabidiol containing products", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD cancer therapeutic"},
+    {"id": "7fa631e4-f4db-4ab7-bb96-eef0716260cc", "title": "A Cross-Sectional and Prospective Comparison of Medicinal Cannabis Users on Self-Reported Health", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis health outcomes research"},
+    {"id": "7fa95e29-49a2-4f6d-8887-df698012ca0c", "title": "Nanostructured Thin Films: Properties, Fabrication and Applications", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "7fcbf34b-f65f-44b5-be2e-06ecce9a3df5", "title": "Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD review/overview"},
+    {"id": "7fcf998b-658d-4cef-96b1-6e8da9296f36", "title": "Inhibition of nitric oxide production in RAW264.7 macrophages by cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid anti-inflammatory mechanism"},
+    {"id": "8002cf41-d2c2-4f43-bc2c-cb79224e1215", "title": "ebA-CBD 명세에 관한 연구", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Component-Based Development) correctly rejected"},
+    {"id": "8003d947-be75-481a-9cf1-012991e78f99", "title": "Biological sex modulates lung injury severity with vitamin E acetate", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 8,
+    "incorrect": 12,
+    "incorrect_ids": [
+      "7edb2290-ed35-4618-9fc9-3edf3738b004",
+      "7ee0b2d4-f009-45fc-a216-1db0e8351c0a",
+      "7f0f4a42-ff6c-40c8-a508-31192df7945d",
+      "7f11ef98-e38a-46fd-9726-1a1f689fd363",
+      "7f264e5a-463a-4841-972b-fe623d3e8b30",
+      "7f40d48e-cea6-4b1e-93f6-b0833917fd4b",
+      "7f53d64c-8739-4ef7-8758-c2a6c94cf3c4",
+      "7f57f4b0-ff4f-48fe-bf68-a12025a8ae2a",
+      "7f9f827b-1e1b-4784-8fef-1a2c3548cd36",
+      "7fa631e4-f4db-4ab7-bb96-eef0716260cc",
+      "7fcbf34b-f65f-44b5-be2e-06ecce9a3df5",
+      "7fcf998b-658d-4cef-96b1-6e8da9296f36"
+    ]
+  }
+}

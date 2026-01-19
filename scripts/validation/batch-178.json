@@ -1,0 +1,37 @@
+{
+  "batch_number": 178,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T10:30:00.000Z",
+  "results": [
+    {"id": "c722d70d-5789-4d22-9020-69463e511240", "title": "Perioperative Dronabinol Total Knee Arthroplasty RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC pain surgery clinical trial"},
+    {"id": "c73dc472-6a25-4b84-9020-0e162e9ff60a", "title": "Perinatal Cannabis Neurodevelopmental Effects Progeny", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - prenatal exposure"},
+    {"id": "c752a58e-e9ad-4bb6-ab93-c9cdfebbc38d", "title": "Metabolic Models CBD Glioma Treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer combination therapy"},
+    {"id": "c755ed13-46b2-4ab9-9272-2d0da7b14235", "title": "Adolescent Cannabis Neurocognitive Function Longitudinal", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - adolescent cognitive decline"},
+    {"id": "c75c2c0f-9957-49a7-9dd6-ffd82dfbc902", "title": "EndoCure Pain Freeze CBD Roll On 750mg", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - product listing"},
+    {"id": "c777686d-4774-4a4f-824c-5798c0ab466e", "title": "GRK3 CB2 Phosphorylation Diabetic Heart Injuries", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 diabetes cardiac mechanism"},
+    {"id": "c78bfdc7-03bf-465c-b450-503e2ff0fe44", "title": "CBD P-gp Rhodamine-123 Efflux Hypoxia Epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy P-gp mechanism"},
+    {"id": "c794afbb-6d59-47c7-ae9b-36fea1b60c4e", "title": "PEG-Chitosan Micelles CBD Colon Cancer Therapy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer drug delivery"},
+    {"id": "c7a58ba2-b6c6-4b59-9b21-768b31861ae9", "title": "Brain CB2 Receptor OUD Treatment Rodents", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 opioid addiction therapeutic"},
+    {"id": "c7b42ded-3d8c-413a-ae16-865c2a614f49", "title": "Cannabinoids Caffeine Double-Blind RCT Crossover", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC CBD caffeine clinical trial"},
+    {"id": "c7b58a8f-2c2c-4081-8ea7-e1dda440a036", "title": "CYP450 Metabolism CBD Drug Safety Implications", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics safety"},
+    {"id": "c7baa343-7451-4964-a428-8f9984546456", "title": "Etoricoxib-CBD Combo Glioblastoma PLGA Nanoparticles", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD glioblastoma combination therapy"},
+    {"id": "c7c628dc-434a-4eaa-945b-a6fd88110e11", "title": "CBD Depressive Behavior Neuroinflammation Female Rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD depression preclinical"},
+    {"id": "c7cb8a93-36fd-4293-a11e-2874cd077d4b", "title": "CBD Insular Activity Psychosis Salience fMRI", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychosis neuroimaging clinical"},
+    {"id": "c7e26513-9b97-4b73-aacc-cc1d808874df", "title": "CBD Neuroprotective Mitochondria Rat Cerebral Cortex", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection mechanism"},
+    {"id": "c7ffc71e-eab0-4271-b25f-e9a4f14318b6", "title": "Huntington's CB1 Receptors Enriched Environment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 Huntington's mechanism"},
+    {"id": "c80ef1a0-e6a1-4e8a-957b-3479cf3929a5", "title": "CBD Potencial Terapêutico Alzheimer Portuguese", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's therapeutic review"},
+    {"id": "c812406c-e969-4a5d-a485-2f6ed82cb9cb", "title": "CB2 Receptors CNS Neurodegenerative Disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 neurodegeneration drug development"},
+    {"id": "c8274440-ad6d-4d90-a72d-db16bfa96d81", "title": "CBD Perceived Effectiveness Women IBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD IBD women therapeutic"},
+    {"id": "c830c6a5-8a9c-4336-9581-e46cc8d119d9", "title": "Naringenin Nicotine Anxiety Depression Rats", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - naringenin flavonoid"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "c73dc472-6a25-4b84-9020-0e162e9ff60a",
+      "c755ed13-46b2-4ab9-9272-2d0da7b14235",
+      "c75c2c0f-9957-49a7-9dd6-ffd82dfbc902",
+      "c830c6a5-8a9c-4336-9581-e46cc8d119d9"
+    ]
+  }
+}

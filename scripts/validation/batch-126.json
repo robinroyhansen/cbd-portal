@@ -1,0 +1,38 @@
+{
+  "batch_number": 126,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T21:15:00.000Z",
+  "results": [
+    {"id": "8b307854-d1b5-415e-af9c-a33d7ea851dc", "title": "Feel Elite CBD Gummies Ingredients", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - marketing with benzinga link"},
+    {"id": "8b30bb89-82b3-493b-9411-fc3251873e20", "title": "Methylmalonic Acidemia Metabolic Toxicity", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - metabolic disorder"},
+    {"id": "8b318681-4220-4113-9274-1d9912f47d2e", "title": "Chronic Ethanol Cannabinoid Receptors Brain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor mechanism"},
+    {"id": "8b3aa558-33ba-46cc-a09f-5e48aaf7cb84", "title": "Cannabis Psychosocial Adjustment Adolescence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - youth crime depression suicide"},
+    {"id": "8b3c069f-013d-4fb6-9dd8-e472807ecbab", "title": "CBC Th2 Cytokine Atopic Dermatitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid dermatology therapeutic"},
+    {"id": "8b432ef2-b8b4-4c64-afc7-a65e42e00e75", "title": "CBD P-gp BCRP Trophoblast Placenta", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pregnancy safety mechanism"},
+    {"id": "8b4cde12-b80b-473b-83dc-ff3838bb5cd6", "title": "CBD MK-801 Cognitive Schizophrenia Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia therapeutic"},
+    {"id": "8b6817fc-b8b5-464c-9a27-3dcc72f54b9c", "title": "Cannabinoid Receptor Ligands Psychosis Rat", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid psychosis mechanism"},
+    {"id": "8b69f461-0610-4243-98b4-5dbb36bde869", "title": "Neuroinflammation Methamphetamine Therapeutic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Therapeutic neuroinflammation"},
+    {"id": "8b916f9e-f860-449e-91e4-de32721c1dd8", "title": "Cannabis Head Neck Cancer Case-Control", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer safety no increased risk"},
+    {"id": "8b918171-44e5-4527-91a0-49cfd0d7717d", "title": "Medical Cannabis Values Preferences Chronic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic preferences"},
+    {"id": "8b98ad6e-ecdf-49d7-978c-c487578a7223", "title": "Medicinal Cannabis Liver Enzymes Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer safety"},
+    {"id": "8b9d2bc5-e3c3-4824-bf1a-605ade886cb5", "title": "Attention Biases Opioid Cannabis Stimulant SUD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD - attention biases addiction research"},
+    {"id": "8b9d4510-3408-4192-a9a8-ca1aa297b442", "title": "Cannabinoids Cancer Immune Checkpoint", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer therapeutic"},
+    {"id": "8ba6ae8d-b836-46d7-9558-34df45434bbc", "title": "Cannabinoid Receptor Focal Ischemic Stroke Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid stroke therapeutic review"},
+    {"id": "8bc6a66b-cc41-4bf8-b08c-5ccbf26258e6", "title": "Sativex Cannabis Cancer Pain Long-term Safety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cancer pain safety"},
+    {"id": "8bc9b76b-b778-4ae4-b896-0582261cd5c6", "title": "Art Therapy Cancer Pain Scoping Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - art therapy"},
+    {"id": "8bd545b0-153c-4ee6-a491-8004306e8f99", "title": "CBD NFKB Tumor Suppressor Glioblastoma", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cancer therapeutic"},
+    {"id": "8bd64e79-0ebf-4e99-b3b3-36797828938d", "title": "Oral Cannabinoids Chronic Pain Pilot RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis pain therapeutic RCT"},
+    {"id": "8beefafb-c052-4fbe-9082-f7154fd4094b", "title": "CBD Cardiac Dysfunction Doxorubicin Cardiomyopathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardiovascular chemo therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "8b307854-d1b5-415e-af9c-a33d7ea851dc",
+      "8b30bb89-82b3-493b-9411-fc3251873e20",
+      "8b3aa558-33ba-46cc-a09f-5e48aaf7cb84",
+      "8b9d2bc5-e3c3-4824-bf1a-605ade886cb5",
+      "8bc9b76b-b778-4ae4-b896-0582261cd5c6"
+    ]
+  }
+}

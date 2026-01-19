@@ -1,0 +1,43 @@
+{
+  "batch_number": 190,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T13:30:00.000Z",
+  "results": [
+    {"id": "d33c1581-8486-456d-9046-dbfb410099ba", "title": "Neuroimaging Recreational Drug Use Emergency", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - drug toxicity imaging patterns"},
+    {"id": "d35392ee-97ce-47e3-8d5c-e560214d124c", "title": "CBD Cannabis Hippocampal Seizure Discharges", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy mechanism"},
+    {"id": "d35c6410-4d09-4eb5-a8c6-60506f158d95", "title": "Alzheimer's Imaging Plasma Biomarkers", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - AD biomarkers only"},
+    {"id": "d36616f7-d061-45cc-b2e8-6ccfa719d5b8", "title": "COMT Cannabinoid Schizophrenia Phenotypes", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cannabis psychosis gene-environment"},
+    {"id": "d37438e6-07d6-4829-aae1-1082a8e2beb2", "title": "Cannabis Use Risk Reduction CUD Outcome", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - outcome methodology"},
+    {"id": "d3918042-d6e5-455a-8db7-6c652643c13a", "title": "Cannabinoids Allergen Airway Inflammation Murine", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid airway therapeutic"},
+    {"id": "d3ab1cac-e1f7-4e6f-9022-75132609eb3d", "title": "Journey Through Cannabis Use Psychosis Qualitative", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - qualitative use study"},
+    {"id": "d3ae89e0-696a-4868-99e8-0f13f7d67085", "title": "Cannabinoid Receptors Neuroinflammatory Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS neurodegenerative review"},
+    {"id": "d3b6d57c-2cbb-46f2-b7aa-328517ef3796", "title": "CBD Type 1 IFN Inflammation HIV", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD HIV immunomodulation"},
+    {"id": "d3c9f423-3647-4dac-befa-f3ea861d8e14", "title": "CBD CBG Neuroprotective 5-HT1A Comparison", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/CBG neuroprotection mechanism"},
+    {"id": "d3cb5bba-3b96-4c46-bce9-d913c40adc2c", "title": "CBT Interventions Cannabis Use Disorder RCT", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - CBT not cannabinoid"},
+    {"id": "d3d7f69a-63c7-4eba-bafe-eb7f3a30b4d0", "title": "Chronic Cannabis Compassionate IND Program", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Medical cannabis long-term outcomes"},
+    {"id": "d3e0968a-05d6-4cfe-8bee-50372062068c", "title": "Corrigendum CBD Dental Pain", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - correction notice"},
+    {"id": "d3e8f3e2-d7eb-4aa6-a757-b42cb3e1fd78", "title": "Insomnia Cannabis PBS Hazardous Use College", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - use patterns sleep"},
+    {"id": "d3ec1877-2d23-4f0d-806f-0325f4dce2a7", "title": "Cannabinoids Gastrointestinal Diseases Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid GI therapeutic review"},
+    {"id": "d3facd8e-d339-4639-9cc7-9285ac73ed7f", "title": "Genetic Polymorphisms Fibromyalgia Women", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - fibromyalgia genetics only"},
+    {"id": "d3fe46c8-5bcd-4efa-8cc7-6482386469fa", "title": "Cannabinoids Pharmacotherapies Neuropathic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain therapeutic"},
+    {"id": "d404f572-85ff-43fc-a062-b0a6ff8c3ff7", "title": "Cannabinoid Signaling Autophagy Oral Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid oral disease mechanism"},
+    {"id": "d4105ddf-7ee5-46f5-bf6b-f6e4515ed507", "title": "Stimulant Medicinal Cannabis Psychosis Service", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - prescribing patterns psychosis"},
+    {"id": "d410bd2d-d17a-48df-b331-1dfb4a22069c", "title": "CBD Modulator Human Hair Growth", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD dermatological research"}
+  ],
+  "batch_summary": {
+    "correct": 10,
+    "incorrect": 10,
+    "incorrect_ids": [
+      "d33c1581-8486-456d-9046-dbfb410099ba",
+      "d35c6410-4d09-4eb5-a8c6-60506f158d95",
+      "d36616f7-d061-45cc-b2e8-6ccfa719d5b8",
+      "d37438e6-07d6-4829-aae1-1082a8e2beb2",
+      "d3ab1cac-e1f7-4e6f-9022-75132609eb3d",
+      "d3cb5bba-3b96-4c46-bce9-d913c40adc2c",
+      "d3e0968a-05d6-4cfe-8bee-50372062068c",
+      "d3e8f3e2-d7eb-4aa6-a757-b42cb3e1fd78",
+      "d3facd8e-d339-4639-9cc7-9285ac73ed7f",
+      "d4105ddf-7ee5-46f5-bf6b-f6e4515ed507"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "batch_number": 281,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T12:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "3632bc2e-49a7-4b73-bbc3-45932ef52049", "title": "Laser-Induced Ablation of Hemp Seed-Derived Biomaterials for Transdermal Drug Delivery.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Hemp biomaterials correctly rejected"},
+    {"id": "363e8d11-72ab-41ba-afb6-a4424ed9bc83", "title": "The proof is in the pudding: patient engagement in studying cannabidiol in mild cognitive impairment", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD for MCI"},
+    {"id": "366ab24d-3898-4bc0-bdca-935ce17fede6", "title": "Study on Planting Design for Winter in CBD of Zhengdong New District", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "36811cd7-a41d-4387-9baf-cb9fdb150c8e", "title": "Growth and characterization of EDTA assisted CBD-CdS", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "368ff5fb-7bc3-41b2-a753-4348f0400877", "title": "A cautionary tale of paradox and false positives in cannabidiol research.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Methodology/editorial correctly rejected"},
+    {"id": "36933070-abb2-44eb-aa73-950c941279e7", "title": "Activating Parabrachial Cannabinoid CB 1 Receptors Selectively Stimulates Feeding of Palatable Foods in Rats", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 feeding mechanism"},
+    {"id": "36a812e2-8913-498d-a553-e61d66377239", "title": "Utilization of Cannabidiol in Post-Organ-Transplant Care", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD transplant therapeutic"},
+    {"id": "36aabf06-494a-41f2-83b5-357053253442", "title": "Validation of an ELISA Synthetic Cannabinoids Urine Assay", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "36b3fb82-0633-4f9a-a209-533a35869862", "title": "Enantiomeric characteristics of non-synthetic cannabidiol by two-dimensional nuclear magnetic resonance", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Analytical chemistry correctly rejected"},
+    {"id": "36caf095-a064-4440-a4a4-7f22e92603fb", "title": "Pelican CBD + Male Enhancement Gummies Reviews (NEW 2022!) REAL or HOAX? Pelican Male Enhancement Gummies", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "36d1809d-3611-4b89-9e13-7a3b0e4e14c2", "title": "Developing a real-world evidence base for prescribed cannabis in the United Kingdom: preliminary findings from Project Twenty21", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis real-world evidence"},
+    {"id": "36dfbb8d-1ae8-4343-9f73-81786759d917", "title": "Similarities and differences upon binding of naturally occurring Δ9-tetrahydrocannabinol-derivatives to cannabinoid CB1 and CB2 receptors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor pharmacology"},
+    {"id": "36e7a2ef-d04a-4c03-bcd7-8483964df1c6", "title": "Cannabidiol can affect morphology, morphometry, enzymatic and microbial activity of rabbit digestive system.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "36e9b1e1-3e7f-4079-ad43-a32265462698", "title": "Post cholecystectomy cystic duct stump and CBD stones", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "36eb4610-ea3d-4865-a520-753ee847f31e", "title": "Validation of Large White Pig as an animal model for the study of cannabinoids metabolism: Application to the study of THC distribution in tissues", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Methodology correctly rejected"},
+    {"id": "36fdcfa9-bedd-4f0f-86f6-3cc1e4b9b28e", "title": "The (endo)cannabinoid signaling in female reproduction: What are the latest advances?", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid mechanism review"},
+    {"id": "370ecd5e-4eed-4b06-8c3a-5335f52466eb", "title": "Influence of cannabidiol on delta‐9‐tetrahydrocannabinol effects", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC human pharmacology"},
+    {"id": "375470b3-9c6a-43d7-a2eb-eedc615ae764", "title": "Trends in US adolescent use of vaping and flavored solutions for marijuana consumption, 2021–2024", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "3756cd90-a0af-4d7f-9904-b9ef84dc38e6", "title": "The association between distress tolerance and cannabis use-related problems: The mediating and moderating roles of coping motives and gender", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD/use patterns correctly rejected"},
+    {"id": "375f8ab1-9a94-401a-ad74-055804b8d51f", "title": "Characteristics of trauma patients involved in motor vehicle collisions before and after legalization of medical marijuana in Pennsylvania.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/epidemiology correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "363e8d11-72ab-41ba-afb6-a4424ed9bc83",
+      "36933070-abb2-44eb-aa73-950c941279e7",
+      "36a812e2-8913-498d-a553-e61d66377239",
+      "36d1809d-3611-4b89-9e13-7a3b0e4e14c2",
+      "36dfbb8d-1ae8-4343-9f73-81786759d917",
+      "36fdcfa9-bedd-4f0f-86f6-3cc1e4b9b28e",
+      "370ecd5e-4eed-4b06-8c3a-5335f52466eb"
+    ]
+  }
+}

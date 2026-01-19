@@ -1,0 +1,40 @@
+{
+  "batch_number": 460,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T07:25:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "fc85f2c9-30fe-4bff-8d02-d48ed460f0e2", "title": "Longer chronic cannabis use in humans is associated with impaired implicit motor learning and supranormal resting state cortical activity.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "fc8d73da-40f5-4024-b604-a8ab325d12a8", "title": "Tetrahydrocannabinol Intoxication from Food at a Restaurant - Wisconsin, October 2024.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "THC poisoning correctly rejected"},
+    {"id": "fcb33f45-1f35-45e9-87b2-c26a6b9e28c5", "title": "Mechanism of Action of Zinc Oxide Nanoparticles as an Antibacterial Agent Against Streptococcus mutans", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "fcd75e4c-2804-4227-9b70-afc81a90019c", "title": "Will synthetic CBD have a place in dietary supplements", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correctly rejected"},
+    {"id": "fcf82f38-83f5-4a17-ae1e-be9fe9f65721", "title": "Detection and Quantification of Latent Infection by Fusarium graminearum, Causal Agent of Fusarium Head Blight on Hemp (Cannabis sativa) Fields in Kentucky.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "fd05912e-3c38-4011-915e-e405074a8e6b", "title": "Should Oncologists Recommend Cannabis?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial correctly rejected"},
+    {"id": "fd49b5f6-7fae-466d-b4dd-86b0793f589c", "title": "The nonpsychoactive component of marijuana cannabidiol modulates chemotaxis and IL-10 and IL-12 production of murine macrophages both in vivo and in vitro", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD immunomodulation mechanism research"},
+    {"id": "fd4dd16a-7478-4ac7-9a51-0c5ca64f8368", "title": "The association between physical availability of cannabis retail outlets and frequent cannabis use and related health harms: a systematic review", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/policy correctly rejected"},
+    {"id": "fd4edd96-dfab-429f-a6d6-4d98b8368bc8", "title": "Cannabis and alcohol – a close friendship", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "General substance use correctly rejected"},
+    {"id": "fd6710e1-37b4-40f0-acce-91aea1128820", "title": "Enzymatic synthesis and degradation of anandamide, a cannabinoid receptor agonist", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS anandamide mechanism research"},
+    {"id": "fd7c4226-d3ff-40f1-a159-5c796eb982e2", "title": "A Key Agonist-induced Conformational Change in the Cannabinoid Receptor CB1 Is Blocked by the Allosteric Ligand Org 27569", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 allosteric mechanism research"},
+    {"id": "fd86075a-2883-49f4-8011-111bd02d5a31", "title": "Beyond clinical trials: Extending the role of the clinical research nurse into social care and homeless research", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "fd868709-a282-43b8-abb0-642392bfbea2", "title": "P.1.g.022 Opposite effects of THC and CBD on auditory mismatch negativity: a randomised controlled trial of acute cannabinoid administration", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC/CBD clinical trial"},
+    {"id": "fd8c8de1-9001-4e3c-95d3-04c20a5799a1", "title": "Rural reticence to inform physicians of cannabis use.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "fd97a560-8f3d-419f-a6c8-ff65f85a09bb", "title": "CBD /Hemp Processing: Challenges and Opportunities for Innovation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industry/processing correctly rejected"},
+    {"id": "fda78d72-cc11-4efb-8d53-ea44e9fe2264", "title": "3D-Printed Alginate-Chitosan Hydrogel Loaded with Cannabidiol as a Platform for Drug Delivery: Design and Mechanistic Characterization.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery research"},
+    {"id": "fdb61248-9334-4482-97b2-4d395bd5021a", "title": "Detrimental psychophysiological effects of early maternal deprivation in adolescent and adult rodents: Altered responses to cannabinoid exposure", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "fdb944b6-15be-4fac-9beb-8c3aef88f688", "title": "Changes in urban and rural cigarette smoking and cannabis use from 2007 to 2017 in adults in the United States", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "fdbe2724-eb1a-4a11-bcfe-05bbbbecf32b", "title": "Cannabis-intoxicated patients with small burns require more opioid analgesics in the acute hospitalization period.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Clinical data correctly rejected"},
+    {"id": "fdcc70c7-8256-47d7-9259-f2a4ca2f54f2", "title": "Relative involvement of cannabinoid CB1 and CB2 receptors in the Δ9-tetrahydrocannabinol-induced inhibition of natural killer activity", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1/CB2 immune mechanism research"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "fd49b5f6-7fae-466d-b4dd-86b0793f589c",
+      "fd6710e1-37b4-40f0-acce-91aea1128820",
+      "fd7c4226-d3ff-40f1-a159-5c796eb982e2",
+      "fd868709-a282-43b8-abb0-642392bfbea2",
+      "fda78d72-cc11-4efb-8d53-ea44e9fe2264",
+      "fdcc70c7-8256-47d7-9259-f2a4ca2f54f2"
+    ]
+  }
+}

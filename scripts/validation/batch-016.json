@@ -1,0 +1,39 @@
+{
+  "batch_number": 16,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T17:30:00.000Z",
+  "results": [
+    {"id": "138a4327-d35d-4f4e-9c9e-a8f6e5e6641a", "title": "Effect of Exercise, Endocannabinoids and Ketones on Cerebral Metabolism in Cognitive Disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid research"},
+    {"id": "1394fc3a-b3cd-445e-9ff5-d395b87e7546", "title": "Anti-seizure Medications and Bleeding Disorders: A Review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "ASMs and bleeding - no cannabinoid content"},
+    {"id": "13a185c6-a177-4ce7-aa7c-5b9d66fc8951", "title": "Cannabis-based medicines...pharmacokinetic studies of THC and CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid PK"},
+    {"id": "13b3798a-2a5d-46f5-8d27-8b6d33d61152", "title": "Cannabidiol-Loaded Lipid-Stabilized Nanoparticles Alleviate Psoriasis Severity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for psoriasis"},
+    {"id": "13c2ec08-0c29-4824-9138-f24769e10d69", "title": "Women veterans and risk of illicit substance use and use disorders", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Prevalence study - drug use patterns"},
+    {"id": "13d871ac-3fab-45f9-9259-d44fbe587f0a", "title": "The role of cannabidiol oil in schizophrenia treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for schizophrenia"},
+    {"id": "13d97a32-e494-4b20-b755-cbd03c00dbe4", "title": "The Interplay Between CB2 and NMDA Receptors in Parkinson's Disease", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 for Parkinson's"},
+    {"id": "1414c561-876a-4753-a0cd-5a40ae6b231f", "title": "Delta-8-THC Attenuates Collagen-Induced Arthritic Inflammation and Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Delta-8 THC for arthritis"},
+    {"id": "1418f560-2b82-4f0b-8c4b-77751c04e866", "title": "Association of Semaglutide With Tobacco Use Disorder in Type 2 Diabetes", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "About semaglutide (GLP-1) - no cannabinoid"},
+    {"id": "14207a7e-19ce-4f8e-8933-1e3cf39f2572", "title": "Cannabidiol in the dorsal hippocampus attenuates emotional and cognitive impairments related to neuropathic pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for neuropathic pain"},
+    {"id": "1420c069-e3bf-4cb8-9c4e-25e058db2a94", "title": "Cannabinoid receptor mediated inhibition of excitatory synaptic transmission", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB receptor research"},
+    {"id": "1420ce13-d2a7-424d-8b8b-bbab9c59e392", "title": "Therapeutic Opportunities for Cannabinoid Receptor Modulation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB receptor therapeutic review"},
+    {"id": "142ada58-2d79-4bda-8972-8cb2a9943fd7", "title": "Mitochondrial Dysfunction in the Cardiovascular Disease Continuum", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Mitochondria in heart disease - no cannabinoid"},
+    {"id": "1432c477-2fd2-4f8c-951b-89eb50db35b0", "title": "Biogas Valorization of Cannabis sativa L. Residues", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Agriculture/biofuel - hemp for biogas, not health research"},
+    {"id": "1459b18b-6bb0-4bbc-90d4-1de78cbc1ffd", "title": "Oral bioavailability of the novel cannabinoid CB1 antagonist AM6527", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 antagonist PK"},
+    {"id": "145c8627-381c-416a-a3c5-7c5d1150db43", "title": "Effect of cannabidiol on the dorsal raphe nucleus serotonergic neurons", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD mechanism"},
+    {"id": "14833107-524f-4c57-a968-3c1c9e36a550", "title": "Bioavailability and Skin Absorption of CBD and THC From GT4 Technology", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC transdermal PK"},
+    {"id": "148f51ed-995b-4efc-9bc4-2dd0040b37b3", "title": "Cannabidiol modulation of ion channels and neuronal excitability", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD mechanism"},
+    {"id": "148fdaff-92af-4e4f-8d51-f9a665538ffb", "title": "The Effects of Cannabidiol (CBD) Cream on Delayed Onset Muscle Soreness", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for DOMS"},
+    {"id": "1493995c-e617-4e70-bc3d-0e3d30f8517f", "title": "2024 Clinical Practice Guidelines for Overweight and Obesity by the Korean Society", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Obesity guidelines - no cannabinoid content"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "1394fc3a-b3cd-445e-9ff5-d395b87e7546",
+      "13c2ec08-0c29-4824-9138-f24769e10d69",
+      "1418f560-2b82-4f0b-8c4b-77751c04e866",
+      "142ada58-2d79-4bda-8972-8cb2a9943fd7",
+      "1432c477-2fd2-4f8c-951b-89eb50db35b0",
+      "1493995c-e617-4e70-bc3d-0e3d30f8517f"
+    ]
+  }
+}

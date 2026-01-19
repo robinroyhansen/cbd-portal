@@ -1,0 +1,40 @@
+{
+  "batch_number": 434,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T02:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "e04a84be-524d-43a6-b6a7-069c4cf9de25", "title": "A Multicenter, Double-blind, Placebo-controlled, Randomized, Parallel-group, Phase 2b Study in Treatment-seeking Patients With Cannabis Use Disorder to Assess the Efficacy, Safety, and Tolerability of AEF0117 in Reducing Cannabis Use", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "e05fe4c1-5422-437e-9969-4b5fb6c4edcc", "title": "Intoxication due to Δ9-tetrahydrocannabinol is characterized by disrupted prefrontal cortex activity.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "e0608c2d-24fe-4cc7-ac19-5227bb03afe6", "title": "Intervening without investing: the discreet but structuring disengagement of the State in agro-environmental and cannabis legalization policies in Canada", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "e0997fc6-18c5-4b7f-9e12-ac6e416604a2", "title": "Oral cannabidiol increases thermal threshold in horses without physiologic adverse effects.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "e09b991f-5115-4431-8911-2da3837cd4f7", "title": "Cannabis Pharmacogenomics: A Path to Personalized Medicine", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis pharmacogenomics research"},
+    {"id": "e0a0978f-359d-406f-ae9f-5f9c072668a1", "title": "From Structure to Optics: The pH-Temperature Interplay in Aqueous Solution CdS Nanoparticles", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "e0ab75ea-df8a-4a0b-8eb1-dae71ec2c3e8", "title": "The Relationship between Bipolar Disorder and Cannabis Use in Daily Life: An Experience Sampling Study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis psychiatric harm correctly rejected"},
+    {"id": "e0b4dd0a-d99a-4119-a5b6-0b518b73bb0f", "title": "Characterization of Peripheral Human Cannabinoid Receptor (hCB2) Expression and Pharmacology Using a Novel Radioligand, [35S]Sch225336", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor expression/pharmacology research"},
+    {"id": "e0bb265e-28cc-4fb3-aab4-456d6fd50ce1", "title": "Modulation of paraoxon toxicity by the cannabinoid receptor agonist WIN 55,212-2", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid protective effect research"},
+    {"id": "e0d1012b-b410-48de-8f71-b2439fdef57d", "title": "Hemangioma as a Primary Manifestation of POEMS Syndrome.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "e0da9815-7229-4346-b21e-1e66de1d3923", "title": "562 Development of an online Case Based Discussion (CBD) group for health professionals in Nepal as part of the NNEPCP programme", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Case Based Discussion) correctly rejected"},
+    {"id": "e0de721b-3eb8-41bf-b90b-cc4c559343a6", "title": "Cannabidiol and Serum Antiepileptic Drug Levels: The ABCs of CBD with AEDs", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug interaction research"},
+    {"id": "e0dea780-b004-439e-8a26-3db1e61c5d65", "title": "Non-linear plasma protein binding of cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD pharmacokinetics research"},
+    {"id": "e0ded496-2e95-403d-9189-e02cd41972a1", "title": "TDP-43-proteinopathy at the crossroads of tauopathy: on copathology and current and prospective biomarkers", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "e0df7bc7-c87b-40aa-9ad8-ab9faa85ed98", "title": "The response of terpenoids to exogenous gibberellic acid in Cannabis sativa L. at vegetative stage", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "e0e68b5d-0deb-43ed-850e-10a53d29d0a2", "title": "Elaboration de couches minces de ZnSe dopée cobalt par CBD.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "e0fc01ae-c8c1-451e-9961-59ea0a43edc9", "title": "The effect of Δ9-tetrahydrocannabinol, cannabidiol, menthol and propofol on 5-hydroxytryptamine type 3 eeceptors--a computational approach", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research"},
+    {"id": "e1243c1b-ce6d-41c9-b1eb-38b2e99cacbd", "title": "Orbitofrontal cortex volume prospectively predicts cannabis and other substance use onset in adolescents", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns/risk prediction correctly rejected"},
+    {"id": "e12519b7-25cd-47e4-a6c8-b10e235675d1", "title": "Thermal transformation of CBD, CBDA, and Δ(9)-THC during e-cigarette vaping: Identification of conversion products by GC-MS.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Chemistry/product analysis correctly rejected"},
+    {"id": "e127fc07-dc03-4368-bd2b-eee395ea024b", "title": "Cannabis Use Patterns and Blood Profiles in Adolescent Cannabinoid Hyperemesis Syndrome.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "e09b991f-5115-4431-8911-2da3837cd4f7",
+      "e0b4dd0a-d99a-4119-a5b6-0b518b73bb0f",
+      "e0bb265e-28cc-4fb3-aab4-456d6fd50ce1",
+      "e0de721b-3eb8-41bf-b90b-cc4c559343a6",
+      "e0dea780-b004-439e-8a26-3db1e61c5d65",
+      "e0fc01ae-c8c1-451e-9961-59ea0a43edc9"
+    ]
+  }
+}

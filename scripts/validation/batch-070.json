@@ -1,0 +1,36 @@
+{
+  "batch_number": 70,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T07:15:00.000Z",
+  "results": [
+    {"id": "4cd5f279-f390-4867-bf05-3659d4fd3ac2", "title": "Comparative diuretic activity of delta9-tetrahydrocannabinol, cannabidiol, cannabinol and hydrochlorothiazide in the rat.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid diuretic mechanism research"},
+    {"id": "4ce25efc-0ff7-43e4-8330-29219e832a70", "title": "Effects of cannabidiol on fear conditioning in anxiety disorders: decreased threat expectation during retention, but no enhanced fear re-extinction", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety fear conditioning therapeutic"},
+    {"id": "4cf11f1c-8b5e-4aac-9524-c3091572b555", "title": "Strategies for enhancing the oral bioavailability of cannabinoids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid bioavailability/delivery"},
+    {"id": "4cf82bf2-37fa-44a4-a60a-cd8f850bfc32", "title": "Lennox-Gastaut Syndrome: Cannabidiol Treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Lennox-Gastaut epilepsy therapeutic"},
+    {"id": "4cffe278-802c-4b51-a1cd-3c97eb14809f", "title": "[#Exposed] Animale CBD Gummies UK What Is The Real Price On Official Website!", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING - Animale CBD Gummies"},
+    {"id": "4d1610bc-db6a-4b6a-958a-aa7d9766844f", "title": "Pharmacological and pharmacokinetic characterization of the cannabinoid receptor 2 agonist, GW405833, utilizing rodent models of acute and chronic pain, anxiety, ataxia and catalepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 agonist pain/anxiety therapeutic"},
+    {"id": "4d230c8f-c4a1-4f68-80ec-a9219a527735", "title": "Opioid-Sparing Effect of Cannabinoids: A Systematic Review and Meta-Analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid opioid-sparing meta-analysis"},
+    {"id": "4d2b6f2b-cf26-49a0-a330-d30cb9df62df", "title": "Cytotoxicity of natural and synthetic cannabinoids and their synergistic antiproliferative effects with cisplatin in human ovarian cancer cells.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid ovarian cancer therapeutic"},
+    {"id": "4d2d350a-a40f-4aa7-8e9e-1c7481ccdc14", "title": "Nanomaterials-Based Electrochemical Δ9-THC and CBD Sensors for Chronic Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD sensor development for therapeutic monitoring"},
+    {"id": "4d309348-f885-4fc0-97fc-6dedf61759f9", "title": "Mecanismos de ação do CBD e THC em terapias complementares no tratamento antitumoral", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC cancer therapeutic (Portuguese)"},
+    {"id": "4d348d4a-7a06-485f-8ba5-20558f24ebb2", "title": "Cannabinoids in the Treatment of Back Pain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid back pain therapeutic review"},
+    {"id": "4d4231e5-47fd-42f9-adc8-daea4efa7207", "title": "Cannabinoids, Endocannabinoids, and Related Analogs in Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid inflammation therapeutic"},
+    {"id": "4d4a7eae-f17c-4ee7-b4d4-5d29ae77002d", "title": "Cannabidiol inhibits synaptic transmission in rat hippocampal cultures and slices via multiple receptor pathways", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD synaptic transmission mechanism"},
+    {"id": "4d4f1207-def4-44e9-b9f4-a293b334988c", "title": "Cannabinoid regulation in identified synapse of terrestrial snail", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid synapse plasticity mechanism"},
+    {"id": "4d57d3be-1591-4fb0-a3ce-7d434ad5d57f", "title": "CBD for the treatment of positive and negative symptoms in schizophrenia spectrum disorders - A systematic review and meta-analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD schizophrenia therapeutic meta-analysis"},
+    {"id": "4d7eb625-8d5a-4740-8707-7177c0b69e83", "title": "5. Facilitating Positive Health Behaviors and Well-being to Improve Health Outcomes: Standards of Care in Diabetes—2025", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - diabetes care standards"},
+    {"id": "4d861967-e91e-4706-8b98-565c0bc323ef", "title": "Cannabidiol attenuates mechanical allodynia in streptozotocin-induced diabetic rats via serotonergic system activation through 5-HT1A receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD diabetic neuropathy therapeutic"},
+    {"id": "4d861f4a-3b49-4a3a-b421-a6c0c49c03ec", "title": "Postconditioning of AM-1241 mitigates myocardial ischemia-reperfusion injury via modulation of inflammatory, fibrosis, apoptotic and autophagy pathway in rats.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 agonist AM-1241 cardiac therapeutic"},
+    {"id": "4d8975f2-f06a-47b1-871d-0e454a53bc09", "title": "Interacting binding insights and conformational consequences of the differential activity of cannabidiol with two endocannabinoid-activated G-protein-coupled receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD GPR55/CB1 receptor mechanism"},
+    {"id": "4da91a5d-ef4c-4d91-85ca-d5d9cb0903ef", "title": "Pharmacotherapy for Cannabis Use Disorder: Preclinical and Clinical Models", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - cannabis dependence pharmacotherapy"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "4cffe278-802c-4b51-a1cd-3c97eb14809f",
+      "4d7eb625-8d5a-4740-8707-7177c0b69e83",
+      "4da91a5d-ef4c-4d91-85ca-d5d9cb0903ef"
+    ]
+  }
+}

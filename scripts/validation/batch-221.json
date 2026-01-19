@@ -1,0 +1,38 @@
+{
+  "batch_number": 221,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T21:15:00.000Z",
+  "results": [
+    {"id": "f499b0e3-d4d2-48fe-9a4c-ad98e36afa64", "title": "CBD Epidiolex CDKL5 Aicardi Dup15q Doose", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD rare epilepsy syndromes therapeutic"},
+    {"id": "f4a93b8c-4fba-4b1a-9319-ae599673a643", "title": "Cannabinoid Autism RCT Proof-of-concept", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid autism therapeutic RCT"},
+    {"id": "f4b30c82-fa64-4a70-ac4f-80e3af77c168", "title": "Cannabis Sleep Dosing Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis sleep therapeutic review"},
+    {"id": "f4cbb36e-b51b-435c-a22a-ccdc30a45756", "title": "CBD Hemp Oil Facial Cream Acne", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD dermatology therapeutic"},
+    {"id": "f50061a3-7440-45ab-9a82-03b2e6219483", "title": "Cannabinoids Immune Cytokine Network", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid immunology therapeutic review"},
+    {"id": "f50b11f3-e99c-456b-9918-02cc10013fdd", "title": "Weight Loss Agents.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - generic topic title"},
+    {"id": "f5129248-0f1e-4674-a5dc-bcdbd4731a47", "title": "CBD Pain Pharmacology Mechanism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic review"},
+    {"id": "f51645d2-e8eb-4ae4-b2c9-082b2249e64f", "title": "Sex Cannabis Motivations Young Adults", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use patterns sociology"},
+    {"id": "f51f0676-5461-44ee-842b-3d39349dbae1", "title": "Cannabinoids CBD THC Medical Use ROS", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid therapeutic review"},
+    {"id": "f525d1c4-558d-4980-bb36-6f6501cab9be", "title": "Endocannabinoid PTSD Fear Anxiety", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid PTSD therapeutic mechanism"},
+    {"id": "f533a2f9-b8ff-4977-9c0b-2a1c1caf4885", "title": "Cannabis Sleep Disorders Therapeutic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis sleep therapeutic review"},
+    {"id": "f554e9f3-2eef-466a-baf8-e19b8f5928cc", "title": "Natures One CBD Gummies Reviews", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM - CBD gummies advertisement"},
+    {"id": "f5699b64-2045-49c1-815a-dd610151be91", "title": "THC CBD Toxicological Properties", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD toxicology safety review"},
+    {"id": "f5717fef-2ea4-4a05-b28a-3abface7a401", "title": "Gestational Stress Neuroimmune Rats", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general stress study"},
+    {"id": "f572023e-b8cb-4dd4-a3ed-306a8e8fa8d3", "title": "CBD Liposome Encapsulation Biocompatibility", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmaceutical development"},
+    {"id": "f58017e4-aef4-409b-bd58-f7c705c61ea1", "title": "CBD Knee Osteoarthritis CANOA RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD arthritis therapeutic RCT"},
+    {"id": "f594ac45-eadc-4233-b87f-82f5b3bcfc31", "title": "CBD TSC Seizures GWPCARE6 OLE", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD TSC epilepsy therapeutic"},
+    {"id": "f5952d19-11a8-4bff-b372-69c6932551e4", "title": "Heart Failure Coronary Ligation Mice", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - cardiac injury model"},
+    {"id": "f5a1dd65-7deb-468b-b8e4-59d699557a34", "title": "CBD Hemp Emollient Cream Skin Hydration", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD dermatology therapeutic"},
+    {"id": "f5fc073d-e20e-4fb4-9f57-fae1faaa6e9a", "title": "CBD Supplement Sleep Mood Adults", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD sleep therapeutic"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "f50b11f3-e99c-456b-9918-02cc10013fdd",
+      "f51645d2-e8eb-4ae4-b2c9-082b2249e64f",
+      "f554e9f3-2eef-466a-baf8-e19b8f5928cc",
+      "f5717fef-2ea4-4a05-b28a-3abface7a401",
+      "f5952d19-11a8-4bff-b372-69c6932551e4"
+    ]
+  }
+}

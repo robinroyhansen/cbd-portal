@@ -1,0 +1,42 @@
+{
+  "batch_number": 327,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T23:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "68be3e63-d3e6-4150-876e-b00e46154e48", "title": "Crystal Structure of the Human Cannabinoid Receptor CB2", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor crystal structure"},
+    {"id": "68d6088e-5f5d-476a-80be-e26bf86416cd", "title": "UNABIS Passion CBD Gummies Rated # 1Male Formula Enhances Sex Drive & Increased Libido!", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "68d7ae85-5cdc-4f80-9a28-d11d01e8971f", "title": "Novel, Not Adenylyl Cyclase-Coupled Cannabinoid Binding Site in Cerebellum of Mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - novel cannabinoid binding site discovery"},
+    {"id": "68e1701e-d3c7-414d-a400-f5cb663e3e02", "title": "An age–period–cohort analysis of cannabis use prevalence and frequency in Germany, 1990–2009", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Epidemiology correctly rejected"},
+    {"id": "691c612c-d9bc-41b4-827e-a307570889fc", "title": "An Empirical Analysis of Pedestrian Volume Change in Urban Regeneration Project: Focusing on the CBD of Jeonju-si", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "6921ab36-912b-467e-979f-c321b189f431", "title": "Diarylimidazolyl oxadiazole and thiadiazole derivatives as cannabinoid CB1 receptor antagonists", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor antagonist pharmacology"},
+    {"id": "6923b027-c3a2-426b-921c-461604f7b485", "title": "Utilization of residual CdCl2 in CBD-CdS to realize grain growth in CdTe: A novel route", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "692824fe-8d91-4e7d-9547-6a7e3781fe9c", "title": "A phase II randomised controlled trial of intranasal oxytocin in anorexia nervosa.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "692b73f0-5e1a-40ed-95f2-bd7ff377d964", "title": "Incorporating User-Centered Design Process into CBD Methodology", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Component-Based Development) correctly rejected"},
+    {"id": "69333617-e96c-48b4-b177-ed8f166371d7", "title": "Hexahydrocannabinol: pharmacokinetics, systemic toxicity, and acute behavioral effects in Wistar rats.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - HHC pharmacokinetics"},
+    {"id": "6944fbd9-38d7-47d6-b806-737f08e2f536", "title": "A Molecular Modeling Study into Brønsted and Lewis Acid Catalyzed Conversion of CBD into Other Cannabinoids", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic chemistry correctly rejected"},
+    {"id": "695904c3-1ffd-420d-b3cf-c5eae19cd947", "title": "Reply to the comment on: 'Anxiogenic-like effects of chronic cannabidiol administration in rats' (Elbatsh MM, Assareh N, Marsden CA and Kendall DA; Psychopharmacology 2012)", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anxiety effects discussion"},
+    {"id": "69607cf7-ed65-48c8-ad6e-5eb47db11971", "title": "Antimicrobial Potential of Cannabinoids: A Scoping Review of the Past 5 Years", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid antimicrobial review"},
+    {"id": "6978ad29-a62d-44c4-960a-b554e308d703", "title": "Cannabis Practices and Cannabinoid/Terpene Preferences in Medical Cannabis Patients Who Use Cannabis for Pain and Anxiety.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "699b8d84-9660-4c9b-86e0-d3e04261197f", "title": "Transcriptional regulation of the cannabinoid receptor type 1 gene in T cells by cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid immune mechanism"},
+    {"id": "69c6b146-ea5c-4175-bc1f-4ccc483eaeed", "title": "Prevalence and reasons for using cannabidiol, delta-8 tetrahydrocannabinol, cannabinol, cannabigerol, and hexahydrocannabinol among US adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "69d70be0-1ed7-49fa-bb99-449339cf6b26", "title": "The Synergistic Effects of Jasmonic Acid and Arbuscular Mycorrhizal Fungi in Enhancing the Herbicide Resistance of an Invasive Weed Sphagneticola trilobata", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "69fce99f-53c3-44ce-9c98-db42d60ccc16", "title": "Cannabidiol and Cannabis sativa extract protect mice and rats against convulsive agents", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anticonvulsant mechanism"},
+    {"id": "6a1e15fa-fa38-4541-bee9-a87df28f19b6", "title": "A review of bioanalytical techniques for evaluation of cannabis (Marijuana, weed, Hashish) in human hair", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "6a3862f6-ed25-4703-8d3d-90e924d80fb3", "title": "INVESTIGATION ON CBD DEVELOPMENT OF CHINESE CITIES", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "68be3e63-d3e6-4150-876e-b00e46154e48",
+      "68d7ae85-5cdc-4f80-9a28-d11d01e8971f",
+      "6921ab36-912b-467e-979f-c321b189f431",
+      "69333617-e96c-48b4-b177-ed8f166371d7",
+      "695904c3-1ffd-420d-b3cf-c5eae19cd947",
+      "69607cf7-ed65-48c8-ad6e-5eb47db11971",
+      "699b8d84-9660-4c9b-86e0-d3e04261197f",
+      "69fce99f-53c3-44ce-9c98-db42d60ccc16"
+    ]
+  }
+}

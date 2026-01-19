@@ -1,0 +1,44 @@
+{
+  "batch_number": 438,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T03:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "e440f7be-91e6-49e6-8223-362294c0d664", "title": "Analysis of cannabinoids in CBD oil using GC-MS and HPLC techniques", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "e4433dc6-81cb-4fc3-aba7-6af4554ea016", "title": "Therapiestart mit CBD-dominantem Extrakt", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapy research"},
+    {"id": "e4602601-c3a1-4636-981a-043bc7f77857", "title": "Cannabinoid receptor ligand bias: implications in the central nervous system", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - receptor pharmacology mechanism research"},
+    {"id": "e467f04e-810b-4cf7-875b-5439fdb0b57a", "title": "Using Cannabis Therapeutically in the UK: A Qualitative Analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Qualitative use patterns correctly rejected"},
+    {"id": "e4725b49-20ae-42d4-9f7e-d65d3f4ed0b8", "title": "Hypothesized pharmacogenomic and medication influences on THC and CBD metabolism", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - pharmacogenomics research"},
+    {"id": "e47d721f-9943-4df7-be99-ce00230f9fe2", "title": "Repeated administration of the synthetic cannabinoid AKB48 induces serotonergic neuroadaptation", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid harm correctly rejected"},
+    {"id": "e489fbf7-e48e-4fbc-8c7e-31d4ff2b8050", "title": "Limited effect of environmental stress on cannabinoid profiles in high‐cannabidiol hemp", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "e491e667-8036-48e1-8381-9c7980f7fd24", "title": "The Stimulation of Ketogenesis by Cannabinoids in Cultured Astrocytes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid mechanism research"},
+    {"id": "e49cdc90-acee-4a54-af85-8225086f362a", "title": "Cannabinoids improve driving ability in a Tourette's patient", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic for Tourette's"},
+    {"id": "e49d518a-b4ba-4851-a8ba-3567e221c19d", "title": "Exploring the Effects of Cannabinoids on Alcohol Consumption and the Microbiota-Gut-Brain Axis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid therapeutic potential for alcohol use"},
+    {"id": "e4a060af-c785-4b5e-9015-ccb456c77ce3", "title": "A Prospective, Randomized, Double-Blind, Placebo-Controlled Trial of Hemp-Derived CBD", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD clinical trial"},
+    {"id": "e4ac096e-afaa-4690-bad4-1414d93dfa64", "title": "A comparison of CBD concentrations in venous vs. fingertip-capillary blood", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "e4cc0937-c668-4f24-ae59-3216dc042e48", "title": "Overactive type 2 cannabinoid receptor induces meiosis and impairs ovarian reserve", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Developmental harm correctly rejected"},
+    {"id": "e4d4839b-8ee9-4a4b-a46a-d1e3f656ad2e", "title": "Liposomal cannabidiol (CBD) injection: A novel therapeutic formulation", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug delivery/formulation"},
+    {"id": "e4e976b9-fed1-4193-857e-1ccaaf66c5dc", "title": "Cannabidiol in experimental cerebral ischemia", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD stroke/ischemia therapeutic research"},
+    {"id": "e50ade19-02d4-4d07-947e-530c53879fcc", "title": "Molecular determinants of TRPV2 sensitivity", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "e50eb83f-28a7-4afb-b1c3-62adf27c495c", "title": "Effect of saline irrigation on fiber hemp growth and phytocannabinoid composition", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "e510c627-fa22-4585-864a-82fcbde78d3c", "title": "Analysis of synthetic cannabinoids in 'spice-like' herbal highs: German market", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic analysis correctly rejected"},
+    {"id": "e5197845-0b19-47f1-8f1b-df2ce1047099", "title": "Thermal and Mechanical Properties of Insulation Composites from Cannabis and Bark", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Industrial hemp correctly rejected"},
+    {"id": "e51bfb71-bd6f-4afd-b0c4-3d07a56576be", "title": "Beyond the hype: a comprehensive exploration of CBD's biological impacts and mechanisms", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD mechanism review"}
+  ],
+  "batch_summary": {
+    "correct": 10,
+    "incorrect": 10,
+    "incorrect_ids": [
+      "e4433dc6-81cb-4fc3-aba7-6af4554ea016",
+      "e4602601-c3a1-4636-981a-043bc7f77857",
+      "e4725b49-20ae-42d4-9f7e-d65d3f4ed0b8",
+      "e491e667-8036-48e1-8381-9c7980f7fd24",
+      "e49cdc90-acee-4a54-af85-8225086f362a",
+      "e49d518a-b4ba-4851-a8ba-3567e221c19d",
+      "e4a060af-c785-4b5e-9015-ccb456c77ce3",
+      "e4d4839b-8ee9-4a4b-a46a-d1e3f656ad2e",
+      "e4e976b9-fed1-4193-857e-1ccaaf66c5dc",
+      "e51bfb71-bd6f-4afd-b0c4-3d07a56576be"
+    ]
+  }
+}

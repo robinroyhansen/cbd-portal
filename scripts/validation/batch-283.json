@@ -1,0 +1,40 @@
+{
+  "batch_number": 283,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T12:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "388dc001-4d18-41db-93f6-cff8c5af4d39", "title": "A Peripheral Mechanism for CB1 Cannabinoid Receptor-Dependent Modulation of Feeding", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 peripheral feeding mechanism"},
+    {"id": "38944800-9bf2-47b3-becb-c08d0a049b96", "title": "A CASE OF BILE LEAKAGE AFTER LAPAROSCOPIC CHOLECYSTECTOMY CAUSED BY A RETAINED CBD STONE", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Common Bile Duct) correctly rejected"},
+    {"id": "38b04160-317b-4679-895f-db2dde6c4ca9", "title": "Perceptions of cannabis health information labels among people who use cannabis in the U.S. and Canada", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy/perceptions correctly rejected"},
+    {"id": "38bd386f-19b2-41d6-b5e2-f21d29368452", "title": "Long-term consequences of URB597 administration during adolescence on cannabinoid CB1 receptor binding in brain areas", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - FAAH inhibitor CB1 mechanism"},
+    {"id": "38c2dd77-97d5-4d3e-a5bf-b158748fd697", "title": "Constituents of Cannabis Sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Phytochemistry correctly rejected"},
+    {"id": "38c4e6f5-154d-4061-ba07-66c128da2502", "title": "Cannabis and Cognitive Functioning: From Acute to Residual Effects, From Randomized Controlled Trials to Prospective Designs", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "38c7fe87-cc6b-45a1-aad0-8c995932b344", "title": "Control of the cell survival/death decision by cannabinoids", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid cell biology mechanism"},
+    {"id": "38caeaa0-6ffa-4c2c-9b09-32ebf598db20", "title": "CBD Topics System Map", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Unclear/generic correctly rejected"},
+    {"id": "38e0f724-770b-48d0-8de9-56617cded7bf", "title": "Japanese Longitudinal Biomarker Study in PSP and CBD (JALPAC): A prospective multicenter PSP/CBD cohort study in Japan", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Corticobasal Degeneration) correctly rejected"},
+    {"id": "38e947eb-f712-4e1c-b9ce-f5f9202a1960", "title": "Inequities in blunt use across multiple socio-demographic intersections among US adults.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "38f3c34e-00df-48b8-8b9c-85335d6920b5", "title": "Factors associated with burnout among the Belgrade University medical students", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "3902c82e-9249-4269-b0da-2484844838f8", "title": "Cannabis expectancies mediate the association between social media use and cannabis experimentation in early adolescents: A prospective cohort study.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "392b68c2-efbc-4d79-9894-528f21cf02a2", "title": "Tobacco may mask poorer episodic memory among young adult cannabis users.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "392c1865-49e1-4253-ac4f-9acc046de2fb", "title": "A statics solution in CBD hilly areas", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "393638f7-248f-45ad-9ca4-19f53bd16af1", "title": "Discovery of Novel Cannabidiol Derivatives with Augmented Antibacterial Agents Against Methicillin-Resistant Staphylococcus Aureus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antibacterial for MRSA"},
+    {"id": "39376d35-d6f7-4b48-bee6-f7cd97ddd974", "title": "Development and validation of a cannabis cue stimulus set", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Methodology correctly rejected"},
+    {"id": "393bbba2-7aab-41aa-98f4-dfc2f6a3e6f6", "title": "Current Understanding of Protein Aggregation in Neurodegenerative Diseases", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "39533bfa-b3ed-4e95-8e99-70fca0a81589", "title": "A Potential Drug-Gene-Drug Interaction Between Cannabidiol, CYP2D6*4, and Fluoxetine", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD drug interaction/PK"},
+    {"id": "395b2501-09a3-4c56-b13a-e2b9a6d8019b", "title": "The profile of immune modulation by cannabidiol (CBD) involves deregulation of nuclear factor of activated T cells (NFAT)", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD immunomodulation mechanism"},
+    {"id": "39674888-e4cb-4c69-9a7e-db514e755550", "title": "Pharmacokinetics of the dimethylheptyl homolog of cannabidiol in dogs.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "388dc001-4d18-41db-93f6-cff8c5af4d39",
+      "38bd386f-19b2-41d6-b5e2-f21d29368452",
+      "38c7fe87-cc6b-45a1-aad0-8c995932b344",
+      "393638f7-248f-45ad-9ca4-19f53bd16af1",
+      "39533bfa-b3ed-4e95-8e99-70fca0a81589",
+      "395b2501-09a3-4c56-b13a-e2b9a6d8019b"
+    ]
+  }
+}

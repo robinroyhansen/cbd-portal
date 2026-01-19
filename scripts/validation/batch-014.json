@@ -1,0 +1,36 @@
+{
+  "batch_number": 14,
+  "studies_validated": 20,
+  "timestamp": "2026-01-18T17:00:00.000Z",
+  "results": [
+    {"id": "11ddff17-266d-46dc-8adc-9a8282546c9c", "title": "Neuroprotective and therapeutic effects of cannabidiol in acute coronary syndrome model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for heart"},
+    {"id": "11f05643-5305-4585-b96a-1253aa68b565", "title": "Short and long-term neuroprotective effects of cannabidiol after neonatal peripheral nerve axotomy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection"},
+    {"id": "11f9f910-7cd2-49a1-9109-4a84f8134d9d", "title": "Cannabidiol reverses fentanyl-induced addiction and modulates neuroinflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for opioid addiction"},
+    {"id": "120435a7-70a0-410d-a3b4-db56736972c7", "title": "Expression of the cannabinoid receptor CB1 in distinct neuronal subpopulations", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor localization"},
+    {"id": "1209ad43-39d6-48a5-99b9-f140dbbdd403", "title": "Behavioral effects of psychostimulants in mutant mice with CB2 deletion", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 receptor research"},
+    {"id": "122cae8c-34b6-47a3-aaea-d32e012a3daf", "title": "Cyclic Vomiting Syndrome Versus Cannabinoid Hyperemesis Syndrome", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis/nausea"},
+    {"id": "122e4b93-4ff6-425b-a8dc-80fcde3becbe", "title": "Pharmacokinetic Comparison of THC and CBD Extract Versus Oromucosal Spray", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD pharmacokinetics"},
+    {"id": "122e9bf0-274b-4536-adc2-003cd7451eeb", "title": "Mechanical compression induces neuronal apoptosis...glial neuroinflammation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "No cannabinoid content - general neuroscience"},
+    {"id": "1246e84a-3cbb-4c6a-a178-c9f64cb4ffc9", "title": "Cannabis Suppositories for Anal Pain Among Men Who Have Sex With Men", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis for pain"},
+    {"id": "12565af4-c7e9-40f7-b5aa-f374f026bdf5", "title": "Biochemical aspects and therapeutic mechanisms of cannabidiol in epilepsy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for epilepsy"},
+    {"id": "1256f270-4069-4a99-be99-4fb130c8b4fa", "title": "Decreased endocannabinoid levels...cannabinoid receptors in multiple sclerosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids for MS"},
+    {"id": "12574323-8eaa-49d0-86cc-f049cfe21f5e", "title": "Interaction between cannabinoid compounds and diazepam on anxiety-like behaviour", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoids and anxiety"},
+    {"id": "1274f195-9ed3-4b66-8b5a-c73c68c83508", "title": "Cannabidiol disrupts the reconsolidation of contextual drug-associated memories", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for addiction"},
+    {"id": "1278ef4c-b202-412e-b7b6-4d3835197415", "title": "Can CBD Reduce the Use of Pain Medication?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for pain"},
+    {"id": "127c6b94-f7cf-45a5-8100-b7491fa53c35", "title": "Oral bioavailability of cannabidiol...in New Zealand White rabbits", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics"},
+    {"id": "127de82f-7de2-4ee4-8a0a-dcffa3258cf8", "title": "CB2 cannabinoid receptor-specific therapeutic antibody agonists for chemotherapy-induced peripheral neuropathy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 for chemo neuropathy"},
+    {"id": "12828c1c-8294-49ca-ba47-2d835cff7b15", "title": "The Effects of Exercise and Music Combination on Drug Cravings, Depression", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CBD = Basic Depression Questionnaire - wrong meaning!"},
+    {"id": "1282979a-be04-4898-8401-812897234fb1", "title": "High dosage of cannabidiol (CBD) alleviates pentylenetetrazole-induced epilepsy in rats", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for epilepsy"},
+    {"id": "12a0fc74-6b50-43cc-8ca2-3ffe77ad14cf", "title": "Assessing Oncology Content in the Canadian Internal Medicine...Residency Curriculum", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Medical education - no cannabinoid content"},
+    {"id": "12a38bcc-d261-4d41-b3ea-cc6f60510bd2", "title": "Drug Interaction...Cannabidiol (Epidiolex) and Methylphenidate", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug interactions"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "122e9bf0-274b-4536-adc2-003cd7451eeb",
+      "12828c1c-8294-49ca-ba47-2d835cff7b15",
+      "12a0fc74-6b50-43cc-8ca2-3ffe77ad14cf"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "batch_number": 299,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T16:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "49e1bd34-1464-482a-959a-81e8b107277b", "title": "Skin-Whitening Effects of Cannabinol (CBN) Through Melanin Inhibition in B16F10 Melanoma Cells.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBN skin therapeutic mechanism"},
+    {"id": "49e2866a-345e-460a-b2ec-bba36be7e0de", "title": "Premium CBD Hemp Oil Flavors | CBD Oil | BURMAN'S HEALTH SHOP", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "49e32344-3c37-4431-8d6e-8c5a1eb1b027", "title": "CBD 2019 Program Committee", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (conference) correctly rejected"},
+    {"id": "49e36872-3889-4475-b7d0-915eccf342f9", "title": "A Review of Acupuncture for Allergic Disorders: Modulation of Mast Cell Regulation via Inflammatory Pathway Suppression and Cytokine Balance", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "49e9690a-978b-4ece-b723-e3aaab95b0ee", "title": "Review for \"Differential contribution of CB1, CB2, 5‐HT1A, and PPAR‐γ receptors to cannabidiol effects on ischemia‐induced emotional and cognitive impairments\"", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD ischemia mechanism research"},
+    {"id": "49f6150f-127d-436e-bb1a-3a0376112c16", "title": "S04-01: CBD in public, professional sports and doping", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Sports/doping policy correctly rejected"},
+    {"id": "49f94280-f47c-4a5a-8c38-3dfdd4de1c14", "title": "Endogenous cannabinoids revisited: A biochemistry perspective", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS biochemistry research"},
+    {"id": "49fbae04-d38e-446e-8648-80ad0a9ba5e7", "title": "Cannabidiol suppresses emergency MDSCs generation by disturbing EEF1B2-mediated C/EBPβ protein synthesis in colorectal adenomas.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD anticancer mechanism"},
+    {"id": "49fbdb81-c572-49fa-a8dc-71e9823636c0", "title": "Computer and therapist based brief interventions among cannabis-using adolescents presenting to primary care: One year outcomes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD intervention correctly rejected"},
+    {"id": "4a312aa9-2538-46cf-9116-59a41672ee62", "title": "Extended urinary Δ9-tetrahydrocannabinol excretion in chronic cannabis users precludes use as a biomarker of new drug exposure", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic detection correctly rejected"},
+    {"id": "4a329f66-6163-43cf-8e13-649b8b3f11e9", "title": "Qualitative and Quantitative Aspects of the Inheritance of Chemical Phenotype inCannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "4a34905c-9739-4a6f-813e-efcb7b8bbc5e", "title": "What are Spectrum CBD Gummies?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "SPAM correctly rejected"},
+    {"id": "4a49b7d7-21e3-46e5-9cff-231a5ceb33d9", "title": "Health aspects of cannabis.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - comprehensive cannabis health review including therapeutic uses"},
+    {"id": "4a565bf5-75b4-4bfd-94b2-cfd4432b543d", "title": "Pharmacoepidemiology of Oxycodone in the USA: An Observational Study of ARCOS, Medicaid, and Medicare Drug Databases", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "4a56d792-ce69-4c0d-a5f1-d1d0704083ad", "title": "Addressing Sexual Violence Against Persons with Disabilities in Belgium.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "4a5acf00-0c2d-48a8-be41-064479c63423", "title": "CBD理論에서 본 南北韓 平和統一 方案", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Korean political theory) correctly rejected"},
+    {"id": "4a759eee-aed2-453a-bc01-6a3772a185c6", "title": "Cannabidiol oil in the treatment of super refractory status epilepticus. A case report", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy case report"},
+    {"id": "4a8a847b-4f10-4ab9-8108-ea479aa1a198", "title": "Factors associated with cannabis use change in youth: Evidence from the COMPASS study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "4a926181-d837-425e-ac25-7b15a23d1b68", "title": "Cannabidiol (CBD) Consumption and Perceived Impact on Extrahepatic Symptoms in Patients with Autoimmune Hepatitis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD autoimmune hepatitis therapeutic"},
+    {"id": "4a929a31-d828-4b0a-ac4f-59bf778475ce", "title": "Consuming oral cannabidiol prior to a standard alcohol dose has minimal effect on breath alcohol level and subjective effects of alcohol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/alcohol interaction research"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "49e1bd34-1464-482a-959a-81e8b107277b",
+      "49e9690a-978b-4ece-b723-e3aaab95b0ee",
+      "49f94280-f47c-4a5a-8c38-3dfdd4de1c14",
+      "49fbae04-d38e-446e-8648-80ad0a9ba5e7",
+      "4a49b7d7-21e3-46e5-9cff-231a5ceb33d9",
+      "4a759eee-aed2-453a-bc01-6a3772a185c6",
+      "4a926181-d837-425e-ac25-7b15a23d1b68",
+      "4a929a31-d828-4b0a-ac4f-59bf778475ce"
+    ]
+  }
+}

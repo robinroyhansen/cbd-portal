@@ -1,0 +1,42 @@
+{
+  "batch_number": 391,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T15:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "b2156c0f-2bf9-498e-9766-3b1cdd9c4311", "title": "Cognitive Effects of Cannabis Use Across the Lifespan: A Review for Clinical Practice.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm/cognitive correctly rejected"},
+    {"id": "b2274a4c-654f-4ed5-8bc7-2c6978ffccda", "title": "Representativeness of a German AI-enabled data network for secondary epidemiological analysis based on electronic health records", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b24a9fc0-8b6e-41f3-b2ca-efe116e36363", "title": "Functional interactions between cannabinoid and metabotropic glutamate receptors in the central nervous system", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research"},
+    {"id": "b25b9a35-944c-4552-9f51-ac0a8fc84705", "title": "Monitoring the Shelf Life of Hemp Seed Oil Stored at Two Temperatures in Different Materials via Near-Infrared (NIR) Spectroscopy.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Food science correctly rejected"},
+    {"id": "b25e3656-5d29-473a-96f0-56a7cd205960", "title": "CB2 cannabinoid receptors inhibit synaptic transmission when expressed in cultured autaptic neurons", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor mechanism research"},
+    {"id": "b26ad34c-b7a3-4e90-acef-c2317512fcf0", "title": "Effects of oral cannabidiol (CBD) on spontaneous opioid withdrawal in male and female rats.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD therapeutic for opioid withdrawal"},
+    {"id": "b273407e-743b-49f4-ac3b-efc602fd6ff7", "title": "Structural MRI Findings in Long-Term Cannabis Users: What Do We Know?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "b274f224-a146-4196-813e-facee9da6f6b", "title": "Passengers' Decisions to Ride With a Driver Under the Influence of Either Alcohol or Cannabis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "b27eb985-5aa1-46a8-9a88-e0b3810f13c8", "title": "PET Test/Retest Brain Imaging of Cannabinoid CB1 Receptors Using [11C]MePPEP", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor PET imaging research"},
+    {"id": "b2846f46-21db-48cf-b05a-afbf16abe63c", "title": "Fritillaria pallidiflora Schrenk ex Fisch. & C.A.Mey. (Yi Beimu): Ethnopharmacology, Phytochemistry, Pharmacological Insights, and Future Prospects", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "b2a0a5bf-d3d7-4245-8ee0-5ce82dcae97b", "title": "Developmental expression of cannabinoid receptor mRNA", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research"},
+    {"id": "b2a9ead0-a362-4ede-b71b-e7a2e3cf500c", "title": "Visual function and vehicle driving performance under the effects of cannabidiol: A randomized cross-over experiment.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research (driving)"},
+    {"id": "b2b61fb0-4d8e-4d06-87a8-14b8152e1a1a", "title": "A Comprehensive Review of Polygenetic Signatures, Methodological Advances, and Implications for Coastal Boulder Deposits (CBDs) Assessment", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Coastal Boulder Deposits) correctly rejected"},
+    {"id": "b2bc48cd-c422-4891-8abe-f0748f4d9cf0", "title": "Cannabis use patterns and motives: A comparison of younger, middle-aged, and older medical cannabis dispensary patients", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "b2eaad49-4a94-4b54-a42d-9bfd0091ebda", "title": "Author response for \"Stability Study and Structural Insights into Cannabidiol Cocrystals\"", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD formulation research"},
+    {"id": "b2ede353-653b-4c45-b28a-f8cedb7452e1", "title": "Cannabis, Extracts, and Individual Phytocannabinoids—All the Same or Substantially Different? A Call for Better Characterization of Cannabis Products", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Editorial/commentary correctly rejected"},
+    {"id": "b2ee3c2c-69f0-4d32-b388-f2460e16c680", "title": "Safety assessment on CBD-rich hemp extract in sub-chronic cross-sex study with rats.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD safety research"},
+    {"id": "b2ef278c-8292-4a83-bc25-97ee979ecd46", "title": "Seed Germination and Early Growth Responses to Seed Pre-treatment by Non-thermal Plasma in Hemp Cultivars (Cannabis sativa L.)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "b2f59126-8538-4927-abd0-afd48ad790ff", "title": "Polyploidization for the Genetic Improvement of Cannabis sativa", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/breeding correctly rejected"},
+    {"id": "b2fba421-bb52-4982-b582-0d4d79635c46", "title": "An hedonic analysis of the rental office market in the Tokyo CBD : 1985-1994 fiscal years", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 12,
+    "incorrect": 8,
+    "incorrect_ids": [
+      "b24a9fc0-8b6e-41f3-b2ca-efe116e36363",
+      "b25e3656-5d29-473a-96f0-56a7cd205960",
+      "b26ad34c-b7a3-4e90-acef-c2317512fcf0",
+      "b27eb985-5aa1-46a8-9a88-e0b3810f13c8",
+      "b2a0a5bf-d3d7-4245-8ee0-5ce82dcae97b",
+      "b2a9ead0-a362-4ede-b71b-e7a2e3cf500c",
+      "b2eaad49-4a94-4b54-a42d-9bfd0091ebda",
+      "b2ee3c2c-69f0-4d32-b388-f2460e16c680"
+    ]
+  }
+}

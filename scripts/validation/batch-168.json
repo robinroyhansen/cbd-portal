@@ -1,0 +1,38 @@
+{
+  "batch_number": 168,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T08:00:00.000Z",
+  "results": [
+    {"id": "bc4f0c8c-a98a-4f65-ae56-8d7f5dd478d2", "title": "CBD Anxiety Disorders Real-World Colombia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anxiety case series"},
+    {"id": "bc5d9fec-b848-40db-b581-c7b876e91d7f", "title": "Anticancer Properties THC CBD THCV In Silico", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer mechanism"},
+    {"id": "bc7e660a-0abe-4631-9be7-ae14fac8c1f1", "title": "Hemp Leaves Dairy Cow Diet", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dairy cow study"},
+    {"id": "bc7e93e9-2afe-4318-99da-ee26766a04cf", "title": "CUD Suicidal Self-Injury Veterans", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - self-injury risk"},
+    {"id": "bc8f41ad-4c4a-43a1-9684-38acc4c6309a", "title": "CUD Impact First-Episode Psychosis Outcomes", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis outcomes"},
+    {"id": "bc9138cb-052a-486a-9480-9cef7a6a72eb", "title": "CBD Alternative Anxiety Depression Psychotic", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychiatric therapeutic review"},
+    {"id": "bc91e23d-701c-4776-8125-1f59f0abff4d", "title": "Cannabis Medical Use Versatile Plant", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Medical cannabis pharmacology"},
+    {"id": "bcb20dac-7188-4e7f-ab4f-5ab311bfef02", "title": "CBD Liver Disease Systemic Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD hepatology review"},
+    {"id": "bcb7518f-f69c-4166-be3c-c208426dbedd", "title": "CBD Drop Seizures LGS GWPCARE4 RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD LGS phase 3 RCT"},
+    {"id": "bcd94d75-114b-4d10-bdf4-1d0af6b07d47", "title": "Hyperthermia Seizure Dravet Mouse Model PK", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Epilepsy preclinical research"},
+    {"id": "bd022eda-f63e-4fcb-b818-1e515a02cdb7", "title": "CBD Fragile X Syndrome Case Series", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neurological therapeutic"},
+    {"id": "bd048482-9c1b-4dcd-a80f-b279b471945a", "title": "THC Central Pain Modulation Fibromyalgia RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid fibromyalgia research"},
+    {"id": "bd1d0f5f-cd2d-4ac9-abd8-cb9f7c8f3d14", "title": "CB2 Receptor Imaging Rodent Monkey Brain", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 PET imaging research"},
+    {"id": "bd314615-d26f-44b7-880b-c16c059bf23c", "title": "Magnesium and Zinc in Schizophrenia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - mineral supplementation"},
+    {"id": "bd3dd696-e509-40bd-9080-5be30d0d8728", "title": "CB1 Receptor Axon Guidance DCC", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 developmental neuroscience"},
+    {"id": "bd474e4d-2998-4a33-8c46-0aa559173fd0", "title": "CBD CBDA Pharmacokinetics Dogs", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "VETERINARY - dog pharmacokinetics"},
+    {"id": "bd5cdff0-8d2a-4975-9c06-57355ea8fa29", "title": "THC CBD Conditioned Retching Suncus murinus", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid nausea mechanism"},
+    {"id": "bd6977d0-a104-4a20-922e-ff67168b7458", "title": "Cannabinoids Glucocorticoids Emotional Memory Stress", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid stress mechanism"},
+    {"id": "bd76682b-1d4c-4e5d-8c6b-ba8a4a83975d", "title": "Adverse Effects CBD Systematic Review Meta-analysis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD safety meta-analysis"},
+    {"id": "bd7dcdf1-fc1a-45e0-bc37-75ad85e3835f", "title": "CBD Doxorubicin Myocardial Injury Hippo", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cardioprotection chemo"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "bc7e660a-0abe-4631-9be7-ae14fac8c1f1",
+      "bc7e93e9-2afe-4318-99da-ee26766a04cf",
+      "bc8f41ad-4c4a-43a1-9684-38acc4c6309a",
+      "bd314615-d26f-44b7-880b-c16c059bf23c",
+      "bd474e4d-2998-4a33-8c46-0aa559173fd0"
+    ]
+  }
+}

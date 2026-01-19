@@ -1,0 +1,37 @@
+{
+  "batch_number": 80,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T09:45:00.000Z",
+  "results": [
+    {"id": "5814a825-5994-476b-9ac3-e940e278bb21", "title": "CB1 receptor palmitoylation membrane signaling", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 molecular mechanism"},
+    {"id": "58191d63-f59e-4a25-8f13-85756637501b", "title": "Equisetum hyemale extracts phytochemistry", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - horsetail plant"},
+    {"id": "5830ad76-abac-4a6f-bfac-bc416e5f7612", "title": "Structure of CBD isomerization to THC (Adams 1941)", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Foundational CBD chemistry"},
+    {"id": "583e5cc8-593d-4ad6-ae4d-684a40ff7ad9", "title": "Cannabinoid receptors colonic inflammatory hypersensitivity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1/CB2 colitis pain therapeutic"},
+    {"id": "583fc5ed-3753-4458-be5a-673c24ab0570", "title": "CBG regulation inflammatory pathways arthritis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBG arthritis therapeutic"},
+    {"id": "5847053b-7de3-4f3f-9858-74ddbfef07b0", "title": "Cannabinoids and ECS in fibromyalgia review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid fibromyalgia therapeutic"},
+    {"id": "5856acf4-74a9-47c1-ba84-c6e91b1367bd", "title": "CBD safety tolerability Parkinson's dose-escalation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Parkinson's clinical trial"},
+    {"id": "5864803f-2524-4253-8ffa-d68fc151596d", "title": "CBD reduces drop seizures Lennox-Gastaut", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic"},
+    {"id": "58b83f2b-4dda-4202-afdd-db89b220778e", "title": "Cannabis use psychosis relapse medication adherence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis relapse"},
+    {"id": "58c62426-b53a-4bc6-a094-2f556dd62305", "title": "Methamphetamine treatment outcomes NZ", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - meth addiction treatment"},
+    {"id": "58d13baf-0432-47e4-8c19-90f39db52c19", "title": "CBD refractory seizures neurodegenerative (Spanish)", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic review"},
+    {"id": "58f634f2-c36f-40ee-9ebe-2e5224003e42", "title": "Smoked cannabis MS spasticity RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis MS spasticity therapeutic RCT"},
+    {"id": "5911df73-7ef2-4e1f-89f6-6b8063fdf80d", "title": "CBD monogenic epilepsies multicenter real-world", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy off-label therapeutic"},
+    {"id": "592ff17b-58a9-433a-b425-8219175cb661", "title": "CBD postmenopause bone metabolic health", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD menopause therapeutic"},
+    {"id": "593fe9ff-b927-4716-8d48-889673b98402", "title": "CB kappa opioid receptors potassium current Gs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 receptor mechanism"},
+    {"id": "59468f65-a375-41da-bb23-8bef3d98c884", "title": "Synthetic cannabinoids stereochemistry CB receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB receptor pharmacology"},
+    {"id": "59508b7b-f158-402f-92a9-5e9bcf248dd1", "title": "CBD pharmacology therapeutic SUD (Spanish)", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD therapeutic review"},
+    {"id": "595cdd94-1031-483c-8006-804beae22adc", "title": "Community fetal ultrasound pregnant SUD", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - prenatal care intervention"},
+    {"id": "59668806-f2b0-421a-8684-af0b558c8047", "title": "CBD-enriched extracts pediatric epilepsy efficacy", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pediatric epilepsy"},
+    {"id": "5982621c-eb5b-4d93-befb-6d4b6f23304a", "title": "Cannabis edibles bioavailability lipids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis formulation research"}
+  ],
+  "batch_summary": {
+    "correct": 16,
+    "incorrect": 4,
+    "incorrect_ids": [
+      "58191d63-f59e-4a25-8f13-85756637501b",
+      "58b83f2b-4dda-4202-afdd-db89b220778e",
+      "58c62426-b53a-4bc6-a094-2f556dd62305",
+      "595cdd94-1031-483c-8006-804beae22adc"
+    ]
+  }
+}

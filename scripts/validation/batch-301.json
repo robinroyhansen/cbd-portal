@@ -1,0 +1,41 @@
+{
+  "batch_number": 301,
+  "studies_validated": 20,
+  "timestamp": "2026-01-21T17:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "4bed554b-618d-4523-aeb0-be94e1f81caa", "title": "Detection and identification of pathogens using agents targeting the bacterial cell wall.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "4bf43475-b302-4285-ab1c-4e38d8df1b8d", "title": "119. Cannabis indica. Part II. Isolation of cannabidiol from Egyptian hashish. Observations on the structure of cannabinol", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Historical chemistry correctly rejected"},
+    {"id": "4bf80696-9e3b-4e96-91bc-4d05847e5987", "title": "Stability of cannabinoids in urine in three storage temperatures.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic sample storage correctly rejected"},
+    {"id": "4bfb9a3a-b9e5-4275-9f89-8d8376f9c142", "title": "Fabrication and Photoelectrochemical Activity of In2S3 Infused TiO2 Nanorod Heterostructure Photoelectrodes for Solar Water Splitting", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "4c15bf0b-e668-424d-a472-8c7464020a58", "title": "Therapeutic Use of Cannabis and Cannabinoids: A Review.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - therapeutic cannabis/cannabinoid review"},
+    {"id": "4c47af29-cba3-4ad9-8d76-e36f8cba3d42", "title": "The Use of Various Substrates for Large-Scale Production of Fusarium oxysporum f. sp. cannabis Inoculum", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture/plant pathogen correctly rejected"},
+    {"id": "4c4a8bcc-825a-430b-849e-3eeeeea861df", "title": "Influence of Stone Size on Spontaneous Migration of Choledocholithiasis in Pediatric Patients.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Bile duct stones correctly rejected"},
+    {"id": "4c5909a9-3c54-471a-8c26-df74aec582b8", "title": "Multimedia Real Time Systems Using CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Component Based Development) correctly rejected"},
+    {"id": "4c5abbcd-044f-477c-944b-5b72095c164e", "title": "Cannabinoid tetrad effects of oral Δ9-tetrahydrocannabinol (THC) and cannabidiol (CBD) in male and female rats: sex, dose-effects and time course evaluations", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - THC/CBD pharmacology research"},
+    {"id": "4c5ba3ea-455b-4888-9817-41e0437fe27b", "title": "Concordance of ICD-11 and DSM-5 definitions of alcohol and cannabis use disorders: a population survey", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD diagnostic criteria correctly rejected"},
+    {"id": "4c63905e-fc71-4e7c-941e-5a5eb0e72f2b", "title": "Validation of the Drug Impaired Driving Scenario (DIDS) on the CRCDS-miniSim: Evaluating Sensitivity to the Effects of Cannabis and Alprazolam", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Driving impairment correctly rejected"},
+    {"id": "4c708022-4b44-4fbb-bda3-33be80cc583b", "title": "Delimiting the CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "4c711023-7835-4214-9e79-2962579b92ca", "title": "Genome-Wide, High-Density Genotyping Approaches for Plant Germplasm Characterisation (Methods and Applications)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "4c78afc1-6544-40a6-a009-5a13b0dbd0ec", "title": "Eclipse 플랫폼을 이용한 컴포넌트 기반 개발 (CBD) 기법", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (software development Korean) correctly rejected"},
+    {"id": "4c83de30-a770-4812-b6df-f5d4d6143542", "title": "Development and Implementation of a Medical Cannabis Clinic Within a Geriatrics Primary Care Clinic: Preliminary Data.", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - medical cannabis geriatric clinical"},
+    {"id": "4c8fd38d-2a43-4567-98bc-900d655418be", "title": "Expression and localization of cannabinoid receptors in human immature oocytes and unfertilized metaphase-II oocytes", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor reproductive mechanism"},
+    {"id": "4cb74115-2194-4285-a99c-0ea0b00307b3", "title": "Effects of cannabinoids on nitric oxide production by chondrocytes and proteoglycan degradation in cartilage", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid arthritis/cartilage mechanism"},
+    {"id": "4cce3d3e-b941-408b-86b6-4f8c8a8b1929", "title": "Repetitive mild traumatic brain injury with the closed-head impact model of engineered rotational acceleration (CHIMERA) promotes tau pathology in tau transgenic mice and its propagation in brains injected with tau fibrils", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "4ceccf11-15ef-4fd0-8b0e-f3f3f4bb67f5", "title": "Acute treatment with cannabinoid receptor agonist WIN55212.2 improves prepulse inhibition in psychosocially stressed mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid psychiatric/stress therapeutic"},
+    {"id": "4cffdefb-e045-4e02-ae51-ea3d59c0a197", "title": "Cannabidiol prevents disruptions in sensorimotor gating induced by psychotomimetic drugs that last for 24-h with probable involvement of epigenetic changes in the ventral striatum", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD antipsychotic mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "4c15bf0b-e668-424d-a472-8c7464020a58",
+      "4c5abbcd-044f-477c-944b-5b72095c164e",
+      "4c83de30-a770-4812-b6df-f5d4d6143542",
+      "4c8fd38d-2a43-4567-98bc-900d655418be",
+      "4cb74115-2194-4285-a99c-0ea0b00307b3",
+      "4ceccf11-15ef-4fd0-8b0e-f3f3f4bb67f5",
+      "4cffdefb-e045-4e02-ae51-ea3d59c0a197"
+    ]
+  }
+}

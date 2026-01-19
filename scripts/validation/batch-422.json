@@ -1,0 +1,39 @@
+{
+  "batch_number": 422,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T23:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "d2b30e9b-1ec9-43b4-92bc-5544bacb2e2b", "title": "Acute effects of Δ9-tetrahydrocannabinol on computational measures of neurocognitive processes are related to recent cannabis use among adolescents and young adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis impairment correctly rejected"},
+    {"id": "d2cc29b0-123b-426a-a01e-f55ba2743e77", "title": "Knowledges and Use of Cannabidiol in Older Adults Aged 65 Years and Over in France", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "d2d778be-043b-48fc-b634-c2d7a7c3ca39", "title": "Cytotoxicity and Immunomodulatory Effects of Cannabidiol on Canine PBMCs: A Study in LPS-Stimulated and Epileptic Dogs", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "d2d7e6c9-48dc-4bc1-9f92-999936371b1f", "title": "Rapid increase in the prevalence of cannabis use among people with depression in the United States, 2005–17", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "d2f5b9f3-e230-4c8a-b091-02f8ee2ae7c8", "title": "A Chemotaxonomic Approach to the Fatty Acid and Tocochromanol Content of Cannabis sativa L. (Cannabaceae)", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant chemistry correctly rejected"},
+    {"id": "d2f858ac-ec92-44bf-af3d-c8bba08db64b", "title": "The Medical Cannabidiol Act: what practitioners need to know", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "d2fa8949-3102-4c32-b6e5-8aca9eb3f27b", "title": "Cannabinoid CB2receptor expression in the rat brainstem cochlear and vestibular nuclei", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB2 receptor auditory/vestibular expression research"},
+    {"id": "d30bb225-06a7-42b9-88ad-71cb73d49179", "title": "Barriers and facilitators to nicotine and cannabis vaping cessation among young adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD correctly rejected"},
+    {"id": "d314e9d7-02d3-4ecd-8092-1bd23000c7de", "title": "Respiratory health effects of cannabis: Position Statement of The Thoracic Society of Australia and New Zealand", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "d317dd2d-8483-4122-9d1e-3b6da8d61db1", "title": "Cannabis Microbiome and the Role of Endophytes in Modulating the Production of Secondary Metabolites: An Overview", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "d32c0888-73a1-428f-ac94-53cb1d900164", "title": "Cannabis tea revisited: A systematic evaluation of the cannabinoid composition of cannabis tea", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product analysis correctly rejected"},
+    {"id": "d330e246-9a01-4c85-9c1f-6ee29de44b20", "title": "Kinetic studies of the interaction of cannabinoids with singlet oxygen", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid antioxidant mechanism research"},
+    {"id": "d33b4417-21ac-41f8-a3a8-fc24977b2901", "title": "Severe Cannabinoid Intoxication in a Ferret (Mustela putorius furo) Treated With Intravenous Lipid Emulsion", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Veterinary correctly rejected"},
+    {"id": "d351dfab-f611-4c83-b3f4-084fd21eb71e", "title": "The cannabinoid profile and growth of hemp (Cannabis sativa L.) is influenced by tropical daylengths and temperatures, genotype and nitrogen nutrition", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "d357f8be-3187-42d5-88c9-73fb570368f5", "title": "Direct modulation of the outer mitochondrial membrane channel, voltage-dependent anion channel 1 (VDAC1) by cannabidiol: a novel mechanism for cannabinoid-induced cell death", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD mitochondria cancer cell death mechanism research"},
+    {"id": "d359f78e-7393-4853-9287-ba4dc2cb2b30", "title": "Natural Powerhouse Duo: Hierarchical Levan Hydrogels with Nanoencapsulated Cannabidiol as Local Delivery Systems", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD formulation/delivery research"},
+    {"id": "d363e39e-0c12-4dcf-8c98-3b8d5a433295", "title": "Agronomic evaluation of hemp (Cannabis sativa L.) for cannabidiol production in Yunnan, China", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Agriculture correctly rejected"},
+    {"id": "d3646a95-796d-4e73-af90-834d64445da6", "title": "Hepatotoxicity evaluation of cannabidiol, cannabinol, cannabichromene and cannabigerol using a human quad culture liver chip", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid hepatotoxicity safety research"},
+    {"id": "d3671f59-67f8-44a8-b5b7-4d662cda256a", "title": "Effect of pH-11 Buffer as Agent Reaction Moderator in the Growth and Characterization of CdS Thin Films by CBD Technique", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"},
+    {"id": "d381f534-c593-4a70-893f-87057b0865ed", "title": "Over the counter CBD products in Germany: an exploratory survey about consumption patterns and health related effects", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "d2fa8949-3102-4c32-b6e5-8aca9eb3f27b",
+      "d330e246-9a01-4c85-9c1f-6ee29de44b20",
+      "d357f8be-3187-42d5-88c9-73fb570368f5",
+      "d359f78e-7393-4853-9287-ba4dc2cb2b30",
+      "d3646a95-796d-4e73-af90-834d64445da6"
+    ]
+  }
+}

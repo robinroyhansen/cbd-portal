@@ -1,0 +1,39 @@
+{
+  "batch_number": 461,
+  "studies_validated": 20,
+  "timestamp": "2026-01-23T07:30:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "fddd537b-9e4d-4449-9ede-9601fe339bc0", "title": "Long-Term Treatment with Cannabidiol-Enriched Cannabis Extract Induces Synaptic Changes in the Adolescent Rat Hippocampus", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD synaptic/brain mechanism research"},
+    {"id": "fddffff8-c111-4fe4-acb5-15def386e62c", "title": "济南CBD：齐鲁腹地的\"曼哈顿\"", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "fdf768c3-9951-40c1-89ca-163a532405fb", "title": "Rimonabant: A Cannabinoid Receptor Type 1 Blocker for Management of Multiple Cardiometabolic Risk Factors", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 antagonist cardiometabolic therapeutic research"},
+    {"id": "fdffbb2f-f0f2-40c6-a3e5-c7506b2696fc", "title": "Cannabidiol (CBD) et « cannabis ultra-light » : quel statut en droit français ?", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Legal/regulatory correctly rejected"},
+    {"id": "fe088a84-f93b-464b-b05e-c67fdeaf6883", "title": "Evaluation of Cannabimimetic Effects of Selected Minor Cannabinoids and Terpenoids in Mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - minor cannabinoid/terpene pharmacology research"},
+    {"id": "fe0e3446-1cb3-4b3f-a24b-36d36e729774", "title": "Gone to Pot â€\" A Review of the Association between Cannabis and Psychosis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "fe178305-6de7-4c47-b7e6-4e1bf04c729e", "title": "School Belonging and Racial Mistreatment: Association With Substance Use Among U.S. High School Students", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "fe2d9f6c-b0c0-420f-899f-1f152e9314f9", "title": "Aquatic toxicity of synthetic cannabinoid: multisystem impacts of 5F-ADB on neurodevelopment in Daphnia magna.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid toxicity correctly rejected"},
+    {"id": "fe48d1e4-cf14-4ed7-b1e0-ae952bcc1ae8", "title": "Head in the clouds? Cannabis users' creativity in new venture ideation depends on their entrepreneurial passion and experience", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "fe4ac509-bd73-4d37-a411-852420fcc484", "title": "CBD and Singapore River, 1997", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "fe51e749-1f7f-488c-9923-8fbbde13f553", "title": "Exploring the Impact of Chirality of Synthetic Cannabinoids and Cathinones: A Systematic Review on Enantioresolution Methods and Enantioselectivity Studies.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid chemistry correctly rejected"},
+    {"id": "fe536972-9c00-4de1-b761-3b5d454f55df", "title": "Using (1)H-Magnetic Resonance Spectroscopy to Evaluate the Efficacy of Pharmacological Treatments in Parkinson's Disease: A Systematic Review.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid focus correctly rejected"},
+    {"id": "fe5c1772-06a5-4750-99d3-1e26111c19eb", "title": "A role for cannabidiol in psychiatry? Keep calm and follow the drug development rules", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD psychiatric therapeutic review"},
+    {"id": "fe891847-a3c1-4268-b94c-ff176ddf5906", "title": "Cannabis — a polytypic genus", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant taxonomy correctly rejected"},
+    {"id": "fe972b12-caf1-4b62-ade3-4619baba9073", "title": "Medical Patients' Awareness, Perspectives, and Experiences with Contaminated Cannabis.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product safety correctly rejected"},
+    {"id": "fec0ffc6-2a37-4d9d-ab38-c2af39397feb", "title": "Comparison of 3H- and 125I-Radioimmunoassay and Gas Chromatography/Mass Spectrometry for the Determination of 9-Tetrahydrocannabinol and Cannabinoids in Blood and Serum", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "fec7d9cc-1061-4794-b79c-48a4da9947a0", "title": "RAPD analysis distinguishes Cannabis sativa samples from different sources", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Forensic correctly rejected"},
+    {"id": "fecf4d64-ee7d-420f-b490-c823a220b6ac", "title": "A new formulation of cannabidiol in cream shows therapeutic effects in a mouse model of experimental autoimmune encephalomyelitis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD autoimmune/MS therapeutic research"},
+    {"id": "fecffa6f-7b4e-4949-bae5-41945441c945", "title": "Seed the Difference: QTL Mapping Reveals Several Major Loci for Seed Size in Cannabis sativa L.", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Plant genetics correctly rejected"},
+    {"id": "fedef9e5-ac7e-4593-8875-243a1be1107c", "title": "The analysis on the optical properties of $Cd_1-_xZn_xS$ films deposited by CBD method", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chemical Bath Deposition) correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 15,
+    "incorrect": 5,
+    "incorrect_ids": [
+      "fddd537b-9e4d-4449-9ede-9601fe339bc0",
+      "fdf768c3-9951-40c1-89ca-163a532405fb",
+      "fe088a84-f93b-464b-b05e-c67fdeaf6883",
+      "fe5c1772-06a5-4750-99d3-1e26111c19eb",
+      "fecf4d64-ee7d-420f-b490-c823a220b6ac"
+    ]
+  }
+}

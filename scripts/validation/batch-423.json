@@ -1,0 +1,41 @@
+{
+  "batch_number": 423,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T23:45:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "d384644e-d15d-4798-9e80-bb8d5159f9ad", "title": "Systematics and Botanical Characteristics of Industrial Hemp Cannabis Sativa L", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Botany correctly rejected"},
+    {"id": "d385bf98-b33a-4d5e-ac9f-d3f1fbb416be", "title": "Guided web-based treatment program for reducing cannabis use: a randomized controlled trial", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "d39e1648-4336-41de-b560-8ec598a4307d", "title": "Regulating quasi-legal markets: Evidence from pain management clinic laws", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "d3af3306-7593-4fbf-bdef-e60965cc7ed8", "title": "The impact of changes in UK classification of the synthetic cannabinoid receptor agonists in 'Spice'", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Policy correctly rejected"},
+    {"id": "d3c13cee-5a4a-4aa8-b648-59569e71e8f7", "title": "Changes in cigarette and alcohol use during cannabis abstinence", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Use patterns correctly rejected"},
+    {"id": "d3c6d3b8-62e8-4bb1-88ea-85c28aa371f8", "title": "Neuronal Dystroglycan regulates postnatal development of CCK/cannabinoid receptor-1 interneurons", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB1 receptor neurodevelopment mechanism research"},
+    {"id": "d3d463ff-8773-4f4c-94e7-80e83bbe213b", "title": "A Checklist for Improving Interoperability of CBD Methodology", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD correctly rejected"},
+    {"id": "d3d8a1dc-56de-4b5a-a39b-641b55db0ca9", "title": "Advances and Challenges in Solid-State Nanopores for DNA Sequencing", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "d3e0dccf-2cb7-4939-a09a-af61ef09d0c0", "title": "Incremental Value of Digital PET/MRI over PET/CT in the Assessment of Neoplastic Liver Lesions", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "d3e835ba-06fa-4cd6-aa0b-b4f345839edc", "title": "Sex-Dependent Effects of Cannabidiol, Beta-Caryophyllene, and Other Cannabis-Derived Terpenes on Nociception and Body Temperature in Mice", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/terpene nociception research"},
+    {"id": "d3ef08ae-0c92-4018-8e14-b19b4155c972", "title": "Comparative Pharmacokinetic Assessment of Innovative Sublingual, Rectal and Vaporizer Cannabis Products Versus Approved Cannabis Products in Healthy Volunteers", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis pharmacokinetics research"},
+    {"id": "d4020fcb-0bc0-469b-8968-0ac63b81c710", "title": "Cannabis—VIII", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Too general correctly rejected"},
+    {"id": "d410a709-ec00-4cbe-a1d7-3b52ee26e2ba", "title": "Characterization of chrome buffing dust (CBD) generated from NILEST tannery associated with pathogenic fungi", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Chrome Buffing Dust) correctly rejected"},
+    {"id": "d41d7cc1-45c3-44fa-a28e-8f1128d31868", "title": "Association of Naturalistic E-Cigarette Use and Smoking Cessation in U.S. Adults", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "d4219a28-ce9f-4b5d-b591-2a3243188ca3", "title": "Cannabidiol", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD research entry"},
+    {"id": "d42b9f9e-6126-41dc-8914-2791d107ab3e", "title": "Endogenous cannabinoid system as a modulator of food intake", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - ECS appetite mechanism research"},
+    {"id": "d42f0e52-a0f3-4796-b7af-c976a0280d9d", "title": "A lysine residue of the cannabinoid receptor is critical for receptor recognition by several agonists but not WIN55212-2", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid receptor mechanism research"},
+    {"id": "d43ceb85-9d6d-4e2f-9ba4-a9c33ec88485", "title": "Sexually-dimorphic alterations in cannabinoid receptor density depend upon prenatal/early postnatal history", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CB receptor developmental mechanism research"},
+    {"id": "d43d6fb6-5fef-4f38-b804-f87df04aae4b", "title": "Cannabis medicinal: puntos críticos para su uso clínico", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Clinical guidance correctly rejected"},
+    {"id": "d446540c-5fc8-49f6-a28a-35187389a445", "title": "A comparative study of portoenterostomy and choledochojejunostomy in New Zealand rabbits under immunosuppression", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "d3c6d3b8-62e8-4bb1-88ea-85c28aa371f8",
+      "d3e835ba-06fa-4cd6-aa0b-b4f345839edc",
+      "d3ef08ae-0c92-4018-8e14-b19b4155c972",
+      "d4219a28-ce9f-4b5d-b591-2a3243188ca3",
+      "d42b9f9e-6126-41dc-8914-2791d107ab3e",
+      "d42f0e52-a0f3-4796-b7af-c976a0280d9d",
+      "d43ceb85-9d6d-4e2f-9ba4-a9c33ec88485"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "batch_number": 46,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T01:15:00.000Z",
+  "results": [
+    {"id": "3464fb61-344f-45fc-ac07-4ad79b534f20", "title": "CBD on differentiation of human monocytes into macrophages", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD anti-inflammatory mechanism"},
+    {"id": "3480f54c-e02f-4b92-a773-7d3b6b738951", "title": "CBD-based analogues anti-nociceptive anti-inflammatory", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug development"},
+    {"id": "348afc06-ec43-41ee-ab66-1d5a509925cc", "title": "CBD Mitigates Opioid Reward in Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD for opioid addiction"},
+    {"id": "348f2e1c-e13c-489e-88a9-75a142b80f4e", "title": "CBD for Refractory Epilepsy in Dogs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD veterinary epilepsy"},
+    {"id": "34a2c0c8-7545-46bd-b6d5-e755a0be7293", "title": "CBD in alcohol use disorder with PTSD RCTs", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD addiction/PTSD trials"},
+    {"id": "34aa890f-5619-42b7-a65d-72225088306c", "title": "CB1R antagonists as pharmacotherapies for drug abuse", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid addiction review"},
+    {"id": "34b09f56-9a20-4550-8902-404cdfc2fa6c", "title": "Availability of cannabinoids for epilepsy treatment ILAE survey", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid epilepsy access"},
+    {"id": "34b3c344-9072-4e95-84fc-87c68e4feea8", "title": "CB1R Levels in First-Episode Psychosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1R as therapeutic target"},
+    {"id": "34b644d1-b877-4692-8727-774c91e4a7cd", "title": "DSM-5 cannabis withdrawal symptoms in poly-substance abusers", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "Cannabis WITHDRAWAL study - not therapeutic"},
+    {"id": "34bd3bab-baa1-42e5-a7d4-a7e30b80d694", "title": "CB1 antagonist SR141716A in rat Parkinson's model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid Parkinson's research"},
+    {"id": "34d16eec-abba-4994-a20d-4811a8c47dc8", "title": "Cannabis for Pediatric Epilepsy review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid epilepsy review"},
+    {"id": "34d4b1eb-56e6-443a-a77f-7844071e0d81", "title": "CBD-BDNF on facial nerve regeneration", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD nerve regeneration"},
+    {"id": "34d5d56b-ea35-48fb-9578-c942ddfe9620", "title": "Neuroimaging brain disturbances in first-episode schizophrenia", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - schizophrenia neuroimaging"},
+    {"id": "34d96caa-e76e-4c22-a00a-cefeb71b631c", "title": "Cannabis Laws and Opioid Use in Cancer Patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis therapeutic impact on opioids"},
+    {"id": "34e38060-dbdf-4621-a6ac-7f89f335f05d", "title": "Cannabichromene derivatives as antibacterial agents", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBC antibacterial drug development"},
+    {"id": "35013432-dfcd-4ade-bfb2-d37be1feda3a", "title": "Synthesis Mechanism of Cannabidiol review", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CBD BIOSYNTHESIS methods - industrial production"},
+    {"id": "3504bbb1-6fb7-496f-9564-a7dd59f6b51d", "title": "CBD for chronic headaches in adolescents trial protocol", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD headache pediatric trial"},
+    {"id": "3506b167-197b-4405-89e4-53ae91e55f5b", "title": "CB1 receptor expression in visceral adipose depots", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid obesity mechanism"},
+    {"id": "351d33f4-4a93-4631-a9db-9ea3f1d56abb", "title": "Cross-sensitization cannabinoid antinociception stress-induced analgesia", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"},
+    {"id": "3529defc-e8b7-4aaa-8b94-094109a66747", "title": "CBD Add-on Treatment in Lennox Gastaut Syndrome GWPCARE5", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy extension trial"}
+  ],
+  "batch_summary": {
+    "correct": 17,
+    "incorrect": 3,
+    "incorrect_ids": [
+      "34b644d1-b877-4692-8727-774c91e4a7cd",
+      "34d5d56b-ea35-48fb-9578-c942ddfe9620",
+      "35013432-dfcd-4ade-bfb2-d37be1feda3a"
+    ]
+  }
+}

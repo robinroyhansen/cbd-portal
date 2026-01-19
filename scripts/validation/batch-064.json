@@ -1,0 +1,35 @@
+{
+  "batch_number": 64,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T05:45:00.000Z",
+  "results": [
+    {"id": "47712a3e-7b55-42f9-8ef9-b5fed7d0ab78", "title": "Anti-Inflammatory and Immunomodulatory Potential of Cannabidiol in Rheumatoid Arthritis: Integrative Review", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD rheumatoid arthritis therapeutic review"},
+    {"id": "4772596e-095c-4da8-bd90-565fc62b1ae3", "title": "Evaluation of the Efficacy of CANNABIDIOL on the Pruritus in Children With Hereditary Epidermolysis Bullosa", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epidermolysis bullosa pruritus therapeutic"},
+    {"id": "47729642-0545-45b5-af39-b2fede0a71a1", "title": "Cannabidiol-enriched medical cannabis as add-on therapy in children with treatment-resistant West syndrome: A study of eight patients", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD West syndrome epilepsy therapeutic"},
+    {"id": "4774f481-8338-4c3b-a765-501277191314", "title": "Discovering the Potential of Cannabidiol for Cosmeceutical Development at the Cellular Level", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD cosmeceutical skin therapeutic research"},
+    {"id": "478fb66e-01f7-4c2a-bb26-28ddcc0c1741", "title": "Co-medication with Cannabidiol May Slow Down the Progression of Motor Neuron Disease: A Case Report", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD ALS/motor neuron disease case report"},
+    {"id": "47a10a81-7e52-4e8d-82e4-15a1484f8813", "title": "Maternal and Fetal Pharmacokinetic Analysis of Cannabidiol during Pregnancy in Mice", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pregnancy pharmacokinetics safety"},
+    {"id": "47a1f3f9-ce04-4e5c-8698-fa42f277ea26", "title": "Cannabinoids in the Treatment of Epilepsy: Hard Evidence at Last?", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy therapeutic evidence review"},
+    {"id": "47a55e3e-0ba3-46ca-a8a7-e0a878c73444", "title": "Prevalence of Cannabinoid Use in Patients With Hip and Knee Osteoarthritis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - CBD use patterns in OA patients"},
+    {"id": "47ac573a-a019-4fb9-afc6-da0b8155389c", "title": "Pharmacotherapies for cannabis use disorder.", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - pharmacotherapy for cannabis dependence"},
+    {"id": "47bc2a5f-c942-465d-974a-6c253538a580", "title": "Bladder cancer cell growth and motility implicate cannabinoid 2 receptor-mediated modifications of sphingolipids metabolism", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB2 bladder cancer therapeutic mechanism"},
+    {"id": "47c14231-b32b-4a8a-80d0-e43956a15b83", "title": "The Endocannabinoid Activity Remodulation for Psychosis Liability in Youth (EARLY) Study: An Open-Label Feasibility Trial of Ultramicronized-Palmitoylethanolamide Oral Supplementation in Clinical High-Risk State for Psychosis.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "PEA psychosis prevention therapeutic trial"},
+    {"id": "47e72326-4183-4b06-a474-5c37179d71ca", "title": "Cardiotoxic effects of common and emerging drugs: role of cannabinoid receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBR cardiotoxicity mechanism review"},
+    {"id": "47f3ebf8-5bbe-4447-9759-f9321f0c47bf", "title": "Cannabinoids for Acute Postoperative Pain Management: A Systematic Review and Meta-Analysis of Clinical Trials.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid postoperative pain systematic review"},
+    {"id": "4828fa1f-91a8-4efc-af9e-c45bc36e36ab", "title": "Therapeutic Potential for Cannabidiol on Alzheimer's Disease-Related Neuroinflammation: A Systematic Review and Meta-Analysis.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD Alzheimer's neuroinflammation therapeutic"},
+    {"id": "483a8909-d311-4134-ba07-04e337c19ffa", "title": "Medicinal Cannabis (MedCan 3): a randomised, multicentre, double-blind, placebo-controlled trial to assess THC/CBD (1:20) to relieve symptom burden in patients with cancer-a study protocol for a randomised controlled trial.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC/CBD cancer symptom therapeutic RCT"},
+    {"id": "483edb35-83a5-461c-9a6d-48a1c343592e", "title": "Cannabinoids and multiple sclerosis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid MS therapeutic"},
+    {"id": "4851eabb-cab6-4e5b-875c-4b17cf3898ac", "title": "Neural Signatures of Cannabis Use: Reversing Cognitive Aging via Whole-Brain Functional Network Connectivity.", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis cognitive aging mechanism research"},
+    {"id": "485b342e-dfe5-4ae0-b7ff-eef4e7273f9b", "title": "Cannabinoid Modulation of Amygdala Reactivity to Social Signals of Threat in Humans", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC amygdala anxiety mechanism"},
+    {"id": "485cb4de-7cc0-49eb-8094-99b318e8bbb0", "title": "Cannabinoids and an Anti-inflammatory Diet for the Treatment of Neuropathic Pain After Spinal Cord Injury", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Nabilone SCI neuropathic pain therapeutic"},
+    {"id": "485d1e7e-ee84-4c8f-8e64-a1dab5888cae", "title": "Current state of evidence of cannabis utilization for treatment of autism spectrum disorders", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabis ASD therapeutic review"}
+  ],
+  "batch_summary": {
+    "correct": 18,
+    "incorrect": 2,
+    "incorrect_ids": [
+      "47a55e3e-0ba3-46ca-a8a7-e0a878c73444",
+      "47ac573a-a019-4fb9-afc6-da0b8155389c"
+    ]
+  }
+}

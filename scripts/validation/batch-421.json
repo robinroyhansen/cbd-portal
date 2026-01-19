@@ -1,0 +1,40 @@
+{
+  "batch_number": 421,
+  "studies_validated": 20,
+  "timestamp": "2026-01-22T23:15:00.000Z",
+  "phase": "rejected",
+  "results": [
+    {"id": "d21e2bb9-f136-468f-a221-e7ceb65c8720", "title": "Product Characteristics, Warnings, and Marketing Appeals Conveyed on Delta-8 THC Product Packaging in the US and Canada", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Product analysis correctly rejected"},
+    {"id": "d22074b4-4a2f-48af-8359-8369fd9867bb", "title": "Assessing Real World Efficacy, Safety, and 18-Month Retention Rates of Cannabidiol in Individuals With Drug Resistant Epilepsies", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD epilepsy real-world clinical efficacy"},
+    {"id": "d2225eb5-a8b9-42a1-9b76-4c3b99982a97", "title": "Molecular docking of danuglipron uncovers potential crossovers between GLP-1R and the endocannabinoid system", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - endocannabinoid system mechanism research"},
+    {"id": "d22466a3-57c0-4d35-8eec-83e0c9a210e7", "title": "Achievements and Expectations of the Rare Disease Diagnostic Support Program in the Republic of Korea", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "No cannabinoid correctly rejected"},
+    {"id": "d23431fa-c6cb-4e65-bf0c-0d857a8d8d16", "title": "The effect of cannabis edibles on driving and blood THC", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Impairment correctly rejected"},
+    {"id": "d234c4ac-a671-4d63-bf88-4fe8c68e5990", "title": "Cannabis use and mania symptoms: A systematic review and meta-analysis", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "d2377d59-c4df-47e8-82fd-3184def34a34", "title": "1H NMR quantification of cannabidiol (CBD) in industrial products derived from Cannabis sativa L. (hemp) seeds", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "d23b94ad-b1ec-4a1f-b299-33e49dfa2410", "title": "The effects of cannabidiol, Δ9-tetrahydrocannabinol, and combinations of cannabidiol and Δ9-tetrahydrocannabinol in the open field test and forced swim test", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - CBD/THC behavioral pharmacology anxiety/depression research"},
+    {"id": "d24ebdd8-e932-45bc-a879-8414f8d82fc8", "title": "Synthetic Cannabinoid Abuse in Adolescents: A Case Series", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid harm correctly rejected"},
+    {"id": "d2500ba2-0f87-4a99-b65b-a76186950743", "title": "Adsorption of Tetrahydrocannabinol (THC), Metabolites, and Related Cannabinoids During Storage of Plasma Samples in Gel Separation Tubes", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Lab methods correctly rejected"},
+    {"id": "d2508445-b541-4af6-859c-034d955b4202", "title": "Safety considerations for patients using cannabis", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabis safety research"},
+    {"id": "d26958b5-17c7-470b-a8eb-d406598c8921", "title": "Consumer perspectives of accessing medicinal cannabis treatment from cannabis clinics versus generalist health settings in Australia", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Health services correctly rejected"},
+    {"id": "d26a4135-7730-4917-808c-5fdb945abe50", "title": "Distress tolerance and cessation-related cannabis processes: The role of cannabis use coping motives", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "CUD treatment correctly rejected"},
+    {"id": "d279ccf5-a426-4e40-9550-45cbb89a0512", "title": "Cannabinoids inhibit fertilization in sea urchins by reducing the fertilizing capacity of sperm", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid reproductive mechanism research"},
+    {"id": "d28c40c3-a31e-4aeb-bbaf-a6900f97a77e", "title": "White-matter abnormalities in adolescents with long-term inhalant and cannabis use: a diffusion magnetic resonance imaging study", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Cannabis harm correctly rejected"},
+    {"id": "d28d687b-0b92-445e-89c2-4874674cf48f", "title": "设计太腕泉城论剑CBD", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Wrong CBD (Central Business District) correctly rejected"},
+    {"id": "d28fd773-f46d-4201-959c-2cf9ca746492", "title": "De novo biosynthesis of cannabinoids and their analogs in Yarrowia lipolytica", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Biosynthesis correctly rejected"},
+    {"id": "d2992f2a-2972-49a2-be2e-e2d6f07f3e03", "title": "Study of the topography of cannabinoids in model membranes using X-ray diffraction", "current_status": "rejected", "correct_status": "approved", "is_correct": false, "notes": "INCORRECTLY REJECTED - cannabinoid membrane mechanism research"},
+    {"id": "d2aa3da8-338f-438f-ae4f-f0a8b893a4ab", "title": "Biotransformation of synthetic cannabinoids JWH-018, JWH-073 and AM2201 by Cunninghamella elegans", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Synthetic cannabinoid metabolism correctly rejected"},
+    {"id": "d2b2179f-bd13-4b9c-afb9-ea200c8b2683", "title": "Natural products of cannabis and khat", "current_status": "rejected", "correct_status": "rejected", "is_correct": true, "notes": "Too general correctly rejected"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "d22074b4-4a2f-48af-8359-8369fd9867bb",
+      "d2225eb5-a8b9-42a1-9b76-4c3b99982a97",
+      "d23b94ad-b1ec-4a1f-b299-33e49dfa2410",
+      "d2508445-b541-4af6-859c-034d955b4202",
+      "d279ccf5-a426-4e40-9550-45cbb89a0512",
+      "d2992f2a-2972-49a2-be2e-e2d6f07f3e03"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "batch_number": 198,
+  "studies_validated": 20,
+  "timestamp": "2026-01-20T15:30:00.000Z",
+  "results": [
+    {"id": "dbac72c9-62b9-4d46-a957-d33d8c9e08b7", "title": "H2CBD Alternative CBD Antibacterial Antioxidant", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD analogue drug development"},
+    {"id": "dbb0389d-7bcd-4752-ae43-b81329ac6cc3", "title": "CB1 CB2 ROS Macrophages Inflammation", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid inflammation mechanism"},
+    {"id": "dbd8a35a-3096-4b9d-9b85-eef26d11d9ee", "title": "ECS Reward Processing Addiction Interventions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid addiction therapeutic review"},
+    {"id": "dbdf9534-79a7-4fd9-adca-af63f611dcb9", "title": "CBD Keratinocyte Fibroblast Membranes Psoriasis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psoriasis therapeutic"},
+    {"id": "dbe8ca38-965b-480c-b290-d6dff73f7d1c", "title": "Cannabis in Sport", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "POLICY - sports cannabis use/policy"},
+    {"id": "dbe91782-7de5-4fb6-a1f4-eeaf946a09cf", "title": "Endocannabinoid Modulators Analgesic Properties", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain therapeutic development"},
+    {"id": "dc118b31-0523-457a-9840-3a057945f146", "title": "Adolescent THC Dysfunction Prevented by CBD", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection against THC"},
+    {"id": "dc11f5f7-7a57-4c5d-906a-6d1441681916", "title": "Cannabis MS Way Forward Opinion", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "EDITORIAL - opinion article"},
+    {"id": "dc1d6488-5e79-472c-a0fb-813cc80071d1", "title": "SERMs Cannabinoid Receptor Inverse Agonists", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid receptor drug development"},
+    {"id": "dc1e4fe2-bd59-44de-87d9-3a1315440d9e", "title": "Synthetic Cannabinoid Use Frequency Demographics", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - SC use patterns epidemiology"},
+    {"id": "dc2179ec-10e0-46de-b1c0-9c8aeaf0b5b5", "title": "CBD Mitigates Doxorubicin Kidney Abnormalities", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD nephroprotection therapeutic"},
+    {"id": "dc2ae746-569f-4389-95aa-060399cee0c7", "title": "CBD Neuroprotection Rotenone Hippocampus", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection preclinical"},
+    {"id": "dc303f43-6c70-4516-b703-916588e7a944", "title": "High CBD Cannabis Fewer Psychotic Experiences", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD psychosis prevention"},
+    {"id": "dc3a4aac-eb9e-4b6f-92a3-de35f4fe3a63", "title": "Cannabinoid Hyperemesis Syndrome", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - adverse syndrome"},
+    {"id": "dc42da9b-20ff-4b8b-b0c6-84f6bc00fc91", "title": "WIN55212 Immunoregulation MS Viral Model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid MS therapeutic"},
+    {"id": "dc46e396-b35f-4fbd-b7dd-74e283873cb6", "title": "Motivational Factors Cannabis Use", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - cannabis use motivation"},
+    {"id": "dc546468-140d-4965-af46-09eb452ec845", "title": "CBC THC Bladder Cancer Anti-Cancer", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid bladder cancer therapeutic"},
+    {"id": "dc54ec16-37e0-4503-aa4b-e79ff8e28cae", "title": "FAAH Hydrolase Endocannabinoid Anandamide", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "ECS mechanism research"},
+    {"id": "dc981254-5876-45d6-aeee-61acadce1828", "title": "Cannabis Brain Structure Psychosis Neuroimaging", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - brain structure damage"},
+    {"id": "dcbb83c0-dcb8-4007-8de1-480e84509b5b", "title": "Vaping Machine THC CBD Aerosol Sampling", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "LAB METHODS - vaping equipment development"}
+  ],
+  "batch_summary": {
+    "correct": 13,
+    "incorrect": 7,
+    "incorrect_ids": [
+      "dbe8ca38-965b-480c-b290-d6dff73f7d1c",
+      "dc11f5f7-7a57-4c5d-906a-6d1441681916",
+      "dc1e4fe2-bd59-44de-87d9-3a1315440d9e",
+      "dc3a4aac-eb9e-4b6f-92a3-de35f4fe3a63",
+      "dc46e396-b35f-4fbd-b7dd-74e283873cb6",
+      "dc981254-5876-45d6-aeee-61acadce1828",
+      "dcbb83c0-dcb8-4007-8de1-480e84509b5b"
+    ]
+  }
+}

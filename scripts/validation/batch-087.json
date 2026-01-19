@@ -1,0 +1,43 @@
+{
+  "batch_number": 87,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T11:30:00.000Z",
+  "results": [
+    {"id": "60da15dc-70cb-4357-bcb5-76bca54419e2", "title": "Kratom (Mitragyna speciosa) sleep", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - Kratom is different plant"},
+    {"id": "60eebbd4-9421-46bd-8d78-2c66a04968e3", "title": "CBD/THC BMD daily intakes e-liquids", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD/THC safety toxicology"},
+    {"id": "612e56a1-ac05-4906-b2ae-420dc2e20284", "title": "Schizophrenia CUD brain volume", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID THERAPEUTIC - CUD brain imaging"},
+    {"id": "6145177b-654b-42ea-9ab9-b65ff832aa07", "title": "Schizophrenia genetic risk self-harm violence", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - general psychiatry"},
+    {"id": "614752c9-c587-4edc-9029-88599fa8f915", "title": "CB1R agonists mast cell atopic dermatitis", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 skin therapeutic"},
+    {"id": "61487d0e-8d95-413f-a944-1fd27f43bcff", "title": "CBD Dravet syndrome dose-ranging RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy RCT"},
+    {"id": "61615a76-b297-4d49-961b-b796a7f1e193", "title": "Carbon nanodots CBD delivery", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD drug delivery review"},
+    {"id": "616228b6-49dc-43c5-a02f-7a5f31f7331b", "title": "Self-reported cannabis dose potency validation", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID THERAPEUTIC - use assessment methodology"},
+    {"id": "616d13b6-edc4-42bb-bb04-8384d938132e", "title": "Nonacute neuropsychological effects cannabis", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cognitive effects review"},
+    {"id": "61848ed7-2d0c-4f3a-ae17-9e99c4e62c8d", "title": "Plant-fiber reinforced epoxy composites", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - materials science"},
+    {"id": "6188e577-5ea1-41ae-8f81-2b7f0d50a566", "title": "CB1 L-dopa dyskinesia Parkinson's model", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CB1 Parkinson's therapeutic"},
+    {"id": "618eef2d-3f3f-414e-881d-579725c2760c", "title": "CBD NLC nose-brain epilepsy delivery", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy drug delivery"},
+    {"id": "61b18a39-147e-43b1-a387-213faf7ad378", "title": "Psychopathology predictors CUD onset", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID THERAPEUTIC - CUD epidemiology"},
+    {"id": "61b25217-924b-4e48-993b-0fc483ddee1a", "title": "Cannabinoid perivascular neurotransmission", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid vascular mechanism"},
+    {"id": "61b55a52-681f-4376-abba-6818c1670fd4", "title": "Nabiximols cannabis dependence treatment", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Nabiximols CUD therapeutic RCT"},
+    {"id": "61c1f963-a343-4272-9a29-20f66876ed58", "title": "Computational natural ligands Alzheimer's", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "NO CANNABINOID - computational drug discovery"},
+    {"id": "61e3571a-84c6-4f3d-bb1d-37e4725f7341", "title": "Mary Berry CBD Gummies UK", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING"},
+    {"id": "61eb45e4-76e9-421f-92ea-2a1c71c30dce", "title": "CNR1 gene schizophrenia Spanish population", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CNR1 genetics research"},
+    {"id": "62275f35-69d8-4a41-8242-224a7e6eb47d", "title": "Phytocet CBD Oil Reviews", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "SPAM ADVERTISING"},
+    {"id": "6236c06a-f198-4bad-a31e-2ecc45adc752", "title": "THC vapor chronic pain midbrain activity", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "THC pain mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 10,
+    "incorrect": 10,
+    "incorrect_ids": [
+      "60da15dc-70cb-4357-bcb5-76bca54419e2",
+      "612e56a1-ac05-4906-b2ae-420dc2e20284",
+      "6145177b-654b-42ea-9ab9-b65ff832aa07",
+      "616228b6-49dc-43c5-a02f-7a5f31f7331b",
+      "616d13b6-edc4-42bb-bb04-8384d938132e",
+      "61848ed7-2d0c-4f3a-ae17-9e99c4e62c8d",
+      "61b18a39-147e-43b1-a387-213faf7ad378",
+      "61c1f963-a343-4272-9a29-20f66876ed58",
+      "61e3571a-84c6-4f3d-bb1d-37e4725f7341",
+      "62275f35-69d8-4a41-8242-224a7e6eb47d"
+    ]
+  }
+}

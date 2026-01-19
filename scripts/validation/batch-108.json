@@ -1,0 +1,39 @@
+{
+  "batch_number": 108,
+  "studies_validated": 20,
+  "timestamp": "2026-01-19T16:45:00.000Z",
+  "results": [
+    {"id": "78c9f8ab-93d8-4298-86ee-6e0b4dd08c5e", "title": "Birth outcomes cannabis pregnancy", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - pregnancy birth outcomes"},
+    {"id": "78ff04a9-0ee1-4f03-a4d7-ec6225b905a0", "title": "CBD Dravet syndrome dose-ranging safety RCT", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy RCT"},
+    {"id": "79099a0c-83f2-49a5-9d30-6c167517e34c", "title": "Cannabis use psychosis relationship hypotheses", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - psychosis risk"},
+    {"id": "790ba0f2-1673-4552-9460-dadff7259f93", "title": "Cannabinoids apoptosis glioma U373MG high concentrations", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer mechanism"},
+    {"id": "790bc010-4905-447f-996b-ffee0ab82626", "title": "Cannabis cognition psychosis siblings cross-sectional", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CANNABIS HARM - cognition in psychosis"},
+    {"id": "7919a67a-abf2-4b94-83a4-dcdb30910480", "title": "Cannabis depression anxiety Australian National Survey", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "PREVALENCE - national survey use patterns"},
+    {"id": "7931f28d-fa53-409d-a82a-2a23399551fa", "title": "Screening Cannabis Drug Use Disorders Primary Care trial", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - screening for drug use disorders"},
+    {"id": "7948b939-48e8-4386-a8ca-52f2b73af330", "title": "Cannabinoids Chronic Inflammatory Conditions models", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid anti-inflammatory"},
+    {"id": "794bbf05-380f-4bb9-870b-5fd6f48c9dfd", "title": "CBD Chronic Pelvic Pain Women substitution", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pain therapeutic"},
+    {"id": "794e3e99-1a44-451e-9315-43e8b4a6e05b", "title": "CBD pharmacological actions derivatives receptors", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacology"},
+    {"id": "7961ac40-15a3-4679-b6cd-131ad74d7d2a", "title": "CBD therapeutic potentials Nrf2 signaling pathway", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD mechanism"},
+    {"id": "796714b2-8b3f-4336-bec3-4f7c340bd799", "title": "Vanilloid endocannabinoid vascular tone neuro", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cardiovascular mechanism"},
+    {"id": "7970f289-1228-44c0-8d51-a50236498bd8", "title": "CB2 Breast Cancer Osteolysis Bone", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid cancer bone"},
+    {"id": "799ee67e-b006-459a-ab59-870bf5de587f", "title": "CBD THC fentanyl self-administration rhesus monkeys", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid opioid interaction research"},
+    {"id": "79ba3b51-e1c4-4be3-9d7e-d5384a6b8fa9", "title": "CBD Seizure Frequency AED drug interactions", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD epilepsy pharmacology"},
+    {"id": "79d9a08a-03ae-4138-b23d-2cb2f2080944", "title": "Endocannabinoid PTSD Chernobyl Russian-Ukrainian war", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Endocannabinoid PTSD research"},
+    {"id": "79e44c35-df1c-4636-b35a-227b623493a3", "title": "N-acetylcysteine youth cannabis use disorder RCT", "current_status": "approved", "correct_status": "rejected", "is_correct": false, "notes": "CUD TREATMENT - NAC for cannabis use disorder"},
+    {"id": "79f21b7e-ac04-44da-8d6f-4579f1b7837b", "title": "CBD oral formulations bioavailability crossover", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD pharmacokinetics"},
+    {"id": "79ff4763-4875-4c49-a1db-d998bec23885", "title": "CBD Neuroprotection Concussion TBI", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "CBD neuroprotection TBI"},
+    {"id": "7a0bf968-0ad3-46da-b52c-899390153d44", "title": "Terpene Minor Cannabinoid Neuropathic Pain Depression", "current_status": "approved", "correct_status": "approved", "is_correct": true, "notes": "Cannabinoid pain mechanism"}
+  ],
+  "batch_summary": {
+    "correct": 14,
+    "incorrect": 6,
+    "incorrect_ids": [
+      "78c9f8ab-93d8-4298-86ee-6e0b4dd08c5e",
+      "79099a0c-83f2-49a5-9d30-6c167517e34c",
+      "790bc010-4905-447f-996b-ffee0ab82626",
+      "7919a67a-abf2-4b94-83a4-dcdb30910480",
+      "7931f28d-fa53-409d-a82a-2a23399551fa",
+      "79e44c35-df1c-4636-b35a-227b623493a3"
+    ]
+  }
+}
