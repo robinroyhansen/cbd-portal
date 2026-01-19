@@ -10,10 +10,12 @@
     "db:generate": "supabase gen types typescript --project-id $SUPABASE_PROJECT_ID > src/lib/database.types.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.71.2",
     "@supabase/ssr": "^0.5.2",
     "@supabase/supabase-js": "^2.49.0",
     "@tailwindcss/typography": "^0.5.19",
     "date-fns": "^4.1.0",
+    "dotenv": "^17.2.3",
     "gray-matter": "^4.0.3",
     "next": "14.2.21",
     "react": "^18.3.1",
