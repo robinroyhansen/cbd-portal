@@ -147,6 +147,13 @@ export function ArticleContent({ content, glossaryTerms = [], excludeSlugs = [],
     );
   }
 
+  // Strip Medical/Veterinary Disclaimer from content (we have one in the page template)
+  // Matches: **Medical Disclaimer:** ..., Medical Disclaimer: ..., **Veterinary Disclaimer:** ...
+  processedContent = processedContent.replace(
+    /\n*\*{0,2}(?:Medical|Veterinary|Disclaimer)\s*(?:Disclaimer)?:?\*{0,2}:?\s*This (?:article|information|content) is for informational purposes only[\s\S]*?(?:health (?:regimen|care|professional)|veterinary care|veterinarian|medical advice)\.?\n*/gi,
+    '\n'
+  );
+
   return (
     <div className="article-content">
       <ReactMarkdown

@@ -159,20 +159,30 @@ export default async function ResearchPage() {
   }
 
   // Get year distribution for publication trends chart
+  // Paginate through all results since Supabase has a 1000 row limit
   let yearDistribution: Record<number, number> = {};
   try {
-    const { data: yearData } = await supabase
-      .from('kb_research_queue')
-      .select('year')
-      .eq('status', 'approved')
-      .gte('year', 2000);
+    let offset = 0;
+    const pageSize = 1000;
 
-    if (yearData) {
+    while (true) {
+      const { data: yearData, error } = await supabase
+        .from('kb_research_queue')
+        .select('year')
+        .eq('status', 'approved')
+        .gte('year', 2000)
+        .range(offset, offset + pageSize - 1);
+
+      if (error || !yearData || yearData.length === 0) break;
+
       yearData.forEach((item: { year: number }) => {
         if (item.year) {
           yearDistribution[item.year] = (yearDistribution[item.year] || 0) + 1;
         }
       });
+
+      if (yearData.length < pageSize) break;
+      offset += pageSize;
     }
   } catch (e) {
     // Ignore errors
