@@ -1,0 +1,136 @@
+# CBD Portal - Claude Code Project Documentation
+
+## Project Overview
+
+CBD educational portal built with Next.js 14, Supabase, and TailwindCSS. Features a comprehensive knowledge base, research scanner, glossary system, and admin tools.
+
+**Live URL:** https://cbd-portal.vercel.app
+
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Database**: Supabase (PostgreSQL) - `bvrdryvgqarffgdujmjz`
+- **Styling**: TailwindCSS
+- **Deployment**: Vercel
+- **Language**: TypeScript
+
+---
+
+## DATABASE ACCESS
+
+**Production Database:** `bvrdryvgqarffgdujmjz.supabase.co`
+
+To pull latest env vars from Vercel:
+```bash
+vercel env pull .env.production.local --environment=production
+```
+
+Environment variables are in `.env.local` (local dev) and managed by Vercel for production.
+
+### Main Tables
+- **kb_articles**: 138 knowledge base articles
+- **kb_categories**: 16 content categories
+- **kb_glossary**: Glossary terms with definitions
+- **kb_research_queue**: Research paper queue for review
+- **kb_scan_jobs**: Scanner job tracking
+- **kb_authors**: Author profiles for E-E-A-T
+- **kb_citations**: Article citations/references
+- **kb_tags**: Article tagging system
+
+---
+
+## CURRENT STATE (January 19, 2026)
+
+### Content Distribution
+| Category | Articles |
+|----------|----------|
+| CBD Products | 42 |
+| Terpenes | 30 |
+| CBD Basics | 25 |
+| CBD Science | 18 |
+| Cannabinoids | 16 |
+| Guides & How-To | 5 |
+| Legal & Safety | 2 |
+| Health Conditions | 0 (needs content) |
+| Mental Health | 0 (needs content) |
+| Pain Management | 0 (needs content) |
+
+### Systems Implemented
+- Category system with 16 categories
+- Glossary with auto-linking
+- Multi-author E-E-A-T system
+- Research scanner (7 sources, 106 keywords)
+- Brand reviews schema (needs content)
+
+---
+
+## KEY FILES
+
+### Core Content
+- `src/app/articles/[slug]/page.tsx` - Article display
+- `src/app/categories/[slug]/page.tsx` - Category pages
+- `src/lib/articles.ts` - Article fetching utilities
+
+### Scanner System
+- `src/lib/research-scanner.ts` - Main scanner with 7 source adapters
+- `src/app/api/admin/scanner/process/route.ts` - Job processing API
+- `src/app/admin/research/scanner/page.tsx` - Scanner UI
+
+### Database Utilities
+- `scripts/fix-article-categories.js` - Fix article categorization
+- `scripts/list-all-articles.js` - List all articles by category
+- `scripts/populate-all-articles.js` - Bulk article import
+
+### Migrations
+- `supabase/migrations/` - All database migrations
+
+---
+
+## COMMANDS
+
+```bash
+# Development
+npm run dev
+
+# Build
+npm run build
+
+# Category management
+node scripts/fix-article-categories.js analyze   # View distribution
+node scripts/fix-article-categories.js dry-run   # Preview fixes
+node scripts/fix-article-categories.js fix       # Apply fixes
+
+# List all articles
+node scripts/list-all-articles.js
+
+# Pull production env vars
+vercel env pull .env.production.local --environment=production
+```
+
+---
+
+## API ENDPOINTS
+
+### Public
+- `GET /api/articles` - List articles
+- `GET /api/articles/[slug]` - Single article
+- `GET /api/categories` - List categories
+
+### Admin
+- `POST /api/admin/scanner/start` - Start scan job
+- `POST /api/admin/scanner/process` - Process scan
+- `POST /api/admin/integrate-research` - Approve research
+
+---
+
+## IMPORTANT NOTES
+
+1. **Database**: Always use `bvrdryvgqarffgdujmjz.supabase.co` (CBD Portal)
+   - Do NOT use `yyjuneubsrrqzlcueews` (that's the knife guide project)
+   - Do NOT use `jgivzyszbpyuvqfmldin` (old test database)
+
+2. **Tables**: Use `kb_articles` and `kb_categories` (not `articles`/`categories`)
+
+3. **Content Gaps**: Health condition articles (anxiety, sleep, pain, etc.) need to be created
+
+4. **Vercel**: Production env vars managed by Vercel dashboard, not local files

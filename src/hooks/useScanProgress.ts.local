@@ -1,0 +1,341 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { createClient } from '@/lib/supabase/client';
+
+export interface ScanJob {
+  id: string;
+  scanType: string;
+  scanDepth: string;
+  selectedSources: string[];
+  totalSources: number;
+  sourcesCompleted: number;
+  totalItemsFound: number;
+  itemsAdded: number;
+  itemsSkipped: number;
+  itemsRejected: number;
+  status: 'queued' | 'running' | 'completed' | 'failed' | 'cancelled';
+  progressPercentage: number;
+  currentSource?: string;
+  currentSearchTerm?: string;
+  errorMessage?: string;
+  estimatedDurationMinutes?: number;
+  startedAt?: string;
+  completedAt?: string;
+  createdAt: string;
+  createdBy?: string;
+}
+
+export interface ProgressEvent {
+  id: string;
+  eventType: string;
+  sourceName?: string;
+  searchTerm?: string;
+  itemTitle?: string;
+  itemUrl?: string;
+  details?: any;
+  timestamp: string;
+}
+
+export interface ScanProgressState {
+  job: ScanJob | null;
+  recentEvents: ProgressEvent[];
+  loading: boolean;
+  error: string | null;
+  isConnected: boolean;
+}
+
+/**
+ * Hook for real-time scan job progress tracking
+ * Subscribes to job updates and progress events via Supabase Realtime
+ */
+export function useScanProgress(jobId: string | null): ScanProgressState {
+  const [state, setState] = useState<ScanProgressState>({
+    job: null,
+    recentEvents: [],
+    loading: true,
+    error: null,
+    isConnected: false
+  });
+
+  useEffect(() => {
+    if (!jobId) {
+      setState(prev => ({
+        ...prev,
+        job: null,
+        recentEvents: [],
+        loading: false,
+        error: null
+      }));
+      return;
+    }
+
+    const supabase = createClient();
+
+    // Initial data fetch
+    const fetchInitialData = async () => {
+      try {
+        setState(prev => ({ ...prev, loading: true, error: null }));
+
+        // Fetch job details with source progress and recent events
+        const { data: jobData, error: jobError } = await supabase
+          .from('kb_scan_jobs')
+          .select(`
+            *,
+            kb_scan_source_progress (*),
+            kb_scan_progress_events (
+              id,
+              event_type,
+              source_name,
+              search_term,
+              item_title,
+              item_url,
+              details,
+              timestamp
+            )
+          `)
+          .eq('id', jobId)
+          .single();
+
+        if (jobError) {
+          throw new Error(jobError.message);
+        }
+
+        // Transform job data to camelCase
+        const transformedJob: ScanJob = {
+          id: jobData.id,
+          scanType: jobData.scan_type,
+          scanDepth: jobData.scan_depth,
+          selectedSources: jobData.selected_sources,
+          totalSources: jobData.total_sources,
+          sourcesCompleted: jobData.sources_completed,
+          totalItemsFound: jobData.total_items_found,
+          itemsAdded: jobData.items_added,
+          itemsSkipped: jobData.items_skipped,
+          itemsRejected: jobData.items_rejected,
+          status: jobData.status,
+          progressPercentage: jobData.progress_percentage,
+          currentSource: jobData.current_source,
+          currentSearchTerm: jobData.current_search_term,
+          errorMessage: jobData.error_message,
+          estimatedDurationMinutes: jobData.estimated_duration_minutes,
+          startedAt: jobData.started_at,
+          completedAt: jobData.completed_at,
+          createdAt: jobData.created_at,
+          createdBy: jobData.created_by
+        };
+
+        // Transform recent events
+        const transformedEvents: ProgressEvent[] = jobData.kb_scan_progress_events
+          .sort((a: any, b: any) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
+          .slice(0, 10)
+          .map((event: any) => ({
+            id: event.id,
+            eventType: event.event_type,
+            sourceName: event.source_name,
+            searchTerm: event.search_term,
+            itemTitle: event.item_title,
+            itemUrl: event.item_url,
+            details: event.details,
+            timestamp: event.timestamp
+          }));
+
+        setState(prev => ({
+          ...prev,
+          job: transformedJob,
+          recentEvents: transformedEvents,
+          loading: false,
+          error: null
+        }));
+
+      } catch (error) {
+        console.error('Error fetching initial scan progress:', error);
+        setState(prev => ({
+          ...prev,
+          loading: false,
+          error: error instanceof Error ? error.message : 'Failed to load scan progress'
+        }));
+      }
+    };
+
+    fetchInitialData();
+
+    // Set up real-time subscriptions
+    const jobChannel = supabase
+      .channel(`scan_job_${jobId}`)
+      .on(
+        'postgres_changes',
+        {
+          event: 'UPDATE',
+          schema: 'public',
+          table: 'kb_scan_jobs',
+          filter: `id=eq.${jobId}`
+        },
+        (payload) => {
+          console.log('Job progress update:', payload.new);
+
+          setState(prev => ({
+            ...prev,
+            job: prev.job ? {
+              ...prev.job,
+              sourcesCompleted: payload.new.sources_completed,
+              totalItemsFound: payload.new.total_items_found,
+              itemsAdded: payload.new.items_added,
+              itemsSkipped: payload.new.items_skipped,
+              itemsRejected: payload.new.items_rejected,
+              status: payload.new.status,
+              progressPercentage: payload.new.progress_percentage,
+              currentSource: payload.new.current_source,
+              currentSearchTerm: payload.new.current_search_term,
+              errorMessage: payload.new.error_message,
+              startedAt: payload.new.started_at,
+              completedAt: payload.new.completed_at
+            } : null
+          }));
+        }
+      )
+      .subscribe((status) => {
+        console.log('Job subscription status:', status);
+        setState(prev => ({ ...prev, isConnected: status === 'SUBSCRIBED' }));
+      });
+
+    // Subscribe to new progress events
+    const eventsChannel = supabase
+      .channel(`scan_events_${jobId}`)
+      .on(
+        'postgres_changes',
+        {
+          event: 'INSERT',
+          schema: 'public',
+          table: 'kb_scan_progress_events',
+          filter: `job_id=eq.${jobId}`
+        },
+        (payload) => {
+          console.log('New progress event:', payload.new);
+
+          const newEvent: ProgressEvent = {
+            id: payload.new.id,
+            eventType: payload.new.event_type,
+            sourceName: payload.new.source_name,
+            searchTerm: payload.new.search_term,
+            itemTitle: payload.new.item_title,
+            itemUrl: payload.new.item_url,
+            details: payload.new.details,
+            timestamp: payload.new.timestamp
+          };
+
+          setState(prev => ({
+            ...prev,
+            recentEvents: [newEvent, ...prev.recentEvents].slice(0, 10) // Keep only latest 10
+          }));
+        }
+      )
+      .subscribe();
+
+    // Cleanup function
+    return () => {
+      jobChannel.unsubscribe();
+      eventsChannel.unsubscribe();
+    };
+
+  }, [jobId]);
+
+  return state;
+}
+
+/**
+ * Hook for tracking all active scan jobs
+ * Useful for admin dashboard to see all running scans
+ */
+export function useActiveScanJobs(): {
+  jobs: ScanJob[];
+  loading: boolean;
+  error: string | null;
+  refetch: () => void;
+} {
+  const [jobs, setJobs] = useState<ScanJob[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const fetchJobs = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+
+      const supabase = createClient();
+      const { data, error: jobsError } = await supabase
+        .from('kb_scan_jobs')
+        .select('*')
+        .in('status', ['queued', 'running'])
+        .order('created_at', { ascending: false });
+
+      if (jobsError) {
+        throw new Error(jobsError.message);
+      }
+
+      const transformedJobs: ScanJob[] = data.map(job => ({
+        id: job.id,
+        scanType: job.scan_type,
+        scanDepth: job.scan_depth,
+        selectedSources: job.selected_sources,
+        totalSources: job.total_sources,
+        sourcesCompleted: job.sources_completed,
+        totalItemsFound: job.total_items_found,
+        itemsAdded: job.items_added,
+        itemsSkipped: job.items_skipped,
+        itemsRejected: job.items_rejected,
+        status: job.status,
+        progressPercentage: job.progress_percentage,
+        currentSource: job.current_source,
+        currentSearchTerm: job.current_search_term,
+        errorMessage: job.error_message,
+        estimatedDurationMinutes: job.estimated_duration_minutes,
+        startedAt: job.started_at,
+        completedAt: job.completed_at,
+        createdAt: job.created_at,
+        createdBy: job.created_by
+      }));
+
+      setJobs(transformedJobs);
+    } catch (error) {
+      console.error('Error fetching active scan jobs:', error);
+      setError(error instanceof Error ? error.message : 'Failed to load active jobs');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchJobs();
+
+    const supabase = createClient();
+
+    // Subscribe to job changes
+    const channel = supabase
+      .channel('active_scan_jobs')
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'kb_scan_jobs'
+        },
+        () => {
+          // Refetch when any job changes
+          fetchJobs();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      channel.unsubscribe();
+    };
+  }, []);
+
+  return {
+    jobs,
+    loading,
+    error,
+    refetch: fetchJobs
+  };
+}
