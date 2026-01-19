@@ -1,0 +1,710 @@
+{
+  "category": "other",
+  "drugs": [
+    {
+      "generic_name": "omeprazole",
+      "display_name": "Omeprazole",
+      "brand_names": ["Prilosec", "Zegerid"],
+      "synonyms": ["PPI", "proton pump inhibitor", "acid reducer", "heartburn medication"],
+      "drug_class": "Proton pump inhibitor",
+      "primary_cyp_enzymes": ["CYP2C19", "CYP3A4"],
+      "common_uses": ["heartburn", "GERD", "stomach ulcers", "H. pylori infection"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2c19_inhibition",
+        "mechanism_description": "Omeprazole is metabolized by CYP2C19, which CBD inhibits. This can increase omeprazole levels. Omeprazole is also a CYP2C19 inhibitor itself.",
+        "clinical_effects": ["Elevated omeprazole levels", "Enhanced acid suppression"],
+        "potential_outcomes": "Increased PPI effects. Long-term high-dose PPI use is associated with some risks.",
+        "recommendation": "Use with caution. Short-term use is likely fine. For long-term users, discuss with your doctor.",
+        "monitoring_parameters": ["GI symptoms", "Magnesium levels with long-term use"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "esomeprazole",
+      "display_name": "Esomeprazole",
+      "brand_names": ["Nexium"],
+      "synonyms": ["PPI", "proton pump inhibitor", "acid reducer", "heartburn medication"],
+      "drug_class": "Proton pump inhibitor",
+      "primary_cyp_enzymes": ["CYP2C19", "CYP3A4"],
+      "common_uses": ["heartburn", "GERD", "stomach ulcers"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2c19_inhibition",
+        "mechanism_description": "Esomeprazole is metabolized by CYP2C19. CBD inhibition can increase esomeprazole levels.",
+        "clinical_effects": ["Elevated esomeprazole levels"],
+        "potential_outcomes": "Enhanced acid suppression effects.",
+        "recommendation": "Use with caution. Consider as similar to omeprazole interaction.",
+        "monitoring_parameters": ["GI symptoms"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "pantoprazole",
+      "display_name": "Pantoprazole",
+      "brand_names": ["Protonix"],
+      "synonyms": ["PPI", "proton pump inhibitor", "acid reducer"],
+      "drug_class": "Proton pump inhibitor",
+      "primary_cyp_enzymes": ["CYP2C19"],
+      "common_uses": ["GERD", "stomach ulcers", "Zollinger-Ellison syndrome"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2c19_inhibition",
+        "mechanism_description": "Pantoprazole is metabolized by CYP2C19. CBD inhibition may increase pantoprazole levels.",
+        "clinical_effects": ["Elevated pantoprazole levels"],
+        "potential_outcomes": "Enhanced acid suppression.",
+        "recommendation": "Use with caution. Similar considerations to other PPIs.",
+        "monitoring_parameters": ["GI symptoms"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "lansoprazole",
+      "display_name": "Lansoprazole",
+      "brand_names": ["Prevacid"],
+      "synonyms": ["PPI", "proton pump inhibitor", "acid reducer"],
+      "drug_class": "Proton pump inhibitor",
+      "primary_cyp_enzymes": ["CYP2C19", "CYP3A4"],
+      "common_uses": ["heartburn", "GERD", "stomach ulcers"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2c19_inhibition",
+        "mechanism_description": "Lansoprazole is metabolized by CYP2C19 and CYP3A4. CBD inhibition can affect levels.",
+        "clinical_effects": ["Elevated lansoprazole levels"],
+        "potential_outcomes": "Enhanced acid suppression effects.",
+        "recommendation": "Use with caution. Similar to other PPI interactions.",
+        "monitoring_parameters": ["GI symptoms"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "famotidine",
+      "display_name": "Famotidine",
+      "brand_names": ["Pepcid"],
+      "synonyms": ["H2 blocker", "acid reducer", "heartburn medication"],
+      "drug_class": "H2 receptor antagonist",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["heartburn", "GERD", "stomach ulcers"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Famotidine is primarily renally eliminated with minimal CYP metabolism. Interaction unlikely.",
+        "clinical_effects": ["Minimal interaction expected"],
+        "potential_outcomes": "Low risk of significant interaction.",
+        "recommendation": "Generally safe to use together. Lower interaction risk than PPIs.",
+        "monitoring_parameters": ["GI symptoms"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "ranitidine",
+      "display_name": "Ranitidine",
+      "brand_names": ["Zantac"],
+      "synonyms": ["H2 blocker", "acid reducer"],
+      "drug_class": "H2 receptor antagonist",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["heartburn", "GERD", "stomach ulcers"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Ranitidine has minimal CYP metabolism. Note: Many ranitidine products were recalled due to NDMA contamination.",
+        "clinical_effects": ["Minimal interaction expected"],
+        "potential_outcomes": "Low interaction risk.",
+        "recommendation": "Generally low risk, but note ranitidine has been largely removed from market.",
+        "monitoring_parameters": ["GI symptoms"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "acetaminophen",
+      "display_name": "Acetaminophen",
+      "brand_names": ["Tylenol", "Panadol"],
+      "synonyms": ["paracetamol", "pain reliever", "fever reducer"],
+      "drug_class": "Analgesic/Antipyretic",
+      "primary_cyp_enzymes": ["CYP2E1", "CYP1A2", "CYP3A4"],
+      "common_uses": ["pain", "fever", "headache"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Acetaminophen is primarily glucuronidated with minor CYP metabolism. Both CBD and acetaminophen can affect the liver, but significant interaction is not well documented.",
+        "clinical_effects": ["Possible additive liver effects at high doses"],
+        "potential_outcomes": "Theoretical concern for liver stress at high doses, but not well documented.",
+        "recommendation": "Generally safe at normal doses. Avoid exceeding recommended acetaminophen doses. Both substances can affect liver.",
+        "monitoring_parameters": ["Liver symptoms if using high doses regularly"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "ibuprofen",
+      "display_name": "Ibuprofen",
+      "brand_names": ["Advil", "Motrin", "Nurofen"],
+      "synonyms": ["NSAID", "pain reliever", "anti-inflammatory"],
+      "drug_class": "Non-steroidal anti-inflammatory drug",
+      "primary_cyp_enzymes": ["CYP2C9"],
+      "common_uses": ["pain", "fever", "inflammation", "headache", "menstrual cramps"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "cyp2c9_inhibition",
+        "mechanism_description": "Ibuprofen is metabolized by CYP2C9. CBD inhibition may modestly increase ibuprofen levels.",
+        "clinical_effects": ["Potentially elevated ibuprofen levels"],
+        "potential_outcomes": "Possible modest increase in NSAID effects.",
+        "recommendation": "Generally low risk at occasional use. Both have anti-inflammatory properties. Avoid high doses of NSAIDs long-term.",
+        "monitoring_parameters": ["GI symptoms", "Kidney function with long-term use"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "naproxen",
+      "display_name": "Naproxen",
+      "brand_names": ["Aleve", "Naprosyn", "Anaprox"],
+      "synonyms": ["NSAID", "pain reliever", "anti-inflammatory"],
+      "drug_class": "Non-steroidal anti-inflammatory drug",
+      "primary_cyp_enzymes": ["CYP2C9"],
+      "common_uses": ["pain", "inflammation", "arthritis", "menstrual cramps", "headache"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "cyp2c9_inhibition",
+        "mechanism_description": "Naproxen is metabolized by CYP2C9. CBD may modestly affect naproxen levels.",
+        "clinical_effects": ["Potentially elevated naproxen levels"],
+        "potential_outcomes": "Possible modest increase in NSAID effects.",
+        "recommendation": "Generally low risk. Both have anti-inflammatory properties that may complement each other.",
+        "monitoring_parameters": ["GI symptoms", "Blood pressure"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "celecoxib",
+      "display_name": "Celecoxib",
+      "brand_names": ["Celebrex"],
+      "synonyms": ["NSAID", "COX-2 inhibitor", "arthritis medication"],
+      "drug_class": "COX-2 selective NSAID",
+      "primary_cyp_enzymes": ["CYP2C9"],
+      "common_uses": ["arthritis", "pain", "menstrual cramps"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2c9_inhibition",
+        "mechanism_description": "Celecoxib is metabolized by CYP2C9. CBD inhibition can increase celecoxib levels.",
+        "clinical_effects": ["Elevated celecoxib levels", "Increased cardiovascular risk"],
+        "potential_outcomes": "Higher celecoxib levels may increase cardiovascular and GI risks associated with the drug.",
+        "recommendation": "Use with caution. Celecoxib carries cardiovascular warnings. Use lowest effective dose.",
+        "monitoring_parameters": ["Cardiovascular symptoms", "Blood pressure", "GI symptoms"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "meloxicam",
+      "display_name": "Meloxicam",
+      "brand_names": ["Mobic"],
+      "synonyms": ["NSAID", "anti-inflammatory", "arthritis medication"],
+      "drug_class": "Non-steroidal anti-inflammatory drug",
+      "primary_cyp_enzymes": ["CYP2C9", "CYP3A4"],
+      "common_uses": ["arthritis", "pain"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "cyp2c9_inhibition",
+        "mechanism_description": "Meloxicam is metabolized by CYP2C9. CBD may modestly increase levels.",
+        "clinical_effects": ["Potentially elevated meloxicam levels"],
+        "potential_outcomes": "Possible increased NSAID effects.",
+        "recommendation": "Use with caution. Monitor for GI and cardiovascular effects.",
+        "monitoring_parameters": ["GI symptoms", "Blood pressure"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "diclofenac",
+      "display_name": "Diclofenac",
+      "brand_names": ["Voltaren", "Cataflam", "Cambia"],
+      "synonyms": ["NSAID", "anti-inflammatory", "pain reliever"],
+      "drug_class": "Non-steroidal anti-inflammatory drug",
+      "primary_cyp_enzymes": ["CYP2C9"],
+      "common_uses": ["pain", "arthritis", "migraines"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "cyp2c9_inhibition",
+        "mechanism_description": "Diclofenac is metabolized by CYP2C9. CBD inhibition may increase levels.",
+        "clinical_effects": ["Potentially elevated diclofenac levels"],
+        "potential_outcomes": "Possible increased NSAID effects. Topical diclofenac has lower systemic absorption.",
+        "recommendation": "Use with caution for oral formulations. Topical diclofenac (Voltaren gel) is lower risk.",
+        "monitoring_parameters": ["GI symptoms", "Liver function with long-term oral use"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "diphenhydramine",
+      "display_name": "Diphenhydramine",
+      "brand_names": ["Benadryl", "Unisom SleepGels", "ZzzQuil"],
+      "synonyms": ["antihistamine", "sleep aid", "allergy medication"],
+      "drug_class": "First-generation antihistamine",
+      "primary_cyp_enzymes": ["CYP2D6"],
+      "common_uses": ["allergies", "sleep", "cold symptoms", "motion sickness"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "multiple",
+        "mechanism_description": "Diphenhydramine is metabolized by CYP2D6. CBD inhibition may increase levels. Both have sedating properties.",
+        "clinical_effects": ["Elevated diphenhydramine levels", "Enhanced sedation", "Increased anticholinergic effects"],
+        "potential_outcomes": "Excessive drowsiness, dry mouth, urinary retention, especially in elderly.",
+        "recommendation": "Use with caution. Expect enhanced sedation. Do not drive or operate machinery.",
+        "monitoring_parameters": ["Sedation", "Anticholinergic effects", "Urinary retention in elderly"],
+        "evidence_level": "Limited",
+        "special_populations_notes": "Elderly are particularly sensitive to anticholinergic effects. Avoid or use with caution."
+      }
+    },
+    {
+      "generic_name": "cetirizine",
+      "display_name": "Cetirizine",
+      "brand_names": ["Zyrtec"],
+      "synonyms": ["antihistamine", "allergy medication"],
+      "drug_class": "Second-generation antihistamine",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["allergies", "hives", "hay fever"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Cetirizine has minimal CYP metabolism. Less sedating than first-generation antihistamines.",
+        "clinical_effects": ["Possible mild additive sedation"],
+        "potential_outcomes": "Low risk of significant interaction. May have mild additive drowsiness.",
+        "recommendation": "Generally safe. Less interaction potential than diphenhydramine.",
+        "monitoring_parameters": ["Drowsiness"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "loratadine",
+      "display_name": "Loratadine",
+      "brand_names": ["Claritin", "Alavert"],
+      "synonyms": ["antihistamine", "allergy medication"],
+      "drug_class": "Second-generation antihistamine",
+      "primary_cyp_enzymes": ["CYP3A4", "CYP2D6"],
+      "common_uses": ["allergies", "hives", "hay fever"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "multiple",
+        "mechanism_description": "Loratadine is metabolized by CYP3A4 and CYP2D6. CBD may increase levels, but loratadine is generally well-tolerated.",
+        "clinical_effects": ["Potentially elevated loratadine levels"],
+        "potential_outcomes": "Possible modest increase in antihistamine effects. Low sedation risk.",
+        "recommendation": "Generally low risk. Loratadine is non-sedating at normal doses.",
+        "monitoring_parameters": ["Drowsiness"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "fexofenadine",
+      "display_name": "Fexofenadine",
+      "brand_names": ["Allegra"],
+      "synonyms": ["antihistamine", "allergy medication"],
+      "drug_class": "Second-generation antihistamine",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["allergies", "hives", "hay fever"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Fexofenadine has minimal CYP metabolism. Low interaction potential.",
+        "clinical_effects": ["Minimal interaction expected"],
+        "potential_outcomes": "Low risk of significant interaction.",
+        "recommendation": "Generally safe. Good choice among antihistamines if concerned about interactions.",
+        "monitoring_parameters": [],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "dextromethorphan",
+      "display_name": "Dextromethorphan",
+      "brand_names": ["Robitussin DM", "Delsym", "Mucinex DM"],
+      "synonyms": ["cough suppressant", "cough medicine", "DXM"],
+      "drug_class": "Antitussive",
+      "primary_cyp_enzymes": ["CYP2D6", "CYP3A4"],
+      "common_uses": ["cough", "cold symptoms"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2d6_inhibition",
+        "mechanism_description": "Dextromethorphan is metabolized by CYP2D6. CBD inhibition can significantly increase DXM levels, potentially causing serotonin syndrome or dissociative effects.",
+        "clinical_effects": ["Significantly elevated DXM levels", "Serotonin syndrome risk", "Dissociative effects"],
+        "potential_outcomes": "At elevated levels, DXM can cause dizziness, confusion, and potentially serotonin syndrome.",
+        "recommendation": "Use with caution. Avoid high doses of DXM-containing products when using CBD.",
+        "monitoring_parameters": ["Dizziness", "Confusion", "Signs of serotonin syndrome"],
+        "evidence_level": "Moderate",
+        "special_populations_notes": "CYP2D6 poor metabolizers are at higher risk of elevated DXM levels."
+      }
+    },
+    {
+      "generic_name": "pseudoephedrine",
+      "display_name": "Pseudoephedrine",
+      "brand_names": ["Sudafed"],
+      "synonyms": ["decongestant", "cold medicine"],
+      "drug_class": "Sympathomimetic decongestant",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["nasal congestion", "sinus pressure", "cold symptoms"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Pseudoephedrine is not significantly CYP metabolized. No major pharmacokinetic interaction expected.",
+        "clinical_effects": ["Possible opposing effects on blood pressure"],
+        "potential_outcomes": "CBD may mildly lower blood pressure while pseudoephedrine raises it. Effects may partially cancel.",
+        "recommendation": "Generally low risk. Be aware of blood pressure effects from pseudoephedrine.",
+        "monitoring_parameters": ["Blood pressure", "Heart rate"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "phenylephrine",
+      "display_name": "Phenylephrine",
+      "brand_names": ["Sudafed PE", "Neo-Synephrine"],
+      "synonyms": ["decongestant", "cold medicine"],
+      "drug_class": "Alpha-adrenergic agonist",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["nasal congestion", "cold symptoms"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Phenylephrine is not significantly CYP metabolized. Minimal interaction expected.",
+        "clinical_effects": ["Minimal interaction expected"],
+        "potential_outcomes": "Low risk of significant interaction.",
+        "recommendation": "Generally low risk.",
+        "monitoring_parameters": ["Blood pressure"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "guaifenesin",
+      "display_name": "Guaifenesin",
+      "brand_names": ["Mucinex", "Robitussin"],
+      "synonyms": ["expectorant", "cough medicine"],
+      "drug_class": "Expectorant",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["chest congestion", "cough with mucus"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Guaifenesin is primarily renally eliminated. Minimal CYP metabolism.",
+        "clinical_effects": ["Minimal interaction expected"],
+        "potential_outcomes": "No significant interaction expected.",
+        "recommendation": "Generally safe to use together.",
+        "monitoring_parameters": [],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "melatonin",
+      "display_name": "Melatonin",
+      "brand_names": [],
+      "synonyms": ["sleep aid", "supplement"],
+      "drug_class": "Hormone supplement",
+      "primary_cyp_enzymes": ["CYP1A2"],
+      "common_uses": ["sleep", "jet lag", "insomnia"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Both melatonin and CBD may promote relaxation and sleep. Additive effects possible.",
+        "clinical_effects": ["Additive sedation", "Enhanced sleep effects"],
+        "potential_outcomes": "Increased drowsiness. Many users combine these for sleep with positive results.",
+        "recommendation": "Generally considered safe and may be complementary for sleep. Start with lower doses of each.",
+        "monitoring_parameters": ["Morning grogginess", "Sleep quality"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "vitamin d",
+      "display_name": "Vitamin D",
+      "brand_names": ["Drisdol"],
+      "synonyms": ["vitamin", "supplement", "cholecalciferol"],
+      "drug_class": "Vitamin supplement",
+      "primary_cyp_enzymes": ["CYP2R1", "CYP27A1"],
+      "common_uses": ["vitamin deficiency", "bone health", "immune support"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Vitamin D metabolism involves CYP enzymes different from those primarily inhibited by CBD. No significant interaction expected.",
+        "clinical_effects": ["Minimal interaction expected"],
+        "potential_outcomes": "No significant interaction expected.",
+        "recommendation": "Generally safe to use together.",
+        "monitoring_parameters": [],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "fish oil",
+      "display_name": "Fish Oil / Omega-3",
+      "brand_names": ["Lovaza", "Vascepa"],
+      "synonyms": ["omega-3", "supplement", "EPA", "DHA"],
+      "drug_class": "Fatty acid supplement",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["heart health", "triglycerides", "inflammation"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Fish oil is not CYP metabolized. Both have anti-inflammatory properties. Theoretical mild additive anticoagulant effect.",
+        "clinical_effects": ["Possible additive anti-inflammatory effects", "Mild additive bleeding risk"],
+        "potential_outcomes": "Complementary anti-inflammatory effects. Minor bleeding risk increase.",
+        "recommendation": "Generally safe. May be complementary. Note if on blood thinners.",
+        "monitoring_parameters": ["Bruising if on anticoagulants"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "turmeric",
+      "display_name": "Turmeric / Curcumin",
+      "brand_names": [],
+      "synonyms": ["curcumin", "supplement", "anti-inflammatory"],
+      "drug_class": "Herbal supplement",
+      "primary_cyp_enzymes": ["CYP3A4", "CYP2C9"],
+      "common_uses": ["inflammation", "joint pain", "antioxidant"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "multiple",
+        "mechanism_description": "Curcumin inhibits some CYP enzymes. Combined with CBD, there may be enhanced enzyme inhibition affecting other medications.",
+        "clinical_effects": ["Possible enhanced CYP inhibition", "Additive anti-inflammatory effects"],
+        "potential_outcomes": "May enhance effects of both. Consider impact on other medications.",
+        "recommendation": "Generally safe together. Both have anti-inflammatory properties. Watch for interactions with other medications.",
+        "monitoring_parameters": ["Effects of other medications"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "st johns wort",
+      "display_name": "St. John's Wort",
+      "brand_names": [],
+      "synonyms": ["herbal antidepressant", "supplement"],
+      "drug_class": "Herbal supplement",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["depression", "mood support"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "multiple",
+        "mechanism_description": "St. John's Wort is a CYP3A4 INDUCER, opposite to CBD's inhibition. This creates unpredictable effects and St. John's Wort may reduce CBD levels.",
+        "clinical_effects": ["Opposing CYP effects", "Reduced CBD levels", "Serotonergic concerns"],
+        "potential_outcomes": "St. John's Wort may reduce CBD effectiveness. Both have mood effects creating serotonergic concerns.",
+        "recommendation": "Use with caution. Unpredictable interaction due to opposing enzyme effects. Consult healthcare provider.",
+        "monitoring_parameters": ["Mood", "Effectiveness of CBD", "Signs of serotonin syndrome"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "ginkgo biloba",
+      "display_name": "Ginkgo Biloba",
+      "brand_names": [],
+      "synonyms": ["ginkgo", "herbal supplement", "memory supplement"],
+      "drug_class": "Herbal supplement",
+      "primary_cyp_enzymes": ["CYP2C9", "CYP3A4"],
+      "common_uses": ["memory", "cognitive function", "circulation"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "multiple",
+        "mechanism_description": "Ginkgo may affect CYP enzymes and has antiplatelet effects. Combined with CBD may have additive effects on bleeding.",
+        "clinical_effects": ["Possible enhanced bleeding risk"],
+        "potential_outcomes": "Theoretical increased bleeding risk.",
+        "recommendation": "Use with caution if on blood thinners. Otherwise generally low risk.",
+        "monitoring_parameters": ["Bruising", "Bleeding"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "valerian",
+      "display_name": "Valerian Root",
+      "brand_names": [],
+      "synonyms": ["valerian", "sleep aid", "herbal supplement"],
+      "drug_class": "Herbal supplement",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["sleep", "anxiety", "relaxation"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Both valerian and CBD have relaxing and sleep-promoting effects. Additive sedation possible.",
+        "clinical_effects": ["Additive sedation", "Enhanced sleep effects"],
+        "potential_outcomes": "Increased drowsiness. May be complementary for sleep.",
+        "recommendation": "Generally safe. May enhance sleep effects. Start with lower doses.",
+        "monitoring_parameters": ["Sedation", "Morning grogginess"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "caffeine",
+      "display_name": "Caffeine",
+      "brand_names": ["No-Doz", "Vivarin"],
+      "synonyms": ["stimulant", "coffee", "energy"],
+      "drug_class": "Methylxanthine stimulant",
+      "primary_cyp_enzymes": ["CYP1A2"],
+      "common_uses": ["alertness", "fatigue", "headache"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Caffeine is metabolized by CYP1A2. CBD may have opposing effects (relaxing vs. stimulating) but no major pharmacokinetic interaction expected.",
+        "clinical_effects": ["Possibly opposing effects"],
+        "potential_outcomes": "CBD may counteract some stimulant effects of caffeine. Many use together without issues.",
+        "recommendation": "Generally safe. Effects may partially balance each other.",
+        "monitoring_parameters": ["Energy levels", "Anxiety"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "magnesium",
+      "display_name": "Magnesium",
+      "brand_names": ["Mag-Ox", "Slow-Mag"],
+      "synonyms": ["mineral", "supplement"],
+      "drug_class": "Mineral supplement",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["muscle cramps", "sleep", "constipation", "migraines"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Magnesium is not CYP metabolized. Both may have relaxing effects.",
+        "clinical_effects": ["Possible additive relaxation"],
+        "potential_outcomes": "May be complementary for relaxation and sleep.",
+        "recommendation": "Generally safe. Often used together.",
+        "monitoring_parameters": [],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "zinc",
+      "display_name": "Zinc",
+      "brand_names": ["Galzin"],
+      "synonyms": ["mineral", "supplement", "immune support"],
+      "drug_class": "Mineral supplement",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["immune support", "wound healing", "cold symptoms"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Zinc is not CYP metabolized. No significant interaction expected.",
+        "clinical_effects": ["Minimal interaction expected"],
+        "potential_outcomes": "No significant interaction expected.",
+        "recommendation": "Generally safe to use together.",
+        "monitoring_parameters": [],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "probiotics",
+      "display_name": "Probiotics",
+      "brand_names": ["Culturelle", "Align", "Florastor"],
+      "synonyms": ["gut bacteria", "supplement", "digestive health"],
+      "drug_class": "Dietary supplement",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["digestive health", "gut bacteria", "immune support"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Probiotics are live bacteria, not metabolized by CYP enzymes. No pharmacokinetic interaction expected.",
+        "clinical_effects": ["No interaction expected"],
+        "potential_outcomes": "No significant interaction.",
+        "recommendation": "Safe to use together.",
+        "monitoring_parameters": [],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "iron",
+      "display_name": "Iron Supplements",
+      "brand_names": ["Feosol", "Slow Fe"],
+      "synonyms": ["mineral", "supplement", "anemia treatment"],
+      "drug_class": "Mineral supplement",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["iron deficiency", "anemia"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Iron is not CYP metabolized. No pharmacokinetic interaction expected.",
+        "clinical_effects": ["No significant interaction expected"],
+        "potential_outcomes": "No significant interaction.",
+        "recommendation": "Safe to use together. Take iron as directed (often on empty stomach).",
+        "monitoring_parameters": [],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "calcium",
+      "display_name": "Calcium Supplements",
+      "brand_names": ["Caltrate", "Tums"],
+      "synonyms": ["mineral", "supplement", "bone health"],
+      "drug_class": "Mineral supplement",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["bone health", "osteoporosis prevention", "antacid"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Calcium is not CYP metabolized. No pharmacokinetic interaction expected.",
+        "clinical_effects": ["No significant interaction expected"],
+        "potential_outcomes": "No significant interaction.",
+        "recommendation": "Safe to use together.",
+        "monitoring_parameters": [],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "b vitamins",
+      "display_name": "B Vitamins / B Complex",
+      "brand_names": [],
+      "synonyms": ["vitamin", "supplement", "B12", "B6"],
+      "drug_class": "Vitamin supplement",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["energy", "nerve health", "red blood cells"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "B vitamins are not CYP metabolized. No significant interaction expected.",
+        "clinical_effects": ["No significant interaction expected"],
+        "potential_outcomes": "No significant interaction.",
+        "recommendation": "Safe to use together.",
+        "monitoring_parameters": [],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "vitamin c",
+      "display_name": "Vitamin C",
+      "brand_names": [],
+      "synonyms": ["ascorbic acid", "vitamin", "supplement"],
+      "drug_class": "Vitamin supplement",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["immune support", "antioxidant", "skin health"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Vitamin C is not significantly CYP metabolized. No interaction expected.",
+        "clinical_effects": ["No significant interaction expected"],
+        "potential_outcomes": "No significant interaction.",
+        "recommendation": "Safe to use together.",
+        "monitoring_parameters": [],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "collagen",
+      "display_name": "Collagen Supplements",
+      "brand_names": [],
+      "synonyms": ["protein", "supplement", "skin health"],
+      "drug_class": "Protein supplement",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["skin health", "joint health", "hair and nails"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Collagen is a protein, not CYP metabolized. No interaction expected.",
+        "clinical_effects": ["No interaction expected"],
+        "potential_outcomes": "No significant interaction.",
+        "recommendation": "Safe to use together.",
+        "monitoring_parameters": [],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "biotin",
+      "display_name": "Biotin",
+      "brand_names": [],
+      "synonyms": ["vitamin B7", "supplement", "hair vitamin"],
+      "drug_class": "Vitamin supplement",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["hair health", "nail health", "metabolism"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Biotin is not CYP metabolized. No interaction expected.",
+        "clinical_effects": ["No interaction expected"],
+        "potential_outcomes": "No significant interaction.",
+        "recommendation": "Safe to use together. Note: High-dose biotin can interfere with some lab tests.",
+        "monitoring_parameters": [],
+        "evidence_level": "Limited"
+      }
+    }
+  ]
+}

@@ -20,6 +20,21 @@ import { TagList } from '@/components/TagList';
 import { getArticleTags } from '@/lib/tags';
 import { ArticleContent } from '@/components/ArticleContent';
 
+// Strip Medical/Veterinary disclaimers from content (we render a standardized one in the template)
+function stripDisclaimers(content: string): string {
+  // Remove disclaimers after --- separator (common pattern at end of articles)
+  let result = content.replace(
+    /\n*-{3,}\n+\*{0,2}(?:Medical|Veterinary)\s*Disclaimer:?\*{0,2}:?[\s\S]*$/gi,
+    ''
+  );
+  // Remove inline disclaimers without separator
+  result = result.replace(
+    /\n+\*{0,2}(?:Medical|Veterinary)\s*Disclaimer:?\*{0,2}:?\s*This article is for informational purposes only[\s\S]*$/gi,
+    ''
+  );
+  return result;
+}
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
@@ -317,7 +332,7 @@ export default async function ArticlePage({ params }: Props) {
       {/* Content with auto-linked glossary terms */}
       {/* Exclude glossary terms that match this article's subject (e.g., don't link "CBD Patches" on the CBD Patches article) */}
       <ArticleContent
-        content={article.content}
+        content={stripDisclaimers(article.content)}
         glossaryTerms={glossaryTerms}
         excludeSlugs={[slug.replace(/-guide$/, '')]}
         stripReferences={article.citations && article.citations.length > 0}

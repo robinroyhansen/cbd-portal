@@ -1,0 +1,617 @@
+{
+  "category": "cardiovascular",
+  "drugs": [
+    {
+      "generic_name": "atorvastatin",
+      "display_name": "Atorvastatin",
+      "brand_names": ["Lipitor"],
+      "synonyms": ["statin", "cholesterol medication"],
+      "drug_class": "HMG-CoA reductase inhibitor",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["high cholesterol", "cardiovascular disease prevention"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Atorvastatin is metabolized by CYP3A4. CBD inhibition can increase atorvastatin levels, potentially increasing statin side effects.",
+        "clinical_effects": ["Elevated atorvastatin levels", "Increased risk of myopathy", "Potential liver enzyme elevation"],
+        "potential_outcomes": "Muscle pain, weakness, and in rare cases rhabdomyolysis (serious muscle breakdown).",
+        "recommendation": "Use with caution. Monitor for muscle pain or weakness. Report any unexplained muscle symptoms to your doctor immediately.",
+        "monitoring_parameters": ["Muscle pain/weakness", "Creatine kinase if symptomatic", "Liver function tests"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "simvastatin",
+      "display_name": "Simvastatin",
+      "brand_names": ["Zocor"],
+      "synonyms": ["statin", "cholesterol medication"],
+      "drug_class": "HMG-CoA reductase inhibitor",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["high cholesterol", "cardiovascular disease prevention"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Simvastatin is a sensitive CYP3A4 substrate. CBD inhibition can significantly increase simvastatin levels. Simvastatin already has dose limitations due to myopathy risk.",
+        "clinical_effects": ["Significantly elevated simvastatin levels", "High risk of myopathy", "Rhabdomyolysis risk"],
+        "potential_outcomes": "Increased risk of serious muscle problems including rhabdomyolysis.",
+        "recommendation": "Use with significant caution. Simvastatin doses above 20mg are already restricted with CYP3A4 inhibitors. Consider alternative statins.",
+        "monitoring_parameters": ["Muscle symptoms", "Creatine kinase", "Kidney function"],
+        "evidence_level": "Moderate",
+        "special_populations_notes": "Simvastatin 80mg is no longer recommended due to myopathy risk. Avoid high doses if using CBD."
+      }
+    },
+    {
+      "generic_name": "lovastatin",
+      "display_name": "Lovastatin",
+      "brand_names": ["Mevacor", "Altoprev"],
+      "synonyms": ["statin", "cholesterol medication"],
+      "drug_class": "HMG-CoA reductase inhibitor",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["high cholesterol"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Lovastatin is metabolized by CYP3A4. CBD inhibition can increase lovastatin levels and myopathy risk.",
+        "clinical_effects": ["Elevated lovastatin levels", "Increased myopathy risk"],
+        "potential_outcomes": "Muscle pain, weakness, and potential rhabdomyolysis.",
+        "recommendation": "Use with caution. Monitor for muscle symptoms. Consider pravastatin or rosuvastatin as alternatives.",
+        "monitoring_parameters": ["Muscle symptoms", "Creatine kinase if symptomatic"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "rosuvastatin",
+      "display_name": "Rosuvastatin",
+      "brand_names": ["Crestor"],
+      "synonyms": ["statin", "cholesterol medication"],
+      "drug_class": "HMG-CoA reductase inhibitor",
+      "primary_cyp_enzymes": ["CYP2C9"],
+      "common_uses": ["high cholesterol", "cardiovascular disease prevention"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "cyp2c9_inhibition",
+        "mechanism_description": "Rosuvastatin has minimal CYP metabolism and is primarily eliminated unchanged. Lower interaction potential than other statins.",
+        "clinical_effects": ["Minimal interaction expected"],
+        "potential_outcomes": "Low risk of clinically significant interaction.",
+        "recommendation": "Generally considered safer option among statins if using CBD. Still monitor for muscle symptoms.",
+        "monitoring_parameters": ["Muscle symptoms"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "pravastatin",
+      "display_name": "Pravastatin",
+      "brand_names": ["Pravachol"],
+      "synonyms": ["statin", "cholesterol medication"],
+      "drug_class": "HMG-CoA reductase inhibitor",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["high cholesterol", "cardiovascular disease prevention"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Pravastatin is not significantly metabolized by CYP enzymes. Minimal pharmacokinetic interaction expected.",
+        "clinical_effects": ["Minimal interaction expected"],
+        "potential_outcomes": "Low risk of significant interaction.",
+        "recommendation": "Generally considered safer option among statins if using CBD. A good alternative to atorvastatin or simvastatin.",
+        "monitoring_parameters": ["Muscle symptoms"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "fluvastatin",
+      "display_name": "Fluvastatin",
+      "brand_names": ["Lescol"],
+      "synonyms": ["statin", "cholesterol medication"],
+      "drug_class": "HMG-CoA reductase inhibitor",
+      "primary_cyp_enzymes": ["CYP2C9"],
+      "common_uses": ["high cholesterol"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "cyp2c9_inhibition",
+        "mechanism_description": "Fluvastatin is metabolized by CYP2C9. CBD may have some effect on levels but interaction is less significant than with CYP3A4-metabolized statins.",
+        "clinical_effects": ["Potentially elevated fluvastatin levels"],
+        "potential_outcomes": "Possible modest increase in statin effects.",
+        "recommendation": "Use with caution. Lower risk than atorvastatin/simvastatin. Monitor for muscle symptoms.",
+        "monitoring_parameters": ["Muscle symptoms"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "pitavastatin",
+      "display_name": "Pitavastatin",
+      "brand_names": ["Livalo", "Zypitamag"],
+      "synonyms": ["statin", "cholesterol medication"],
+      "drug_class": "HMG-CoA reductase inhibitor",
+      "primary_cyp_enzymes": ["CYP2C9"],
+      "common_uses": ["high cholesterol"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Pitavastatin has minimal CYP metabolism. Lower interaction potential.",
+        "clinical_effects": ["Minimal interaction expected"],
+        "potential_outcomes": "Low risk of significant interaction.",
+        "recommendation": "Generally considered lower risk among statins. Monitor for muscle symptoms.",
+        "monitoring_parameters": ["Muscle symptoms"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "metoprolol",
+      "display_name": "Metoprolol",
+      "brand_names": ["Lopressor", "Toprol-XL"],
+      "synonyms": ["beta blocker", "heart medication", "blood pressure medication"],
+      "drug_class": "Beta-1 selective blocker",
+      "primary_cyp_enzymes": ["CYP2D6"],
+      "common_uses": ["high blood pressure", "heart failure", "angina", "arrhythmias", "migraine prevention"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2d6_inhibition",
+        "mechanism_description": "Metoprolol is metabolized by CYP2D6. CBD inhibition can increase metoprolol levels and enhance its blood pressure lowering effect.",
+        "clinical_effects": ["Elevated metoprolol levels", "Enhanced blood pressure reduction", "Increased bradycardia"],
+        "potential_outcomes": "Low blood pressure, slow heart rate, dizziness, fatigue.",
+        "recommendation": "Use with caution. Monitor blood pressure and heart rate. May need metoprolol dose adjustment.",
+        "monitoring_parameters": ["Blood pressure", "Heart rate", "Dizziness", "Fatigue"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "carvedilol",
+      "display_name": "Carvedilol",
+      "brand_names": ["Coreg"],
+      "synonyms": ["beta blocker", "heart medication"],
+      "drug_class": "Non-selective beta blocker with alpha-1 blockade",
+      "primary_cyp_enzymes": ["CYP2D6", "CYP2C9"],
+      "common_uses": ["heart failure", "high blood pressure", "post-heart attack"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "multiple",
+        "mechanism_description": "Carvedilol is metabolized by CYP2D6 and CYP2C9. CBD inhibition can increase carvedilol levels.",
+        "clinical_effects": ["Elevated carvedilol levels", "Enhanced blood pressure reduction", "Dizziness"],
+        "potential_outcomes": "Low blood pressure, especially when standing. Dizziness and fatigue.",
+        "recommendation": "Use with caution. Monitor blood pressure. Be careful when standing up quickly.",
+        "monitoring_parameters": ["Blood pressure", "Heart rate", "Dizziness", "Orthostatic symptoms"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "propranolol",
+      "display_name": "Propranolol",
+      "brand_names": ["Inderal", "Innopran"],
+      "synonyms": ["beta blocker", "heart medication", "anxiety medication"],
+      "drug_class": "Non-selective beta blocker",
+      "primary_cyp_enzymes": ["CYP2D6", "CYP1A2"],
+      "common_uses": ["high blood pressure", "tremor", "migraines", "anxiety", "arrhythmias"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2d6_inhibition",
+        "mechanism_description": "Propranolol is metabolized by CYP2D6 and CYP1A2. CBD inhibition of CYP2D6 can increase propranolol levels.",
+        "clinical_effects": ["Elevated propranolol levels", "Enhanced blood pressure and heart rate reduction"],
+        "potential_outcomes": "Low blood pressure, slow heart rate, cold extremities, fatigue.",
+        "recommendation": "Use with caution. Monitor blood pressure and heart rate regularly.",
+        "monitoring_parameters": ["Blood pressure", "Heart rate", "Fatigue", "Cold hands/feet"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "atenolol",
+      "display_name": "Atenolol",
+      "brand_names": ["Tenormin"],
+      "synonyms": ["beta blocker", "heart medication", "blood pressure medication"],
+      "drug_class": "Beta-1 selective blocker",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["high blood pressure", "angina", "arrhythmias"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Atenolol is primarily renally eliminated with minimal CYP metabolism. Pharmacokinetic interaction is unlikely.",
+        "clinical_effects": ["Minimal pharmacokinetic interaction", "Possible additive blood pressure reduction"],
+        "potential_outcomes": "Low risk of significant interaction. CBD may have mild blood pressure effects.",
+        "recommendation": "Generally lower risk than other beta blockers. Monitor blood pressure.",
+        "monitoring_parameters": ["Blood pressure", "Heart rate"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "bisoprolol",
+      "display_name": "Bisoprolol",
+      "brand_names": ["Zebeta"],
+      "synonyms": ["beta blocker", "heart medication"],
+      "drug_class": "Beta-1 selective blocker",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["high blood pressure", "heart failure"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Bisoprolol is partially metabolized by CYP3A4. CBD inhibition may increase bisoprolol levels.",
+        "clinical_effects": ["Potentially elevated bisoprolol levels", "Enhanced blood pressure reduction"],
+        "potential_outcomes": "Possible increased blood pressure lowering effect.",
+        "recommendation": "Use with caution. Monitor blood pressure and heart rate.",
+        "monitoring_parameters": ["Blood pressure", "Heart rate"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "amlodipine",
+      "display_name": "Amlodipine",
+      "brand_names": ["Norvasc"],
+      "synonyms": ["calcium channel blocker", "blood pressure medication"],
+      "drug_class": "Dihydropyridine calcium channel blocker",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["high blood pressure", "angina", "coronary artery disease"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Amlodipine is metabolized by CYP3A4. CBD inhibition can increase amlodipine levels and enhance blood pressure lowering.",
+        "clinical_effects": ["Elevated amlodipine levels", "Enhanced blood pressure reduction", "Increased peripheral edema"],
+        "potential_outcomes": "Low blood pressure, ankle swelling, dizziness, flushing.",
+        "recommendation": "Use with caution. Monitor blood pressure. Watch for increased ankle swelling.",
+        "monitoring_parameters": ["Blood pressure", "Ankle swelling", "Dizziness", "Heart rate"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "nifedipine",
+      "display_name": "Nifedipine",
+      "brand_names": ["Procardia", "Adalat"],
+      "synonyms": ["calcium channel blocker", "blood pressure medication"],
+      "drug_class": "Dihydropyridine calcium channel blocker",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["high blood pressure", "angina", "Raynaud's phenomenon"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Nifedipine is metabolized by CYP3A4. CBD inhibition can increase nifedipine levels.",
+        "clinical_effects": ["Elevated nifedipine levels", "Enhanced blood pressure reduction", "Flushing"],
+        "potential_outcomes": "Low blood pressure, headache, flushing, rapid heart rate, ankle swelling.",
+        "recommendation": "Use with caution. Monitor blood pressure closely. Extended-release formulations may be safer than immediate-release.",
+        "monitoring_parameters": ["Blood pressure", "Heart rate", "Headache", "Flushing"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "diltiazem",
+      "display_name": "Diltiazem",
+      "brand_names": ["Cardizem", "Tiazac", "Dilacor"],
+      "synonyms": ["calcium channel blocker", "heart medication"],
+      "drug_class": "Non-dihydropyridine calcium channel blocker",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["high blood pressure", "angina", "atrial fibrillation"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Diltiazem is metabolized by CYP3A4 and is itself a CYP3A4 inhibitor. CBD may compound the inhibition and increase diltiazem levels.",
+        "clinical_effects": ["Elevated diltiazem levels", "Enhanced blood pressure and heart rate reduction"],
+        "potential_outcomes": "Low blood pressure, slow heart rate, heart conduction issues, ankle swelling.",
+        "recommendation": "Use with caution. Monitor blood pressure and heart rate. Watch for signs of heart conduction problems.",
+        "monitoring_parameters": ["Blood pressure", "Heart rate", "ECG if symptomatic", "Ankle swelling"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "verapamil",
+      "display_name": "Verapamil",
+      "brand_names": ["Calan", "Verelan", "Isoptin"],
+      "synonyms": ["calcium channel blocker", "heart medication"],
+      "drug_class": "Non-dihydropyridine calcium channel blocker",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["high blood pressure", "angina", "arrhythmias", "migraines"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Verapamil is metabolized by CYP3A4 and inhibits CYP3A4. CBD may further increase verapamil levels.",
+        "clinical_effects": ["Elevated verapamil levels", "Enhanced blood pressure and heart rate reduction", "Constipation"],
+        "potential_outcomes": "Low blood pressure, slow heart rate, constipation, heart conduction problems.",
+        "recommendation": "Use with caution. Monitor heart rate and blood pressure. Report any dizziness or palpitations.",
+        "monitoring_parameters": ["Blood pressure", "Heart rate", "ECG if symptomatic", "Constipation"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "lisinopril",
+      "display_name": "Lisinopril",
+      "brand_names": ["Zestril", "Prinivil"],
+      "synonyms": ["ACE inhibitor", "blood pressure medication"],
+      "drug_class": "ACE inhibitor",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["high blood pressure", "heart failure", "post-heart attack", "diabetic kidney protection"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Lisinopril is not CYP metabolized (renally eliminated). No significant pharmacokinetic interaction expected.",
+        "clinical_effects": ["Possible additive blood pressure reduction"],
+        "potential_outcomes": "Minimal interaction. CBD may have mild blood pressure effects.",
+        "recommendation": "Generally low risk. Monitor blood pressure as both may lower it.",
+        "monitoring_parameters": ["Blood pressure", "Potassium levels"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "enalapril",
+      "display_name": "Enalapril",
+      "brand_names": ["Vasotec"],
+      "synonyms": ["ACE inhibitor", "blood pressure medication"],
+      "drug_class": "ACE inhibitor",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["high blood pressure", "heart failure"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Enalapril is converted to its active form by esterases, not CYP enzymes. Minimal pharmacokinetic interaction expected.",
+        "clinical_effects": ["Possible additive blood pressure effects"],
+        "potential_outcomes": "Low risk of significant interaction.",
+        "recommendation": "Generally low risk. Monitor blood pressure.",
+        "monitoring_parameters": ["Blood pressure"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "losartan",
+      "display_name": "Losartan",
+      "brand_names": ["Cozaar"],
+      "synonyms": ["ARB", "blood pressure medication"],
+      "drug_class": "Angiotensin receptor blocker",
+      "primary_cyp_enzymes": ["CYP2C9", "CYP3A4"],
+      "common_uses": ["high blood pressure", "diabetic kidney protection", "stroke prevention"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2c9_inhibition",
+        "mechanism_description": "Losartan is converted to its active metabolite by CYP2C9. CBD inhibition may reduce this conversion, potentially affecting efficacy.",
+        "clinical_effects": ["Altered losartan activation", "Potentially reduced effectiveness"],
+        "potential_outcomes": "Losartan may be less effective if less active metabolite is formed.",
+        "recommendation": "Use with caution. Monitor blood pressure to ensure adequate control.",
+        "monitoring_parameters": ["Blood pressure", "Kidney function"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "valsartan",
+      "display_name": "Valsartan",
+      "brand_names": ["Diovan"],
+      "synonyms": ["ARB", "blood pressure medication"],
+      "drug_class": "Angiotensin receptor blocker",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["high blood pressure", "heart failure", "post-heart attack"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Valsartan has minimal CYP metabolism. Low interaction potential.",
+        "clinical_effects": ["Minimal interaction expected"],
+        "potential_outcomes": "Low risk of significant interaction.",
+        "recommendation": "Generally low risk. Monitor blood pressure.",
+        "monitoring_parameters": ["Blood pressure"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "irbesartan",
+      "display_name": "Irbesartan",
+      "brand_names": ["Avapro"],
+      "synonyms": ["ARB", "blood pressure medication"],
+      "drug_class": "Angiotensin receptor blocker",
+      "primary_cyp_enzymes": ["CYP2C9"],
+      "common_uses": ["high blood pressure", "diabetic kidney disease"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "cyp2c9_inhibition",
+        "mechanism_description": "Irbesartan is partially metabolized by CYP2C9. Some interaction potential but irbesartan itself is active.",
+        "clinical_effects": ["Potentially elevated irbesartan levels"],
+        "potential_outcomes": "Possible modest increase in blood pressure lowering effect.",
+        "recommendation": "Use with caution. Monitor blood pressure.",
+        "monitoring_parameters": ["Blood pressure"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "hydrochlorothiazide",
+      "display_name": "Hydrochlorothiazide",
+      "brand_names": ["Microzide", "Oretic"],
+      "synonyms": ["HCTZ", "water pill", "diuretic"],
+      "drug_class": "Thiazide diuretic",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["high blood pressure", "edema"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "HCTZ is not CYP metabolized. No significant pharmacokinetic interaction expected.",
+        "clinical_effects": ["Possible additive blood pressure reduction"],
+        "potential_outcomes": "Low risk of interaction. Monitor electrolytes as with any diuretic.",
+        "recommendation": "Generally low risk. Stay well hydrated and monitor blood pressure.",
+        "monitoring_parameters": ["Blood pressure", "Electrolytes", "Hydration"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "furosemide",
+      "display_name": "Furosemide",
+      "brand_names": ["Lasix"],
+      "synonyms": ["water pill", "loop diuretic"],
+      "drug_class": "Loop diuretic",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["edema", "heart failure", "kidney disease"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Furosemide is not CYP metabolized. No significant pharmacokinetic interaction expected.",
+        "clinical_effects": ["Possible additive blood pressure effects"],
+        "potential_outcomes": "Low risk of interaction. Monitor fluid and electrolyte status.",
+        "recommendation": "Generally low risk. Stay hydrated and monitor for electrolyte imbalances.",
+        "monitoring_parameters": ["Blood pressure", "Electrolytes", "Kidney function"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "spironolactone",
+      "display_name": "Spironolactone",
+      "brand_names": ["Aldactone"],
+      "synonyms": ["water pill", "potassium-sparing diuretic"],
+      "drug_class": "Aldosterone antagonist",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["heart failure", "high blood pressure", "edema", "hormonal acne"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Spironolactone has some CYP3A4 metabolism. CBD may modestly increase spironolactone levels.",
+        "clinical_effects": ["Potentially elevated spironolactone levels"],
+        "potential_outcomes": "Possible increase in diuretic effect or hormonal side effects.",
+        "recommendation": "Use with caution. Monitor potassium levels and blood pressure.",
+        "monitoring_parameters": ["Potassium levels", "Blood pressure", "Hormonal side effects"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "digoxin",
+      "display_name": "Digoxin",
+      "brand_names": ["Lanoxin"],
+      "synonyms": ["heart medication", "digitalis"],
+      "drug_class": "Cardiac glycoside",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["heart failure", "atrial fibrillation"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "transporter",
+        "mechanism_description": "Digoxin is not CYP metabolized but is a P-glycoprotein substrate. CBD may inhibit P-gp, potentially increasing digoxin levels.",
+        "clinical_effects": ["Potentially elevated digoxin levels", "Risk of digoxin toxicity"],
+        "potential_outcomes": "Digoxin toxicity symptoms include nausea, visual changes, and dangerous heart rhythms.",
+        "recommendation": "Use with caution. Digoxin has a narrow therapeutic index. Monitor digoxin levels if using CBD.",
+        "monitoring_parameters": ["Digoxin levels", "Heart rhythm", "Nausea", "Visual disturbances"],
+        "evidence_level": "Limited",
+        "special_populations_notes": "Elderly and those with kidney impairment are at higher risk of digoxin toxicity."
+      }
+    },
+    {
+      "generic_name": "amiodarone",
+      "display_name": "Amiodarone",
+      "brand_names": ["Pacerone", "Cordarone"],
+      "synonyms": ["heart rhythm medication", "antiarrhythmic"],
+      "drug_class": "Class III antiarrhythmic",
+      "primary_cyp_enzymes": ["CYP3A4", "CYP2C8"],
+      "common_uses": ["atrial fibrillation", "ventricular arrhythmias"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Amiodarone is metabolized by CYP3A4 and inhibits multiple CYP enzymes. CBD may further increase amiodarone levels.",
+        "clinical_effects": ["Elevated amiodarone levels", "Enhanced QT prolongation", "Increased toxicity risk"],
+        "potential_outcomes": "Amiodarone already has many serious side effects. Elevated levels increase risk of thyroid, lung, and liver toxicity.",
+        "recommendation": "Use with significant caution. Amiodarone has serious toxicities. Inform your cardiologist about CBD use.",
+        "monitoring_parameters": ["Thyroid function", "Liver function", "Lung function", "ECG/QT interval"],
+        "evidence_level": "Limited",
+        "special_populations_notes": "Amiodarone has a very long half-life (weeks to months). Effects of interaction may persist long after stopping either drug."
+      }
+    },
+    {
+      "generic_name": "dronedarone",
+      "display_name": "Dronedarone",
+      "brand_names": ["Multaq"],
+      "synonyms": ["heart rhythm medication", "antiarrhythmic"],
+      "drug_class": "Class III antiarrhythmic",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["atrial fibrillation"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Dronedarone is metabolized by CYP3A4. CBD inhibition can increase dronedarone levels.",
+        "clinical_effects": ["Elevated dronedarone levels", "QT prolongation risk"],
+        "potential_outcomes": "Increased risk of heart rhythm problems and other side effects.",
+        "recommendation": "Use with caution. Inform your cardiologist about CBD use.",
+        "monitoring_parameters": ["Heart rhythm", "Liver function", "QT interval"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "flecainide",
+      "display_name": "Flecainide",
+      "brand_names": ["Tambocor"],
+      "synonyms": ["heart rhythm medication", "antiarrhythmic"],
+      "drug_class": "Class IC antiarrhythmic",
+      "primary_cyp_enzymes": ["CYP2D6"],
+      "common_uses": ["atrial fibrillation", "supraventricular tachycardia"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2d6_inhibition",
+        "mechanism_description": "Flecainide is metabolized by CYP2D6. CBD inhibition can increase flecainide levels.",
+        "clinical_effects": ["Elevated flecainide levels", "Increased proarrhythmic risk"],
+        "potential_outcomes": "Flecainide has narrow therapeutic index. Elevated levels increase risk of dangerous arrhythmias.",
+        "recommendation": "Use with significant caution. Flecainide levels should be monitored. Inform your cardiologist.",
+        "monitoring_parameters": ["Flecainide levels", "ECG", "Heart rhythm"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "propafenone",
+      "display_name": "Propafenone",
+      "brand_names": ["Rythmol"],
+      "synonyms": ["heart rhythm medication", "antiarrhythmic"],
+      "drug_class": "Class IC antiarrhythmic",
+      "primary_cyp_enzymes": ["CYP2D6", "CYP3A4"],
+      "common_uses": ["atrial fibrillation", "supraventricular tachycardia"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "multiple",
+        "mechanism_description": "Propafenone is metabolized by CYP2D6 and CYP3A4. CBD inhibition can significantly increase propafenone levels.",
+        "clinical_effects": ["Elevated propafenone levels", "Increased side effects", "Proarrhythmic risk"],
+        "potential_outcomes": "Increased risk of dizziness, metallic taste, and potentially dangerous arrhythmias.",
+        "recommendation": "Use with caution. Propafenone has variable metabolism. Inform your cardiologist about CBD use.",
+        "monitoring_parameters": ["ECG", "Heart rhythm", "Dizziness", "Metallic taste"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "ezetimibe",
+      "display_name": "Ezetimibe",
+      "brand_names": ["Zetia"],
+      "synonyms": ["cholesterol medication"],
+      "drug_class": "Cholesterol absorption inhibitor",
+      "primary_cyp_enzymes": [],
+      "secondary_cyp_enzymes": ["UGT"],
+      "common_uses": ["high cholesterol"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Ezetimibe is glucuronidated, not CYP metabolized. Minimal interaction expected.",
+        "clinical_effects": ["Minimal interaction expected"],
+        "potential_outcomes": "Low risk of significant interaction.",
+        "recommendation": "Generally low risk. Can be used as alternative or adjunct to statins.",
+        "monitoring_parameters": ["Cholesterol levels"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "fenofibrate",
+      "display_name": "Fenofibrate",
+      "brand_names": ["Tricor", "Antara", "Lipofen"],
+      "synonyms": ["triglyceride medication", "fibrate"],
+      "drug_class": "Fibric acid derivative",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["high triglycerides", "mixed dyslipidemia"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Fenofibrate is not significantly CYP metabolized. Limited interaction potential.",
+        "clinical_effects": ["Minimal interaction expected"],
+        "potential_outcomes": "Low risk of significant interaction.",
+        "recommendation": "Generally low risk. Monitor for muscle symptoms if used with statins.",
+        "monitoring_parameters": ["Liver function", "Muscle symptoms"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "gemfibrozil",
+      "display_name": "Gemfibrozil",
+      "brand_names": ["Lopid"],
+      "synonyms": ["triglyceride medication", "fibrate"],
+      "drug_class": "Fibric acid derivative",
+      "primary_cyp_enzymes": ["CYP2C8"],
+      "common_uses": ["high triglycerides"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Gemfibrozil is primarily glucuronidated and is a CYP2C8 inhibitor. CBD interaction is not well characterized.",
+        "clinical_effects": ["Unknown interaction potential"],
+        "potential_outcomes": "Limited data. Gemfibrozil itself has many drug interactions.",
+        "recommendation": "Use with caution. Gemfibrozil has many interactions with other drugs. Inform your doctor about CBD use.",
+        "monitoring_parameters": ["Muscle symptoms", "Liver function"],
+        "evidence_level": "Limited"
+      }
+    }
+  ]
+}
