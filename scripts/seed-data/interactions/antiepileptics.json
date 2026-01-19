@@ -1,0 +1,261 @@
+{
+  "category": "antiepileptic",
+  "drugs": [
+    {
+      "generic_name": "clobazam",
+      "display_name": "Clobazam",
+      "brand_names": ["Onfi", "Frisium", "Urbanol"],
+      "synonyms": ["seizure medication", "anticonvulsant", "epilepsy drug"],
+      "drug_class": "Benzodiazepine anticonvulsant",
+      "primary_cyp_enzymes": ["CYP3A4", "CYP2C19"],
+      "common_uses": ["epilepsy", "Lennox-Gastaut syndrome", "seizures"],
+      "interaction": {
+        "severity": "major",
+        "mechanism": "multiple",
+        "mechanism_description": "CBD significantly increases clobazam's active metabolite (N-desmethylclobazam) levels by inhibiting CYP2C19. Studies show 3-fold increases in metabolite levels when CBD is co-administered. This interaction has been extensively studied in Epidiolex clinical trials.",
+        "clinical_effects": ["Dramatically increased sedation", "3-fold increase in active metabolite", "Enhanced CNS depression", "Increased somnolence"],
+        "potential_outcomes": "Excessive sedation, drowsiness, and lethargy. In clinical trials, this required clobazam dose reductions in many patients.",
+        "recommendation": "If using FDA-approved CBD (Epidiolex) with clobazam, dose reduction of clobazam is typically required. For other CBD products, use extreme caution and work with your neurologist. Monitor closely for excessive sedation.",
+        "monitoring_parameters": ["Sedation level", "Drowsiness", "Lethargy", "Cognitive function", "Balance"],
+        "dose_adjustment_guidance": "Clobazam dose reduction of 50% or more may be necessary. The FDA recommends considering clobazam dose reduction when co-administering with Epidiolex.",
+        "onset_timeframe": "Effects typically seen within 1-2 weeks",
+        "evidence_level": "Strong",
+        "citations": [
+          {
+            "id": "clobazam-1",
+            "title": "Effect of Cannabidiol on Plasma Clobazam Concentrations",
+            "authors": "Geffrey AL, Pollack SF, Bruno PL, Thiele EA",
+            "journal": "Epilepsia",
+            "year": 2015,
+            "pmid": "26032760",
+            "doi": "10.1111/epi.13060"
+          }
+        ],
+        "special_populations_notes": "Children may be more sensitive to increased sedation. Elderly patients should be monitored carefully for falls."
+      }
+    },
+    {
+      "generic_name": "valproic acid",
+      "display_name": "Valproic Acid",
+      "brand_names": ["Depakote", "Depakene", "Epilim", "Stavzor"],
+      "synonyms": ["valproate", "divalproex", "seizure medication"],
+      "drug_class": "Broad-spectrum anticonvulsant",
+      "primary_cyp_enzymes": ["CYP2C9", "CYP2C19"],
+      "common_uses": ["epilepsy", "bipolar disorder", "migraine prevention", "seizures"],
+      "interaction": {
+        "severity": "major",
+        "mechanism": "multiple",
+        "mechanism_description": "CBD may increase the risk of liver enzyme elevations when combined with valproic acid. This interaction was noted in Epidiolex clinical trials, where patients on valproate had higher rates of transaminase elevations.",
+        "clinical_effects": ["Increased liver enzyme levels", "Risk of hepatotoxicity", "Elevated AST/ALT"],
+        "potential_outcomes": "Liver damage if not monitored. Elevations in liver enzymes can indicate hepatotoxicity requiring dose adjustment or discontinuation.",
+        "recommendation": "Monitor liver function tests before starting CBD, periodically during treatment, and when changing doses. Watch for signs of liver problems. Use only under medical supervision.",
+        "monitoring_parameters": ["AST/ALT levels", "Bilirubin", "Signs of jaundice", "Abdominal pain", "Fatigue"],
+        "dose_adjustment_guidance": "Consider reducing valproate dose if liver enzymes become significantly elevated. Discontinue CBD if severe liver injury occurs.",
+        "onset_timeframe": "Liver enzyme elevations may occur within weeks to months",
+        "evidence_level": "Strong",
+        "citations": [
+          {
+            "id": "valproate-1",
+            "title": "Epidiolex (cannabidiol) prescribing information",
+            "authors": "Greenwich Biosciences",
+            "journal": "FDA Label",
+            "year": 2018
+          }
+        ],
+        "special_populations_notes": "Patients with pre-existing liver disease are at higher risk. Regular LFT monitoring is essential."
+      }
+    },
+    {
+      "generic_name": "phenytoin",
+      "display_name": "Phenytoin",
+      "brand_names": ["Dilantin", "Phenytek"],
+      "synonyms": ["seizure medication", "anticonvulsant"],
+      "drug_class": "Hydantoin anticonvulsant",
+      "primary_cyp_enzymes": ["CYP2C9", "CYP2C19"],
+      "common_uses": ["epilepsy", "seizures", "status epilepticus"],
+      "interaction": {
+        "severity": "major",
+        "mechanism": "cyp2c9_inhibition",
+        "mechanism_description": "CBD inhibits CYP2C9 and CYP2C19, which metabolize phenytoin. This can lead to elevated phenytoin levels and increased toxicity.",
+        "clinical_effects": ["Elevated phenytoin levels", "Risk of phenytoin toxicity", "Nystagmus", "Ataxia"],
+        "potential_outcomes": "Phenytoin toxicity symptoms including nystagmus, ataxia, slurred speech, confusion, and potentially cardiovascular effects at very high levels.",
+        "recommendation": "Monitor phenytoin levels closely if CBD is used. Watch for signs of toxicity. Work with your neurologist to adjust dosing.",
+        "monitoring_parameters": ["Phenytoin blood levels", "Nystagmus", "Gait", "Mental status", "Signs of toxicity"],
+        "dose_adjustment_guidance": "Phenytoin dose reduction may be needed. Monitor free phenytoin levels as total levels may not reflect active drug.",
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "carbamazepine",
+      "display_name": "Carbamazepine",
+      "brand_names": ["Tegretol", "Carbatrol", "Equetro"],
+      "synonyms": ["seizure medication", "anticonvulsant"],
+      "drug_class": "Iminostilbene anticonvulsant",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["epilepsy", "trigeminal neuralgia", "bipolar disorder", "seizures"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Carbamazepine is metabolized by CYP3A4 and is also a strong CYP3A4 inducer. The interaction is bidirectional - CBD may increase carbamazepine levels, while carbamazepine may decrease CBD levels.",
+        "clinical_effects": ["Potentially elevated carbamazepine levels", "CBD levels may be reduced", "Risk of carbamazepine toxicity"],
+        "potential_outcomes": "Possible carbamazepine toxicity (dizziness, ataxia, diplopia) if levels increase. CBD may be less effective due to enhanced metabolism.",
+        "recommendation": "Monitor carbamazepine levels and adjust dosing as needed. Be aware that CBD effectiveness may be reduced. Work with your neurologist.",
+        "monitoring_parameters": ["Carbamazepine blood levels", "Signs of toxicity", "Seizure control"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "phenobarbital",
+      "display_name": "Phenobarbital",
+      "brand_names": ["Luminal", "Solfoton"],
+      "synonyms": ["seizure medication", "barbiturate", "anticonvulsant"],
+      "drug_class": "Barbiturate anticonvulsant",
+      "primary_cyp_enzymes": ["CYP2C9", "CYP2C19"],
+      "common_uses": ["epilepsy", "seizures", "sedation"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "multiple",
+        "mechanism_description": "CBD may increase phenobarbital levels through CYP enzyme inhibition, while also having additive CNS depressant effects.",
+        "clinical_effects": ["Potentially elevated phenobarbital levels", "Increased sedation", "CNS depression"],
+        "potential_outcomes": "Excessive sedation, respiratory depression in severe cases.",
+        "recommendation": "Use with caution. Monitor for excessive sedation. Consider phenobarbital level monitoring if symptoms occur.",
+        "monitoring_parameters": ["Sedation level", "Phenobarbital levels", "Respiratory status"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "levetiracetam",
+      "display_name": "Levetiracetam",
+      "brand_names": ["Keppra", "Spritam", "Roweepra"],
+      "synonyms": ["seizure medication", "anticonvulsant"],
+      "drug_class": "Pyrrolidine anticonvulsant",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["epilepsy", "seizures", "partial onset seizures", "myoclonic seizures"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Levetiracetam is primarily renally eliminated and not significantly metabolized by CYP enzymes. No significant pharmacokinetic interaction is expected.",
+        "clinical_effects": ["No significant interaction expected", "Possible additive CNS effects"],
+        "potential_outcomes": "Low risk of pharmacokinetic interaction. Possible mild additive effects on mood or behavior.",
+        "recommendation": "Generally considered low risk. Monitor seizure control and any behavioral changes. Inform your neurologist about CBD use.",
+        "monitoring_parameters": ["Seizure control", "Mood/behavior changes"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "lamotrigine",
+      "display_name": "Lamotrigine",
+      "brand_names": ["Lamictal"],
+      "synonyms": ["seizure medication", "anticonvulsant", "mood stabilizer"],
+      "drug_class": "Phenyltriazine anticonvulsant",
+      "primary_cyp_enzymes": [],
+      "secondary_cyp_enzymes": ["UGT1A4"],
+      "common_uses": ["epilepsy", "bipolar disorder", "seizures"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Lamotrigine is primarily metabolized by glucuronidation (UGT1A4), not CYP enzymes. Limited data on CBD's effect on UGT enzymes.",
+        "clinical_effects": ["Minimal interaction expected"],
+        "potential_outcomes": "Low risk of significant interaction based on metabolic pathway.",
+        "recommendation": "Generally considered low risk. Monitor seizure control. Inform your healthcare provider about CBD use.",
+        "monitoring_parameters": ["Seizure control", "Rash (lamotrigine-specific concern)"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "topiramate",
+      "display_name": "Topiramate",
+      "brand_names": ["Topamax", "Trokendi XR", "Qudexy XR"],
+      "synonyms": ["seizure medication", "anticonvulsant", "migraine prevention"],
+      "drug_class": "Sulfamate-substituted monosaccharide",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["epilepsy", "migraine prevention", "seizures"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Topiramate is partially metabolized by CYP3A4. CBD inhibition could potentially affect levels, but topiramate is also significantly renally eliminated.",
+        "clinical_effects": ["Possibly slightly elevated topiramate levels"],
+        "potential_outcomes": "Minimal clinical significance expected.",
+        "recommendation": "Generally low risk. Monitor for cognitive side effects which may be enhanced. Inform your neurologist.",
+        "monitoring_parameters": ["Cognitive function", "Word-finding difficulties", "Seizure control"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "oxcarbazepine",
+      "display_name": "Oxcarbazepine",
+      "brand_names": ["Trileptal", "Oxtellar XR"],
+      "synonyms": ["seizure medication", "anticonvulsant"],
+      "drug_class": "Keto analogue of carbamazepine",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["epilepsy", "partial seizures"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "unknown",
+        "mechanism_description": "Oxcarbazepine is rapidly converted to its active metabolite which is primarily glucuronidated. Limited CYP450 involvement suggests low interaction risk.",
+        "clinical_effects": ["Minimal interaction expected"],
+        "potential_outcomes": "Low risk of significant interaction.",
+        "recommendation": "Generally low risk. Monitor seizure control and sodium levels (oxcarbazepine side effect).",
+        "monitoring_parameters": ["Seizure control", "Sodium levels"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "gabapentin",
+      "display_name": "Gabapentin",
+      "brand_names": ["Neurontin", "Gralise", "Horizant"],
+      "synonyms": ["nerve pain medication", "anticonvulsant"],
+      "drug_class": "GABA analogue",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["epilepsy", "nerve pain", "postherpetic neuralgia", "restless legs"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Gabapentin is renally eliminated without CYP metabolism. No pharmacokinetic interaction expected. Possible additive CNS effects.",
+        "clinical_effects": ["Possible additive sedation", "Enhanced dizziness"],
+        "potential_outcomes": "Mild additive effects on sedation and dizziness possible.",
+        "recommendation": "Generally low risk. Be aware of possible increased drowsiness or dizziness. Do not drive until you know how the combination affects you.",
+        "monitoring_parameters": ["Sedation", "Dizziness", "Balance"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "pregabalin",
+      "display_name": "Pregabalin",
+      "brand_names": ["Lyrica"],
+      "synonyms": ["nerve pain medication", "anticonvulsant"],
+      "drug_class": "GABA analogue",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["nerve pain", "fibromyalgia", "epilepsy", "anxiety"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Pregabalin is renally eliminated without CYP metabolism. No pharmacokinetic interaction expected. Possible additive CNS depressant effects.",
+        "clinical_effects": ["Possible additive sedation", "Enhanced dizziness"],
+        "potential_outcomes": "Mild additive sedation or dizziness possible.",
+        "recommendation": "Generally low risk. Monitor for enhanced CNS effects. Use caution when driving or operating machinery.",
+        "monitoring_parameters": ["Sedation", "Dizziness", "Cognitive function"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "brivaracetam",
+      "display_name": "Brivaracetam",
+      "brand_names": ["Briviact"],
+      "synonyms": ["seizure medication", "anticonvulsant"],
+      "drug_class": "Racetam anticonvulsant",
+      "primary_cyp_enzymes": ["CYP2C19"],
+      "common_uses": ["epilepsy", "partial-onset seizures"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2c19_inhibition",
+        "mechanism_description": "Brivaracetam is partially metabolized by CYP2C19. CBD inhibition could increase brivaracetam levels.",
+        "clinical_effects": ["Potentially elevated brivaracetam levels", "Increased sedation"],
+        "potential_outcomes": "Possible increased sedation or other brivaracetam side effects.",
+        "recommendation": "Use with caution. Monitor for increased sedation or side effects. Inform your neurologist.",
+        "monitoring_parameters": ["Sedation", "Mood changes", "Seizure control"],
+        "evidence_level": "Limited"
+      }
+    }
+  ]
+}

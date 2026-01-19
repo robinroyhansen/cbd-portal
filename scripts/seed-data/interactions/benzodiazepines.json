@@ -1,0 +1,164 @@
+{
+  "category": "benzodiazepine",
+  "drugs": [
+    {
+      "generic_name": "diazepam",
+      "display_name": "Diazepam",
+      "brand_names": ["Valium", "Diastat"],
+      "synonyms": ["anxiety medication", "sedative", "muscle relaxant"],
+      "drug_class": "Benzodiazepine",
+      "primary_cyp_enzymes": ["CYP3A4", "CYP2C19"],
+      "common_uses": ["anxiety", "muscle spasms", "seizures", "alcohol withdrawal", "sedation"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "multiple",
+        "mechanism_description": "Diazepam is metabolized by both CYP3A4 and CYP2C19, both of which are inhibited by CBD. This can lead to elevated diazepam levels and prolonged sedation.",
+        "clinical_effects": ["Increased diazepam levels", "Enhanced sedation", "Prolonged effects", "Increased CNS depression"],
+        "potential_outcomes": "Excessive sedation, drowsiness, impaired coordination, and potentially respiratory depression in severe cases.",
+        "recommendation": "Use with caution. Expect enhanced sedation. Do not drive or operate machinery. Consider dose reduction of diazepam. Discuss with your doctor.",
+        "monitoring_parameters": ["Sedation level", "Coordination", "Respiratory rate", "Mental status"],
+        "dose_adjustment_guidance": "Diazepam dose reduction may be warranted. Start CBD at low doses and titrate slowly.",
+        "evidence_level": "Moderate",
+        "special_populations_notes": "Elderly patients are at higher risk of excessive sedation and falls."
+      }
+    },
+    {
+      "generic_name": "alprazolam",
+      "display_name": "Alprazolam",
+      "brand_names": ["Xanax", "Niravam"],
+      "synonyms": ["anxiety medication", "sedative"],
+      "drug_class": "Benzodiazepine",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["anxiety", "panic disorder", "generalized anxiety disorder"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Alprazolam is primarily metabolized by CYP3A4. CBD inhibition can significantly increase alprazolam blood levels and prolong its effects.",
+        "clinical_effects": ["Elevated alprazolam levels", "Enhanced sedation", "Prolonged anxiolytic effects", "Increased CNS depression"],
+        "potential_outcomes": "Excessive sedation, impaired motor function, memory impairment, and potentially dangerous respiratory depression.",
+        "recommendation": "Use with significant caution. Enhanced sedation is expected. Avoid driving. Consider alprazolam dose reduction. Consult your prescriber.",
+        "monitoring_parameters": ["Sedation", "Coordination", "Memory", "Respiratory status"],
+        "dose_adjustment_guidance": "Consider reducing alprazolam dose by 25-50% when starting CBD.",
+        "evidence_level": "Moderate",
+        "special_populations_notes": "Elderly and those with respiratory conditions are at higher risk."
+      }
+    },
+    {
+      "generic_name": "lorazepam",
+      "display_name": "Lorazepam",
+      "brand_names": ["Ativan"],
+      "synonyms": ["anxiety medication", "sedative"],
+      "drug_class": "Benzodiazepine",
+      "primary_cyp_enzymes": [],
+      "secondary_cyp_enzymes": ["UGT"],
+      "common_uses": ["anxiety", "insomnia", "seizures", "sedation", "alcohol withdrawal"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Lorazepam is primarily glucuronidated, not CYP metabolized. However, CBD may have additive CNS depressant effects.",
+        "clinical_effects": ["Additive sedation", "Enhanced CNS depression"],
+        "potential_outcomes": "Increased sedation and drowsiness. Possibly impaired coordination.",
+        "recommendation": "Use with caution due to additive CNS effects. Monitor for excessive sedation even though pharmacokinetic interaction is limited.",
+        "monitoring_parameters": ["Sedation level", "Coordination", "Alertness"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "clonazepam",
+      "display_name": "Clonazepam",
+      "brand_names": ["Klonopin", "Rivotril"],
+      "synonyms": ["anxiety medication", "seizure medication", "sedative"],
+      "drug_class": "Benzodiazepine",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["panic disorder", "seizures", "anxiety"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Clonazepam is metabolized by CYP3A4. CBD inhibition can increase clonazepam levels and enhance its effects.",
+        "clinical_effects": ["Elevated clonazepam levels", "Enhanced sedation", "Prolonged effects"],
+        "potential_outcomes": "Increased sedation, drowsiness, and impaired coordination.",
+        "recommendation": "Use with caution. Monitor for excessive sedation. Consider clonazepam dose adjustment. Discuss with your healthcare provider.",
+        "monitoring_parameters": ["Sedation", "Coordination", "Seizure control"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "midazolam",
+      "display_name": "Midazolam",
+      "brand_names": ["Versed", "Nayzilam"],
+      "synonyms": ["sedative", "anesthesia"],
+      "drug_class": "Benzodiazepine",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["sedation", "anesthesia", "seizures", "procedural sedation"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Midazolam is a sensitive CYP3A4 substrate. CBD inhibition can significantly increase midazolam exposure.",
+        "clinical_effects": ["Significantly elevated midazolam levels", "Prolonged sedation", "Enhanced effects"],
+        "potential_outcomes": "Prolonged and deeper sedation than expected. Risk of respiratory depression.",
+        "recommendation": "Inform your anesthesiologist about CBD use before any procedure. Midazolam dose adjustment may be needed.",
+        "monitoring_parameters": ["Depth of sedation", "Respiratory status", "Recovery time"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "temazepam",
+      "display_name": "Temazepam",
+      "brand_names": ["Restoril"],
+      "synonyms": ["sleeping pill", "sedative", "hypnotic"],
+      "drug_class": "Benzodiazepine",
+      "primary_cyp_enzymes": [],
+      "secondary_cyp_enzymes": ["UGT"],
+      "common_uses": ["insomnia", "sleep"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Temazepam is primarily glucuronidated. Additive CNS depression with CBD is the main concern.",
+        "clinical_effects": ["Additive sedation", "Enhanced sleep effects"],
+        "potential_outcomes": "Increased drowsiness and potentially morning grogginess.",
+        "recommendation": "Use with caution. Monitor for excessive sedation. May enhance sleep but also increase morning impairment.",
+        "monitoring_parameters": ["Sleep quality", "Morning alertness", "Coordination"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "triazolam",
+      "display_name": "Triazolam",
+      "brand_names": ["Halcion"],
+      "synonyms": ["sleeping pill", "sedative", "hypnotic"],
+      "drug_class": "Benzodiazepine",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["insomnia", "short-term sleep aid"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Triazolam is primarily metabolized by CYP3A4. CBD inhibition can significantly increase triazolam levels.",
+        "clinical_effects": ["Elevated triazolam levels", "Prolonged sedation", "Enhanced effects"],
+        "potential_outcomes": "Excessive sedation, prolonged sleep, memory impairment, and next-day drowsiness.",
+        "recommendation": "Use with caution. Do not use CBD before activities requiring alertness the next morning.",
+        "monitoring_parameters": ["Sedation depth", "Morning alertness", "Memory"],
+        "evidence_level": "Moderate"
+      }
+    },
+    {
+      "generic_name": "oxazepam",
+      "display_name": "Oxazepam",
+      "brand_names": ["Serax"],
+      "synonyms": ["anxiety medication", "sedative"],
+      "drug_class": "Benzodiazepine",
+      "primary_cyp_enzymes": [],
+      "secondary_cyp_enzymes": ["UGT"],
+      "common_uses": ["anxiety", "alcohol withdrawal"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Oxazepam is primarily glucuronidated with no CYP metabolism. Minimal pharmacokinetic interaction expected.",
+        "clinical_effects": ["Possible additive sedation"],
+        "potential_outcomes": "Mild additive CNS effects possible.",
+        "recommendation": "Generally lower risk than CYP-metabolized benzodiazepines. Monitor for additive sedation.",
+        "monitoring_parameters": ["Sedation level", "Coordination"],
+        "evidence_level": "Limited"
+      }
+    }
+  ]
+}

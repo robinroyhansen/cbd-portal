@@ -149,14 +149,13 @@ export function ArticleContent({ content, glossaryTerms = [], excludeSlugs = [],
 
   // Strip Medical/Veterinary Disclaimer from content (we have one in the page template)
   // Match disclaimer sections - typically at end of article after ---
-  // Greedy match to get the full disclaimer paragraph(s) until double newline or end
   processedContent = processedContent.replace(
-    /\n*-{3,}\n+\*{0,2}(?:Medical|Veterinary)\s*Disclaimer:?\*{0,2}:?[^]*?(?=\n\n(?:##|<|\*\*[A-Z])|$)/gi,
+    /\n*-{3,}\n+\*{0,2}(?:Medical|Veterinary)\s*Disclaimer:?\*{0,2}:?[\s\S]*?(?=\n\n(?:##|<|\*\*[A-Z])|$)/gi,
     '\n'
   );
-  // Match disclaimers without --- separator
+  // Match disclaimers without --- separator (catches remaining patterns)
   processedContent = processedContent.replace(
-    /\n+\*{0,2}(?:Medical|Veterinary)\s*Disclaimer:?\*{0,2}:?\s*This (?:article|information|content) is for informational purposes only[^#]*?(?:\.|\*)\s*(?=\n\n|$)/gi,
+    /\n+\*{0,2}(?:Medical|Veterinary)\s*Disclaimer:?\*{0,2}:?\s*This[\s\S]*?(?:medications?|health regimen|veterinary care|medical advice|healthcare professional|respond differently|dietary requirements)\.?\*?\s*(?=\n|$)/gi,
     '\n'
   );
 
