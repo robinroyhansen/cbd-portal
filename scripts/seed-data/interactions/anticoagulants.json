@@ -1,0 +1,213 @@
+{
+  "category": "anticoagulant",
+  "drugs": [
+    {
+      "generic_name": "warfarin",
+      "display_name": "Warfarin",
+      "brand_names": ["Coumadin", "Jantoven", "Marevan"],
+      "synonyms": ["blood thinner", "anticoagulant"],
+      "drug_class": "Vitamin K antagonist",
+      "primary_cyp_enzymes": ["CYP2C9", "CYP3A4", "CYP1A2"],
+      "common_uses": ["blood clots", "atrial fibrillation", "heart valve replacement", "DVT", "pulmonary embolism"],
+      "interaction": {
+        "severity": "major",
+        "mechanism": "cyp2c9_inhibition",
+        "mechanism_description": "CBD inhibits CYP2C9, the primary enzyme that metabolizes warfarin. This can lead to significantly elevated warfarin blood levels and increased bleeding risk. Case reports document INR increases of 30-50% when CBD is added.",
+        "clinical_effects": ["Increased warfarin blood levels", "Elevated INR values", "Increased bleeding risk", "Prolonged clotting time"],
+        "potential_outcomes": "Serious bleeding events including gastrointestinal bleeding, intracranial hemorrhage, excessive bruising, or bleeding from minor cuts that won't stop.",
+        "recommendation": "Avoid CBD with warfarin unless under close medical supervision with frequent INR monitoring. If CBD must be used, start with very low doses and check INR within 3-5 days. Never adjust warfarin dose without consulting your anticoagulation clinic.",
+        "monitoring_parameters": ["INR levels (twice weekly initially)", "Signs of bleeding", "Bruising", "Dark stools", "Blood in urine"],
+        "dose_adjustment_guidance": "Warfarin dose reduction of 25-50% may be necessary when starting CBD. Work closely with your anticoagulation clinic to adjust dosing based on INR values.",
+        "onset_timeframe": "Effects may be seen within 3-7 days of starting CBD",
+        "evidence_level": "Strong",
+        "citations": [
+          {
+            "id": "warfarin-1",
+            "title": "A Case of Clinically Significant Interaction Between Cannabidiol and Warfarin",
+            "authors": "Grayson L, Vines B, Nichol K, et al.",
+            "journal": "Epilepsy Behav Case Rep",
+            "year": 2018,
+            "pmid": "29387541",
+            "doi": "10.1016/j.ebcr.2017.10.001"
+          }
+        ],
+        "special_populations_notes": "Elderly patients and those with liver impairment are at higher risk. Genetic polymorphisms in CYP2C9 can further increase interaction severity."
+      }
+    },
+    {
+      "generic_name": "rivaroxaban",
+      "display_name": "Rivaroxaban",
+      "brand_names": ["Xarelto"],
+      "synonyms": ["blood thinner", "DOAC", "NOAC"],
+      "drug_class": "Direct factor Xa inhibitor",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["blood clots", "atrial fibrillation", "DVT", "pulmonary embolism", "stroke prevention"],
+      "interaction": {
+        "severity": "major",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Rivaroxaban is partially metabolized by CYP3A4, which CBD inhibits. This can increase rivaroxaban blood levels and bleeding risk.",
+        "clinical_effects": ["Elevated rivaroxaban levels", "Increased bleeding risk", "Prolonged anticoagulant effect"],
+        "potential_outcomes": "Increased risk of major bleeding events including gastrointestinal bleeding, intracranial hemorrhage, or prolonged bleeding from injuries.",
+        "recommendation": "Use with extreme caution. Consult your doctor before combining CBD with rivaroxaban. If used together, monitor closely for signs of bleeding.",
+        "monitoring_parameters": ["Signs of bleeding", "Bruising", "Blood in stool or urine", "Unexplained fatigue"],
+        "evidence_level": "Moderate",
+        "special_populations_notes": "Patients with renal impairment may have higher rivaroxaban levels and increased interaction risk."
+      }
+    },
+    {
+      "generic_name": "apixaban",
+      "display_name": "Apixaban",
+      "brand_names": ["Eliquis"],
+      "synonyms": ["blood thinner", "DOAC", "NOAC"],
+      "drug_class": "Direct factor Xa inhibitor",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["blood clots", "atrial fibrillation", "DVT", "pulmonary embolism", "stroke prevention"],
+      "interaction": {
+        "severity": "major",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Apixaban is metabolized primarily by CYP3A4. CBD's inhibition of this enzyme can lead to increased apixaban concentrations.",
+        "clinical_effects": ["Elevated apixaban levels", "Increased bleeding risk", "Prolonged anticoagulant effect"],
+        "potential_outcomes": "Potential for serious bleeding including GI bleeding, intracranial hemorrhage, or excessive bleeding from wounds.",
+        "recommendation": "Avoid combination or use only under careful medical supervision. Consult your healthcare provider before using CBD with apixaban.",
+        "monitoring_parameters": ["Signs of bleeding", "Unusual bruising", "Blood in stool", "Prolonged bleeding"],
+        "evidence_level": "Moderate",
+        "special_populations_notes": "Elderly patients and those with kidney disease are at higher risk."
+      }
+    },
+    {
+      "generic_name": "dabigatran",
+      "display_name": "Dabigatran",
+      "brand_names": ["Pradaxa"],
+      "synonyms": ["blood thinner", "DOAC", "NOAC"],
+      "drug_class": "Direct thrombin inhibitor",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["blood clots", "atrial fibrillation", "DVT", "stroke prevention"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "transporter",
+        "mechanism_description": "Dabigatran is not significantly metabolized by CYP enzymes but is a substrate for P-glycoprotein (P-gp) transporters. CBD may inhibit P-gp, potentially affecting dabigatran levels.",
+        "clinical_effects": ["Potentially elevated dabigatran levels", "Increased bleeding risk"],
+        "potential_outcomes": "Possible increased bleeding risk, though interaction is less predictable than with other anticoagulants.",
+        "recommendation": "Use caution. While the interaction may be less significant than with other blood thinners, monitor for signs of bleeding. Discuss with your doctor.",
+        "monitoring_parameters": ["Signs of bleeding", "Bruising", "GI symptoms"],
+        "evidence_level": "Limited",
+        "special_populations_notes": "Patients with renal impairment should be especially cautious as dabigatran is primarily renally cleared."
+      }
+    },
+    {
+      "generic_name": "edoxaban",
+      "display_name": "Edoxaban",
+      "brand_names": ["Savaysa", "Lixiana"],
+      "synonyms": ["blood thinner", "DOAC"],
+      "drug_class": "Direct factor Xa inhibitor",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["blood clots", "atrial fibrillation", "DVT", "pulmonary embolism"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Edoxaban undergoes minimal CYP3A4 metabolism but CBD inhibition could still affect levels. P-glycoprotein inhibition may also play a role.",
+        "clinical_effects": ["Potentially elevated edoxaban levels", "Increased bleeding risk"],
+        "potential_outcomes": "Potential for increased bleeding events.",
+        "recommendation": "Use with caution. Monitor for signs of bleeding. Consult your healthcare provider before combining.",
+        "monitoring_parameters": ["Bleeding signs", "Bruising", "Fatigue"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "enoxaparin",
+      "display_name": "Enoxaparin",
+      "brand_names": ["Lovenox", "Clexane"],
+      "synonyms": ["blood thinner", "LMWH", "low molecular weight heparin"],
+      "drug_class": "Low molecular weight heparin",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["blood clots", "DVT prevention", "pulmonary embolism", "surgery"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Enoxaparin is not metabolized by CYP enzymes. However, CBD may have additive effects on bleeding risk through effects on platelet function.",
+        "clinical_effects": ["Potentially increased bleeding risk"],
+        "potential_outcomes": "Additive bleeding risk when combined with CBD.",
+        "recommendation": "Use with caution. While CYP interaction is unlikely, monitor for increased bleeding. Inform your healthcare provider about CBD use.",
+        "monitoring_parameters": ["Signs of bleeding", "Bruising", "Injection site bleeding"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "heparin",
+      "display_name": "Heparin",
+      "brand_names": [],
+      "synonyms": ["blood thinner", "UFH", "unfractionated heparin"],
+      "drug_class": "Unfractionated heparin",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["blood clots", "dialysis", "surgery", "acute coronary syndrome"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Heparin is not metabolized by CYP enzymes, but CBD may have additive effects on bleeding risk through other mechanisms.",
+        "clinical_effects": ["Potentially increased bleeding risk"],
+        "potential_outcomes": "Possible additive bleeding effects.",
+        "recommendation": "Use with caution. Monitor for signs of increased bleeding. Inform your healthcare team about CBD use.",
+        "monitoring_parameters": ["aPTT levels", "Signs of bleeding"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "clopidogrel",
+      "display_name": "Clopidogrel",
+      "brand_names": ["Plavix"],
+      "synonyms": ["blood thinner", "antiplatelet"],
+      "drug_class": "P2Y12 inhibitor",
+      "primary_cyp_enzymes": ["CYP2C19", "CYP3A4"],
+      "common_uses": ["heart attack prevention", "stroke prevention", "stent placement", "peripheral artery disease"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp2c19_inhibition",
+        "mechanism_description": "Clopidogrel is a prodrug that requires CYP2C19 activation. CBD inhibition of CYP2C19 may reduce clopidogrel's conversion to its active form, potentially decreasing its effectiveness.",
+        "clinical_effects": ["Reduced clopidogrel activation", "Potentially decreased antiplatelet effect"],
+        "potential_outcomes": "Possible reduced effectiveness of clopidogrel, which could increase risk of clot formation in patients who need antiplatelet protection.",
+        "recommendation": "Use with caution. This interaction may reduce clopidogrel effectiveness rather than increase bleeding. Consult your cardiologist before combining.",
+        "monitoring_parameters": ["Platelet function tests if available", "Symptoms of clot formation"],
+        "evidence_level": "Moderate",
+        "special_populations_notes": "Patients who are CYP2C19 poor metabolizers may be at higher risk of reduced clopidogrel effect."
+      }
+    },
+    {
+      "generic_name": "aspirin",
+      "display_name": "Aspirin (Low-Dose)",
+      "brand_names": ["Bayer", "Ecotrin"],
+      "synonyms": ["blood thinner", "antiplatelet", "acetylsalicylic acid"],
+      "drug_class": "COX inhibitor antiplatelet",
+      "primary_cyp_enzymes": [],
+      "common_uses": ["heart attack prevention", "stroke prevention", "cardiovascular disease"],
+      "interaction": {
+        "severity": "minor",
+        "mechanism": "pharmacodynamic",
+        "mechanism_description": "Aspirin is not significantly metabolized by CYP enzymes. The interaction with CBD is primarily theoretical, with potential additive effects on bleeding.",
+        "clinical_effects": ["Possibly enhanced bleeding risk"],
+        "potential_outcomes": "Mild increase in bleeding tendency possible but not well documented.",
+        "recommendation": "Generally considered low risk. Be aware of potential additive bleeding effects. Monitor for unusual bruising or prolonged bleeding.",
+        "monitoring_parameters": ["Bruising", "Prolonged bleeding from cuts"],
+        "evidence_level": "Limited"
+      }
+    },
+    {
+      "generic_name": "ticagrelor",
+      "display_name": "Ticagrelor",
+      "brand_names": ["Brilinta", "Brilique"],
+      "synonyms": ["blood thinner", "antiplatelet"],
+      "drug_class": "P2Y12 inhibitor",
+      "primary_cyp_enzymes": ["CYP3A4"],
+      "common_uses": ["heart attack prevention", "acute coronary syndrome", "stent placement"],
+      "interaction": {
+        "severity": "moderate",
+        "mechanism": "cyp3a4_inhibition",
+        "mechanism_description": "Ticagrelor is metabolized by CYP3A4. CBD inhibition of this enzyme could increase ticagrelor levels and enhance its antiplatelet effect.",
+        "clinical_effects": ["Potentially elevated ticagrelor levels", "Enhanced antiplatelet effect", "Increased bleeding risk"],
+        "potential_outcomes": "Possible increased bleeding events.",
+        "recommendation": "Use with caution. Monitor for increased bleeding. Consult your cardiologist before combining CBD with ticagrelor.",
+        "monitoring_parameters": ["Signs of bleeding", "Bruising", "Shortness of breath (ticagrelor side effect)"],
+        "evidence_level": "Moderate"
+      }
+    }
+  ]
+}
