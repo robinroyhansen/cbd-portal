@@ -22,31 +22,29 @@ const NAV_ITEMS: NavItem[] = [
     icon: '🏠'
   },
   {
-    label: 'Conditions',
-    href: '/conditions',
+    label: 'Health Topics',
+    href: '/categories/conditions',
     icon: '🏥',
     children: [
-      { label: 'Anxiety', href: '/conditions/anxiety', description: 'Research on CBD for anxiety disorders' },
-      { label: 'Pain', href: '/conditions/chronic-pain', description: 'CBD for chronic pain management' },
-      { label: 'Sleep', href: '/conditions/insomnia', description: 'CBD for better sleep quality' },
-      { label: 'Inflammation', href: '/conditions/inflammation', description: 'Anti-inflammatory properties of CBD' },
-      { label: 'Depression', href: '/conditions/depression', description: 'CBD and mood support' },
-      { label: 'Arthritis', href: '/conditions/arthritis', description: 'Joint pain and CBD research' },
-      { label: 'View All 39 Conditions', href: '/conditions', description: '' },
+      { label: 'Anxiety', href: '/articles/cbd-and-anxiety', description: 'Research on CBD for anxiety disorders' },
+      { label: 'Sleep', href: '/articles/cbd-and-sleep', description: 'CBD for insomnia and sleep quality' },
+      { label: 'Pain', href: '/articles/cbd-and-pain', description: 'Chronic pain and CBD research' },
+      { label: 'Depression', href: '/articles/cbd-and-depression', description: 'CBD and mood disorders' },
+      { label: 'Inflammation', href: '/articles/cbd-and-inflammation', description: 'Anti-inflammatory properties' },
+      { label: 'Epilepsy', href: '/articles/cbd-and-epilepsy', description: 'FDA-approved CBD treatment' },
+      { label: 'View All Conditions', href: '/categories/conditions', description: '' },
     ]
   },
   {
     label: 'Learn',
-    href: '/categories',
+    href: '/categories/guides',
     icon: '📚',
     children: [
-      { label: 'CBD Basics', href: '/categories/cbd-basics', description: 'Start here if you\'re new to CBD' },
-      { label: 'CBD Products', href: '/categories/products', description: 'Oils, gummies, topicals & more' },
-      { label: 'Guides & How-To', href: '/categories/guides', description: 'Dosage, buying guides & tips' },
+      { label: 'Beginner Guides', href: '/categories/guides', description: 'Start here if you\'re new to CBD' },
+      { label: 'CBD Products', href: '/categories/products', description: 'Oils, capsules, topicals & more' },
       { label: 'CBD Science', href: '/categories/science', description: 'How cannabinoids work' },
-      { label: 'Cannabinoids', href: '/categories/cannabinoids', description: 'CBD, CBG, CBN & more' },
-      { label: 'Terpenes', href: '/categories/terpenes', description: 'Aromatic compounds in hemp' },
-      { label: 'Browse All Topics', href: '/categories', description: '' },
+      { label: 'Legal & Safety', href: '/categories/legal', description: 'Regulations and safety info' },
+      { label: 'Glossary', href: '/glossary', description: 'CBD terminology explained' },
     ]
   },
   {
@@ -55,20 +53,25 @@ const NAV_ITEMS: NavItem[] = [
     icon: '🔬'
   },
   {
+    label: 'Reviews',
+    href: '/reviews',
+    icon: '⭐'
+  },
+  {
     label: 'Tools',
     href: '/tools',
     icon: '⚙️',
     children: [
       { label: 'CBD Dosage Calculator', href: '/tools/dosage-calculator', description: 'Get personalized dosing recommendations' },
-      { label: 'Pet CBD Calculator', href: '/tools/animal-dosage-calculator', description: 'Veterinary-guided dosing for pets' },
-      { label: 'Drug Interaction Checker', href: '/tools/interactions', description: 'Coming soon' },
-      { label: 'Product Finder', href: '/tools/product-finder', description: 'Coming soon' },
+      { label: 'Animal CBD Calculator', href: '/tools/animal-dosage-calculator', description: 'Veterinary-guided dosing for pets' },
+      { label: 'Drug Interaction Checker', href: '/tools/interactions', description: 'Coming soon - Check CBD interactions' },
+      { label: 'Product Finder', href: '/tools/product-finder', description: 'Coming soon - Find the right CBD product' },
     ]
   },
   {
-    label: 'Glossary',
-    href: '/glossary',
-    icon: '📖'
+    label: 'Articles',
+    href: '/articles',
+    icon: '📄'
   }
 ];
 
