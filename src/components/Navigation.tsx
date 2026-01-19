@@ -44,10 +44,15 @@ const NAV_ITEMS: NavItem[] = [
       { label: 'CBD Products', href: '/categories/products', description: 'Oils, gummies, topicals & more' },
       { label: 'Guides & How-To', href: '/categories/guides', description: 'Dosage, buying guides & tips' },
       { label: 'CBD Science', href: '/categories/science', description: 'How cannabinoids work' },
-      { label: 'Cannabinoids', href: '/categories/cannabinoids', description: 'CBD, CBG, CBN & more' },
-      { label: 'Terpenes', href: '/categories/terpenes', description: 'Aromatic compounds in hemp' },
+      { label: 'Safety & Quality', href: '/categories/safety-quality', description: 'Side effects, testing & quality' },
+      { label: 'Comparisons', href: '/categories/comparisons', description: 'CBD vs alternatives' },
       { label: 'Browse All Topics', href: '/categories', description: '' },
     ]
+  },
+  {
+    label: 'Pets',
+    href: '/categories/pets',
+    icon: '🐾'
   },
   {
     label: 'Research',

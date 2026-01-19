@@ -4,22 +4,23 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Browse Topics | CBD Portal',
-  description: 'Explore our comprehensive CBD knowledge base. Browse articles on CBD basics, products, guides, science, cannabinoids, terpenes, and more.',
+  description: 'Explore our comprehensive CBD knowledge base. Browse articles on CBD basics, products, guides, science, cannabinoids, terpenes, pet CBD, and more.',
   alternates: {
     canonical: '/categories',
   },
 };
 
-// Category configuration with styling
+// Category configuration with styling and organization
 const CATEGORY_CONFIG: Record<string, {
   icon: string;
   color: string;
   bgColor: string;
   borderColor: string;
   hoverBorder: string;
-  tier: 'main' | 'specialty';
+  tier: 'main' | 'specialty' | 'audience';
   order: number;
 }> = {
+  // Main Categories (core educational content)
   'cbd-basics': {
     icon: '📚',
     color: 'text-blue-700',
@@ -65,6 +66,17 @@ const CATEGORY_CONFIG: Record<string, {
     tier: 'main',
     order: 5,
   },
+  'safety-quality': {
+    icon: '🛡️',
+    color: 'text-red-700',
+    bgColor: 'bg-red-50',
+    borderColor: 'border-red-200',
+    hoverBorder: 'hover:border-red-400',
+    tier: 'main',
+    order: 6,
+  },
+
+  // Specialty Topics (deep dives)
   'cannabinoids': {
     icon: '🧬',
     color: 'text-indigo-700',
@@ -92,14 +104,43 @@ const CATEGORY_CONFIG: Record<string, {
     tier: 'specialty',
     order: 3,
   },
-  'conditions': {
-    icon: '🏥',
-    color: 'text-red-700',
-    bgColor: 'bg-red-50',
-    borderColor: 'border-red-200',
-    hoverBorder: 'hover:border-red-400',
-    tier: 'main',
-    order: 0,
+  'comparisons': {
+    icon: '⚖️',
+    color: 'text-amber-700',
+    bgColor: 'bg-amber-50',
+    borderColor: 'border-amber-200',
+    hoverBorder: 'hover:border-amber-400',
+    tier: 'specialty',
+    order: 4,
+  },
+
+  // Audience & Quick Info
+  'pets': {
+    icon: '🐾',
+    color: 'text-orange-700',
+    bgColor: 'bg-orange-50',
+    borderColor: 'border-orange-200',
+    hoverBorder: 'hover:border-orange-400',
+    tier: 'audience',
+    order: 1,
+  },
+  'demographics': {
+    icon: '👥',
+    color: 'text-teal-700',
+    bgColor: 'bg-teal-50',
+    borderColor: 'border-teal-200',
+    hoverBorder: 'hover:border-teal-400',
+    tier: 'audience',
+    order: 2,
+  },
+  'faq': {
+    icon: '❓',
+    color: 'text-yellow-700',
+    bgColor: 'bg-yellow-50',
+    borderColor: 'border-yellow-200',
+    hoverBorder: 'hover:border-yellow-400',
+    tier: 'audience',
+    order: 3,
   },
   'research-studies': {
     icon: '📊',
@@ -107,8 +148,19 @@ const CATEGORY_CONFIG: Record<string, {
     bgColor: 'bg-cyan-50',
     borderColor: 'border-cyan-200',
     hoverBorder: 'hover:border-cyan-400',
-    tier: 'specialty',
+    tier: 'audience',
     order: 4,
+  },
+
+  // Health Conditions (special - links to /conditions)
+  'conditions': {
+    icon: '🏥',
+    color: 'text-green-700',
+    bgColor: 'bg-green-50',
+    borderColor: 'border-green-200',
+    hoverBorder: 'hover:border-green-400',
+    tier: 'main',
+    order: 0,
   },
 };
 
@@ -118,7 +170,7 @@ const DEFAULT_STYLE = {
   bgColor: 'bg-gray-50',
   borderColor: 'border-gray-200',
   hoverBorder: 'hover:border-gray-400',
-  tier: 'specialty' as const,
+  tier: 'audience' as const,
   order: 99,
 };
 
@@ -157,13 +209,17 @@ export default async function CategoriesPage() {
     style: CATEGORY_CONFIG[cat.slug] || DEFAULT_STYLE,
   })) || [];
 
-  // Split into tiers
+  // Split into tiers (exclude 'conditions' as it's handled separately)
   const mainCategories = processedCategories
     .filter(c => c.style.tier === 'main' && c.slug !== 'conditions')
     .sort((a, b) => a.style.order - b.style.order);
 
   const specialtyCategories = processedCategories
     .filter(c => c.style.tier === 'specialty')
+    .sort((a, b) => a.style.order - b.style.order);
+
+  const audienceCategories = processedCategories
+    .filter(c => c.style.tier === 'audience')
     .sort((a, b) => a.style.order - b.style.order);
 
   const totalArticles = articles?.length || 0;
@@ -227,7 +283,7 @@ export default async function CategoriesPage() {
       {/* Main Categories Grid */}
       <div className="mb-12">
         <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-          <span className="w-8 h-0.5 bg-gray-300"></span>
+          <span className="w-8 h-0.5 bg-green-500"></span>
           Learn About CBD
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -242,7 +298,11 @@ export default async function CategoriesPage() {
                 <div>
                   <h3 className={`font-bold ${category.style.color}`}>{category.name}</h3>
                   <span className="text-sm text-gray-500">
-                    {category.articleCount} {category.articleCount === 1 ? 'article' : 'articles'}
+                    {category.articleCount > 0 ? (
+                      <>{category.articleCount} articles</>
+                    ) : (
+                      <span className="text-amber-600">Coming soon</span>
+                    )}
                   </span>
                 </div>
               </div>
@@ -254,10 +314,10 @@ export default async function CategoriesPage() {
         </div>
       </div>
 
-      {/* Specialty Categories */}
+      {/* Specialty Topics */}
       <div className="mb-12">
         <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-          <span className="w-8 h-0.5 bg-gray-300"></span>
+          <span className="w-8 h-0.5 bg-purple-500"></span>
           Specialty Topics
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -272,7 +332,40 @@ export default async function CategoriesPage() {
                 <h3 className={`font-semibold text-sm ${category.style.color}`}>{category.name}</h3>
               </div>
               <span className="text-xs text-gray-500">
-                {category.articleCount} {category.articleCount === 1 ? 'article' : 'articles'}
+                {category.articleCount > 0 ? (
+                  <>{category.articleCount} articles</>
+                ) : (
+                  <span className="text-amber-600">Coming soon</span>
+                )}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* Audience & Quick Info */}
+      <div className="mb-12">
+        <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+          <span className="w-8 h-0.5 bg-orange-500"></span>
+          Audience & Quick Info
+        </h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {audienceCategories.map((category) => (
+            <Link
+              key={category.id}
+              href={`/categories/${category.slug}`}
+              className={`rounded-xl border-2 p-4 transition-all hover:shadow-md ${category.style.bgColor} ${category.style.borderColor} ${category.style.hoverBorder}`}
+            >
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-xl">{category.style.icon}</span>
+                <h3 className={`font-semibold text-sm ${category.style.color}`}>{category.name}</h3>
+              </div>
+              <span className="text-xs text-gray-500">
+                {category.articleCount > 0 ? (
+                  <>{category.articleCount} articles</>
+                ) : (
+                  <span className="text-amber-600">Coming soon</span>
+                )}
               </span>
             </Link>
           ))}
@@ -282,7 +375,7 @@ export default async function CategoriesPage() {
       {/* Stats section */}
       <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8">
         <h2 className="text-xl font-bold text-center mb-6">Evidence-Based Information</h2>
-        <div className="grid sm:grid-cols-3 gap-6 text-center">
+        <div className="grid sm:grid-cols-4 gap-6 text-center">
           <div>
             <div className="text-3xl font-bold text-green-600">{totalArticles}+</div>
             <div className="text-sm text-gray-600">In-Depth Articles</div>
@@ -294,6 +387,10 @@ export default async function CategoriesPage() {
           <div>
             <div className="text-3xl font-bold text-green-600">771+</div>
             <div className="text-sm text-gray-600">Research Studies</div>
+          </div>
+          <div>
+            <div className="text-3xl font-bold text-green-600">15</div>
+            <div className="text-sm text-gray-600">Topic Categories</div>
           </div>
         </div>
         <p className="text-sm text-gray-500 text-center mt-6">

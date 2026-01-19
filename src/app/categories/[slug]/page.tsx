@@ -18,6 +18,7 @@ const CATEGORY_CONFIG: Record<string, {
   activeBg: string;
   activeText: string;
 }> = {
+  // Main Categories
   'cbd-basics': {
     icon: '📚',
     color: 'text-blue-700',
@@ -63,6 +64,17 @@ const CATEGORY_CONFIG: Record<string, {
     activeBg: 'bg-slate-50',
     activeText: 'text-slate-700',
   },
+  'safety-quality': {
+    icon: '🛡️',
+    color: 'text-red-700',
+    bgColor: 'bg-red-50',
+    borderColor: 'border-red-200',
+    hoverBorder: 'hover:border-red-400',
+    activeBg: 'bg-red-50',
+    activeText: 'text-red-700',
+  },
+
+  // Specialty Topics
   'cannabinoids': {
     icon: '🧬',
     color: 'text-indigo-700',
@@ -90,14 +102,43 @@ const CATEGORY_CONFIG: Record<string, {
     activeBg: 'bg-green-50',
     activeText: 'text-green-700',
   },
-  'conditions': {
-    icon: '🏥',
-    color: 'text-red-700',
-    bgColor: 'bg-red-50',
-    borderColor: 'border-red-200',
-    hoverBorder: 'hover:border-red-400',
-    activeBg: 'bg-red-50',
-    activeText: 'text-red-700',
+  'comparisons': {
+    icon: '⚖️',
+    color: 'text-amber-700',
+    bgColor: 'bg-amber-50',
+    borderColor: 'border-amber-200',
+    hoverBorder: 'hover:border-amber-400',
+    activeBg: 'bg-amber-50',
+    activeText: 'text-amber-700',
+  },
+
+  // Audience & Quick Info
+  'pets': {
+    icon: '🐾',
+    color: 'text-orange-700',
+    bgColor: 'bg-orange-50',
+    borderColor: 'border-orange-200',
+    hoverBorder: 'hover:border-orange-400',
+    activeBg: 'bg-orange-50',
+    activeText: 'text-orange-700',
+  },
+  'demographics': {
+    icon: '👥',
+    color: 'text-teal-700',
+    bgColor: 'bg-teal-50',
+    borderColor: 'border-teal-200',
+    hoverBorder: 'hover:border-teal-400',
+    activeBg: 'bg-teal-50',
+    activeText: 'text-teal-700',
+  },
+  'faq': {
+    icon: '❓',
+    color: 'text-yellow-700',
+    bgColor: 'bg-yellow-50',
+    borderColor: 'border-yellow-200',
+    hoverBorder: 'hover:border-yellow-400',
+    activeBg: 'bg-yellow-50',
+    activeText: 'text-yellow-700',
   },
   'research-studies': {
     icon: '📊',
@@ -107,6 +148,17 @@ const CATEGORY_CONFIG: Record<string, {
     hoverBorder: 'hover:border-cyan-400',
     activeBg: 'bg-cyan-50',
     activeText: 'text-cyan-700',
+  },
+
+  // Health Conditions
+  'conditions': {
+    icon: '🏥',
+    color: 'text-green-700',
+    bgColor: 'bg-green-50',
+    borderColor: 'border-green-200',
+    hoverBorder: 'hover:border-green-400',
+    activeBg: 'bg-green-50',
+    activeText: 'text-green-700',
   },
 };
 
@@ -172,6 +224,11 @@ export default async function CategoryPage({ params }: Props) {
     .select('category_id')
     .eq('status', 'published');
 
+  // Get conditions count
+  const { count: conditionsCount } = await supabase
+    .from('kb_conditions')
+    .select('*', { count: 'exact', head: true });
+
   const countMap: Record<string, number> = {};
   articleCounts?.forEach(a => {
     if (a.category_id) {
@@ -200,7 +257,11 @@ export default async function CategoryPage({ params }: Props) {
           <div>
             <h1 className={`text-3xl font-bold ${style.color}`}>{category.name}</h1>
             <span className="text-sm text-gray-500">
-              {articles?.length || 0} articles
+              {articles && articles.length > 0 ? (
+                <>{articles.length} articles</>
+              ) : (
+                <span className="text-amber-600">Coming soon</span>
+              )}
             </span>
           </div>
         </div>
@@ -227,7 +288,7 @@ export default async function CategoryPage({ params }: Props) {
                 className="block rounded-lg px-4 py-2 text-sm text-gray-600 hover:bg-gray-100"
               >
                 🏥 Health Conditions
-                <span className="ml-2 text-xs text-gray-400">(39)</span>
+                <span className="ml-2 text-xs text-gray-400">({conditionsCount || 39})</span>
               </Link>
 
               <div className="my-2 border-t border-gray-200"></div>
@@ -236,6 +297,9 @@ export default async function CategoryPage({ params }: Props) {
                 const count = countMap[cat.id] || 0;
                 const catStyle = CATEGORY_CONFIG[cat.slug] || DEFAULT_STYLE;
                 const isActive = cat.slug === slug;
+
+                // Skip the conditions category as it's handled separately
+                if (cat.slug === 'conditions') return null;
 
                 return (
                   <Link
@@ -249,7 +313,9 @@ export default async function CategoryPage({ params }: Props) {
                   >
                     <span className="mr-2">{catStyle.icon}</span>
                     {cat.name}
-                    <span className="ml-2 text-xs text-gray-400">({count})</span>
+                    <span className="ml-2 text-xs text-gray-400">
+                      {count > 0 ? `(${count})` : ''}
+                    </span>
                   </Link>
                 );
               })}
@@ -283,9 +349,20 @@ export default async function CategoryPage({ params }: Props) {
             </div>
           ) : (
             <div className="rounded-xl border-2 border-dashed border-gray-300 p-12 text-center">
-              <span className="text-4xl mb-4 block">{style.icon}</span>
-              <p className="text-gray-500 mb-2">No articles in this category yet.</p>
-              <p className="text-sm text-gray-400">Check back soon for new content.</p>
+              <span className="text-5xl mb-4 block">{style.icon}</span>
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">Coming Soon</h3>
+              <p className="text-gray-500 mb-4">
+                We&apos;re working on comprehensive articles for this category.
+              </p>
+              <p className="text-sm text-gray-400">
+                Check back soon or explore our other topics.
+              </p>
+              <Link
+                href="/categories"
+                className="inline-block mt-6 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+              >
+                Browse All Topics
+              </Link>
             </div>
           )}
         </main>
