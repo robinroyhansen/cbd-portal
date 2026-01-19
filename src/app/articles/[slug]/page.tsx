@@ -22,14 +22,19 @@ import { ArticleContent } from '@/components/ArticleContent';
 
 // Strip Medical/Veterinary disclaimers from content (we render a standardized one in the template)
 function stripDisclaimers(content: string): string {
-  // Remove disclaimers after --- separator (common pattern at end of articles)
+  // Remove disclaimers after --- separator with "Medical/Veterinary Disclaimer:" header
   let result = content.replace(
     /\n*-{3,}\n+\*{0,2}(?:Medical|Veterinary)\s*Disclaimer:?\*{0,2}:?[\s\S]*$/gi,
     ''
   );
+  // Remove italic disclaimers after --- separator (e.g., *This article is for informational...*)
+  result = result.replace(
+    /\n*-{3,}\n+\*This (?:article|content) is for informational purposes only[\s\S]*$/gi,
+    ''
+  );
   // Remove inline disclaimers without separator
   result = result.replace(
-    /\n+\*{0,2}(?:Medical|Veterinary)\s*Disclaimer:?\*{0,2}:?\s*This article is for informational purposes only[\s\S]*$/gi,
+    /\n+\*{0,2}(?:Medical|Veterinary)\s*Disclaimer:?\*{0,2}:?\s*This (?:article|content) is for informational purposes only[\s\S]*$/gi,
     ''
   );
   return result;
