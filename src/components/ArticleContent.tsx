@@ -141,8 +141,9 @@ export function ArticleContent({ content, glossaryTerms = [], excludeSlugs = [],
 
   // Optionally strip References/Sources section when we have structured citations
   if (stripReferences) {
+    // Match any heading level (##, ###, etc.) followed by References/Sources/Citations to end of content
     processedContent = processedContent.replace(
-      /\n##\s*(?:References|Sources|Citations)\s*\n[\s\S]*?(?=\n##[^#]|\n---|\n\*Written|\n\*Last|$)/gi,
+      /\n#{2,}\s*(?:References|Sources|Citations)[\s\S]*$/gi,
       ''
     );
   }
