@@ -284,7 +284,7 @@ export default async function CategoryPage({ params }: Props) {
 
               {/* Health Conditions - special link */}
               <Link
-                href="/conditions"
+                href="/categories/conditions"
                 className="block rounded-lg px-4 py-2 text-sm text-gray-600 hover:bg-gray-100"
               >
                 🏥 Health Conditions
