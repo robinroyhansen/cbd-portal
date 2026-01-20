@@ -68,7 +68,7 @@ export function SearchBar() {
 
   const handleResultClick = (result: SearchResult) => {
     const paths: Record<string, string> = {
-      condition: `/conditions/${result.slug}`,
+      condition: `/research/${result.slug}`,
       glossary: `/glossary/${result.slug}`,
       research: `/research/study/${result.slug}`,
       article: `/articles/${result.slug}`,

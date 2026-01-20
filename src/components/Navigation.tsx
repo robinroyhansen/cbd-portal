@@ -26,12 +26,12 @@ const NAV_ITEMS: NavItem[] = [
     href: '/categories/conditions',
     icon: '🏥',
     children: [
-      { label: 'Anxiety', href: '/articles/cbd-and-anxiety', description: 'Research on CBD for anxiety disorders' },
-      { label: 'Sleep', href: '/articles/cbd-and-sleep', description: 'CBD for insomnia and sleep quality' },
-      { label: 'Pain', href: '/articles/cbd-and-pain', description: 'Chronic pain and CBD research' },
-      { label: 'Depression', href: '/articles/cbd-and-depression', description: 'CBD and mood disorders' },
-      { label: 'Inflammation', href: '/articles/cbd-and-inflammation', description: 'Anti-inflammatory properties' },
-      { label: 'Epilepsy', href: '/articles/cbd-and-epilepsy', description: 'FDA-approved CBD treatment' },
+      { label: 'Anxiety', href: '/research/anxiety', description: 'Research on CBD for anxiety disorders' },
+      { label: 'Sleep', href: '/research/sleep', description: 'CBD for insomnia and sleep quality' },
+      { label: 'Pain', href: '/research/chronic-pain', description: 'Chronic pain and CBD research' },
+      { label: 'Depression', href: '/research/depression', description: 'CBD and mood disorders' },
+      { label: 'Inflammation', href: '/research/inflammation', description: 'Anti-inflammatory properties' },
+      { label: 'Epilepsy', href: '/research/epilepsy', description: 'FDA-approved CBD treatment' },
       { label: 'View All Conditions', href: '/categories/conditions', description: '' },
     ]
   },
@@ -64,7 +64,7 @@ const NAV_ITEMS: NavItem[] = [
     children: [
       { label: 'CBD Dosage Calculator', href: '/tools/dosage-calculator', description: 'Get personalized dosing recommendations' },
       { label: 'Animal CBD Calculator', href: '/tools/animal-dosage-calculator', description: 'Veterinary-guided dosing for pets' },
-      { label: 'Drug Interaction Checker', href: '/tools/interactions', description: 'Coming soon - Check CBD interactions' },
+      { label: 'Drug Interaction Checker', href: '/tools/interactions', description: 'Check CBD-medication interactions' },
       { label: 'Product Finder', href: '/tools/product-finder', description: 'Coming soon - Find the right CBD product' },
     ]
   },

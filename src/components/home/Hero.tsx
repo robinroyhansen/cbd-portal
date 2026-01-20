@@ -34,7 +34,7 @@ export function Hero({ stats }: HeroProps) {
             {/* CTA Buttons - full width on mobile */}
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-6">
               <Link
-                href="/conditions"
+                href="/categories/conditions"
                 className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors text-center"
               >
                 Explore Health Topics

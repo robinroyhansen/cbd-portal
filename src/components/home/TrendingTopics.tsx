@@ -40,7 +40,7 @@ export async function TrendingTopics() {
           {trendingConditions?.slice(0, 4).map((condition) => (
             <Link
               key={condition.slug}
-              href={`/conditions/${condition.slug}`}
+              href={`/research/${condition.slug}`}
               className="inline-flex items-center gap-1 px-3 py-1.5 bg-green-50 hover:bg-green-100 text-green-700 text-sm rounded-full transition-colors whitespace-nowrap flex-shrink-0"
             >
               <span>{condition.display_name || condition.name}</span>
