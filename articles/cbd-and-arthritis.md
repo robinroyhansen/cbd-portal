@@ -206,7 +206,7 @@ From pooled trial data:
 - Less potent effect
 - Slower onset
 - Daily application needed
-- Limited insurance coverage
+- Limited insurance/healthcare coverage
 
 ### Versus Disease-Modifying Drugs (RA)
 - Not a replacement for DMARDs
@@ -231,10 +231,10 @@ Despite negative clinical trials:
 - Pesticide residues frequent
 
 ### Cost Analysis
-- Average monthly cost: $100-300
-- Not covered by insurance
+- Average monthly cost: €90-270 / $100-300 (varies by region)
+- Generally not covered by insurance or healthcare systems
 - Topical products more expensive per mg
-- Financial burden for fixed-income seniors
+- Financial burden for seniors on fixed incomes
 
 ## Emerging Research and Future Directions
 
@@ -301,8 +301,8 @@ Veterinary studies use objective measures (force plate analysis) reducing placeb
 ### 9. What's the difference between CBD and medical marijuana for arthritis?
 Medical marijuana contains THC, which has stronger pain-relieving effects but causes psychoactive effects and carries addiction risk. Pure CBD doesn't cause high but also shows weaker pain relief in trials.
 
-### 10. Will insurance ever cover CBD for arthritis?
-Unlikely until FDA approval for specific arthritis indication. Would require large phase 3 trials showing superiority or equivalence to current treatments. No pharmaceutical company has initiated such trials due to cost and patentability issues.
+### 10. Will healthcare systems or insurance ever cover CBD for arthritis?
+Unlikely until regulatory approval (FDA, EMA, etc.) for specific arthritis indications. Would require large phase 3 trials showing superiority or equivalence to current treatments. No pharmaceutical company has initiated such trials due to cost and patentability issues.
 
 ## Conclusion
 

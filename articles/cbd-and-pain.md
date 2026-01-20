@@ -162,9 +162,9 @@ Based on systematic review data:
 
 ### Limitations
 - Weaker analgesic effect than conventional options
-- High cost (often $100-300/month)
+- High cost (often €90-270 / $100-300 per month, varies by region)
 - Quality control issues in unregulated market
-- Limited insurance coverage
+- Limited insurance/healthcare coverage in most jurisdictions
 - Inconsistent individual response
 
 ### Evidence-Based Positioning
@@ -201,7 +201,7 @@ CBD appears best suited as:
 ## Ongoing Research and Future Directions
 
 ### Current Trials
-- Veterans Administration study: 468 participants, CBD oral solution for chronic pain
+- US Veterans Administration study: 468 participants, CBD oral solution for chronic pain
 - Phase 2 neuroinflammation study: CBD for chronic low back pain with fMRI endpoints
 - Dose-ranging studies: Attempting to establish optimal dosing
 

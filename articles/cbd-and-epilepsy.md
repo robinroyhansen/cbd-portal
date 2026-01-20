@@ -1,10 +1,10 @@
-# CBD and Epilepsy: From FDA Approval to Clinical Practice (2025)
+# CBD and Epilepsy: From Medical Approval to Clinical Practice (2025)
 
 ## Introduction
 
 Epilepsy affects over 50 million people worldwide, making it one of the most common neurological conditions. For approximately 30% of patients, seizures remain uncontrolled despite optimal treatment with conventional antiseizure medications. This treatment-resistant population faces significant challenges, including cognitive impairment, injury risk, and reduced quality of life.
 
-Cannabidiol (CBD) represents a landmark achievement in epilepsy treatment, becoming the first cannabis-derived medication approved by the FDA. Unlike many breakthrough therapies that emerge from targeted drug design, CBD's path from ancient remedy to modern pharmaceutical exemplifies the potential of natural compounds in evidence-based medicine. This comprehensive review examines the current state of CBD for epilepsy treatment, from molecular mechanisms to real-world outcomes, based on the latest evidence through 2025.
+Cannabidiol (CBD) represents a landmark achievement in epilepsy treatment, becoming the first cannabis-derived medication approved by major regulatory agencies (FDA in the US, EMA in Europe, and others worldwide). Unlike many breakthrough therapies that emerge from targeted drug design, CBD's path from ancient remedy to modern pharmaceutical exemplifies the potential of natural compounds in evidence-based medicine. This comprehensive review examines the current state of CBD for epilepsy treatment, from molecular mechanisms to real-world outcomes, based on the latest evidence through 2025.
 
 ## The Science Behind CBD's Antiseizure Effects
 
@@ -47,7 +47,7 @@ Beyond direct anticonvulsant effects:
 **Tuberous Sclerosis Complex** [[4]](https://pubmed.ncbi.nlm.nih.gov/40673944/):
 - **Focal Seizures**: 51-87% median reduction
 - **Total Seizures**: 44-87% median reduction
-- **FDA Approval**: Granted based on phase 3 trial success
+- **Regulatory Approval**: Granted by FDA, EMA, and other agencies based on phase 3 trial success
 
 ### Recent Meta-Analyses (2023-2025)
 
@@ -196,10 +196,10 @@ From pooled clinical trial data:
 ### Financial Burden
 
 **Average Costs (2025)**:
-- Epidiolex: $32,500-65,000/year
-- Insurance coverage: Variable
-- Patient assistance programs available
-- Generic CBD not equivalent
+- Epidiolex: Approximately $32,500-65,000 USD/year (€30,000-60,000); pricing varies by country
+- Insurance/healthcare coverage: Varies by country and healthcare system
+- Patient assistance programs available in some regions
+- Generic CBD not equivalent to pharmaceutical-grade Epidiolex
 
 ### Access Programs
 
@@ -263,7 +263,7 @@ From pooled clinical trial data:
 ## Frequently Asked Questions
 
 ### 1. How does Epidiolex differ from CBD oil I can buy online?
-Epidiolex is pharmaceutical-grade CBD with consistent purity, concentration, and manufacturing standards. Over-the-counter CBD products vary widely in quality, may contain THC, and lack the rigorous testing required for FDA approval. Only Epidiolex is proven effective for epilepsy.
+Epidiolex is pharmaceutical-grade CBD with consistent purity, concentration, and manufacturing standards. Over-the-counter CBD products vary widely in quality, may contain THC, and lack the rigorous testing required for regulatory approval. Only Epidiolex has been clinically proven effective for epilepsy in controlled trials.
 
 ### 2. How quickly will I see results?
 Most patients show response within 2-4 weeks, though full benefits may take 3 months. The BECOME survey found 85% of patients showed improvement by 12 weeks. Unlike some AEDs, benefits don't typically diminish over time.
@@ -289,12 +289,12 @@ Never stop other AEDs without medical supervision. CBD is approved as add-on the
 ### 9. Is CBD safe during pregnancy?
 Limited data exists for pregnancy. Animal studies suggest potential risks. Current recommendations advise against use during pregnancy unless benefits clearly outweigh risks. Discuss with maternal-fetal medicine specialists.
 
-### 10. Will insurance cover Epidiolex?
-Coverage varies but is improving. Most plans cover for FDA-approved indications with prior authorization. The appeals process is often successful with proper documentation. Patient assistance programs can help with costs.
+### 10. Will healthcare systems cover Epidiolex?
+Coverage varies significantly by country and healthcare system. In the US, most insurance plans cover for approved indications with prior authorization. In Europe, coverage depends on national health authority decisions. Patient assistance programs may help with costs in some regions.
 
 ## Conclusion
 
-CBD represents a transformative development in epilepsy treatment, offering hope to patients with previously intractable seizures. The journey from botanical curiosity to FDA-approved medication exemplifies rigorous drug development, with multiple controlled trials confirming efficacy for specific epilepsy syndromes.
+CBD represents a transformative development in epilepsy treatment, offering hope to patients with previously intractable seizures. The journey from botanical curiosity to approved pharmaceutical exemplifies rigorous drug development, with multiple controlled trials confirming efficacy for specific epilepsy syndromes.
 
 The evidence is particularly robust for Dravet syndrome, Lennox-Gastaut syndrome, and tuberous sclerosis complex, where CBD provides meaningful seizure reduction in 40-70% of patients. Real-world data confirms these benefits extend beyond clinical trials, with sustained efficacy and improvements in non-seizure outcomes that significantly impact quality of life.
 

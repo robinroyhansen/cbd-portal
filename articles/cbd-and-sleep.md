@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Sleep disorders affect approximately one-third of adults globally, with insomnia being the most prevalent sleep disturbance. The economic burden of insufficient sleep exceeds $400 billion annually in the United States alone. As conventional sleep medications often carry risks of dependence, cognitive impairment, and tolerance, many individuals seek alternative treatments. Cannabidiol (CBD), a non-intoxicating compound from *Cannabis sativa*, has emerged as a popular sleep aid, with market research indicating over 40% of CBD users cite sleep improvement as their primary reason for use.
+Sleep disorders affect approximately one-third of adults globally, with insomnia being the most prevalent sleep disturbance. The economic burden of insufficient sleep is substantial worldwide—exceeding €360 billion / $400 billion annually in the US and proportional amounts in other developed nations. As conventional sleep medications often carry risks of dependence, cognitive impairment, and tolerance, many individuals seek alternative treatments. Cannabidiol (CBD), a non-intoxicating compound from *Cannabis sativa*, has emerged as a popular sleep aid, with market research indicating over 40% of CBD users cite sleep improvement as their primary reason for use.
 
 This comprehensive analysis examines the latest clinical evidence for CBD's effects on sleep, based on randomized controlled trials, systematic reviews, and meta-analyses published through 2025. We'll explore optimal dosing strategies, compare CBD with other cannabinoids like CBN, and provide evidence-based guidance for those considering CBD for sleep enhancement.
 
@@ -166,7 +166,7 @@ Based on large-scale trials, adverse events are generally mild:
 
 ### Limitations
 - Less potent than prescription hypnotics for acute insomnia
-- Higher cost with limited insurance coverage
+- Higher cost with limited insurance/healthcare coverage in most jurisdictions
 - Quality control issues in unregulated market
 - Individual response highly variable
 - Limited long-term safety data beyond 6 months

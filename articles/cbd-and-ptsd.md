@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Post-traumatic stress disorder (PTSD) affects 3.5% of adults yearly in the United States, with lifetime prevalence reaching 9%. Among veterans, rates climb dramatically higher—up to 29% for those serving in recent conflicts. The condition develops after exposure to traumatic events including combat, sexual assault, accidents, or childhood abuse, creating a cascade of symptoms that can persist for decades without treatment.
+Post-traumatic stress disorder (PTSD) affects approximately 3.9% of the global population at some point in their lives, with around 4-8% of adults experiencing PTSD in any given year in high-income countries. Among military veterans, rates climb dramatically higher—up to 29% for those serving in recent conflicts. The condition develops after exposure to traumatic events including combat, sexual assault, accidents, or childhood abuse, creating a cascade of symptoms that can persist for decades without treatment.
 
-Current FDA-approved treatments—primarily SSRIs like sertraline and paroxetine—achieve full remission in less than 30% of patients. This treatment gap has driven intense interest in alternative therapies, with cannabidiol (CBD) emerging as a particularly promising candidate. Unlike THC, CBD offers potential therapeutic benefits without intoxication, making it attractive for populations requiring cognitive clarity. This comprehensive review examines the current state of CBD research for PTSD, from neurobiological mechanisms to ongoing clinical trials with veterans.
+Current first-line treatments—primarily SSRIs like sertraline and paroxetine, which are approved by regulatory agencies in the US, Europe, and elsewhere—achieve full remission in less than 30% of patients. This treatment gap has driven intense interest in alternative therapies, with cannabidiol (CBD) emerging as a particularly promising candidate. Unlike THC, CBD offers potential therapeutic benefits without intoxication, making it attractive for populations requiring cognitive clarity. This comprehensive review examines the current state of CBD research for PTSD, from neurobiological mechanisms to ongoing clinical trials with veterans.
 
 ## Understanding PTSD and the Endocannabinoid System
 
@@ -75,11 +75,11 @@ Unlike THC, CBD doesn't directly activate cannabinoid receptors. Instead, it fun
 - **Biomarkers**: Cortisol, heart rate variability, endocannabinoids
 - **Status**: Data analysis phase
 
-**FDA-Approved Cannabis Trial (2024)** [[7]](https://www.stripes.com/veterans/2024-11-22/veterans-marijuana-ptsd-trials-fda-15935021.html):
+**US Veteran Cannabis Trial (2024)** [[7]](https://www.stripes.com/veterans/2024-11-22/veterans-marijuana-ptsd-trials-fda-15935021.html):
 - **Sample**: 320 veterans
 - **Design**: Comparing high-THC, high-CBD, balanced, and placebo
 - **Duration**: 5 weeks with mobile app monitoring
-- **Significance**: Largest veteran cannabis trial to date
+- **Significance**: Largest veteran cannabis trial to date (US-based)
 
 ## Specific Symptom Domains
 
@@ -201,15 +201,15 @@ From pooled data:
 ### Access and Cost
 
 **Current Barriers**:
-- No FDA approval for PTSD
-- Limited insurance coverage
-- $100-300 monthly cost
-- Variable state regulations
+- No regulatory approval specifically for PTSD in any jurisdiction
+- Limited insurance/healthcare coverage
+- €90-270 / $100-300 monthly cost depending on region
+- Variable regulations by country and region
 
-**Veteran-Specific Issues**:
-- VA cannot prescribe/recommend
-- Drug testing concerns
-- Stigma in military culture
+**Veteran-Specific Issues** (varies by country):
+- In the US, VA cannot prescribe/recommend; similar restrictions may apply in other countries
+- Drug testing concerns in military and government roles
+- Stigma in military culture internationally
 
 ### Quality Control
 
@@ -297,8 +297,8 @@ Acute anxiety effects may occur within hours, but PTSD symptom improvement typic
 ### 6. Is CBD better than medical marijuana for PTSD?
 Different cannabinoid profiles offer distinct benefits. THC may help nightmares but can worsen anxiety and paranoia. CBD offers anxiolytic effects without intoxication. Some find balanced THC:CBD products optimal, but individual response varies greatly.
 
-### 7. Can veterans get CBD through the VA?
-Currently, no. VA providers cannot recommend or prescribe CBD due to federal regulations. However, VA-funded research is ongoing. Veterans must obtain CBD independently and should inform VA providers about use.
+### 7. Can veterans access CBD through military healthcare?
+In the US, VA providers cannot recommend or prescribe CBD due to federal regulations, though VA-funded research is ongoing. Similar restrictions may apply in other countries' military healthcare systems. Veterans should check their specific country's regulations and obtain CBD independently where permitted, informing healthcare providers about use.
 
 ### 8. Will CBD make me fail a drug test?
 Pure CBD shouldn't trigger positive THC tests, but many products contain trace THC. Full-spectrum products pose higher risk. Use broad-spectrum or isolate if testing is a concern. Request COAs showing non-detectable THC.

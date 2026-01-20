@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Fibromyalgia affects 2-4% of the global population, predominantly women, causing widespread chronic pain, fatigue, sleep disturbances, and cognitive dysfunction often referred to as "fibro fog." The condition's complex nature and lack of clear etiology make it one of the most challenging chronic pain syndromes to treat. Current FDA-approved medications—duloxetine, milnacipran, and pregabalin—provide limited relief for many patients, with only 30-40% experiencing meaningful improvement.
+Fibromyalgia affects 2-4% of the global population, predominantly women, causing widespread chronic pain, fatigue, sleep disturbances, and cognitive dysfunction often referred to as "fibro fog." The condition's complex nature and lack of clear etiology make it one of the most challenging chronic pain syndromes to treat. Current approved medications—duloxetine, milnacipran, and pregabalin—provide limited relief for many patients, with only 30-40% experiencing meaningful improvement.
 
 This treatment gap has driven significant interest in cannabidiol (CBD) as a potential therapeutic option. Survey data indicates that up to 30% of fibromyalgia patients have tried CBD products, often reporting subjective benefits. However, the disconnect between patient experiences and clinical trial results creates confusion for both patients and providers. This comprehensive review examines the current evidence for CBD in fibromyalgia management, from mechanistic rationale to real-world outcomes, based on the latest research through 2025.
 
@@ -192,12 +192,12 @@ The systematic review concluded: "There is a need for high-quality clinical stud
 
 ### Cost-Benefit Analysis
 
-**Monthly Costs**:
-- Low dose (25-50mg): $50-100
-- Moderate dose (100-150mg): $150-300
-- High dose (>200mg): $300-600
+**Monthly Costs** (varies by region):
+- Low dose (25-50mg): €45-90 / $50-100
+- Moderate dose (100-150mg): €135-270 / $150-300
+- High dose (>200mg): €270-540 / $300-600
 
-**Insurance Coverage**: Essentially non-existent for fibromyalgia
+**Insurance/Healthcare Coverage**: Essentially non-existent for fibromyalgia in most jurisdictions
 
 **Value Proposition**: Must weigh modest potential benefits against significant costs
 
