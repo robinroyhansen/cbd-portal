@@ -4,7 +4,6 @@ import Link from 'next/link';
 import {
   Cannabinoid,
   EFFECT_META,
-  LEGAL_STATUS_META,
   RESEARCH_LEVEL_META,
   TYPE_META,
   SAFETY_TIER_META,
@@ -23,7 +22,6 @@ export function CannabinoidFeatureCard({
   studyCount,
 }: CannabinoidFeatureCardProps) {
   const typeInfo = TYPE_META[cannabinoid.type];
-  const legalInfo = LEGAL_STATUS_META[cannabinoid.legalStatus];
   const researchInfo = RESEARCH_LEVEL_META[cannabinoid.researchLevel];
   const safetyInfo = SAFETY_TIER_META[cannabinoid.safetyTier];
 
@@ -108,14 +106,6 @@ export function CannabinoidFeatureCard({
 
         {/* Stats Row */}
         <div className="flex items-center gap-4 py-3 border-t border-gray-100">
-          {/* Legal Status */}
-          <div className="flex items-center gap-1.5">
-            <span className={`w-2 h-2 rounded-full bg-${legalInfo.color}-500`}
-              style={{ backgroundColor: `var(--color-${legalInfo.color}-500, #6b7280)` }}
-            />
-            <span className="text-xs text-gray-600">{legalInfo.label}</span>
-          </div>
-
           {/* Research Level */}
           <div className="flex items-center gap-1">
             {[...Array(5)].map((_, i) => (

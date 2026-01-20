@@ -4,7 +4,6 @@ import Link from 'next/link';
 import {
   Cannabinoid,
   EFFECT_META,
-  LEGAL_STATUS_META,
   SAFETY_TIER_META,
   TYPE_META,
 } from '@/lib/cannabinoids';
@@ -19,7 +18,6 @@ export function CannabinoidCompactCard({
   articleSlug,
 }: CannabinoidCompactCardProps) {
   const typeInfo = TYPE_META[cannabinoid.type];
-  const legalInfo = LEGAL_STATUS_META[cannabinoid.legalStatus];
   const safetyInfo = SAFETY_TIER_META[cannabinoid.safetyTier];
 
   // Get top 2 effects
@@ -81,9 +79,8 @@ export function CannabinoidCompactCard({
               safetyInfo.color === 'blue' ? 'text-blue-700' :
               safetyInfo.color === 'amber' ? 'text-amber-700' : 'text-red-700'
             }`}>
-              {safetyInfo.icon}
+              {safetyInfo.icon} {safetyInfo.label}
             </span>
-            <span className="text-gray-400">{legalInfo.label}</span>
           </div>
           <span className="text-green-600 group-hover:text-green-700 font-medium">
             Learn more →

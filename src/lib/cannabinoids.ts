@@ -7,7 +7,6 @@
 
 export type CannabinoidType = 'major' | 'minor' | 'acidic' | 'synthetic' | 'rare';
 export type CannabinoidFamily = 'CBD-type' | 'THC-type' | 'CBG-type' | 'CBN-type' | 'CBC-type' | 'other';
-export type LegalStatus = 'federally-legal' | 'legal-most-states' | 'state-varies' | 'restricted';
 export type ResearchLevel = 'extensive' | 'moderate' | 'emerging' | 'limited';
 export type PrimaryEffect = 'calm' | 'sleep' | 'focus' | 'energy' | 'pain' | 'mood' | 'appetite' | 'nausea' | 'inflammation';
 export type SafetyTier = 'safe' | 'moderate' | 'caution' | 'high-risk';
@@ -26,7 +25,6 @@ export interface Cannabinoid {
   // Key Properties
   psychoactive: boolean;
   intoxicating: boolean; // Distinction: CBD is psychoactive but not intoxicating
-  legalStatus: LegalStatus;
 
   // Effects
   primaryEffects: PrimaryEffect[];
@@ -65,30 +63,6 @@ export const EFFECT_META: Record<PrimaryEffect, { icon: string; label: string; c
   appetite: { icon: '🍽️', label: 'Appetite', color: 'orange' },
   nausea: { icon: '🤢', label: 'Anti-nausea', color: 'green' },
   inflammation: { icon: '🔥', label: 'Anti-inflammatory', color: 'rose' },
-};
-
-// Legal status metadata
-export const LEGAL_STATUS_META: Record<LegalStatus, { label: string; color: string; description: string }> = {
-  'federally-legal': {
-    label: 'Federally Legal',
-    color: 'green',
-    description: 'Legal under the 2018 Farm Bill when derived from hemp (<0.3% THC)'
-  },
-  'legal-most-states': {
-    label: 'Legal in Most States',
-    color: 'emerald',
-    description: 'Legal in most US states, some restrictions may apply'
-  },
-  'state-varies': {
-    label: 'Varies by State',
-    color: 'amber',
-    description: 'Legal status varies significantly by state - check local laws'
-  },
-  'restricted': {
-    label: 'Restricted',
-    color: 'red',
-    description: 'Federally restricted or controlled substance in many jurisdictions'
-  },
 };
 
 // Research level metadata
@@ -268,7 +242,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     family: 'CBD-type',
     psychoactive: true, // Affects mood/anxiety but...
     intoxicating: false, // ...doesn't cause a "high"
-    legalStatus: 'federally-legal',
     primaryEffects: ['calm', 'pain', 'sleep', 'inflammation'],
     effectStrength: { calm: 5, sleep: 3, focus: 2, energy: 1, pain: 4, mood: 4, appetite: 1, nausea: 2, inflammation: 4 },
     researchLevel: 'extensive',
@@ -301,7 +274,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     family: 'THC-type',
     psychoactive: true,
     intoxicating: true,
-    legalStatus: 'state-varies',
     primaryEffects: ['mood', 'pain', 'appetite', 'nausea', 'sleep'],
     effectStrength: { calm: 3, sleep: 4, focus: 1, energy: 2, pain: 5, mood: 5, appetite: 5, nausea: 5, inflammation: 3 },
     researchLevel: 'extensive',
@@ -335,7 +307,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     family: 'CBG-type',
     psychoactive: false,
     intoxicating: false,
-    legalStatus: 'federally-legal',
     primaryEffects: ['focus', 'mood', 'inflammation', 'pain'],
     effectStrength: { calm: 3, sleep: 1, focus: 4, energy: 3, pain: 3, mood: 4, appetite: 2, nausea: 2, inflammation: 4 },
     researchLevel: 'emerging',
@@ -367,7 +338,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     family: 'CBN-type',
     psychoactive: false,
     intoxicating: false, // Very mildly at high doses
-    legalStatus: 'federally-legal',
     primaryEffects: ['sleep', 'calm', 'pain'],
     effectStrength: { calm: 4, sleep: 5, focus: 1, energy: 0, pain: 3, mood: 2, appetite: 2, nausea: 1, inflammation: 2 },
     researchLevel: 'emerging',
@@ -399,7 +369,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     family: 'CBC-type',
     psychoactive: false,
     intoxicating: false,
-    legalStatus: 'federally-legal',
     primaryEffects: ['mood', 'pain', 'inflammation'],
     effectStrength: { calm: 3, sleep: 2, focus: 2, energy: 1, pain: 4, mood: 4, appetite: 1, nausea: 1, inflammation: 5 },
     researchLevel: 'emerging',
@@ -434,7 +403,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     parentCompound: 'cbd',
     psychoactive: false,
     intoxicating: false,
-    legalStatus: 'federally-legal',
     primaryEffects: ['nausea', 'inflammation', 'calm'],
     effectStrength: { calm: 4, sleep: 2, focus: 2, energy: 1, pain: 3, mood: 3, appetite: 1, nausea: 5, inflammation: 5 },
     researchLevel: 'emerging',
@@ -466,7 +434,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     parentCompound: 'thc',
     psychoactive: false,
     intoxicating: false,
-    legalStatus: 'state-varies', // Gray area - converts to THC
     primaryEffects: ['inflammation', 'nausea', 'pain'],
     effectStrength: { calm: 2, sleep: 2, focus: 1, energy: 1, pain: 4, mood: 2, appetite: 1, nausea: 4, inflammation: 5 },
     researchLevel: 'emerging',
@@ -498,7 +465,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     parentCompound: 'cbg',
     psychoactive: false,
     intoxicating: false,
-    legalStatus: 'federally-legal',
     primaryEffects: ['inflammation', 'mood'],
     effectStrength: { calm: 2, sleep: 1, focus: 2, energy: 1, pain: 2, mood: 3, appetite: 1, nausea: 1, inflammation: 4 },
     researchLevel: 'limited',
@@ -529,7 +495,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     family: 'THC-type',
     psychoactive: true,
     intoxicating: true, // At high doses
-    legalStatus: 'state-varies',
     primaryEffects: ['energy', 'focus', 'appetite'],
     effectStrength: { calm: 1, sleep: 0, focus: 5, energy: 5, pain: 2, mood: 3, appetite: -3, nausea: 2, inflammation: 2 }, // Negative = suppresses
     researchLevel: 'emerging',
@@ -561,7 +526,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     family: 'CBD-type',
     psychoactive: false,
     intoxicating: false,
-    legalStatus: 'federally-legal',
     primaryEffects: ['nausea', 'calm'],
     effectStrength: { calm: 3, sleep: 2, focus: 2, energy: 1, pain: 2, mood: 2, appetite: 1, nausea: 4, inflammation: 3 },
     researchLevel: 'emerging',
@@ -590,7 +554,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     family: 'THC-type',
     psychoactive: true,
     intoxicating: true,
-    legalStatus: 'state-varies',
     primaryEffects: ['calm', 'mood', 'pain', 'appetite'],
     effectStrength: { calm: 4, sleep: 3, focus: 2, energy: 1, pain: 3, mood: 4, appetite: 4, nausea: 3, inflammation: 2 },
     researchLevel: 'limited',
@@ -624,7 +587,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     family: 'THC-type',
     psychoactive: true,
     intoxicating: true,
-    legalStatus: 'state-varies',
     primaryEffects: ['mood', 'calm', 'pain'],
     effectStrength: { calm: 4, sleep: 3, focus: 2, energy: 2, pain: 3, mood: 4, appetite: 3, nausea: 2, inflammation: 2 },
     researchLevel: 'limited',
@@ -655,7 +617,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     family: 'THC-type',
     psychoactive: true,
     intoxicating: true,
-    legalStatus: 'restricted',
     primaryEffects: ['mood', 'calm', 'pain'],
     effectStrength: { calm: 3, sleep: 4, focus: 1, energy: 1, pain: 4, mood: 5, appetite: 4, nausea: 3, inflammation: 2 },
     researchLevel: 'limited',
@@ -685,7 +646,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     family: 'THC-type',
     psychoactive: true,
     intoxicating: true,
-    legalStatus: 'state-varies',
     primaryEffects: ['energy', 'focus', 'mood'],
     effectStrength: { calm: 2, sleep: 1, focus: 4, energy: 4, pain: 2, mood: 4, appetite: 2, nausea: 2, inflammation: 1 },
     researchLevel: 'limited',
@@ -716,7 +676,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     family: 'THC-type',
     psychoactive: true,
     intoxicating: true,
-    legalStatus: 'state-varies',
     primaryEffects: ['pain', 'mood', 'sleep'],
     effectStrength: { calm: 4, sleep: 5, focus: 1, energy: 1, pain: 5, mood: 5, appetite: 5, nausea: 4, inflammation: 3 },
     researchLevel: 'limited',
@@ -749,7 +708,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     family: 'CBG-type',
     psychoactive: false,
     intoxicating: false,
-    legalStatus: 'federally-legal',
     primaryEffects: ['inflammation', 'mood'],
     effectStrength: { calm: 2, sleep: 1, focus: 3, energy: 2, pain: 2, mood: 3, appetite: 1, nausea: 1, inflammation: 3 },
     researchLevel: 'limited',
@@ -778,7 +736,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     family: 'CBC-type',
     psychoactive: false,
     intoxicating: false,
-    legalStatus: 'federally-legal',
     primaryEffects: ['inflammation', 'mood'],
     effectStrength: { calm: 2, sleep: 1, focus: 1, energy: 1, pain: 2, mood: 3, appetite: 1, nausea: 1, inflammation: 3 },
     researchLevel: 'limited',
@@ -810,7 +767,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     parentCompound: 'cbc',
     psychoactive: false,
     intoxicating: false,
-    legalStatus: 'federally-legal',
     primaryEffects: ['inflammation', 'pain'],
     effectStrength: { calm: 2, sleep: 1, focus: 1, energy: 1, pain: 3, mood: 2, appetite: 1, nausea: 2, inflammation: 4 },
     researchLevel: 'limited',
@@ -840,7 +796,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     parentCompound: 'cbn',
     psychoactive: false,
     intoxicating: false,
-    legalStatus: 'federally-legal',
     primaryEffects: ['sleep', 'calm'],
     effectStrength: { calm: 3, sleep: 3, focus: 1, energy: 0, pain: 2, mood: 1, appetite: 1, nausea: 1, inflammation: 2 },
     researchLevel: 'limited',
@@ -870,7 +825,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     family: 'CBD-type',
     psychoactive: false,
     intoxicating: false,
-    legalStatus: 'federally-legal',
     primaryEffects: ['inflammation'],
     effectStrength: { calm: 1, sleep: 1, focus: 1, energy: 1, pain: 2, mood: 1, appetite: 1, nausea: 1, inflammation: 2 },
     researchLevel: 'limited',
@@ -897,7 +851,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     family: 'other',
     psychoactive: false,
     intoxicating: false,
-    legalStatus: 'federally-legal',
     primaryEffects: ['inflammation'],
     effectStrength: { calm: 1, sleep: 1, focus: 1, energy: 1, pain: 1, mood: 1, appetite: 1, nausea: 1, inflammation: 2 },
     researchLevel: 'limited',
@@ -924,7 +877,6 @@ export const CANNABINOIDS: Cannabinoid[] = [
     family: 'other',
     psychoactive: false,
     intoxicating: false,
-    legalStatus: 'federally-legal',
     primaryEffects: ['inflammation'],
     effectStrength: { calm: 1, sleep: 1, focus: 1, energy: 1, pain: 1, mood: 1, appetite: 1, nausea: 1, inflammation: 2 },
     researchLevel: 'limited',
