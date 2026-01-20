@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
-import { ScienceArticleCard } from '@/components/ScienceArticleCard';
+import { ScienceCategoryView } from '@/components/ScienceCategoryView';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -333,22 +333,9 @@ export default async function CategoryPage({ params }: Props) {
         <main className="lg:col-span-3">
           {articles && articles.length > 0 ? (
             <>
-              {/* Science category: Enhanced cards with key takeaways */}
+              {/* Science category: Topic clusters with search and filters */}
               {isScience ? (
-                <div className="space-y-4">
-                  <p className="text-sm text-gray-500 mb-6">
-                    Click &quot;Key Takeaways&quot; on any article to see a quick summary before reading.
-                  </p>
-                  <div className="grid gap-6">
-                    {articles.map((article: any) => (
-                      <ScienceArticleCard
-                        key={article.slug}
-                        article={article}
-                        borderColor={style.borderColor}
-                      />
-                    ))}
-                  </div>
-                </div>
+                <ScienceCategoryView articles={articles as any} />
               ) : (
                 /* Default category: Standard card grid */
                 <div className="grid md:grid-cols-2 gap-6">
