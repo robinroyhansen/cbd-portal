@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 interface Currency {
@@ -9,10 +9,11 @@ interface Currency {
   name: string;
 }
 
+// Reordered with EUR first for international default
 const currencies: Currency[] = [
-  { code: 'USD', symbol: '$', name: 'US Dollar' },
   { code: 'EUR', symbol: '€', name: 'Euro' },
   { code: 'GBP', symbol: '£', name: 'British Pound' },
+  { code: 'USD', symbol: '$', name: 'US Dollar' },
   { code: 'JPY', symbol: '¥', name: 'Japanese Yen' },
   { code: 'CHF', symbol: 'CHF', name: 'Swiss Franc' },
   { code: 'AUD', symbol: 'A$', name: 'Australian Dollar' },
@@ -86,10 +87,57 @@ const formatCurrency = (value: number, currency: Currency, forceDecimals?: numbe
   return `${currency.symbol}${value.toFixed(2)}`;
 };
 
+// Detect currency from browser locale
+const detectCurrencyFromLocale = (): Currency => {
+  if (typeof window === 'undefined') return currencies[0]; // EUR for SSR
+
+  const locale = navigator.language || 'en-GB';
+  const region = locale.split('-')[1]?.toUpperCase();
+
+  const regionToCurrency: Record<string, string> = {
+    'US': 'USD',
+    'GB': 'GBP',
+    'UK': 'GBP',
+    'DE': 'EUR',
+    'FR': 'EUR',
+    'IT': 'EUR',
+    'ES': 'EUR',
+    'NL': 'EUR',
+    'AT': 'EUR',
+    'BE': 'EUR',
+    'IE': 'EUR',
+    'PT': 'EUR',
+    'CH': 'CHF',
+    'CA': 'CAD',
+    'AU': 'AUD',
+    'NZ': 'NZD',
+    'JP': 'JPY',
+    'CN': 'CNY',
+    'HK': 'HKD',
+    'SG': 'SGD',
+    'KR': 'KRW',
+    'IN': 'INR',
+    'BR': 'BRL',
+    'MX': 'MXN',
+    'ZA': 'ZAR',
+    'SE': 'SEK',
+    'NO': 'NOK',
+    'DK': 'DKK',
+  };
+
+  const currencyCode = regionToCurrency[region] || 'EUR';
+  return currencies.find(c => c.code === currencyCode) || currencies[0];
+};
+
 export default function CostCalculator() {
   const [inputs, setInputs] = useState<CalculatorInputs>(defaultInputs);
   const [products, setProducts] = useState<Product[]>([]);
   const [selectedCurrency, setSelectedCurrency] = useState<Currency>(currencies[0]);
+
+  // Auto-detect currency on mount
+  useEffect(() => {
+    setSelectedCurrency(detectCurrencyFromLocale());
+  }, []);
 
   const handleInputChange = (field: keyof CalculatorInputs, value: string | number) => {
     setInputs(prev => ({

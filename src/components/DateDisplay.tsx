@@ -1,5 +1,7 @@
 'use client';
 
+import { formatDate } from '@/lib/locale';
+
 interface DateDisplayProps {
   publishedAt: string | Date;
   updatedAt: string | Date;
@@ -9,14 +11,6 @@ interface DateDisplayProps {
 export function DateDisplay({ publishedAt, updatedAt, showUpdated = true }: DateDisplayProps) {
   const published = new Date(publishedAt);
   const updated = new Date(updatedAt);
-
-  const formatDate = (date: Date) => {
-    return date.toLocaleDateString('en-GB', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric'
-    });
-  };
 
   // Only show "Updated" if it's at least 1 day after published
   const showUpdateDate = showUpdated &&
