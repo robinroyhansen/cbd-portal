@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { ScienceCategoryView } from '@/components/ScienceCategoryView';
+import { CannabinoidHub } from '@/components/cannabinoids';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -252,6 +253,16 @@ export default async function CategoryPage({ params }: Props) {
 
   const style = CATEGORY_CONFIG[category.slug] || DEFAULT_STYLE;
 
+  // Special handling for cannabinoids category - render the CannabinoidHub
+  if (slug === 'cannabinoids') {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <Breadcrumbs items={breadcrumbs} />
+        <CannabinoidHub articles={articles || []} />
+      </div>
+    );
+  }
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
       <Breadcrumbs items={breadcrumbs} />
@@ -288,24 +299,29 @@ export default async function CategoryPage({ params }: Props) {
                 <span className="ml-2 text-xs text-gray-400">({totalArticles})</span>
               </Link>
 
-              {/* Health Conditions - special link */}
-              <Link
-                href="/categories/conditions"
-                className="block rounded-lg px-4 py-2 text-sm text-gray-600 hover:bg-gray-100"
-              >
-                🏥 Health Conditions
-                <span className="ml-2 text-xs text-gray-400">({conditionsCount || 39})</span>
-              </Link>
-
               <div className="my-2 border-t border-gray-200"></div>
 
+              {/* Health Conditions - inserted alphabetically */}
               {allCategories?.map((cat) => {
-                const count = countMap[cat.id] || 0;
                 const catStyle = CATEGORY_CONFIG[cat.slug] || DEFAULT_STYLE;
                 const isActive = cat.slug === slug;
 
-                // Skip the conditions category as it's handled separately
-                if (cat.slug === 'conditions') return null;
+                // Special handling for conditions category - links to /conditions
+                if (cat.slug === 'conditions') {
+                  return (
+                    <Link
+                      key={cat.id}
+                      href="/conditions"
+                      className="block rounded-lg px-4 py-2 text-sm text-gray-600 hover:bg-gray-100"
+                    >
+                      <span className="mr-2">{catStyle.icon}</span>
+                      Health Conditions
+                      <span className="ml-2 text-xs text-gray-400">({conditionsCount || 39})</span>
+                    </Link>
+                  );
+                }
+
+                const count = countMap[cat.id] || 0;
 
                 return (
                   <Link
