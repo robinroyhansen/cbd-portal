@@ -128,20 +128,20 @@ export const SAFETY_TIER_META: Record<SafetyTier, {
   description: string;
 }> = {
   safe: {
-    label: 'Well Researched',
+    label: 'Safe Profile',
     color: 'green',
     bgColor: 'bg-green-50',
     borderColor: 'border-green-200',
     icon: '✓',
-    description: 'Extensive research, federally legal, well-established safety profile'
+    description: 'Well-established safety profile, non-intoxicating, widely tolerated'
   },
   moderate: {
-    label: 'Moderate Research',
+    label: 'Use Mindfully',
     color: 'blue',
     bgColor: 'bg-blue-50',
     borderColor: 'border-blue-200',
     icon: '◐',
-    description: 'Some research available, generally considered safe, legal in most areas'
+    description: 'Generally safe but may be intoxicating or have notable effects'
   },
   caution: {
     label: 'Use Caution',

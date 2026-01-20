@@ -36,25 +36,25 @@ export function CannabinoidFeatureCard({
         <div className="absolute -top-8 -right-8 w-24 h-24 bg-white/10 rounded-full" />
         <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-white/10 rounded-full" />
 
-        <div className="relative flex items-center justify-between">
-          <div>
+        <div className="relative flex items-start justify-between gap-3">
+          <div className="min-w-0 flex-1">
             <span className="text-white/80 text-sm font-medium">{typeInfo.label}</span>
-            <h3 className="text-2xl font-bold text-white flex items-baseline gap-2">
+            <h3 className="text-2xl font-bold text-white">
               {cannabinoid.abbreviation}
-              <span className="text-base font-normal text-white/80">({cannabinoid.fullName})</span>
             </h3>
+            <p className="text-sm font-normal text-white/80 truncate">{cannabinoid.fullName}</p>
           </div>
 
           {/* Badges */}
-          <div className="flex flex-col items-end gap-1">
-            <div className={`px-3 py-1 rounded-full text-xs font-semibold ${
+          <div className="flex flex-col items-end gap-1 flex-shrink-0">
+            <div className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
               cannabinoid.intoxicating
                 ? 'bg-amber-400/90 text-amber-900'
                 : 'bg-green-400/90 text-green-900'
             }`}>
               {cannabinoid.intoxicating ? 'Intoxicating' : 'Non-intoxicating'}
             </div>
-            <div className={`px-2 py-0.5 rounded text-[10px] font-medium bg-white/20 text-white`}>
+            <div className={`px-2 py-0.5 rounded text-[10px] font-medium bg-white/20 text-white whitespace-nowrap`}>
               {safetyInfo.icon} {safetyInfo.label}
             </div>
           </div>
