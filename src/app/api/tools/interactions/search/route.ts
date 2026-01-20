@@ -43,7 +43,9 @@ export async function GET(request: NextRequest) {
       throw error;
     }
 
-    // Also search by brand names (array contains)
+    // Also search by brand names (try multiple case variations)
+    // Supabase array contains is case-sensitive, so we try common cases
+    const capitalizedQuery = query.charAt(0).toUpperCase() + query.slice(1);
     const { data: brandMatches, error: brandError } = await supabase
       .from('kb_drugs')
       .select(
@@ -57,7 +59,7 @@ export async function GET(request: NextRequest) {
       `
       )
       .eq('is_published', true)
-      .contains('brand_names', [query])
+      .or(`brand_names.cs.{${query}},brand_names.cs.{${capitalizedQuery}},brand_names.cs.{${query.toUpperCase()}}`)
       .limit(limit);
 
     // Combine results and deduplicate
