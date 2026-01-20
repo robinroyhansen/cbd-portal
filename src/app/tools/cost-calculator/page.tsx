@@ -73,9 +73,15 @@ const calculateCostPerServing = (price: number, volume: number): number => {
   return price / volume;
 };
 
-const formatCurrency = (value: number, currency: Currency): string => {
+const formatCurrency = (value: number, currency: Currency, forceDecimals?: number): string => {
+  if (forceDecimals !== undefined) {
+    return `${currency.symbol}${value.toFixed(forceDecimals)}`;
+  }
   if (value < 0.01) {
     return `${currency.symbol}${value.toFixed(4)}`;
+  }
+  if (value < 1) {
+    return `${currency.symbol}${value.toFixed(3)}`;
   }
   return `${currency.symbol}${value.toFixed(2)}`;
 };
