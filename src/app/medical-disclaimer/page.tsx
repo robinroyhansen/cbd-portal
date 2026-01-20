@@ -60,12 +60,13 @@ export default function MedicalDisclaimerPage() {
           medical care.
         </p>
 
-        <h2>CBD Products Are Not FDA Approved</h2>
+        <h2>Regulatory Status of CBD Products</h2>
         <p>
-          CBD products discussed on this Site have not been evaluated or approved by the U.S. Food and
-          Drug Administration (FDA) or any other regulatory body for the diagnosis, treatment, cure,
-          or prevention of any disease. The only FDA-approved CBD medication is Epidiolex, which requires
-          a prescription.
+          Most CBD products discussed on this Site are sold as food supplements or wellness products
+          and have not been approved by regulatory bodies as medicines for the diagnosis, treatment,
+          cure, or prevention of any disease. The prescription CBD medication Epidiolex is approved
+          in several countries (including the EU, UK, USA, and others) for specific epilepsy conditions.
+          Regulatory status of CBD varies significantly by country - always check your local regulations.
         </p>
 
         <h2>Research Limitations</h2>
@@ -113,8 +114,11 @@ export default function MedicalDisclaimerPage() {
 
         <h2>Legal Considerations</h2>
         <p>
-          The legal status of CBD varies by country, state, and region. It is your responsibility
+          The legal status of CBD varies significantly by country and region. Regulations differ
+          regarding THC content limits, product types, and sales channels. It is your responsibility
           to verify the legality of CBD products in your jurisdiction before purchasing or using them.
+          This website provides general information and does not constitute legal advice for any
+          specific jurisdiction.
         </p>
 
         <h2>Personal Opinions</h2>

@@ -254,7 +254,7 @@ export const CANNABINOIDS: Cannabinoid[] = [
       'Extensively researched for anxiety and stress',
       'May support healthy sleep cycles',
       'Anti-inflammatory properties',
-      'FDA-approved for certain epilepsies (Epidiolex)',
+      'Medically approved for epilepsy treatment (Epidiolex)',
     ],
     considerations: [
       'May interact with certain medications',
@@ -283,7 +283,7 @@ export const CANNABINOIDS: Cannabinoid[] = [
     shortDescription: 'The main intoxicating compound in cannabis, THC produces the classic "high" and has significant medical applications for pain, nausea, and appetite stimulation.',
     keyBenefits: [
       'Powerful pain relief properties',
-      'Effective anti-nausea (FDA-approved: Marinol)',
+      'Effective anti-nausea (prescription medicines available)',
       'Appetite stimulation for medical conditions',
       'May help with PTSD symptoms',
       'Studied for multiple sclerosis spasticity',
@@ -629,7 +629,7 @@ export const CANNABINOIDS: Cannabinoid[] = [
     ],
     considerations: [
       'No natural occurrence - fully synthetic',
-      'DEA has stated it is federally illegal',
+      'Legal status unclear or prohibited in most jurisdictions',
       'No safety research available',
       'Acetate compounds may pose respiratory risks',
       'Production process involves hazardous chemicals',
@@ -974,7 +974,7 @@ export function getCannabinoidsBySafetyTier(tier: SafetyTier): Cannabinoid[] {
 }
 
 /**
- * Get safe cannabinoids (well-researched, federally legal)
+ * Get safe cannabinoids (well-researched, generally legal)
  */
 export function getSafeCannabinoids(): Cannabinoid[] {
   return CANNABINOIDS.filter(c => c.safetyTier === 'safe');

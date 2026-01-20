@@ -316,12 +316,12 @@ export default async function ResearchPage() {
             answer: `Yes. We index ${studyStats.total.toLocaleString()} peer-reviewed studies from PubMed, ClinicalTrials.gov, and other authoritative medical databases. This includes ${studyStats.human.toLocaleString()} human clinical studies, ${studyStats.reviews.toLocaleString()} systematic reviews, and ${studyStats.preclinical.toLocaleString()} preclinical studies. Research quality varies—use our filters and quality scores to find the most robust evidence.`
           },
           {
-            question: "Is CBD FDA approved?",
-            answer: "CBD is not FDA-approved as a dietary supplement. However, Epidiolex (prescription CBD) is FDA-approved for seizures in Lennox-Gastaut syndrome, Dravet syndrome, and tuberous sclerosis complex. This database includes the clinical trials supporting that approval, plus ongoing research into anxiety, pain, sleep, and other conditions."
+            question: "Is CBD medically approved?",
+            answer: "Most CBD products are sold as food supplements, not approved medicines. However, Epidiolex (prescription CBD) is approved in multiple countries (EU, UK, USA, Australia, and others) for treating seizures in Lennox-Gastaut syndrome, Dravet syndrome, and tuberous sclerosis complex. This database includes clinical trials supporting that approval, plus ongoing research into anxiety, pain, sleep, and other conditions."
           },
           {
             question: "What health conditions have CBD research?",
-            answer: "The most-researched conditions include epilepsy (FDA-approved use), anxiety disorders, chronic pain, sleep problems, and inflammatory conditions. Use the condition filters above to explore studies for specific health topics, or browse our condition pages which summarise the available evidence."
+            answer: "The most-researched conditions include epilepsy (approved prescription use), anxiety disorders, chronic pain, sleep problems, and inflammatory conditions. Use the condition filters above to explore studies for specific health topics, or browse our condition pages which summarise the available evidence."
           },
           {
             question: "Can I use this research to make health decisions?",
@@ -401,10 +401,10 @@ export default async function ResearchPage() {
               },
               {
                 '@type': 'Question',
-                name: 'Is CBD FDA approved?',
+                name: 'Is CBD medically approved?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'CBD is not FDA-approved as a dietary supplement. However, Epidiolex (prescription CBD) is FDA-approved for treating seizures in Lennox-Gastaut syndrome, Dravet syndrome, and tuberous sclerosis complex.'
+                  text: 'Most CBD products are sold as supplements, not approved medicines. However, Epidiolex (prescription CBD) is approved in multiple countries for treating seizures in Lennox-Gastaut syndrome, Dravet syndrome, and tuberous sclerosis complex.'
                 }
               },
               {
@@ -412,7 +412,7 @@ export default async function ResearchPage() {
                 name: 'What health conditions have CBD research?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'The most-researched conditions include epilepsy (FDA-approved use), anxiety disorders, chronic pain, sleep problems, and inflammatory conditions.'
+                  text: 'The most-researched conditions include epilepsy (approved prescription use), anxiety disorders, chronic pain, sleep problems, and inflammatory conditions.'
                 }
               },
               {

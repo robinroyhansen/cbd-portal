@@ -31,7 +31,7 @@ const NAV_ITEMS: NavItem[] = [
       { label: 'Pain', href: '/research/chronic-pain', description: 'Chronic pain and CBD research' },
       { label: 'Depression', href: '/research/depression', description: 'CBD and mood disorders' },
       { label: 'Inflammation', href: '/research/inflammation', description: 'Anti-inflammatory properties' },
-      { label: 'Epilepsy', href: '/research/epilepsy', description: 'FDA-approved CBD treatment' },
+      { label: 'Epilepsy', href: '/research/epilepsy', description: 'Approved prescription CBD use' },
       { label: 'View All Conditions', href: '/categories/conditions', description: '' },
     ]
   },

@@ -107,7 +107,7 @@ const CATEGORIES: Record<string, {
     color: 'slate',
     description: 'Legal and regulatory terminology related to CBD and cannabis.',
     seoTitle: 'CBD Legal Terms Glossary | Regulations & Compliance',
-    seoDescription: 'Guide to CBD legal terminology including Farm Bill, hemp regulations, FDA guidelines, and state laws affecting CBD products.',
+    seoDescription: 'Guide to CBD legal terminology including hemp regulations, novel food requirements, THC limits, and compliance standards affecting CBD products worldwide.',
   },
   dosing: {
     label: 'Dosing',
