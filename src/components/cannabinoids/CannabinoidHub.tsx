@@ -153,15 +153,15 @@ export function CannabinoidHub({ articles, studyCounts = {} }: CannabinoidHubPro
         <FindYourCannabinoid cannabinoids={CANNABINOIDS} />
       </section>
 
-      {/* Major Cannabinoids */}
-      <section>
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900">Major Cannabinoids</h2>
-            <p className="text-gray-600">The most researched and widely used cannabinoids</p>
-          </div>
+      {/* Major Cannabinoids - Prominent Display */}
+      <section className="bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 -mx-4 px-4 py-10 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 rounded-3xl">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">The Big 6 Cannabinoids</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            The most researched and widely used cannabinoids that form the foundation of cannabis science
+          </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
           {majorCannabinoids.slice(0, 6).map(cannabinoid => (
             <CannabinoidFeatureCard
               key={cannabinoid.slug}
