@@ -284,7 +284,7 @@ export default async function ArticlePage({ params }: Props) {
 
             {/* Mobile TOC - shown at top for mobile users */}
             {showTOC && (
-              <ArticleTableOfContents items={nestedTOC} className="lg:hidden" />
+              <ArticleTableOfContents items={nestedTOC} variant="mobile" />
             )}
 
       {/* Header */}
@@ -402,7 +402,7 @@ export default async function ArticlePage({ params }: Props) {
           {/* Desktop TOC Sidebar */}
           {showTOC && (
             <aside className="hidden lg:block lg:col-span-4 xl:col-span-3">
-              <ArticleTableOfContents items={nestedTOC} />
+              <ArticleTableOfContents items={nestedTOC} variant="desktop" />
             </aside>
           )}
         </div>

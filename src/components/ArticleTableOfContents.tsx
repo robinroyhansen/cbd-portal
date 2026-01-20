@@ -5,10 +5,11 @@ import { TOCItem } from '@/lib/utils/toc';
 
 interface ArticleTableOfContentsProps {
   items: TOCItem[];
+  variant?: 'mobile' | 'desktop' | 'both';
   className?: string;
 }
 
-export function ArticleTableOfContents({ items, className = '' }: ArticleTableOfContentsProps) {
+export function ArticleTableOfContents({ items, variant = 'both', className = '' }: ArticleTableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>('');
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -55,9 +56,13 @@ export function ArticleTableOfContents({ items, className = '' }: ArticleTableOf
 
   if (items.length === 0) return null;
 
+  const showMobile = variant === 'mobile' || variant === 'both';
+  const showDesktop = variant === 'desktop' || variant === 'both';
+
   return (
     <>
       {/* Mobile TOC - Collapsible at top */}
+      {showMobile && (
       <div className={`lg:hidden mb-6 ${className}`}>
         <button
           onClick={() => setIsExpanded(!isExpanded)}
@@ -118,8 +123,10 @@ export function ArticleTableOfContents({ items, className = '' }: ArticleTableOf
           </nav>
         )}
       </div>
+      )}
 
       {/* Desktop TOC - Sticky sidebar */}
+      {showDesktop && (
       <nav
         className={`hidden lg:block sticky top-24 ${className}`}
         aria-label="Table of contents"
@@ -180,6 +187,7 @@ export function ArticleTableOfContents({ items, className = '' }: ArticleTableOf
           </div>
         </div>
       </nav>
+      )}
     </>
   );
 }
