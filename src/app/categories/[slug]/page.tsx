@@ -255,10 +255,16 @@ export default async function CategoryPage({ params }: Props) {
 
   // Special handling for cannabinoids category - render the CannabinoidHub
   if (slug === 'cannabinoids') {
+    // Get total research study count
+    const { count: totalStudies } = await supabase
+      .from('kb_research_queue')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'approved');
+
     return (
       <div className="max-w-7xl mx-auto px-4 py-12">
         <Breadcrumbs items={breadcrumbs} />
-        <CannabinoidHub articles={articles || []} />
+        <CannabinoidHub articles={articles || []} totalStudyCount={totalStudies || 0} />
       </div>
     );
   }

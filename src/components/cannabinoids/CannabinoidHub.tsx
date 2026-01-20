@@ -28,6 +28,7 @@ interface Article {
 interface CannabinoidHubProps {
   articles: Article[];
   studyCounts?: Record<string, number>;
+  totalStudyCount?: number;
 }
 
 // Map article slugs to cannabinoids
@@ -84,7 +85,7 @@ function categorizeArticles(articles: Article[]) {
   return { comparisons, guides, other };
 }
 
-export function CannabinoidHub({ articles, studyCounts = {} }: CannabinoidHubProps) {
+export function CannabinoidHub({ articles, studyCounts = {}, totalStudyCount = 0 }: CannabinoidHubProps) {
   // Get cannabinoid groupings
   const majorCannabinoids = getMajorCannabinoids();
   const acidicCannabinoids = getCannabinoidsByType('acidic');
@@ -142,7 +143,7 @@ export function CannabinoidHub({ articles, studyCounts = {} }: CannabinoidHubPro
         </div>
         <div className="bg-white rounded-xl border border-gray-200 p-4 text-center">
           <p className="text-3xl font-bold text-purple-600">
-            {Object.values(studyCounts).reduce((a, b) => a + b, 0) || '700+'}
+            {totalStudyCount > 0 ? `${totalStudyCount}+` : '700+'}
           </p>
           <p className="text-sm text-gray-600">Research Studies</p>
         </div>
@@ -338,7 +339,7 @@ export function CannabinoidHub({ articles, studyCounts = {} }: CannabinoidHubPro
         <h2 className="text-2xl font-bold mb-2">Ready to Learn More?</h2>
         <p className="text-green-100 mb-6 max-w-2xl mx-auto">
           Explore our glossary for detailed definitions, or dive into our research database
-          with {Object.values(studyCounts).reduce((a, b) => a + b, 0) || '700+'} peer-reviewed studies.
+          with {totalStudyCount > 0 ? `${totalStudyCount}+` : '700+'} peer-reviewed studies.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link
