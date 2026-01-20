@@ -105,9 +105,9 @@ export function ResearchOverview() {
 
   const levelExamples: Record<ResearchLevel, string[]> = {
     extensive: ['CBD', 'THC'],
-    moderate: ['CBG', 'CBN'],
-    emerging: ['CBC', 'THCV', 'CBDA'],
-    limited: ['HHC', 'Delta-8', 'THCP'],
+    moderate: [], // No cannabinoids currently at this level
+    emerging: ['CBG', 'CBN', 'CBC', 'THCV', 'CBDA', 'THCA'],
+    limited: ['HHC', 'Delta-8', 'THCP', 'Delta-10'],
   };
 
   return (
@@ -145,11 +145,13 @@ export function ResearchOverview() {
               </div>
               <div className="flex flex-wrap gap-2 mt-2">
                 <span className="text-xs text-gray-500">Examples:</span>
-                {examples.map(ex => (
+                {examples.length > 0 ? examples.map(ex => (
                   <span key={ex} className="text-xs px-2 py-0.5 bg-white rounded-full text-gray-700">
                     {ex}
                   </span>
-                ))}
+                )) : (
+                  <span className="text-xs text-gray-400 italic">None currently at this level</span>
+                )}
               </div>
             </div>
           );
