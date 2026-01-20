@@ -24,6 +24,14 @@ const config: Config = {
     // Common hover and active states
     'border-transparent', 'hover:text-gray-700', 'hover:border-gray-300',
     'text-gray-400', 'text-gray-500',
+
+    // Cannabinoid type gradients (dynamically constructed from data)
+    'from-green-500', 'to-emerald-600',   // major
+    'from-blue-500', 'to-indigo-600',     // minor
+    'from-orange-500', 'to-amber-600',    // acidic
+    'from-purple-500', 'to-violet-600',   // synthetic
+    'from-slate-500', 'to-gray-600',      // rare
+    'bg-gradient-to-r', 'bg-gradient-to-br',
   ],
   theme: {
     extend: {
