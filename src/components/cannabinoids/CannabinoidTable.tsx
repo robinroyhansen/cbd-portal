@@ -7,8 +7,10 @@ import {
   EFFECT_META,
   LEGAL_STATUS_META,
   RESEARCH_LEVEL_META,
+  SAFETY_TIER_META,
   TYPE_META,
   PrimaryEffect,
+  SafetyTier,
 } from '@/lib/cannabinoids';
 
 interface CannabinoidTableProps {
@@ -16,7 +18,7 @@ interface CannabinoidTableProps {
   articleSlugs?: Record<string, string>; // slug -> articleSlug
 }
 
-type SortKey = 'name' | 'type' | 'legal' | 'research' | 'intoxicating';
+type SortKey = 'name' | 'type' | 'legal' | 'research' | 'intoxicating' | 'safety';
 type SortDir = 'asc' | 'desc';
 
 export function CannabinoidTable({ cannabinoids, articleSlugs = {} }: CannabinoidTableProps) {
@@ -45,6 +47,10 @@ export function CannabinoidTable({ cannabinoids, articleSlugs = {} }: Cannabinoi
           break;
         case 'intoxicating':
           comparison = (a.intoxicating ? 1 : 0) - (b.intoxicating ? 1 : 0);
+          break;
+        case 'safety':
+          const safetyOrder: Record<SafetyTier, number> = { 'safe': 4, 'moderate': 3, 'caution': 2, 'high-risk': 1 };
+          comparison = safetyOrder[b.safetyTier] - safetyOrder[a.safetyTier];
           break;
       }
       return sortDir === 'asc' ? comparison : -comparison;
@@ -123,6 +129,7 @@ export function CannabinoidTable({ cannabinoids, articleSlugs = {} }: Cannabinoi
                 Primary Effects
               </th>
               <SortHeader label="Legal Status" sortKeyName="legal" />
+              <SortHeader label="Safety" sortKeyName="safety" />
               <SortHeader label="Research" sortKeyName="research" />
               <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                 Actions
@@ -134,6 +141,7 @@ export function CannabinoidTable({ cannabinoids, articleSlugs = {} }: Cannabinoi
               const typeInfo = TYPE_META[cannabinoid.type];
               const legalInfo = LEGAL_STATUS_META[cannabinoid.legalStatus];
               const researchInfo = RESEARCH_LEVEL_META[cannabinoid.researchLevel];
+              const safetyInfo = SAFETY_TIER_META[cannabinoid.safetyTier];
               const articleSlug = articleSlugs[cannabinoid.slug];
 
               return (
@@ -201,6 +209,17 @@ export function CannabinoidTable({ cannabinoids, articleSlugs = {} }: Cannabinoi
                         style={{ backgroundColor: `var(--color-${legalInfo.color}-500, #6b7280)` }}
                       />
                       {legalInfo.label}
+                    </span>
+                  </td>
+
+                  {/* Safety */}
+                  <td className="px-4 py-3">
+                    <span className={`inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium ${safetyInfo.bgColor} ${
+                      safetyInfo.color === 'green' ? 'text-green-700' :
+                      safetyInfo.color === 'blue' ? 'text-blue-700' :
+                      safetyInfo.color === 'amber' ? 'text-amber-700' : 'text-red-700'
+                    }`}>
+                      {safetyInfo.icon} {safetyInfo.label}
                     </span>
                   </td>
 

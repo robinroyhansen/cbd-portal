@@ -7,6 +7,7 @@ import {
   LEGAL_STATUS_META,
   RESEARCH_LEVEL_META,
   TYPE_META,
+  SAFETY_TIER_META,
   PrimaryEffect,
 } from '@/lib/cannabinoids';
 
@@ -24,6 +25,7 @@ export function CannabinoidFeatureCard({
   const typeInfo = TYPE_META[cannabinoid.type];
   const legalInfo = LEGAL_STATUS_META[cannabinoid.legalStatus];
   const researchInfo = RESEARCH_LEVEL_META[cannabinoid.researchLevel];
+  const safetyInfo = SAFETY_TIER_META[cannabinoid.safetyTier];
 
   // Get top 3 effects
   const topEffects = cannabinoid.primaryEffects.slice(0, 3);
@@ -45,13 +47,18 @@ export function CannabinoidFeatureCard({
             </h3>
           </div>
 
-          {/* Intoxicating badge */}
-          <div className={`px-3 py-1 rounded-full text-xs font-semibold ${
-            cannabinoid.intoxicating
-              ? 'bg-amber-400/90 text-amber-900'
-              : 'bg-green-400/90 text-green-900'
-          }`}>
-            {cannabinoid.intoxicating ? 'Intoxicating' : 'Non-intoxicating'}
+          {/* Badges */}
+          <div className="flex flex-col items-end gap-1">
+            <div className={`px-3 py-1 rounded-full text-xs font-semibold ${
+              cannabinoid.intoxicating
+                ? 'bg-amber-400/90 text-amber-900'
+                : 'bg-green-400/90 text-green-900'
+            }`}>
+              {cannabinoid.intoxicating ? 'Intoxicating' : 'Non-intoxicating'}
+            </div>
+            <div className={`px-2 py-0.5 rounded text-[10px] font-medium bg-white/20 text-white`}>
+              {safetyInfo.icon} {safetyInfo.label}
+            </div>
           </div>
         </div>
       </div>

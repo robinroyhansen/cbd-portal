@@ -1009,3 +1009,74 @@ export function getRelatedCannabinoids(slug: string): Cannabinoid[] {
     .map(s => getCannabinoidBySlug(s))
     .filter((c): c is Cannabinoid => c !== undefined);
 }
+
+/**
+ * Get cannabinoids by safety tier
+ */
+export function getCannabinoidsBySafetyTier(tier: SafetyTier): Cannabinoid[] {
+  return CANNABINOIDS.filter(c => c.safetyTier === tier);
+}
+
+/**
+ * Get safe cannabinoids (well-researched, federally legal)
+ */
+export function getSafeCannabinoids(): Cannabinoid[] {
+  return CANNABINOIDS.filter(c => c.safetyTier === 'safe');
+}
+
+/**
+ * Get cannabinoids grouped by safety tier
+ */
+export function getCannabinoidsBySafetyTierGrouped(): Record<SafetyTier, Cannabinoid[]> {
+  const tiers: SafetyTier[] = ['safe', 'moderate', 'caution', 'high-risk'];
+  const grouped: Record<SafetyTier, Cannabinoid[]> = {} as Record<SafetyTier, Cannabinoid[]>;
+
+  tiers.forEach(tier => {
+    grouped[tier] = getCannabinoidsBySafetyTier(tier);
+  });
+
+  return grouped;
+}
+
+/**
+ * Get cannabinoids by family (CBD-type, THC-type, etc.)
+ */
+export function getCannabinoidsByFamily(family: CannabinoidFamily): Cannabinoid[] {
+  return CANNABINOIDS.filter(c => c.family === family);
+}
+
+/**
+ * Get cannabinoid counts by category
+ */
+export function getCannabinoidCounts(): {
+  total: number;
+  byType: Record<CannabinoidType, number>;
+  bySafety: Record<SafetyTier, number>;
+  intoxicating: number;
+  nonIntoxicating: number;
+} {
+  const byType: Record<CannabinoidType, number> = {
+    major: 0, minor: 0, acidic: 0, synthetic: 0, rare: 0
+  };
+  const bySafety: Record<SafetyTier, number> = {
+    safe: 0, moderate: 0, caution: 0, 'high-risk': 0
+  };
+
+  let intoxicating = 0;
+  let nonIntoxicating = 0;
+
+  CANNABINOIDS.forEach(c => {
+    byType[c.type]++;
+    bySafety[c.safetyTier]++;
+    if (c.intoxicating) intoxicating++;
+    else nonIntoxicating++;
+  });
+
+  return {
+    total: CANNABINOIDS.length,
+    byType,
+    bySafety,
+    intoxicating,
+    nonIntoxicating,
+  };
+}

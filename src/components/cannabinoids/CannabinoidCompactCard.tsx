@@ -5,6 +5,7 @@ import {
   Cannabinoid,
   EFFECT_META,
   LEGAL_STATUS_META,
+  SAFETY_TIER_META,
   TYPE_META,
 } from '@/lib/cannabinoids';
 
@@ -19,6 +20,7 @@ export function CannabinoidCompactCard({
 }: CannabinoidCompactCardProps) {
   const typeInfo = TYPE_META[cannabinoid.type];
   const legalInfo = LEGAL_STATUS_META[cannabinoid.legalStatus];
+  const safetyInfo = SAFETY_TIER_META[cannabinoid.safetyTier];
 
   // Get top 2 effects
   const topEffects = cannabinoid.primaryEffects.slice(0, 2);
@@ -73,7 +75,16 @@ export function CannabinoidCompactCard({
 
         {/* Footer */}
         <div className="flex items-center justify-between text-xs">
-          <span className="text-gray-400">{legalInfo.label}</span>
+          <div className="flex items-center gap-2">
+            <span className={`inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-medium ${safetyInfo.bgColor} ${
+              safetyInfo.color === 'green' ? 'text-green-700' :
+              safetyInfo.color === 'blue' ? 'text-blue-700' :
+              safetyInfo.color === 'amber' ? 'text-amber-700' : 'text-red-700'
+            }`}>
+              {safetyInfo.icon}
+            </span>
+            <span className="text-gray-400">{legalInfo.label}</span>
+          </div>
           <span className="text-green-600 group-hover:text-green-700 font-medium">
             Learn more →
           </span>
