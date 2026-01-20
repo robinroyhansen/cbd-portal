@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { getCountryWithFlag } from '@/lib/utils/brand-helpers';
+import { formatDate } from '@/lib/locale';
 
 interface Author {
   name: string;
@@ -33,15 +34,6 @@ function getDomainFromUrl(url: string): string {
   } catch {
     return url;
   }
-}
-
-function formatDate(dateString: string): string {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
 }
 
 export function QuickFacts({ brand, review }: QuickFactsProps) {

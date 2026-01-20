@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { getDomainFromUrl, getCountryFlag } from '@/lib/utils/brand-helpers';
+import { formatDate } from '@/lib/locale';
 
 interface Brand {
   id: string;
@@ -91,13 +92,10 @@ export default function ReviewsIndexPage() {
     return 'Below Average';
   };
 
-  const formatDate = (dateStr: string | null) => {
+  // Using formatDate from @/lib/locale - wrapper to handle null
+  const formatDateSafe = (dateStr: string | null) => {
     if (!dateStr) return '';
-    return new Date(dateStr).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
+    return formatDateSafe(dateStr);
   };
 
   return (
@@ -247,7 +245,7 @@ export default function ReviewsIndexPage() {
                       <span>By {review.author.name}</span>
                     )}
                     {review.last_reviewed_at && (
-                      <span>Updated {formatDate(review.last_reviewed_at)}</span>
+                      <span>Updated {formatDateSafe(review.last_reviewed_at)}</span>
                     )}
                   </div>
                 </div>

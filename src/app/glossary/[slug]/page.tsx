@@ -6,6 +6,7 @@ import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { LinkedDefinition } from '@/lib/glossary-definition-linker';
 import { GlossaryViewTracker } from '@/components/GlossaryViewTracker';
+import { formatDate } from '@/lib/locale';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -90,14 +91,7 @@ function formatMetaDescription(text: string): string {
   return cleaned;
 }
 
-function formatDate(dateString: string): string {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
-}
+// Using formatDate from @/lib/locale for consistent international formatting
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;

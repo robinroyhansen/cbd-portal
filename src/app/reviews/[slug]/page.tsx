@@ -12,6 +12,7 @@ import { FAQAccordion } from '@/components/FAQAccordion';
 import { TableOfContents } from '@/components/TableOfContents';
 import { getDomainFromUrl } from '@/lib/utils/brand-helpers';
 import { generateFAQs, generateFAQSchema } from '@/lib/utils/faq-generator';
+import { formatDate } from '@/lib/locale';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cbd-portal.vercel.app';
 
@@ -87,14 +88,10 @@ interface Review {
   scoreBreakdown: ScoreBreakdown[];
 }
 
-function formatDate(dateString: string | null): string {
+// Using formatDate from @/lib/locale - wrapper to handle null
+function formatDateSafe(dateString: string | null): string {
   if (!dateString) return '';
-  const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
+  return formatDate(dateString);
 }
 
 function getScoreLabel(score: number): string {
@@ -520,7 +517,7 @@ export default async function BrandReviewPage({ params }: Props) {
                     <span className="font-semibold text-gray-900">{getScoreLabel(review.overall_score)}</span>
                   </div>
                   {review.last_reviewed_at && (
-                    <span className="text-sm text-gray-500">Last reviewed {formatDate(review.last_reviewed_at)}</span>
+                    <span className="text-sm text-gray-500">Last reviewed {formatDateSafe(review.last_reviewed_at)}</span>
                   )}
                 </div>
               </div>

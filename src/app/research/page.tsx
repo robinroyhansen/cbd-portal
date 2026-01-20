@@ -101,7 +101,7 @@ export default async function ResearchPage() {
       .single();
 
     if (latestStudy?.reviewed_at) {
-      lastUpdated = new Date(latestStudy.reviewed_at).toLocaleDateString('en-US', {
+      lastUpdated = new Date(latestStudy.reviewed_at).toLocaleDateString('en-GB', {
         year: 'numeric',
         month: 'long',
         day: 'numeric'
