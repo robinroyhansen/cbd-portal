@@ -86,7 +86,7 @@ export function Hero({ stats }: HeroProps) {
 
                 <Link href="/research" className="text-center group">
                   <div className="text-5xl font-bold text-blue-600 group-hover:text-blue-700 transition-colors">
-                    {stats.researchStudies}
+                    {stats.researchStudies.toLocaleString()}
                   </div>
                   <div className="text-sm font-semibold text-gray-800 mt-1">Studies Published</div>
                   <div className="text-xs text-gray-500">Curated for our database</div>
@@ -142,12 +142,6 @@ export function Hero({ stats }: HeroProps) {
 
               {/* Supporting Stats */}
               <div className="flex flex-wrap justify-center gap-6 text-center border-t border-gray-200 pt-6">
-                {stats.humanParticipants > 0 && (
-                  <div>
-                    <div className="text-2xl font-bold text-gray-700">{stats.humanParticipantsDisplay}</div>
-                    <div className="text-xs text-gray-500">Human Participants</div>
-                  </div>
-                )}
                 <div>
                   <div className="text-2xl font-bold text-gray-700">{stats.healthTopics}</div>
                   <div className="text-xs text-gray-500">Health Conditions</div>
@@ -220,7 +214,7 @@ export function Hero({ stats }: HeroProps) {
               <div className="text-xs font-semibold text-gray-800">Scanned</div>
             </Link>
             <Link href="/research" className="text-center">
-              <div className="text-3xl font-bold text-blue-600">{stats.researchStudies}</div>
+              <div className="text-3xl font-bold text-blue-600">{stats.researchStudies.toLocaleString()}</div>
               <div className="text-xs font-semibold text-gray-800">Published</div>
             </Link>
             <Link href="/research/methodology" className="text-center">
@@ -268,13 +262,7 @@ export function Hero({ stats }: HeroProps) {
           )}
 
           {/* Supporting Stats - Mobile */}
-          <div className={`grid ${stats.humanParticipants > 0 ? 'grid-cols-4' : 'grid-cols-3'} gap-2 text-center border-t border-gray-200 pt-4`}>
-            {stats.humanParticipants > 0 && (
-              <div>
-                <div className="text-lg font-bold text-gray-700">{stats.humanParticipantsDisplay}</div>
-                <div className="text-[10px] text-gray-500">Humans</div>
-              </div>
-            )}
+          <div className="grid grid-cols-3 gap-2 text-center border-t border-gray-200 pt-4">
             <div>
               <div className="text-lg font-bold text-gray-700">{stats.healthTopics}</div>
               <div className="text-[10px] text-gray-500">Conditions</div>
