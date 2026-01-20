@@ -90,7 +90,7 @@ const tools = [
       'Value rankings',
       'Budget planning'
     ],
-    status: 'coming-soon'
+    status: 'available'
   },
   {
     title: 'Lab Report Analyzer',
