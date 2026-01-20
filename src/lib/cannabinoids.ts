@@ -919,7 +919,11 @@ export function getCannabinoidsByEffect(effect: PrimaryEffect): Cannabinoid[] {
  * Get major cannabinoids (featured)
  */
 export function getMajorCannabinoids(): Cannabinoid[] {
-  return CANNABINOIDS.filter(c => c.type === 'major' || (c.type === 'minor' && ['cbn', 'cbc'].includes(c.slug)));
+  return CANNABINOIDS.filter(c =>
+    c.type === 'major' ||
+    (c.type === 'minor' && ['cbn', 'cbc'].includes(c.slug)) ||
+    c.slug === 'thca' // Include THCA as a major cannabinoid (raw form found in cannabis)
+  );
 }
 
 /**
