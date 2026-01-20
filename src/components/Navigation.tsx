@@ -63,9 +63,10 @@ const NAV_ITEMS: NavItem[] = [
     icon: '⚙️',
     children: [
       { label: 'CBD Dosage Calculator', href: '/tools/dosage-calculator', description: 'Get personalized dosing recommendations' },
+      { label: 'CBD Cost Calculator', href: '/tools/cost-calculator', description: 'Compare products by price per mg' },
+      { label: 'Strength Calculator', href: '/tools/strength-calculator', description: 'Convert CBD percentages and mg/ml' },
       { label: 'Animal CBD Calculator', href: '/tools/animal-dosage-calculator', description: 'Veterinary-guided dosing for pets' },
       { label: 'Drug Interaction Checker', href: '/tools/interactions', description: 'Check CBD-medication interactions' },
-      { label: 'Product Finder', href: '/tools/product-finder', description: 'Coming soon - Find the right CBD product' },
     ]
   },
   {

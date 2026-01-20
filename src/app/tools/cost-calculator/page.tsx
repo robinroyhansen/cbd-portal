@@ -313,88 +313,152 @@ export default function CostCalculator() {
               {/* Best Value Highlight */}
               {bestValue && (
                 <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
-                  <div className="flex items-center mb-2">
-                    <span className="text-2xl mr-2">🏆</span>
-                    <h3 className="text-lg font-semibold text-green-900">Best Value</h3>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="flex items-center mb-1">
+                        <span className="text-2xl mr-2">🏆</span>
+                        <h3 className="text-lg font-semibold text-green-900">Best Value</h3>
+                      </div>
+                      <p className="text-green-800 font-medium">{bestValue.name}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-3xl font-bold text-green-700">
+                        {formatCurrency(bestValue.costPerMg, selectedCurrency)}
+                      </p>
+                      <p className="text-green-600 text-sm">per mg</p>
+                    </div>
                   </div>
-                  <p className="text-green-800 font-medium">{bestValue.name}</p>
-                  <p className="text-green-700 text-sm mt-1">
-                    {formatCurrency(bestValue.costPerMg, selectedCurrency)} per mg of CBD
-                  </p>
+                  {/* Cost for common doses */}
+                  <div className="mt-4 pt-3 border-t border-green-200 grid grid-cols-3 gap-2 text-center">
+                    <div>
+                      <p className="text-lg font-semibold text-green-700">{formatCurrency(bestValue.costPerMg * 25, selectedCurrency)}</p>
+                      <p className="text-xs text-green-600">per 25mg dose</p>
+                    </div>
+                    <div>
+                      <p className="text-lg font-semibold text-green-700">{formatCurrency(bestValue.costPerMg * 50, selectedCurrency)}</p>
+                      <p className="text-xs text-green-600">per 50mg dose</p>
+                    </div>
+                    <div>
+                      <p className="text-lg font-semibold text-green-700">{formatCurrency(bestValue.costPerMg * 25 * 30, selectedCurrency)}</p>
+                      <p className="text-xs text-green-600">per month (25mg/day)</p>
+                    </div>
+                  </div>
                 </div>
               )}
 
-              {/* Comparison Table */}
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b border-gray-200">
-                      <th className="text-left py-3 px-2 text-sm font-medium text-gray-700">Rank</th>
-                      <th className="text-left py-3 px-2 text-sm font-medium text-gray-700">Product</th>
-                      <th className="text-right py-3 px-2 text-sm font-medium text-gray-700">Price</th>
-                      <th className="text-right py-3 px-2 text-sm font-medium text-gray-700">CBD</th>
-                      <th className="text-right py-3 px-2 text-sm font-medium text-gray-700">Cost/mg</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {sortedProducts.map((product, index) => (
-                      <tr
-                        key={product.id}
-                        className={`border-b border-gray-100 ${
-                          index === 0 ? 'bg-green-50' : ''
-                        }`}
-                      >
-                        <td className="py-3 px-2">
-                          <span className={`inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-medium ${
-                            index === 0
-                              ? 'bg-green-500 text-white'
-                              : index === 1
-                              ? 'bg-gray-300 text-gray-700'
-                              : index === 2
-                              ? 'bg-amber-600 text-white'
-                              : 'bg-gray-200 text-gray-600'
+              {/* Visual Comparison Cards */}
+              <div className="space-y-3 mb-6">
+                {sortedProducts.map((product, index) => {
+                  const worstCostPerMg = sortedProducts[sortedProducts.length - 1].costPerMg;
+                  const bestCostPerMg = sortedProducts[0].costPerMg;
+                  const percentFromBest = bestCostPerMg > 0
+                    ? ((product.costPerMg - bestCostPerMg) / bestCostPerMg * 100)
+                    : 0;
+                  const barWidth = worstCostPerMg > 0
+                    ? (product.costPerMg / worstCostPerMg * 100)
+                    : 100;
+
+                  // Color based on position
+                  const bgColor = index === 0
+                    ? 'bg-green-50 border-green-200'
+                    : index === sortedProducts.length - 1 && sortedProducts.length > 1
+                    ? 'bg-red-50 border-red-200'
+                    : 'bg-gray-50 border-gray-200';
+                  const barColor = index === 0
+                    ? 'bg-green-500'
+                    : index === sortedProducts.length - 1 && sortedProducts.length > 1
+                    ? 'bg-red-400'
+                    : 'bg-amber-400';
+                  const textColor = index === 0
+                    ? 'text-green-700'
+                    : index === sortedProducts.length - 1 && sortedProducts.length > 1
+                    ? 'text-red-700'
+                    : 'text-amber-700';
+
+                  return (
+                    <div key={product.id} className={`border rounded-lg p-4 ${bgColor}`}>
+                      <div className="flex items-start justify-between mb-2">
+                        <div className="flex items-center gap-2">
+                          <span className={`inline-flex items-center justify-center w-7 h-7 rounded-full text-sm font-bold ${
+                            index === 0 ? 'bg-green-500 text-white' :
+                            index === sortedProducts.length - 1 && sortedProducts.length > 1 ? 'bg-red-400 text-white' :
+                            'bg-amber-400 text-white'
                           }`}>
                             {index + 1}
                           </span>
-                        </td>
-                        <td className="py-3 px-2 text-sm text-gray-900 max-w-[150px] truncate">
-                          {product.name}
-                        </td>
-                        <td className="py-3 px-2 text-sm text-gray-700 text-right">
-                          {selectedCurrency.symbol}{product.price.toFixed(2)}
-                        </td>
-                        <td className="py-3 px-2 text-sm text-gray-700 text-right">
-                          {product.cbdUnit === 'g'
-                            ? `${product.cbdAmount}g`
-                            : `${product.cbdAmount}mg`}
-                        </td>
-                        <td className="py-3 px-2 text-sm font-medium text-right">
-                          <span className={index === 0 ? 'text-green-700' : 'text-gray-900'}>
+                          <div>
+                            <p className="font-medium text-gray-900">{product.name}</p>
+                            <p className="text-sm text-gray-500">
+                              {selectedCurrency.symbol}{product.price.toFixed(2)} • {product.cbdUnit === 'g' ? `${product.cbdAmount}g` : `${product.cbdAmount}mg`} CBD
+                            </p>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <p className={`text-xl font-bold ${textColor}`}>
                             {formatCurrency(product.costPerMg, selectedCurrency)}
-                          </span>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                          </p>
+                          <p className="text-xs text-gray-500">per mg</p>
+                        </div>
+                      </div>
+
+                      {/* Visual cost bar */}
+                      <div className="mt-3">
+                        <div className="flex items-center justify-between text-xs mb-1">
+                          <span className="text-gray-500">Relative cost</span>
+                          {index === 0 ? (
+                            <span className="font-medium text-green-600">Best value</span>
+                          ) : (
+                            <span className={`font-medium ${textColor}`}>+{percentFromBest.toFixed(0)}% vs best</span>
+                          )}
+                        </div>
+                        <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
+                          <div
+                            className={`h-full ${barColor} rounded-full transition-all duration-300`}
+                            style={{ width: `${barWidth}%` }}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Monthly cost comparison */}
+                      <div className="mt-3 pt-3 border-t border-gray-200 flex justify-between text-sm">
+                        <span className="text-gray-600">Monthly cost (25mg/day):</span>
+                        <span className={`font-semibold ${textColor}`}>
+                          {formatCurrency(product.costPerMg * 25 * 30, selectedCurrency)}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
 
-              {/* Savings Info */}
+              {/* Savings Summary */}
               {sortedProducts.length > 1 && (
-                <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                  <h4 className="font-medium text-blue-900 mb-2">Potential Savings</h4>
-                  <p className="text-blue-800 text-sm">
-                    The best value product costs{' '}
-                    <strong>
-                      {((1 - sortedProducts[0].costPerMg / sortedProducts[sortedProducts.length - 1].costPerMg) * 100).toFixed(0)}% less per mg
-                    </strong>{' '}
-                    than the most expensive option.
-                  </p>
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                  <h4 className="font-semibold text-blue-900 mb-3 flex items-center">
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Potential Savings
+                  </h4>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <p className="text-2xl font-bold text-blue-700">
+                        {((1 - sortedProducts[0].costPerMg / sortedProducts[sortedProducts.length - 1].costPerMg) * 100).toFixed(0)}%
+                      </p>
+                      <p className="text-sm text-blue-600">less per mg vs worst</p>
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-blue-700">
+                        {formatCurrency((sortedProducts[sortedProducts.length - 1].costPerMg - sortedProducts[0].costPerMg) * 25 * 30, selectedCurrency)}
+                      </p>
+                      <p className="text-sm text-blue-600">saved per month (25mg/day)</p>
+                    </div>
+                  </div>
                 </div>
               )}
 
               {/* Additional Notes */}
-              <div className="mt-6 p-4 bg-gray-50 border border-gray-200 rounded-lg">
+              <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
                 <h4 className="font-semibold text-gray-900 mb-2">Remember</h4>
                 <ul className="space-y-1 text-sm text-gray-700">
                   <li>• Price isn't everything — always verify product quality with third-party lab tests (COAs)</li>
