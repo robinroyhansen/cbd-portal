@@ -19,6 +19,8 @@ import { Comments } from '@/components/Comments';
 import { TagList } from '@/components/TagList';
 import { getArticleTags } from '@/lib/tags';
 import { ArticleContent } from '@/components/ArticleContent';
+import { ArticleTableOfContents } from '@/components/ArticleTableOfContents';
+import { extractTOCFromMarkdown, buildNestedTOC, countWords } from '@/lib/utils/toc';
 
 // Strip Medical/Veterinary disclaimers from content (we render a standardized one in the template)
 function stripDisclaimers(content: string): string {
@@ -150,6 +152,13 @@ export default async function ArticlePage({ params }: Props) {
   // Extract FAQs from content
   const faqs = extractFAQs(article.content);
 
+  // Extract TOC from content (for articles 1000+ words with 3+ headers)
+  const strippedContent = stripDisclaimers(article.content);
+  const wordCount = countWords(strippedContent);
+  const tocItems = extractTOCFromMarkdown(strippedContent);
+  const nestedTOC = buildNestedTOC(tocItems);
+  const showTOC = wordCount >= 1000 && tocItems.length >= 3;
+
   // Base URL for schemas
   const baseUrl = 'https://cbd-portal.vercel.app';
 
@@ -266,9 +275,17 @@ export default async function ArticlePage({ params }: Props) {
       {/* Reading progress */}
       <ReadingProgress />
 
-      <article className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Enhanced Breadcrumbs */}
-        <Breadcrumbs items={breadcrumbItems} />
+      <div className={`mx-auto px-4 py-12 sm:px-6 lg:px-8 ${showTOC ? 'max-w-7xl' : 'max-w-4xl'}`}>
+        <div className={showTOC ? 'lg:grid lg:grid-cols-12 lg:gap-8' : ''}>
+          {/* Main Article Content */}
+          <article className={showTOC ? 'lg:col-span-8 xl:col-span-9' : ''}>
+            {/* Enhanced Breadcrumbs */}
+            <Breadcrumbs items={breadcrumbItems} />
+
+            {/* Mobile TOC - shown at top for mobile users */}
+            {showTOC && (
+              <ArticleTableOfContents items={nestedTOC} className="lg:hidden" />
+            )}
 
       {/* Header */}
       <header className="mb-12">
@@ -380,7 +397,16 @@ export default async function ArticlePage({ params }: Props) {
 
       {/* Comments */}
       <Comments articleId={article.id} />
-      </article>
+          </article>
+
+          {/* Desktop TOC Sidebar */}
+          {showTOC && (
+            <aside className="hidden lg:block lg:col-span-4 xl:col-span-3">
+              <ArticleTableOfContents items={nestedTOC} />
+            </aside>
+          )}
+        </div>
+      </div>
     </>
   );
 }
