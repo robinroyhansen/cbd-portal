@@ -87,10 +87,18 @@ const formatCurrency = (value: number, currency: Currency, forceDecimals?: numbe
   return `${currency.symbol}${value.toFixed(2)}`;
 };
 
-// Detect currency from browser locale
-const detectCurrencyFromLocale = (): Currency => {
+// Get saved currency from localStorage, or detect from browser locale
+const getInitialCurrency = (): Currency => {
   if (typeof window === 'undefined') return currencies[0]; // EUR for SSR
 
+  // First check localStorage for saved preference
+  const saved = localStorage.getItem('cbd-calculator-currency');
+  if (saved) {
+    const savedCurrency = currencies.find(c => c.code === saved);
+    if (savedCurrency) return savedCurrency;
+  }
+
+  // Fall back to locale detection
   const locale = navigator.language || 'en-GB';
   const region = locale.split('-')[1]?.toUpperCase();
 
@@ -134,10 +142,16 @@ export default function CostCalculator() {
   const [products, setProducts] = useState<Product[]>([]);
   const [selectedCurrency, setSelectedCurrency] = useState<Currency>(currencies[0]);
 
-  // Auto-detect currency on mount
+  // Load saved currency preference on mount
   useEffect(() => {
-    setSelectedCurrency(detectCurrencyFromLocale());
+    setSelectedCurrency(getInitialCurrency());
   }, []);
+
+  // Save currency preference when changed
+  const handleCurrencyChange = (currency: Currency) => {
+    setSelectedCurrency(currency);
+    localStorage.setItem('cbd-calculator-currency', currency.code);
+  };
 
   const handleInputChange = (field: keyof CalculatorInputs, value: string | number) => {
     setInputs(prev => ({
@@ -217,7 +231,7 @@ export default function CostCalculator() {
                 value={selectedCurrency.code}
                 onChange={(e) => {
                   const currency = currencies.find(c => c.code === e.target.value);
-                  if (currency) setSelectedCurrency(currency);
+                  if (currency) handleCurrencyChange(currency);
                 }}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               >
