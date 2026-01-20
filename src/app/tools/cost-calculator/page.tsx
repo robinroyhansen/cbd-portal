@@ -3,6 +3,35 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
+interface Currency {
+  code: string;
+  symbol: string;
+  name: string;
+}
+
+const currencies: Currency[] = [
+  { code: 'USD', symbol: '$', name: 'US Dollar' },
+  { code: 'EUR', symbol: '€', name: 'Euro' },
+  { code: 'GBP', symbol: '£', name: 'British Pound' },
+  { code: 'JPY', symbol: '¥', name: 'Japanese Yen' },
+  { code: 'CHF', symbol: 'CHF', name: 'Swiss Franc' },
+  { code: 'AUD', symbol: 'A$', name: 'Australian Dollar' },
+  { code: 'CAD', symbol: 'C$', name: 'Canadian Dollar' },
+  { code: 'CNY', symbol: '¥', name: 'Chinese Yuan' },
+  { code: 'HKD', symbol: 'HK$', name: 'Hong Kong Dollar' },
+  { code: 'NZD', symbol: 'NZ$', name: 'New Zealand Dollar' },
+  { code: 'SEK', symbol: 'kr', name: 'Swedish Krona' },
+  { code: 'KRW', symbol: '₩', name: 'South Korean Won' },
+  { code: 'SGD', symbol: 'S$', name: 'Singapore Dollar' },
+  { code: 'NOK', symbol: 'kr', name: 'Norwegian Krone' },
+  { code: 'MXN', symbol: '$', name: 'Mexican Peso' },
+  { code: 'INR', symbol: '₹', name: 'Indian Rupee' },
+  { code: 'RUB', symbol: '₽', name: 'Russian Ruble' },
+  { code: 'ZAR', symbol: 'R', name: 'South African Rand' },
+  { code: 'BRL', symbol: 'R$', name: 'Brazilian Real' },
+  { code: 'DKK', symbol: 'kr', name: 'Danish Krone' },
+];
+
 interface Product {
   id: string;
   name: string;
@@ -44,16 +73,17 @@ const calculateCostPerServing = (price: number, volume: number): number => {
   return price / volume;
 };
 
-const formatCurrency = (value: number): string => {
+const formatCurrency = (value: number, currency: Currency): string => {
   if (value < 0.01) {
-    return `$${value.toFixed(4)}`;
+    return `${currency.symbol}${value.toFixed(4)}`;
   }
-  return `$${value.toFixed(2)}`;
+  return `${currency.symbol}${value.toFixed(2)}`;
 };
 
 export default function CostCalculator() {
   const [inputs, setInputs] = useState<CalculatorInputs>(defaultInputs);
   const [products, setProducts] = useState<Product[]>([]);
+  const [selectedCurrency, setSelectedCurrency] = useState<Currency>(currencies[0]);
 
   const handleInputChange = (field: keyof CalculatorInputs, value: string | number) => {
     setInputs(prev => ({
@@ -124,6 +154,27 @@ export default function CostCalculator() {
           <div className="bg-white rounded-xl shadow-sm p-6">
             <h2 className="text-xl font-semibold text-gray-900 mb-6">Add Product to Compare</h2>
 
+            {/* Currency Selector */}
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Currency
+              </label>
+              <select
+                value={selectedCurrency.code}
+                onChange={(e) => {
+                  const currency = currencies.find(c => c.code === e.target.value);
+                  if (currency) setSelectedCurrency(currency);
+                }}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              >
+                {currencies.map(currency => (
+                  <option key={currency.code} value={currency.code}>
+                    {currency.code} ({currency.symbol}) - {currency.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             {/* Product Name */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -141,10 +192,10 @@ export default function CostCalculator() {
             {/* Product Price */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Product Price ($) *
+                Product Price ({selectedCurrency.symbol}) *
               </label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">{selectedCurrency.symbol}</span>
                 <input
                   type="number"
                   value={inputs.price || ''}
@@ -268,7 +319,7 @@ export default function CostCalculator() {
                   </div>
                   <p className="text-green-800 font-medium">{bestValue.name}</p>
                   <p className="text-green-700 text-sm mt-1">
-                    {formatCurrency(bestValue.costPerMg)} per mg of CBD
+                    {formatCurrency(bestValue.costPerMg, selectedCurrency)} per mg of CBD
                   </p>
                 </div>
               )}
@@ -310,7 +361,7 @@ export default function CostCalculator() {
                           {product.name}
                         </td>
                         <td className="py-3 px-2 text-sm text-gray-700 text-right">
-                          ${product.price.toFixed(2)}
+                          {selectedCurrency.symbol}{product.price.toFixed(2)}
                         </td>
                         <td className="py-3 px-2 text-sm text-gray-700 text-right">
                           {product.cbdUnit === 'g'
@@ -319,7 +370,7 @@ export default function CostCalculator() {
                         </td>
                         <td className="py-3 px-2 text-sm font-medium text-right">
                           <span className={index === 0 ? 'text-green-700' : 'text-gray-900'}>
-                            {formatCurrency(product.costPerMg)}
+                            {formatCurrency(product.costPerMg, selectedCurrency)}
                           </span>
                         </td>
                       </tr>
@@ -360,12 +411,12 @@ export default function CostCalculator() {
               <div className="space-y-4 text-sm text-gray-700">
                 <div>
                   <h4 className="font-medium text-gray-900 mb-1">The Real Value Metric</h4>
-                  <p>CBD products vary wildly in price and potency. A $30 bottle with 500mg CBD is actually more expensive than a $50 bottle with 1500mg CBD when you calculate the cost per milligram.</p>
+                  <p>CBD products vary wildly in price and potency. A {selectedCurrency.symbol}30 bottle with 500mg CBD is actually more expensive than a {selectedCurrency.symbol}50 bottle with 1500mg CBD when you calculate the cost per milligram.</p>
                 </div>
 
                 <div>
                   <h4 className="font-medium text-gray-900 mb-1">How to Calculate</h4>
-                  <p>Cost per mg = Total Price / Total CBD Content. For example, a $60 bottle containing 1000mg CBD costs $0.06 per mg.</p>
+                  <p>Cost per mg = Total Price / Total CBD Content. For example, a {selectedCurrency.symbol}60 bottle containing 1000mg CBD costs {selectedCurrency.symbol}0.06 per mg.</p>
                 </div>
 
                 <div>
@@ -375,7 +426,7 @@ export default function CostCalculator() {
 
                 <div>
                   <h4 className="font-medium text-gray-900 mb-1">What's a Good Price?</h4>
-                  <p>Generally, $0.05-0.10 per mg is considered reasonable for quality CBD oil. Prices below $0.03/mg may indicate lower quality, while premium brands often charge $0.15+ per mg.</p>
+                  <p>Generally, {selectedCurrency.symbol}0.05-0.10 per mg is considered reasonable for quality CBD oil. Prices below {selectedCurrency.symbol}0.03/mg may indicate lower quality, while premium brands often charge {selectedCurrency.symbol}0.15+ per mg.</p>
                 </div>
               </div>
 
