@@ -15,6 +15,19 @@ const tools = [
     status: 'available'
   },
   {
+    title: 'CBD Strength Calculator',
+    description: 'Convert between CBD percentages, mg/ml, and total mg. Calculate drops needed for your target dose and compare product strengths side-by-side.',
+    href: '/tools/strength-calculator',
+    icon: '🧮',
+    features: [
+      'Convert %, mg/ml, total mg',
+      'Drops calculator',
+      'Product comparison',
+      'Switching helper'
+    ],
+    status: 'available'
+  },
+  {
     title: 'Animal CBD Dosage Calculator',
     description: 'Veterinary-guided CBD dosing recommendations for dogs, cats, horses, and other animals. Species-specific calculations with enhanced safety protocols.',
     href: '/tools/animal-dosage-calculator',
@@ -38,7 +51,7 @@ const tools = [
       'Medical guidance',
       'Safety recommendations'
     ],
-    status: 'coming-soon'
+    status: 'available'
   },
   {
     title: 'Product Finder Quiz',
