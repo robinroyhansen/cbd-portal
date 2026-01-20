@@ -15,4 +15,4 @@ After this deployment:
 - `/api/admin/authors` should return JSON
 - `/api/admin/setup` should work for database initialization
 - `/api/admin/env-check` should show environment status
-- Admin interface should connect to database successfully
+- Admin interface should connect to database successfullyTrigger deployment Tue Jan 20 15:48:00 CET 2026
