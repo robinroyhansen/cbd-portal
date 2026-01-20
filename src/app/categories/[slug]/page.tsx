@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
+import { ScienceArticleCard } from '@/components/ScienceArticleCard';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -205,9 +206,14 @@ export default async function CategoryPage({ params }: Props) {
   if (!category) notFound();
 
   // Get articles in this category
+  // Include content for science category to extract key takeaways
+  const isScience = slug === 'science';
   const { data: articles } = await supabase
     .from('kb_articles')
-    .select('slug, title, excerpt, reading_time, published_at, updated_at')
+    .select(isScience
+      ? 'slug, title, excerpt, content, reading_time, published_at, updated_at'
+      : 'slug, title, excerpt, reading_time, published_at, updated_at'
+    )
     .eq('category_id', category.id)
     .eq('status', 'published')
     .order('published_at', { ascending: false });
@@ -326,27 +332,48 @@ export default async function CategoryPage({ params }: Props) {
         {/* Articles grid */}
         <main className="lg:col-span-3">
           {articles && articles.length > 0 ? (
-            <div className="grid md:grid-cols-2 gap-6">
-              {articles.map((article) => (
-                <Link
-                  key={article.slug}
-                  href={`/articles/${article.slug}`}
-                  className={`block border-2 rounded-xl p-5 bg-white transition-all hover:shadow-md ${style.borderColor} ${style.hoverBorder}`}
-                >
-                  <h2 className="font-semibold text-lg mb-2 text-gray-900">
-                    {article.title}
-                  </h2>
-                  <p className="text-sm text-gray-600 line-clamp-2 mb-3">
-                    {article.excerpt}
+            <>
+              {/* Science category: Enhanced cards with key takeaways */}
+              {isScience ? (
+                <div className="space-y-4">
+                  <p className="text-sm text-gray-500 mb-6">
+                    Click &quot;Key Takeaways&quot; on any article to see a quick summary before reading.
                   </p>
-                  <div className="flex items-center gap-2 text-xs text-gray-400">
-                    {article.reading_time && <span>{article.reading_time} min read</span>}
-                    <span>•</span>
-                    <span>{new Date(article.updated_at).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })}</span>
+                  <div className="grid gap-6">
+                    {articles.map((article: any) => (
+                      <ScienceArticleCard
+                        key={article.slug}
+                        article={article}
+                        borderColor={style.borderColor}
+                      />
+                    ))}
                   </div>
-                </Link>
-              ))}
-            </div>
+                </div>
+              ) : (
+                /* Default category: Standard card grid */
+                <div className="grid md:grid-cols-2 gap-6">
+                  {articles.map((article: any) => (
+                    <Link
+                      key={article.slug}
+                      href={`/articles/${article.slug}`}
+                      className={`block border-2 rounded-xl p-5 bg-white transition-all hover:shadow-md ${style.borderColor} ${style.hoverBorder}`}
+                    >
+                      <h2 className="font-semibold text-lg mb-2 text-gray-900">
+                        {article.title}
+                      </h2>
+                      <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+                        {article.excerpt}
+                      </p>
+                      <div className="flex items-center gap-2 text-xs text-gray-400">
+                        {article.reading_time && <span>{article.reading_time} min read</span>}
+                        <span>•</span>
+                        <span>{new Date(article.updated_at).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })}</span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </>
           ) : (
             <div className="rounded-xl border-2 border-dashed border-gray-300 p-12 text-center">
               <span className="text-5xl mb-4 block">{style.icon}</span>
