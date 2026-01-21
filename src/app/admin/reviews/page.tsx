@@ -92,7 +92,7 @@ export default function AdminReviewsPage() {
 
   const formatDate = (dateStr: string | null) => {
     if (!dateStr) return '-';
-    return new Date(dateStr).toLocaleDateString('en-US', {
+    return new Date(dateStr).toLocaleDateString('en-GB', {
       year: 'numeric',
       month: 'short',
       day: 'numeric'

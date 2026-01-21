@@ -288,7 +288,7 @@ export default async function AdminDashboardPage() {
                     </p>
                     <p className="text-xs text-gray-500">
                       {study.reviewed_at
-                        ? new Date(study.reviewed_at).toLocaleDateString('en-US', {
+                        ? new Date(study.reviewed_at).toLocaleDateString('en-GB', {
                             month: 'short',
                             day: 'numeric',
                             hour: '2-digit',

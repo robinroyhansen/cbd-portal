@@ -106,7 +106,7 @@ function formatDuration(startedAt: string | null, completedAt: string | null): s
 
 function formatDate(dateStr: string): string {
   const date = new Date(dateStr);
-  return date.toLocaleDateString('en-US', {
+  return date.toLocaleDateString('en-GB', {
     month: 'short',
     day: 'numeric',
     hour: '2-digit',
