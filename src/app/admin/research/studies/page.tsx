@@ -576,18 +576,18 @@ export default function AdminStudiesPage() {
       {/* Stats Cards */}
       <div className="mb-6 grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-white rounded-lg shadow p-4">
-          <div className="text-2xl font-bold text-green-600">{totalCount.toLocaleString()}</div>
+          <div className="text-2xl font-bold text-green-600">{totalCount.toLocaleString('de-DE')}</div>
           <div className="text-sm text-gray-600">Total Studies</div>
         </div>
         <div className="bg-white rounded-lg shadow p-4">
-          <div className="text-2xl font-bold text-blue-600">{withSummary.toLocaleString()}</div>
+          <div className="text-2xl font-bold text-blue-600">{withSummary.toLocaleString('de-DE')}</div>
           <div className="text-sm text-gray-600">With Summary</div>
-          <div className="text-xs text-gray-400">{(totalCount - withSummary).toLocaleString()} missing</div>
+          <div className="text-xs text-gray-400">{(totalCount - withSummary).toLocaleString('de-DE')} missing</div>
         </div>
         <div className="bg-white rounded-lg shadow p-4">
-          <div className="text-2xl font-bold text-purple-600">{withMeta.toLocaleString()}</div>
+          <div className="text-2xl font-bold text-purple-600">{withMeta.toLocaleString('de-DE')}</div>
           <div className="text-sm text-gray-600">Complete Meta</div>
-          <div className="text-xs text-gray-400">{(totalCount - withMeta).toLocaleString()} incomplete</div>
+          <div className="text-xs text-gray-400">{(totalCount - withMeta).toLocaleString('de-DE')} incomplete</div>
         </div>
         <div className="bg-white rounded-lg shadow p-4">
           <div className="text-2xl font-bold text-amber-600">{highQuality}</div>

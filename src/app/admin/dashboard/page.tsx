@@ -110,7 +110,7 @@ export default async function AdminDashboardPage() {
           >
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-3xl font-bold text-gray-900">{(totalStudies || 0).toLocaleString('en-GB')}</p>
+                <p className="text-3xl font-bold text-gray-900">{(totalStudies || 0).toLocaleString('de-DE')}</p>
                 <p className="text-sm text-gray-600 mt-1">Total Studies</p>
               </div>
               <span className="text-3xl">🔬</span>
@@ -123,10 +123,10 @@ export default async function AdminDashboardPage() {
           >
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-3xl font-bold text-green-600">{(withSummaries || 0).toLocaleString('en-GB')}</p>
+                <p className="text-3xl font-bold text-green-600">{(withSummaries || 0).toLocaleString('de-DE')}</p>
                 <p className="text-sm text-gray-600 mt-1">With Summaries</p>
                 {missingSummaries > 0 && (
-                  <p className="text-xs text-amber-600 mt-1">{missingSummaries.toLocaleString('en-GB')} missing</p>
+                  <p className="text-xs text-amber-600 mt-1">{missingSummaries.toLocaleString('de-DE')} missing</p>
                 )}
               </div>
               <span className="text-3xl">✅</span>
@@ -136,10 +136,10 @@ export default async function AdminDashboardPage() {
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-3xl font-bold text-blue-600">{(completeMeta || 0).toLocaleString('en-GB')}</p>
+                <p className="text-3xl font-bold text-blue-600">{(completeMeta || 0).toLocaleString('de-DE')}</p>
                 <p className="text-sm text-gray-600 mt-1">Complete Meta</p>
                 {missingMeta > 0 && (
-                  <p className="text-xs text-amber-600 mt-1">{missingMeta.toLocaleString('en-GB')} incomplete</p>
+                  <p className="text-xs text-amber-600 mt-1">{missingMeta.toLocaleString('de-DE')} incomplete</p>
                 )}
               </div>
               <span className="text-3xl">📝</span>
@@ -149,7 +149,7 @@ export default async function AdminDashboardPage() {
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-3xl font-bold text-purple-600">{(highQuality || 0).toLocaleString('en-GB')}</p>
+                <p className="text-3xl font-bold text-purple-600">{(highQuality || 0).toLocaleString('de-DE')}</p>
                 <p className="text-sm text-gray-600 mt-1">High Quality</p>
                 <p className="text-xs text-gray-500 mt-1">Score 70+</p>
               </div>
@@ -171,7 +171,7 @@ export default async function AdminDashboardPage() {
           >
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-3xl font-bold text-gray-900">{(glossaryTerms || 0).toLocaleString('en-GB')}</p>
+                <p className="text-3xl font-bold text-gray-900">{(glossaryTerms || 0).toLocaleString('de-DE')}</p>
                 <p className="text-sm text-gray-600 mt-1">Glossary Terms</p>
               </div>
               <span className="text-3xl">📖</span>
@@ -184,9 +184,9 @@ export default async function AdminDashboardPage() {
           >
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-3xl font-bold text-gray-900">{(totalBrands || 0).toLocaleString('en-GB')}</p>
+                <p className="text-3xl font-bold text-gray-900">{(totalBrands || 0).toLocaleString('de-DE')}</p>
                 <p className="text-sm text-gray-600 mt-1">Published Brands</p>
-                <p className="text-xs text-green-600 mt-1">{(totalReviews || 0).toLocaleString('en-GB')} reviews ({(publishedReviews || 0).toLocaleString('en-GB')} published)</p>
+                <p className="text-xs text-green-600 mt-1">{(totalReviews || 0).toLocaleString('de-DE')} reviews ({(publishedReviews || 0).toLocaleString('de-DE')} published)</p>
               </div>
               <span className="text-3xl">⭐</span>
             </div>
@@ -195,7 +195,7 @@ export default async function AdminDashboardPage() {
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-3xl font-bold text-gray-900">{healthTopics.toLocaleString('en-GB')}</p>
+                <p className="text-3xl font-bold text-gray-900">{healthTopics.toLocaleString('de-DE')}</p>
                 <p className="text-sm text-gray-600 mt-1">Health Topics</p>
               </div>
               <span className="text-3xl">🏷️</span>
@@ -205,10 +205,10 @@ export default async function AdminDashboardPage() {
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-3xl font-bold text-gray-900">{(withCountry || 0).toLocaleString('en-GB')}</p>
+                <p className="text-3xl font-bold text-gray-900">{(withCountry || 0).toLocaleString('de-DE')}</p>
                 <p className="text-sm text-gray-600 mt-1">With Country</p>
                 {missingCountry > 0 && (
-                  <p className="text-xs text-amber-600 mt-1">{missingCountry.toLocaleString('en-GB')} missing</p>
+                  <p className="text-xs text-amber-600 mt-1">{missingCountry.toLocaleString('de-DE')} missing</p>
                 )}
               </div>
               <span className="text-3xl">🌍</span>
@@ -236,7 +236,7 @@ export default async function AdminDashboardPage() {
           <Link href="/admin/research/generation?step=summaries" className="block hover:bg-gray-50 rounded-lg p-2 -m-2 transition-colors">
             <div className="flex justify-between text-sm mb-1">
               <span className="text-gray-600">Plain Summaries</span>
-              <span className="text-gray-900 font-medium">{summaryPercent}% ({(withSummaries || 0).toLocaleString('en-GB')}/{(totalStudies || 0).toLocaleString('en-GB')})</span>
+              <span className="text-gray-900 font-medium">{summaryPercent}% ({(withSummaries || 0).toLocaleString('de-DE')}/{(totalStudies || 0).toLocaleString('de-DE')})</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2.5">
               <div
@@ -250,7 +250,7 @@ export default async function AdminDashboardPage() {
           <Link href="/admin/research/generation?step=meta" className="block hover:bg-gray-50 rounded-lg p-2 -m-2 transition-colors">
             <div className="flex justify-between text-sm mb-1">
               <span className="text-gray-600">Meta Titles & Findings</span>
-              <span className="text-gray-900 font-medium">{metaPercent}% ({(completeMeta || 0).toLocaleString('en-GB')}/{(totalStudies || 0).toLocaleString('en-GB')})</span>
+              <span className="text-gray-900 font-medium">{metaPercent}% ({(completeMeta || 0).toLocaleString('de-DE')}/{(totalStudies || 0).toLocaleString('de-DE')})</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2.5">
               <div
@@ -264,7 +264,7 @@ export default async function AdminDashboardPage() {
           <Link href="/admin/research/generation?step=country" className="block hover:bg-gray-50 rounded-lg p-2 -m-2 transition-colors">
             <div className="flex justify-between text-sm mb-1">
               <span className="text-gray-600">Country Data</span>
-              <span className="text-gray-900 font-medium">{countryPercent}% ({(withCountry || 0).toLocaleString('en-GB')}/{(totalStudies || 0).toLocaleString('en-GB')})</span>
+              <span className="text-gray-900 font-medium">{countryPercent}% ({(withCountry || 0).toLocaleString('de-DE')}/{(totalStudies || 0).toLocaleString('de-DE')})</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2.5">
               <div
@@ -320,7 +320,7 @@ export default async function AdminDashboardPage() {
               <div className="flex items-center gap-3">
                 <span className="text-amber-500">⏳</span>
                 <p className="text-sm text-amber-700">
-                  <span className="font-medium">{pendingQueue.toLocaleString('en-GB')} studies</span> pending review
+                  <span className="font-medium">{pendingQueue.toLocaleString('de-DE')} studies</span> pending review
                 </p>
               </div>
               <Link
