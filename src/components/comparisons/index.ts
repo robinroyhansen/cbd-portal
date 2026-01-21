@@ -1,0 +1,1 @@
+export { ComparisonsHub } from './ComparisonsHub';
