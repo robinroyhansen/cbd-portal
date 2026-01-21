@@ -11,6 +11,7 @@ import { ProductsHub } from '@/components/products';
 import { GuidesHub } from '@/components/guides';
 import { DemographicsHub } from '@/components/demographics';
 import { SafetyHub } from '@/components/safety';
+import { ConditionArticlesHub } from '@/components/condition-articles';
 
 
 interface Props {
@@ -332,6 +333,26 @@ export default async function CategoryPage({ params }: Props) {
       <div className="max-w-7xl mx-auto px-4 py-12">
         <Breadcrumbs items={breadcrumbs} />
         <SafetyHub articles={articles || []} />
+      </div>
+    );
+  }
+
+  // Special handling for conditions category - render the ConditionArticlesHub
+  if (slug === 'conditions') {
+    // Get total research study count
+    const { count: totalStudies } = await supabase
+      .from('kb_research_queue')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'approved');
+
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <Breadcrumbs items={breadcrumbs} />
+        <ConditionArticlesHub
+          articles={articles || []}
+          totalStudies={totalStudies || 0}
+          conditionsCount={conditionsCount || 39}
+        />
       </div>
     );
   }
