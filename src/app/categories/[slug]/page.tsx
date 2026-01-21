@@ -338,6 +338,7 @@ export default async function CategoryPage({ params }: Props) {
   }
 
   // Special handling for conditions category - render the ConditionArticlesHub
+  // Pull from kb_conditions table instead of kb_articles
   if (slug === 'conditions') {
     // Get total research study count
     const { count: totalStudies } = await supabase
@@ -345,13 +346,19 @@ export default async function CategoryPage({ params }: Props) {
       .select('*', { count: 'exact', head: true })
       .eq('status', 'approved');
 
+    // Get all published conditions (these ARE the condition articles)
+    const { data: conditions } = await supabase
+      .from('kb_conditions')
+      .select('id, slug, name, display_name, short_description, category, research_count, is_featured, description, updated_at')
+      .eq('is_published', true)
+      .order('display_order', { ascending: true });
+
     return (
       <div className="max-w-7xl mx-auto px-4 py-12">
         <Breadcrumbs items={breadcrumbs} />
         <ConditionArticlesHub
-          articles={articles || []}
+          conditions={conditions || []}
           totalStudies={totalStudies || 0}
-          conditionsCount={conditionsCount || 39}
         />
       </div>
     );
