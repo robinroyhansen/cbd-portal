@@ -12,8 +12,6 @@ import { GuidesHub } from '@/components/guides';
 import { DemographicsHub } from '@/components/demographics';
 import { SafetyHub } from '@/components/safety';
 
-// Force dynamic rendering to ensure hub components are always rendered fresh
-export const dynamic = 'force-dynamic';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -204,7 +202,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CategoryPage({ params }: Props) {
   const { slug } = await params;
-  console.log('[CategoryPage] Rendering category:', slug);
   const supabase = await createClient();
 
   // Get category
@@ -291,7 +288,6 @@ export default async function CategoryPage({ params }: Props) {
 
   // Special handling for cbd-basics category - render the CBDBasicsHub
   if (slug === 'cbd-basics') {
-    console.log('[CategoryPage] Rendering CBDBasicsHub');
     return (
       <div className="max-w-7xl mx-auto px-4 py-12">
         <Breadcrumbs items={breadcrumbs} />
@@ -302,7 +298,6 @@ export default async function CategoryPage({ params }: Props) {
 
   // Special handling for products category - render the ProductsHub
   if (slug === 'products') {
-    console.log('[CategoryPage] Rendering ProductsHub');
     return (
       <div className="max-w-7xl mx-auto px-4 py-12">
         <Breadcrumbs items={breadcrumbs} />
