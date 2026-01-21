@@ -11,14 +11,15 @@ import {
   HubEmptyState,
 } from '@/components/hub';
 
-// Body system configuration - mirrors ConditionsHub categories
-const BODY_SYSTEM_CONFIG: Record<string, {
+// Body system/subcategory configuration based on master plan
+const CONDITION_SUBCATEGORIES: Record<string, {
   icon: string;
   name: string;
   color: string;
   bgColor: string;
   borderColor: string;
-  description: string;
+  plannedCount: number;
+  keywords: string[];
 }> = {
   'mental-health': {
     icon: '🧠',
@@ -26,31 +27,26 @@ const BODY_SYSTEM_CONFIG: Record<string, {
     color: 'text-purple-700',
     bgColor: 'bg-purple-50',
     borderColor: 'border-purple-200',
-    description: 'Anxiety, depression, PTSD, stress, and mood disorders',
-  },
-  'pain': {
-    icon: '💪',
-    name: 'Pain & Discomfort',
-    color: 'text-red-700',
-    bgColor: 'bg-red-50',
-    borderColor: 'border-red-200',
-    description: 'Chronic pain, arthritis, fibromyalgia, and neuropathy',
+    plannedCount: 30,
+    keywords: ['anxiety', 'depression', 'ptsd', 'stress', 'mood', 'bipolar', 'ocd', 'panic', 'phobia', 'mental', 'psychiatric', 'schizophrenia', 'psychosis', 'adhd', 'add', 'autism', 'focus', 'concentration', 'burnout', 'calm', 'relaxation', 'nervousness', 'irritability'],
   },
   'sleep': {
     icon: '😴',
-    name: 'Sleep Disorders',
+    name: 'Sleep',
     color: 'text-indigo-700',
     bgColor: 'bg-indigo-50',
     borderColor: 'border-indigo-200',
-    description: 'Insomnia, sleep quality, and circadian rhythm',
+    plannedCount: 15,
+    keywords: ['sleep', 'insomnia', 'circadian', 'rest', 'jet lag', 'night terror', 'nightmare', 'rem', 'snoring', 'apnea'],
   },
-  'neurological': {
-    icon: '⚡',
-    name: 'Neurological',
-    color: 'text-yellow-700',
-    bgColor: 'bg-yellow-50',
-    borderColor: 'border-yellow-200',
-    description: 'Epilepsy, Parkinson\'s, MS, and brain health',
+  'pain': {
+    icon: '💪',
+    name: 'Pain',
+    color: 'text-red-700',
+    bgColor: 'bg-red-50',
+    borderColor: 'border-red-200',
+    plannedCount: 35,
+    keywords: ['pain', 'chronic pain', 'back pain', 'neck pain', 'joint pain', 'muscle pain', 'nerve pain', 'neuropathic', 'headache', 'migraine', 'sciatica', 'cramp', 'tmj', 'toothache', 'dental', 'surgery', 'plantar', 'carpal', 'tennis elbow', 'doms', 'soreness'],
   },
   'inflammation': {
     icon: '🔥',
@@ -58,15 +54,35 @@ const BODY_SYSTEM_CONFIG: Record<string, {
     color: 'text-orange-700',
     bgColor: 'bg-orange-50',
     borderColor: 'border-orange-200',
-    description: 'Autoimmune conditions and inflammatory diseases',
+    plannedCount: 25,
+    keywords: ['inflammation', 'autoimmune', 'arthritis', 'rheumatoid', 'osteoarthritis', 'gout', 'lupus', 'crohn', 'colitis', 'ibd', 'ibs', 'celiac', 'hashimoto', 'graves', 'bursitis', 'tendonitis', 'immune'],
+  },
+  'neurological': {
+    icon: '⚡',
+    name: 'Neurological',
+    color: 'text-yellow-700',
+    bgColor: 'bg-yellow-50',
+    borderColor: 'border-yellow-200',
+    plannedCount: 25,
+    keywords: ['epilepsy', 'seizure', 'dravet', 'lennox', 'parkinson', 'alzheimer', 'dementia', 'als', 'huntington', 'tremor', 'neuropathy', 'tourette', 'tic', 'brain', 'neuroprotect', 'memory', 'cognitive', 'concussion', 'trigeminal'],
   },
   'skin': {
     icon: '✨',
-    name: 'Skin Conditions',
+    name: 'Skin',
     color: 'text-pink-700',
     bgColor: 'bg-pink-50',
     borderColor: 'border-pink-200',
-    description: 'Acne, eczema, psoriasis, and dermatitis',
+    plannedCount: 22,
+    keywords: ['skin', 'acne', 'eczema', 'psoriasis', 'dermatitis', 'rosacea', 'dry skin', 'oily skin', 'aging', 'wrinkle', 'wound', 'burn', 'sunburn', 'itch', 'hives', 'vitiligo'],
+  },
+  'hair-scalp': {
+    icon: '💇',
+    name: 'Hair & Scalp',
+    color: 'text-amber-700',
+    bgColor: 'bg-amber-50',
+    borderColor: 'border-amber-200',
+    plannedCount: 8,
+    keywords: ['hair', 'alopecia', 'scalp', 'dandruff', 'hair loss', 'hair growth'],
   },
   'digestive': {
     icon: '🍃',
@@ -74,7 +90,8 @@ const BODY_SYSTEM_CONFIG: Record<string, {
     color: 'text-green-700',
     bgColor: 'bg-green-50',
     borderColor: 'border-green-200',
-    description: 'IBS, Crohn\'s, nausea, and gut health',
+    plannedCount: 18,
+    keywords: ['digestive', 'nausea', 'vomiting', 'appetite', 'bloating', 'gas', 'gerd', 'acid reflux', 'heartburn', 'stomach', 'gut', 'constipation', 'diarrhea', 'gastritis'],
   },
   'cardiovascular': {
     icon: '❤️',
@@ -82,159 +99,233 @@ const BODY_SYSTEM_CONFIG: Record<string, {
     color: 'text-rose-700',
     bgColor: 'bg-rose-50',
     borderColor: 'border-rose-200',
-    description: 'Heart health, blood pressure, and circulation',
+    plannedCount: 12,
+    keywords: ['heart', 'blood pressure', 'cardiovascular', 'hypertension', 'circulation', 'cholesterol', 'palpitation', 'arrhythmia', 'varicose', 'stroke'],
   },
-  'immune': {
-    icon: '🛡️',
-    name: 'Immune System',
+  'respiratory': {
+    icon: '🌬️',
+    name: 'Respiratory',
+    color: 'text-sky-700',
+    bgColor: 'bg-sky-50',
+    borderColor: 'border-sky-200',
+    plannedCount: 10,
+    keywords: ['respiratory', 'asthma', 'copd', 'bronchitis', 'sinusitis', 'allergy', 'hay fever', 'breath', 'cough', 'lung'],
+  },
+  'womens-health': {
+    icon: '♀️',
+    name: "Women's Health",
+    color: 'text-fuchsia-700',
+    bgColor: 'bg-fuchsia-50',
+    borderColor: 'border-fuchsia-200',
+    plannedCount: 18,
+    keywords: ['women', 'menopause', 'perimenopause', 'pms', 'pmdd', 'pcos', 'endometriosis', 'hormonal', 'hot flash', 'night sweat', 'fertility', 'pregnancy', 'breastfeeding', 'postpartum', 'pelvic'],
+  },
+  'mens-health': {
+    icon: '♂️',
+    name: "Men's Health",
+    color: 'text-blue-700',
+    bgColor: 'bg-blue-50',
+    borderColor: 'border-blue-200',
+    plannedCount: 12,
+    keywords: ['men', 'erectile', 'testosterone', 'prostate', 'bph', 'libido', 'male', 'performance anxiety'],
+  },
+  'sexual-health': {
+    icon: '💕',
+    name: 'Sexual Health',
+    color: 'text-red-600',
+    bgColor: 'bg-red-50',
+    borderColor: 'border-red-200',
+    plannedCount: 8,
+    keywords: ['sexual', 'libido', 'sex', 'intimacy', 'arousal', 'orgasm', 'lubricant'],
+  },
+  'eye-ear': {
+    icon: '👁️',
+    name: 'Eye & Ear',
+    color: 'text-cyan-700',
+    bgColor: 'bg-cyan-50',
+    borderColor: 'border-cyan-200',
+    plannedCount: 8,
+    keywords: ['eye', 'glaucoma', 'vision', 'tinnitus', 'hearing', 'vertigo', 'dry eye'],
+  },
+  'oral-health': {
+    icon: '🦷',
+    name: 'Oral Health',
     color: 'text-teal-700',
     bgColor: 'bg-teal-50',
     borderColor: 'border-teal-200',
-    description: 'Immune function and defense mechanisms',
+    plannedCount: 8,
+    keywords: ['oral', 'gum', 'gingivitis', 'periodontitis', 'bruxism', 'breath', 'mouth ulcer'],
+  },
+  'bone-joint': {
+    icon: '🦴',
+    name: 'Bone & Joint',
+    color: 'text-stone-700',
+    bgColor: 'bg-stone-50',
+    borderColor: 'border-stone-200',
+    plannedCount: 8,
+    keywords: ['bone', 'osteoporosis', 'osteopenia', 'density', 'fracture', 'disc', 'degenerative'],
+  },
+  'cancer': {
+    icon: '🎗️',
+    name: 'Cancer Support',
+    color: 'text-violet-700',
+    bgColor: 'bg-violet-50',
+    borderColor: 'border-violet-200',
+    plannedCount: 10,
+    keywords: ['cancer', 'chemotherapy', 'radiation', 'oncology', 'tumor', 'palliative', 'terminal', 'cachexia', 'end-of-life'],
+  },
+  'addiction': {
+    icon: '🔗',
+    name: 'Addiction & Substance',
+    color: 'text-slate-700',
+    bgColor: 'bg-slate-50',
+    borderColor: 'border-slate-200',
+    plannedCount: 10,
+    keywords: ['addiction', 'withdrawal', 'alcohol', 'opioid', 'smoking', 'nicotine', 'drug', 'substance', 'cannabis use disorder'],
+  },
+  'metabolic': {
+    icon: '⚖️',
+    name: 'Metabolic & Diabetes',
+    color: 'text-emerald-700',
+    bgColor: 'bg-emerald-50',
+    borderColor: 'border-emerald-200',
+    plannedCount: 10,
+    keywords: ['diabetes', 'blood sugar', 'insulin', 'metabolic', 'weight', 'obesity', 'metabolism'],
+  },
+  'aging': {
+    icon: '🧓',
+    name: 'Aging & Longevity',
+    color: 'text-gray-700',
+    bgColor: 'bg-gray-50',
+    borderColor: 'border-gray-200',
+    plannedCount: 8,
+    keywords: ['aging', 'longevity', 'cognitive decline', 'frailty', 'sarcopenia', 'anti-aging', 'cellular'],
+  },
+  'sports': {
+    icon: '🏃',
+    name: 'Sports & Recovery',
+    color: 'text-lime-700',
+    bgColor: 'bg-lime-50',
+    borderColor: 'border-lime-200',
+    plannedCount: 12,
+    keywords: ['sport', 'recovery', 'exercise', 'athletic', 'endurance', 'workout', 'injury', 'sprain', 'strain', 'runner', 'shin splint'],
+  },
+  'children': {
+    icon: '👶',
+    name: 'Children & Pediatric',
+    color: 'text-orange-600',
+    bgColor: 'bg-orange-50',
+    borderColor: 'border-orange-200',
+    plannedCount: 8,
+    keywords: ['children', 'pediatric', 'child', 'kid'],
   },
   'other': {
     icon: '🏥',
     name: 'Other Conditions',
-    color: 'text-gray-700',
+    color: 'text-gray-600',
     bgColor: 'bg-gray-50',
     borderColor: 'border-gray-200',
-    description: 'Additional health conditions and wellness topics',
+    plannedCount: 10,
+    keywords: ['fatigue', 'fibromyalgia', 'lyme', 'long covid', 'thyroid', 'hypothyroid', 'hyperthyroid', 'sickle cell', 'energy'],
   },
 };
 
-// Evidence level configuration based on research count
-function getEvidenceLevel(researchCount: number): {
-  level: string;
-  label: string;
-  color: string;
-  bgColor: string;
-  dots: number;
-} {
-  if (researchCount >= 20) {
-    return { level: 'strong', label: 'Strong Evidence', color: 'text-green-700', bgColor: 'bg-green-50', dots: 5 };
-  } else if (researchCount >= 10) {
-    return { level: 'moderate', label: 'Moderate Evidence', color: 'text-blue-700', bgColor: 'bg-blue-50', dots: 3 };
-  } else if (researchCount >= 5) {
-    return { level: 'limited', label: 'Limited Evidence', color: 'text-amber-700', bgColor: 'bg-amber-50', dots: 2 };
-  } else {
-    return { level: 'emerging', label: 'Emerging Research', color: 'text-gray-600', bgColor: 'bg-gray-50', dots: 1 };
-  }
-}
-
-interface Condition {
-  id: string;
+interface Article {
   slug: string;
-  name: string;
-  display_name: string | null;
-  short_description: string | null;
-  category: string | null;
-  research_count: number | null;
-  is_featured: boolean | null;
-  description: string | null;
-  updated_at: string | null;
+  title: string;
+  excerpt: string | null;
+  reading_time: number | null;
+  published_at: string | null;
+  updated_at: string;
 }
 
 interface ConditionArticlesHubProps {
-  conditions: Condition[];
+  articles: Article[];
   totalStudies: number;
+  conditionsCount: number;
+  plannedArticleCount: number;
 }
 
-// Evidence dots display component
-function EvidenceDots({ count }: { count: number }) {
-  const evidence = getEvidenceLevel(count);
-  return (
-    <div className={`flex items-center gap-0.5 ${evidence.color}`} title={evidence.label}>
-      {[1, 2, 3, 4, 5].map(i => (
-        <span
-          key={i}
-          className={`w-1.5 h-1.5 rounded-full ${i <= evidence.dots ? 'bg-current' : 'bg-gray-200'}`}
-        />
-      ))}
-    </div>
-  );
+// Categorize article by subcategory based on title keywords
+function categorizeArticle(article: Article): string {
+  const titleLower = article.title.toLowerCase();
+
+  for (const [catId, config] of Object.entries(CONDITION_SUBCATEGORIES)) {
+    if (catId === 'other') continue;
+    if (config.keywords.some(kw => titleLower.includes(kw))) {
+      return catId;
+    }
+  }
+
+  return 'other';
 }
 
-export function ConditionArticlesHub({ conditions, totalStudies }: ConditionArticlesHubProps) {
+export function ConditionArticlesHub({
+  articles,
+  totalStudies,
+  conditionsCount,
+  plannedArticleCount
+}: ConditionArticlesHubProps) {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedSystem, setSelectedSystem] = useState<string | null>(null);
-  const [selectedEvidence, setSelectedEvidence] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  // Categorize all articles
+  const categorizedArticles = useMemo(() => {
+    return articles.map(article => ({
+      ...article,
+      subcategory: categorizeArticle(article),
+    }));
+  }, [articles]);
 
   // Calculate stats
-  const totalConditions = conditions.length;
-  const conditionsWithArticles = conditions.filter(c => c.description && c.description.length > 100).length;
-  const totalResearch = conditions.reduce((sum, c) => sum + (c.research_count || 0), 0);
+  const totalArticles = articles.length;
+  const progressPercent = Math.round((totalArticles / plannedArticleCount) * 100);
 
-  // System counts
-  const systemCounts = useMemo(() => {
+  // Category counts (actual articles)
+  const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = {};
-    conditions.forEach(condition => {
-      const cat = condition.category || 'other';
-      counts[cat] = (counts[cat] || 0) + 1;
+    categorizedArticles.forEach(article => {
+      counts[article.subcategory] = (counts[article.subcategory] || 0) + 1;
     });
     return counts;
-  }, [conditions]);
+  }, [categorizedArticles]);
 
-  // Evidence level counts
-  const evidenceCounts = useMemo(() => {
-    const counts: Record<string, number> = { strong: 0, moderate: 0, limited: 0, emerging: 0 };
-    conditions.forEach(condition => {
-      const evidence = getEvidenceLevel(condition.research_count || 0);
-      counts[evidence.level] = (counts[evidence.level] || 0) + 1;
-    });
-    return counts;
-  }, [conditions]);
-
-  // Filter conditions
-  const filteredConditions = useMemo(() => {
-    let result = conditions;
+  // Filter articles
+  const filteredArticles = useMemo(() => {
+    let result = categorizedArticles;
 
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
-      result = result.filter(c =>
-        c.name.toLowerCase().includes(query) ||
-        c.display_name?.toLowerCase().includes(query) ||
-        c.short_description?.toLowerCase().includes(query)
+      result = result.filter(a =>
+        a.title.toLowerCase().includes(query) ||
+        a.excerpt?.toLowerCase().includes(query)
       );
     }
 
-    if (selectedSystem) {
-      result = result.filter(c => (c.category || 'other') === selectedSystem);
+    if (selectedCategory) {
+      result = result.filter(a => a.subcategory === selectedCategory);
     }
 
-    if (selectedEvidence) {
-      result = result.filter(c => {
-        const evidence = getEvidenceLevel(c.research_count || 0);
-        return evidence.level === selectedEvidence;
-      });
-    }
+    return result.sort((a, b) => a.title.localeCompare(b.title));
+  }, [categorizedArticles, searchQuery, selectedCategory]);
 
-    return result.sort((a, b) =>
-      (a.display_name || a.name).localeCompare(b.display_name || b.name)
-    );
-  }, [conditions, searchQuery, selectedSystem, selectedEvidence]);
-
-  // Group by body system
-  const groupedBySystem = useMemo(() => {
-    const groups: Record<string, Condition[]> = {};
-    filteredConditions.forEach(condition => {
-      const cat = condition.category || 'other';
-      if (!groups[cat]) groups[cat] = [];
-      groups[cat].push(condition);
+  // Group by subcategory
+  const groupedByCategory = useMemo(() => {
+    const groups: Record<string, typeof filteredArticles> = {};
+    filteredArticles.forEach(article => {
+      if (!groups[article.subcategory]) groups[article.subcategory] = [];
+      groups[article.subcategory].push(article);
     });
     return groups;
-  }, [filteredConditions]);
+  }, [filteredArticles]);
 
-  // Featured conditions (most researched)
-  const featuredConditions = useMemo(() => {
-    return [...conditions]
-      .filter(c => c.is_featured || (c.research_count && c.research_count > 20))
-      .sort((a, b) => (b.research_count || 0) - (a.research_count || 0))
-      .slice(0, 6);
-  }, [conditions]);
+  // Active categories (with articles)
+  const activeCategories = Object.keys(categoryCounts).filter(c => categoryCounts[c] > 0);
 
-  // Active systems (with conditions)
-  const activeSystems = Object.keys(systemCounts).filter(s => systemCounts[s] > 0);
-  const bodySystems = Object.keys(BODY_SYSTEM_CONFIG).filter(s => s !== 'other' && systemCounts[s] > 0);
+  // All categories sorted by planned count
+  const allCategories = Object.entries(CONDITION_SUBCATEGORIES)
+    .sort((a, b) => b[1].plannedCount - a[1].plannedCount)
+    .map(([id]) => id);
 
   return (
     <div className="space-y-12">
@@ -243,7 +334,7 @@ export function ConditionArticlesHub({ conditions, totalStudies }: ConditionArti
         icon="🏥"
         title="CBD & Health Conditions"
         subtitle="Evidence-Based Articles on CBD for Medical Conditions"
-        description={`Explore ${totalConditions.toLocaleString('de-DE')} in-depth condition articles examining how CBD may help with various health conditions. Each article is backed by research from our database of ${totalStudies.toLocaleString('de-DE')}+ peer-reviewed studies.`}
+        description={`Explore our growing library of condition articles examining how CBD may help with various health conditions. Each article is research-backed with citations from our database of ${totalStudies.toLocaleString('de-DE')}+ peer-reviewed studies.`}
         badgeText="Condition Research Library"
         badgeColor="bg-green-100 text-green-700"
         gradientFrom="from-green-50"
@@ -253,12 +344,30 @@ export function ConditionArticlesHub({ conditions, totalStudies }: ConditionArti
       {/* Quick Stats */}
       <HubQuickStats
         stats={[
-          { value: totalConditions.toLocaleString('de-DE'), label: 'Health Conditions', color: 'text-green-600' },
-          { value: conditionsWithArticles.toLocaleString('de-DE'), label: 'Full Articles', color: 'text-blue-600' },
+          { value: totalArticles.toLocaleString('de-DE'), label: 'Articles Published', color: 'text-green-600' },
+          { value: plannedArticleCount.toLocaleString('de-DE'), label: 'Articles Planned', color: 'text-blue-600' },
           { value: totalStudies.toLocaleString('de-DE') + '+', label: 'Research Studies', color: 'text-purple-600' },
-          { value: activeSystems.length.toString(), label: 'Body Systems', color: 'text-amber-600' },
+          { value: conditionsCount.toLocaleString('de-DE'), label: 'Conditions Covered', color: 'text-amber-600' },
         ]}
       />
+
+      {/* Progress Bar */}
+      <div className="bg-white rounded-xl border border-gray-200 p-6">
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="font-semibold text-gray-900">Content Production Progress</h3>
+          <span className="text-sm text-gray-600">{progressPercent}% complete</span>
+        </div>
+        <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-gradient-to-r from-green-500 to-emerald-500 rounded-full transition-all"
+            style={{ width: `${progressPercent}%` }}
+          />
+        </div>
+        <p className="text-sm text-gray-500 mt-2">
+          {totalArticles} of {plannedArticleCount} condition articles published.
+          New articles are added regularly based on research availability.
+        </p>
+      </div>
 
       {/* Research Approach Notice */}
       <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
@@ -282,7 +391,7 @@ export function ConditionArticlesHub({ conditions, totalStudies }: ConditionArti
           <div className="flex-1 relative">
             <input
               type="text"
-              placeholder="Search conditions..."
+              placeholder="Search condition articles..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 text-lg"
@@ -303,9 +412,9 @@ export function ConditionArticlesHub({ conditions, totalStudies }: ConditionArti
           </div>
 
           {/* Clear Filters Button */}
-          {(selectedSystem || selectedEvidence || searchQuery) && (
+          {(selectedCategory || searchQuery) && (
             <button
-              onClick={() => { setSearchQuery(''); setSelectedSystem(null); setSelectedEvidence(null); }}
+              onClick={() => { setSearchQuery(''); setSelectedCategory(null); }}
               className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800 border border-gray-200 rounded-lg hover:bg-gray-50"
             >
               Clear all filters
@@ -313,29 +422,29 @@ export function ConditionArticlesHub({ conditions, totalStudies }: ConditionArti
           )}
         </div>
 
-        {/* Body System Filter Pills */}
-        <div className="mb-4">
-          <p className="text-sm text-gray-600 mb-2 font-medium">Filter by body system:</p>
+        {/* Category Filter Pills */}
+        <div>
+          <p className="text-sm text-gray-600 mb-2 font-medium">Filter by health area:</p>
           <div className="flex flex-wrap gap-2">
             <button
-              onClick={() => setSelectedSystem(null)}
+              onClick={() => setSelectedCategory(null)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-                !selectedSystem
+                !selectedCategory
                   ? 'bg-green-600 text-white'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
-              All Systems ({totalConditions})
+              All Areas ({totalArticles})
             </button>
-            {bodySystems.map(system => {
-              const config = BODY_SYSTEM_CONFIG[system];
-              const count = systemCounts[system] || 0;
+            {activeCategories.map(catId => {
+              const config = CONDITION_SUBCATEGORIES[catId];
+              const count = categoryCounts[catId] || 0;
               return (
                 <button
-                  key={system}
-                  onClick={() => setSelectedSystem(selectedSystem === system ? null : system)}
+                  key={catId}
+                  onClick={() => setSelectedCategory(selectedCategory === catId ? null : catId)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition flex items-center gap-1.5 ${
-                    selectedSystem === system
+                    selectedCategory === catId
                       ? `${config.bgColor} ${config.color} ring-2 ring-offset-1 ring-current`
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
@@ -349,97 +458,54 @@ export function ConditionArticlesHub({ conditions, totalStudies }: ConditionArti
           </div>
         </div>
 
-        {/* Evidence Level Filter */}
-        <div>
-          <p className="text-sm text-gray-600 mb-2 font-medium">Filter by evidence strength:</p>
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => setSelectedEvidence(null)}
-              className={`px-3 py-1.5 rounded-lg text-sm font-medium transition ${
-                !selectedEvidence
-                  ? 'bg-gray-800 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              All Levels
-            </button>
-            {[
-              { level: 'strong', label: 'Strong (20+ studies)', color: 'text-green-700', bgColor: 'bg-green-50' },
-              { level: 'moderate', label: 'Moderate (10-19)', color: 'text-blue-700', bgColor: 'bg-blue-50' },
-              { level: 'limited', label: 'Limited (5-9)', color: 'text-amber-700', bgColor: 'bg-amber-50' },
-              { level: 'emerging', label: 'Emerging (<5)', color: 'text-gray-600', bgColor: 'bg-gray-50' },
-            ].map(({ level, label, color, bgColor }) => {
-              const count = evidenceCounts[level] || 0;
-              if (count === 0) return null;
-              return (
-                <button
-                  key={level}
-                  onClick={() => setSelectedEvidence(selectedEvidence === level ? null : level)}
-                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition flex items-center gap-2 ${
-                    selectedEvidence === level
-                      ? `${bgColor} ${color} ring-2 ring-offset-1 ring-current`
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  <span>{label}</span>
-                  <span className="text-xs opacity-70">({count})</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
         {/* Results Count */}
-        {(searchQuery || selectedSystem || selectedEvidence) && (
+        {(searchQuery || selectedCategory) && (
           <div className="mt-4 pt-4 border-t border-gray-100 text-sm text-gray-600">
-            Showing {filteredConditions.length.toLocaleString('de-DE')} of {totalConditions.toLocaleString('de-DE')} conditions
-            {selectedSystem && ` in ${BODY_SYSTEM_CONFIG[selectedSystem]?.name}`}
-            {selectedEvidence && ` with ${selectedEvidence} evidence`}
+            Showing {filteredArticles.length.toLocaleString('de-DE')} of {totalArticles.toLocaleString('de-DE')} articles
+            {selectedCategory && ` in ${CONDITION_SUBCATEGORIES[selectedCategory]?.name}`}
             {searchQuery && ` matching "${searchQuery}"`}
           </div>
         )}
       </section>
 
-      {/* Featured Conditions (when no filters) */}
-      {!searchQuery && !selectedSystem && !selectedEvidence && featuredConditions.length > 0 && (
+      {/* Category Overview (when no filter) */}
+      {!searchQuery && !selectedCategory && (
         <HubSection
-          title="Most Researched Conditions"
-          description="Conditions with the strongest research support"
-          icon="⭐"
-        >
-          <HubArticleGrid columns={3}>
-            {featuredConditions.map(condition => (
-              <ConditionCard key={condition.id} condition={condition} showEvidence />
-            ))}
-          </HubArticleGrid>
-        </HubSection>
-      )}
-
-      {/* Body Systems Overview (when no filter) */}
-      {!searchQuery && !selectedSystem && !selectedEvidence && (
-        <HubSection
-          title="Browse by Body System"
-          description="Explore conditions organized by body system"
+          title="Browse by Health Area"
+          description={`${plannedArticleCount} articles planned across ${Object.keys(CONDITION_SUBCATEGORIES).length} health areas`}
           icon="🔬"
         >
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {bodySystems.map(system => {
-              const config = BODY_SYSTEM_CONFIG[system];
-              const count = systemCounts[system] || 0;
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {allCategories.map(catId => {
+              const config = CONDITION_SUBCATEGORIES[catId];
+              const count = categoryCounts[catId] || 0;
+              const hasArticles = count > 0;
+
               return (
                 <button
-                  key={system}
-                  onClick={() => setSelectedSystem(system)}
-                  className={`text-left p-5 rounded-xl border-2 transition-all hover:shadow-md ${config.bgColor} ${config.borderColor} hover:border-current`}
+                  key={catId}
+                  onClick={() => hasArticles && setSelectedCategory(catId)}
+                  disabled={!hasArticles}
+                  className={`text-left p-4 rounded-xl border-2 transition-all ${
+                    hasArticles
+                      ? `${config.bgColor} ${config.borderColor} hover:shadow-md hover:border-current cursor-pointer`
+                      : 'bg-gray-50 border-gray-200 opacity-60 cursor-default'
+                  }`}
                 >
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-3xl">{config.icon}</span>
-                    <div>
-                      <h3 className={`font-bold ${config.color}`}>{config.name}</h3>
-                      <span className="text-sm text-gray-600">{count} conditions</span>
-                    </div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-2xl">{config.icon}</span>
+                    <h3 className={`font-semibold ${hasArticles ? config.color : 'text-gray-500'}`}>
+                      {config.name}
+                    </h3>
                   </div>
-                  <p className="text-sm text-gray-600">{config.description}</p>
+                  <div className="flex items-center justify-between text-xs">
+                    <span className={hasArticles ? 'text-gray-600' : 'text-gray-400'}>
+                      {count} / {config.plannedCount} articles
+                    </span>
+                    {!hasArticles && (
+                      <span className="text-amber-600 font-medium">Coming Soon</span>
+                    )}
+                  </div>
                 </button>
               );
             })}
@@ -447,49 +513,49 @@ export function ConditionArticlesHub({ conditions, totalStudies }: ConditionArti
         </HubSection>
       )}
 
-      {/* Conditions Display */}
-      {filteredConditions.length > 0 ? (
-        selectedSystem || searchQuery || selectedEvidence ? (
+      {/* Articles Display */}
+      {filteredArticles.length > 0 ? (
+        selectedCategory || searchQuery ? (
           /* Filtered view - flat list */
           <HubSection
-            title={selectedSystem ? BODY_SYSTEM_CONFIG[selectedSystem]?.name : 'Search Results'}
-            icon={selectedSystem ? BODY_SYSTEM_CONFIG[selectedSystem]?.icon : '🔍'}
+            title={selectedCategory ? CONDITION_SUBCATEGORIES[selectedCategory]?.name : 'Search Results'}
+            icon={selectedCategory ? CONDITION_SUBCATEGORIES[selectedCategory]?.icon : '🔍'}
             headerRight={
               <span className="text-sm text-gray-500">
-                {filteredConditions.length.toLocaleString('de-DE')} conditions
+                {filteredArticles.length.toLocaleString('de-DE')} articles
               </span>
             }
           >
             <HubArticleGrid columns={3}>
-              {filteredConditions.map(condition => (
-                <ConditionCard key={condition.id} condition={condition} showEvidence showSystem={!selectedSystem} />
+              {filteredArticles.map(article => (
+                <ArticleCard key={article.slug} article={article} showCategory={!selectedCategory} />
               ))}
             </HubArticleGrid>
           </HubSection>
         ) : (
-          /* Default view - grouped by body system */
+          /* Default view - grouped by category */
           <div className="space-y-10">
-            {Object.entries(groupedBySystem)
+            {Object.entries(groupedByCategory)
               .sort((a, b) => b[1].length - a[1].length)
-              .map(([system, systemConditions]) => {
-                const config = BODY_SYSTEM_CONFIG[system] || BODY_SYSTEM_CONFIG.other;
+              .map(([catId, catArticles]) => {
+                const config = CONDITION_SUBCATEGORIES[catId] || CONDITION_SUBCATEGORIES.other;
                 return (
                   <HubSection
-                    key={system}
+                    key={catId}
                     title={config.name}
                     icon={config.icon}
                     headerRight={
                       <button
-                        onClick={() => setSelectedSystem(system)}
+                        onClick={() => setSelectedCategory(catId)}
                         className={`text-sm ${config.color} hover:underline font-medium`}
                       >
-                        View all {systemConditions.length} →
+                        View all {catArticles.length} →
                       </button>
                     }
                   >
                     <HubArticleGrid columns={3}>
-                      {systemConditions.slice(0, 6).map(condition => (
-                        <ConditionCard key={condition.id} condition={condition} showEvidence />
+                      {catArticles.slice(0, 6).map(article => (
+                        <ArticleCard key={article.slug} article={article} />
                       ))}
                     </HubArticleGrid>
                   </HubSection>
@@ -497,15 +563,55 @@ export function ConditionArticlesHub({ conditions, totalStudies }: ConditionArti
               })}
           </div>
         )
-      ) : (
+      ) : searchQuery || selectedCategory ? (
         <HubEmptyState
           icon="🔍"
-          title="No Conditions Found"
+          title="No Articles Found"
           description="Try adjusting your search or filter criteria"
           actionLabel="Clear all filters"
-          onAction={() => { setSearchQuery(''); setSelectedSystem(null); setSelectedEvidence(null); }}
+          onAction={() => { setSearchQuery(''); setSelectedCategory(null); }}
         />
+      ) : (
+        <div className="text-center py-12 bg-amber-50 rounded-2xl border border-amber-200">
+          <span className="text-5xl mb-4 block">📝</span>
+          <h3 className="text-xl font-semibold text-amber-800 mb-2">Content Production In Progress</h3>
+          <p className="text-amber-700 max-w-xl mx-auto mb-6">
+            We&apos;re building our comprehensive library of {plannedArticleCount} evidence-based condition articles.
+            Each article requires analyzing research studies before writing.
+          </p>
+          <Link
+            href="/conditions"
+            className="inline-flex items-center gap-2 px-5 py-3 bg-green-600 text-white font-semibold rounded-xl hover:bg-green-700 transition-colors"
+          >
+            Browse Condition Overview Pages
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
       )}
+
+      {/* Link to Conditions Overview */}
+      <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border border-green-200 p-8">
+        <div className="flex flex-col md:flex-row md:items-center gap-6">
+          <div className="flex-1">
+            <h3 className="text-xl font-bold text-gray-900 mb-2">Looking for Condition Overview Pages?</h3>
+            <p className="text-gray-600">
+              Each condition has a dedicated overview page with research summaries and related studies.
+              Browse all {conditionsCount} conditions we cover, including those still awaiting detailed articles.
+            </p>
+          </div>
+          <Link
+            href="/conditions"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-green-600 text-white font-semibold rounded-xl hover:bg-green-700 transition-colors whitespace-nowrap"
+          >
+            Browse All Conditions
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
+      </div>
 
       {/* CTA */}
       <HubCTA
@@ -532,71 +638,49 @@ export function ConditionArticlesHub({ conditions, totalStudies }: ConditionArti
   );
 }
 
-// Condition Card Component
-function ConditionCard({
-  condition,
-  showEvidence = false,
-  showSystem = false
+// Article Card Component
+function ArticleCard({
+  article,
+  showCategory = false
 }: {
-  condition: Condition;
-  showEvidence?: boolean;
-  showSystem?: boolean;
+  article: Article & { subcategory?: string };
+  showCategory?: boolean;
 }) {
-  const systemConfig = BODY_SYSTEM_CONFIG[condition.category || 'other'] || BODY_SYSTEM_CONFIG.other;
-  const evidence = getEvidenceLevel(condition.research_count || 0);
-  const hasArticle = condition.description && condition.description.length > 100;
+  const categoryConfig = CONDITION_SUBCATEGORIES[article.subcategory || 'other'] || CONDITION_SUBCATEGORIES.other;
 
   return (
     <Link
-      href={`/conditions/${condition.slug}`}
+      href={`/articles/${article.slug}`}
       className="flex flex-col bg-white rounded-xl border border-gray-200 p-5 hover:border-green-300 hover:shadow-lg transition-all group h-full"
     >
       <div className="flex-1">
-        {/* Header with icon and badges */}
-        <div className="flex items-start gap-3 mb-3">
-          <span className={`text-2xl p-2 rounded-lg ${systemConfig.bgColor}`}>{systemConfig.icon}</span>
-          <div className="flex-1 min-w-0">
-            <h3 className="font-bold text-gray-900 group-hover:text-green-600 transition-colors">
-              {condition.display_name || condition.name}
-            </h3>
-            {showSystem && (
-              <span className="text-xs text-gray-500">{systemConfig.name}</span>
-            )}
-          </div>
-        </div>
-
-        {/* Description */}
-        {condition.short_description && (
-          <p className="text-sm text-gray-600 line-clamp-2 mb-3">
-            {condition.short_description}
-          </p>
+        {/* Category badge */}
+        {showCategory && article.subcategory && (
+          <span className={`inline-flex items-center gap-1 px-2 py-0.5 ${categoryConfig.bgColor} ${categoryConfig.color} text-xs font-medium rounded mb-3`}>
+            {categoryConfig.icon} {categoryConfig.name}
+          </span>
         )}
 
-        {/* Badges row */}
-        <div className="flex flex-wrap items-center gap-2">
-          {showEvidence && (
-            <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 ${evidence.bgColor} ${evidence.color} text-xs font-medium rounded`}>
-              <EvidenceDots count={condition.research_count || 0} />
-              {evidence.label}
-            </span>
-          )}
-          {!hasArticle && (
-            <span className="inline-flex items-center px-2 py-0.5 bg-amber-50 text-amber-700 text-xs font-medium rounded">
-              Coming Soon
-            </span>
-          )}
-        </div>
+        <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-green-600 transition-colors line-clamp-2">
+          {article.title}
+        </h3>
+        {article.excerpt && (
+          <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+            {article.excerpt}
+          </p>
+        )}
       </div>
 
       {/* Footer with stats */}
-      <div className="flex items-center justify-between text-xs text-gray-400 mt-auto pt-3 border-t border-gray-100">
-        <span className="text-green-600 font-medium">
-          {condition.research_count || 0} studies
-        </span>
-        {condition.updated_at && (
-          <span>
-            {new Date(condition.updated_at).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })}
-          </span>
+      <div className="flex items-center gap-3 text-xs text-gray-400 mt-auto pt-3 border-t border-gray-100">
+        {article.reading_time && <span>{article.reading_time} min read</span>}
+        {article.updated_at && (
+          <>
+            {article.reading_time && <span>•</span>}
+            <span>
+              {new Date(article.updated_at).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })}
+            </span>
+          </>
         )}
       </div>
     </Link>
