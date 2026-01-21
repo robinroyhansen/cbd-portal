@@ -56,10 +56,10 @@ CBD educational portal built with Next.js 14, Supabase, and TailwindCSS. Feature
 
 ---
 
-## CURRENT STATE (January 18, 2026)
+## CURRENT STATE (January 21, 2026)
 
 ### Research Database
-- **771 approved studies** in `kb_research_queue`
+- **4000+ approved studies** in `kb_research_queue`
 - **37 topics** covered (anxiety, pain, sleep, epilepsy, etc.)
 - **7 data sources** integrated (PubMed, PMC, ClinicalTrials.gov, OpenAlex, Europe PMC, Semantic Scholar, bioRxiv/medRxiv)
 - **106 search keywords** across all therapeutic areas
