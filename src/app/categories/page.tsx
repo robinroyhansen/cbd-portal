@@ -194,6 +194,12 @@ export default async function CategoriesPage() {
     .from('kb_conditions')
     .select('*', { count: 'exact', head: true });
 
+  // Get research studies count
+  const { count: researchCount } = await supabase
+    .from('kb_research_queue')
+    .select('*', { count: 'exact', head: true })
+    .eq('status', 'approved');
+
   // Count articles per category
   const countMap: Record<string, number> = {};
   articles?.forEach(a => {
@@ -385,7 +391,7 @@ export default async function CategoriesPage() {
             <div className="text-sm text-gray-600">Health Conditions</div>
           </div>
           <div>
-            <div className="text-3xl font-bold text-green-600">771+</div>
+            <div className="text-3xl font-bold text-green-600">{researchCount || 771}+</div>
             <div className="text-sm text-gray-600">Research Studies</div>
           </div>
           <div>
