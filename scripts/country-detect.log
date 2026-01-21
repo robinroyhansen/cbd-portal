@@ -1,0 +1,1404 @@
+[dotenv@17.2.3] injecting env (5) from .env.local -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+
+🚀 CBD Portal Batch Content Generator
+
+Configuration:
+  Batch size: 100
+  Mode: Country only
+
+📊 Current Status:
+  Total approved studies: 4879
+  Needs meta & findings: 1529
+  Needs country data: 4161
+
+═══════════════════════════════════════════════════════════
+🌍 DETECTING & ASSIGNING COUNTRY DATA
+═══════════════════════════════════════════════════════════
+
+
+🔄 Processing batch (100 studies)...
+
+  • Therapeutic use of cannabidiol in endometriosis: l... ✅ PT
+  • Cannabidiol modulation of ion channels and neurona... ✅ US
+  • Feasibility of a cannabidiol‐dominant cannabis‐bas... ✅ GB
+  • Cannabidiol (CBD) in the Therapy of Dravet and Len... ✅ GB
+  • Cannabidiol does not attenuate acute delta‐9‐tetra... ✅ GB
+  • Myorelaxant Effect of Transdermal Cannabidiol Appl... ✅ PL
+  • E066 Using social network platforms to evaluate pa... ✅ GB
+  • Autophagy as underlying mechanism for the immunomo... ✅ CH
+  • Cannabidiol inhibits synaptic transmission in rat ... ✅ GB
+  • Abstract 643: Analysis of the effect of FGFR inhib... ✅ US
+  • Mecanismos de ação do CBD e THC em terapias comple... ✅ BR
+  • Cannabidiol treatment in a model of persistent inf... ✅ BR
+  • Cannabidiol and Cannabigerol Exert Antimicrobial A... ✅ BR
+  • Tetrahydrocannabinol and Cannabidiol in Tourette S... ✅ US
+  • Cannabidiol-Mediated Sequestration of Alzheimer’s ... ✅ US
+  • Cannabidiol is a negative allosteric modulator of ... ✅ GB
+  • Antimicrobial Effects of Cannabidiol (CBD)-infused... ✅ BR
+  • Successful use of cannabidiol in nonconvulsive sta... ✅ IT
+  • A One Health perspective on comparative cannabidio... ✅ US
+  • A Retrospective Analysis of Cannabidiol (CBD) Use ... ✅ US
+
+  📊 Progress: 20 detected, 80 undetected, 4141 remaining
+
+🔄 Processing batch (100 studies)...
+
+  • Efficiency of Inhaled Cannabidiol in Cannabis Use ... ✅ FR
+  • 5‐HT1Areceptors are involved in the cannabidiol‐in... ✅ GB
+
+  📊 Progress: 22 detected, 178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 1078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 1178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 1278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 1378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 1478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 1578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 1678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 1778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 1878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 1978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 2078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 2178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 2278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 2378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 2478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 2578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 2678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 2778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 2878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 2978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 3078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 3178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 3278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 3378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 3478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 3578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 3678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 3778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 3878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 3978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 4078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 4178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 4278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 4378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 4478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 4578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 4678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 4778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 4878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 4978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 5078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 5178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 5278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 5378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 5478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 5578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 5678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 5778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 5878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 5978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 6078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 6178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 6278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 6378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 6478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 6578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 6678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 6778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 6878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 6978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 7078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 7178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 7278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 7378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 7478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 7578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 7678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 7778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 7878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 7978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 8078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 8178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 8278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 8378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 8478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 8578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 8678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 8778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 8878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 8978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 9078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 9178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 9278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 9378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 9478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 9578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 9678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 9778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 9878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 9978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 10078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 10178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 10278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 10378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 10478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 10578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 10678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 10778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 10878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 10978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 11078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 11178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 11278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 11378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 11478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 11578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 11678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 11778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 11878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 11978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 12078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 12178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 12278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 12378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 12478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 12578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 12678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 12778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 12878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 12978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 13078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 13178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 13278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 13378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 13478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 13578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 13678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 13778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 13878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 13978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 14078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 14178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 14278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 14378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 14478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 14578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 14678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 14778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 14878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 14978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 15078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 15178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 15278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 15378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 15478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 15578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 15678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 15778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 15878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 15978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 16078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 16178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 16278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 16378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 16478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 16578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 16678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 16778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 16878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 16978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 17078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 17178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 17278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 17378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 17478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 17578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 17678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 17778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 17878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 17978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 18078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 18178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 18278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 18378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 18478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 18578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 18678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 18778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 18878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 18978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 19078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 19178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 19278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 19378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 19478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 19578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 19678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 19778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 19878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 19978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 20078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 20178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 20278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 20378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 20478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 20578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 20678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 20778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 20878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 20978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 21078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 21178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 21278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 21378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 21478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 21578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 21678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 21778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 21878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 21978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 22078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 22178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 22278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 22378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 22478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 22578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 22678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 22778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 22878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 22978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 23078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 23178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 23278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 23378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 23478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 23578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 23678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 23778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 23878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 23978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 24078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 24178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 24278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 24378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 24478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 24578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 24678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 24778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 24878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 24978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 25078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 25178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 25278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 25378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 25478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 25578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 25678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 25778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 25878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 25978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 26078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 26178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 26278 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 26378 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 26478 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 26578 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 26678 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 26778 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 26878 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 26978 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 27078 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 27178 undetected, 4139 remaining
+
+🔄 Processing batch (100 studies)...
+
+
+  📊 Progress: 22 detected, 27278 undetected, 4139 remaining

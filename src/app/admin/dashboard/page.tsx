@@ -48,6 +48,11 @@ export default async function AdminDashboardPage() {
   // Brand stats (using correct kb_brands and kb_brand_reviews tables)
   const { count: totalBrands } = await supabase
     .from('kb_brands')
+    .select('*', { count: 'exact', head: true })
+    .eq('is_published', true);
+
+  const { count: totalReviews } = await supabase
+    .from('kb_brand_reviews')
     .select('*', { count: 'exact', head: true });
 
   const { count: publishedReviews } = await supabase
@@ -180,8 +185,8 @@ export default async function AdminDashboardPage() {
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-3xl font-bold text-gray-900">{(totalBrands || 0).toLocaleString('en-GB')}</p>
-                <p className="text-sm text-gray-600 mt-1">Brands</p>
-                <p className="text-xs text-green-600 mt-1">{(publishedReviews || 0).toLocaleString('en-GB')} published reviews</p>
+                <p className="text-sm text-gray-600 mt-1">Published Brands</p>
+                <p className="text-xs text-green-600 mt-1">{(totalReviews || 0).toLocaleString('en-GB')} reviews ({(publishedReviews || 0).toLocaleString('en-GB')} published)</p>
               </div>
               <span className="text-3xl">⭐</span>
             </div>
