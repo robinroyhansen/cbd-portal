@@ -102,6 +102,7 @@ export default function AdminStudiesPage() {
   const [hasMeta, setHasMeta] = useState<string>('');
   const [qualityFilter, setQualityFilter] = useState<string>('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [totalCount, setTotalCount] = useState<number>(0);
 
   // Bulk generation state
   const [genStatus, setGenStatus] = useState<GenerationStatus | null>(null);
@@ -111,6 +112,18 @@ export default function AdminStudiesPage() {
   const [bulkProgress, setBulkProgress] = useState<{ current: number; total: number; successful: number; failed: number } | null>(null);
 
   const supabase = createClient();
+
+  // Fetch total count separately (avoids Supabase 1000 row limit)
+  const fetchTotalCount = useCallback(async () => {
+    const { count, error } = await supabase
+      .from('kb_research_queue')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'approved');
+
+    if (!error && count !== null) {
+      setTotalCount(count);
+    }
+  }, [supabase]);
 
   const fetchStudies = useCallback(async () => {
     setLoading(true);
@@ -234,8 +247,9 @@ export default function AdminStudiesPage() {
 
   useEffect(() => {
     fetchStudies();
+    fetchTotalCount();
     fetchGenStatus();
-  }, [fetchStudies, fetchGenStatus]);
+  }, [fetchStudies, fetchTotalCount, fetchGenStatus]);
 
   // Enrich studies with calculated fields
   const enrichedStudies: EnrichedStudy[] = useMemo(() => {
@@ -562,18 +576,18 @@ export default function AdminStudiesPage() {
       {/* Stats Cards */}
       <div className="mb-6 grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-white rounded-lg shadow p-4">
-          <div className="text-2xl font-bold text-green-600">{studies.length}</div>
+          <div className="text-2xl font-bold text-green-600">{totalCount.toLocaleString()}</div>
           <div className="text-sm text-gray-600">Total Studies</div>
         </div>
         <div className="bg-white rounded-lg shadow p-4">
-          <div className="text-2xl font-bold text-blue-600">{withSummary}</div>
+          <div className="text-2xl font-bold text-blue-600">{withSummary.toLocaleString()}</div>
           <div className="text-sm text-gray-600">With Summary</div>
-          <div className="text-xs text-gray-400">{studies.length - withSummary} missing</div>
+          <div className="text-xs text-gray-400">{(totalCount - withSummary).toLocaleString()} missing</div>
         </div>
         <div className="bg-white rounded-lg shadow p-4">
-          <div className="text-2xl font-bold text-purple-600">{withMeta}</div>
+          <div className="text-2xl font-bold text-purple-600">{withMeta.toLocaleString()}</div>
           <div className="text-sm text-gray-600">Complete Meta</div>
-          <div className="text-xs text-gray-400">{studies.length - withMeta} incomplete</div>
+          <div className="text-xs text-gray-400">{(totalCount - withMeta).toLocaleString()} incomplete</div>
         </div>
         <div className="bg-white rounded-lg shadow p-4">
           <div className="text-2xl font-bold text-amber-600">{highQuality}</div>

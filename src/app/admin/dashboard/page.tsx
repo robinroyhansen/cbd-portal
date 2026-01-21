@@ -219,7 +219,7 @@ export default async function AdminDashboardPage() {
             <span>📊</span> Content Generation Progress
           </h2>
           <Link
-            href="/admin/research/summaries"
+            href="/admin/research/generation"
             className="text-sm text-green-600 hover:text-green-700 font-medium"
           >
             Continue Generation →
@@ -228,7 +228,7 @@ export default async function AdminDashboardPage() {
 
         <div className="space-y-4">
           {/* Summaries Progress */}
-          <div>
+          <Link href="/admin/research/generation?step=summaries" className="block hover:bg-gray-50 rounded-lg p-2 -m-2 transition-colors">
             <div className="flex justify-between text-sm mb-1">
               <span className="text-gray-600">Plain Summaries</span>
               <span className="text-gray-900 font-medium">{summaryPercent}% ({withSummaries || 0}/{totalStudies || 0})</span>
@@ -239,10 +239,10 @@ export default async function AdminDashboardPage() {
                 style={{ width: `${summaryPercent}%` }}
               />
             </div>
-          </div>
+          </Link>
 
           {/* Meta Progress */}
-          <div>
+          <Link href="/admin/research/generation?step=meta" className="block hover:bg-gray-50 rounded-lg p-2 -m-2 transition-colors">
             <div className="flex justify-between text-sm mb-1">
               <span className="text-gray-600">Meta Titles & Findings</span>
               <span className="text-gray-900 font-medium">{metaPercent}% ({completeMeta || 0}/{totalStudies || 0})</span>
@@ -253,10 +253,10 @@ export default async function AdminDashboardPage() {
                 style={{ width: `${metaPercent}%` }}
               />
             </div>
-          </div>
+          </Link>
 
           {/* Country Progress */}
-          <div>
+          <Link href="/admin/research/generation?step=country" className="block hover:bg-gray-50 rounded-lg p-2 -m-2 transition-colors">
             <div className="flex justify-between text-sm mb-1">
               <span className="text-gray-600">Country Data</span>
               <span className="text-gray-900 font-medium">{countryPercent}% ({withCountry || 0}/{totalStudies || 0})</span>
@@ -267,7 +267,7 @@ export default async function AdminDashboardPage() {
                 style={{ width: `${countryPercent}%` }}
               />
             </div>
-          </div>
+          </Link>
         </div>
       </div>
 
@@ -344,7 +344,7 @@ export default async function AdminDashboardPage() {
           </Link>
 
           <Link
-            href="/admin/research/summaries"
+            href="/admin/research/generation"
             className="flex flex-col items-center p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors border border-blue-200"
           >
             <span className="text-3xl mb-2">✨</span>
