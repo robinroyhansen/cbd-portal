@@ -12,6 +12,9 @@ import { GuidesHub } from '@/components/guides';
 import { DemographicsHub } from '@/components/demographics';
 import { SafetyHub } from '@/components/safety';
 
+// Force dynamic rendering to ensure hub components are always rendered fresh
+export const dynamic = 'force-dynamic';
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
