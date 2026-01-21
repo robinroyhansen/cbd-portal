@@ -186,7 +186,7 @@ Based on current evidence:
 ### Ongoing Developments
 - CIHR-funded Canadian trials
 - Industry-academic partnerships emerging
-- FDA guidance for CBD drug development
+- Regulatory guidance for CBD drug development (FDA, EMA, MHRA)
 - International research collaborations
 
 ## Future Directions and Emerging Research

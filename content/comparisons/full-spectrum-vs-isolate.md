@@ -147,7 +147,7 @@ Not all researchers agree the entourage effect is significant:
 - Some clinical studies find isolate equally effective for specific conditions
 - The [2015 Gallily study](/research/study/gallily-2015-overcoming-bell-shaped) was conducted on mice, not humans
 - Individual response varies considerably based on genetics and condition
-- [Epidiolex](/glossary/epidiolex) (FDA-approved CBD medication for epilepsy) uses pure CBD isolate, suggesting isolated CBD can work
+- [Epidiolex](/glossary/epidiolex) (prescription CBD medication approved for epilepsy) uses pure CBD isolate, suggesting isolated CBD can work
 
 The truth likely lies somewhere in between: the entourage effect is probably real but may matter more for some applications than others. For general wellness, the difference may be modest; for complex conditions, full-spectrum might offer advantages.
 
@@ -335,7 +335,7 @@ No. The trace THC in full-spectrum products (under 0.2%) is far too low to cause
 
 ### Is isolate less effective than full-spectrum?
 
-Research is mixed. The [2015 Gallily study](/research/study/gallily-2015-overcoming-bell-shaped) suggests full-spectrum is more effective for inflammation. However, [Epidiolex](/glossary/epidiolex) (pure CBD isolate) is FDA-approved for epilepsy, demonstrating isolate can be highly effective. If you've tried isolate without success, switching to full-spectrum may help. If isolate works for you, there's no necessity to change.
+Research is mixed. The [2015 Gallily study](/research/study/gallily-2015-overcoming-bell-shaped) suggests full-spectrum is more effective for inflammation. However, [Epidiolex](/glossary/epidiolex) (pure CBD isolate) is approved by regulatory agencies for epilepsy, demonstrating isolate can be highly effective. If you've tried isolate without success, switching to full-spectrum may help. If isolate works for you, there's no necessity to change.
 
 ### Can I mix isolate with full-spectrum products?
 

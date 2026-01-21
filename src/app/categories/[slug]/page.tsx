@@ -5,6 +5,12 @@ import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { ScienceCategoryView } from '@/components/ScienceCategoryView';
 import { CannabinoidHub } from '@/components/cannabinoids';
+import { PetsHub } from '@/components/pets';
+import { CBDBasicsHub } from '@/components/cbd-basics';
+import { ProductsHub } from '@/components/products';
+import { GuidesHub } from '@/components/guides';
+import { DemographicsHub } from '@/components/demographics';
+import { SafetyHub } from '@/components/safety';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -265,6 +271,66 @@ export default async function CategoryPage({ params }: Props) {
       <div className="max-w-7xl mx-auto px-4 py-12">
         <Breadcrumbs items={breadcrumbs} />
         <CannabinoidHub articles={articles || []} totalStudyCount={totalStudies || 0} />
+      </div>
+    );
+  }
+
+  // Special handling for pets category - render the PetsHub
+  if (slug === 'pets') {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <Breadcrumbs items={breadcrumbs} />
+        <PetsHub articles={articles || []} />
+      </div>
+    );
+  }
+
+  // Special handling for cbd-basics category - render the CBDBasicsHub
+  if (slug === 'cbd-basics') {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <Breadcrumbs items={breadcrumbs} />
+        <CBDBasicsHub articles={articles || []} />
+      </div>
+    );
+  }
+
+  // Special handling for products category - render the ProductsHub
+  if (slug === 'products') {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <Breadcrumbs items={breadcrumbs} />
+        <ProductsHub articles={articles || []} />
+      </div>
+    );
+  }
+
+  // Special handling for guides category - render the GuidesHub
+  if (slug === 'guides') {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <Breadcrumbs items={breadcrumbs} />
+        <GuidesHub articles={articles || []} />
+      </div>
+    );
+  }
+
+  // Special handling for demographics category - render the DemographicsHub
+  if (slug === 'demographics') {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <Breadcrumbs items={breadcrumbs} />
+        <DemographicsHub articles={articles || []} />
+      </div>
+    );
+  }
+
+  // Special handling for safety-quality category - render the SafetyHub
+  if (slug === 'safety-quality') {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <Breadcrumbs items={breadcrumbs} />
+        <SafetyHub articles={articles || []} />
       </div>
     );
   }
