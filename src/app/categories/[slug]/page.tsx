@@ -338,7 +338,7 @@ export default async function CategoryPage({ params }: Props) {
   }
 
   // Special handling for conditions category - render the ConditionArticlesHub
-  // Pull from kb_articles where category = conditions (280 planned articles)
+  // Find condition articles by slug pattern (cbd-and-*) across ALL categories
   if (slug === 'conditions') {
     // Get total research study count
     const { count: totalStudies } = await supabase
@@ -346,12 +346,13 @@ export default async function CategoryPage({ params }: Props) {
       .select('*', { count: 'exact', head: true })
       .eq('status', 'approved');
 
-    // Get condition articles from kb_articles (the 280 planned "CBD and [Condition]" articles)
+    // Get condition articles by slug pattern - "CBD and [condition]" articles
+    // These are spread across various categories but identifiable by slug
     const { data: conditionArticles } = await supabase
       .from('kb_articles')
       .select('slug, title, excerpt, reading_time, published_at, updated_at')
-      .eq('category_id', category.id)
       .eq('status', 'published')
+      .ilike('slug', 'cbd-and-%')
       .order('title');
 
     return (
