@@ -2,13 +2,13 @@
 // This file should NOT have 'use client' directive
 
 export const CONDITION_CATEGORIES = {
-  'Neurological & Mental Health': ['anxiety', 'depression', 'ptsd', 'sleep', 'epilepsy', 'parkinsons', 'alzheimers', 'autism', 'adhd', 'schizophrenia', 'addiction', 'tourettes'],
+  'Neurological & Mental Health': ['anxiety', 'depression', 'ptsd', 'sleep', 'epilepsy', 'parkinsons', 'alzheimers', 'autism', 'adhd', 'schizophrenia', 'addiction', 'tourettes', 'stress', 'neurological'],
   'Pain & Inflammation': ['chronic_pain', 'neuropathic_pain', 'arthritis', 'fibromyalgia', 'ms', 'inflammation', 'migraines'],
   'Gastrointestinal': ['crohns', 'ibs', 'nausea'],
   'Cancer': ['cancer', 'chemo_side_effects'],
   'Skin': ['acne', 'psoriasis', 'eczema'],
   'Cardiovascular': ['heart', 'blood_pressure'],
-  'Other': ['diabetes', 'obesity', 'athletic', 'veterinary']
+  'Other': ['diabetes', 'obesity', 'athletic', 'veterinary', 'aging', 'womens', 'covid', 'glaucoma']
 } as const;
 
 export const CONDITIONS = {
@@ -108,6 +108,22 @@ export const CONDITIONS = {
     color: 'lime',
     category: 'Neurological & Mental Health',
     description: "Studies on CBD for Tourette's syndrome"
+  },
+  stress: {
+    label: 'Chronic Stress',
+    keywords: ['stress', 'chronic stress', 'stress relief', 'cortisol', 'burnout', 'stress response', 'hpa axis'],
+    icon: '😤',
+    color: 'orange',
+    category: 'Neurological & Mental Health',
+    description: 'Research on CBD for stress management and relief'
+  },
+  neurological: {
+    label: 'Neurological Conditions',
+    keywords: ['neurological', 'neuroprotective', 'neurodegenerative', 'brain health', 'cns', 'central nervous system'],
+    icon: '🧠',
+    color: 'purple',
+    category: 'Neurological & Mental Health',
+    description: 'Research on CBD for various neurological conditions'
   },
 
   // === PAIN & INFLAMMATION ===
@@ -288,6 +304,38 @@ export const CONDITIONS = {
     color: 'amber',
     category: 'Other',
     description: 'Studies on CBD for pets and animals'
+  },
+  aging: {
+    label: 'Aging & Longevity',
+    keywords: ['aging', 'anti-aging', 'longevity', 'elderly', 'geriatric', 'age-related', 'senescence'],
+    icon: '🧓',
+    color: 'slate',
+    category: 'Other',
+    description: 'Research on CBD for aging and age-related conditions'
+  },
+  womens: {
+    label: "Women's Health",
+    keywords: ['women', 'female', 'menstrual', 'pms', 'menopause', 'endometriosis', 'hormonal', 'pregnancy'],
+    icon: '👩',
+    color: 'pink',
+    category: 'Other',
+    description: "Research on CBD for women's health issues"
+  },
+  covid: {
+    label: 'COVID-19',
+    keywords: ['covid', 'coronavirus', 'sars-cov-2', 'long covid', 'post-covid', 'covid-19'],
+    icon: '🦠',
+    color: 'red',
+    category: 'Other',
+    description: 'Research on CBD and COVID-19'
+  },
+  glaucoma: {
+    label: 'Glaucoma',
+    keywords: ['glaucoma', 'intraocular pressure', 'iop', 'eye pressure', 'optic nerve'],
+    icon: '👁️',
+    color: 'cyan',
+    category: 'Other',
+    description: 'Research on CBD for glaucoma and eye health'
   }
 } as const;
 

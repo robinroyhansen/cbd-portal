@@ -17,3 +17,10 @@ export { HubCategoryNav, type CategoryNavItem } from './HubCategoryNav';
 // Utility components
 export { HubEmptyState } from './HubEmptyState';
 export { HubCTA } from './HubCTA';
+
+// Animation and effects
+export { GrainOverlay } from './GrainOverlay';
+export { ScrollReveal } from './ScrollReveal';
+
+// Search
+export { CategorySearch, useArticleSearch } from './CategorySearch';
