@@ -4,7 +4,6 @@ import { createClient } from '@/lib/supabase/server';
 export async function TrendingTopics() {
   const supabase = await createClient();
 
-  // Get conditions with the most research (trending by research volume)
   const { data: trendingConditions } = await supabase
     .from('kb_conditions')
     .select('slug, name, display_name, research_count')
@@ -13,65 +12,60 @@ export async function TrendingTopics() {
     .order('research_count', { ascending: false })
     .limit(8);
 
-  // Get popular glossary terms (by view count if available, otherwise by update)
-  const { data: popularTerms } = await supabase
-    .from('kb_glossary')
-    .select('slug, term')
-    .order('view_count', { ascending: false })
-    .limit(6);
-
-  // Static popular searches (common user queries)
   const popularSearches = [
-    { label: 'CBD Dosage', href: '/tools/dosage-calculator' },
-    { label: 'CBD vs THC', href: '/glossary/thc' },
-    { label: 'CBD Oil Benefits', href: '/articles' },
-    { label: 'Side Effects', href: '/glossary/side-effects' },
-    { label: 'Drug Interactions', href: '/glossary/drug-interactions' },
+    { label: 'Dosage Guide', href: '/tools/dosage-calculator', icon: '💊' },
+    { label: 'Drug Interactions', href: '/tools/interactions', icon: '⚠️' },
+    { label: 'For Pets', href: '/pets', icon: '🐾' },
   ];
 
   return (
-    <section className="py-4 md:py-6 bg-white border-b border-gray-100">
-      <div className="max-w-6xl mx-auto px-4">
-        {/* Mobile: horizontal scroll */}
-        <div className="flex items-center gap-2 md:gap-3 overflow-x-auto pb-2 md:pb-0 scrollbar-hide md:flex-wrap">
-          <span className="text-sm font-medium text-gray-500 whitespace-nowrap flex-shrink-0">Popular:</span>
+    <section className="relative -mt-8 z-10 pb-8">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <div className="bg-white rounded-2xl shadow-xl shadow-slate-900/5 border border-slate-100 p-4 lg:p-5">
+          <div className="flex flex-col lg:flex-row lg:items-center gap-4">
+            {/* Label */}
+            <div className="flex items-center gap-2 text-sm font-medium text-slate-400 uppercase tracking-wider flex-shrink-0">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+              Trending
+            </div>
 
-          {/* Trending conditions */}
-          {trendingConditions?.slice(0, 4).map((condition) => (
-            <Link
-              key={condition.slug}
-              href={`/research/${condition.slug}`}
-              className="inline-flex items-center gap-1 px-3 py-1.5 bg-green-50 hover:bg-green-100 text-green-700 text-sm rounded-full transition-colors whitespace-nowrap flex-shrink-0"
-            >
-              <span>{condition.display_name || condition.name}</span>
-              <span className="text-xs text-green-500">({condition.research_count})</span>
-            </Link>
-          ))}
+            {/* Trending conditions - horizontal scroll on mobile */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 scrollbar-hide flex-1">
+              {trendingConditions?.slice(0, 5).map((condition) => (
+                <Link
+                  key={condition.slug}
+                  href={`/conditions/${condition.slug}`}
+                  className="group inline-flex items-center gap-2 px-4 py-2 bg-slate-50 hover:bg-emerald-50 rounded-lg transition-all flex-shrink-0"
+                >
+                  <span className="text-sm font-medium text-slate-700 group-hover:text-emerald-700 whitespace-nowrap">
+                    {condition.display_name || condition.name}
+                  </span>
+                  <span className="text-xs text-slate-400 group-hover:text-emerald-500 bg-white px-1.5 py-0.5 rounded">
+                    {condition.research_count}
+                  </span>
+                </Link>
+              ))}
+            </div>
 
-          {/* Divider */}
-          <span className="hidden md:block w-px h-5 bg-gray-200 flex-shrink-0" />
+            {/* Divider */}
+            <div className="hidden lg:block w-px h-8 bg-slate-200 flex-shrink-0" />
 
-          {/* Popular searches */}
-          {popularSearches.slice(0, 3).map((search) => (
-            <Link
-              key={search.label}
-              href={search.href}
-              className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-600 text-sm rounded-full transition-colors whitespace-nowrap flex-shrink-0"
-            >
-              {search.label}
-            </Link>
-          ))}
-
-          {/* Popular glossary terms (on larger screens) */}
-          {popularTerms?.slice(0, 2).map((term) => (
-            <Link
-              key={term.slug}
-              href={`/glossary/${term.slug}`}
-              className="hidden lg:inline-block px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-600 text-sm rounded-full transition-colors whitespace-nowrap flex-shrink-0"
-            >
-              📖 {term.term}
-            </Link>
-          ))}
+            {/* Quick links */}
+            <div className="flex items-center gap-2 flex-shrink-0">
+              {popularSearches.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-slate-600 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors whitespace-nowrap"
+                >
+                  <span>{item.icon}</span>
+                  <span className="hidden sm:inline">{item.label}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
