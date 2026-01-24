@@ -219,6 +219,203 @@
   }
 }
 
+/* Condition Article Styles */
+@layer components {
+  /* Short Answer Section */
+  .condition-article .short-answer {
+    @apply bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-6 md:p-8 mb-8 border border-emerald-200;
+  }
+  .condition-article .short-answer p {
+    @apply text-lg text-slate-700 leading-relaxed mb-0;
+  }
+  .condition-article .short-answer strong {
+    @apply text-emerald-800;
+  }
+
+  /* Research Snapshot Box */
+  .condition-article .research-snapshot {
+    @apply bg-white rounded-2xl shadow-lg border border-slate-200 p-6 md:p-8 mb-8;
+  }
+  .condition-article .research-snapshot h3,
+  .condition-article .research-snapshot h2 {
+    @apply flex items-center gap-2 text-lg font-semibold text-slate-900 mb-4 pb-3 border-b border-slate-100;
+  }
+  .condition-article .research-snapshot table {
+    @apply w-full;
+  }
+  .condition-article .research-snapshot tr {
+    @apply border-b border-slate-50 last:border-0;
+  }
+  .condition-article .research-snapshot td {
+    @apply py-2 text-slate-700;
+  }
+  .condition-article .research-snapshot td:first-child {
+    @apply text-slate-500 font-medium;
+  }
+  .condition-article .research-snapshot td:last-child {
+    @apply text-right font-semibold;
+  }
+
+  /* Key Numbers Box */
+  .condition-article .key-numbers {
+    @apply bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 md:p-8 mb-8 border border-amber-200;
+  }
+  .condition-article .key-numbers h3,
+  .condition-article .key-numbers h2 {
+    @apply flex items-center gap-2 text-lg font-semibold text-amber-900 mb-6;
+  }
+  .condition-article .key-numbers .stat-item {
+    @apply flex flex-col md:flex-row md:items-baseline gap-2 py-3 border-b border-amber-200 last:border-0;
+  }
+  .condition-article .key-numbers .stat-number {
+    @apply text-3xl md:text-4xl font-bold text-amber-700 font-mono;
+  }
+  .condition-article .key-numbers .stat-description {
+    @apply text-slate-700;
+  }
+  .condition-article .key-numbers .stat-source {
+    @apply text-sm text-amber-600;
+  }
+
+  /* What Research Shows Section */
+  .condition-article .what-research-shows {
+    @apply mb-10;
+  }
+  .condition-article .what-research-shows h2 {
+    @apply text-2xl font-bold text-slate-900 mb-6 pb-3 border-b-2 border-emerald-500;
+  }
+  .condition-article .what-research-shows h3 {
+    @apply text-xl font-semibold text-slate-800 mt-8 mb-4;
+  }
+  .condition-article .what-research-shows p {
+    @apply text-slate-700 leading-relaxed mb-4;
+  }
+
+  /* Studies Worth Knowing Section */
+  .condition-article .studies-worth-knowing {
+    @apply mb-10;
+  }
+  .condition-article .studies-worth-knowing h2 {
+    @apply text-2xl font-bold text-slate-900 mb-6;
+  }
+  .condition-article .studies-worth-knowing .study-card {
+    @apply bg-white rounded-xl border border-slate-200 p-6 mb-4 hover:shadow-md transition-shadow;
+  }
+  .condition-article .studies-worth-knowing .study-card h3 {
+    @apply text-lg font-semibold text-slate-900 mb-2;
+  }
+  .condition-article .studies-worth-knowing .study-meta {
+    @apply flex flex-wrap gap-3 text-sm text-slate-500 mb-3;
+  }
+  .condition-article .studies-worth-knowing .key-finding {
+    @apply bg-emerald-50 rounded-lg px-4 py-2 mb-3 text-emerald-800 font-medium;
+  }
+  .condition-article .studies-worth-knowing .why-matters {
+    @apply text-slate-600 italic;
+  }
+
+  /* How CBD Might Help Section */
+  .condition-article .how-cbd-might-help {
+    @apply bg-slate-50 rounded-2xl p-6 md:p-8 mb-10;
+  }
+  .condition-article .how-cbd-might-help h2 {
+    @apply text-2xl font-bold text-slate-900 mb-4;
+  }
+  .condition-article .how-cbd-might-help p {
+    @apply text-slate-700 leading-relaxed mb-4;
+  }
+
+  /* Dosages Studied Section */
+  .condition-article .dosages-studied {
+    @apply bg-blue-50 rounded-2xl p-6 md:p-8 mb-10 border border-blue-200;
+  }
+  .condition-article .dosages-studied h2 {
+    @apply text-2xl font-bold text-blue-900 mb-4;
+  }
+  .condition-article .dosages-studied p {
+    @apply text-slate-700 leading-relaxed mb-4;
+  }
+  .condition-article .dosages-studied .dosage-note {
+    @apply bg-blue-100 rounded-lg px-4 py-3 text-blue-800 text-sm;
+  }
+
+  /* My Take Section */
+  .condition-article .my-take {
+    @apply bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 md:p-8 mb-10 border border-purple-200;
+  }
+  .condition-article .my-take h2 {
+    @apply text-2xl font-bold text-purple-900 mb-4 flex items-center gap-2;
+  }
+  .condition-article .my-take p {
+    @apply text-slate-700 leading-relaxed mb-4;
+  }
+  .condition-article .my-take blockquote {
+    @apply border-l-4 border-purple-400 pl-4 italic text-slate-600 my-4;
+  }
+
+  /* FAQ Section */
+  .condition-article .faq {
+    @apply mb-10;
+  }
+  .condition-article .faq h2 {
+    @apply text-2xl font-bold text-slate-900 mb-6;
+  }
+  .condition-article .faq h3 {
+    @apply text-lg font-semibold text-slate-800 mb-3 mt-6;
+  }
+  .condition-article .faq p {
+    @apply text-slate-700 leading-relaxed;
+  }
+
+  /* References Section */
+  .condition-article .references {
+    @apply bg-slate-100 rounded-2xl p-6 md:p-8 mb-6;
+  }
+  .condition-article .references h2 {
+    @apply text-xl font-bold text-slate-900 mb-4;
+  }
+  .condition-article .references ol {
+    @apply list-decimal list-inside space-y-3;
+  }
+  .condition-article .references li {
+    @apply text-slate-700 text-sm;
+  }
+  .condition-article .references a {
+    @apply text-emerald-600 hover:text-emerald-800 underline;
+  }
+
+  /* General article styling */
+  .condition-article a {
+    @apply text-emerald-600 hover:text-emerald-800 underline decoration-emerald-300 underline-offset-2;
+  }
+  .condition-article strong {
+    @apply font-semibold text-slate-900;
+  }
+  .condition-article ul {
+    @apply list-disc list-inside space-y-2 my-4 text-slate-700;
+  }
+  .condition-article ol {
+    @apply list-decimal list-inside space-y-2 my-4 text-slate-700;
+  }
+
+  /* Evidence level badge */
+  .evidence-badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-medium;
+  }
+  .evidence-badge.strong {
+    @apply bg-emerald-100 text-emerald-800;
+  }
+  .evidence-badge.moderate {
+    @apply bg-green-100 text-green-800;
+  }
+  .evidence-badge.limited {
+    @apply bg-amber-100 text-amber-800;
+  }
+  .evidence-badge.insufficient {
+    @apply bg-slate-100 text-slate-600;
+  }
+}
+
 @media print {
   /* Hide non-essential elements */
   header, footer, nav,

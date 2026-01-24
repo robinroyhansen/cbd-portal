@@ -237,13 +237,25 @@ export default async function ConditionPage({ params }: Props) {
       <div className="bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
-          {/* Description Section */}
+          {/* Article Content Section */}
           {condition.description && (
             <section className="mb-16">
-              <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 lg:p-12">
-                <div className="prose prose-lg prose-green max-w-none">
-                  <div dangerouslySetInnerHTML={{ __html: condition.description }} />
+              {/* Author Byline */}
+              <div className="flex items-center gap-4 mb-8 p-4 bg-white rounded-xl border border-slate-200">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center text-white font-bold text-lg">
+                  RK
                 </div>
+                <div>
+                  <p className="font-semibold text-slate-900">By Robin Roy Krigslund-Hansen</p>
+                  <p className="text-sm text-slate-500">
+                    12+ years in CBD industry • Reviewed {condition.research_count || 0} studies for this article
+                  </p>
+                </div>
+              </div>
+
+              {/* Main Article Content */}
+              <div className="condition-article">
+                <div dangerouslySetInnerHTML={{ __html: condition.description }} />
               </div>
             </section>
           )}
