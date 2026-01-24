@@ -49,9 +49,12 @@ export function ProductsHub({ articles }: ProductsHubProps) {
         subtitle="Complete Guide to CBD Product Types"
         description={`Explore ${stats.total} comprehensive guides covering oils, edibles, topicals, vapes, and more. Find the perfect CBD product for your needs.`}
         badgeText="Product Encyclopedia"
-        badgeColor="bg-emerald-100 text-emerald-700"
+        badgeColor="bg-emerald-100 text-emerald-700 border-emerald-200"
         gradientFrom="from-emerald-50"
+        gradientVia="via-green-50"
         gradientTo="to-teal-50"
+        pattern="botanical"
+        accentColor="text-emerald-600"
       />
 
       {/* Quick Stats */}

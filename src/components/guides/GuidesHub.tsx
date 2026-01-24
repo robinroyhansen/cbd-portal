@@ -47,9 +47,12 @@ export function GuidesHub({ articles }: GuidesHubProps) {
         subtitle="Practical Guides for Every Step of Your CBD Journey"
         description={`Access ${stats.total} step-by-step guides covering dosing, usage methods, buying tips, and more. From quick reads to comprehensive deep dives.`}
         badgeText="How-To Library"
-        badgeColor="bg-orange-100 text-orange-700"
+        badgeColor="bg-orange-100 text-orange-700 border-orange-200"
         gradientFrom="from-orange-50"
-        gradientTo="to-amber-50"
+        gradientVia="via-amber-50"
+        gradientTo="to-yellow-50"
+        pattern="botanical"
+        accentColor="text-orange-600"
       />
 
       {/* Quick Stats */}

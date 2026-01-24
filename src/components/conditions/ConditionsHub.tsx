@@ -4,7 +4,7 @@ import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 
-// Category configuration
+// Category configuration - matches database category values
 const CATEGORY_CONFIG: Record<string, {
   icon: string;
   name: string;
@@ -13,7 +13,7 @@ const CATEGORY_CONFIG: Record<string, {
   borderColor: string;
   description: string;
 }> = {
-  'mental-health': {
+  'mental_health': {
     icon: '🧠',
     name: 'Mental Health',
     color: 'text-purple-700',
@@ -29,14 +29,6 @@ const CATEGORY_CONFIG: Record<string, {
     borderColor: 'border-red-200',
     description: 'Chronic pain, arthritis, fibromyalgia, and neuropathy',
   },
-  'sleep': {
-    icon: '😴',
-    name: 'Sleep Disorders',
-    color: 'text-indigo-700',
-    bgColor: 'bg-indigo-50',
-    borderColor: 'border-indigo-200',
-    description: 'Insomnia, sleep quality, and circadian rhythm',
-  },
   'neurological': {
     icon: '⚡',
     name: 'Neurological',
@@ -44,14 +36,6 @@ const CATEGORY_CONFIG: Record<string, {
     bgColor: 'bg-yellow-50',
     borderColor: 'border-yellow-200',
     description: 'Epilepsy, Parkinson\'s, MS, and brain health',
-  },
-  'inflammation': {
-    icon: '🔥',
-    name: 'Inflammation & Autoimmune',
-    color: 'text-orange-700',
-    bgColor: 'bg-orange-50',
-    borderColor: 'border-orange-200',
-    description: 'Autoimmune conditions and inflammatory diseases',
   },
   'skin': {
     icon: '✨',
@@ -61,7 +45,7 @@ const CATEGORY_CONFIG: Record<string, {
     borderColor: 'border-pink-200',
     description: 'Acne, eczema, psoriasis, and dermatitis',
   },
-  'digestive': {
+  'gastrointestinal': {
     icon: '🍃',
     name: 'Digestive Health',
     color: 'text-green-700',
@@ -77,13 +61,21 @@ const CATEGORY_CONFIG: Record<string, {
     borderColor: 'border-rose-200',
     description: 'Heart health, blood pressure, and circulation',
   },
-  'immune': {
-    icon: '🛡️',
-    name: 'Immune System',
-    color: 'text-teal-700',
-    bgColor: 'bg-teal-50',
-    borderColor: 'border-teal-200',
-    description: 'Immune function and defense mechanisms',
+  'cancer': {
+    icon: '🎗️',
+    name: 'Cancer & Oncology',
+    color: 'text-pink-700',
+    bgColor: 'bg-pink-50',
+    borderColor: 'border-pink-200',
+    description: 'Cancer research and chemotherapy support',
+  },
+  'metabolic': {
+    icon: '⚖️',
+    name: 'Metabolic Health',
+    color: 'text-blue-700',
+    bgColor: 'bg-blue-50',
+    borderColor: 'border-blue-200',
+    description: 'Diabetes, obesity, and metabolic conditions',
   },
   'other': {
     icon: '🏥',
