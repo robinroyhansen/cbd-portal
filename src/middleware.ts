@@ -1,6 +1,23 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+// Domain to language mapping for multi-domain support
+const domainToLanguage: Record<string, string> = {
+  'swissorganic.co.uk': 'en',
+  'cbd-portal.vercel.app': 'en',
+  'cbdportal.com': 'en',
+  'cbd.dk': 'da',
+  'cbd.se': 'sv',
+  'cbd.no': 'no',
+  'cbd.fi': 'fi',
+  'cbd.de': 'de',
+  'cbd.it': 'it',
+  'cbdportaal.nl': 'nl',
+  'cbdportail.fr': 'fr',
+  'cbdportal.ch': 'de-CH', // Default Swiss language
+  'localhost': 'en',
+};
+
 // Security headers applied to all routes
 const securityHeaders = {
   // Prevent clickjacking
@@ -40,6 +57,33 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const response = NextResponse.next();
 
+  // Detect language from domain
+  const hostname = request.headers.get('host')?.split(':')[0] || 'localhost';
+  const detectedLanguage = domainToLanguage[hostname] || 'en';
+
+  // Handle Swiss domain language detection from Accept-Language header
+  let language = detectedLanguage;
+  if (hostname === 'cbdportal.ch') {
+    const acceptLanguage = request.headers.get('accept-language') || '';
+    if (acceptLanguage.startsWith('fr')) {
+      language = 'fr-CH';
+    } else if (acceptLanguage.startsWith('it')) {
+      language = 'it-CH';
+    } else {
+      language = 'de-CH';
+    }
+  }
+
+  // Check for language override in URL query or cookie
+  const urlLang = request.nextUrl.searchParams.get('lang');
+  if (urlLang && Object.values(domainToLanguage).includes(urlLang)) {
+    language = urlLang;
+  }
+
+  // Set language header for server components to read
+  response.headers.set('x-language', language);
+  response.headers.set('x-hostname', hostname);
+
   // Apply security headers to all routes
   Object.entries(securityHeaders).forEach(([key, value]) => {
     response.headers.set(key, value);
@@ -66,7 +110,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/admin/:path*',
-    '/api/:path*',
+    // Match all routes except static files and Next.js internals
+    '/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)).*)',
   ],
 };

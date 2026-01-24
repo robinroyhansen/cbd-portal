@@ -175,44 +175,37 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Condition not found' }, { status: 404 });
     }
 
-    // Fetch all research for this condition
-    const keywords = condition.topic_keywords || [];
+    // Fetch all research for this condition - match by slug first (most reliable)
+    const { data: research, error: researchError } = await supabase
+      .from('kb_research_queue')
+      .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, abstract, plain_summary, doi, pmid, authors, key_findings')
+      .eq('status', 'approved')
+      .or(`primary_topic.eq.${conditionSlug},relevant_topics.cs.{${conditionSlug}}`)
+      .order('quality_score', { ascending: false });
 
-    // If no keywords, try to match by condition slug/name
-    let studies: ResearchStudy[] = [];
-
-    if (keywords.length > 0) {
-      // Build OR conditions for each keyword
-      const orConditions = keywords.flatMap((k: string) => [
-        `primary_topic.eq.${k}`,
-        `relevant_topics.cs.{${k}}`
-      ]).join(',');
-
-      const { data: research, error: researchError } = await supabase
-        .from('kb_research_queue')
-        .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, abstract, plain_summary, doi, pmid, authors, key_findings')
-        .eq('status', 'approved')
-        .or(orConditions)
-        .order('quality_score', { ascending: false });
-
-      if (researchError) {
-        console.error('Research fetch error:', researchError);
-        // Don't fail completely, just use empty array
-      } else {
-        studies = research || [];
-      }
+    if (researchError) {
+      console.error('Research fetch error:', researchError);
     }
 
-    // If still no studies, try matching by condition slug
-    if (studies.length === 0) {
-      const { data: fallbackResearch } = await supabase
-        .from('kb_research_queue')
-        .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, abstract, plain_summary, doi, pmid, authors, key_findings')
-        .eq('status', 'approved')
-        .or(`primary_topic.eq.${conditionSlug},relevant_topics.cs.{${conditionSlug}}`)
-        .order('quality_score', { ascending: false });
+    let studies: ResearchStudy[] = research || [];
 
-      studies = fallbackResearch || [];
+    // If no results and we have topic_keywords, try those as well
+    const keywords = condition.topic_keywords || [];
+    if (studies.length === 0 && keywords.length > 0) {
+      for (const keyword of keywords) {
+        if (keyword === conditionSlug) continue; // Already tried this
+        const { data: keywordResearch } = await supabase
+          .from('kb_research_queue')
+          .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, abstract, plain_summary, doi, pmid, authors, key_findings')
+          .eq('status', 'approved')
+          .or(`primary_topic.eq.${keyword},relevant_topics.cs.{${keyword}}`)
+          .order('quality_score', { ascending: false });
+
+        if (keywordResearch && keywordResearch.length > 0) {
+          studies = keywordResearch;
+          break;
+        }
+      }
     }
     const evidence = analyzeEvidence(studies);
 
