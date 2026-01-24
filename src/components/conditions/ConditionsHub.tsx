@@ -127,6 +127,7 @@ interface Condition {
   short_description: string;
   category: string;
   research_count: number;
+  article_count?: number;
   is_featured: boolean;
 }
 
@@ -444,14 +445,24 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
                       <p className="text-sm text-gray-500 line-clamp-2 mb-3">
                         {condition.short_description}
                       </p>
-                      <div className="flex items-center gap-2">
-                        <span className="inline-flex items-center gap-1.5 text-xs font-medium text-green-700 bg-green-100 px-2.5 py-1 rounded-full">
-                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
-                            <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
-                          </svg>
-                          {condition.research_count} studies
-                        </span>
+                      <div className="flex flex-wrap items-center gap-2">
+                        {condition.research_count > 0 && (
+                          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-green-700 bg-green-100 px-2.5 py-1 rounded-full">
+                            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                              <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
+                            </svg>
+                            {condition.research_count} {condition.research_count === 1 ? 'study' : 'studies'}
+                          </span>
+                        )}
+                        {(condition.article_count || 0) > 0 && (
+                          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-blue-700 bg-blue-100 px-2.5 py-1 rounded-full">
+                            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
+                            </svg>
+                            {condition.article_count} {condition.article_count === 1 ? 'article' : 'articles'}
+                          </span>
+                        )}
                       </div>
                     </div>
                     <svg className="w-5 h-5 text-gray-300 group-hover:text-green-500 group-hover:translate-x-1 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -590,11 +601,11 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
                       <span className="font-medium text-gray-900 group-hover:text-green-600 transition-colors">
                         {condition.display_name || condition.name}
                       </span>
-                      {condition.research_count > 0 && (
-                        <span className="ml-2 text-xs text-gray-400">
-                          {condition.research_count} studies
-                        </span>
-                      )}
+                      <span className="ml-2 text-xs text-gray-400">
+                        {condition.research_count > 0 && `${condition.research_count} studies`}
+                        {condition.research_count > 0 && (condition.article_count || 0) > 0 && ' • '}
+                        {(condition.article_count || 0) > 0 && `${condition.article_count} articles`}
+                      </span>
                     </div>
                     <svg className="w-4 h-4 text-gray-300 group-hover:text-green-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -692,6 +703,9 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
 // Condition Card Component - Enhanced design
 function ConditionCard({ condition, showCategory = false }: { condition: Condition; showCategory?: boolean }) {
   const config = CATEGORY_CONFIG[condition.category] || CATEGORY_CONFIG.other;
+  const hasResearch = condition.research_count > 0;
+  const hasArticles = (condition.article_count || 0) > 0;
+  const hasAnyContent = hasResearch || hasArticles;
 
   return (
     <Link
@@ -705,21 +719,28 @@ function ConditionCard({ condition, showCategory = false }: { condition: Conditi
         <h3 className="font-semibold text-gray-900 group-hover:text-green-600 transition-colors truncate">
           {condition.display_name || condition.name}
         </h3>
-        <div className="flex items-center gap-2 text-xs text-gray-500">
-          {condition.research_count > 0 && (
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-gray-500">
+          {hasResearch && (
             <span className="flex items-center gap-1">
               <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
                 <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              {condition.research_count} studies
+              {condition.research_count} {condition.research_count === 1 ? 'study' : 'studies'}
             </span>
           )}
+          {hasResearch && hasArticles && <span className="text-gray-300">•</span>}
+          {hasArticles && (
+            <span className="flex items-center gap-1">
+              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
+              </svg>
+              {condition.article_count} {condition.article_count === 1 ? 'article' : 'articles'}
+            </span>
+          )}
+          {showCategory && hasAnyContent && <span className="text-gray-300">•</span>}
           {showCategory && (
-            <>
-              <span className="text-gray-300">•</span>
-              <span>{config.name}</span>
-            </>
+            <span>{config.name}</span>
           )}
         </div>
       </div>
