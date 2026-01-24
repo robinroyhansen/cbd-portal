@@ -33,7 +33,7 @@ const NAV_ITEMS: NavItem[] = [
       featured: [
         { label: 'Anxiety', href: '/conditions/anxiety', description: '353 studies', icon: '😰' },
         { label: 'Sleep & Insomnia', href: '/conditions/sleep', description: '287 studies', icon: '😴' },
-        { label: 'Chronic Pain', href: '/conditions/chronic-pain', description: '412 studies', icon: '💪' },
+        { label: 'Chronic Pain', href: '/conditions/chronic_pain', description: '412 studies', icon: '💪' },
         { label: 'Depression', href: '/conditions/depression', description: '198 studies', icon: '😔' },
         { label: 'Epilepsy', href: '/conditions/epilepsy', description: 'FDA approved', icon: '⚡' },
         { label: 'Inflammation', href: '/conditions/inflammation', description: '267 studies', icon: '🔥' },
