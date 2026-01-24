@@ -3,49 +3,81 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { SearchBar } from './SearchBar';
+import { useNavigationContext } from './NavigationWrapper';
+
+interface NavChild {
+  label: string;
+  href: string;
+  description?: string;
+  icon?: string;
+}
 
 interface NavItem {
   label: string;
   href: string;
   icon?: string;
-  children?: {
-    label: string;
-    href: string;
-    description?: string;
-  }[];
+  children?: NavChild[];
+  megaMenu?: {
+    featured?: NavChild[];
+    categories?: { title: string; items: NavChild[] }[];
+    footer?: { label: string; href: string };
+  };
 }
 
 const NAV_ITEMS: NavItem[] = [
   {
-    label: 'Home',
-    href: '/',
-    icon: '🏠'
-  },
-  {
     label: 'Health Topics',
     href: '/conditions',
     icon: '🏥',
-    children: [
-      { label: 'Anxiety', href: '/research/anxiety', description: 'Research on CBD for anxiety disorders' },
-      { label: 'Sleep', href: '/research/sleep', description: 'CBD for insomnia and sleep quality' },
-      { label: 'Pain', href: '/research/chronic-pain', description: 'Chronic pain and CBD research' },
-      { label: 'Depression', href: '/research/depression', description: 'CBD and mood disorders' },
-      { label: 'Inflammation', href: '/research/inflammation', description: 'Anti-inflammatory properties' },
-      { label: 'Epilepsy', href: '/research/epilepsy', description: 'Approved prescription CBD use' },
-      { label: 'View All Conditions', href: '/conditions', description: '' },
-    ]
+    megaMenu: {
+      featured: [
+        { label: 'Anxiety', href: '/conditions/anxiety', description: '353 studies', icon: '😰' },
+        { label: 'Sleep & Insomnia', href: '/conditions/sleep', description: '287 studies', icon: '😴' },
+        { label: 'Chronic Pain', href: '/conditions/chronic-pain', description: '412 studies', icon: '💪' },
+        { label: 'Depression', href: '/conditions/depression', description: '198 studies', icon: '😔' },
+        { label: 'Epilepsy', href: '/conditions/epilepsy', description: 'FDA approved', icon: '⚡' },
+        { label: 'Inflammation', href: '/conditions/inflammation', description: '267 studies', icon: '🔥' },
+      ],
+      categories: [
+        {
+          title: 'Browse by Body System',
+          items: [
+            { label: 'Neurological & Mental Health', href: '/conditions?category=neurological', icon: '🧠' },
+            { label: 'Pain & Inflammation', href: '/conditions?category=pain', icon: '💪' },
+            { label: 'Gastrointestinal', href: '/conditions?category=gastrointestinal', icon: '🫃' },
+            { label: 'Skin Conditions', href: '/conditions?category=skin', icon: '✨' },
+            { label: 'Cardiovascular', href: '/conditions?category=cardiovascular', icon: '❤️' },
+            { label: 'Cancer & Oncology', href: '/conditions?category=cancer', icon: '🎗️' },
+          ]
+        }
+      ],
+      footer: { label: 'View all 39 conditions', href: '/conditions' }
+    }
   },
   {
     label: 'Learn',
-    href: '/categories/guides',
+    href: '/articles',
     icon: '📚',
-    children: [
-      { label: 'Beginner Guides', href: '/categories/guides', description: 'Start here if you\'re new to CBD' },
-      { label: 'CBD Products', href: '/categories/products', description: 'Oils, capsules, topicals & more' },
-      { label: 'CBD Science', href: '/categories/science', description: 'How cannabinoids work' },
-      { label: 'Legal & Safety', href: '/categories/legal', description: 'Regulations and safety info' },
-      { label: 'Glossary', href: '/glossary', description: 'CBD terminology explained' },
-    ]
+    megaMenu: {
+      featured: [
+        { label: 'CBD Basics', href: '/categories/cbd-basics', description: 'Start here if you\'re new', icon: '🌱' },
+        { label: 'Science & Research', href: '/categories/science', description: 'How cannabinoids work', icon: '🔬' },
+        { label: 'Guides & How-To', href: '/categories/guides', description: 'Practical advice', icon: '📖' },
+        { label: 'Products & Formats', href: '/categories/products', description: 'Oils, capsules, topicals', icon: '💊' },
+        { label: 'Legal & Safety', href: '/categories/legal', description: 'Regulations and safety', icon: '⚖️' },
+      ],
+      categories: [
+        {
+          title: 'Quick Access',
+          items: [
+            { label: 'Glossary', href: '/glossary', description: '263 terms defined', icon: '📖' },
+            { label: 'All Articles', href: '/articles', description: '1,000+ articles', icon: '📄' },
+            { label: 'Our Authors', href: '/authors', description: 'Meet our experts', icon: '👨‍⚕️' },
+          ]
+        }
+      ],
+      footer: { label: 'Browse all articles', href: '/articles' }
+    }
   },
   {
     label: 'Research',
@@ -53,63 +85,63 @@ const NAV_ITEMS: NavItem[] = [
     icon: '🔬'
   },
   {
+    label: 'Tools',
+    href: '/tools',
+    icon: '🧮',
+    megaMenu: {
+      featured: [
+        { label: 'CBD Dosage Calculator', href: '/tools/dosage-calculator', description: 'Personalized recommendations', icon: '💊' },
+        { label: 'Drug Interaction Checker', href: '/tools/interactions', description: 'Check CBD-medication safety', icon: '⚠️' },
+        { label: 'CBD Cost Calculator', href: '/tools/cost-calculator', description: 'Compare price per mg', icon: '💰' },
+        { label: 'Strength Calculator', href: '/tools/strength-calculator', description: 'Convert mg/ml & percentages', icon: '📊' },
+        { label: 'Pet Dosage Calculator', href: '/tools/animal-dosage-calculator', description: 'Vet-guided dosing', icon: '🐕' },
+      ],
+      categories: [
+        {
+          title: 'Coming Soon',
+          items: [
+            { label: 'Product Comparison Tool', href: '/tools', description: 'Compare CBD products', icon: '📋' },
+            { label: 'Lab Report Decoder', href: '/tools', description: 'Understand COAs', icon: '🔍' },
+            { label: 'Tolerance Calculator', href: '/tools', description: 'Track your usage', icon: '📈' },
+          ]
+        }
+      ],
+      footer: { label: 'View all tools', href: '/tools' }
+    }
+  },
+  {
     label: 'Reviews',
     href: '/reviews',
     icon: '⭐'
-  },
-  {
-    label: 'Tools',
-    href: '/tools',
-    icon: '⚙️',
-    children: [
-      { label: 'CBD Dosage Calculator', href: '/tools/dosage-calculator', description: 'Get personalized dosing recommendations' },
-      { label: 'CBD Cost Calculator', href: '/tools/cost-calculator', description: 'Compare products by price per mg' },
-      { label: 'Strength Calculator', href: '/tools/strength-calculator', description: 'Convert CBD percentages and mg/ml' },
-      { label: 'Animal CBD Calculator', href: '/tools/animal-dosage-calculator', description: 'Veterinary-guided dosing for pets' },
-      { label: 'Drug Interaction Checker', href: '/tools/interactions', description: 'Check CBD-medication interactions' },
-    ]
-  },
-  {
-    label: 'Articles',
-    href: '/articles',
-    icon: '📄'
   }
 ];
 
 export function Navigation() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isMobileMenuOpen, setIsMobileMenuOpen } = useNavigationContext();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
 
   // Check if mobile on mount and resize
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Close mobile menu on route change
+  // Close dropdown on route change
   useEffect(() => {
-    setIsMobileMenuOpen(false);
     setOpenDropdown(null);
   }, [pathname]);
 
-  // Prevent body scroll when mobile menu is open
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isMobileMenuOpen]);
-
   const toggleDropdown = (label: string) => {
     setOpenDropdown(openDropdown === label ? null : label);
+  };
+
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/';
+    return pathname.startsWith(href);
   };
 
   return (
@@ -123,14 +155,14 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1">
             {NAV_ITEMS.map((item) => (
               <div key={item.label} className="relative group">
-                {item.children ? (
+                {item.megaMenu ? (
                   <>
                     <button
                       className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors
-                        ${pathname.startsWith(item.href)
+                        ${isActive(item.href)
                           ? 'text-green-700 bg-green-50'
                           : 'text-gray-700 hover:text-green-700 hover:bg-gray-50'
                         }`}
@@ -144,33 +176,93 @@ export function Navigation() {
                       </svg>
                     </button>
 
-                    {/* Desktop Dropdown */}
+                    {/* Mega Menu Dropdown */}
                     <div
-                      className={`absolute top-full left-0 mt-1 w-72 bg-white rounded-xl shadow-xl border border-gray-100 py-2 transition-all duration-200
+                      className={`absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[600px] bg-white rounded-xl shadow-xl border border-gray-100 transition-all duration-200
                         ${openDropdown === item.label ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}
                       `}
                       onMouseEnter={() => !isMobile && setOpenDropdown(item.label)}
                       onMouseLeave={() => !isMobile && setOpenDropdown(null)}
                     >
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block px-4 py-3 hover:bg-gray-50 transition-colors"
-                        >
-                          <div className="font-medium text-gray-900">{child.label}</div>
-                          {child.description && (
-                            <div className="text-sm text-gray-500 mt-0.5">{child.description}</div>
-                          )}
-                        </Link>
-                      ))}
+                      <div className="grid grid-cols-2 gap-0">
+                        {/* Featured Column */}
+                        {item.megaMenu.featured && (
+                          <div className="p-4 border-r border-gray-100">
+                            <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+                              {item.label === 'Health Topics' ? 'Popular Conditions' : 'Categories'}
+                            </h3>
+                            <div className="space-y-1">
+                              {item.megaMenu.featured.map((child) => (
+                                <Link
+                                  key={child.href}
+                                  href={child.href}
+                                  className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors group/item"
+                                >
+                                  <span className="text-lg">{child.icon}</span>
+                                  <div className="flex-1 min-w-0">
+                                    <div className="font-medium text-gray-900 group-hover/item:text-green-700">{child.label}</div>
+                                    {child.description && (
+                                      <div className="text-xs text-gray-500">{child.description}</div>
+                                    )}
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Categories Column */}
+                        {item.megaMenu.categories && (
+                          <div className="p-4">
+                            {item.megaMenu.categories.map((category) => (
+                              <div key={category.title}>
+                                <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+                                  {category.title}
+                                </h3>
+                                <div className="space-y-1">
+                                  {category.items.map((child) => (
+                                    <Link
+                                      key={child.href}
+                                      href={child.href}
+                                      className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors group/item"
+                                    >
+                                      <span className="text-lg">{child.icon}</span>
+                                      <div className="flex-1 min-w-0">
+                                        <div className="font-medium text-gray-900 group-hover/item:text-green-700 text-sm">{child.label}</div>
+                                        {child.description && (
+                                          <div className="text-xs text-gray-500">{child.description}</div>
+                                        )}
+                                      </div>
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Footer */}
+                      {item.megaMenu.footer && (
+                        <div className="border-t border-gray-100 px-4 py-3 bg-gray-50 rounded-b-xl">
+                          <Link
+                            href={item.megaMenu.footer.href}
+                            className="text-sm font-medium text-green-700 hover:text-green-800 flex items-center gap-2"
+                          >
+                            {item.megaMenu.footer.label}
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </Link>
+                        </div>
+                      )}
                     </div>
                   </>
                 ) : (
                   <Link
                     href={item.href}
                     className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors
-                      ${pathname === item.href
+                      ${isActive(item.href)
                         ? 'text-green-700 bg-green-50'
                         : 'text-gray-700 hover:text-green-700 hover:bg-gray-50'
                       }`}
@@ -184,14 +276,14 @@ export function Navigation() {
           </nav>
 
           {/* Desktop Search */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <SearchBar />
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -210,14 +302,14 @@ export function Navigation() {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
 
       {/* Mobile Menu Slide-out */}
       <div
-        className={`fixed top-0 right-0 h-screen w-[85%] max-w-sm bg-white z-50 transform transition-transform duration-300 ease-in-out md:hidden flex flex-col
+        className={`fixed top-0 right-0 h-screen w-[85%] max-w-sm bg-white z-50 transform transition-transform duration-300 ease-in-out lg:hidden flex flex-col
           ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
         `}
       >
@@ -244,7 +336,7 @@ export function Navigation() {
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-            <span>Search articles...</span>
+            <span>Search CBD Portal...</span>
           </Link>
         </div>
 
@@ -252,7 +344,7 @@ export function Navigation() {
         <nav className="p-4 pb-20 flex-1 overflow-y-auto">
           {NAV_ITEMS.map((item) => (
             <div key={item.label} className="mb-2">
-              {item.children ? (
+              {item.megaMenu ? (
                 <div>
                   <button
                     onClick={() => toggleDropdown(item.label)}
@@ -277,23 +369,71 @@ export function Navigation() {
                   {/* Mobile Dropdown Content */}
                   <div
                     className={`overflow-hidden transition-all duration-300 ease-in-out
-                      ${openDropdown === item.label ? 'max-h-[1200px] opacity-100' : 'max-h-0 opacity-0'}
+                      ${openDropdown === item.label ? 'max-h-[1500px] opacity-100' : 'max-h-0 opacity-0'}
                     `}
                   >
                     <div className="pl-4 py-2 space-y-1">
-                      {item.children.map((child) => (
+                      {/* Featured items */}
+                      {item.megaMenu.featured?.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors min-h-[60px] flex flex-col justify-center"
+                          className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
-                          <div className="font-medium">{child.label}</div>
-                          {child.description && (
-                            <div className="text-sm text-gray-400 mt-0.5">{child.description}</div>
-                          )}
+                          <span className="text-lg">{child.icon}</span>
+                          <div className="flex-1">
+                            <div className="font-medium">{child.label}</div>
+                            {child.description && (
+                              <div className="text-xs text-gray-400">{child.description}</div>
+                            )}
+                          </div>
                         </Link>
                       ))}
+
+                      {/* Separator */}
+                      {item.megaMenu.categories && (
+                        <div className="border-t border-gray-100 my-2 mx-4"></div>
+                      )}
+
+                      {/* Category items */}
+                      {item.megaMenu.categories?.map((category) => (
+                        <div key={category.title}>
+                          <div className="px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                            {category.title}
+                          </div>
+                          {category.items.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                              <span className="text-lg">{child.icon}</span>
+                              <div className="flex-1">
+                                <div className="font-medium">{child.label}</div>
+                                {child.description && (
+                                  <div className="text-xs text-gray-400">{child.description}</div>
+                                )}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      ))}
+
+                      {/* Footer link */}
+                      {item.megaMenu.footer && (
+                        <Link
+                          href={item.megaMenu.footer.href}
+                          className="flex items-center gap-2 px-4 py-3 text-green-700 font-medium"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {item.megaMenu.footer.label}
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -301,7 +441,7 @@ export function Navigation() {
                 <Link
                   href={item.href}
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors
-                    ${pathname === item.href
+                    ${isActive(item.href)
                       ? 'bg-green-50 text-green-700'
                       : 'text-gray-700 hover:bg-gray-50'
                     }

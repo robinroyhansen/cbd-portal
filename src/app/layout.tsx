@@ -4,6 +4,8 @@ import './globals.css';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { CookieConsent } from '@/components/CookieConsent';
+import { NavigationProvider } from '@/components/NavigationWrapper';
+import { MobileBottomNav } from '@/components/MobileBottomNav';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -19,7 +21,7 @@ const merriweather = Merriweather({
 export const metadata: Metadata = {
   metadataBase: new URL('https://cbd-portal.vercel.app'),
   title: 'CBD Portal | Evidence-Based CBD Information & Research',
-  description: 'Comprehensive CBD information backed by 76+ peer-reviewed studies. Learn how CBD may help with anxiety, pain, sleep and more. Written by industry experts.',
+  description: 'Comprehensive CBD information backed by 4,000+ peer-reviewed studies. Learn how CBD may help with anxiety, pain, sleep and more. Written by industry experts.',
   keywords: 'CBD, cannabidiol, CBD oil, CBD research, CBD for anxiety, CBD for pain, CBD for sleep, cannabis research',
   alternates: {
     canonical: '/',
@@ -57,10 +59,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${merriweather.variable}`}>
       <body className="min-h-screen bg-white font-sans text-gray-900 flex flex-col">
-        <Navigation />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <CookieConsent />
+        <NavigationProvider>
+          <Navigation />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <MobileBottomNav />
+          <CookieConsent />
+        </NavigationProvider>
       </body>
     </html>
   );
