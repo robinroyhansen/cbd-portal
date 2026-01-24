@@ -362,7 +362,7 @@ export default async function CategoryPage({ params }: Props) {
           articles={conditionArticles || []}
           totalStudies={totalStudies || 0}
           conditionsCount={conditionsCount || 39}
-          plannedArticleCount={350}
+          plannedArticleCount={400}
         />
       </div>
     );
