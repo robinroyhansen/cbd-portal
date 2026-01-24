@@ -84,7 +84,7 @@ async function translateConditions(
 
       try {
         const response = await client.messages.create({
-          model: 'claude-3-5-haiku-20241022',
+          model: 'claude-3-haiku-20240307',
           max_tokens: 2048,
           messages: [
             {
@@ -195,7 +195,7 @@ async function translateArticles(
       try {
         // Translate title
         const titleResponse = await client.messages.create({
-          model: 'claude-3-5-haiku-20241022',
+          model: 'claude-3-haiku-20240307',
           max_tokens: 256,
           messages: [
             {
@@ -217,7 +217,7 @@ Provide ONLY the translated title:`,
 
         // Translate content
         const contentResponse = await client.messages.create({
-          model: 'claude-3-5-haiku-20241022',
+          model: 'claude-3-haiku-20240307',
           max_tokens: 8192,
           messages: [
             {
@@ -241,7 +241,7 @@ Provide ONLY the translated markdown content:`,
         let translatedMeta = article.meta_description;
         if (article.meta_description) {
           const metaResponse = await client.messages.create({
-            model: 'claude-3-5-haiku-20241022',
+            model: 'claude-3-haiku-20240307',
             max_tokens: 256,
             messages: [
               {
@@ -334,7 +334,7 @@ async function translateGlossary(
 
       try {
         const response = await client.messages.create({
-          model: 'claude-3-5-haiku-20241022',
+          model: 'claude-3-haiku-20240307',
           max_tokens: 1024,
           messages: [
             {
@@ -439,7 +439,7 @@ async function translateResearch(
 
       try {
         const response = await client.messages.create({
-          model: 'claude-3-5-haiku-20241022',
+          model: 'claude-3-haiku-20240307',
           max_tokens: 1024,
           messages: [
             {

@@ -66,7 +66,7 @@ Guidelines:
 
 class TranslationService {
   private client: Anthropic;
-  private model = 'claude-3-5-haiku-20241022'; // Fast and cost-effective for translations
+  private model = 'claude-3-haiku-20240307'; // Fast and cost-effective for translations
 
   constructor() {
     this.client = new Anthropic({

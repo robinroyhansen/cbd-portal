@@ -1,4 +1,12 @@
 import enLocale from './en.json';
+import daLocale from './da.json';
+import svLocale from './sv.json';
+import noLocale from './no.json';
+import deLocale from './de.json';
+import nlLocale from './nl.json';
+import fiLocale from './fi.json';
+import frLocale from './fr.json';
+import itLocale from './it.json';
 import type { LanguageCode } from '@/lib/translation-service';
 
 // Type for the locale structure
@@ -28,6 +36,14 @@ export type LocaleKey = Join<PathsToStringProps<LocaleStrings>, '.'>;
 // Cache for loaded locales
 const localeCache: Partial<Record<LanguageCode, LocaleStrings>> = {
   en: enLocale,
+  da: daLocale,
+  sv: svLocale,
+  no: noLocale,
+  de: deLocale,
+  nl: nlLocale,
+  fi: fiLocale,
+  fr: frLocale,
+  it: itLocale,
 };
 
 /**
@@ -107,7 +123,7 @@ export function createTranslator(locale: LocaleStrings) {
  */
 export function getAvailableLocales(): LanguageCode[] {
   // This will be updated as we generate locale files
-  const available: LanguageCode[] = ['en'];
+  const available: LanguageCode[] = ['en', 'da', 'sv', 'no', 'de', 'nl', 'fi', 'fr', 'it'];
 
   // Check which locale files exist (at build time this is known)
   const possibleLocales: LanguageCode[] = ['da', 'sv', 'no', 'de', 'nl', 'fi', 'fr', 'it'];
