@@ -201,7 +201,7 @@ export function Hero({ stats }: HeroProps) {
                   <div className="grid grid-cols-2 gap-4 mb-8">
                     <div className="bg-white/5 rounded-2xl p-4">
                       <div className="text-2xl font-bold text-white font-mono">
-                        <AnimatedNumber value={stats.healthTopics} />
+                        <AnimatedNumber value={stats.healthConditions} />
                       </div>
                       <p className="text-sm text-white/50 mt-1">Health Conditions</p>
                     </div>

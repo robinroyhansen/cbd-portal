@@ -14,7 +14,8 @@ export interface HomePageStats {
   humanParticipants: number;
   humanParticipantsDisplay: string;
   expertAnalyses: number;
-  healthTopics: number;
+  healthTopics: number;         // Unique research topic keywords
+  healthConditions: number;     // Actual conditions from kb_conditions
   glossaryTerms: number;
   yearsOfResearch: number;
   yearRange: string;
@@ -47,6 +48,7 @@ export async function getHomePageStats(): Promise<HomePageStats> {
     studiesResult,
     totalScannedResult,
     topicsResult,
+    conditionsResult,
     glossaryResult,
     articlesResult,
     brandsResult,
@@ -73,6 +75,12 @@ export async function getHomePageStats(): Promise<HomePageStats> {
       .from('kb_research_queue')
       .select('relevant_topics')
       .eq('status', 'approved'),
+
+    // Count published conditions
+    supabase
+      .from('kb_conditions')
+      .select('*', { count: 'exact', head: true })
+      .eq('is_published', true),
 
     // Glossary terms
     supabase
@@ -188,6 +196,7 @@ export async function getHomePageStats(): Promise<HomePageStats> {
     humanParticipantsDisplay,
     expertAnalyses: expertAnalysesResult.count || 0,
     healthTopics: uniqueTopics.size,
+    healthConditions: conditionsResult.count || 0,
     glossaryTerms: glossaryResult.count || 0,
     yearsOfResearch,
     yearRange,
