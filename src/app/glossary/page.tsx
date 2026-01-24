@@ -167,7 +167,7 @@ export default async function GlossaryPage() {
       />
 
       {/* Breadcrumbs - Server rendered for SEO */}
-      <div className="bg-gradient-to-r from-green-600 to-emerald-600">
+      <div className="bg-gradient-to-br from-green-600 via-emerald-600 to-teal-700">
         <div className="max-w-6xl mx-auto px-4 pt-4">
           <Breadcrumbs items={breadcrumbs} variant="dark" />
         </div>

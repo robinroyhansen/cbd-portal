@@ -359,15 +359,15 @@ export function GlossaryClient({
       </div>
 
       {/* Sticky Navigation */}
-      <div className="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm">
+      <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
         <div className="max-w-6xl mx-auto px-4">
           {/* Alphabet Navigation */}
-          <nav className="py-3 flex items-center gap-1 overflow-x-auto" aria-label="Filter by letter">
+          <nav className="py-3 flex items-center gap-1 overflow-x-auto scrollbar-hide" aria-label="Filter by letter">
             <button
               onClick={() => handleLetterChange(null)}
-              className={`px-2 py-1 text-sm font-medium rounded ${
+              className={`px-3 py-1.5 text-sm font-semibold rounded-lg transition-all ${
                 !selectedLetter
-                  ? 'bg-green-600 text-white'
+                  ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-md'
                   : 'text-gray-600 hover:bg-gray-100'
               }`}
               aria-pressed={!selectedLetter}
@@ -382,11 +382,11 @@ export function GlossaryClient({
                   onClick={() => hasTerms && handleLetterChange(selectedLetter === letter ? null : letter)}
                   disabled={!hasTerms}
                   aria-pressed={selectedLetter === letter}
-                  className={`w-8 h-8 text-sm font-medium rounded ${
+                  className={`w-8 h-8 text-sm font-semibold rounded-lg transition-all ${
                     selectedLetter === letter
-                      ? 'bg-green-600 text-white'
+                      ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-md'
                       : hasTerms
-                        ? 'text-gray-600 hover:bg-gray-100'
+                        ? 'text-gray-600 hover:bg-gray-100 hover:text-green-700'
                         : 'text-gray-300 cursor-not-allowed'
                   }`}
                 >
@@ -675,31 +675,41 @@ function TermCard({ term, categories }: { term: GlossaryTerm; categories: Catego
   return (
     <Link
       href={`/glossary/${term.slug}`}
-      className="block bg-white rounded-lg border border-gray-200 hover:shadow-md hover:border-green-300 transition-all group"
+      className="group block bg-white rounded-2xl border border-gray-200 hover:shadow-lg hover:border-green-300 transition-all duration-300 overflow-hidden"
     >
-      <article className="p-4">
-        <div className="flex items-start justify-between gap-2 mb-2">
+      {/* Gradient accent line */}
+      <div className="h-1 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+      <article className="p-5">
+        <div className="flex items-start justify-between gap-2 mb-3">
           <div>
-            <h3 className="font-semibold text-gray-900 text-lg group-hover:text-green-600 transition-colors">
+            <h3 className="font-bold text-gray-900 text-lg group-hover:text-green-700 transition-colors">
               {term.display_name || term.term}
             </h3>
             {term.pronunciation && (
-              <span className="text-xs text-gray-400 font-mono">/{term.pronunciation}/</span>
+              <span className="text-xs text-gray-400 font-mono mt-0.5 block">/{term.pronunciation}/</span>
             )}
           </div>
-          <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${categoryColors.bg} ${categoryColors.text}`}>
-            <span aria-hidden="true">{categoryInfo?.icon}</span> {categoryInfo?.label}
+          <span className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium ${categoryColors.bg} ${categoryColors.text}`}>
+            <span aria-hidden="true">{categoryInfo?.icon}</span>
+            <span className="hidden sm:inline">{categoryInfo?.label}</span>
           </span>
         </div>
 
-        <p className="text-gray-600 text-sm mb-3 line-clamp-2">{term.short_definition}</p>
+        <p className="text-gray-600 text-sm mb-3 line-clamp-2 leading-relaxed">{term.short_definition}</p>
 
-        {term.synonyms && term.synonyms.length > 0 && (
-          <div className="text-xs text-gray-500">
-            Also: {term.synonyms.slice(0, 2).join(', ')}
-            {term.synonyms.length > 2 && '...'}
-          </div>
-        )}
+        <div className="flex items-center justify-between">
+          {term.synonyms && term.synonyms.length > 0 ? (
+            <div className="text-xs text-gray-500">
+              Also: {term.synonyms.slice(0, 2).join(', ')}
+              {term.synonyms.length > 2 && '...'}
+            </div>
+          ) : (
+            <div />
+          )}
+          <svg className="w-5 h-5 text-gray-300 group-hover:text-green-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
       </article>
     </Link>
   );

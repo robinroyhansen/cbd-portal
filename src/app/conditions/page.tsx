@@ -5,7 +5,7 @@ import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 
 export const metadata: Metadata = {
   title: 'Health Conditions | CBD Portal',
-  description: 'Explore research-backed information on how CBD may help with anxiety, pain, sleep, inflammation, and 280+ other health conditions. Search, filter, and find the research you need.',
+  description: 'Explore research-backed information on how CBD may help with anxiety, pain, sleep, inflammation, and 300+ other health conditions. Search, filter, and find the research you need.',
   alternates: {
     canonical: '/conditions',
   },

@@ -52,7 +52,7 @@ const NAV_ITEMS: NavItem[] = [
           ]
         }
       ],
-      footer: { label: 'View all 39 conditions', href: '/conditions' }
+      footer: { label: 'View all 300+ conditions', href: '/conditions' }
     }
   },
   {
