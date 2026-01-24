@@ -1,0 +1,36 @@
+[dotenv@17.2.3] injecting env (5) from .env.local -- tip: ⚙️  write to custom object with { processEnv: myObject }
+
+💭 Add "My Take" Sections to All Article Types
+
+Configuration:
+  Mode: ✏️  APPLY CHANGES
+  Types: product-guide, guide, terpene-profile, educational-guide, educational, comparison, cannabinoid-profile, basics, application-guide, pillar, science, legal-guide
+  Limit: 1000 articles
+
+📚 Found 1000 articles
+   Already have My Take: 990
+   Need My Take: 10
+
+
+📁 PILLAR
+  🤖 beginners-guide-to-cbd... ✅
+  🤖 cbd-and-your-body... ✅
+  🤖 cbd-buying-guide... ✅
+  🤖 cbd-for-birds... ✅
+  🤖 cbd-for-horses... ✅
+  🤖 cbd-for-small-pets... ✅
+  🤖 history-of-cbd... ✅
+  🤖 introduction-to-cbd... ✅
+  🤖 understanding-cbd-quality... ✅
+  🤖 what-is-cbd... ✅
+
+
+═══════════════════════════════════════════════════════════
+📊 RESULTS
+═══════════════════════════════════════════════════════════
+  Articles processed: 10
+  My Take added: 10
+  Already had My Take: 990
+═══════════════════════════════════════════════════════════
+
+✅ Successfully added My Take to 10 articles

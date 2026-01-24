@@ -12,7 +12,8 @@ const supabase = createClient(
 const { data: articles } = await supabase
   .from('kb_articles')
   .select('slug, title, article_type, content')
-  .not('content', 'is', null);
+  .not('content', 'is', null)
+  .limit(2000);
 
 const metrics = {
   total: 0,
@@ -38,7 +39,7 @@ articles.forEach(a => {
   if (c.includes('## references') || c.includes('### references')) metrics.references++;
   if (c.includes('disclaimer') || c.includes('informational purposes only')) metrics.disclaimer++;
   if (c.includes('## related studies') || c.includes('/research/study/')) metrics.relatedStudies++;
-  if (c.includes('## faq') || c.includes('frequently asked')) metrics.faq++;
+  if (c.includes('## faq') || c.includes('frequently asked') || c.includes('## common questions')) metrics.faq++;
   if (c.includes('/glossary/')) metrics.glossaryLinks++;
 });
 

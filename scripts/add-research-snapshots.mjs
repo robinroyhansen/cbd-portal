@@ -23,28 +23,34 @@ const VERBOSE = args.includes('--verbose');
 
 // Topic mapping from article slugs to research topics
 const TOPIC_KEYWORDS = {
-  'anxiety': ['anxiety', 'anxious', 'stress', 'panic', 'social-anxiety', 'gad'],
+  'anxiety': ['anxiety', 'anxious', 'stress', 'panic', 'social-anxiety', 'gad', 'calm', 'relax'],
   'depression': ['depression', 'depressive', 'mood', 'sad', 'bipolar'],
-  'sleep': ['sleep', 'insomnia', 'circadian', 'rest'],
-  'pain': ['pain', 'ache', 'chronic-pain', 'neuropathic', 'nerve', 'back-pain', 'arthritis', 'joint'],
-  'epilepsy': ['epilepsy', 'seizure', 'convulsion'],
-  'inflammation': ['inflammation', 'inflammatory', 'anti-inflammatory', 'autoimmune', 'arthritis'],
-  'nausea': ['nausea', 'vomiting', 'antiemetic'],
-  'skin': ['skin', 'acne', 'psoriasis', 'eczema', 'derma'],
+  'sleep': ['sleep', 'insomnia', 'circadian', 'rest', 'night', 'bedtime'],
+  'pain': ['pain', 'ache', 'chronic-pain', 'neuropathic', 'nerve', 'back-pain', 'arthritis', 'joint', 'muscle', 'relief'],
+  'epilepsy': ['epilepsy', 'seizure', 'convulsion', 'dravet', 'lennox'],
+  'inflammation': ['inflammation', 'inflammatory', 'anti-inflammatory', 'autoimmune', 'immune'],
+  'nausea': ['nausea', 'vomiting', 'antiemetic', 'stomach'],
+  'skin': ['skin', 'acne', 'psoriasis', 'eczema', 'derma', 'topical', 'cream', 'skincare'],
   'cancer': ['cancer', 'tumor', 'oncology', 'chemotherapy'],
   'ptsd': ['ptsd', 'trauma', 'post-traumatic'],
-  'addiction': ['addiction', 'withdrawal', 'opioid', 'smoking', 'alcohol'],
-  'diabetes': ['diabetes', 'glucose', 'insulin'],
-  'heart': ['heart', 'cardiac', 'cardiovascular', 'blood-pressure'],
-  'ibs': ['ibs', 'bowel', 'digestive', 'gut', 'crohn', 'colitis'],
+  'addiction': ['addiction', 'withdrawal', 'opioid', 'smoking', 'alcohol', 'substance'],
+  'diabetes': ['diabetes', 'glucose', 'insulin', 'blood-sugar'],
+  'heart': ['heart', 'cardiac', 'cardiovascular', 'blood-pressure', 'hypertension'],
+  'ibs': ['ibs', 'bowel', 'digestive', 'gut', 'crohn', 'colitis', 'intestinal'],
   'migraine': ['migraine', 'headache'],
   'ms': ['multiple-sclerosis', 'ms', 'sclerosis'],
   'autism': ['autism', 'asd', 'autistic'],
-  'adhd': ['adhd', 'attention', 'hyperactivity'],
-  'schizophrenia': ['schizophrenia', 'psychosis'],
-  'glaucoma': ['glaucoma', 'eye', 'intraocular'],
-  'obesity': ['obesity', 'weight', 'metabolic'],
-  'neuroprotection': ['neuroprotection', 'alzheimer', 'parkinson', 'dementia'],
+  'adhd': ['adhd', 'attention', 'hyperactivity', 'focus'],
+  'schizophrenia': ['schizophrenia', 'psychosis', 'antipsychotic'],
+  'glaucoma': ['glaucoma', 'eye', 'intraocular', 'vision'],
+  'obesity': ['obesity', 'weight', 'metabolic', 'appetite'],
+  'neuroprotection': ['neuroprotection', 'alzheimer', 'parkinson', 'dementia', 'cognitive', 'brain'],
+  // Product-related topics that have research
+  'bioavailability': ['bioavailability', 'absorption', 'sublingual', 'tincture', 'oil'],
+  'terpenes': ['terpene', 'myrcene', 'limonene', 'linalool', 'pinene', 'caryophyllene'],
+  'cannabinoids': ['cannabinoid', 'cbd', 'thc', 'cbg', 'cbn', 'cbc', 'spectrum', 'isolate'],
+  'pets': ['dog', 'cat', 'pet', 'animal', 'veterinary', 'canine', 'feline'],
+  'exercise': ['exercise', 'sport', 'athlete', 'recovery', 'workout', 'fitness'],
 };
 
 /**
@@ -220,7 +226,7 @@ async function main() {
     .from('kb_articles')
     .select('id, slug, title, article_type, content')
     .not('content', 'is', null)
-    .in('article_type', ['pillar', 'educational', 'science', 'comparison'])
+    .not('article_type', 'is', null)
     .order('article_type')
     .limit(LIMIT);
 

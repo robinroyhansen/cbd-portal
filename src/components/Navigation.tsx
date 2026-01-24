@@ -43,12 +43,12 @@ const NAV_ITEMS: NavItem[] = [
         {
           title: 'Browse by Body System',
           items: [
-            { label: 'Neurological & Mental Health', href: '/conditions?category=neurological', icon: '🧠' },
-            { label: 'Pain & Inflammation', href: '/conditions?category=pain', icon: '💪' },
-            { label: 'Gastrointestinal', href: '/conditions?category=gastrointestinal', icon: '🫃' },
+            { label: 'Mental Health', href: '/conditions?category=mental-health', icon: '🧠' },
+            { label: 'Pain & Discomfort', href: '/conditions?category=pain', icon: '💪' },
+            { label: 'Neurological', href: '/conditions?category=neurological', icon: '⚡' },
+            { label: 'Digestive Health', href: '/conditions?category=digestive', icon: '🍃' },
             { label: 'Skin Conditions', href: '/conditions?category=skin', icon: '✨' },
-            { label: 'Cardiovascular', href: '/conditions?category=cardiovascular', icon: '❤️' },
-            { label: 'Cancer & Oncology', href: '/conditions?category=cancer', icon: '🎗️' },
+            { label: 'Sleep Disorders', href: '/conditions?category=sleep', icon: '😴' },
           ]
         }
       ],

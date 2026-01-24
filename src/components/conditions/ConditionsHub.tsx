@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
+import { useSearchParams, useRouter } from 'next/navigation';
 
 // Category configuration
 const CATEGORY_CONFIG: Record<string, {
@@ -113,9 +114,28 @@ interface ConditionsHubProps {
 }
 
 export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const categoryFromUrl = searchParams.get('category');
+
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(categoryFromUrl);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+
+  // Sync state with URL parameter changes
+  useEffect(() => {
+    setSelectedCategory(categoryFromUrl);
+  }, [categoryFromUrl]);
+
+  // Update URL when category changes
+  const handleCategoryChange = (category: string | null) => {
+    setSelectedCategory(category);
+    if (category) {
+      router.push(`/conditions?category=${category}`, { scroll: false });
+    } else {
+      router.push('/conditions', { scroll: false });
+    }
+  };
 
   // Calculate stats
   const totalConditions = conditions.length;
@@ -275,7 +295,7 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
         {/* Category Filter Pills */}
         <div className="flex flex-wrap gap-2">
           <button
-            onClick={() => setSelectedCategory(null)}
+            onClick={() => handleCategoryChange(null)}
             className={`px-4 py-2 rounded-full text-sm font-medium transition ${
               !selectedCategory
                 ? 'bg-green-600 text-white'
@@ -291,7 +311,7 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
             return (
               <button
                 key={cat}
-                onClick={() => setSelectedCategory(selectedCategory === cat ? null : cat)}
+                onClick={() => handleCategoryChange(selectedCategory === cat ? null : cat)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition flex items-center gap-1 ${
                   selectedCategory === cat
                     ? `${config.bgColor} ${config.color} ring-2 ring-offset-1 ring-current`
@@ -399,7 +419,7 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
               return (
                 <button
                   key={cat}
-                  onClick={() => setSelectedCategory(cat)}
+                  onClick={() => handleCategoryChange(cat)}
                   className={`text-left p-5 rounded-xl border-2 transition-all hover:shadow-md ${config.bgColor} ${config.borderColor} hover:border-current`}
                 >
                   <div className="flex items-center gap-3 mb-2">
@@ -524,7 +544,7 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
             Try adjusting your search or filter criteria
           </p>
           <button
-            onClick={() => { setSearchQuery(''); setSelectedCategory(null); }}
+            onClick={() => { setSearchQuery(''); handleCategoryChange(null); }}
             className="text-green-600 hover:text-green-700 font-medium"
           >
             Clear all filters

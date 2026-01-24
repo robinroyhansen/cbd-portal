@@ -32,49 +32,12 @@ function hasKeyNumbers(content) {
 }
 
 /**
- * Check if article is about a health condition/topic that warrants Key Numbers
+ * Check if article could benefit from Key Numbers
+ * Now accepts all articles - let the AI decide if there are meaningful stats
  */
-function isHealthArticle(article) {
-  const slug = article.slug || '';
-  const title = (article.title || '').toLowerCase();
-
-  // Include condition-related articles
-  const conditionPatterns = [
-    /^cbd-(and|for)-/,
-    /anxiety|depression|sleep|pain|epilepsy|inflammation/i,
-    /arthritis|migraine|stress|nausea|ptsd|acne|skin/i,
-    /diabetes|heart|cancer|ibs|autism|adhd|alzheimer/i,
-  ];
-
-  // Exclude non-health articles
-  const excludePatterns = [
-    /legal|law|regulation|flying|travel|import|export/i,
-    /buyer|shopping|store|price|cost|brand/i,
-    /programmer|writer|artist|chef|actor|nurse|therapist/i,
-    /architect|photographer|podcaster|streamer|trucker/i,
-  ];
-
-  // Check for exclusions first
-  for (const pattern of excludePatterns) {
-    if (pattern.test(slug) || pattern.test(title)) {
-      return false;
-    }
-  }
-
-  // Check for health/condition topics
-  for (const pattern of conditionPatterns) {
-    if (pattern.test(slug) || pattern.test(title)) {
-      return true;
-    }
-  }
-
-  // Include pillar articles about health topics
-  if (article.article_type === 'pillar') {
-    const healthPillars = ['dogs', 'cats', 'pets', 'anxiety', 'sleep', 'pain'];
-    return healthPillars.some(h => slug.includes(h) || title.includes(h));
-  }
-
-  return false;
+function isEligibleForKeyNumbers(article) {
+  // All articles are eligible - the AI will skip if no stats found
+  return true;
 }
 
 /**
@@ -191,7 +154,7 @@ async function main() {
 
   // Filter to health articles without Key Numbers
   const candidates = articles.filter(a =>
-    !hasKeyNumbers(a.content) && isHealthArticle(a)
+    !hasKeyNumbers(a.content) && isEligibleForKeyNumbers(a)
   );
 
   const alreadyHas = articles.filter(a => hasKeyNumbers(a.content)).length;

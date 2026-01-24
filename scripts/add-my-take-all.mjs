@@ -38,6 +38,9 @@ const TARGET_TYPES = [
   'cannabinoid-profile',
   'basics',
   'application-guide',
+  'pillar',
+  'science',
+  'legal-guide',
 ];
 
 // ============================================================================
