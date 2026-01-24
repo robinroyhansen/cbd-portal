@@ -10,6 +10,7 @@ interface NavChild {
   href: string;
   description?: string;
   icon?: string;
+  researchHref?: string; // Link to filtered research database
 }
 
 interface NavItem {
@@ -31,12 +32,12 @@ const NAV_ITEMS: NavItem[] = [
     icon: '🏥',
     megaMenu: {
       featured: [
-        { label: 'Anxiety', href: '/conditions/anxiety', description: '353 studies', icon: '😰' },
-        { label: 'Sleep & Insomnia', href: '/conditions/sleep', description: '287 studies', icon: '😴' },
-        { label: 'Chronic Pain', href: '/conditions/chronic_pain', description: '412 studies', icon: '💪' },
-        { label: 'Depression', href: '/conditions/depression', description: '198 studies', icon: '😔' },
-        { label: 'Epilepsy', href: '/conditions/epilepsy', description: 'FDA approved', icon: '⚡' },
-        { label: 'Inflammation', href: '/conditions/inflammation', description: '267 studies', icon: '🔥' },
+        { label: 'Anxiety', href: '/conditions/anxiety', description: '353 studies', icon: '😰', researchHref: '/research/anxiety' },
+        { label: 'Sleep & Insomnia', href: '/conditions/sleep', description: '287 studies', icon: '😴', researchHref: '/research/sleep' },
+        { label: 'Chronic Pain', href: '/conditions/chronic_pain', description: '412 studies', icon: '💪', researchHref: '/research/chronic_pain' },
+        { label: 'Depression', href: '/conditions/depression', description: '198 studies', icon: '😔', researchHref: '/research/depression' },
+        { label: 'Epilepsy', href: '/conditions/epilepsy', description: 'FDA approved', icon: '⚡', researchHref: '/research/epilepsy' },
+        { label: 'Inflammation', href: '/conditions/inflammation', description: '267 studies', icon: '🔥', researchHref: '/research/inflammation' },
       ],
       categories: [
         {
@@ -193,19 +194,31 @@ export function Navigation() {
                             </h3>
                             <div className="space-y-1">
                               {item.megaMenu.featured.map((child) => (
-                                <Link
-                                  key={child.href}
-                                  href={child.href}
-                                  className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors group/item"
-                                >
+                                <div key={child.href} className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors group/item">
                                   <span className="text-lg">{child.icon}</span>
                                   <div className="flex-1 min-w-0">
-                                    <div className="font-medium text-gray-900 group-hover/item:text-green-700">{child.label}</div>
-                                    {child.description && (
+                                    <Link
+                                      href={child.href}
+                                      className="font-medium text-gray-900 group-hover/item:text-green-700 block"
+                                    >
+                                      {child.label}
+                                    </Link>
+                                    {child.description && child.researchHref ? (
+                                      <Link
+                                        href={child.researchHref}
+                                        className="text-xs text-green-600 hover:text-green-700 hover:underline flex items-center gap-1"
+                                        onClick={(e) => e.stopPropagation()}
+                                      >
+                                        {child.description}
+                                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                        </svg>
+                                      </Link>
+                                    ) : child.description ? (
                                       <div className="text-xs text-gray-500">{child.description}</div>
-                                    )}
+                                    ) : null}
                                   </div>
-                                </Link>
+                                </div>
                               ))}
                             </div>
                           </div>
@@ -375,20 +388,35 @@ export function Navigation() {
                     <div className="pl-4 py-2 space-y-1">
                       {/* Featured items */}
                       {item.megaMenu.featured?.map((child) => (
-                        <Link
+                        <div
                           key={child.href}
-                          href={child.href}
                           className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
-                          onClick={() => setIsMobileMenuOpen(false)}
                         >
                           <span className="text-lg">{child.icon}</span>
                           <div className="flex-1">
-                            <div className="font-medium">{child.label}</div>
-                            {child.description && (
+                            <Link
+                              href={child.href}
+                              className="font-medium block"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                              {child.label}
+                            </Link>
+                            {child.description && child.researchHref ? (
+                              <Link
+                                href={child.researchHref}
+                                className="text-xs text-green-600 hover:text-green-700 flex items-center gap-1"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                {child.description}
+                                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                              </Link>
+                            ) : child.description ? (
                               <div className="text-xs text-gray-400">{child.description}</div>
-                            )}
+                            ) : null}
                           </div>
-                        </Link>
+                        </div>
                       ))}
 
                       {/* Separator */}

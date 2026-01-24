@@ -55,6 +55,15 @@ export default async function ConditionPage({ params }: Props) {
     .order('quality_score', { ascending: false })
     .limit(10);
 
+  // Get related articles
+  const { data: articles } = await supabase
+    .from('kb_articles')
+    .select('id, title, slug, excerpt, featured_image, published_at, reading_time')
+    .or(`condition_id.eq.${condition.id},title.ilike.%${condition.name}%`)
+    .eq('status', 'published')
+    .order('published_at', { ascending: false })
+    .limit(6);
+
   // Get related conditions
   let relatedConditions = [];
   if (condition.related_condition_slugs && condition.related_condition_slugs.length > 0) {
@@ -107,11 +116,59 @@ export default async function ConditionPage({ params }: Props) {
             <h3 className="text-amber-800 font-semibold mb-2">Article Coming Soon</h3>
             <p className="text-amber-700">
               We&apos;re currently preparing a comprehensive article on CBD and {condition.display_name || condition.name}.
-              In the meantime, you can explore the research studies below.
+              In the meantime, you can explore the articles and research studies below.
             </p>
           </div>
         )}
       </div>
+
+      {/* Related Articles */}
+      {articles && articles.length > 0 && (
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-6">Articles About {condition.display_name || condition.name}</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {articles.map((article: { id: string; title: string; slug: string; excerpt?: string; featured_image?: string; published_at?: string; reading_time?: number }) => (
+              <Link
+                key={article.id}
+                href={`/articles/${article.slug}`}
+                className="group block p-4 border border-gray-200 rounded-xl hover:border-green-300 hover:shadow-sm transition-all"
+              >
+                {article.featured_image && (
+                  <div className="aspect-video rounded-lg overflow-hidden mb-3 bg-gray-100">
+                    <img
+                      src={article.featured_image}
+                      alt={article.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                    />
+                  </div>
+                )}
+                <h3 className="font-semibold text-gray-900 group-hover:text-green-700 line-clamp-2 mb-2">
+                  {article.title}
+                </h3>
+                {article.excerpt && (
+                  <p className="text-sm text-gray-600 line-clamp-2 mb-2">
+                    {article.excerpt}
+                  </p>
+                )}
+                <div className="flex items-center gap-2 text-xs text-gray-500">
+                  {article.reading_time && (
+                    <span>{article.reading_time} min read</span>
+                  )}
+                </div>
+              </Link>
+            ))}
+          </div>
+          <Link
+            href={`/articles?q=${encodeURIComponent(condition.name)}`}
+            className="inline-flex items-center gap-2 mt-4 text-green-700 hover:text-green-800 font-medium"
+          >
+            View more articles
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
+      )}
 
       {/* Research Studies */}
       {research && research.length > 0 && (
@@ -169,9 +226,12 @@ export default async function ConditionPage({ params }: Props) {
 
           <Link
             href={`/research/${slug}`}
-            className="inline-flex items-center gap-2 mt-4 text-green-700 hover:text-green-800 font-medium"
+            className="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 font-medium transition-colors"
           >
-            View all research on {condition.display_name || condition.name}
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Browse all {condition.research_count || ''} studies on {condition.display_name || condition.name}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
