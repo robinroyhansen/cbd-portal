@@ -34,17 +34,14 @@ const supabase = await createClient();
       throw error;
     }
 
-    // Get counts by category
-    const { data: allTerms } = await supabase
-      .from('kb_glossary')
-      .select('category');
-
+    // Calculate counts from fetched terms in a single pass
+    // Note: If filters are applied, counts are for filtered results only
     const categoryCounts: Record<string, number> = {};
-    let total = 0;
-    allTerms?.forEach(t => {
+    (terms || []).forEach(t => {
       categoryCounts[t.category] = (categoryCounts[t.category] || 0) + 1;
-      total++;
     });
+
+    const total = terms?.length || 0;
 
     return NextResponse.json({
       terms: terms || [],

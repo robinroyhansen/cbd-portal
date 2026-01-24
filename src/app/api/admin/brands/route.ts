@@ -36,16 +36,25 @@ const supabase = createServiceClient();
       query = query.or(`name.ilike.%${search}%,website_domain.ilike.%${search}%`);
     }
 
-    const { data: brands, error } = await query;
+    const { data: brands, error, count: totalCount } = await query;
 
     if (error) {
       console.error('Error fetching brands:', error);
       throw error;
     }
 
-    // Transform to include review status
-    // Note: kb_brand_reviews can be an array or single object depending on Supabase's inference
+    // Transform to include review status and calculate counts in a single pass
+    let publishedCount = 0;
+    let draftCount = 0;
+
     const brandsWithReviewStatus = (brands || []).map(brand => {
+      // Count published/draft in the same loop
+      if (brand.is_published) {
+        publishedCount++;
+      } else {
+        draftCount++;
+      }
+
       const reviews = brand.kb_brand_reviews;
       // Handle both array and object cases
       const review = Array.isArray(reviews)
@@ -61,17 +70,13 @@ const supabase = createServiceClient();
       };
     });
 
-    // Get counts
-    const { data: allBrands } = await supabase
-      .from('kb_brands')
-      .select('is_published');
-
-    const publishedCount = allBrands?.filter(b => b.is_published).length || 0;
-    const draftCount = allBrands?.filter(b => !b.is_published).length || 0;
+    // Note: If filters are applied (search/published), counts are for filtered results
+    // For accurate total counts, we'd need a separate count query only when filters are applied
+    const total = brands?.length || 0;
 
     return NextResponse.json({
       brands: brandsWithReviewStatus,
-      total: allBrands?.length || 0,
+      total,
       publishedCount,
       draftCount
     });

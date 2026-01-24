@@ -1,6 +1,7 @@
 import { createServiceClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAdminAuth } from '@/lib/admin-api-auth';
+import { logAdminAction, ADMIN_ACTIONS, RESOURCE_TYPES } from '@/lib/audit-log';
 
 export async function POST(request: NextRequest) {
   // Require admin authentication
@@ -39,6 +40,17 @@ export async function POST(request: NextRequest) {
       console.error('Error updating study status:', error);
       return NextResponse.json({ error: 'Failed to update status' }, { status: 500 });
     }
+
+    // Log the status change action
+    await logAdminAction(request, {
+      action: status === 'rejected' ? ADMIN_ACTIONS.REJECT_STUDY : ADMIN_ACTIONS.UPDATE_STUDY,
+      resourceType: RESOURCE_TYPES.RESEARCH,
+      resourceId: id,
+      details: {
+        newStatus: status,
+        rejectionReason: rejection_reason || null
+      }
+    });
 
     return NextResponse.json({ success: true, id, status });
   } catch (error) {

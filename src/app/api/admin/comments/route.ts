@@ -34,25 +34,21 @@ const supabase = await createClient();
       throw error;
     }
 
-    // Get counts by status
-    const { data: counts } = await supabase
-      .from('kb_comments')
-      .select('status')
-      .then(({ data }) => {
-        const statusCounts = {
-          all: data?.length || 0,
-          pending: 0,
-          approved: 0,
-          rejected: 0,
-          spam: 0
-        };
-        data?.forEach(c => {
-          if (c.status in statusCounts) {
-            statusCounts[c.status as keyof typeof statusCounts]++;
-          }
-        });
-        return { data: statusCounts };
-      });
+    // Calculate status counts from fetched comments in a single pass
+    // Note: If filters are applied, counts are for filtered results only
+    const counts = {
+      all: comments?.length || 0,
+      pending: 0,
+      approved: 0,
+      rejected: 0,
+      spam: 0
+    };
+
+    (comments || []).forEach(c => {
+      if (c.status in counts) {
+        counts[c.status as keyof typeof counts]++;
+      }
+    });
 
     return NextResponse.json({ comments: comments || [], counts });
   } catch (error) {

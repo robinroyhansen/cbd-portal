@@ -3,6 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { generateStudySlug } from '@/lib/utils/slug-generator';
 import { extractSampleSize } from '@/lib/utils/extract-sample-size';
+import { logAdminAction, ADMIN_ACTIONS, RESOURCE_TYPES } from '@/lib/audit-log';
 
 interface Study {
   id: string;
@@ -93,6 +94,19 @@ export async function POST(request: NextRequest) {
     if (updateError) {
       return NextResponse.json({ error: updateError.message }, { status: 500 });
     }
+
+    // Log the approval action
+    await logAdminAction(request, {
+      action: ADMIN_ACTIONS.APPROVE_STUDY,
+      resourceType: RESOURCE_TYPES.RESEARCH,
+      resourceId: studyId,
+      details: {
+        title: study.title,
+        slug: finalSlug,
+        sampleSize: sampleResult?.size || null,
+        sampleType: sampleResult?.type || 'unknown'
+      }
+    });
 
     return NextResponse.json({
       success: true,
