@@ -181,27 +181,48 @@ export async function POST(request: NextRequest) {
     // Add the condition slug as a fallback keyword
     const allKeywords = [...new Set([...keywords, conditionSlug])];
 
-    // Fetch all approved research with topics
-    const { data: allResearch, error: researchError } = await supabase
-      .from('kb_research_queue')
-      .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, abstract, plain_summary, doi, pmid, authors, key_findings, primary_topic, relevant_topics')
-      .eq('status', 'approved');
+    let studies: ResearchStudy[] = [];
 
-    if (researchError) {
-      console.error('Research fetch error:', researchError);
-      return NextResponse.json({ error: 'Failed to fetch research' }, { status: 500 });
+    try {
+      // Fetch all approved research with topics
+      const { data: allResearch, error: researchError } = await supabase
+        .from('kb_research_queue')
+        .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, abstract, plain_summary, doi, pmid, authors, key_findings, primary_topic, relevant_topics')
+        .eq('status', 'approved');
+
+      if (researchError) {
+        console.error('Research fetch error:', researchError);
+      } else if (allResearch) {
+        // Filter research that matches any of the condition's topic keywords
+        studies = allResearch
+          .filter((research: any) => {
+            const topics = [
+              research.primary_topic,
+              ...(Array.isArray(research.relevant_topics) ? research.relevant_topics : [])
+            ].filter(Boolean);
+            return allKeywords.some(keyword => topics.includes(keyword));
+          })
+          .sort((a: any, b: any) => (b.quality_score || 0) - (a.quality_score || 0))
+          .map((r: any) => ({
+            id: r.id,
+            title: r.title,
+            slug: r.slug,
+            year: r.year,
+            study_type: r.study_type,
+            study_subject: r.study_subject,
+            sample_size: r.sample_size,
+            quality_score: r.quality_score,
+            abstract: r.abstract,
+            plain_summary: r.plain_summary,
+            doi: r.doi,
+            pmid: r.pmid,
+            authors: r.authors,
+            key_findings: r.key_findings
+          }));
+      }
+    } catch (fetchError) {
+      console.error('Research fetch exception:', fetchError);
     }
-
-    // Filter research that matches any of the condition's topic keywords
-    const studies: ResearchStudy[] = (allResearch || [])
-      .filter(research => {
-        const topics = [
-          research.primary_topic,
-          ...(Array.isArray(research.relevant_topics) ? research.relevant_topics : [])
-        ].filter(Boolean);
-        return allKeywords.some(keyword => topics.includes(keyword));
-      })
-      .sort((a, b) => (b.quality_score || 0) - (a.quality_score || 0));
     const evidence = analyzeEvidence(studies);
 
     // Prepare context for Claude
