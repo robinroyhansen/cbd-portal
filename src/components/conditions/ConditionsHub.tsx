@@ -95,6 +95,16 @@ const CATEGORY_CONFIG: Record<string, {
     gradientTo: 'to-cyan-500',
     description: 'Diabetes, obesity, and metabolic conditions',
   },
+  'pets': {
+    icon: '🐾',
+    name: 'Pets & Animals',
+    color: 'text-amber-700',
+    bgColor: 'bg-amber-50',
+    borderColor: 'border-amber-200',
+    gradientFrom: 'from-amber-500',
+    gradientTo: 'to-orange-500',
+    description: 'CBD for dogs, cats, horses, birds, and small pets',
+  },
   'other': {
     icon: '🏥',
     name: 'Other Conditions',

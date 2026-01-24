@@ -95,7 +95,6 @@ const NAV_ITEMS: NavItem[] = [
         { label: 'Drug Interaction Checker', href: '/tools/interactions', description: 'Check CBD-medication safety', icon: '⚠️' },
         { label: 'CBD Cost Calculator', href: '/tools/cost-calculator', description: 'Compare price per mg', icon: '💰' },
         { label: 'Strength Calculator', href: '/tools/strength-calculator', description: 'Convert mg/ml & percentages', icon: '📊' },
-        { label: 'Pet Dosage Calculator', href: '/tools/animal-dosage-calculator', description: 'Vet-guided dosing', icon: '🐕' },
       ],
       categories: [
         {
@@ -108,6 +107,36 @@ const NAV_ITEMS: NavItem[] = [
         }
       ],
       footer: { label: 'View all tools', href: '/tools' }
+    }
+  },
+  {
+    label: 'Pets',
+    href: '/pets',
+    icon: '🐾',
+    megaMenu: {
+      featured: [
+        { label: 'Dogs', href: '/pets/dogs', description: 'Anxiety, pain, seizures & more', icon: '🐕' },
+        { label: 'Cats', href: '/pets/cats', description: 'Arthritis, anxiety, kidney health', icon: '🐈' },
+        { label: 'Horses', href: '/pets/horses', description: 'Performance, ulcers, laminitis', icon: '🐴' },
+        { label: 'Small Pets', href: '/pets/small-pets', description: 'Rabbits, ferrets, hamsters', icon: '🐰' },
+        { label: 'Birds', href: '/pets/birds', description: 'Parrots, anxiety, feather plucking', icon: '🦜' },
+      ],
+      categories: [
+        {
+          title: 'Pet Tools',
+          items: [
+            { label: 'Pet Dosage Calculator', href: '/tools/animal-dosage-calculator', description: 'Vet-guided dosing', icon: '💊' },
+          ]
+        },
+        {
+          title: 'Quick Links',
+          items: [
+            { label: 'All Pet Articles', href: '/pets', description: '78+ guides', icon: '📄' },
+            { label: 'Pet Research', href: '/research?topic=veterinary', description: 'Scientific studies', icon: '🔬' },
+          ]
+        }
+      ],
+      footer: { label: 'View all pet guides', href: '/pets' }
     }
   },
   {

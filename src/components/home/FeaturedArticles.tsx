@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { createClient } from '@/lib/supabase/server';
 
 export async function FeaturedArticles() {
@@ -7,7 +8,7 @@ export async function FeaturedArticles() {
   const { data: articles } = await supabase
     .from('kb_articles')
     .select(`
-      slug, title, meta_description, reading_time, updated_at,
+      slug, title, meta_description, reading_time, updated_at, featured_image,
       category:kb_categories(name, slug)
     `)
     .eq('status', 'published')
@@ -51,9 +52,28 @@ export async function FeaturedArticles() {
               href={`/articles/${featured.slug}`}
               className="group block h-full bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100"
             >
-              {/* Gradient accent */}
-              <div className="h-2 bg-gradient-to-r from-blue-500 to-indigo-500" />
-              <div className="p-6 md:p-8 h-full flex flex-col">
+              {/* Hero Image */}
+              <div className="relative aspect-[2/1] overflow-hidden bg-gradient-to-br from-blue-100 to-indigo-100">
+                {featured.featured_image ? (
+                  <Image
+                    src={featured.featured_image}
+                    alt={featured.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 66vw"
+                    priority
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-blue-300/50">
+                      <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                      </svg>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div className="p-6 md:p-8 flex flex-col">
                 {featured.category && (
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-100 text-blue-700 text-sm font-medium rounded-full mb-4 w-fit">
                     <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
@@ -99,23 +119,44 @@ export async function FeaturedArticles() {
             <Link
               key={article.slug}
               href={`/articles/${article.slug}`}
-              className="group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 p-5 md:p-6 border border-gray-100 hover:border-blue-200"
+              className="group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200"
               style={{ animationDelay: `${index * 50}ms` }}
             >
-              {article.category && (
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 text-gray-600 text-xs font-medium rounded-full mb-3">
-                  {article.category.name}
-                </span>
-              )}
-              <h3 className="font-bold text-gray-900 group-hover:text-blue-700 transition-colors mb-2 line-clamp-2">
-                {article.title}
-              </h3>
-              <p className="text-sm text-gray-500 line-clamp-2 mb-4">{article.meta_description}</p>
-              <div className="flex items-center justify-between text-xs text-gray-400">
-                <span>{article.reading_time}</span>
-                <svg className="w-4 h-4 text-gray-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+              {/* Thumbnail */}
+              <div className="relative aspect-[16/9] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                {article.featured_image ? (
+                  <Image
+                    src={article.featured_image}
+                    alt={article.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-gray-300">
+                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                      </svg>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div className="p-4 md:p-5">
+                {article.category && (
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 text-gray-600 text-xs font-medium rounded-full mb-2">
+                    {article.category.name}
+                  </span>
+                )}
+                <h3 className="font-bold text-gray-900 group-hover:text-blue-700 transition-colors mb-2 line-clamp-2 text-sm md:text-base">
+                  {article.title}
+                </h3>
+                <div className="flex items-center justify-between text-xs text-gray-400">
+                  <span>{article.reading_time}</span>
+                  <svg className="w-4 h-4 text-gray-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
               </div>
             </Link>
           ))}

@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Article {
   id: string;
@@ -232,11 +233,25 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
                   <Link key={article.id} href={`/articles/${article.slug}`}
                     className={`group relative bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 ${index === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}>
                     <div className="h-1.5 bg-gradient-to-r from-blue-500 to-indigo-500" />
-                    {article.featured_image && (
-                      <div className={`overflow-hidden ${index === 0 ? 'aspect-[2/1]' : 'aspect-video'}`}>
-                        <img src={article.featured_image} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                      </div>
-                    )}
+                    <div className={`relative overflow-hidden bg-gradient-to-br from-blue-100 to-indigo-100 ${index === 0 ? 'aspect-[2/1]' : 'aspect-video'}`}>
+                      {article.featured_image ? (
+                        <Image
+                          src={article.featured_image}
+                          alt={article.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          sizes={index === 0 ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-blue-300/50">
+                            <svg className={`${index === 0 ? 'w-20 h-20' : 'w-12 h-12'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                            </svg>
+                          </div>
+                        </div>
+                      )}
+                    </div>
                     <div className={`p-5 ${index === 0 ? 'md:p-8' : ''}`}>
                       {article.category && (
                         <span className={`inline-flex items-center gap-1.5 px-3 py-1 ${categoryStyle.bgColor} ${categoryStyle.color} text-xs font-medium rounded-full mb-3`}>
@@ -285,11 +300,25 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
                 return (
                   <Link key={article.id} href={`/articles/${article.slug}`}
                     className="group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-blue-300 hover:shadow-lg transition-all duration-300">
-                    {article.featured_image && (
-                      <div className="aspect-video overflow-hidden">
-                        <img src={article.featured_image} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                      </div>
-                    )}
+                    <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                      {article.featured_image ? (
+                        <Image
+                          src={article.featured_image}
+                          alt={article.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-gray-300">
+                            <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                            </svg>
+                          </div>
+                        </div>
+                      )}
+                    </div>
                     <div className="p-5">
                       {article.category && (
                         <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 ${categoryStyle.bgColor} ${categoryStyle.color} text-xs font-medium rounded-full mb-3`}>
