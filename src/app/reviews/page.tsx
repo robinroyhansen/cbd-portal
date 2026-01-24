@@ -95,7 +95,7 @@ export default function ReviewsIndexPage() {
   // Using formatDate from @/lib/locale - wrapper to handle null
   const formatDateSafe = (dateStr: string | null) => {
     if (!dateStr) return '';
-    return formatDateSafe(dateStr);
+    return formatDate(dateStr);
   };
 
   return (
