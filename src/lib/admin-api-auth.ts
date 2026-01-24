@@ -25,9 +25,26 @@ import { NextRequest, NextResponse } from 'next/server';
  * For browser-based admin pages, use session auth instead of this.
  */
 
+import { timingSafeEqual } from 'crypto';
+
 // Get the admin password from environment
 // Set ADMIN_PASSWORD in Vercel environment variables
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || process.env.ADMIN_PASSWORD;
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+const CRON_SECRET = process.env.CRON_SECRET;
+
+/**
+ * Timing-safe string comparison to prevent timing attacks
+ */
+function safeCompare(a: string, b: string): boolean {
+  if (a.length !== b.length) {
+    return false;
+  }
+  try {
+    return timingSafeEqual(Buffer.from(a), Buffer.from(b));
+  } catch {
+    return false;
+  }
+}
 
 /**
  * Check if request has valid admin authentication
@@ -69,8 +86,8 @@ export function requireAdminAuth(request: NextRequest): NextResponse | null {
 
   const token = authHeader.slice(7); // Remove "Bearer " prefix
 
-  // Validate token
-  if (token !== ADMIN_PASSWORD) {
+  // Validate token with timing-safe comparison
+  if (!safeCompare(token, ADMIN_PASSWORD)) {
     return NextResponse.json(
       { error: 'Unauthorized - invalid token' },
       { status: 401 }
@@ -83,19 +100,20 @@ export function requireAdminAuth(request: NextRequest): NextResponse | null {
 
 /**
  * Check if request is from a trusted internal source
- * (e.g., Vercel cron jobs, server-side calls)
+ * (e.g., Vercel cron jobs)
+ *
+ * Security notes:
+ * - Only validates CRON_SECRET if configured
+ * - Uses timing-safe comparison to prevent timing attacks
+ * - Does NOT accept service role key in headers (too dangerous)
  */
 export function isInternalRequest(request: NextRequest): boolean {
-  // Check for Vercel cron secret
-  const cronSecret = request.headers.get('x-cron-secret');
-  if (cronSecret && cronSecret === process.env.CRON_SECRET) {
-    return true;
-  }
-
-  // Check for internal API calls (same origin with service key)
-  const serviceKey = request.headers.get('x-service-key');
-  if (serviceKey && serviceKey === process.env.SUPABASE_SERVICE_ROLE_KEY) {
-    return true;
+  // Check for Vercel cron secret (set via Vercel dashboard)
+  if (CRON_SECRET) {
+    const cronHeader = request.headers.get('authorization');
+    if (cronHeader?.startsWith('Bearer ') && safeCompare(cronHeader.slice(7), CRON_SECRET)) {
+      return true;
+    }
   }
 
   return false;

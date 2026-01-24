@@ -13,7 +13,7 @@ export async function GET() {
 
     if (error) {
       console.error('Supabase error:', error);
-      return NextResponse.json({ error: error.message, articles: [] }, { status: 500 });
+      return NextResponse.json({ error: 'Failed to fetch articles', articles: [] }, { status: 500 });
     }
 
     return NextResponse.json({ articles: articles || [] });

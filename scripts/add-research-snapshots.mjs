@@ -1,16 +1,13 @@
 /**
  * Add Research Snapshots to Articles
  *
- * Adds "Research Snapshot" boxes to condition articles with:
- * - Study counts by type
- * - Links to internal study pages
- * - Evidence strength indicator
+ * Generates research summary boxes with real data from kb_research_queue
+ * Shows study counts, participant numbers, and evidence strength
  *
  * Usage:
- *   node scripts/add-research-snapshots.mjs --dry-run          # Preview changes
- *   node scripts/add-research-snapshots.mjs                    # Apply changes
- *   node scripts/add-research-snapshots.mjs --limit=10         # Limit articles
- *   node scripts/add-research-snapshots.mjs --slug=cbd-and-anxiety  # Single article
+ *   node scripts/add-research-snapshots.mjs --dry-run
+ *   node scripts/add-research-snapshots.mjs
+ *   node scripts/add-research-snapshots.mjs --limit=100
  */
 
 import { createClient } from '@supabase/supabase-js';
@@ -22,346 +19,291 @@ config({ path: resolve(process.cwd(), '.env.local') });
 const args = process.argv.slice(2);
 const DRY_RUN = args.includes('--dry-run');
 const LIMIT = parseInt(args.find(a => a.startsWith('--limit='))?.split('=')[1] || '1000', 10);
-const SINGLE_SLUG = args.find(a => a.startsWith('--slug='))?.split('=')[1] || null;
 const VERBOSE = args.includes('--verbose');
 
-// ============================================================================
-// ARTICLE → TOPIC MAPPING
-// ============================================================================
-
-// Map article slugs to research database topics (from kb_research_queue.relevant_topics)
-const ARTICLE_TO_TOPICS = {
-  // Pillar condition articles
-  'cbd-and-anxiety': ['anxiety'],
-  'cbd-and-depression': ['depression'],
-  'cbd-and-sleep': ['sleep'],
-  'cbd-and-epilepsy': ['epilepsy'],
-  'cbd-and-pain': ['chronic_pain', 'neuropathic_pain'],
-  'cbd-and-chronic-pain': ['chronic_pain'],
-  'cbd-and-neuropathic-pain': ['neuropathic_pain'],
-  'cbd-and-arthritis': ['arthritis', 'inflammation'],
-  'cbd-and-inflammation': ['inflammation'],
-  'cbd-and-cancer': ['cancer'],
-  'cbd-and-chemotherapy': ['cancer', 'nausea'],
-  'cbd-and-acne': ['acne', 'skin'],
-  'cbd-and-psoriasis': ['psoriasis', 'skin'],
-  'cbd-and-eczema': ['eczema', 'skin'],
-  'cbd-and-addiction': ['addiction'],
-  'cbd-and-ptsd': ['ptsd', 'anxiety'],
-  'cbd-and-schizophrenia': ['schizophrenia'],
-  'cbd-and-alzheimers': ['alzheimers', 'neurological'],
-  'cbd-and-parkinsons': ['parkinsons', 'neurological'],
-  'cbd-and-multiple-sclerosis': ['ms', 'neurological'],
-  'cbd-and-fibromyalgia': ['fibromyalgia', 'pain'],
-  'cbd-and-migraines': ['migraines', 'pain'],
-  'cbd-and-diabetes': ['diabetes'],
-  'cbd-and-heart-health': ['cardiovascular'],
-  'cbd-and-blood-pressure': ['cardiovascular', 'blood_pressure'],
-  'cbd-and-ibs': ['ibs', 'digestive'],
-  'cbd-and-crohns': ['crohns', 'ibs', 'inflammation'],
-  'cbd-and-nausea': ['nausea'],
-  'cbd-and-stress': ['stress', 'anxiety'],
-  'cbd-and-weight': ['obesity', 'metabolism'],
-  'cbd-and-adhd': ['adhd'],
-  'cbd-and-autism': ['autism'],
-  'cbd-and-tourettes': ['tourettes'],
-  'cbd-and-glaucoma': ['glaucoma', 'eye'],
-  'cbd-and-eye-health': ['eye', 'glaucoma'],
-  'cbd-and-athletic-recovery': ['athletic', 'inflammation', 'pain'],
-  'cbd-and-womens-health': ['womens_health'],
-  'cbd-and-healthy-aging': ['aging', 'neurological'],
-  'cbd-and-neurological-health': ['neurological'],
-  'cbd-and-covid': ['covid', 'inflammation'],
-
-  // Pet articles
-  'cbd-for-pets': ['pets'],
-  'cbd-for-dogs': ['pets', 'dogs'],
-  'cbd-for-cats': ['pets', 'cats'],
-  'cbd-for-horses': ['pets', 'horses'],
-  'cbd-for-birds': ['pets'],
-  'cbd-for-small-pets': ['pets'],
-  'cbd-and-pets-research': ['pets'],
-
-  // Educational articles about specific uses
-  'best-terpenes-for-anxiety': ['anxiety'],
-  'best-terpenes-for-sleep': ['sleep'],
-  'best-terpenes-for-pain': ['chronic_pain'],
-  'best-cbd-oil-for-anxiety-comparison': ['anxiety'],
-  'best-cbd-oil-for-sleep-comparison': ['sleep'],
-  'best-cbd-oil-for-pain-comparison': ['chronic_pain'],
+// Topic mapping from article slugs to research topics
+const TOPIC_KEYWORDS = {
+  'anxiety': ['anxiety', 'anxious', 'stress', 'panic', 'social-anxiety', 'gad'],
+  'depression': ['depression', 'depressive', 'mood', 'sad', 'bipolar'],
+  'sleep': ['sleep', 'insomnia', 'circadian', 'rest'],
+  'pain': ['pain', 'ache', 'chronic-pain', 'neuropathic', 'nerve', 'back-pain', 'arthritis', 'joint'],
+  'epilepsy': ['epilepsy', 'seizure', 'convulsion'],
+  'inflammation': ['inflammation', 'inflammatory', 'anti-inflammatory', 'autoimmune', 'arthritis'],
+  'nausea': ['nausea', 'vomiting', 'antiemetic'],
+  'skin': ['skin', 'acne', 'psoriasis', 'eczema', 'derma'],
+  'cancer': ['cancer', 'tumor', 'oncology', 'chemotherapy'],
+  'ptsd': ['ptsd', 'trauma', 'post-traumatic'],
+  'addiction': ['addiction', 'withdrawal', 'opioid', 'smoking', 'alcohol'],
+  'diabetes': ['diabetes', 'glucose', 'insulin'],
+  'heart': ['heart', 'cardiac', 'cardiovascular', 'blood-pressure'],
+  'ibs': ['ibs', 'bowel', 'digestive', 'gut', 'crohn', 'colitis'],
+  'migraine': ['migraine', 'headache'],
+  'ms': ['multiple-sclerosis', 'ms', 'sclerosis'],
+  'autism': ['autism', 'asd', 'autistic'],
+  'adhd': ['adhd', 'attention', 'hyperactivity'],
+  'schizophrenia': ['schizophrenia', 'psychosis'],
+  'glaucoma': ['glaucoma', 'eye', 'intraocular'],
+  'obesity': ['obesity', 'weight', 'metabolic'],
+  'neuroprotection': ['neuroprotection', 'alzheimer', 'parkinson', 'dementia'],
 };
 
-// ============================================================================
-// FUNCTIONS
-// ============================================================================
-
 /**
- * Check if article already has a Research Snapshot
+ * Check if article already has Research Snapshot
  */
 function hasResearchSnapshot(content) {
   return (
     content.includes('RESEARCH SNAPSHOT') ||
-    content.includes('📊 Research Snapshot') ||
-    content.includes('## Research Snapshot') ||
-    content.includes('**Research Snapshot**') ||
-    content.includes('Studies reviewed:')
+    content.includes('Research Snapshot') ||
+    content.includes('Studies reviewed:') ||
+    content.includes('| Studies reviewed |')
   );
 }
 
 /**
- * Get study statistics for given topics
+ * Extract topic from article slug/title
  */
-async function getStudyStats(supabase, topics) {
-  // Use primary topic for query
-  const primaryTopic = topics[0];
+function extractTopic(article) {
+  const text = (article.slug + ' ' + (article.title || '')).toLowerCase();
 
-  // Query all approved studies matching these topics using contains
-  const { data: studies, error } = await supabase
-    .from('kb_research_queue')
-    .select('id, slug, title, study_type, study_subject, sample_size, quality_score')
-    .eq('status', 'approved')
-    .contains('relevant_topics', [primaryTopic]);
-
-  if (error) {
-    console.error('Error fetching studies:', error.message);
-    return null;
-  }
-
-  if (!studies || studies.length === 0) {
-    return null;
-  }
-
-  // Calculate statistics
-  const stats = {
-    total: studies.length,
-    humanTrials: 0,
-    reviews: 0,
-    animalStudies: 0,
-    inVitro: 0,
-    totalParticipants: 0,
-    topStudies: [],
-  };
-
-  for (const study of studies) {
-    // Count by study subject
-    if (study.study_subject === 'human') {
-      stats.humanTrials++;
-      if (study.sample_size) {
-        stats.totalParticipants += study.sample_size;
+  for (const [topic, keywords] of Object.entries(TOPIC_KEYWORDS)) {
+    for (const keyword of keywords) {
+      if (text.includes(keyword.replace(/-/g, ''))) {
+        return topic;
       }
-    } else if (study.study_subject === 'review') {
-      stats.reviews++;
-    } else if (study.study_subject === 'animal') {
-      stats.animalStudies++;
-    } else if (study.study_subject === 'in_vitro') {
-      stats.inVitro++;
     }
   }
 
-  // Get top studies (highest quality human studies)
-  stats.topStudies = studies
-    .filter(s => s.study_subject === 'human' || s.study_subject === 'review')
-    .sort((a, b) => (b.quality_score || 0) - (a.quality_score || 0))
-    .slice(0, 5)
-    .map(s => ({
-      slug: s.slug,
-      title: s.title?.substring(0, 60) + (s.title?.length > 60 ? '...' : ''),
-    }));
+  return null;
+}
 
-  // Calculate evidence strength
-  if (stats.total >= 20 && (stats.humanTrials >= 3 || stats.reviews >= 1)) {
-    stats.evidenceStrength = 'Strong';
-    stats.evidenceIcon = '●●●●○';
-  } else if (stats.total >= 10 && (stats.humanTrials >= 1 || stats.reviews >= 1)) {
-    stats.evidenceStrength = 'Moderate';
-    stats.evidenceIcon = '●●●○○';
-  } else if (stats.total >= 5) {
-    stats.evidenceStrength = 'Limited';
-    stats.evidenceIcon = '●●○○○';
-  } else {
-    stats.evidenceStrength = 'Emerging';
-    stats.evidenceIcon = '●○○○○';
+/**
+ * Get research statistics for a topic
+ */
+async function getResearchStats(supabase, topic) {
+  // Get studies for this topic
+  const { data: studies, error } = await supabase
+    .from('kb_research_queue')
+    .select('id, study_subject, sample_size, year, quality_score')
+    .eq('status', 'approved')
+    .or('primary_topic.eq.' + topic + ',relevant_topics.cs.{' + topic + '}');
+
+  if (error || !studies || studies.length === 0) {
+    // Try broader search using title/abstract
+    const searchTerm = topic.replace(/_/g, ' ');
+    const { data: broader } = await supabase
+      .from('kb_research_queue')
+      .select('id, study_subject, sample_size, year, quality_score')
+      .eq('status', 'approved')
+      .or('title.ilike.%' + searchTerm + '%,abstract.ilike.%' + searchTerm + '%')
+      .limit(100);
+
+    if (!broader || broader.length < 3) return null;
+    return calculateStats(broader, topic);
   }
 
-  return stats;
+  return calculateStats(studies, topic);
+}
+
+/**
+ * Calculate statistics from studies
+ */
+function calculateStats(studies, topic) {
+  const total = studies.length;
+  if (total < 3) return null;
+
+  const human = studies.filter(s => s.study_subject === 'human').length;
+  const reviews = studies.filter(s => s.study_subject === 'review').length;
+  const animal = studies.filter(s => s.study_subject === 'animal').length;
+
+  // Calculate total participants (from human studies with sample_size)
+  const participants = studies
+    .filter(s => s.study_subject === 'human' && s.sample_size)
+    .reduce((sum, s) => sum + (s.sample_size || 0), 0);
+
+  // Evidence strength based on study quality
+  let strength;
+  if (human >= 10 && reviews >= 2) {
+    strength = { rating: 4, label: 'Strong', dots: '●●●●○' };
+  } else if (human >= 5 || (human >= 3 && reviews >= 1)) {
+    strength = { rating: 3, label: 'Moderate', dots: '●●●○○' };
+  } else if (human >= 2 || total >= 10) {
+    strength = { rating: 2, label: 'Limited', dots: '●●○○○' };
+  } else {
+    strength = { rating: 1, label: 'Preliminary', dots: '●○○○○' };
+  }
+
+  return {
+    total,
+    human,
+    reviews,
+    animal,
+    participants,
+    strength,
+    topic
+  };
 }
 
 /**
  * Generate Research Snapshot markdown
  */
-function generateSnapshotMarkdown(stats, topics) {
+function generateSnapshot(stats) {
+  const topicDisplay = stats.topic
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, l => l.toUpperCase());
+
   const lines = [
-    '> **📊 Research Snapshot**',
-    '>',
-    `> **Studies reviewed:** ${stats.total}`,
+    '',
+    '---',
+    '',
+    '## Research Snapshot',
+    '',
+    '| Metric | Value |',
+    '|--------|-------|',
+    '| Studies reviewed | ' + stats.total + ' |',
   ];
 
-  if (stats.humanTrials > 0) {
-    lines.push(`> **Human clinical trials:** ${stats.humanTrials}`);
+  if (stats.human > 0) {
+    lines.push('| Human clinical trials | ' + stats.human + ' |');
   }
   if (stats.reviews > 0) {
-    lines.push(`> **Systematic reviews:** ${stats.reviews}`);
+    lines.push('| Systematic reviews | ' + stats.reviews + ' |');
   }
-  if (stats.totalParticipants > 0) {
-    lines.push(`> **Total participants studied:** ${stats.totalParticipants.toLocaleString()}`);
+  if (stats.animal > 0) {
+    lines.push('| Preclinical studies | ' + stats.animal + ' |');
   }
+  if (stats.participants > 0) {
+    lines.push('| Total participants | ' + stats.participants.toLocaleString() + '+ |');
+  }
+  lines.push('| Evidence strength | ' + stats.strength.dots + ' ' + stats.strength.label + ' |');
 
-  lines.push(`> **Evidence strength:** ${stats.evidenceIcon} ${stats.evidenceStrength}`);
-  lines.push('>');
-
-  // Add link to view all studies
-  const topicParam = topics[0];
-  lines.push(`> [View all ${stats.total} studies →](/research?topic=${topicParam})`);
+  lines.push('');
+  lines.push('*Research on CBD and ' + topicDisplay.toLowerCase() + ' continues to evolve. [Browse all studies](/research)*');
+  lines.push('');
 
   return lines.join('\n');
 }
 
 /**
- * Add Research Snapshot to article content
+ * Insert Research Snapshot into article
  */
-function addResearchSnapshot(content, snapshotMarkdown) {
-  // Find the best place to insert:
-  // 1. After "The Short Answer" section
-  // 2. After the author byline
-  // 3. After the H1 title
+function insertSnapshot(content, snapshot) {
+  // Insert after the first heading/intro section
+  // Look for first ## heading
+  const firstHeading = content.indexOf('\n## ');
 
-  // Try to find "The Short Answer" or similar intro section
-  const shortAnswerMatch = content.match(/^(.*?(?:##?\s*(?:The Short Answer|Overview|Introduction|Summary)[^\n]*\n+(?:[^\n#]+\n)*?))/is);
-
-  if (shortAnswerMatch && shortAnswerMatch[1].length < content.length * 0.4) {
-    const insertPos = shortAnswerMatch[1].length;
-    return content.substring(0, insertPos) + '\n' + snapshotMarkdown + '\n\n' + content.substring(insertPos);
+  if (firstHeading > 0 && firstHeading < 2000) {
+    return content.substring(0, firstHeading) + snapshot + content.substring(firstHeading);
   }
 
-  // Try to find after author byline
-  const bylineMatch = content.match(/^(.*?By Robin[^\n]*\n(?:.*?(?:January|February|March|April|May|June|July|August|September|October|November|December)[^\n]*\n)?)/is);
-
-  if (bylineMatch) {
-    const insertPos = bylineMatch[1].length;
-    return content.substring(0, insertPos) + '\n' + snapshotMarkdown + '\n\n' + content.substring(insertPos);
+  // Insert after first paragraph
+  const firstParaEnd = content.indexOf('\n\n', 200);
+  if (firstParaEnd > 0 && firstParaEnd < 1500) {
+    return content.substring(0, firstParaEnd) + snapshot + content.substring(firstParaEnd);
   }
 
-  // Fallback: after H1 title
-  const h1Match = content.match(/^(# [^\n]+\n+)/);
-  if (h1Match) {
-    const insertPos = h1Match[1].length;
-    return content.substring(0, insertPos) + snapshotMarkdown + '\n\n' + content.substring(insertPos);
-  }
-
-  // Last resort: at the beginning
-  return snapshotMarkdown + '\n\n' + content;
+  // Fallback: insert at beginning after any frontmatter
+  return snapshot + '\n' + content;
 }
-
-// ============================================================================
-// MAIN SCRIPT
-// ============================================================================
 
 async function main() {
   console.log('\n📊 Add Research Snapshots to Articles\n');
-  console.log('Configuration:');
-  console.log(`  Mode: ${DRY_RUN ? '🔍 DRY RUN (no changes)' : '✏️  APPLY CHANGES'}`);
-  if (SINGLE_SLUG) console.log(`  Single article: ${SINGLE_SLUG}`);
-  console.log(`  Limit: ${LIMIT} articles`);
-  console.log('');
+  console.log('Mode: ' + (DRY_RUN ? '🔍 DRY RUN' : '✏️  APPLY CHANGES'));
+  console.log('Limit: ' + LIMIT + '\n');
 
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
     process.env.SUPABASE_SERVICE_ROLE_KEY
   );
 
-  // Build query for articles
-  let query = supabase
+  // Fetch articles
+  const { data: articles, error } = await supabase
     .from('kb_articles')
-    .select('id, title, slug, article_type, content')
-    .not('content', 'is', null);
-
-  if (SINGLE_SLUG) {
-    query = query.eq('slug', SINGLE_SLUG);
-  } else {
-    // Only process articles that have topic mappings
-    query = query.in('slug', Object.keys(ARTICLE_TO_TOPICS));
-  }
-
-  query = query.order('slug').limit(LIMIT);
-
-  const { data: articles, error } = await query;
+    .select('id, slug, title, article_type, content')
+    .not('content', 'is', null)
+    .in('article_type', ['pillar', 'educational', 'science', 'comparison'])
+    .order('article_type')
+    .limit(LIMIT);
 
   if (error) {
-    console.error('❌ Failed to fetch articles:', error.message);
+    console.error('Failed to fetch:', error.message);
     process.exit(1);
   }
 
-  console.log(`📚 Found ${articles.length} articles with topic mappings\n`);
+  // Filter to articles without snapshots that have identifiable topics
+  const candidates = articles.filter(a =>
+    !hasResearchSnapshot(a.content) && extractTopic(a)
+  );
 
-  const stats = {
-    processed: 0,
-    snapshotsAdded: 0,
-    alreadyHasSnapshot: 0,
-    noStudiesFound: 0,
-    errors: 0,
-  };
+  const alreadyHas = articles.filter(a => hasResearchSnapshot(a.content)).length;
 
-  const changes = [];
+  console.log('📚 Total articles checked: ' + articles.length);
+  console.log('   Already have Research Snapshot: ' + alreadyHas);
+  console.log('   Candidates with identifiable topics: ' + candidates.length + '\n');
 
-  for (const article of articles) {
-    stats.processed++;
+  if (candidates.length === 0) {
+    console.log('No articles need Research Snapshots.');
+    return;
+  }
 
-    const topics = ARTICLE_TO_TOPICS[article.slug];
-    if (!topics) {
-      if (VERBOSE) console.log(`  ⏭️  ${article.slug}: No topic mapping`);
+  let updated = 0;
+  let skipped = 0;
+  let currentType = '';
+
+  // Cache for research stats by topic
+  const statsCache = new Map();
+
+  for (let i = 0; i < candidates.length; i++) {
+    const article = candidates[i];
+    const topic = extractTopic(article);
+
+    // Type header
+    if (article.article_type !== currentType) {
+      currentType = article.article_type;
+      console.log('\n📁 ' + (currentType ? currentType.toUpperCase() : 'UNKNOWN'));
+    }
+
+    // Get or fetch stats for topic
+    let stats = statsCache.get(topic);
+    if (!stats) {
+      stats = await getResearchStats(supabase, topic);
+      if (stats) statsCache.set(topic, stats);
+    }
+
+    if (!stats) {
+      if (VERBOSE) console.log('  ⏭️  ' + article.slug + ': No research data for "' + topic + '"');
+      skipped++;
       continue;
     }
 
-    // Check if already has snapshot
-    if (hasResearchSnapshot(article.content)) {
-      stats.alreadyHasSnapshot++;
-      if (VERBOSE) console.log(`  ⏭️  ${article.slug}: Already has snapshot`);
+    if (DRY_RUN) {
+      console.log('  📝 ' + article.slug + ': ' + stats.total + ' studies (' + stats.strength.label + ')');
+      updated++;
       continue;
     }
 
-    // Get study statistics
-    const studyStats = await getStudyStats(supabase, topics);
+    // Generate and insert snapshot
+    const snapshot = generateSnapshot(stats);
+    const updatedContent = insertSnapshot(article.content, snapshot);
 
-    if (!studyStats) {
-      stats.noStudiesFound++;
-      if (VERBOSE) console.log(`  ⚠️  ${article.slug}: No studies found for topics: ${topics.join(', ')}`);
-      continue;
-    }
+    const { error: updateError } = await supabase
+      .from('kb_articles')
+      .update({
+        content: updatedContent,
+        updated_at: new Date().toISOString()
+      })
+      .eq('id', article.id);
 
-    // Generate snapshot markdown
-    const snapshotMarkdown = generateSnapshotMarkdown(studyStats, topics);
-
-    // Add to content
-    const updatedContent = addResearchSnapshot(article.content, snapshotMarkdown);
-
-    changes.push({
-      slug: article.slug,
-      title: article.title?.substring(0, 40),
-      topics: topics.join(', '),
-      studyCount: studyStats.total,
-      evidence: studyStats.evidenceStrength,
-    });
-
-    if (!DRY_RUN) {
-      const { error: updateError } = await supabase
-        .from('kb_articles')
-        .update({ content: updatedContent, updated_at: new Date().toISOString() })
-        .eq('id', article.id);
-
-      if (updateError) {
-        console.error(`❌ Failed to update ${article.slug}:`, updateError.message);
-        stats.errors++;
-      } else {
-        stats.snapshotsAdded++;
-        if (VERBOSE) console.log(`  ✅ ${article.slug}: Added snapshot (${studyStats.total} studies, ${studyStats.evidenceStrength})`);
-      }
+    if (updateError) {
+      console.log('  ❌ ' + article.slug);
+      skipped++;
     } else {
-      stats.snapshotsAdded++;
+      console.log('  ✅ ' + article.slug + ': ' + stats.total + ' studies (' + stats.strength.label + ')');
+      updated++;
     }
 
-    // Progress indicator
-    if (stats.processed % 10 === 0) {
-      process.stdout.write(`  Processed ${stats.processed}/${articles.length}...\r`);
+    // Progress marker
+    if ((i + 1) % 50 === 0) {
+      console.log('\n  --- Progress: ' + (i + 1) + '/' + candidates.length + ' ---\n');
     }
   }
 
@@ -369,24 +311,12 @@ async function main() {
   console.log('═══════════════════════════════════════════════════════════');
   console.log('📊 RESULTS');
   console.log('═══════════════════════════════════════════════════════════');
-  console.log(`  Articles processed: ${stats.processed}`);
-  console.log(`  Snapshots ${DRY_RUN ? 'would be ' : ''}added: ${stats.snapshotsAdded}`);
-  console.log(`  Already had snapshot: ${stats.alreadyHasSnapshot}`);
-  console.log(`  No studies found: ${stats.noStudiesFound}`);
-  if (stats.errors > 0) console.log(`  Errors: ${stats.errors}`);
+  console.log('  Research Snapshots ' + (DRY_RUN ? 'would be ' : '') + 'added: ' + updated);
+  console.log('  Skipped (no research data): ' + skipped);
   console.log('═══════════════════════════════════════════════════════════');
 
-  if (DRY_RUN && changes.length > 0) {
-    console.log('\n📝 Snapshots that would be added:\n');
-    changes.forEach(c => {
-      console.log(`  ${c.slug}`);
-      console.log(`    Topics: ${c.topics} | Studies: ${c.studyCount} | Evidence: ${c.evidence}`);
-    });
-    console.log('\n💡 Run without --dry-run to apply changes');
-  }
-
-  if (!DRY_RUN && stats.snapshotsAdded > 0) {
-    console.log(`\n✅ Successfully added ${stats.snapshotsAdded} Research Snapshots`);
+  if (!DRY_RUN && updated > 0) {
+    console.log('\n✅ Added Research Snapshots to ' + updated + ' articles');
   }
 }
 

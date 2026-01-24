@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { checkRateLimit, getClientIp, RATE_LIMITS } from '@/lib/rate-limit';
 
 interface SearchResult {
   type: 'study' | 'article' | 'glossary' | 'brand';
@@ -11,6 +12,23 @@ interface SearchResult {
 }
 
 export async function GET(request: NextRequest) {
+  // Rate limiting
+  const clientIp = getClientIp(request);
+  const rateLimit = checkRateLimit(`search:${clientIp}`, RATE_LIMITS.search);
+
+  if (!rateLimit.success) {
+    return NextResponse.json(
+      { error: 'Too many requests. Please try again later.' },
+      {
+        status: 429,
+        headers: {
+          'Retry-After': rateLimit.resetIn.toString(),
+          'X-RateLimit-Remaining': '0',
+        },
+      }
+    );
+  }
+
   try {
     const { searchParams } = new URL(request.url);
     const query = searchParams.get('q')?.trim();
@@ -137,7 +155,7 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     console.error('[Search] Error:', error);
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : 'Unknown error' },
+      { error: 'Search failed. Please try again.' },
       { status: 500 }
     );
   }

@@ -65,10 +65,23 @@ const supabase = await createClient();
         .neq('id', params.id);
     }
 
+    // Whitelist allowed fields to prevent mass assignment attacks
     const { data: author, error } = await supabase
       .from('kb_authors')
       .update({
-        ...body,
+        name: body.name,
+        slug: body.slug,
+        title: body.title,
+        email: body.email,
+        bio_short: body.bio_short,
+        bio_full: body.bio_full,
+        image_url: body.image_url,
+        website_url: body.website_url,
+        linkedin_url: body.linkedin_url,
+        twitter_url: body.twitter_url,
+        credentials: body.credentials,
+        expertise_areas: body.expertise_areas,
+        is_primary: body.is_primary,
         updated_at: new Date().toISOString()
       })
       .eq('id', params.id)

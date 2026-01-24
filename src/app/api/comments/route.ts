@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { checkRateLimit, getClientIp, RATE_LIMITS } from '@/lib/rate-limit';
 
 // GET approved comments for an article
 export async function GET(request: NextRequest) {
@@ -51,6 +52,20 @@ export async function GET(request: NextRequest) {
 
 // POST new comment
 export async function POST(request: NextRequest) {
+  // Rate limiting - strict for comment posting
+  const clientIp = getClientIp(request);
+  const rateLimit = checkRateLimit(`comments:${clientIp}`, RATE_LIMITS.comments);
+
+  if (!rateLimit.success) {
+    return NextResponse.json(
+      { error: 'Too many comments. Please wait before posting again.' },
+      {
+        status: 429,
+        headers: { 'Retry-After': rateLimit.resetIn.toString() },
+      }
+    );
+  }
+
   try {
     const supabase = await createClient();
     const body = await request.json();

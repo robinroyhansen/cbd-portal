@@ -1,9 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { generatePlainSummary, StudyData } from '@/lib/summary-generator';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 
 // Generate summary for a single study
 export async function POST(request: NextRequest) {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   try {
     const { studyId } = await request.json();
 
