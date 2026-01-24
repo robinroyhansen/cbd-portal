@@ -193,6 +193,16 @@ npm run lint
 
 ---
 
+## Deployment Rules
+
+After completing any build or feature:
+1. Run `npm run build` to verify it works
+2. Commit changes with descriptive message
+3. Push to GitHub: `git push origin main`
+4. Vercel auto-deploys from GitHub
+
+---
+
 ## API ENDPOINTS
 
 ### Scanner
