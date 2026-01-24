@@ -36,7 +36,7 @@ const NAV_ITEMS: NavItem[] = [
         { label: 'Sleep & Insomnia', href: '/conditions/sleep', description: '287 studies', icon: '😴', researchHref: '/research/sleep' },
         { label: 'Chronic Pain', href: '/conditions/chronic_pain', description: '412 studies', icon: '💪', researchHref: '/research/chronic_pain' },
         { label: 'Depression', href: '/conditions/depression', description: '198 studies', icon: '😔', researchHref: '/research/depression' },
-        { label: 'Epilepsy', href: '/conditions/epilepsy', description: 'FDA approved', icon: '⚡', researchHref: '/research/epilepsy' },
+        { label: 'Epilepsy', href: '/conditions/epilepsy', description: 'Clinically proven', icon: '⚡', researchHref: '/research/epilepsy' },
         { label: 'Inflammation', href: '/conditions/inflammation', description: '267 studies', icon: '🔥', researchHref: '/research/inflammation' },
       ],
       categories: [

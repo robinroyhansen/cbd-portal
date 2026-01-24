@@ -189,63 +189,127 @@ export default async function ResearchPage() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
-      {/* Page Header */}
-      <header className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">CBD Research Database</h1>
-        <p className="text-xl text-gray-600 mb-4">
-          Evidence-based research with advanced quality assessment and classification
-        </p>
-        <p className="text-sm text-gray-500">
-          {studyStats.total} peer-reviewed studies from PubMed, PMC, ClinicalTrials.gov, and authoritative medical journals
-        </p>
-        {lastUpdated && (
-          <p className="text-xs text-gray-400 mt-2">
-            Database last updated: {lastUpdated}
-          </p>
-        )}
-      </header>
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl" />
+        </div>
 
-      {/* Study Statistics - 4 Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8 max-w-3xl mx-auto">
-        <Link
-          href="/research"
-          className="bg-gradient-to-br from-slate-50 to-slate-100 px-4 py-4 rounded-xl text-center border border-slate-200 hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
-        >
-          <div className="text-2xl md:text-3xl font-bold text-slate-700">{studyStats.total}</div>
-          <div className="text-xs md:text-sm text-slate-600 font-medium mt-1">Total Studies</div>
-        </Link>
-        <Link
-          href="/research?subject=human"
-          className="bg-gradient-to-br from-green-50 to-green-100 px-4 py-4 rounded-xl text-center border border-green-200 hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
-        >
-          <div className="flex items-center justify-center gap-1.5">
-            <span className="text-lg">👥</span>
-            <span className="text-2xl md:text-3xl font-bold text-green-700">{studyStats.human}</span>
+        <div className="relative max-w-6xl mx-auto px-4 py-16 md:py-20">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium mb-6">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
+            </span>
+            Updated regularly
           </div>
-          <div className="text-xs md:text-sm text-green-600 font-medium mt-1">Human Studies</div>
-        </Link>
-        <Link
-          href="/research?subject=review"
-          className="bg-gradient-to-br from-blue-50 to-blue-100 px-4 py-4 rounded-xl text-center border border-blue-200 hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
-        >
-          <div className="flex items-center justify-center gap-1.5">
-            <span className="text-lg">📊</span>
-            <span className="text-2xl md:text-3xl font-bold text-blue-700">{studyStats.reviews}</span>
+
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            CBD Research
+            <span className="block text-blue-200">Database</span>
+          </h1>
+
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl leading-relaxed">
+            Evidence-based research with advanced quality assessment and classification.
+            {studyStats.total.toLocaleString()} peer-reviewed studies from trusted sources.
+          </p>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl">
+            <Link
+              href="/research"
+              className="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 md:p-6 hover:bg-white/20 transition-all duration-300"
+            >
+              <div className="text-3xl md:text-4xl font-bold text-white mb-1">
+                {studyStats.total.toLocaleString()}
+              </div>
+              <div className="text-sm text-blue-200 font-medium">Total Studies</div>
+              <div className="mt-2 h-1 w-full bg-white/20 rounded-full overflow-hidden">
+                <div className="h-full w-full bg-gradient-to-r from-blue-300 to-purple-300 rounded-full" />
+              </div>
+            </Link>
+
+            <Link
+              href="/research?subject=human"
+              className="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 md:p-6 hover:bg-white/20 transition-all duration-300"
+            >
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-2xl">👤</span>
+                <span className="text-3xl md:text-4xl font-bold text-white">{studyStats.human.toLocaleString()}</span>
+              </div>
+              <div className="text-sm text-blue-200 font-medium">Human Studies</div>
+              <div className="mt-2 h-1 w-full bg-white/20 rounded-full overflow-hidden">
+                <div className="h-full bg-gradient-to-r from-green-300 to-emerald-300 rounded-full" style={{ width: `${(studyStats.human / studyStats.total) * 100}%` }} />
+              </div>
+            </Link>
+
+            <Link
+              href="/research?subject=review"
+              className="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 md:p-6 hover:bg-white/20 transition-all duration-300"
+            >
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-2xl">📚</span>
+                <span className="text-3xl md:text-4xl font-bold text-white">{studyStats.reviews.toLocaleString()}</span>
+              </div>
+              <div className="text-sm text-blue-200 font-medium">Systematic Reviews</div>
+              <div className="mt-2 h-1 w-full bg-white/20 rounded-full overflow-hidden">
+                <div className="h-full bg-gradient-to-r from-cyan-300 to-blue-300 rounded-full" style={{ width: `${(studyStats.reviews / studyStats.total) * 100}%` }} />
+              </div>
+            </Link>
+
+            <Link
+              href="/research?subject=animal"
+              className="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 md:p-6 hover:bg-white/20 transition-all duration-300"
+            >
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-2xl">🧪</span>
+                <span className="text-3xl md:text-4xl font-bold text-white">{studyStats.preclinical.toLocaleString()}</span>
+              </div>
+              <div className="text-sm text-blue-200 font-medium">Preclinical Studies</div>
+              <div className="mt-2 h-1 w-full bg-white/20 rounded-full overflow-hidden">
+                <div className="h-full bg-gradient-to-r from-purple-300 to-pink-300 rounded-full" style={{ width: `${(studyStats.preclinical / studyStats.total) * 100}%` }} />
+              </div>
+            </Link>
           </div>
-          <div className="text-xs md:text-sm text-blue-600 font-medium mt-1">Reviews</div>
-        </Link>
-        <Link
-          href="/research?subject=animal"
-          className="bg-gradient-to-br from-purple-50 to-purple-100 px-4 py-4 rounded-xl text-center border border-purple-200 hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
-        >
-          <div className="flex items-center justify-center gap-1.5">
-            <span className="text-lg">🧪</span>
-            <span className="text-2xl md:text-3xl font-bold text-purple-700">{studyStats.preclinical}</span>
+
+          {lastUpdated && (
+            <p className="text-sm text-blue-200 mt-8">
+              Last updated: {lastUpdated}
+            </p>
+          )}
+        </div>
+      </section>
+
+      {/* Data Sources Banner */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-6xl mx-auto px-4 py-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-gray-500">
+            <span className="font-medium text-gray-700">Data from:</span>
+            <span className="flex items-center gap-1.5">
+              <span className="text-lg">🔬</span> PubMed
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="text-lg">🏥</span> ClinicalTrials.gov
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="text-lg">📚</span> Cochrane
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="text-lg">🇪🇺</span> Europe PMC
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="text-lg">🎓</span> Semantic Scholar
+            </span>
           </div>
-          <div className="text-xs md:text-sm text-purple-600 font-medium mt-1">Preclinical</div>
-        </Link>
+        </div>
       </div>
+
+      <div className="max-w-6xl mx-auto px-4 py-8">
 
       {/* Publication Trends Chart */}
       {Object.keys(yearDistribution).length > 0 && (() => {
@@ -256,16 +320,28 @@ export default async function ResearchPage() {
         const maxYear = Math.max(...Object.keys(yearDistribution).map(Number));
 
         return (
-          <div className="mb-8 bg-white rounded-xl border border-gray-200 p-4 max-w-4xl mx-auto">
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-sm font-semibold text-gray-700">Publication Trends ({minYear}–{maxYear})</h3>
-              <span className="text-xs text-gray-500">{studyStats.total} studies indexed</span>
+          <div className="mb-8 bg-white rounded-2xl border border-gray-200 shadow-sm p-6 max-w-4xl mx-auto">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
+              <div>
+                <h3 className="text-lg font-bold text-gray-900">Publication Trends</h3>
+                <p className="text-sm text-gray-500">{minYear} – {maxYear}</p>
+              </div>
+              <div className="flex items-center gap-4 text-sm">
+                <span className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500"></span>
+                  <span className="text-gray-600">Historical</span>
+                </span>
+                <span className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-gradient-to-r from-emerald-400 to-green-500"></span>
+                  <span className="text-gray-600">Recent</span>
+                </span>
+              </div>
             </div>
             {/* Chart bars */}
-            <div className="flex items-end gap-px" style={{ height: '80px' }} aria-label="Research publications by year">
+            <div className="flex items-end gap-0.5" style={{ height: '120px' }} aria-label="Research publications by year">
               {years.map(year => {
                 const count = yearDistribution[year] || 0;
-                const heightPx = count > 0 ? Math.max(Math.round((count / maxCount) * 80), 3) : 0;
+                const heightPx = count > 0 ? Math.max(Math.round((count / maxCount) * 120), 4) : 0;
                 const isRecent = year >= currentYear - 2;
 
                 return (
@@ -275,32 +351,40 @@ export default async function ResearchPage() {
                     title={`${year}: ${count} studies`}
                   >
                     <div
-                      className={`w-full rounded-t transition-colors ${
-                        isRecent ? 'bg-green-500 hover:bg-green-600' : 'bg-blue-400 hover:bg-blue-500'
+                      className={`w-full rounded-t-sm transition-all duration-200 ${
+                        isRecent
+                          ? 'bg-gradient-to-t from-emerald-500 to-green-400 hover:from-emerald-600 hover:to-green-500'
+                          : 'bg-gradient-to-t from-blue-500 to-indigo-400 hover:from-blue-600 hover:to-indigo-500'
                       }`}
                       style={{ height: `${heightPx}px` }}
                     />
                     {/* Tooltip on hover */}
-                    <div className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block bg-gray-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap z-10">
-                      {year}: {count} studies
+                    <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block bg-gray-900 text-white text-xs px-3 py-1.5 rounded-lg shadow-lg whitespace-nowrap z-10">
+                      <div className="font-bold">{year}</div>
+                      <div>{count} studies</div>
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full">
+                        <div className="border-4 border-transparent border-t-gray-900" />
+                      </div>
                     </div>
                   </div>
                 );
               })}
             </div>
             {/* Year labels */}
-            <div className="flex gap-px mt-1">
+            <div className="flex gap-0.5 mt-2 border-t border-gray-100 pt-2">
               {years.map(year => (
                 <div key={year} className="flex-1 text-center">
                   {year % 5 === 0 && (
-                    <span className="text-[9px] text-gray-400">{year}</span>
+                    <span className="text-xs text-gray-400 font-medium">{year}</span>
                   )}
                 </div>
               ))}
             </div>
-            <p className="text-xs text-gray-400 mt-2 text-center">
-              CBD research has grown significantly since 2000, with a surge following the 2018 Farm Bill
-            </p>
+            <div className="mt-4 p-3 bg-blue-50 rounded-lg">
+              <p className="text-sm text-blue-700 text-center">
+                <span className="font-medium">Research is accelerating:</span> CBD research has grown significantly since 2000, with a surge following regulatory changes in 2018.
+              </p>
+            </div>
           </div>
         );
       })()}
@@ -308,54 +392,99 @@ export default async function ResearchPage() {
       {/* Research Interface */}
       <ResearchPageClient initialResearch={allResearch} />
 
-      {/* FAQ Section - Focused on high-value SEO questions not covered in the accordion */}
+      {/* FAQ Section */}
       {(() => {
         const faqs = [
           {
             question: "Is CBD backed by scientific research?",
-            answer: `Yes. We index ${studyStats.total.toLocaleString()} peer-reviewed studies from PubMed, ClinicalTrials.gov, and other authoritative medical databases. This includes ${studyStats.human.toLocaleString()} human clinical studies, ${studyStats.reviews.toLocaleString()} systematic reviews, and ${studyStats.preclinical.toLocaleString()} preclinical studies. Research quality varies—use our filters and quality scores to find the most robust evidence.`
+            answer: `Yes. We index ${studyStats.total.toLocaleString()} peer-reviewed studies from PubMed, ClinicalTrials.gov, and other authoritative medical databases. This includes ${studyStats.human.toLocaleString()} human clinical studies, ${studyStats.reviews.toLocaleString()} systematic reviews, and ${studyStats.preclinical.toLocaleString()} preclinical studies. Research quality varies—use our filters and quality scores to find the most robust evidence.`,
+            icon: "📊"
           },
           {
             question: "Is CBD medically approved?",
-            answer: "Most CBD products are sold as food supplements, not approved medicines. However, Epidiolex (prescription CBD) is approved in multiple countries (EU, UK, USA, Australia, and others) for treating seizures in Lennox-Gastaut syndrome, Dravet syndrome, and tuberous sclerosis complex. This database includes clinical trials supporting that approval, plus ongoing research into anxiety, pain, sleep, and other conditions."
+            answer: "Most CBD products are sold as food supplements, not approved medicines. However, Epidiolex (prescription CBD) is approved in multiple countries (EU, UK, USA, Australia, and others) for treating seizures in Lennox-Gastaut syndrome, Dravet syndrome, and tuberous sclerosis complex. This database includes clinical trials supporting that approval, plus ongoing research into anxiety, pain, sleep, and other conditions.",
+            icon: "💊"
           },
           {
             question: "What health conditions have CBD research?",
-            answer: "The most-researched conditions include epilepsy (approved prescription use), anxiety disorders, chronic pain, sleep problems, and inflammatory conditions. Use the condition filters above to explore studies for specific health topics, or browse our condition pages which summarise the available evidence."
+            answer: "The most-researched conditions include epilepsy (approved prescription use), anxiety disorders, chronic pain, sleep problems, and inflammatory conditions. Use the condition filters above to explore studies for specific health topics, or browse our condition pages which summarise the available evidence.",
+            icon: "🩺"
           },
           {
             question: "Can I use this research to make health decisions?",
-            answer: "This database is for educational purposes only. We aggregate and index published research—we do not conduct studies or provide medical advice. Individual studies have limitations and results vary. Always consult a qualified healthcare professional before using CBD, especially if you have health conditions or take medications."
+            answer: "This database is for educational purposes only. We aggregate and index published research—we do not conduct studies or provide medical advice. Individual studies have limitations and results vary. Always consult a qualified healthcare professional before using CBD, especially if you have health conditions or take medications.",
+            icon: "⚕️"
           }
         ];
 
         return (
-          <div className="mt-16 bg-white rounded-xl border border-gray-200 p-6 md:p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
-              Frequently Asked Questions
-            </h2>
-            <div className="space-y-6">
+          <section className="mt-12 mb-8">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-4">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                FAQ
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-gray-600 max-w-xl mx-auto">
+                Common questions about CBD research and how to use this database
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto">
               {faqs.map((faq, idx) => (
-                <div key={idx} className="border-b border-gray-100 pb-6 last:border-0 last:pb-0">
-                  <h3 className="font-semibold text-gray-900 mb-2">{faq.question}</h3>
-                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                <div
+                  key={idx}
+                  className="group bg-white rounded-2xl border border-gray-200 p-6 hover:border-indigo-200 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="text-2xl p-2 bg-indigo-50 rounded-xl group-hover:scale-110 transition-transform">
+                      {faq.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-gray-900 mb-2 group-hover:text-indigo-700 transition-colors">
+                        {faq.question}
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
-            <div className="mt-8 pt-6 border-t border-gray-100 text-sm text-gray-500">
-              <p className="text-center">
-                Learn more about our{' '}
-                <Link href="/research/methodology" className="text-green-600 hover:underline">scoring methodology</Link>
-                {' '}or see the information panels above for details on quality scores, data sources, and how to use this database.
-              </p>
-              <p className="text-center mt-3 text-xs text-gray-400">
+
+            {/* Methodology CTA */}
+            <div className="mt-8 max-w-3xl mx-auto">
+              <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 md:p-8 text-white text-center">
+                <h3 className="text-xl font-bold mb-2">Understanding Our Quality Scores</h3>
+                <p className="text-indigo-100 mb-4">
+                  Learn how we evaluate and score research quality to help you find the most reliable evidence.
+                </p>
+                <Link
+                  href="/research/methodology"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-indigo-700 rounded-xl font-semibold hover:bg-indigo-50 transition-colors"
+                >
+                  View Methodology
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+
+            {/* Disclaimer */}
+            <div className="mt-6 text-center text-sm text-gray-500 max-w-2xl mx-auto">
+              <p>
                 All research indexed here is from third-party sources. We do not own or claim copyright over the original studies.
                 Study abstracts and metadata are aggregated under fair use for educational purposes.
               </p>
             </div>
-          </div>
+          </section>
         );
       })()}
+      </div>
 
       {/* Schema.org JSON-LD for the main page */}
       <script

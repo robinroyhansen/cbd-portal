@@ -233,11 +233,29 @@ export function GlossaryClient({
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section - breadcrumbs rendered above in server component */}
-      <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white pt-4 pb-12">
-        <div className="max-w-6xl mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-4">CBD & Cannabis Glossary</h1>
-          <p className="text-xl text-green-100 mb-6">
-            {totalTerms} terms explained - from cannabinoids to legal terminology
+      <div className="relative overflow-hidden bg-gradient-to-br from-green-600 via-emerald-600 to-teal-700 text-white pt-4 pb-16">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-full blur-3xl" />
+        </div>
+
+        <div className="relative max-w-6xl mx-auto px-4">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium mb-6">
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+            </svg>
+            Knowledge Base
+          </div>
+
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+            CBD & Cannabis
+            <span className="block text-green-200">Glossary</span>
+          </h1>
+          <p className="text-xl text-green-100 mb-8 max-w-xl leading-relaxed">
+            {totalTerms} terms explained — from cannabinoids and terpenes to legal terminology and product types.
           </p>
 
           {/* Search Box with Autocomplete */}
@@ -252,7 +270,7 @@ export function GlossaryClient({
               onChange={(e) => handleSearchChange(e.target.value)}
               onFocus={() => setShowSuggestions(true)}
               onKeyDown={handleKeyDown}
-              className="w-full px-5 py-3 pl-12 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-full px-5 py-4 pl-12 rounded-2xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-white/30 shadow-lg"
               aria-autocomplete="list"
               aria-controls="search-suggestions"
               aria-expanded={showSuggestions && suggestions.length > 0}
@@ -269,10 +287,10 @@ export function GlossaryClient({
                 id="search-suggestions"
                 ref={suggestionsRef}
                 role="listbox"
-                className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg shadow-2xl border border-gray-300 overflow-hidden z-[100]"
+                className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden z-[100]"
                 style={{ maxHeight: '400px', overflowY: 'auto' }}
               >
-                <div className="px-3 py-2 bg-gray-50 border-b border-gray-200 text-xs text-gray-500">
+                <div className="px-4 py-3 bg-gray-50 border-b border-gray-200 text-xs font-medium text-gray-600">
                   {suggestions.length} suggestion{suggestions.length !== 1 ? 's' : ''} found
                 </div>
                 {suggestions.map((suggestion, index) => {
@@ -310,24 +328,26 @@ export function GlossaryClient({
 
           {/* Most Popular Terms Section */}
           {popularTerms.length > 0 && !searchQuery && !selectedCategory && !selectedLetter && (
-            <div className="mt-8">
-              <h2 className="text-lg font-semibold text-green-100 mb-3 flex items-center gap-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" />
-                </svg>
-                Most Popular
+            <div className="mt-10">
+              <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                <span className="p-1.5 bg-white/10 rounded-lg">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" />
+                  </svg>
+                </span>
+                Most Popular Terms
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
                 {popularTerms.map(term => (
                   <Link
                     key={term.slug}
                     href={`/glossary/${term.slug}`}
-                    className="bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-lg p-3 transition-colors group"
+                    className="group bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/10 hover:border-white/30 rounded-xl p-4 transition-all duration-300"
                   >
-                    <div className="font-medium text-white group-hover:text-green-100 transition-colors">
+                    <div className="font-semibold text-white group-hover:text-green-100 transition-colors">
                       {term.display_name || term.term}
                     </div>
-                    <div className="text-xs text-green-200 line-clamp-2 mt-1">
+                    <div className="text-xs text-green-200/80 line-clamp-2 mt-1.5 leading-relaxed">
                       {term.short_definition}
                     </div>
                   </Link>

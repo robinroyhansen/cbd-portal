@@ -15,7 +15,7 @@ const RESEARCH_TERMS = [
     display_name: 'CBD (Cannabidiol)',
     slug: 'cbd',
     short_definition: 'CBD (cannabidiol) is a non-intoxicating compound from the cannabis plant, studied for potential therapeutic benefits including pain relief, anxiety reduction, and anti-inflammatory effects.',
-    definition: 'Cannabidiol (CBD) is one of over 100 cannabinoids found in the cannabis plant. Unlike THC, CBD does not produce intoxicating effects. It interacts with the body\'s endocannabinoid system and has been studied for various potential therapeutic applications including anxiety, pain, inflammation, and epilepsy. Epidiolex, a CBD-based medication, is FDA-approved for certain types of epilepsy.',
+    definition: 'Cannabidiol (CBD) is one of over 100 cannabinoids found in the cannabis plant. Unlike THC, CBD does not produce intoxicating effects. It interacts with the body\'s endocannabinoid system and has been studied for various potential therapeutic applications including anxiety, pain, inflammation, and epilepsy. Epidiolex, a CBD-based medication, is approved by regulatory agencies (EMA in Europe, FDA in US, MHRA in UK) for certain types of epilepsy.',
     category: 'science',
     synonyms: ['cannabidiol', 'hemp extract'],
   },
