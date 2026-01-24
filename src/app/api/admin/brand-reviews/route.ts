@@ -1,6 +1,7 @@
 import { createServiceClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAdminAuth } from '@/lib/admin-api-auth';
+import { brandReviewCreateSchema, brandReviewUpdateSchema, validate } from '@/lib/validations';
 
 // GET all brand reviews for admin (or single review by brand_id)
 export async function GET(request: NextRequest) {
@@ -147,10 +148,20 @@ async function generateFullReviewFromSections(
 // POST create new brand review
 export async function POST(request: NextRequest) {
   try {
-  const authError = requireAdminAuth(request);
-  if (authError) return authError;
-const supabase = createServiceClient();
+    const authError = requireAdminAuth(request);
+    if (authError) return authError;
+
+    const supabase = createServiceClient();
     const body = await request.json();
+
+    // Validate input with zod schema
+    const validation = validate(brandReviewCreateSchema, body);
+    if (!validation.success) {
+      return NextResponse.json(
+        { error: validation.errors?.[0] || 'Invalid input' },
+        { status: 400 }
+      );
+    }
 
     const {
       brand_id,
@@ -169,13 +180,8 @@ const supabase = createServiceClient();
       google_score,
       google_count,
       certifications,
-      scores // Array of { criterion_id, score, ai_reasoning, author_notes }
-    } = body;
-
-    // Validation
-    if (!brand_id) {
-      return NextResponse.json({ error: 'Brand ID is required' }, { status: 400 });
-    }
+      scores
+    } = validation.data!;
 
     // Check if review already exists for this brand
     const { data: existing } = await supabase
@@ -279,15 +285,22 @@ const supabase = createServiceClient();
 // PATCH update brand review
 export async function PATCH(request: NextRequest) {
   try {
-  const authError = requireAdminAuth(request);
-  if (authError) return authError;
-const supabase = createServiceClient();
-    const body = await request.json();
-    const { id, scores, section_content, certifications, brand_id, ...updates } = body;
+    const authError = requireAdminAuth(request);
+    if (authError) return authError;
 
-    if (!id) {
-      return NextResponse.json({ error: 'Review ID required' }, { status: 400 });
+    const supabase = createServiceClient();
+    const body = await request.json();
+
+    // Validate input with zod schema
+    const validation = validate(brandReviewUpdateSchema, body);
+    if (!validation.success) {
+      return NextResponse.json(
+        { error: validation.errors?.[0] || 'Invalid input' },
+        { status: 400 }
+      );
     }
+
+    const { id, scores, section_content, certifications, brand_id, ...updates } = validation.data!;
 
     // If publishing, set last_reviewed_at and clear scheduled_publish_at
     if (updates.is_published === true) {

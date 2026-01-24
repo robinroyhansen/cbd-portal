@@ -1,6 +1,7 @@
 import { createServiceClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAdminAuth } from '@/lib/admin-api-auth';
+import { brandCreateSchema, brandUpdateSchema, uuid, validate } from '@/lib/validations';
 
 // GET all brands for admin
 export async function GET(request: NextRequest) {
@@ -83,28 +84,25 @@ const supabase = createServiceClient();
 // POST create new brand
 export async function POST(request: NextRequest) {
   try {
-  const authError = requireAdminAuth(request);
-  if (authError) return authError;
-const supabase = createServiceClient();
+    const authError = requireAdminAuth(request);
+    if (authError) return authError;
+
+    const supabase = createServiceClient();
     const body = await request.json();
 
-    const {
-      name,
-      website_url,
-      logo_url,
-      headquarters_country,
-      founded_year,
-      short_description,
-      is_published
-    } = body;
-
-    // Validation
-    if (!name || name.trim().length < 2) {
-      return NextResponse.json({ error: 'Brand name must be at least 2 characters' }, { status: 400 });
+    // Validate input with zod schema
+    const validation = validate(brandCreateSchema, body);
+    if (!validation.success) {
+      return NextResponse.json(
+        { error: validation.errors?.[0] || 'Invalid input' },
+        { status: 400 }
+      );
     }
 
-    // Generate slug
-    const slug = name
+    const data = validation.data!;
+
+    // Generate slug from name
+    const slug = data.name
       .toLowerCase()
       .replace(/[^a-z0-9\s-]/g, '')
       .replace(/\s+/g, '-')
@@ -125,14 +123,14 @@ const supabase = createServiceClient();
     const { data: newBrand, error } = await supabase
       .from('kb_brands')
       .insert({
-        name: name.trim(),
+        name: data.name,
         slug,
-        website_url: website_url?.trim() || null,
-        logo_url: logo_url?.trim() || null,
-        headquarters_country: headquarters_country?.trim() || null,
-        founded_year: founded_year || null,
-        short_description: short_description?.trim() || null,
-        is_published: is_published || false
+        website_url: data.website_url || null,
+        logo_url: data.logo_url || null,
+        headquarters_country: data.headquarters_country || null,
+        founded_year: data.founded_year || null,
+        short_description: data.short_description || null,
+        is_published: data.is_published
       })
       .select()
       .single();
@@ -152,25 +150,39 @@ const supabase = createServiceClient();
 // PATCH update brand
 export async function PATCH(request: NextRequest) {
   try {
-  const authError = requireAdminAuth(request);
-  if (authError) return authError;
-const supabase = createServiceClient();
+    const authError = requireAdminAuth(request);
+    if (authError) return authError;
+
+    const supabase = createServiceClient();
     const body = await request.json();
-    const { id } = body;
 
-    if (!id) {
-      return NextResponse.json({ error: 'Brand ID required' }, { status: 400 });
+    // Add id to schema for updates
+    const updateSchema = brandUpdateSchema.extend({
+      id: uuid,
+    });
+
+    // Validate input with zod schema
+    const validation = validate(updateSchema, body);
+    if (!validation.success) {
+      return NextResponse.json(
+        { error: validation.errors?.[0] || 'Invalid input' },
+        { status: 400 }
+      );
     }
 
-    // Only allow updating specific fields (filter out computed/readonly fields)
-    const allowedFields = ['name', 'website_url', 'logo_url', 'headquarters_country', 'founded_year', 'short_description', 'is_published', 'certifications'];
+    const { id, ...validatedData } = validation.data!;
+
+    // Build update object with only allowed fields
     const updates: Record<string, unknown> = {};
-
-    for (const field of allowedFields) {
-      if (body[field] !== undefined) {
-        updates[field] = body[field];
-      }
-    }
+    if (validatedData.name !== undefined) updates.name = validatedData.name;
+    if (validatedData.website_url !== undefined) updates.website_url = validatedData.website_url || null;
+    if (validatedData.logo_url !== undefined) updates.logo_url = validatedData.logo_url || null;
+    if (validatedData.headquarters_country !== undefined) updates.headquarters_country = validatedData.headquarters_country || null;
+    if (validatedData.founded_year !== undefined) updates.founded_year = validatedData.founded_year || null;
+    if (validatedData.short_description !== undefined) updates.short_description = validatedData.short_description || null;
+    if (validatedData.description !== undefined) updates.description = validatedData.description || null;
+    if (validatedData.is_published !== undefined) updates.is_published = validatedData.is_published;
+    if (validatedData.certifications !== undefined) updates.certifications = validatedData.certifications;
 
     // If name is being updated, regenerate slug
     if (updates.name) {
@@ -193,13 +205,6 @@ const supabase = createServiceClient();
         return NextResponse.json({ error: 'A brand with this name already exists' }, { status: 400 });
       }
     }
-
-    // Handle empty strings - convert to null for optional fields
-    if (updates.headquarters_country === '') updates.headquarters_country = null;
-    if (updates.website_url === '') updates.website_url = null;
-    if (updates.logo_url === '') updates.logo_url = null;
-    if (updates.short_description === '') updates.short_description = null;
-    if (updates.founded_year === '' || updates.founded_year === 0) updates.founded_year = null;
 
     const { data: updatedBrand, error } = await supabase
       .from('kb_brands')

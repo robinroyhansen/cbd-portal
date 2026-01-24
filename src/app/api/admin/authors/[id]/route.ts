@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAdminAuth } from '@/lib/admin-api-auth';
+import { authorUpdateSchema, validate } from '@/lib/validations';
 
 interface RouteParams {
   params: { id: string };
@@ -38,17 +39,29 @@ export async function PUT(
   { params }: RouteParams
 ) {
   try {
-  const authError = requireAdminAuth(request);
-  if (authError) return authError;
-const supabase = await createClient();
+    const authError = requireAdminAuth(request);
+    if (authError) return authError;
+
+    const supabase = await createClient();
     const body = await request.json();
 
+    // Validate input with zod schema
+    const validation = validate(authorUpdateSchema, body);
+    if (!validation.success) {
+      return NextResponse.json(
+        { error: validation.errors?.[0] || 'Invalid input' },
+        { status: 400 }
+      );
+    }
+
+    const validatedData = validation.data!;
+
     // If slug is being changed, check if it already exists
-    if (body.slug) {
+    if (validatedData.slug) {
       const { data: existingAuthor } = await supabase
         .from('kb_authors')
         .select('id')
-        .eq('slug', body.slug)
+        .eq('slug', validatedData.slug)
         .neq('id', params.id)
         .single();
 
@@ -58,30 +71,30 @@ const supabase = await createClient();
     }
 
     // If this author is being set as primary, unset all other primary authors
-    if (body.is_primary) {
+    if (validatedData.is_primary) {
       await supabase
         .from('kb_authors')
         .update({ is_primary: false })
         .neq('id', params.id);
     }
 
-    // Whitelist allowed fields to prevent mass assignment attacks
+    // Update with validated data
     const { data: author, error } = await supabase
       .from('kb_authors')
       .update({
-        name: body.name,
-        slug: body.slug,
-        title: body.title,
-        email: body.email,
-        bio_short: body.bio_short,
-        bio_full: body.bio_full,
-        image_url: body.image_url,
-        website_url: body.website_url,
-        linkedin_url: body.linkedin_url,
-        twitter_url: body.twitter_url,
-        credentials: body.credentials,
-        expertise_areas: body.expertise_areas,
-        is_primary: body.is_primary,
+        name: validatedData.name,
+        slug: validatedData.slug,
+        title: validatedData.title,
+        email: validatedData.email,
+        bio_short: validatedData.bio_short,
+        bio_full: validatedData.bio_full,
+        image_url: validatedData.image_url,
+        website_url: validatedData.website_url,
+        linkedin_url: validatedData.linkedin_url,
+        twitter_url: validatedData.twitter_url,
+        credentials: validatedData.credentials,
+        expertise_areas: validatedData.expertise_areas,
+        is_primary: validatedData.is_primary,
         updated_at: new Date().toISOString()
       })
       .eq('id', params.id)

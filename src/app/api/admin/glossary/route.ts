@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAdminAuth } from '@/lib/admin-api-auth';
+import { glossaryTermSchema, glossaryTermUpdateSchema, validate } from '@/lib/validations';
 
 // GET all glossary terms for admin
 export async function GET(request: NextRequest) {
@@ -59,42 +60,25 @@ const supabase = await createClient();
 // POST create new glossary term
 export async function POST(request: NextRequest) {
   try {
-  const authError = requireAdminAuth(request);
-  if (authError) return authError;
-const supabase = await createClient();
+    const authError = requireAdminAuth(request);
+    if (authError) return authError;
+
+    const supabase = await createClient();
     const body = await request.json();
 
-    const {
-      term,
-      display_name,
-      definition,
-      short_definition,
-      category,
-      synonyms,
-      related_terms,
-      related_research,
-      sources
-    } = body;
-
-    // Validation
-    if (!term || term.trim().length < 2) {
-      return NextResponse.json({ error: 'Term must be at least 2 characters' }, { status: 400 });
+    // Validate input with zod schema
+    const validation = validate(glossaryTermSchema, body);
+    if (!validation.success) {
+      return NextResponse.json(
+        { error: validation.errors?.[0] || 'Invalid input' },
+        { status: 400 }
+      );
     }
 
-    if (!definition || definition.trim().length < 10) {
-      return NextResponse.json({ error: 'Definition must be at least 10 characters' }, { status: 400 });
-    }
-
-    if (!short_definition || short_definition.trim().length < 10) {
-      return NextResponse.json({ error: 'Short definition must be at least 10 characters' }, { status: 400 });
-    }
-
-    if (!category) {
-      return NextResponse.json({ error: 'Category is required' }, { status: 400 });
-    }
+    const data = validation.data!;
 
     // Generate slug
-    const slug = term
+    const slug = data.term
       .toLowerCase()
       .replace(/[^a-z0-9\s-]/g, '')
       .replace(/\s+/g, '-')
@@ -115,16 +99,16 @@ const supabase = await createClient();
     const { data: newTerm, error } = await supabase
       .from('kb_glossary')
       .insert({
-        term: term.trim(),
-        display_name: display_name?.trim() || term.trim(),
+        term: data.term,
+        display_name: data.display_name || data.term,
         slug,
-        definition: definition.trim(),
-        short_definition: short_definition.trim(),
-        category,
-        synonyms: synonyms || [],
-        related_terms: related_terms || [],
-        related_research: related_research || [],
-        sources: sources || []
+        definition: data.definition,
+        short_definition: data.short_definition,
+        category: data.category,
+        synonyms: data.synonyms,
+        related_terms: data.related_terms,
+        related_research: data.related_research,
+        sources: data.sources
       })
       .select()
       .single();
@@ -144,19 +128,27 @@ const supabase = await createClient();
 // PATCH update glossary term
 export async function PATCH(request: NextRequest) {
   try {
-  const authError = requireAdminAuth(request);
-  if (authError) return authError;
-const supabase = await createClient();
-    const body = await request.json();
-    const { id, ...updates } = body;
+    const authError = requireAdminAuth(request);
+    if (authError) return authError;
 
-    if (!id) {
-      return NextResponse.json({ error: 'Term ID required' }, { status: 400 });
+    const supabase = await createClient();
+    const body = await request.json();
+
+    // Validate input with zod schema
+    const validation = validate(glossaryTermUpdateSchema, body);
+    if (!validation.success) {
+      return NextResponse.json(
+        { error: validation.errors?.[0] || 'Invalid input' },
+        { status: 400 }
+      );
     }
 
+    const { id, ...updates } = validation.data!;
+
     // If term is being updated, regenerate slug
+    let newSlug: string | undefined;
     if (updates.term) {
-      updates.slug = updates.term
+      newSlug = updates.term
         .toLowerCase()
         .replace(/[^a-z0-9\s-]/g, '')
         .replace(/\s+/g, '-')
@@ -167,7 +159,7 @@ const supabase = await createClient();
       const { data: existing } = await supabase
         .from('kb_glossary')
         .select('id')
-        .eq('slug', updates.slug)
+        .eq('slug', newSlug)
         .neq('id', id)
         .single();
 
@@ -176,9 +168,22 @@ const supabase = await createClient();
       }
     }
 
+    // Build update object with only allowed fields
+    const updateData: Record<string, unknown> = {};
+    if (updates.term !== undefined) updateData.term = updates.term;
+    if (updates.display_name !== undefined) updateData.display_name = updates.display_name;
+    if (newSlug !== undefined) updateData.slug = newSlug;
+    if (updates.definition !== undefined) updateData.definition = updates.definition;
+    if (updates.short_definition !== undefined) updateData.short_definition = updates.short_definition;
+    if (updates.category !== undefined) updateData.category = updates.category;
+    if (updates.synonyms !== undefined) updateData.synonyms = updates.synonyms;
+    if (updates.related_terms !== undefined) updateData.related_terms = updates.related_terms;
+    if (updates.related_research !== undefined) updateData.related_research = updates.related_research;
+    if (updates.sources !== undefined) updateData.sources = updates.sources;
+
     const { data: updatedTerm, error } = await supabase
       .from('kb_glossary')
-      .update(updates)
+      .update(updateData)
       .eq('id', id)
       .select()
       .single();

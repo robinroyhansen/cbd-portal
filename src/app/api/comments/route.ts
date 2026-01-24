@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { checkRateLimit, getClientIp, RATE_LIMITS } from '@/lib/rate-limit';
+import { commentCreateSchema, validate } from '@/lib/validations';
 
 // GET approved comments for an article
 export async function GET(request: NextRequest) {
@@ -69,34 +70,23 @@ export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient();
     const body = await request.json();
-    const { article_id, author_name, author_email, comment_text, parent_id, honeypot } = body;
 
     // Honeypot check - if filled, it's a bot
-    if (honeypot) {
+    if (body.honeypot) {
       // Silently accept but don't save (fool the bot)
       return NextResponse.json({ success: true, message: 'Comment submitted for moderation' });
     }
 
-    // Validation
-    if (!article_id) {
-      return NextResponse.json({ error: 'Article ID required' }, { status: 400 });
+    // Validate input with zod schema
+    const validation = validate(commentCreateSchema, body);
+    if (!validation.success) {
+      return NextResponse.json(
+        { error: validation.errors?.[0] || 'Invalid input' },
+        { status: 400 }
+      );
     }
 
-    if (!author_name || author_name.trim().length < 2) {
-      return NextResponse.json({ error: 'Name must be at least 2 characters' }, { status: 400 });
-    }
-
-    if (!author_email || !author_email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-      return NextResponse.json({ error: 'Valid email required' }, { status: 400 });
-    }
-
-    if (!comment_text || comment_text.trim().length < 10) {
-      return NextResponse.json({ error: 'Comment must be at least 10 characters' }, { status: 400 });
-    }
-
-    if (comment_text.length > 5000) {
-      return NextResponse.json({ error: 'Comment must be less than 5000 characters' }, { status: 400 });
-    }
+    const { article_id, author_name, author_email, comment_text, parent_id } = validation.data!;
 
     // Get IP and user agent from headers
     const forwarded = request.headers.get('x-forwarded-for');
