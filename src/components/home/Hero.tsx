@@ -13,8 +13,9 @@ function AnimatedNumber({ value, suffix = '' }: { value: number; suffix?: string
   const [display, setDisplay] = useState(0);
 
   useEffect(() => {
-    const duration = 2000;
-    const steps = 60;
+    // Optimized: Reduced from 2000ms/60 steps to 1200ms/30 steps for better performance
+    const duration = 1200;
+    const steps = 30;
     const increment = value / steps;
     let current = 0;
     const timer = setInterval(() => {
@@ -88,12 +89,12 @@ export function Hero({ stats }: HeroProps) {
       <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left column - Main content */}
-          <div className="lg:col-span-7 space-y-8">
+          {/* Optimized: Consolidated to single animation group for better performance */}
+          <div
+            className={`lg:col-span-7 space-y-8 transition-all duration-500 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+          >
             {/* Eyebrow */}
-            <div
-              className={`transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-              style={{ transitionDelay: '100ms' }}
-            >
+            <div>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-medium backdrop-blur-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -104,10 +105,7 @@ export function Hero({ stats }: HeroProps) {
             </div>
 
             {/* Main headline */}
-            <div
-              className={`transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-              style={{ transitionDelay: '200ms' }}
-            >
+            <div>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.05] tracking-tight">
                 Science-First
                 <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-300">
@@ -117,10 +115,7 @@ export function Hero({ stats }: HeroProps) {
             </div>
 
             {/* Subheadline */}
-            <div
-              className={`transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-              style={{ transitionDelay: '300ms' }}
-            >
+            <div>
               <p className="text-xl text-emerald-100/70 max-w-xl leading-relaxed">
                 The world&apos;s largest independent CBD research database.
                 We analyze peer-reviewed studies and present unbiased,
@@ -129,48 +124,39 @@ export function Hero({ stats }: HeroProps) {
             </div>
 
             {/* CTA Buttons */}
-            <div
-              className={`flex flex-wrap gap-4 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-              style={{ transitionDelay: '400ms' }}
-            >
+            <div className="flex flex-wrap gap-4">
               <Link
                 href="/conditions"
-                className="group relative px-8 py-4 bg-white text-[#0a1f1a] rounded-xl font-semibold overflow-hidden transition-all hover:shadow-xl hover:shadow-emerald-500/20"
+                className="btn btn-white btn-lg group"
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  Explore Conditions
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
+                Explore Conditions
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </Link>
               <Link
                 href="/research"
-                className="group px-8 py-4 border-2 border-emerald-500/30 text-emerald-300 rounded-xl font-semibold hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all"
+                className="btn btn-outline-white btn-lg group"
               >
-                <span className="flex items-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  Browse Studies
-                </span>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Browse Studies
               </Link>
             </div>
 
             {/* Search */}
-            <div
-              className={`max-w-xl transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-              style={{ transitionDelay: '500ms' }}
-            >
+            <div className="max-w-xl">
               <SearchBar />
             </div>
           </div>
 
           {/* Right column - Stats card */}
+          {/* Optimized: Simplified animation - removed rotate, reduced duration */}
           <div className="lg:col-span-5">
             <div
-              className={`relative transition-all duration-1000 ${loaded ? 'opacity-100 translate-y-0 rotate-0' : 'opacity-0 translate-y-8 rotate-1'}`}
-              style={{ transitionDelay: '300ms' }}
+              className={`relative transition-all duration-500 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+              style={{ transitionDelay: '150ms' }}
             >
               {/* Decorative ring */}
               <div className="absolute -inset-4 bg-gradient-to-br from-emerald-500/20 via-transparent to-teal-500/20 rounded-3xl blur-xl" />
@@ -268,9 +254,10 @@ export function Hero({ stats }: HeroProps) {
         </div>
 
         {/* Bottom scroll indicator */}
+        {/* Optimized: Reduced delay from 800ms to 400ms */}
         <div
-          className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-all duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
-          style={{ transitionDelay: '800ms' }}
+          className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+          style={{ transitionDelay: '400ms' }}
         >
           <div className="flex flex-col items-center gap-2 text-white/40">
             <span className="text-xs uppercase tracking-wider">Scroll to explore</span>

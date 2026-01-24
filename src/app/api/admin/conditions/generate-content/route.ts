@@ -175,38 +175,33 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Condition not found' }, { status: 404 });
     }
 
-    // Fetch all research for this condition - match by slug first (most reliable)
-    const { data: research, error: researchError } = await supabase
+    // Fetch all approved research and filter by topic_keywords (same approach as conditions page)
+    const keywords = condition.topic_keywords || [];
+
+    // Add the condition slug as a fallback keyword
+    const allKeywords = [...new Set([...keywords, conditionSlug])];
+
+    // Fetch all approved research with topics
+    const { data: allResearch, error: researchError } = await supabase
       .from('kb_research_queue')
-      .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, abstract, plain_summary, doi, pmid, authors, key_findings')
-      .eq('status', 'approved')
-      .or(`primary_topic.eq.${conditionSlug},relevant_topics.cs.{${conditionSlug}}`)
-      .order('quality_score', { ascending: false });
+      .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, abstract, plain_summary, doi, pmid, authors, key_findings, primary_topic, relevant_topics')
+      .eq('status', 'approved');
 
     if (researchError) {
       console.error('Research fetch error:', researchError);
+      return NextResponse.json({ error: 'Failed to fetch research' }, { status: 500 });
     }
 
-    let studies: ResearchStudy[] = research || [];
-
-    // If no results and we have topic_keywords, try those as well
-    const keywords = condition.topic_keywords || [];
-    if (studies.length === 0 && keywords.length > 0) {
-      for (const keyword of keywords) {
-        if (keyword === conditionSlug) continue; // Already tried this
-        const { data: keywordResearch } = await supabase
-          .from('kb_research_queue')
-          .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, abstract, plain_summary, doi, pmid, authors, key_findings')
-          .eq('status', 'approved')
-          .or(`primary_topic.eq.${keyword},relevant_topics.cs.{${keyword}}`)
-          .order('quality_score', { ascending: false });
-
-        if (keywordResearch && keywordResearch.length > 0) {
-          studies = keywordResearch;
-          break;
-        }
-      }
-    }
+    // Filter research that matches any of the condition's topic keywords
+    const studies: ResearchStudy[] = (allResearch || [])
+      .filter(research => {
+        const topics = [
+          research.primary_topic,
+          ...(Array.isArray(research.relevant_topics) ? research.relevant_topics : [])
+        ].filter(Boolean);
+        return allKeywords.some(keyword => topics.includes(keyword));
+      })
+      .sort((a, b) => (b.quality_score || 0) - (a.quality_score || 0));
     const evidence = analyzeEvidence(studies);
 
     // Prepare context for Claude
