@@ -253,7 +253,7 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
                 <p className="text-sm text-white/70">Conditions</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-5 text-center border border-white/20">
-                <p className="text-3xl md:text-4xl font-bold">{(totalStudies / 1000).toFixed(1)}k</p>
+                <p className="text-3xl md:text-4xl font-bold">{totalStudies.toLocaleString()}+</p>
                 <p className="text-sm text-white/70">Studies</p>
               </div>
             </div>

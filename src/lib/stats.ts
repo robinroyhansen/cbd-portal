@@ -148,15 +148,8 @@ export async function getHomePageStats(): Promise<HomePageStats> {
     0
   ) || 0;
 
-  // Format human participants display - show full number up to 99,999
-  let humanParticipantsDisplay: string;
-  if (humanParticipants >= 1000000) {
-    humanParticipantsDisplay = `${(humanParticipants / 1000000).toFixed(1)}M+`;
-  } else if (humanParticipants >= 100000) {
-    humanParticipantsDisplay = `${Math.floor(humanParticipants / 1000)}K+`;
-  } else {
-    humanParticipantsDisplay = `${humanParticipants.toLocaleString()}+`;
-  }
+  // Format human participants display with full numbers
+  const humanParticipantsDisplay = `${humanParticipants.toLocaleString()}+`;
 
   // Calculate year range
   const years = yearResult.data?.map(y => y.year).filter(Boolean) as number[] || [];

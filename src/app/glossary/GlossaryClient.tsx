@@ -675,38 +675,38 @@ function TermCard({ term, categories }: { term: GlossaryTerm; categories: Catego
   return (
     <Link
       href={`/glossary/${term.slug}`}
-      className="group block bg-white rounded-2xl border border-gray-200 hover:shadow-lg hover:border-green-300 transition-all duration-300 overflow-hidden"
+      className="group block bg-white rounded-xl md:rounded-2xl border border-gray-200 hover:shadow-lg hover:border-green-300 transition-all duration-300 overflow-hidden"
     >
       {/* Gradient accent line */}
-      <div className="h-1 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-      <article className="p-5">
-        <div className="flex items-start justify-between gap-2 mb-3">
-          <div>
-            <h3 className="font-bold text-gray-900 text-lg group-hover:text-green-700 transition-colors">
+      <div className="h-0.5 md:h-1 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+      <article className="p-4 md:p-5">
+        <div className="flex items-start justify-between gap-2 mb-2 md:mb-3">
+          <div className="min-w-0 flex-1">
+            <h3 className="font-bold text-gray-900 text-base md:text-lg group-hover:text-green-700 transition-colors line-clamp-2">
               {term.display_name || term.term}
             </h3>
             {term.pronunciation && (
-              <span className="text-xs text-gray-400 font-mono mt-0.5 block">/{term.pronunciation}/</span>
+              <span className="text-[10px] md:text-xs text-gray-400 font-mono mt-0.5 block">/{term.pronunciation}/</span>
             )}
           </div>
-          <span className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium ${categoryColors.bg} ${categoryColors.text}`}>
+          <span className={`flex items-center gap-1 px-2 md:px-2.5 py-0.5 md:py-1 rounded-full text-[10px] md:text-xs font-medium shrink-0 ${categoryColors.bg} ${categoryColors.text}`}>
             <span aria-hidden="true">{categoryInfo?.icon}</span>
             <span className="hidden sm:inline">{categoryInfo?.label}</span>
           </span>
         </div>
 
-        <p className="text-gray-600 text-sm mb-3 line-clamp-2 leading-relaxed">{term.short_definition}</p>
+        <p className="text-gray-600 text-xs md:text-sm mb-2 md:mb-3 line-clamp-2 leading-relaxed">{term.short_definition}</p>
 
         <div className="flex items-center justify-between">
           {term.synonyms && term.synonyms.length > 0 ? (
-            <div className="text-xs text-gray-500">
+            <div className="text-[10px] md:text-xs text-gray-500 line-clamp-1">
               Also: {term.synonyms.slice(0, 2).join(', ')}
               {term.synonyms.length > 2 && '...'}
             </div>
           ) : (
             <div />
           )}
-          <svg className="w-5 h-5 text-gray-300 group-hover:text-green-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 md:w-5 md:h-5 text-gray-300 group-hover:text-green-500 group-hover:translate-x-1 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </div>
