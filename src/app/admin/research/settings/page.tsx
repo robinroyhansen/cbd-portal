@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { createClient } from '@/lib/supabase/client';
+import { useAdminAuth } from '@/lib/admin-auth';
 
 interface BlacklistTerm {
   id: string;
@@ -55,22 +55,26 @@ export default function ResearchSettingsPage() {
       max: number;
     };
   } | null>(null);
-  const supabase = createClient();
+  const { getAuthHeaders } = useAdminAuth();
 
   useEffect(() => {
     fetchTerms();
   }, []);
 
   async function fetchTerms() {
-    const { data, error } = await supabase
-      .from('research_blacklist')
-      .select('*')
-      .order('created_at', { ascending: false });
-
-    if (error) {
+    try {
+      const res = await fetch('/api/admin/research/blacklist', {
+        headers: getAuthHeaders(),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setTerms(data.terms || []);
+      } else {
+        console.error('Error fetching blacklist:', await res.text());
+      }
+    } catch (error) {
       console.error('Error fetching blacklist:', error);
     }
-    setTerms(data || []);
     setLoading(false);
   }
 
@@ -78,24 +82,34 @@ export default function ResearchSettingsPage() {
     if (!newTerm.trim()) return;
     setSaving(true);
 
-    const { error } = await supabase
-      .from('research_blacklist')
-      .insert({
-        term: newTerm.trim().toLowerCase(),
-        match_type: matchType,
-        case_sensitive: caseSensitive,
-        reason: newReason.trim() || null,
+    try {
+      const res = await fetch('/api/admin/research/blacklist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...getAuthHeaders(),
+        },
+        body: JSON.stringify({
+          term: newTerm.trim().toLowerCase(),
+          match_type: matchType,
+          case_sensitive: caseSensitive,
+          reason: newReason.trim() || null,
+        }),
       });
 
-    if (error) {
+      if (res.ok) {
+        setNewTerm('');
+        setNewReason('');
+        setMatchType('contains');
+        setCaseSensitive(false);
+        fetchTerms();
+      } else {
+        const error = await res.json();
+        alert(error.error || 'Failed to add term');
+      }
+    } catch (error) {
       console.error('Error adding term:', error);
-      alert('Failed to add term. It may already exist.');
-    } else {
-      setNewTerm('');
-      setNewReason('');
-      setMatchType('contains');
-      setCaseSensitive(false);
-      fetchTerms();
+      alert('Failed to add term');
     }
     setSaving(false);
   }
@@ -103,15 +117,19 @@ export default function ResearchSettingsPage() {
   async function deleteTerm(id: string) {
     if (!confirm('Remove this term from blacklist?')) return;
 
-    const { error } = await supabase
-      .from('research_blacklist')
-      .delete()
-      .eq('id', id);
+    try {
+      const res = await fetch(`/api/admin/research/blacklist?id=${id}`, {
+        method: 'DELETE',
+        headers: getAuthHeaders(),
+      });
 
-    if (error) {
+      if (res.ok) {
+        fetchTerms();
+      } else {
+        console.error('Error deleting term:', await res.text());
+      }
+    } catch (error) {
       console.error('Error deleting term:', error);
-    } else {
-      fetchTerms();
     }
   }
 
@@ -122,7 +140,10 @@ export default function ResearchSettingsPage() {
     setApplyResult(null);
 
     try {
-      const res = await fetch('/api/admin/research/apply-blacklist', { method: 'POST' });
+      const res = await fetch('/api/admin/research/apply-blacklist', {
+        method: 'POST',
+        headers: getAuthHeaders(),
+      });
       const data = await res.json();
       setApplyResult({ rejected: data.rejected, checked: data.checked });
     } catch (error) {
@@ -141,7 +162,10 @@ export default function ResearchSettingsPage() {
     setFlaggedStudies([]);
 
     try {
-      const res = await fetch('/api/admin/research/check-approved-blacklist', { method: 'POST' });
+      const res = await fetch('/api/admin/research/check-approved-blacklist', {
+        method: 'POST',
+        headers: getAuthHeaders(),
+      });
       const data = await res.json();
       setApprovedResult({
         found: data.found,
@@ -163,7 +187,10 @@ export default function ResearchSettingsPage() {
     try {
       const res = await fetch('/api/admin/research/update-status', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...getAuthHeaders(),
+        },
         body: JSON.stringify({
           id: studyId,
           status: 'rejected',
@@ -203,7 +230,10 @@ export default function ResearchSettingsPage() {
     setRecalcResult(null);
 
     try {
-      const res = await fetch('/api/admin/research/recalculate-scores', { method: 'POST' });
+      const res = await fetch('/api/admin/research/recalculate-scores', {
+        method: 'POST',
+        headers: getAuthHeaders(),
+      });
       const data = await res.json();
       setRecalcResult(data);
     } catch (error) {
@@ -221,7 +251,10 @@ export default function ResearchSettingsPage() {
     setRelevanceResult(null);
 
     try {
-      const res = await fetch('/api/admin/research/recalculate-relevance', { method: 'POST' });
+      const res = await fetch('/api/admin/research/recalculate-relevance', {
+        method: 'POST',
+        headers: getAuthHeaders(),
+      });
       const data = await res.json();
       setRelevanceResult(data);
     } catch (error) {
