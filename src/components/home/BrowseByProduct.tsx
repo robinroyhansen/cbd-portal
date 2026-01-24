@@ -127,7 +127,7 @@ export async function BrowseByProduct() {
           </Link>
           {brandCount && brandCount > 0 && (
             <Link
-              href="/brands"
+              href="/reviews"
               className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-green-50 border border-green-200 rounded-lg text-sm text-green-700 hover:bg-green-100 transition-colors whitespace-nowrap flex-shrink-0"
             >
               <span>⭐</span>

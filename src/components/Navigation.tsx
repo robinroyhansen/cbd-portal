@@ -23,7 +23,7 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'Health Topics',
-    href: '/categories/conditions',
+    href: '/conditions',
     icon: '🏥',
     children: [
       { label: 'Anxiety', href: '/research/anxiety', description: 'Research on CBD for anxiety disorders' },
@@ -32,7 +32,7 @@ const NAV_ITEMS: NavItem[] = [
       { label: 'Depression', href: '/research/depression', description: 'CBD and mood disorders' },
       { label: 'Inflammation', href: '/research/inflammation', description: 'Anti-inflammatory properties' },
       { label: 'Epilepsy', href: '/research/epilepsy', description: 'Approved prescription CBD use' },
-      { label: 'View All Conditions', href: '/categories/conditions', description: '' },
+      { label: 'View All Conditions', href: '/conditions', description: '' },
     ]
   },
   {

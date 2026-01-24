@@ -89,7 +89,7 @@ export async function BrowseByCondition() {
 
         <div className="text-center mt-6 md:mt-10">
           <Link
-            href="/categories/conditions"
+            href="/conditions"
             className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors text-sm md:text-base"
           >
             View All {totalConditions || 39} Conditions

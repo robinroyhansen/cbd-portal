@@ -242,7 +242,7 @@ export default async function CategoriesPage() {
 
       {/* Featured: Health Conditions */}
       <Link
-        href="/categories/conditions"
+        href="/conditions"
         className="block mb-10 group"
       >
         <div className="relative overflow-hidden rounded-2xl border-2 border-green-200 bg-gradient-to-br from-green-50 to-emerald-50 p-8 transition-all hover:border-green-400 hover:shadow-lg">
