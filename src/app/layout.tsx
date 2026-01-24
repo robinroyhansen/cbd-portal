@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Merriweather } from 'next/font/google';
+import { Inter, Merriweather, DM_Serif_Display, Source_Sans_3, Space_Mono } from 'next/font/google';
 import './globals.css';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
@@ -16,6 +16,23 @@ const merriweather = Merriweather({
   weight: ['400', '700'],
   subsets: ['latin'],
   variable: '--font-merriweather',
+});
+
+const dmSerifDisplay = DM_Serif_Display({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-display',
+});
+
+const sourceSans = Source_Sans_3({
+  subsets: ['latin'],
+  variable: '--font-body',
+});
+
+const spaceMono = Space_Mono({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: '--font-mono',
 });
 
 export const metadata: Metadata = {
@@ -57,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${merriweather.variable}`}>
+    <html lang="en" className={`${inter.variable} ${merriweather.variable} ${dmSerifDisplay.variable} ${sourceSans.variable} ${spaceMono.variable}`}>
       <body className="min-h-screen bg-white font-sans text-gray-900 flex flex-col">
         <NavigationProvider>
           <Navigation />

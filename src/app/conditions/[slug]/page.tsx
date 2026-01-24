@@ -76,13 +76,20 @@ export default async function ConditionPage({ params }: Props) {
     .order('quality_score', { ascending: false })
     .limit(8);
 
+  // Get article count first
+  const { count: totalArticleCount } = await supabase
+    .from('kb_articles')
+    .select('id', { count: 'exact', head: true })
+    .or(`condition_slug.eq.${slug},title.ilike.%${condition.name}%`)
+    .eq('status', 'published');
+
   const { data: articles } = await supabase
     .from('kb_articles')
     .select('id, title, slug, excerpt, featured_image, published_at, reading_time')
     .or(`condition_slug.eq.${slug},title.ilike.%${condition.name}%`)
     .eq('status', 'published')
     .order('published_at', { ascending: false })
-    .limit(6);
+    .limit(12);
 
   let relatedConditions: Array<{ slug: string; name: string; display_name?: string; short_description?: string; research_count?: number; category?: string }> = [];
   if (condition.related_condition_slugs && condition.related_condition_slugs.length > 0) {
@@ -155,16 +162,16 @@ export default async function ConditionPage({ params }: Props) {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>
                     Read Articles
-                    <span className="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full text-xs">{articles.length}</span>
+                    <span className="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full text-xs">{totalArticleCount || articles.length}</span>
                   </a>
                 )}
-                {research && research.length > 0 && (
-                  <a href="#research" className="group inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm text-white rounded-xl font-semibold border border-white/20 hover:bg-white/20 transition-all">
+                {condition.research_count && condition.research_count > 0 && (
+                  <Link href={`/research/${slug}`} className="group inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm text-white rounded-xl font-semibold border border-white/20 hover:bg-white/20 transition-all">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
-                    View Research
-                  </a>
+                    Browse {condition.research_count} Studies
+                  </Link>
                 )}
               </div>
             </div>
@@ -249,17 +256,21 @@ export default async function ConditionPage({ params }: Props) {
                   <h2 className="font-serif text-3xl font-bold text-slate-900">
                     Articles &amp; Guides
                   </h2>
-                  <p className="text-slate-600 mt-1">In-depth information about CBD and {condition.display_name || condition.name}</p>
+                  <p className="text-slate-600 mt-1">
+                    {totalArticleCount || articles.length} articles about CBD and {condition.display_name || condition.name}
+                  </p>
                 </div>
-                <Link
-                  href={`/articles?condition=${slug}`}
-                  className="hidden sm:flex items-center gap-2 text-emerald-700 hover:text-emerald-800 font-medium"
-                >
-                  View all
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
+                {totalArticleCount && totalArticleCount > 12 && (
+                  <Link
+                    href={`/articles?q=${encodeURIComponent(condition.name)}`}
+                    className="hidden sm:flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 font-medium transition-colors"
+                  >
+                    View all {totalArticleCount}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                )}
               </div>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -319,6 +330,19 @@ export default async function ConditionPage({ params }: Props) {
                   </Link>
                 ))}
               </div>
+
+              {/* Mobile CTA & View all link */}
+              {totalArticleCount && totalArticleCount > 12 && (
+                <Link
+                  href={`/articles?q=${encodeURIComponent(condition.name)}`}
+                  className="flex sm:hidden items-center justify-center gap-2 mt-6 px-6 py-3 bg-slate-100 text-slate-700 rounded-xl font-semibold hover:bg-slate-200 transition-colors"
+                >
+                  View all {totalArticleCount} articles
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              )}
             </section>
           )}
 
