@@ -3,15 +3,11 @@ import { ResearchPageClient, CONDITIONS, ConditionKey } from '../../../component
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 
+// Force dynamic rendering to ensure fresh data and proper condition matching
+export const dynamic = 'force-dynamic';
+
 interface PageProps {
   params: Promise<{ condition: string }>;
-}
-
-// Generate static params for all conditions
-export async function generateStaticParams() {
-  return Object.keys(CONDITIONS).map((condition) => ({
-    condition,
-  }));
 }
 
 // Generate metadata for each condition page
