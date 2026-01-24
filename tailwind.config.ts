@@ -32,6 +32,12 @@ const config: Config = {
     'from-purple-500', 'to-violet-600',   // synthetic
     'from-slate-500', 'to-gray-600',      // rare
     'bg-gradient-to-r', 'bg-gradient-to-br',
+
+    // Evidence strength meter (condition pages)
+    'text-emerald-400', 'text-green-400', 'text-lime-400', 'text-amber-400', 'text-gray-400',
+    'from-emerald-400', 'to-emerald-500', 'from-green-400', 'to-green-500',
+    'from-lime-400', 'to-lime-500', 'from-amber-400', 'to-amber-500',
+    'from-gray-400', 'to-gray-500',
   ],
   theme: {
     extend: {
