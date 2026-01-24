@@ -178,25 +178,37 @@ export async function POST(request: NextRequest) {
     // Add the condition slug as a fallback keyword
     const allKeywords = [...new Set([...keywords, conditionSlug])];
 
+    console.log('[Generate Content] Condition:', conditionSlug);
+    console.log('[Generate Content] topic_keywords from DB:', keywords);
+    console.log('[Generate Content] All keywords to match:', allKeywords);
+
     let studies: ResearchStudy[] = [];
 
     try {
       // Fetch all approved research with topics
+      // Note: Database only has relevant_topics array, no primary_topic column
       const { data: allResearch, error: researchError } = await supabase
         .from('kb_research_queue')
-        .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, abstract, plain_summary, doi, pmid, authors, key_findings, primary_topic, relevant_topics')
+        .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, abstract, plain_summary, doi, pmid, authors, key_findings, relevant_topics')
         .eq('status', 'approved');
 
       if (researchError) {
         console.error('Research fetch error:', researchError);
       } else if (allResearch) {
+        console.log('[Generate Content] Total approved research:', allResearch.length);
+
+        // Sample first 3 research items to see their topic structure
+        if (allResearch.length > 0) {
+          console.log('[Generate Content] Sample research topics:');
+          allResearch.slice(0, 3).forEach(r => {
+            console.log(`  - "${r.title?.substring(0, 50)}...": relevant_topics=${JSON.stringify(r.relevant_topics)}`);
+          });
+        }
+
         // Filter research that matches any of the condition's topic keywords
         studies = allResearch
           .filter((research: any) => {
-            const topics = [
-              research.primary_topic,
-              ...(Array.isArray(research.relevant_topics) ? research.relevant_topics : [])
-            ].filter(Boolean);
+            const topics = research.relevant_topics || [];
             return allKeywords.some(keyword => topics.includes(keyword));
           })
           .sort((a: any, b: any) => (b.quality_score || 0) - (a.quality_score || 0))
@@ -216,6 +228,8 @@ export async function POST(request: NextRequest) {
             authors: r.authors,
             key_findings: r.key_findings
           }));
+
+        console.log('[Generate Content] Matched studies:', studies.length);
       }
     } catch (fetchError) {
       console.error('Research fetch exception:', fetchError);

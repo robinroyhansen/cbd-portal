@@ -28,9 +28,10 @@ export default async function ConditionsPage() {
     .eq('status', 'approved');
 
   // Get all approved research with their topics for counting
+  // Note: Database only has relevant_topics array, no primary_topic column
   const { data: allResearch } = await supabase
     .from('kb_research_queue')
-    .select('primary_topic, relevant_topics')
+    .select('relevant_topics')
     .eq('status', 'approved');
 
   // Get articles linked to conditions (by condition slug in article metadata or tags)
@@ -50,7 +51,7 @@ export default async function ConditionsPage() {
 
       // Count research that matches any of the condition's topic keywords
       allResearch.forEach(research => {
-        const topics = [research.primary_topic, ...(research.relevant_topics || [])].filter(Boolean);
+        const topics = research.relevant_topics || [];
         if (keywords.some(keyword => topics.includes(keyword))) {
           count++;
         }

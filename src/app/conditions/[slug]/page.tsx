@@ -68,11 +68,14 @@ export default async function ConditionPage({ params }: Props) {
 
   if (!condition) notFound();
 
+  // Fetch research matching any of the condition's topic_keywords
+  // Note: Database only has relevant_topics array, no primary_topic column
+  const keywords = condition.topic_keywords || [slug];
   const { data: research } = await supabase
     .from('kb_research_queue')
     .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, plain_summary')
     .eq('status', 'approved')
-    .or(`primary_topic.eq.${slug},relevant_topics.cs.{${slug}}`)
+    .overlaps('relevant_topics', keywords)
     .order('quality_score', { ascending: false })
     .limit(8);
 
