@@ -287,23 +287,23 @@ export default async function ResearchPage() {
 
       {/* Data Sources Banner */}
       <div className="bg-white border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-4 py-4">
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-gray-500">
-            <span className="font-medium text-gray-700">Data from:</span>
-            <span className="flex items-center gap-1.5">
-              <span className="text-lg">🔬</span> PubMed
+        <div className="max-w-6xl mx-auto px-4 py-3 md:py-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-3 md:gap-x-6 gap-y-2 text-xs md:text-sm text-gray-500">
+            <span className="font-medium text-gray-700 w-full text-center sm:w-auto">Data from:</span>
+            <span className="flex items-center gap-1">
+              <span className="text-base md:text-lg">🔬</span> PubMed
             </span>
-            <span className="flex items-center gap-1.5">
-              <span className="text-lg">🏥</span> ClinicalTrials.gov
+            <span className="flex items-center gap-1">
+              <span className="text-base md:text-lg">🏥</span> ClinicalTrials.gov
             </span>
-            <span className="flex items-center gap-1.5">
-              <span className="text-lg">📚</span> Cochrane
+            <span className="flex items-center gap-1">
+              <span className="text-base md:text-lg">📚</span> Cochrane
             </span>
-            <span className="flex items-center gap-1.5">
-              <span className="text-lg">🇪🇺</span> Europe PMC
+            <span className="hidden sm:flex items-center gap-1">
+              <span className="text-base md:text-lg">🇪🇺</span> Europe PMC
             </span>
-            <span className="flex items-center gap-1.5">
-              <span className="text-lg">🎓</span> Semantic Scholar
+            <span className="hidden sm:flex items-center gap-1">
+              <span className="text-base md:text-lg">🎓</span> Semantic Scholar
             </span>
           </div>
         </div>
@@ -319,26 +319,29 @@ export default async function ResearchPage() {
         const minYear = Math.min(...Object.keys(yearDistribution).map(Number));
         const maxYear = Math.max(...Object.keys(yearDistribution).map(Number));
 
+        // On mobile, show fewer years (last 15 years)
+        const mobileYears = years.filter(y => y >= 2010);
+
         return (
-          <div className="mb-8 bg-white rounded-2xl border border-gray-200 shadow-sm p-6 max-w-4xl mx-auto">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
+          <div className="mb-8 bg-white rounded-2xl border border-gray-200 shadow-sm p-4 md:p-6 max-w-4xl mx-auto">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4 md:mb-6">
               <div>
-                <h3 className="text-lg font-bold text-gray-900">Publication Trends</h3>
-                <p className="text-sm text-gray-500">{minYear} – {maxYear}</p>
+                <h3 className="text-base md:text-lg font-bold text-gray-900">Publication Trends</h3>
+                <p className="text-xs md:text-sm text-gray-500">{minYear} – {maxYear}</p>
               </div>
-              <div className="flex items-center gap-4 text-sm">
-                <span className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500"></span>
+              <div className="flex items-center gap-3 md:gap-4 text-xs md:text-sm">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500"></span>
                   <span className="text-gray-600">Historical</span>
                 </span>
-                <span className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-gradient-to-r from-emerald-400 to-green-500"></span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-gradient-to-r from-emerald-400 to-green-500"></span>
                   <span className="text-gray-600">Recent</span>
                 </span>
               </div>
             </div>
-            {/* Chart bars */}
-            <div className="flex items-end gap-0.5" style={{ height: '120px' }} aria-label="Research publications by year">
+            {/* Chart bars - Desktop version (all years) */}
+            <div className="hidden md:flex items-end gap-0.5" style={{ height: '120px' }} aria-label="Research publications by year">
               {years.map(year => {
                 const count = yearDistribution[year] || 0;
                 const heightPx = count > 0 ? Math.max(Math.round((count / maxCount) * 120), 4) : 0;
@@ -370,8 +373,33 @@ export default async function ResearchPage() {
                 );
               })}
             </div>
-            {/* Year labels */}
-            <div className="flex gap-0.5 mt-2 border-t border-gray-100 pt-2">
+            {/* Chart bars - Mobile version (last 15 years only) */}
+            <div className="flex md:hidden items-end gap-0.5" style={{ height: '80px' }} aria-label="Research publications by year (2010-present)">
+              {mobileYears.map(year => {
+                const count = yearDistribution[year] || 0;
+                const heightPx = count > 0 ? Math.max(Math.round((count / maxCount) * 80), 3) : 0;
+                const isRecent = year >= currentYear - 2;
+
+                return (
+                  <div
+                    key={year}
+                    className="flex-1 group relative"
+                    title={`${year}: ${count} studies`}
+                  >
+                    <div
+                      className={`w-full rounded-t-sm ${
+                        isRecent
+                          ? 'bg-gradient-to-t from-emerald-500 to-green-400'
+                          : 'bg-gradient-to-t from-blue-500 to-indigo-400'
+                      }`}
+                      style={{ height: `${heightPx}px` }}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            {/* Year labels - Desktop */}
+            <div className="hidden md:flex gap-0.5 mt-2 border-t border-gray-100 pt-2">
               {years.map(year => (
                 <div key={year} className="flex-1 text-center">
                   {year % 5 === 0 && (
@@ -380,9 +408,19 @@ export default async function ResearchPage() {
                 </div>
               ))}
             </div>
-            <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-              <p className="text-sm text-blue-700 text-center">
-                <span className="font-medium">Research is accelerating:</span> CBD research has grown significantly since 2000, with a surge following regulatory changes in 2018.
+            {/* Year labels - Mobile */}
+            <div className="flex md:hidden gap-0.5 mt-2 border-t border-gray-100 pt-2">
+              {mobileYears.map(year => (
+                <div key={year} className="flex-1 text-center">
+                  {year % 5 === 0 && (
+                    <span className="text-[10px] text-gray-400 font-medium">{year}</span>
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="mt-3 md:mt-4 p-2 md:p-3 bg-blue-50 rounded-lg">
+              <p className="text-xs md:text-sm text-blue-700 text-center">
+                <span className="font-medium">Research is accelerating:</span> CBD research has grown significantly, with a surge following regulatory changes in 2018.
               </p>
             </div>
           </div>
@@ -438,17 +476,17 @@ export default async function ResearchPage() {
               {faqs.map((faq, idx) => (
                 <div
                   key={idx}
-                  className="group bg-white rounded-2xl border border-gray-200 p-6 hover:border-indigo-200 hover:shadow-lg transition-all duration-300"
+                  className="group bg-white rounded-2xl border border-gray-200 p-4 md:p-6 hover:border-indigo-200 hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="text-2xl p-2 bg-indigo-50 rounded-xl group-hover:scale-110 transition-transform">
+                  <div className="flex items-start gap-3 md:gap-4">
+                    <div className="text-xl md:text-2xl p-1.5 md:p-2 bg-indigo-50 rounded-lg md:rounded-xl shrink-0 group-hover:scale-110 transition-transform">
                       {faq.icon}
                     </div>
-                    <div className="flex-1">
-                      <h3 className="font-bold text-gray-900 mb-2 group-hover:text-indigo-700 transition-colors">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-bold text-gray-900 text-sm md:text-base mb-1.5 md:mb-2 group-hover:text-indigo-700 transition-colors">
                         {faq.question}
                       </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
+                      <p className="text-gray-600 text-xs md:text-sm leading-relaxed">{faq.answer}</p>
                     </div>
                   </div>
                 </div>

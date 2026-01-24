@@ -337,17 +337,17 @@ export function GlossaryClient({
                 </span>
                 Most Popular Terms
               </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 md:gap-3">
                 {popularTerms.map(term => (
                   <Link
                     key={term.slug}
                     href={`/glossary/${term.slug}`}
-                    className="group bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/10 hover:border-white/30 rounded-xl p-4 transition-all duration-300"
+                    className="group bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/10 hover:border-white/30 rounded-lg md:rounded-xl p-3 md:p-4 transition-all duration-300"
                   >
-                    <div className="font-semibold text-white group-hover:text-green-100 transition-colors">
+                    <div className="font-semibold text-white text-sm md:text-base group-hover:text-green-100 transition-colors line-clamp-1">
                       {term.display_name || term.term}
                     </div>
-                    <div className="text-xs text-green-200/80 line-clamp-2 mt-1.5 leading-relaxed">
+                    <div className="text-[11px] md:text-xs text-green-200/80 line-clamp-2 mt-1 md:mt-1.5 leading-relaxed">
                       {term.short_definition}
                     </div>
                   </Link>
@@ -362,10 +362,10 @@ export function GlossaryClient({
       <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
         <div className="max-w-6xl mx-auto px-4">
           {/* Alphabet Navigation */}
-          <nav className="py-3 flex items-center gap-1 overflow-x-auto scrollbar-hide" aria-label="Filter by letter">
+          <nav className="py-2 md:py-3 flex items-center gap-0.5 md:gap-1 overflow-x-auto scrollbar-hide -mx-1 px-1" aria-label="Filter by letter">
             <button
               onClick={() => handleLetterChange(null)}
-              className={`px-3 py-1.5 text-sm font-semibold rounded-lg transition-all ${
+              className={`px-2.5 md:px-3 py-1.5 text-xs md:text-sm font-semibold rounded-lg transition-all shrink-0 ${
                 !selectedLetter
                   ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-md'
                   : 'text-gray-600 hover:bg-gray-100'
@@ -382,7 +382,7 @@ export function GlossaryClient({
                   onClick={() => hasTerms && handleLetterChange(selectedLetter === letter ? null : letter)}
                   disabled={!hasTerms}
                   aria-pressed={selectedLetter === letter}
-                  className={`w-8 h-8 text-sm font-semibold rounded-lg transition-all ${
+                  className={`w-7 h-7 md:w-8 md:h-8 text-xs md:text-sm font-semibold rounded-md md:rounded-lg transition-all shrink-0 ${
                     selectedLetter === letter
                       ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-md'
                       : hasTerms

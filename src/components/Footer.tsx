@@ -22,7 +22,7 @@ export function Footer({ stats }: FooterProps) {
   // Default stats - can be overridden by props from server component
   const displayStats: FooterStats = stats || {
     studies: 4000,
-    conditions: 39,
+    conditions: 311,
     glossaryTerms: 263,
     articles: 1000,
   };
@@ -47,10 +47,7 @@ export function Footer({ stats }: FooterProps) {
   };
 
   const formatNumber = (num: number): string => {
-    if (num >= 1000) {
-      return `${(num / 1000).toFixed(num >= 10000 ? 0 : 1).replace(/\.0$/, '')}k+`;
-    }
-    return `${num}+`;
+    return `${num.toLocaleString()}+`;
   };
 
   return (
