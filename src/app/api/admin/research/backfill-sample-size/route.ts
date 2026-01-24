@@ -112,9 +112,7 @@ const supabase = createClient(
         animalSubjects
       },
       display: {
-        human: humanParticipants >= 1000
-          ? `${Math.floor(humanParticipants / 1000)}K+`
-          : `${humanParticipants.toLocaleString()}+`,
+        human: `${humanParticipants.toLocaleString()}+`,
         animal: `${animalData?.length || 0} preclinical studies`
       }
     });

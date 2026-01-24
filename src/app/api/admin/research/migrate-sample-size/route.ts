@@ -80,9 +80,7 @@ COMMENT ON COLUMN kb_research_queue.sample_size IS 'Number of participants/subje
         studiesWithSampleSize: withSampleSize.length,
         studiesNeedingBackfill: (stats?.length || 0) - withSampleSize.length,
         totalParticipants,
-        displayValue: totalParticipants >= 1000
-          ? `${Math.floor(totalParticipants / 1000)}K+`
-          : `${totalParticipants}+`
+        displayValue: `${totalParticipants.toLocaleString()}+`
       },
       nextStep: withSampleSize.length < (stats?.length || 0)
         ? 'Run /api/admin/research/backfill-sample-size to populate missing sample sizes'

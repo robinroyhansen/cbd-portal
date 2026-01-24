@@ -84,9 +84,7 @@ COMMENT ON COLUMN kb_research_queue.sample_type IS 'Type of study subjects: huma
       stats: {
         humanStudies: humanData?.length || 0,
         humanParticipants,
-        humanDisplay: humanParticipants >= 1000
-          ? `${Math.floor(humanParticipants / 1000)}K+`
-          : `${humanParticipants}+`,
+        humanDisplay: `${humanParticipants.toLocaleString()}+`,
         animalStudies: animalData?.length || 0,
         animalSubjects,
         unknownStudies: unknownData?.length || 0
