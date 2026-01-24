@@ -9,8 +9,8 @@ import { AuthorTrust } from '@/components/home/AuthorTrust';
 import { NewsletterSignup } from '@/components/home/NewsletterSignup';
 import { getHomePageStats } from '@/lib/stats';
 
-// Revalidate stats every hour
-export const revalidate = 3600;
+// Revalidate stats every 5 minutes
+export const revalidate = 300;
 
 export default async function HomePage() {
   const stats = await getHomePageStats();
