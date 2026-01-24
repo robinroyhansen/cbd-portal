@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import { useAdminAuth } from '@/lib/admin-auth';
 
 interface GlossaryTerm {
   id: string;
@@ -41,6 +42,7 @@ export default function AdminGlossaryPage() {
   const [formData, setFormData] = useState<Partial<GlossaryTerm>>({});
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { getAuthHeaders } = useAdminAuth();
 
   const fetchTerms = useCallback(async () => {
     setLoading(true);
@@ -49,7 +51,9 @@ export default function AdminGlossaryPage() {
       if (selectedCategory) params.set('category', selectedCategory);
       if (searchQuery) params.set('q', searchQuery);
 
-      const res = await fetch(`/api/admin/glossary?${params.toString()}`);
+      const res = await fetch(`/api/admin/glossary?${params.toString()}`, {
+        headers: getAuthHeaders()
+      });
       const data = await res.json();
 
       setTerms(data.terms || []);
@@ -59,7 +63,7 @@ export default function AdminGlossaryPage() {
     } finally {
       setLoading(false);
     }
-  }, [selectedCategory, searchQuery]);
+  }, [selectedCategory, searchQuery, getAuthHeaders]);
 
   useEffect(() => {
     fetchTerms();
@@ -106,7 +110,7 @@ export default function AdminGlossaryPage() {
 
       const res = await fetch('/api/admin/glossary', {
         method,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...getAuthHeaders() },
         body: JSON.stringify(body)
       });
 
@@ -131,7 +135,7 @@ export default function AdminGlossaryPage() {
     try {
       const res = await fetch('/api/admin/glossary', {
         method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...getAuthHeaders() },
         body: JSON.stringify({ ids: [id] })
       });
 
