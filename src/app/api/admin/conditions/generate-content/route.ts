@@ -176,23 +176,44 @@ export async function POST(request: NextRequest) {
     }
 
     // Fetch all research for this condition
-    const { data: research, error: researchError } = await supabase
-      .from('kb_research_queue')
-      .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, abstract, plain_summary, doi, pmid, authors, key_findings')
-      .eq('status', 'approved')
-      .or(
-        condition.topic_keywords.map((k: string) =>
-          `primary_topic.eq.${k},relevant_topics.cs.{${k}}`
-        ).join(',')
-      )
-      .order('quality_score', { ascending: false });
+    const keywords = condition.topic_keywords || [];
 
-    if (researchError) {
-      console.error('Research fetch error:', researchError);
-      return NextResponse.json({ error: 'Failed to fetch research' }, { status: 500 });
+    // If no keywords, try to match by condition slug/name
+    let studies: ResearchStudy[] = [];
+
+    if (keywords.length > 0) {
+      // Build OR conditions for each keyword
+      const orConditions = keywords.flatMap((k: string) => [
+        `primary_topic.eq.${k}`,
+        `relevant_topics.cs.{${k}}`
+      ]).join(',');
+
+      const { data: research, error: researchError } = await supabase
+        .from('kb_research_queue')
+        .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, abstract, plain_summary, doi, pmid, authors, key_findings')
+        .eq('status', 'approved')
+        .or(orConditions)
+        .order('quality_score', { ascending: false });
+
+      if (researchError) {
+        console.error('Research fetch error:', researchError);
+        // Don't fail completely, just use empty array
+      } else {
+        studies = research || [];
+      }
     }
 
-    const studies = research || [];
+    // If still no studies, try matching by condition slug
+    if (studies.length === 0) {
+      const { data: fallbackResearch } = await supabase
+        .from('kb_research_queue')
+        .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, abstract, plain_summary, doi, pmid, authors, key_findings')
+        .eq('status', 'approved')
+        .or(`primary_topic.eq.${conditionSlug},relevant_topics.cs.{${conditionSlug}}`)
+        .order('quality_score', { ascending: false });
+
+      studies = fallbackResearch || [];
+    }
     const evidence = analyzeEvidence(studies);
 
     // Prepare context for Claude

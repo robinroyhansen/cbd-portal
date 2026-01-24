@@ -76,9 +76,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${merriweather.variable} ${dmSerifDisplay.variable} ${sourceSans.variable} ${spaceMono.variable}`}>
       <body className="min-h-screen bg-white font-sans text-gray-900 flex flex-col">
+        {/* Skip to content link for keyboard accessibility */}
+        <a href="#main-content" className="skip-to-content">
+          Skip to main content
+        </a>
         <NavigationProvider>
           <Navigation />
-          <main className="flex-1">{children}</main>
+          <main id="main-content" className="flex-1">{children}</main>
           <Footer />
           <MobileBottomNav />
           <CookieConsent />
