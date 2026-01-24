@@ -11,11 +11,13 @@ export default function NewArticlePage() {
   const router = useRouter();
   const supabase = createClient();
   const [categories, setCategories] = useState<any[]>([]);
+  const [authors, setAuthors] = useState<any[]>([]);
   const [selectedType, setSelectedType] = useState<ArticleType | null>(null);
   const [step, setStep] = useState<'select' | 'edit'>('select');
   const [title, setTitle] = useState('');
   const [slug, setSlug] = useState('');
   const [categoryId, setCategoryId] = useState('');
+  const [selectedAuthor, setSelectedAuthor] = useState('');
   const [excerpt, setExcerpt] = useState('');
   const [sectionData, setSectionData] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
@@ -23,6 +25,7 @@ export default function NewArticlePage() {
 
   useEffect(() => {
     fetchCategories();
+    fetchAuthors();
   }, []);
 
   const fetchCategories = async () => {
@@ -31,6 +34,21 @@ export default function NewArticlePage() {
       .select('id, name')
       .order('name');
     setCategories(data || []);
+  };
+
+  const fetchAuthors = async () => {
+    const { data } = await supabase
+      .from('kb_authors')
+      .select('id, name, is_primary')
+      .eq('is_active', true)
+      .order('is_primary', { ascending: false })
+      .order('name');
+    setAuthors(data || []);
+    // Auto-select primary author if available
+    const primary = data?.find(a => a.is_primary);
+    if (primary) {
+      setSelectedAuthor(primary.name);
+    }
   };
 
   const handleSelectTemplate = (type: ArticleType) => {
@@ -72,6 +90,10 @@ export default function NewArticlePage() {
 
   const handleSave = async (status: 'draft' | 'published' | 'scheduled') => {
     if (!selectedType || !title.trim()) return;
+    if (!selectedAuthor) {
+      alert('Please select an author.');
+      return;
+    }
     if (status === 'scheduled' && !scheduledDate) {
       alert('Please select a publish date for scheduled articles.');
       return;
@@ -94,7 +116,7 @@ export default function NewArticlePage() {
         category_id: categoryId || null,
         reading_time: readingTime,
         status,
-        author: 'Robin Roy Krigslund-Hansen',
+        author: selectedAuthor,
         published_at: status === 'published' ? new Date().toISOString() : null,
         scheduled_publish_at: status === 'scheduled' ? new Date(scheduledDate).toISOString() : null,
         meta_title: title.trim(),
@@ -117,7 +139,7 @@ export default function NewArticlePage() {
   };
 
   const validateForm = (): boolean => {
-    if (!title.trim() || !slug.trim()) return false;
+    if (!title.trim() || !slug.trim() || !selectedAuthor) return false;
 
     if (!selectedType) return false;
 
@@ -216,15 +238,36 @@ export default function NewArticlePage() {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">Custom Excerpt (optional)</label>
-              <input
-                type="text"
-                value={excerpt}
-                onChange={(e) => setExcerpt(e.target.value)}
-                placeholder="Will be auto-generated from content if empty"
+              <label className="block text-sm font-medium mb-1">Author *</label>
+              <select
+                required
+                value={selectedAuthor}
+                onChange={(e) => setSelectedAuthor(e.target.value)}
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-              />
+              >
+                <option value="">Select an author</option>
+                {authors.map((author) => (
+                  <option key={author.id} value={author.name}>
+                    {author.name}{author.is_primary ? ' (Primary)' : ''}
+                  </option>
+                ))}
+              </select>
+              {authors.length === 0 && (
+                <p className="mt-1 text-sm text-amber-600">
+                  No authors found. <a href="/admin/authors/new" className="underline">Create an author</a> first.
+                </p>
+              )}
             </div>
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Custom Excerpt (optional)</label>
+            <input
+              type="text"
+              value={excerpt}
+              onChange={(e) => setExcerpt(e.target.value)}
+              placeholder="Will be auto-generated from content if empty"
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
           </div>
         </div>
 

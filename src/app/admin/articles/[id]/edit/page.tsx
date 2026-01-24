@@ -20,6 +20,7 @@ export default function EditArticlePage({
   const supabase = createClient();
 
   const [categories, setCategories] = useState<any[]>([]);
+  const [authors, setAuthors] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
@@ -38,6 +39,7 @@ export default function EditArticlePage({
   useEffect(() => {
     fetchArticle();
     fetchCategories();
+    fetchAuthors();
   }, [params.id]);
 
   const fetchArticle = async () => {
@@ -73,6 +75,16 @@ export default function EditArticlePage({
       .order('name')
       .returns<Pick<Category, 'id' | 'name'>[]>();
     setCategories(data || []);
+  };
+
+  const fetchAuthors = async () => {
+    const { data } = await supabase
+      .from('kb_authors')
+      .select('id, name, is_primary')
+      .eq('is_active', true)
+      .order('is_primary', { ascending: false })
+      .order('name');
+    setAuthors(data || []);
   };
 
   const generateSlug = (title: string) => {
@@ -320,12 +332,24 @@ export default function EditArticlePage({
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Author
           </label>
-          <input
-            type="text"
+          <select
+            required
             value={formData.author}
             onChange={(e) => setFormData({ ...formData, author: e.target.value })}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-primary-500 focus:border-primary-500"
-          />
+          >
+            <option value="">Select an author</option>
+            {authors.map((author) => (
+              <option key={author.id} value={author.name}>
+                {author.name}{author.is_primary ? ' (Primary)' : ''}
+              </option>
+            ))}
+          </select>
+          {authors.length === 0 && (
+            <p className="mt-1 text-sm text-amber-600">
+              No authors found. <a href="/admin/authors/new" className="underline">Create an author</a> first.
+            </p>
+          )}
         </div>
 
         {/* Submit buttons */}
