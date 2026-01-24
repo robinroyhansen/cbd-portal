@@ -84,6 +84,7 @@ function getNavItems(queueCounts: QueueCounts): NavItem[] {
     { name: 'Glossary', href: '/admin/glossary', icon: '📖' },
     { name: 'Media Library', href: '/admin/media', icon: '🖼️' },
     { name: 'Languages', href: '/admin/languages', icon: '🌍' },
+    { name: 'Activity Log', href: '/admin/activity', icon: '📋' },
   ];
 }
 
