@@ -3,8 +3,38 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import rehypeSlug from 'rehype-slug';
 import React from 'react';
+
+// Custom sanitize schema - allows safe HTML while blocking XSS
+const sanitizeSchema = {
+  ...defaultSchema,
+  attributes: {
+    ...defaultSchema.attributes,
+    // Allow id for anchors (rehypeSlug)
+    '*': ['id', 'className'],
+    a: ['href', 'title', 'target', 'rel'],
+    img: ['src', 'alt', 'title', 'width', 'height'],
+    // Block dangerous attributes like onload, onerror, etc.
+  },
+  // Only allow safe protocols for links and images
+  protocols: {
+    href: ['http', 'https', 'mailto'],
+    src: ['http', 'https', 'data'],
+  },
+  // Strip script, style, iframe, object, embed tags
+  tagNames: [
+    'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+    'p', 'br', 'hr',
+    'ul', 'ol', 'li',
+    'blockquote', 'pre', 'code',
+    'a', 'strong', 'em', 'del', 'ins',
+    'table', 'thead', 'tbody', 'tr', 'th', 'td',
+    'img', 'figure', 'figcaption',
+    'div', 'span', 'sup', 'sub',
+  ],
+};
 import { GlossaryTooltip } from './GlossaryTooltip';
 
 export interface GlossaryTerm {
@@ -165,7 +195,7 @@ export function ArticleContent({ content, glossaryTerms = [], excludeSlugs = [],
     <div className="article-content">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeRaw, rehypeSlug]}
+        rehypePlugins={[rehypeRaw, [rehypeSanitize, sanitizeSchema], rehypeSlug]}
         components={{
           // Process text in paragraphs
           p: ({ children }) => (

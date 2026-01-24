@@ -346,13 +346,13 @@ export default async function CategoryPage({ params }: Props) {
       .select('*', { count: 'exact', head: true })
       .eq('status', 'approved');
 
-    // Get condition articles by slug pattern - "CBD and [condition]" articles
+    // Get condition articles by slug pattern - "CBD and/for [condition]" articles
     // These are spread across various categories but identifiable by slug
     const { data: conditionArticles } = await supabase
       .from('kb_articles')
       .select('slug, title, excerpt, reading_time, published_at, updated_at')
       .eq('status', 'published')
-      .ilike('slug', 'cbd-and-%')
+      .or('slug.ilike.cbd-and-%,slug.ilike.cbd-for-%')
       .order('title');
 
     return (
@@ -362,7 +362,7 @@ export default async function CategoryPage({ params }: Props) {
           articles={conditionArticles || []}
           totalStudies={totalStudies || 0}
           conditionsCount={conditionsCount || 39}
-          plannedArticleCount={280}
+          plannedArticleCount={350}
         />
       </div>
     );

@@ -1,0 +1,782 @@
+[dotenv@17.2.3] injecting env (5) from .env.local -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
+
+💭 Add "My Take" Sections to All Article Types
+
+Configuration:
+  Mode: ✏️  APPLY CHANGES
+  Types: product-guide, guide, terpene-profile, educational-guide, educational, comparison, cannabinoid-profile, basics, application-guide
+  Limit: 1000 articles
+
+📚 Found 528 articles
+   Already have My Take: 118
+   Need My Take: 410
+
+
+📁 APPLICATION-GUIDE
+  🤖 best-terpenes-for-anxiety... ✅
+  🤖 best-terpenes-for-energy... ✅
+  🤖 best-terpenes-for-focus... ✅
+  🤖 best-terpenes-for-pain... ✅
+  🤖 best-terpenes-for-sleep... ✅
+
+📁 BASICS
+  🤖 does-cbd-get-you-high... ✅
+  🤖 how-is-cbd-made... ✅
+  🤖 what-does-cbd-feel-like... ✅
+  🤖 what-is-broad-spectrum-cbd... ✅
+  🤖 what-is-cbd-isolate... ✅
+  🤖 what-is-full-spectrum-cbd... ✅
+  🤖 what-is-hemp... ✅
+  🤖 why-people-use-cbd... ✅
+
+📁 CANNABINOID-PROFILE
+  🤖 cbd-vs-cbg... ✅
+  🤖 cbd-vs-cbn... ✅
+  🤖 delta-8-vs-delta-9... ✅
+  🤖 minor-cannabinoids... ✅
+  🤖 what-is-cannabidiol... ✅
+  🤖 what-is-cbdv... ✅
+  🤖 what-is-cbe... ✅
+
+  --- Progress: 20/410 ---
+
+  🤖 what-is-cbg... ✅
+  🤖 what-is-cbga... ✅
+  🤖 what-is-cbl... ✅
+  🤖 what-is-cbn... ✅
+  🤖 what-is-cbt-cannabinoid... ✅
+  🤖 what-is-delta-10... ✅
+  🤖 what-is-delta-9-thc... ✅
+  🤖 what-is-hhc... ✅
+  🤖 what-is-thc... ✅
+  🤖 what-is-thc-o... ✅
+  🤖 what-is-thcp... ✅
+
+📁 COMPARISON
+  🤖 best-cbd-oil-for-anxiety-comparison... ✅
+  🤖 best-cbd-oil-for-pain-comparison... ✅
+  🤖 best-cbd-oil-for-sleep-comparison... ✅
+  🤖 cbd-cream-vs-balm-vs-salve... ✅
+  🤖 cbd-edibles-vs-oil... ✅
+  🤖 cbd-flower-vs-oil... ✅
+  🤖 cbd-gummies-vs-capsules... ✅
+  🤖 cbd-oil-vs-capsules... ✅
+  🤖 cbd-oil-vs-cream... ✅
+
+  --- Progress: 40/410 ---
+
+  🤖 cbd-oil-vs-hemp-oil... ✅
+  🤖 cbd-oil-vs-hemp-seed-oil... ✅
+  🤖 cbd-oil-vs-tincture... ✅
+  🤖 cbd-oil-vs-vape... ✅
+  🤖 cbd-pet-treats-vs-oil... ✅
+  🤖 cbd-softgels-vs-capsules... ✅
+  🤖 cbd-vs-5-htp... ✅
+  🤖 cbd-vs-acupuncture... ✅
+  🤖 cbd-vs-arnica... ✅
+  🤖 cbd-vs-benzodiazepines... ✅
+  🤖 cbd-vs-cbc... ✅
+  🤖 cbd-vs-cbda... ✅
+  🤖 cbd-vs-chamomile... ✅
+  🤖 cbd-vs-delta-8... ✅
+  🤖 cbd-vs-essential-oils... ✅
+  🤖 cbd-vs-fish-oil... ✅
+  🤖 cbd-vs-gaba... ✅
+  🤖 cbd-vs-ginkgo-biloba... ✅
+  🤖 cbd-vs-hhc... ✅
+  🤖 cbd-vs-ibuprofen... ✅
+
+  --- Progress: 60/410 ---
+
+  🤖 cbd-vs-kava... ✅
+  🤖 cbd-vs-kratom... ✅
+  🤖 cbd-vs-l-theanine... ✅
+  🤖 cbd-vs-lavender... ✅
+  🤖 cbd-vs-magnesium... ✅
+  🤖 cbd-vs-medical-marijuana... ✅
+  🤖 cbd-vs-muscle-relaxants... ✅
+  🤖 cbd-vs-nsaids... ✅
+  🤖 cbd-vs-paracetamol... ✅
+  🤖 cbd-vs-passionflower... ✅
+  🤖 cbd-vs-prescription-painkillers... ✅
+  🤖 cbd-vs-rhodiola... ✅
+  🤖 cbd-vs-sleeping-pills... ✅
+  🤖 cbd-vs-ssris... ✅
+  🤖 cbd-vs-st-johns-wort... ✅
+  🤖 cbd-vs-steroids... ✅
+  🤖 cbd-vs-turmeric... ✅
+  🤖 cbd-vs-valerian... ✅
+  🤖 cbd-with-food-vs-empty-stomach... ✅
+  🤖 cbg-vs-cbn... ✅
+
+  --- Progress: 80/410 ---
+
+  🤖 cbn-vs-melatonin... ✅
+  🤖 full-spectrum-vs-broad-spectrum-vs-isola... ✅
+  🤖 full-spectrum-vs-isolate-cbd... ✅
+  🤖 full-spectrum-vs-isolate-for-anxiety... ✅
+  🤖 full-spectrum-vs-isolate-for-sleep... ✅
+  🤖 hemp-extract-vs-cbd... ✅
+  🤖 hhc-vs-delta-8... ✅
+  🤖 hhc-vs-thc... ✅
+  🤖 high-vs-low-potency-cbd... ✅
+  🤖 mct-oil-vs-hemp-seed-oil-carrier... ✅
+  🤖 phytocannabinoids-vs-endocannabinoids... ✅
+  🤖 sublingual-cbd-vs-other-methods... ✅
+  🤖 thc-vs-thca... ✅
+  🤖 topical-vs-oral-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mdJLMRB7L58EB9J7j"}
+ ❌
+  🤖 water-soluble-cbd-vs-oil...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2me2jQprh9wKcxurPj"}
+ ❌
+
+📁 EDUCATIONAL
+  🤖 age-to-buy-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2meqrR4pkc1MZYSMoi"}
+ ❌
+  🤖 can-anyone-take-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mfvLazHoUkprh3bED"}
+ ❌
+  🤖 cannabis-sativa-indica-ruderalis...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mgXJWyyX9r1XoCbrw"}
+ ❌
+  🤖 cbd-and-cat-medications...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mhAzb1HUqSxXFmgXg"}
+ ❌
+  🤖 cbd-and-dog-medications...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mhnxTzrGhv5H9ukn7"}
+ ❌
+  🤖 cbd-cat-oil-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2miTPh12fiPyRCVJtU"}
+ ❌
+  🤖 cbd-cat-treats-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mjSg4R6TxurStZ1YM"}
+ ❌
+  🤖 cbd-dog-oil-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mk3PZyA59g7sjyMtt"}
+ ❌
+  🤖 cbd-dog-treats-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mm4eodTkAR7h2ow4F"}
+ ❌
+  🤖 cbd-for-aggressive-dogs...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mmsmRp4VXxvkupqWv"}
+ ❌
+  🤖 cbd-for-bird-anxiety...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mnUEx8vBR9Fx1b3Je"}
+ ❌
+  🤖 cbd-for-bird-feather-plucking...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mo4hsNccqJ68S4as6"}
+ ❌
+  🤖 cbd-for-cat-aggression...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mohQWDjN2jqskr7x7"}
+ ❌
+  🤖 cbd-for-cat-anxiety...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mpPpj3fHbyrNwep9d"}
+ ❌
+  🤖 cbd-for-cat-appetite...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mpyJXSvbuTnnKTGqt"}
+ ❌
+  🤖 cbd-for-cat-arthritis...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mqa27Xqoo8CvGLm68"}
+ ❌
+  🤖 cbd-for-cat-cancer...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mrBV13MQr9dpisTKB"}
+ ❌
+  🤖 cbd-for-cat-hyperthyroidism...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mrteRpFqaoTCfS4w9"}
+ ❌
+  🤖 cbd-for-cat-ibd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2msUNWzds1oCWuAND8"}
+ ❌
+  🤖 cbd-for-cat-kidney-disease...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mtwRWTjsYzbWPcwmH"}
+ ❌
+  🤖 cbd-for-cat-pain...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mua84uQKVrVahZW8H"}
+ ❌
+  🤖 cbd-for-cat-seizures...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mvBqMQwBzfSFvmrBi"}
+ ❌
+  🤖 cbd-for-dog-allergies...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mvq2ZH95kC9YBXREB"}
+ ❌
+  🤖 cbd-for-dog-anxiety...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mwp4j3YLByMMheYeo"}
+ ❌
+  🤖 cbd-for-dog-appetite...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2mznA1BiZnBdgrKkLw"}
+ ❌
+  🤖 cbd-for-dog-arthritis...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2n1RbqVovpgUXBa7bM"}
+ ❌
+  🤖 cbd-for-dog-cancer...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2n244BW4mDCNtseMeb"}
+ ❌
+  🤖 cbd-for-dog-car-sickness...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2n2e2ZiTBQrKg5vNSc"}
+ ❌
+  🤖 cbd-for-dog-hip-dysplasia...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2n3EF8sfQjHP3DPHiK"}
+ ❌
+  🤖 cbd-for-dog-nausea...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2n3rCzkAfD2zHp5kSW"}
+ ❌
+  🤖 cbd-for-dog-pain...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2n4VeaQgfWqvXEFjKd"}
+ ❌
+  🤖 cbd-for-dog-seizures...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2n558Kia4FXyxCfFEU"}
+ ❌
+  🤖 cbd-for-dog-separation-anxiety...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2n5fbQKUACh5Amo343"}
+ ❌
+  🤖 cbd-for-dog-skin-issues...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2n6Ho9cQdSVdKUMjfS"}
+ ❌
+  🤖 cbd-for-dog-thunderstorm-anxiety...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2n6xykLoUr7KcaTPFs"}
+ ❌
+  🤖 cbd-for-dogs-post-surgery...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2n7awAuj2okorhjumV"}
+ ❌
+  🤖 cbd-for-feline-stomatitis...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2n8Dsv2pWqhsMtCTh2"}
+ ❌
+  🤖 cbd-for-ferrets...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2n8xY8DcKb34ppBtMK"}
+ ❌
+  🤖 cbd-for-guinea-pigs...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2n9YkmsTxVNeozE7Ze"}
+ ❌
+  🤖 cbd-for-hamsters...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nACSmD32BdcrQvMKs"}
+ ❌
+  🤖 cbd-for-horse-anxiety...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nAnurmP4LMDufhRRu"}
+ ❌
+  🤖 cbd-for-horse-arthritis...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nBQd3HqS9ZLvwUfS6"}
+ ❌
+  🤖 cbd-for-horse-cushing...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nC6ntN1q7bx3RNnfy"}
+ ❌
+  🤖 cbd-for-horse-laminitis...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nCqwhKAM5fpHpoRfZ"}
+ ❌
+  🤖 cbd-for-horse-navicular...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nE9pjLBShXKmFyHMo"}
+ ❌
+  🤖 cbd-for-horse-performance...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nEnX8jqLu4Hq6ybhT"}
+ ❌
+  🤖 cbd-for-horse-ulcers...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nFcdVpANtdWEKNrR5"}
+ ❌
+  🤖 cbd-for-large-breed-dogs...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nGMXhwHxnYbwAa7E1"}
+ ❌
+  🤖 cbd-for-parrots...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nHYxpvPGpQyAtT66j"}
+ ❌
+  🤖 cbd-for-pet-fireworks-anxiety...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nJ9gBr1Wv7q23k4PG"}
+ ❌
+  🤖 cbd-for-pet-travel-anxiety...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nJiuSb3r55ZAfmAXM"}
+ ❌
+  🤖 cbd-for-puppies...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nKKdQeJitpeJn243p"}
+ ❌
+  🤖 cbd-for-rabbits...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nKurCmsQ53NLXh6Bj"}
+ ❌
+  🤖 cbd-for-senior-cats...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nLWKKWrRePDBZGbty"}
+ ❌
+  🤖 cbd-for-senior-dogs...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nMNu76fekSbe89DGa"}
+ ❌
+  🤖 cbd-for-senior-horses...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nN36BkUbJPLxBVLwc"}
+ ❌
+  🤖 cbd-for-small-breed-dogs...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nNdZBgXPrnii1W5vt"}
+ ❌
+  🤖 cbd-glossary...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nPMTkquqSwve4eKnr"}
+ ❌
+  🤖 cbd-horse-pellets-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nQ2tqAqD6iwJzs5qB"}
+ ❌
+  🤖 cbd-myths-debunked...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nQjoxX5oTFimq6Yu7"}
+ ❌
+  🤖 cbd-pet-dosage-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nRMX69AhhmyqbeLXd"}
+ ❌
+  🤖 cbd-pet-product-safety...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nRyDrXxUS2GaNUEDz"}
+ ❌
+  🤖 cbd-skeptics...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nSaw641JNdZjn7VZ2"}
+ ❌
+  🤖 cbd-terminology-glossary...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nTAf5xmS1z5wRgwQZ"}
+ ❌
+  🤖 ecs-and-homeostasis...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nTn7sBTfF15BSD6gS"}
+ ❌
+  🤖 how-much-cbd-for-birds...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nUkuLgaVEKL2XdupL"}
+ ❌
+  🤖 how-much-cbd-for-cats...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nVL8piT7igcURBXTW"}
+ ❌
+  🤖 how-much-cbd-for-dogs...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nVx6NgvuEfoz6z2EQ"}
+ ❌
+  🤖 how-much-cbd-for-horses...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nWXKKq7XjsYWZm8NT"}
+ ❌
+  🤖 how-much-cbd-for-small-pets...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nX8HFHfxcKsM5Bqov"}
+ ❌
+  🤖 how-to-choose-cbd-for-pets...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nY17o12hmx265LuZd"}
+ ❌
+  🤖 how-to-give-cbd-to-pets...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nYbLZBhsUbggF3wek"}
+ ❌
+  🤖 is-cbd-a-drug...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nZEY9QRt1r36ZUcCg"}
+ ❌
+  🤖 is-cbd-halal...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nZsjYXMxN8Kh1nh4r"}
+ ❌
+  🤖 is-cbd-kosher...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nayiAwgUAwm5iyqaE"}
+ ❌
+  🤖 is-cbd-medicine...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nbZBqDvcobc6wSxuY"}
+ ❌
+  🤖 is-cbd-natural...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2ncAtvE37ZmHwapEtq"}
+ ❌
+  🤖 is-cbd-psychoactive...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2ncu3eQrov89mwos66"}
+ ❌
+  🤖 is-cbd-safe-for-birds...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2ndVWrrZYECJTFp5uW"}
+ ❌
+  🤖 is-cbd-safe-for-cats...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2neCS6318bWJ55i893"}
+ ❌
+  🤖 is-cbd-safe-for-pets...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2neotjMAAYFnQWiMy4"}
+ ❌
+  🤖 is-cbd-safe-for-small-animals...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nfQcTTBDNiZpT5M1B"}
+ ❌
+  🤖 is-cbd-vegan...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nfzax19s9BJKZh22k"}
+ ❌
+  🤖 pet-cbd-product-types...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2ngb3wAnGayV55Em5N"}
+ ❌
+  🤖 pet-endocannabinoid-system...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nhCWppFoNW73pFLLN"}
+ ❌
+  🤖 support-endocannabinoid-system...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nhqTZYYwRJhrxNCYY"}
+ ❌
+  🤖 what-are-flavonoids...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nj77CGbrMeRf55yqa"}
+ ❌
+  🤖 what-is-2-ag...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2njipF2mLuwG1yVz2U"}
+ ❌
+  🤖 what-is-anandamide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nkZv4Dxznfj8L3sSn"}
+ ❌
+  🤖 what-is-cannabis...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nmC841mKTmfmr4zYN"}
+ ❌
+  🤖 what-is-faah...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nnJqkb7i3KPQ2YdUz"}
+ ❌
+  🤖 what-vets-say-about-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nny2gAhoPUHDsS9EC"}
+ ❌
+  🤖 where-does-cbd-come-from...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2noajqwg9QWYwhGGnu"}
+ ❌
+
+📁 EDUCATIONAL-GUIDE
+  🤖 all-cannabinoids-compared...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2npCCfgUSsfNeyiS4p"}
+ ❌
+  🤖 best-time-to-take-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nprdduYhzyDuPY3aG"}
+ ❌
+  🤖 cannabinoid-bioavailability...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nqmCsatTRg7wrEb44"}
+ ❌
+  🤖 cannabinoid-drug-interactions...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nrR9gYPmzkWs1mz7w"}
+ ❌
+  🤖 cannabinoid-metabolism...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2ns1NTHPah244iR4AH"}
+ ❌
+  🤖 cannabinoid-receptors-cb1-cb2...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nscLJgWFdfhpxgAEE"}
+ ❌
+  🤖 cannabinoid-tolerance...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2ntbs3BDMzbwnhotKW"}
+ ❌
+  🤖 cannabis-terpene-profiles-explained...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nuBqCX4vVMLguRY1U"}
+ ❌
+  🤖 cbd-allergy...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nv69rz5ZthCsjCWAj"}
+ ❌
+  🤖 cbd-and-alcohol...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nvmqCPCe7bhfGMnX6"}
+ ❌
+  🤖 cbd-and-antidepressants...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nwQHecVbTwhbWuYwE"}
+ ❌
+  🤖 cbd-and-blood-thinners...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nxXW9grMP9ouqssEW"}
+ ❌
+  🤖 cbd-and-driving...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2ny9DQCTQLBcmnD1mp"}
+ ❌
+  🤖 cbd-and-drug-tests...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nymfJsewemrET6f1F"}
+ ❌
+  🤖 cbd-and-liver-health...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nzNdDa55xFfyFWKMB"}
+ ❌
+  🤖 cbd-and-surgery...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2nzzavi9K3CTaom8Dk"}
+ ❌
+  🤖 cbd-antidepressants-interactions...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2o1v9c7CPuG16QrfjN"}
+ ❌
+  🤖 cbd-blood-pressure-medications...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2o2WN7VMZWvyPgjQPK"}
+ ❌
+  🤖 cbd-common-side-effects...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2o3KEiRMCUgCb2yDoj"}
+ ❌
+  🤖 cbd-consumption-methods-compared...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2o4NydcEwYE2q9URV2"}
+ ❌
+  🤖 cbd-diabetes-medications...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2o4ySyESc7bjFHGNwL"}
+ ❌
+  🤖 cbd-dosage-by-weight...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2o5afFTB7QZzyb3R9A"}
+ ❌
+  🤖 cbd-dosage-for-anxiety...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2o73DnbDV6UPcfnGmk"}
+ ❌
+  🤖 cbd-dosage-for-beginners...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2o7ncVZTWEiGukBZMb"}
+ ❌
+  🤖 cbd-dosage-for-pain...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2o8srBNCo5pzLDtgjw"}
+ ❌
+  🤖 cbd-dosage-for-sleep...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2o9V4b5CT4TnULBAoe"}
+ ❌
+  🤖 cbd-dosage-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oA5HanTXfKLXXF3HU"}
+ ❌
+  🤖 cbd-dosing-for-anxiety...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oAhVNSoFXCt4js36H"}
+ ❌
+  🤖 cbd-dosing-for-pain...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oBJCp5ZxEqXK6rap9"}
+ ❌
+  🤖 cbd-dosing-for-sleep...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oBufGszb6ZjRnGDoF"}
+ ❌
+  🤖 cbd-for-athletes...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oCX8EYidbFzTZGjKc"}
+ ❌
+  🤖 cbd-for-beginners...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oDm33acuNadBL8m9c"}
+ ❌
+  🤖 cbd-for-cannabis-curious...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oENVtdc36pKHYBwA7"}
+ ❌
+  🤖 cbd-for-caregivers...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oFUE4p9RtXKaza6pd"}
+ ❌
+  🤖 cbd-for-children...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oG1Dxeyu3jV1vgMrT"}
+ ❌
+  🤖 cbd-for-creatives...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oGgQVFHJBSrdQbVpb"}
+ ❌
+  🤖 cbd-for-cyclists...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oHYzUch5JkKBymuao"}
+ ❌
+  🤖 cbd-for-first-time-users...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oJBSTLa9tvsN2CpXu"}
+ ❌
+  🤖 cbd-for-healthcare-workers...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oJmv2aaa87Dq4883o"}
+ ❌
+  🤖 cbd-for-men...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oKMtH5dD4PoL1uT4Y"}
+ ❌
+  🤖 cbd-for-musicians...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oKy6jpEBsdxh2gibL"}
+ ❌
+  🤖 cbd-for-over-50...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oLaJqeaQnepceBdge"}
+ ❌
+  🤖 cbd-for-parents...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oMVdLfqJc1Ao2ND6b"}
+ ❌
+  🤖 cbd-for-professionals...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oN66Hbdp4J9ZkEGFn"}
+ ❌
+  🤖 cbd-for-runners...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oNhJaUzU8QRNs4QA6"}
+ ❌
+  🤖 cbd-for-seniors...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oPcNZsR5Gt9JR5ydr"}
+ ❌
+  🤖 cbd-for-shift-workers...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oQNGEfD9Z96XbYDux"}
+ ❌
+  🤖 cbd-for-students...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oQwzLV9MTJSDjiSLA"}
+ ❌
+  🤖 cbd-for-swimmers...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oRunQisntB9mEQ9y4"}
+ ❌
+  🤖 cbd-for-teachers...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oSWk7sfhfTN4DH9M7"}
+ ❌
+  🤖 cbd-for-travelers...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oT7DKK4yk55Jwg4zG"}
+ ❌
+  🤖 cbd-for-vegans...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oThvz2chyGzQ6BP7E"}
+ ❌
+  🤖 cbd-for-weightlifters...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oUJQHxfPYdqMHdgta"}
+ ❌
+  🤖 cbd-for-women...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oV24YPAPChD2UHAYL"}
+ ❌
+  🤖 cbd-for-yoga...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oVd2GQ5wi7r9xhnip"}
+ ❌
+  🤖 cbd-maintenance-dose...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oWCkHzGnH3jb6yC9B"}
+ ❌
+  🤖 cbd-mg-ml-calculator-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oXSAkPzJQnwyE2vEC"}
+ ❌
+  🤖 cbd-morning-vs-night...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oY2PAcHftgGww7zjy"}
+ ❌
+  🤖 cbd-percentage-to-mg-conversion...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oYqW4fSnUhTyxQ6qz"}
+ ❌
+  🤖 cbd-pregnancy-breastfeeding...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oZSU2nWC6hBrwj6L2"}
+ ❌
+  🤖 cbd-product-contamination...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oa6u6oTu1isVt3cuG"}
+ ❌
+  🤖 cbd-quality-certifications...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2obNYzuK19pty8FQ77"}
+ ❌
+  🤖 cbd-red-flags...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2obxmVNtVfvxN8y2QF"}
+ ❌
+  🤖 cbd-safety-seniors...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2ocZzDQE1Xp468wiUK"}
+ ❌
+  🤖 cbd-shelf-life...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2odgxGZRhDR6ismy2g"}
+ ❌
+  🤖 cbd-side-effects...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oeM9672ayMLpcUg2t"}
+ ❌
+  🤖 cbd-starting-dose...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2ojC6mMiQu6U1aUn7v"}
+ ❌
+  🤖 cbd-titration...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2ok9PnHnJJyqB218ZA"}
+ ❌
+  🤖 cbd-tolerance...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2okqKg872Uufa489RU"}
+ ❌
+  🤖 cbd-withdrawal-dependence...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2omQJYJ5NWiTvDEomu"}
+ ❌
+  🤖 cbd-without-thc...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2on1WeNZ754cRrc1MX"}
+ ❌
+  🤖 choosing-the-right-cannabinoid...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2onazNLxyi3NTaJJXs"}
+ ❌
+  🤖 endocannabinoid-system-explained...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2ooCSnxFh4TjrJWGJX"}
+ ❌
+  🤖 find-your-cbd-dosage...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oopAHVYJcUkPzu269"}
+ ❌
+  🤖 first-week-on-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2opg14jZ57Kq6Xi2nq"}
+ ❌
+  🤖 future-cannabinoid-research...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oqPf6MFYxyNCHsjEc"}
+ ❌
+  🤖 gmp-certification-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2or3r1pvY4p2otS7dE"}
+ ❌
+  🤖 heavy-metals-in-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2ordaGdQVqLF9kfbUg"}
+ ❌
+  🤖 how-long-does-cbd-last...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2osF35Bg7bCxumkMR5"}
+ ❌
+  🤖 how-long-does-cbd-stay-in-your-system...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2osuy5ixFNv6THfGBn"}
+ ❌
+  🤖 how-long-for-cbd-to-work...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2ota9wv1orf1BVhoyP"}
+ ❌
+  🤖 how-terpenes-affect-cbd-effects...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2ouAsTycxV8yP1wm19"}
+ ❌
+  🤖 how-to-apply-cbd-cream...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2outH9QUarba7u1hLo"}
+ ❌
+  🤖 how-to-apply-cbd-topicals...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2ovqq86oj3XjQS9C2e"}
+ ❌
+  🤖 how-to-buy-cbd-in-store...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2owTYDyFKkSu6N558c"}
+ ❌
+  🤖 how-to-buy-cbd-online...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oxAx7gVijxgMSBs9t"}
+ ❌
+  🤖 how-to-check-cbd-potency...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oxnuN4i3jsdKoxKj3"}
+ ❌
+  🤖 how-to-choose-cbd-brand...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oyULU2xawDd2vjHZL"}
+ ❌
+  🤖 how-to-choose-cbd-product...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2oz3ZS9suFnre1pSKM"}
+ ❌
+  🤖 how-to-dispose-of-cbd-products...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2ozdnRq2pMTDqo1ed8"}
+ ❌
+  🤖 how-to-read-cbd-lab-reports...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2p1Ek6NN1HTdUGUMR3"}
+ ❌
+  🤖 how-to-read-cbd-labels...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2p1qDJ5NKeX8x34dp2"}
+ ❌
+  🤖 how-to-set-cbd-goals...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2p2RBxZx1Ztz4T29Aj"}
+ ❌
+  🤖 how-to-spot-fake-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2p32ttxu22pm1WsUWr"}
+ ❌
+  🤖 how-to-start-taking-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2p3fbY6Mq3JcQN84tP"}
+ ❌
+  🤖 how-to-store-cbd-oil...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2p4TigzpMcxxgShxJv"}
+ ❌
+  🤖 how-to-store-cbd-products...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2p55Rwta17YhYDiraY"}
+ ❌
+  🤖 how-to-take-cbd-capsules...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2p5g9WFAwMdh7G2jBH"}
+ ❌
+  🤖 how-to-take-cbd-oil...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2p6JbZtjciPZ74cNwf"}
+ ❌
+  🤖 how-to-take-cbd-sublingually...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2p6uZMjuJ9ye7wujJZ"}
+ ❌
+  🤖 how-to-tell-if-cbd-is-real...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2p7V3CFi6ZEWU2oWkF"}
+ ❌
+  🤖 how-to-track-cbd-effects...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2p85kpKkKUaTE4EaE1"}
+ ❌
+  🤖 how-to-travel-with-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2p8gxvQJ1ayxNzdecq"}
+ ❌
+  🤖 how-to-use-cbd-drops...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2p9QsnDxj5d4VrsBw9"}
+ ❌
+  🤖 how-to-use-cbd-flower...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pA4KQ1cSV3R6oc1vy"}
+ ❌
+  🤖 how-to-use-cbd-gummies...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pAdoCeuAgiNkoPbtq"}
+ ❌
+  🤖 how-to-use-cbd-patches...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pBDX4HkKySR98CWkC"}
+ ❌
+  🤖 how-to-vape-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pBpjZutPogJwYW5zZ"}
+ ❌
+  🤖 how-to-verify-cbd-quality...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pCQx2skaRVmD66BHp"}
+ ❌
+  🤖 inhaled-cbd-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pDdsVa4JnU9HaZ2XW"}
+ ❌
+  🤖 is-cbd-addictive...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pEHKbrkRqeK5zNH9U"}
+ ❌
+  🤖 keep-cbd-journal...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pEsJ2DndpFZpkp6JP"}
+ ❌
+  🤖 long-term-cbd-safety...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pFYiWDZrFdxELhEdg"}
+ ❌
+  🤖 microbial-testing-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pGH869hoRWnHJypEM"}
+ ❌
+  🤖 microdosing-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pGsbR1Zw1KuWG4mju"}
+ ❌
+  🤖 natural-vs-synthetic-cannabinoids...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pHUoPb5cfDE2pwYpP"}
+ ❌
+  🤖 oral-cbd-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pJ9V5RfnWokP9Yma3"}
+ ❌
+  🤖 organic-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pJmwVKskk3ZFNriFD"}
+ ❌
+  🤖 pesticides-in-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pKP9dBk26JSYuyQsX"}
+ ❌
+  🤖 raw-vs-decarboxylated-cannabinoids...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pKy89K7WiKSbcC1gK"}
+ ❌
+  🤖 residual-solvents-in-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pLaLWn8PWMatex85D"}
+ ❌
+  🤖 sublingual-cbd-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pMCHzuktcFXJUE2rv"}
+ ❌
+  🤖 synthetic-cannabinoids-dangers...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pMrUxDkKD6RErdYL7"}
+ ❌
+  🤖 talk-to-doctor-about-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pP2BEq6RQWbMfVwM1"}
+ ❌
+  🤖 tell-family-about-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pQ9eE2W5z3KUEVbrj"}
+ ❌
+  🤖 terpenes-and-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pQn6m4AaS2onFGV2e"}
+ ❌
+  🤖 terpenes-vs-cannabinoids...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pRV1fni684uVyzzpd"}
+ ❌
+  🤖 third-party-testing-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pSPLDzZ7DszfwFf4E"}
+ ❌
+  🤖 topical-cbd-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pT7FDk8sDyDZDejDs"}
+ ❌
+  🤖 understanding-cbd-coa...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pTihnopq833RvZjcZ"}
+ ❌
+  🤖 water-soluble-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pUKv4EjVQp3hiEeKZ"}
+ ❌
+  🤖 what-are-terpenes...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pUvt8DGtFk2ej7V4j"}
+ ❌
+  🤖 what-to-expect-from-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pVZ5whEjobX1BHVpq"}
+ ❌
+  🤖 what-to-look-for-buying-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pW8KE72gXQ4i2s7e3"}
+ ❌
+  🤖 when-to-decrease-cbd-dose...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pWoVdGwbKDgDVsMgL"}
+ ❌
+  🤖 when-to-increase-cbd-dose...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pXPiAHa3vbW5ieeKE"}
+ ❌
+  🤖 when-to-stop-taking-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pY1g1kXL3n6GbMZBm"}
+ ❌
+  🤖 who-should-not-take-cbd...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pYcPR5Sz5e31SBA5P"}
+ ❌
+
+📁 GUIDE
+  🤖 eu-approved-hemp-varieties...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pZFLKBt2BvAY1i9FW"}
+ ❌
+  🤖 european-vs-american-hemp...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pZq4WdcGfjnXmihzy"}
+ ❌
+  🤖 hemp-anatomy...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2paRH9tbq8JZAYCa8e"}
+ ❌
+  🤖 hemp-and-environment...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pb1zpAGJsm7RXApnG"}
+ ❌
+  🤖 hemp-biomass...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pbgRvMZSkthkeirQu"}
+ ❌
+  🤖 hemp-carbon-footprint...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pcdjVR6w3mBQgvUQ9"}
+ ❌
+  🤖 hemp-certification-programs...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pdcGUUg4ScYpVUm4V"}
+ ❌
+  🤖 hemp-drying-curing...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2peHwhjKk52nV1sLS8"}
+ ❌
+  🤖 hemp-farming-in-europe...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2peu9uLDo9gxrveCmf"}
+ ❌
+  🤖 hemp-harvesting...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pfUPRBXt6qRDSYsgD"}
+ ❌
+  🤖 hemp-processing-methods...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pg3cjMQqcm3b5MASx"}
+ ❌
+  🤖 hemp-quality-indicators...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2phEZ6LzNhhnEQniFp"}
+ ❌
+  🤖 hemp-seed-to-sale...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2phqGQxBzpQwtusukT"}
+ ❌
+  🤖 hemp-seed-vs-flower...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2piRzGk3AUVujfk5C7"}
+ ❌
+  🤖 hemp-strains...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pjC8ASNtg9N6vwzSk"}
+ ❌
+  🤖 hemp-supply-chain...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pjoLXQXumyqe4T5F3"}
+ ❌
+  🤖 hemp-sustainability-benefits...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pkNZrDqJJhgheJLAr"}
+ ❌
+  🤖 hemp-vs-cannabis...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pkyXmB2Vu9iju67G1"}
+ ❌
+  🤖 high-cbd-strains...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pmazXTj6J3NUhpRgp"}
+ ❌
+  🤖 how-hemp-is-grown...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pnDCQm4Eeqw6foLLW"}
+ ❌
+  🤖 organic-hemp-farming...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pnpA1SmwKUvRvv8qm"}
+ ❌
+  🤖 sourcing-quality-hemp...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2poQ8URAJVzc5hwAcv"}
+ ❌
+  🤖 sustainable-hemp-cultivation...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pp16KWdQ1WRkgNdUM"}
+ ❌
+  🤖 swiss-hemp-quality...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2ppc4KEUvddoTfseUt"}
+ ❌
+
+📁 PRODUCT-GUIDE
+  🤖 cbd-balm-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pqCHR8ffFFP4aLBJu"}
+ ❌
+  🤖 cbd-bath-bombs-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pqoF11DPyAjVVCzw2"}
+ ❌
+  🤖 cbd-capsules-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2prNE9KRsnf9Muqc8w"}
+ ❌
+  🤖 cbd-carrier-oils-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2psctMK4rKWfFVF7pi"}
+ ❌
+  🤖 cbd-coffee-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2ptRkHb4bC2NMnxq4u"}
+ ❌
+  🤖 cbd-concentrates-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pu1y9fWGsQriRnpWG"}
+ ❌
+  🤖 cbd-cream-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pudBUsjTXbwQr7kiB"}
+ ❌
+  🤖 cbd-crude-oil-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pvDA5HJ2duWG17ZsF"}
+ ❌
+  🤖 cbd-crumble-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pvpcewi1DqLagRB5S"}
+ ❌
+  🤖 cbd-distillate-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pwmv7xPM5KSAfkEHE"}
+ ❌
+  🤖 cbd-drinks-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pxNPGfkkA1VcGqfmq"}
+ ❌
+  🤖 cbd-e-liquid-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pxxrJvsW7Q8YN8NJK"}
+ ❌
+  🤖 cbd-edibles-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pyZKigGQvv117QWYs"}
+ ❌
+  🤖 cbd-flower-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pz8oJadBB6jULwi6E"}
+ ❌
+  🤖 cbd-gummies-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2pzj26d3eSe4x4NSCi"}
+ ❌
+  🤖 cbd-hash-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2q1LjFKub27ck14wRR"}
+ ❌
+  🤖 cbd-lip-balm-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2q1wC3t3whNvwbDJLz"}
+ ❌
+  🤖 cbd-lotion-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2q2XuYSQvnyEgKnoCZ"}
+ ❌
+  🤖 cbd-oil-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2q3ZfuNo1SxtqURLgw"}
+ ❌
+  🤖 cbd-oil-strength-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2q4iNgHGJUv57pFbJZ"}
+ ❌
+  🤖 cbd-patches-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2q5JrApE22kxccAb5V"}
+ ❌
+  🤖 cbd-pre-rolls-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2q5tpLHWwGzedmD6cV"}
+ ❌
+  🤖 cbd-salve-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2q6VHZKuHk2YfGVy9e"}
+ ❌
+  🤖 cbd-shatter-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2q761JhmFQXXaGicvL"}
+ ❌
+  🤖 cbd-skincare-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2q7gy1zcxoSBGAjXqA"}
+ ❌
+  🤖 cbd-softgels-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2q8HC6WJjqrSadbHMN"}
+ ❌
+  🤖 cbd-tea-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2q8sfHoZCE9NNJ8nUa"}
+ ❌
+  🤖 cbd-tincture-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2q9Ud9v1JkHT4wMbAS"}
+ ❌
+  🤖 cbd-topicals-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qA6pzCTptVdM11xZd"}
+ ❌
+  🤖 cbd-vape-cartridge-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qAmGExXj2qgrZC3aU"}
+ ❌
+  🤖 cbd-vape-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qBLVcBa5jXbLZ7WZo"}
+ ❌
+  🤖 cbd-vape-pen-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qC4edWpScCYvAGsFg"}
+ ❌
+  🤖 cbd-wax-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qCfcEseFWcvsvsYFT"}
+ ❌
+  🤖 flavored-vs-unflavored-cbd-oil...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qDVUFxpZaq6Bd3AY4"}
+ ❌
+  🤖 hemp-seed-oil-vs-cbd-oil...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qER33iJwDY3VmLzVC"}
+ ❌
+  🤖 liposomal-cbd-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qF1kbZDnwwXKHM1cd"}
+ ❌
+  🤖 mct-oil-cbd-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qFcU4WiSm8dGNotpt"}
+ ❌
+  🤖 nano-cbd-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qGDvgnKYPBMBAdxJ9"}
+ ❌
+  🤖 rso-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qGptSSVbxGgGnZqRi"}
+ ❌
+  🤖 water-soluble-cbd-guide...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qHR7X7yXd6PAviEF4"}
+ ❌
+
+📁 TERPENE-PROFILE
+  🤖 what-is-bisabolol...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qJ4Ywny1MNeUuXHQE"}
+ ❌
+  🤖 what-is-borneol...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qJjji4vnfBWDjxwh4"}
+ ❌
+  🤖 what-is-camphene...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qKgYJivcCAp7oJqL5"}
+ ❌
+  🤖 what-is-caryophyllene...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qLFmPQyWXg6TWGFq1"}
+ ❌
+  🤖 what-is-cymene...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qLryXqqBb8GJdkkdE"}
+ ❌
+  🤖 what-is-eucalyptol...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qMWfoXNfVvB5Tit5k"}
+ ❌
+  🤖 what-is-geraniol...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qNNm4ACvDQsxm5PLd"}
+ ❌
+  🤖 what-is-guaiol...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qNxjV5steoyR615PG"}
+ ❌
+  🤖 what-is-humulene...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qPYhtAyMFxMKi3DjN"}
+ ❌
+  🤖 what-is-limonene...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qQBuVaWEfht7C89Yh"}
+ ❌
+  🤖 what-is-linalool...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qQormwzBDdvrpSbMX"}
+ ❌
+  🤖 what-is-myrcene...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qRQ5RdFPtUW7a5Gta"}
+ ❌
+  🤖 what-is-nerolidol...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qSEvuNGqvhk9NTYEU"}
+ ❌
+  🤖 what-is-ocimene...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qSpABemh9uR7JfGqu"}
+ ❌
+  🤖 what-is-phytol...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qTU6YwExMg2dsEMMQ"}
+ ❌
+  🤖 what-is-pinene...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qU4ZkTudDbp2vg25d"}
+ ❌
+  🤖 what-is-sabinene...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qUmjJJfNXn45LvDpE"}
+ ❌
+  🤖 what-is-terpineol...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qVtTBREz6LhhHSsr4"}
+ ❌
+  🤖 what-is-terpinolene...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qWgKzeLvaF1Y3m2yj"}
+ ❌
+  🤖 what-is-valencene...  Error generating My Take: 400 {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CXL2qXtWCEbZMiYusH7t7"}
+ ❌
+
+
+═══════════════════════════════════════════════════════════
+📊 RESULTS
+═══════════════════════════════════════════════════════════
+  Articles processed: 410
+  My Take added: 93
+  Already had My Take: 118
+  Errors: 317
+═══════════════════════════════════════════════════════════
+
+✅ Successfully added My Take to 93 articles

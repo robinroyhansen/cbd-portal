@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@supabase/supabase-js';
 
 // GET: Fetch studies without country data
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const { searchParams } = new URL(request.url);
     const limit = parseInt(searchParams.get('limit') || '50', 10);
     const offset = parseInt(searchParams.get('offset') || '0', 10);
 
@@ -43,7 +46,9 @@ export async function GET(request: NextRequest) {
 // POST: Save country for a single study
 export async function POST(request: NextRequest) {
   try {
-    const { studyId, country } = await request.json();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const { studyId, country } = await request.json();
 
     if (!studyId || !country) {
       return NextResponse.json(

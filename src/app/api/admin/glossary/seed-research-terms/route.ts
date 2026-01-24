@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@supabase/supabase-js';
 
 /**
@@ -121,7 +122,9 @@ const RESEARCH_TERMS = [
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = createClient(
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.SUPABASE_SERVICE_ROLE_KEY!
     );
@@ -185,7 +188,10 @@ export async function POST(request: NextRequest) {
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   return NextResponse.json({
     description: 'POST to this endpoint to seed essential research terms for glossary auto-linking',
     terms: RESEARCH_TERMS.map(t => ({ term: t.term, slug: t.slug })),

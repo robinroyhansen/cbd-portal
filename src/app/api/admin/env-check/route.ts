@@ -1,8 +1,11 @@
 import { NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const envCheck = {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const envCheck = {
       timestamp: new Date().toISOString(),
       supabase_url_exists: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
       supabase_anon_key_exists: !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,

@@ -1,10 +1,13 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 
 // GET all glossary terms for admin
 export async function GET(request: NextRequest) {
   try {
-    const supabase = await createClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = await createClient();
     const { searchParams } = new URL(request.url);
 
     const category = searchParams.get('category');
@@ -56,7 +59,9 @@ export async function GET(request: NextRequest) {
 // POST create new glossary term
 export async function POST(request: NextRequest) {
   try {
-    const supabase = await createClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = await createClient();
     const body = await request.json();
 
     const {
@@ -139,7 +144,9 @@ export async function POST(request: NextRequest) {
 // PATCH update glossary term
 export async function PATCH(request: NextRequest) {
   try {
-    const supabase = await createClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = await createClient();
     const body = await request.json();
     const { id, ...updates } = body;
 
@@ -191,7 +198,9 @@ export async function PATCH(request: NextRequest) {
 // DELETE glossary term(s)
 export async function DELETE(request: NextRequest) {
   try {
-    const supabase = await createClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = await createClient();
     const body = await request.json();
     const { ids } = body;
 

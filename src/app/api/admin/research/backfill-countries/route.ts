@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@supabase/supabase-js';
 
 /**
@@ -161,7 +162,9 @@ function extractPmcIdFromUrl(url: string): string | null {
 
 export async function POST(request: Request) {
   try {
-    const { searchParams } = new URL(request.url);
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const { searchParams } = new URL(request.url);
     const sourceFilter = searchParams.get('source') || 'all';
     const limit = parseInt(searchParams.get('limit') || '100', 10);
     const dryRun = searchParams.get('dryRun') === 'true';
@@ -307,7 +310,10 @@ export async function POST(request: Request) {
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   return NextResponse.json({
     message: 'POST to this endpoint to backfill country data for research studies',
     description: 'Fetches country from OpenAlex API (via DOI), PubMed efetch (via PMID), Europe PMC API (via PMC ID), or text pattern matching',

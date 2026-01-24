@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
@@ -49,6 +50,9 @@ Epidiolex, a CBD-based medication, is approved by regulatory agencies in multipl
 ];
 
 export async function POST(request: Request) {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   // Verify admin secret
   const authHeader = request.headers.get('authorization');
   const expectedToken = `Bearer ${process.env.ADMIN_API_SECRET}`;
@@ -90,7 +94,10 @@ export async function POST(request: Request) {
   });
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   return NextResponse.json({
     message: 'POST to this endpoint to update glossary entries with international content',
     entries_to_update: updates.map(u => u.slug)

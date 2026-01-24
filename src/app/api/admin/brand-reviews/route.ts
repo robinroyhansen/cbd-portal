@@ -1,10 +1,13 @@
 import { createServiceClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 
 // GET all brand reviews for admin (or single review by brand_id)
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createServiceClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = createServiceClient();
     const { searchParams } = new URL(request.url);
 
     const brandId = searchParams.get('brand_id');
@@ -144,7 +147,9 @@ async function generateFullReviewFromSections(
 // POST create new brand review
 export async function POST(request: NextRequest) {
   try {
-    const supabase = createServiceClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = createServiceClient();
     const body = await request.json();
 
     const {
@@ -274,7 +279,9 @@ export async function POST(request: NextRequest) {
 // PATCH update brand review
 export async function PATCH(request: NextRequest) {
   try {
-    const supabase = createServiceClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = createServiceClient();
     const body = await request.json();
     const { id, scores, section_content, certifications, brand_id, ...updates } = body;
 
@@ -395,7 +402,9 @@ export async function PATCH(request: NextRequest) {
 // DELETE brand review(s)
 export async function DELETE(request: NextRequest) {
   try {
-    const supabase = createServiceClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = createServiceClient();
     const body = await request.json();
     const { ids } = body;
 

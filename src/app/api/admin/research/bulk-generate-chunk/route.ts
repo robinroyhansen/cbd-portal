@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@supabase/supabase-js';
 
 interface StudyData {
@@ -148,6 +149,9 @@ Return as JSON only, no markdown code blocks:
 
 // POST - Process a chunk of studies (designed to be called repeatedly)
 export async function POST(request: NextRequest) {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   const startTime = Date.now();
 
   try {
@@ -280,9 +284,11 @@ export async function POST(request: NextRequest) {
 }
 
 // GET - Check current status
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient(
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.SUPABASE_SERVICE_ROLE_KEY!
     );

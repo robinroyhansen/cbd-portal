@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@supabase/supabase-js';
 
 // Topic classification rules
@@ -39,7 +40,9 @@ function classifyTopics(title: string, abstract: string, summary: string): strin
 
 export async function POST(request: NextRequest) {
   try {
-    // Support both query params and body for flexibility
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+// Support both query params and body for flexibility
     const { searchParams } = new URL(request.url);
     const offsetParam = searchParams.get('offset');
 
@@ -147,9 +150,11 @@ export async function POST(request: NextRequest) {
 }
 
 // GET endpoint to see topic distribution
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient(
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.SUPABASE_SERVICE_ROLE_KEY!
     );

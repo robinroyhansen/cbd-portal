@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@supabase/supabase-js';
 
 interface StudyData {
@@ -115,7 +116,9 @@ Return ONLY a JSON array like: [{"text": "Limitation 1", "type": "limitation"}, 
 
 export async function POST(request: NextRequest) {
   try {
-    const { studyId, field } = await request.json();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const { studyId, field } = await request.json();
 
     if (!studyId || !field) {
       return NextResponse.json({ error: 'studyId and field required' }, { status: 400 });

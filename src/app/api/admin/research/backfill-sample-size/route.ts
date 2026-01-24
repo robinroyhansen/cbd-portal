@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@supabase/supabase-js';
 import { extractSampleSize } from '@/lib/utils/extract-sample-size';
 
@@ -7,9 +8,11 @@ import { extractSampleSize } from '@/lib/utils/extract-sample-size';
  *
  * Run with: curl -X POST https://cbd-portal.vercel.app/api/admin/research/backfill-sample-size
  */
-export async function POST() {
+export async function POST(request: NextRequest) {
   try {
-    const supabase = createClient(
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.SUPABASE_SERVICE_ROLE_KEY!
     );
@@ -125,7 +128,10 @@ export async function POST() {
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   return NextResponse.json({
     message: 'POST to this endpoint to backfill sample_size and sample_type for approved studies',
     description: 'Extracts participant counts and classifies as human/animal/unknown',

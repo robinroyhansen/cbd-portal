@@ -1,9 +1,12 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = await createClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = await createClient();
     const { searchParams } = new URL(request.url);
     const status = searchParams.get('status');
     const articleId = searchParams.get('article_id');
@@ -60,7 +63,9 @@ export async function GET(request: NextRequest) {
 
 export async function PATCH(request: NextRequest) {
   try {
-    const supabase = await createClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = await createClient();
     const body = await request.json();
     const { ids, status } = body;
 
@@ -92,7 +97,9 @@ export async function PATCH(request: NextRequest) {
 
 export async function DELETE(request: NextRequest) {
   try {
-    const supabase = await createClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = await createClient();
     const body = await request.json();
     const { ids } = body;
 

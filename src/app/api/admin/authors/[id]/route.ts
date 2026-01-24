@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 
 interface RouteParams {
   params: { id: string };
@@ -10,7 +11,9 @@ export async function GET(
   { params }: RouteParams
 ) {
   try {
-    const supabase = await createClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = await createClient();
 
     const { data: author, error } = await supabase
       .from('kb_authors')
@@ -35,7 +38,9 @@ export async function PUT(
   { params }: RouteParams
 ) {
   try {
-    const supabase = await createClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = await createClient();
     const body = await request.json();
 
     // If slug is being changed, check if it already exists
@@ -87,7 +92,9 @@ export async function DELETE(
   { params }: RouteParams
 ) {
   try {
-    const supabase = await createClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = await createClient();
 
     // Check if this author has any articles
     const { data: articles, error: articlesError } = await supabase

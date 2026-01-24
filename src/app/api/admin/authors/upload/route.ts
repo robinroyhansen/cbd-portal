@@ -1,8 +1,31 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
+
+// Magic bytes for file type verification
+const FILE_SIGNATURES: Record<string, number[][]> = {
+  'image/jpeg': [[0xFF, 0xD8, 0xFF]],
+  'image/png': [[0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A]],
+  'image/webp': [[0x52, 0x49, 0x46, 0x46]], // RIFF header (WebP starts with RIFF)
+};
+
+function verifyFileSignature(buffer: Uint8Array, mimeType: string): boolean {
+  const signatures = FILE_SIGNATURES[mimeType];
+  if (!signatures) return false;
+
+  return signatures.some(sig =>
+    sig.every((byte, i) => buffer[i] === byte)
+  );
+}
+
+// Validate path pattern to prevent path traversal
+const ALLOWED_PATH_PATTERN = /^authors\/[a-zA-Z0-9_-]+-\d+\.(jpg|jpeg|png|webp)$/;
 
 export async function POST(request: NextRequest) {
   try {
+    const authError = requireAdminAuth(request);
+    if (authError) return authError;
+
     const supabase = await createClient();
     const formData = await request.formData();
     const file = formData.get('file') as File;
@@ -12,7 +35,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'No file provided' }, { status: 400 });
     }
 
-    // Validate file type
+    // Validate file type (MIME type from client - will verify with magic bytes)
     const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
     if (!allowedTypes.includes(file.type)) {
       return NextResponse.json({
@@ -28,17 +51,31 @@ export async function POST(request: NextRequest) {
       }, { status: 400 });
     }
 
-    // Generate unique filename
-    const fileExt = file.name.split('.').pop()?.toLowerCase();
-    const timestamp = Date.now();
-    const fileName = authorId
-      ? `${authorId}-${timestamp}.${fileExt}`
-      : `temp-${timestamp}.${fileExt}`;
-    const filePath = `authors/${fileName}`;
-
-    // Convert file to buffer
+    // Convert file to buffer for verification
     const arrayBuffer = await file.arrayBuffer();
     const buffer = new Uint8Array(arrayBuffer);
+
+    // Verify file content matches claimed MIME type (prevent spoofing)
+    const normalizedMime = file.type === 'image/jpg' ? 'image/jpeg' : file.type;
+    if (!verifyFileSignature(buffer, normalizedMime)) {
+      return NextResponse.json({
+        error: 'File content does not match file type. Please upload a valid image.'
+      }, { status: 400 });
+    }
+
+    // Sanitize authorId to prevent injection
+    const sanitizedAuthorId = authorId?.replace(/[^a-zA-Z0-9_-]/g, '') || 'temp';
+
+    // Generate safe filename
+    const fileExt = file.name.split('.').pop()?.toLowerCase().replace(/[^a-z]/g, '') || 'jpg';
+    const allowedExts = ['jpg', 'jpeg', 'png', 'webp'];
+    if (!allowedExts.includes(fileExt)) {
+      return NextResponse.json({ error: 'Invalid file extension' }, { status: 400 });
+    }
+
+    const timestamp = Date.now();
+    const fileName = `${sanitizedAuthorId}-${timestamp}.${fileExt}`;
+    const filePath = `authors/${fileName}`;
 
     // Upload to Supabase Storage
     const { data, error: uploadError } = await supabase.storage
@@ -107,12 +144,30 @@ export async function POST(request: NextRequest) {
 
 export async function DELETE(request: NextRequest) {
   try {
+    const authError = requireAdminAuth(request);
+    if (authError) return authError;
+
     const supabase = await createClient();
     const { searchParams } = new URL(request.url);
     const filePath = searchParams.get('path');
 
     if (!filePath) {
       return NextResponse.json({ error: 'File path is required' }, { status: 400 });
+    }
+
+    // Validate path to prevent path traversal attacks
+    // Only allow deletion of files in authors/ directory with expected filename format
+    if (!ALLOWED_PATH_PATTERN.test(filePath)) {
+      return NextResponse.json({
+        error: 'Invalid file path. Path traversal not allowed.'
+      }, { status: 400 });
+    }
+
+    // Double-check: path should not contain ../ or start with /
+    if (filePath.includes('..') || filePath.startsWith('/')) {
+      return NextResponse.json({
+        error: 'Invalid file path format'
+      }, { status: 400 });
     }
 
     const { error } = await supabase.storage

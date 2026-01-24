@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@supabase/supabase-js';
 import { TOPIC_KEYWORDS } from '@/lib/research-scanner';
 
@@ -24,9 +25,11 @@ function detectTopics(title: string, abstract: string | null): string[] {
   return topics;
 }
 
-export async function POST() {
+export async function POST(request: NextRequest) {
   try {
-    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
       return NextResponse.json({
         error: 'Configuration error',
         message: 'Missing required environment variables'

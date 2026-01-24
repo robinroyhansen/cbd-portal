@@ -1,5 +1,6 @@
 import { createServiceClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 
 interface SubScore {
   id: string;
@@ -362,7 +363,9 @@ Return valid JSON only, no markdown code blocks.`;
 
 export async function POST(request: NextRequest) {
   try {
-    const apiKey = process.env.ANTHROPIC_API_KEY;
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const apiKey = process.env.ANTHROPIC_API_KEY;
     if (!apiKey) {
       return NextResponse.json({
         success: false,

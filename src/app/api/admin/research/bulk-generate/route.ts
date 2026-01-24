@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@supabase/supabase-js';
 
 interface StudyData {
@@ -149,7 +150,9 @@ Return as JSON only, no markdown code blocks:
 
 export async function POST(request: NextRequest) {
   try {
-    const { batchSize = 10 } = await request.json();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const { batchSize = 10 } = await request.json();
 
     // Limit batch size to prevent timeout
     const safeBatchSize = Math.min(batchSize, 20);
@@ -254,9 +257,11 @@ export async function POST(request: NextRequest) {
 }
 
 // GET endpoint to check status
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient(
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.SUPABASE_SERVICE_ROLE_KEY!
     );

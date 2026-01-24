@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@/lib/supabase/server';
 
 export const maxDuration = 300; // 5 minutes max for job creation and initial processing
@@ -6,7 +7,9 @@ export const maxDuration = 300; // 5 minutes max for job creation and initial pr
 // POST /api/admin/scan-jobs - Create new scan job and start processing
 export async function POST(request: NextRequest) {
   try {
-    const {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const {
       scanDepth = 'standard',
       selectedSources = ['pubmed', 'clinicaltrials', 'pmc'],
       customKeywords = [],
@@ -122,7 +125,9 @@ export async function POST(request: NextRequest) {
 // GET /api/admin/scan-jobs - List recent scan jobs with optional filtering
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = request.nextUrl;
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const { searchParams } = request.nextUrl;
     const status = searchParams.get('status');
     const limit = parseInt(searchParams.get('limit') || '20');
     const offset = parseInt(searchParams.get('offset') || '0');
@@ -226,7 +231,9 @@ export async function GET(request: NextRequest) {
 // DELETE /api/admin/scan-jobs - Cleanup old completed jobs
 export async function DELETE(request: NextRequest) {
   try {
-    const { searchParams } = request.nextUrl;
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const { searchParams } = request.nextUrl;
     const olderThanDays = parseInt(searchParams.get('olderThanDays') || '30');
 
     if (olderThanDays < 1 || olderThanDays > 365) {

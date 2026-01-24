@@ -17,16 +17,17 @@ import { NextRequest, NextResponse } from 'next/server';
  * ```
  *
  * Environment variable required:
- *   ADMIN_API_SECRET - Secret token for admin API access
+ *   ADMIN_PASSWORD - Secret token for admin API access
  *
  * Request must include header:
- *   Authorization: Bearer <ADMIN_API_SECRET>
+ *   Authorization: Bearer <ADMIN_PASSWORD>
  *
  * For browser-based admin pages, use session auth instead of this.
  */
 
-// Get the admin secret from environment
-const ADMIN_API_SECRET = process.env.ADMIN_API_SECRET;
+// Get the admin password from environment
+// Set ADMIN_PASSWORD in Vercel environment variables
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || process.env.ADMIN_PASSWORD;
 
 /**
  * Check if request has valid admin authentication
@@ -34,14 +35,14 @@ const ADMIN_API_SECRET = process.env.ADMIN_API_SECRET;
  */
 export function requireAdminAuth(request: NextRequest): NextResponse | null {
   // Allow in development without auth for testing
-  if (process.env.NODE_ENV === 'development' && !ADMIN_API_SECRET) {
-    console.warn('[Admin Auth] Running without ADMIN_API_SECRET in development mode');
+  if (process.env.NODE_ENV === 'development' && !ADMIN_PASSWORD) {
+    console.warn('[Admin Auth] Running without ADMIN_PASSWORD in development mode');
     return null;
   }
 
-  // Check if ADMIN_API_SECRET is configured
-  if (!ADMIN_API_SECRET) {
-    console.error('[Admin Auth] ADMIN_API_SECRET not configured');
+  // Check if ADMIN_PASSWORD is configured
+  if (!ADMIN_PASSWORD) {
+    console.error('[Admin Auth] ADMIN_PASSWORD not configured');
     return NextResponse.json(
       { error: 'Server misconfigured - admin auth not set up' },
       { status: 500 }
@@ -69,7 +70,7 @@ export function requireAdminAuth(request: NextRequest): NextResponse | null {
   const token = authHeader.slice(7); // Remove "Bearer " prefix
 
   // Validate token
-  if (token !== ADMIN_API_SECRET) {
+  if (token !== ADMIN_PASSWORD) {
     return NextResponse.json(
       { error: 'Unauthorized - invalid token' },
       { status: 401 }

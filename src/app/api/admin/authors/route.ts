@@ -1,9 +1,12 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    // Check environment variables first
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+// Check environment variables first
     if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
       return NextResponse.json({
         error: 'Supabase configuration missing',
@@ -38,7 +41,9 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
-    // Check environment variables first
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+// Check environment variables first
     if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
       return NextResponse.json({
         error: 'Supabase configuration missing',
@@ -81,11 +86,23 @@ export async function POST(request: NextRequest) {
         .neq('id', 'placeholder'); // Update all existing authors
     }
 
+    // Whitelist allowed fields to prevent mass assignment attacks
     const { data: author, error } = await supabase
       .from('kb_authors')
       .insert({
-        ...body,
+        name: body.name,
         slug,
+        title: body.title || null,
+        email: body.email || null,
+        bio_short: body.bio_short || null,
+        bio_full: body.bio_full || null,
+        image_url: body.image_url || null,
+        website_url: body.website_url || null,
+        linkedin_url: body.linkedin_url || null,
+        twitter_url: body.twitter_url || null,
+        credentials: body.credentials || null,
+        expertise_areas: body.expertise_areas || null,
+        is_primary: Boolean(body.is_primary),
         updated_at: new Date().toISOString()
       })
       .select()

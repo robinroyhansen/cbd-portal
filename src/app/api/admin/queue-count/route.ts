@@ -1,9 +1,12 @@
 import { createServiceClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    // Use service client to bypass RLS
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+// Use service client to bypass RLS
     const supabase = createServiceClient();
 
     // Get pending count

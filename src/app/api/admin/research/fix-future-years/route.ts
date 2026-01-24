@@ -1,9 +1,12 @@
 import { createServiceClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const supabase = createServiceClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = createServiceClient();
     const currentYear = new Date().getFullYear();
 
     // Find studies with future years
@@ -26,9 +29,11 @@ export async function GET() {
   }
 }
 
-export async function POST() {
+export async function POST(request: NextRequest) {
   try {
-    const supabase = createServiceClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = createServiceClient();
     const currentYear = new Date().getFullYear();
 
     // Find studies with future years first

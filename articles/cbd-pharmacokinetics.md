@@ -1,209 +1,100 @@
-# CBD Pharmacokinetics: How Your Body Processes CBD
+# CBD Pharmacokinetics: How CBD Moves Through Your Body
 
-By Robin Roy Krigslund-Hansen | 12+ years in CBD industry
+By Robin Roy Krigslund-Hansen | 12+ years in CBD industry  
 Last updated: January 21, 2026
 
 ---
 
 ## Quick Summary
 
-Pharmacokinetics describes how CBD moves through your body—absorption, distribution, metabolism, and elimination. CBD has low oral bioavailability (6-19%), is highly lipophilic, gets metabolized by liver enzymes (primarily CYP3A4 and CYP2C19), and has a half-life of 18-32 hours. Understanding pharmacokinetics helps explain why delivery method, timing, and food intake all affect CBD's effects.
+Pharmacokinetics describes how CBD is absorbed, distributed, metabolised, and eliminated by the body. CBD is fat-soluble with low oral bioavailability, metabolised primarily by liver enzymes, and has a half-life of 18-32 hours with regular use.
 
 ---
 
-## The Four Phases
+## Key Takeaways
 
-### 1. Absorption
-How CBD enters your bloodstream:
-
-| Method | Bioavailability | Onset |
-|--------|-----------------|-------|
-| Inhalation (vape) | 31-34% | Minutes |
-| Sublingual | 13-35% | 15-45 min |
-| Oral (swallowed) | 6-19% | 1-2 hours |
-| Topical | Local only | Minutes |
-
-**Key factor:** CBD is lipophilic (fat-loving), so taking it with fatty foods dramatically increases absorption—up to 4-5 times higher bioavailability.
-
-### 2. Distribution
-Where CBD goes in your body:
-
-- Highly fat-soluble, so it accumulates in fatty tissues
-- Crosses the blood-brain barrier
-- Distributes throughout organs and tissues
-- Can remain stored in fat for extended periods
-- Volume of distribution is high (~32 L/kg)
-
-### 3. Metabolism
-How CBD is broken down:
-
-**Primary pathway:** Liver metabolism via cytochrome P450 enzymes
-- **CYP3A4** - Major enzyme for CBD metabolism
-- **CYP2C19** - Secondary pathway
-- **CYP2C9** - Minor contribution
-
-**Metabolites:**
-- 7-OH-CBD (7-hydroxy-CBD) - primary metabolite
-- 7-COOH-CBD (7-carboxy-CBD)
-- Various hydroxylated and carboxylated derivatives
-
-**First-pass effect:** When swallowed, CBD passes through the liver before reaching circulation, significantly reducing available CBD.
-
-### 4. Elimination
-How CBD leaves your body:
-
-- **Half-life:** 18-32 hours (can vary widely)
-- **Primary route:** Feces (via bile)
-- **Secondary route:** Urine
-- **Steady state:** Reached after ~1 week of daily use
-- **Complete elimination:** May take several weeks after stopping
+- CBD is highly fat-soluble, affecting absorption and distribution
+- First-pass metabolism significantly reduces oral bioavailability
+- Metabolised by CYP450 enzymes (drug interaction relevance)
+- Half-life: 18-32 hours with regular use
+- Accumulates in fatty tissue over time
 
 ---
 
-## Why Bioavailability Matters
+## ADME: The Four Stages
 
-Low bioavailability means most CBD you take doesn't reach your bloodstream:
+### Absorption
 
-**Example with 30mg oral dose:**
-- At 10% bioavailability: Only 3mg reaches circulation
-- At 6% bioavailability: Only 1.8mg reaches circulation
+How CBD enters the bloodstream:
+- **Oral:** 6-19% bioavailability, slow onset
+- **Sublingual:** 20-35% bioavailability, faster onset
+- **Inhaled:** 30-40% bioavailability, immediate onset
+- **Topical:** Minimal systemic absorption
 
-This explains why:
-- Oral doses need to be higher than sublingual
-- Food significantly affects results
-- Some people need much higher doses than others
-- Delivery method matters as much as total mg
+Factors affecting absorption:
+- Food (especially fats) increases absorption
+- Formulation (nano, liposomal) may improve uptake
+- Individual gut health matters
 
----
+### Distribution
 
-## First-Pass Metabolism
+Where CBD goes in the body:
+- Highly lipophilic (fat-loving)
+- Accumulates in adipose tissue
+- Distributes widely throughout body
+- Crosses blood-brain barrier
+- Volume of distribution: very large (32 L/kg)
 
-When you swallow CBD:
+### Metabolism
 
-1. CBD enters stomach and intestines
-2. Absorbed into portal vein
-3. Goes directly to liver
-4. Liver metabolizes significant portion
-5. Remaining CBD enters systemic circulation
+How CBD is processed:
+- Primary: Liver (CYP3A4, CYP2C19)
+- Secondary: Gut metabolism
+- Creates multiple metabolites
+- 7-OH-CBD (active metabolite)
+- First-pass effect significant for oral use
 
-**Sublingual delivery** partially bypasses this by absorbing through mouth mucosa directly into bloodstream.
+### Elimination
 
----
-
-## Food and Absorption
-
-Taking CBD with food, especially fatty food:
-
-| Factor | Without Food | With High-Fat Meal |
-|--------|--------------|-------------------|
-| Bioavailability | ~6% | ~24% |
-| Peak levels | Lower | 4-5x higher |
-| Time to peak | 1-2 hours | 2-4 hours |
-
-**Practical advice:** Take CBD with a meal containing some fat (avocado, nuts, olive oil, cheese, etc.) for better absorption.
-
----
-
-## Time Course of Effects
-
-**Single dose:**
-- Onset: 30min - 2 hours (oral)
-- Peak levels: 1-4 hours
-- Duration: 4-12 hours (varies)
-
-**Daily dosing:**
-- Steady state: ~1 week
-- Accumulation in fatty tissues
-- More consistent effects over time
-- May need lower doses once stable
+How CBD leaves the body:
+- Primarily through faeces
+- Some urinary excretion
+- Half-life increases with chronic use
+- Complete elimination: 5-7 days after stopping
 
 ---
 
-## Individual Variation
+## Clinical Implications
 
-Many factors affect your CBD pharmacokinetics:
+### Drug Interactions
 
-**Genetic:**
-- CYP enzyme variants
-- Cannabinoid receptor polymorphisms
-- Body composition
+CBD's enzyme effects:
+- Inhibits CYP2D6, CYP2C9, CYP2C19
+- May increase levels of other medications
+- Similar concern to grapefruit
+- Consult healthcare providers
 
-**Physiological:**
-- Age
-- Weight
-- Body fat percentage
-- Liver function
-- Recent food intake
+### Dosing Implications
 
-**Other:**
-- Concurrent medications
-- Other supplements
-- Regular vs occasional use
-
----
-
-## Drug Interactions
-
-CBD inhibits CYP3A4 and CYP2C19 enzymes, potentially affecting medications:
-
-- Certain seizure medications
-- Blood thinners (warfarin)
-- Some statins
-- Certain immunosuppressants
-- Various psychiatric medications
-
-**Important:** Consult healthcare providers about potential interactions with any medications.
-
----
-
-## Half-Life Implications
-
-CBD's 18-32 hour half-life means:
-
-- Once daily dosing is often sufficient
-- Takes ~1 week to reach steady state
-- Stays in system for weeks after stopping
-- May accumulate with frequent use
-- Effects may build over time
-
----
-
-## Research Limitations
-
-Current pharmacokinetic knowledge has gaps:
-
-- Most studies use pure CBD, not full-spectrum products
-- Terpene/cannabinoid interactions may affect kinetics
-- Long-term accumulation effects not fully understood
-- Individual variation not well characterized
-- Optimal dosing strategies still unclear
-
----
-
-## Practical Takeaways
-
-1. **Take with fatty food** for best absorption
-2. **Be patient** - effects may build over days/weeks
-3. **Consistency matters** - regular dosing establishes steady levels
-4. **Timing flexibility** - long half-life allows flexible dosing
-5. **Start low** - due to accumulation, start conservative
+Understanding pharmacokinetics helps with:
+- Why consistent dosing works better
+- Why effects build over time
+- Why food matters for absorption
+- Why different methods feel different
 
 ---
 
 ## My Take
 
-Understanding pharmacokinetics transformed how I think about CBD dosing. The low bioavailability of oral CBD explains why people often need higher doses than they expect. The importance of fat in absorption explains why taking CBD on an empty stomach often disappoints. And the long half-life explains why consistent daily use tends to work better than occasional use.
-
-This isn't just academic knowledge—it's practical information that can make the difference between CBD working for you or concluding it doesn't work at all.
+Understanding pharmacokinetics demystifies CBD dosing. The half-life data explains why consistent use works better than sporadic dosing—CBD accumulates over time. The metabolism information is crucial for anyone on medications. This isn't just academic; it's practical knowledge for better CBD use.
 
 ---
 
-## Related Topics
+## Related Articles
 
 - [CBD Bioavailability](/knowledge/cbd-bioavailability)
+- [How CBD Is Metabolised](/knowledge/how-cbd-metabolized)
 - [CBD Drug Interactions](/knowledge/cbd-drug-interactions)
-- [CBD Dosage Guide](/knowledge/cbd-dosage-guide)
-- [How CBD Works](/knowledge/how-cbd-works)
 
 ---
 

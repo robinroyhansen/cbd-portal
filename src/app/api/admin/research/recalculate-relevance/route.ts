@@ -1,10 +1,13 @@
 import { createServiceClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { calculateRelevanceScore } from '@/lib/utils/relevance-scorer';
 
-export async function POST() {
+export async function POST(request: NextRequest) {
   try {
-    const supabase = createServiceClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = createServiceClient();
 
     const { data: studies, error } = await supabase
       .from('kb_research_queue')
@@ -74,9 +77,11 @@ export async function POST() {
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    // Preview without updating
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+// Preview without updating
     const supabase = createServiceClient();
 
     const { data: studies } = await supabase

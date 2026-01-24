@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@supabase/supabase-js';
 
 /**
@@ -9,9 +10,11 @@ import { createClient } from '@supabase/supabase-js';
 
 const QUESTION_STARTERS = /^(can|does|do|is|are|will|could|should|would|how|what|why|when|where|which)\s/i;
 
-export async function POST() {
+export async function POST(request: NextRequest) {
   try {
-    const supabase = createClient(
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.SUPABASE_SERVICE_ROLE_KEY!
     );
@@ -117,7 +120,10 @@ export async function POST() {
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   return NextResponse.json({
     message: 'POST to this endpoint to fix question titles missing question marks',
     description: 'Finds display_titles where BOTH original and display title start with question words but display lacks ?',
@@ -126,9 +132,11 @@ export async function GET() {
 }
 
 // Revert incorrectly added question marks (statement titles that got ? added)
-export async function DELETE() {
+export async function DELETE(request: NextRequest) {
   try {
-    const supabase = createClient(
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.SUPABASE_SERVICE_ROLE_KEY!
     );

@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@supabase/supabase-js';
 import { runDailyResearchScan } from '@/lib/research-scanner';
 
@@ -6,7 +7,9 @@ export const maxDuration = 300; // 5 minutes max for Vercel
 
 export async function POST(request: Request) {
   try {
-    // For now, we'll allow any authenticated session to trigger scans
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+// For now, we'll allow any authenticated session to trigger scans
     // This simplifies testing until proper admin roles are set up
     console.log('🚀 Manual research scan triggered');
 

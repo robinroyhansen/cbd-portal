@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@supabase/supabase-js';
 
 // GET - Get single job by ID with full details
@@ -7,7 +8,9 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = await params;
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const { id } = await params;
 
     if (!id) {
       return NextResponse.json({ error: 'Job ID is required' }, { status: 400 });

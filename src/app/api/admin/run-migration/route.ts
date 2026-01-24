@@ -1,9 +1,12 @@
 import { createClient } from '@supabase/supabase-js';
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 
 export async function POST(request: NextRequest) {
   try {
-    // Check for migration secret
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+// Check for migration secret
     const authHeader = request.headers.get('x-migration-secret');
     const migrationSecret = process.env.MIGRATION_SECRET;
 

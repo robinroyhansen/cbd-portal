@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@supabase/supabase-js';
 import { createScanJob, getActiveScanJob, runBackgroundScan } from '@/lib/research-scanner';
 
@@ -30,7 +31,9 @@ function getDateRangeFromDepth(scanDepth: string): { start: string | null; end: 
 
 export async function POST(request: Request) {
   try {
-    const supabase = createClient(
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.SUPABASE_SERVICE_ROLE_KEY!
     );

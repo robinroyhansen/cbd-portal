@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
@@ -15,6 +16,9 @@ const supabase = createClient(
  * - dryRun: If "true", shows what would be deleted without removing (default: false)
  */
 export async function DELETE(request: Request) {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   const url = new URL(request.url);
   const dryRun = url.searchParams.get('dryRun') === 'true';
 
@@ -85,9 +89,11 @@ export async function DELETE(request: Request) {
  *
  * Preview retracted entries that would be removed
  */
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const { data: retracted, error } = await supabase
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const { data: retracted, error } = await supabase
       .from('kb_research_queue')
       .select('id, title, status, relevance_score, year')
       .ilike('title', '%RETRACTED%');

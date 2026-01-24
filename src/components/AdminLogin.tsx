@@ -8,20 +8,22 @@ export function AdminLogin() {
   const [isLoading, setIsLoading] = useState(false);
   const { login } = useAdminAuth();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
 
-    // Small delay to prevent brute force
-    setTimeout(() => {
-      const success = login(password);
+    try {
+      const success = await login(password);
       if (!success) {
         setError('Incorrect password');
         setPassword('');
       }
+    } catch {
+      setError('Failed to authenticate. Please try again.');
+    } finally {
       setIsLoading(false);
-    }, 500);
+    }
   };
 
   return (

@@ -1,9 +1,12 @@
 import { createServiceClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 
 export async function POST(request: Request) {
   try {
-    const { studyId } = await request.json();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const { studyId } = await request.json();
 
     if (!studyId) {
       return NextResponse.json({ error: 'Missing studyId' }, { status: 400 });

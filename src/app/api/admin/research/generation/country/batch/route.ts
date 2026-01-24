@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@supabase/supabase-js';
 
 interface CountryUpdate {
@@ -9,7 +10,9 @@ interface CountryUpdate {
 // POST: Save country for multiple studies at once
 export async function POST(request: NextRequest) {
   try {
-    const { updates } = await request.json() as { updates: CountryUpdate[] };
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const { updates } = await request.json() as { updates: CountryUpdate[] };
 
     if (!updates || !Array.isArray(updates) || updates.length === 0) {
       return NextResponse.json(

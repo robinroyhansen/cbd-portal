@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@/lib/supabase/server';
 
 export const maxDuration = 240; // 4 minutes to allow for cleanup and self-scheduling
@@ -9,7 +10,9 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
-    const jobId = params.id;
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const jobId = params.id;
 
     if (!jobId || typeof jobId !== 'string') {
       return NextResponse.json(
@@ -112,7 +115,9 @@ export async function PUT(
   { params }: { params: { id: string } }
 ) {
   try {
-    const jobId = params.id;
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const jobId = params.id;
     const { action } = await request.json();
 
     if (!jobId || typeof jobId !== 'string') {
@@ -254,7 +259,9 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
-    const jobId = params.id;
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const jobId = params.id;
 
     if (!jobId || typeof jobId !== 'string') {
       return NextResponse.json(

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { getCountryCode } from '@/lib/utils/brand-helpers';
 
 interface BrandResearchResult {

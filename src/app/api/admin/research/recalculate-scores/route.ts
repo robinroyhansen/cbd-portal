@@ -1,5 +1,6 @@
 import { createServiceClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { calculateQualityScore } from '@/lib/research-scanner';
 
 function getBucket(score: number): string {
@@ -15,9 +16,11 @@ function getBucket(score: number): string {
   return '91-100';
 }
 
-export async function POST() {
+export async function POST(request: NextRequest) {
   try {
-    const supabase = createServiceClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = createServiceClient();
 
     // Get ALL studies
     const { data: studies, error: studiesError } = await supabase

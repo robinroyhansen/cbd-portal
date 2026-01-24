@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import DOMPurify from 'isomorphic-dompurify';
 
 interface MarkdownEditorProps {
   value: string;
@@ -56,8 +57,12 @@ function markdownToHtml(markdown: string): string {
   // Italic
   html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
 
-  // Links
-  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+  // Links - sanitize href to prevent javascript: URLs
+  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, text, url) => {
+    // Only allow http, https, mailto, and relative URLs
+    const sanitizedUrl = url.match(/^(https?:|mailto:|\/|#)/) ? url : '#';
+    return `<a href="${sanitizedUrl}">${text}</a>`;
+  });
 
   // Line breaks
   html = html.replace(/\n\n/g, '</p><p>');
@@ -67,5 +72,10 @@ function markdownToHtml(markdown: string): string {
   html = html.replace(/^\* (.+)$/gm, '<li>$1</li>');
   html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
 
-  return html;
+  // Sanitize the output to prevent XSS
+  return DOMPurify.sanitize(html, {
+    ALLOWED_TAGS: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'a', 'ul', 'ol', 'li', 'strong', 'em', 'br', 'blockquote', 'code', 'pre'],
+    ALLOWED_ATTR: ['href', 'target', 'rel'],
+    ALLOW_DATA_ATTR: false
+  });
 }

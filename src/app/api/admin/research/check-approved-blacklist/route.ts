@@ -1,5 +1,6 @@
 import { createServiceClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 
 interface BlacklistTerm {
   term: string;
@@ -40,9 +41,11 @@ function matchesBlacklist(text: string, blacklist: BlacklistTerm[]): string | nu
   return null;
 }
 
-export async function POST() {
+export async function POST(request: NextRequest) {
   try {
-    const supabase = createServiceClient();
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const supabase = createServiceClient();
 
     // Get blacklist terms
     const { data: blacklist, error: blacklistError } = await supabase

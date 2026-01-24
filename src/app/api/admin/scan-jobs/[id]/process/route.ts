@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { createClient } from '@/lib/supabase/server';
 import {
   processSourceChunk,
@@ -14,7 +15,9 @@ export async function POST(
   { params }: { params: { id: string } }
 ) {
   try {
-    const jobId = params.id;
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+const jobId = params.id;
 
     if (!jobId || typeof jobId !== 'string') {
       return NextResponse.json(
