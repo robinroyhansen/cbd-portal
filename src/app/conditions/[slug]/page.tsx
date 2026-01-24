@@ -55,11 +55,11 @@ export default async function ConditionPage({ params }: Props) {
     .order('quality_score', { ascending: false })
     .limit(10);
 
-  // Get related articles
+  // Get related articles - primary: condition_slug match, fallback: title match
   const { data: articles } = await supabase
     .from('kb_articles')
     .select('id, title, slug, excerpt, featured_image, published_at, reading_time')
-    .or(`condition_id.eq.${condition.id},title.ilike.%${condition.name}%`)
+    .or(`condition_slug.eq.${slug},title.ilike.%${condition.name}%`)
     .eq('status', 'published')
     .order('published_at', { ascending: false })
     .limit(6);

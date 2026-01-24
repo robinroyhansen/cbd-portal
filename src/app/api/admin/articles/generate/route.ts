@@ -139,7 +139,7 @@ export async function POST(request: NextRequest) {
         title,
         content,
         excerpt,
-        condition_id: condition.id,
+        condition_slug: condition.slug,
         category: articleType,
         status: 'draft',
         language,
@@ -369,12 +369,12 @@ export async function GET(request: NextRequest) {
     // Get existing articles to show which conditions already have content
     const { data: existingArticles } = await supabase
       .from('kb_articles')
-      .select('condition_id, status')
-      .not('condition_id', 'is', null);
+      .select('condition_slug, status')
+      .not('condition_slug', 'is', null);
 
     const articlesMap = new Map();
     existingArticles?.forEach(article => {
-      articlesMap.set(article.condition_id, article.status);
+      articlesMap.set(article.condition_slug, article.status);
     });
 
     // Enrich conditions with article status

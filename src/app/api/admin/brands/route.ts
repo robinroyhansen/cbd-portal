@@ -2,6 +2,7 @@ import { createServiceClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAdminAuth } from '@/lib/admin-api-auth';
 import { brandCreateSchema, brandUpdateSchema, uuid, validate } from '@/lib/validations';
+import { logAdminAction, logBulkAdminAction, ADMIN_ACTIONS, RESOURCE_TYPES } from '@/lib/audit-log';
 
 // GET all brands for admin
 export async function GET(request: NextRequest) {
@@ -145,6 +146,17 @@ export async function POST(request: NextRequest) {
       throw error;
     }
 
+    // Log brand creation
+    await logAdminAction(request, {
+      action: ADMIN_ACTIONS.CREATE_BRAND,
+      resourceType: RESOURCE_TYPES.BRAND,
+      resourceId: newBrand.id,
+      details: {
+        name: newBrand.name,
+        slug: newBrand.slug,
+      },
+    });
+
     return NextResponse.json({ brand: newBrand });
   } catch (error) {
     console.error('Error creating brand:', error);
@@ -243,6 +255,12 @@ const supabase = createServiceClient();
       return NextResponse.json({ error: 'Brand IDs required' }, { status: 400 });
     }
 
+    // Fetch brand names before deletion for audit log
+    const { data: brandsToDelete } = await supabase
+      .from('kb_brands')
+      .select('id, name')
+      .in('id', ids);
+
     const { error } = await supabase
       .from('kb_brands')
       .delete()
@@ -252,6 +270,17 @@ const supabase = createServiceClient();
       console.error('Error deleting brands:', error);
       throw error;
     }
+
+    // Log bulk deletion
+    await logBulkAdminAction(
+      request,
+      ADMIN_ACTIONS.DELETE_BRAND,
+      RESOURCE_TYPES.BRAND,
+      ids,
+      {
+        deletedBrands: brandsToDelete?.map(b => ({ id: b.id, name: b.name })) || [],
+      }
+    );
 
     return NextResponse.json({ deleted: ids.length });
   } catch (error) {

@@ -1,6 +1,7 @@
 import { createServiceClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAdminAuth } from '@/lib/admin-api-auth';
+import { logAdminAction, ADMIN_ACTIONS, RESOURCE_TYPES } from '@/lib/audit-log';
 
 // GET all blacklist terms
 export async function GET(request: NextRequest) {
@@ -61,6 +62,18 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Failed to add term' }, { status: 500 });
     }
 
+    // Log blacklist term addition
+    await logAdminAction(request, {
+      action: ADMIN_ACTIONS.ADD_BLACKLIST_TERM,
+      resourceType: RESOURCE_TYPES.BLACKLIST,
+      resourceId: data.id,
+      details: {
+        term: data.term,
+        matchType: data.match_type,
+        reason: data.reason,
+      },
+    });
+
     return NextResponse.json({ term: data });
   } catch (error) {
     console.error('Error adding blacklist term:', error);
@@ -82,6 +95,13 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: 'Term ID is required' }, { status: 400 });
     }
 
+    // Fetch term before deletion for audit log
+    const { data: termToDelete } = await supabase
+      .from('research_blacklist')
+      .select('term')
+      .eq('id', id)
+      .single();
+
     const { error } = await supabase
       .from('research_blacklist')
       .delete()
@@ -91,6 +111,16 @@ export async function DELETE(request: NextRequest) {
       console.error('Error deleting blacklist term:', error);
       return NextResponse.json({ error: 'Failed to delete term' }, { status: 500 });
     }
+
+    // Log blacklist term removal
+    await logAdminAction(request, {
+      action: ADMIN_ACTIONS.REMOVE_BLACKLIST_TERM,
+      resourceType: RESOURCE_TYPES.BLACKLIST,
+      resourceId: id,
+      details: {
+        term: termToDelete?.term || 'Unknown',
+      },
+    });
 
     return NextResponse.json({ success: true });
   } catch (error) {
