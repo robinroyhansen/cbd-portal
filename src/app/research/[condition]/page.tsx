@@ -1,5 +1,6 @@
 import { createClient } from '../../../lib/supabase/server';
-import { ResearchPageClient, CONDITIONS, ConditionKey } from '../../../components/ResearchPageClient';
+import { ResearchPageClient } from '../../../components/ResearchPageClient';
+import { CONDITIONS, ConditionKey } from '../../../lib/research-conditions';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 
