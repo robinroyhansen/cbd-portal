@@ -588,30 +588,34 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
                 {letter}
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                {groupedByLetter[letter].map(condition => (
-                  <Link
-                    key={condition.id}
-                    href={`/conditions/${condition.slug}`}
-                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-all group border border-transparent hover:border-gray-200"
-                  >
-                    <span className="text-xl shrink-0">
-                      {CATEGORY_CONFIG[condition.category]?.icon || '🏥'}
-                    </span>
-                    <div className="flex-1 min-w-0">
-                      <span className="font-medium text-gray-900 group-hover:text-green-600 transition-colors">
-                        {condition.display_name || condition.name}
+                {groupedByLetter[letter].map(condition => {
+                  const researchCount = condition.research_count || 0;
+                  const articleCount = condition.article_count || 0;
+                  return (
+                    <Link
+                      key={condition.id}
+                      href={`/conditions/${condition.slug}`}
+                      className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-all group border border-transparent hover:border-gray-200"
+                    >
+                      <span className="text-xl shrink-0">
+                        {CATEGORY_CONFIG[condition.category]?.icon || '🏥'}
                       </span>
-                      <span className="ml-2 text-xs text-gray-400">
-                        {condition.research_count > 0 && `${condition.research_count} studies`}
-                        {condition.research_count > 0 && (condition.article_count || 0) > 0 && ' • '}
-                        {(condition.article_count || 0) > 0 && `${condition.article_count} articles`}
-                      </span>
-                    </div>
-                    <svg className="w-4 h-4 text-gray-300 group-hover:text-green-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                ))}
+                      <div className="flex-1 min-w-0">
+                        <span className="font-medium text-gray-900 group-hover:text-green-600 transition-colors">
+                          {condition.display_name || condition.name}
+                        </span>
+                        <span className="ml-2 text-xs">
+                          <span className={researchCount > 0 ? 'text-emerald-600' : 'text-gray-400'}>{researchCount} studies</span>
+                          <span className="text-gray-300 mx-1">•</span>
+                          <span className={articleCount > 0 ? 'text-blue-600' : 'text-gray-400'}>{articleCount} articles</span>
+                        </span>
+                      </div>
+                      <svg className="w-4 h-4 text-gray-300 group-hover:text-green-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           ))}
@@ -703,9 +707,8 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
 // Condition Card Component - Enhanced design
 function ConditionCard({ condition, showCategory = false }: { condition: Condition; showCategory?: boolean }) {
   const config = CATEGORY_CONFIG[condition.category] || CATEGORY_CONFIG.other;
-  const hasResearch = condition.research_count > 0;
-  const hasArticles = (condition.article_count || 0) > 0;
-  const hasAnyContent = hasResearch || hasArticles;
+  const researchCount = condition.research_count || 0;
+  const articleCount = condition.article_count || 0;
 
   return (
     <Link
@@ -719,28 +722,25 @@ function ConditionCard({ condition, showCategory = false }: { condition: Conditi
         <h3 className="font-semibold text-gray-900 group-hover:text-green-600 transition-colors truncate">
           {condition.display_name || condition.name}
         </h3>
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-gray-500">
-          {hasResearch && (
-            <span className="flex items-center gap-1">
-              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
-                <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              {condition.research_count} {condition.research_count === 1 ? 'study' : 'studies'}
-            </span>
-          )}
-          {hasResearch && hasArticles && <span className="text-gray-300">•</span>}
-          {hasArticles && (
-            <span className="flex items-center gap-1">
-              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
-              </svg>
-              {condition.article_count} {condition.article_count === 1 ? 'article' : 'articles'}
-            </span>
-          )}
-          {showCategory && hasAnyContent && <span className="text-gray-300">•</span>}
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-0.5 text-xs mt-1">
+          <span className={`flex items-center gap-1 ${researchCount > 0 ? 'text-emerald-600' : 'text-gray-400'}`}>
+            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+              <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+            <span className="font-medium">{researchCount}</span> {researchCount === 1 ? 'study' : 'studies'}
+          </span>
+          <span className={`flex items-center gap-1 ${articleCount > 0 ? 'text-blue-600' : 'text-gray-400'}`}>
+            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
+            </svg>
+            <span className="font-medium">{articleCount}</span> {articleCount === 1 ? 'article' : 'articles'}
+          </span>
           {showCategory && (
-            <span>{config.name}</span>
+            <>
+              <span className="text-gray-300">•</span>
+              <span className="text-gray-500">{config.name}</span>
+            </>
           )}
         </div>
       </div>

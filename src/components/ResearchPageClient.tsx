@@ -908,7 +908,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
         if (saved.activeCategory) setActiveCategory(saved.activeCategory);
         if (saved.selectedQualityTiers) setSelectedQualityTiers(saved.selectedQualityTiers);
         if (saved.selectedStudyTypes) setSelectedStudyTypes(saved.selectedStudyTypes);
-        if (saved.selectedConditions) setSelectedConditions(saved.selectedConditions);
+        // Don't restore selectedConditions from localStorage - /research should show all studies
         if (saved.selectedCannabinoids) setSelectedCannabinoids(saved.selectedCannabinoids);
         if (saved.yearRange) setYearRange(saved.yearRange);
         if (saved.qualityRange) setQualityRange(saved.qualityRange);
