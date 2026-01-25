@@ -8,7 +8,7 @@ interface LanguageSite {
   domain: string;
   displayName: string; // The branded domain name to show
   flag: string;
-  region: 'scandinavia' | 'central-europe' | 'switzerland' | 'other';
+  region: 'scandinavia' | 'central-europe' | 'southern-europe' | 'switzerland' | 'other';
 }
 
 // All CBD Portal sites with their domains
@@ -19,12 +19,16 @@ const LANGUAGE_SITES: LanguageSite[] = [
   { code: 'no', domain: 'cbd.no', displayName: 'CBD.no', flag: '🇳🇴', region: 'scandinavia' },
   { code: 'fi', domain: 'cbd.fi', displayName: 'CBD.fi', flag: '🇫🇮', region: 'scandinavia' },
 
-  // Central Europe
+  // Central Europe (ordered: CBD.de, CBD.it, CBD.pt, CBDportail.fr, CBDportaal.nl)
   { code: 'de', domain: 'cbd.de', displayName: 'CBD.de', flag: '🇩🇪', region: 'central-europe' },
-  { code: 'nl', domain: 'cbdportaal.nl', displayName: 'CBDportaal.nl', flag: '🇳🇱', region: 'central-europe' },
-  { code: 'fr', domain: 'cbdportail.fr', displayName: 'CBDportail.fr', flag: '🇫🇷', region: 'central-europe' },
   { code: 'it', domain: 'cbd.it', displayName: 'CBD.it', flag: '🇮🇹', region: 'central-europe' },
   { code: 'pt', domain: 'cbd.pt', displayName: 'CBD.pt', flag: '🇵🇹', region: 'central-europe' },
+  { code: 'fr', domain: 'cbdportail.fr', displayName: 'CBDportail.fr', flag: '🇫🇷', region: 'central-europe' },
+  { code: 'nl', domain: 'cbdportaal.nl', displayName: 'CBDportaal.nl', flag: '🇳🇱', region: 'central-europe' },
+
+  // Southern & Eastern Europe
+  { code: 'es', domain: 'cbdportal.es', displayName: 'CBDportal.es', flag: '🇪🇸', region: 'southern-europe' },
+  { code: 'ro', domain: 'cbdportal.ro', displayName: 'CBDportal.ro', flag: '🇷🇴', region: 'southern-europe' },
 
   // Switzerland (single domain, multiple languages)
   { code: 'de-CH', domain: 'cbdportal.ch', displayName: 'CBDportal.ch', flag: '🇨🇭', region: 'switzerland' },
@@ -80,6 +84,7 @@ export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSel
   // Group sites by region
   const scandinaviaSites = LANGUAGE_SITES.filter(s => s.region === 'scandinavia');
   const centralEuropeSites = LANGUAGE_SITES.filter(s => s.region === 'central-europe');
+  const southernEuropeSites = LANGUAGE_SITES.filter(s => s.region === 'southern-europe');
   const swissSite = LANGUAGE_SITES.find(s => s.region === 'switzerland');
   const englishSite = LANGUAGE_SITES.find(s => s.region === 'other');
 
@@ -91,7 +96,7 @@ export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSel
     <div className="border-t border-gray-800 mt-8 pt-8">
       <h3 className="text-sm font-semibold text-white mb-4">Available in</h3>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {/* Scandinavia */}
         <div>
           <p className="text-xs text-gray-500 mb-2 uppercase tracking-wider">Scandinavia</p>
@@ -121,6 +126,30 @@ export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSel
           <p className="text-xs text-gray-500 mb-2 uppercase tracking-wider">Central Europe</p>
           <ul className="space-y-1.5">
             {centralEuropeSites.map((site) => (
+              <li key={site.code}>
+                <a
+                  href={buildUrl(site.domain, site.code)}
+                  hrefLang={site.code}
+                  className={`inline-flex items-center gap-2 text-sm transition-colors ${
+                    isCurrentSite(site)
+                      ? 'text-emerald-400 font-medium'
+                      : 'text-gray-400 hover:text-white'
+                  }`}
+                  aria-current={isCurrentSite(site) ? 'page' : undefined}
+                >
+                  <span className="text-base">{site.flag}</span>
+                  <span>{site.displayName}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Southern & Eastern Europe */}
+        <div>
+          <p className="text-xs text-gray-500 mb-2 uppercase tracking-wider">Southern Europe</p>
+          <ul className="space-y-1.5">
+            {southernEuropeSites.map((site) => (
               <li key={site.code}>
                 <a
                   href={buildUrl(site.domain, site.code)}

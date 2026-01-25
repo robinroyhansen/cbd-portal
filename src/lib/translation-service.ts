@@ -12,6 +12,8 @@ export const SUPPORTED_LANGUAGES = {
   fr: { name: 'French', nativeName: 'Français', domain: 'cbdportail.fr' },
   it: { name: 'Italian', nativeName: 'Italiano', domain: 'cbd.it' },
   pt: { name: 'Portuguese', nativeName: 'Português', domain: 'cbd.pt' },
+  ro: { name: 'Romanian', nativeName: 'Română', domain: 'cbdportal.ro' },
+  es: { name: 'Spanish', nativeName: 'Español', domain: 'cbdportal.es' },
   'de-CH': { name: 'Swiss German', nativeName: 'Schweizerdeutsch', domain: 'cbdportal.ch' },
   'fr-CH': { name: 'Swiss French', nativeName: 'Français Suisse', domain: 'cbdportal.ch' },
   'it-CH': { name: 'Swiss Italian', nativeName: 'Italiano Svizzero', domain: 'cbdportal.ch' },
