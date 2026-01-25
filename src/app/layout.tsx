@@ -6,6 +6,10 @@ import { Footer } from '@/components/Footer';
 import { CookieConsent } from '@/components/CookieConsent';
 import { NavigationProvider } from '@/components/NavigationWrapper';
 import { MobileBottomNav } from '@/components/MobileBottomNav';
+import { LocaleProvider } from '@/components/LocaleProvider';
+import { getLanguage } from '@/lib/get-language';
+import { getLocaleSync } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -68,25 +72,31 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // Get language from middleware-set headers
+  const lang = await getLanguage();
+  const locale = getLocaleSync(lang as LanguageCode);
+
   return (
-    <html lang="en" className={`${inter.variable} ${merriweather.variable} ${dmSerifDisplay.variable} ${sourceSans.variable} ${spaceMono.variable}`}>
+    <html lang={lang.split('-')[0]} className={`${inter.variable} ${merriweather.variable} ${dmSerifDisplay.variable} ${sourceSans.variable} ${spaceMono.variable}`}>
       <body className="min-h-screen bg-white font-sans text-gray-900 flex flex-col">
         {/* Skip to content link for keyboard accessibility */}
         <a href="#main-content" className="skip-to-content">
           Skip to main content
         </a>
-        <NavigationProvider>
-          <Navigation />
-          <main id="main-content" className="flex-1">{children}</main>
-          <Footer />
-          <MobileBottomNav />
-          <CookieConsent />
-        </NavigationProvider>
+        <LocaleProvider locale={locale} lang={lang as LanguageCode}>
+          <NavigationProvider>
+            <Navigation />
+            <main id="main-content" className="flex-1">{children}</main>
+            <Footer />
+            <MobileBottomNav />
+            <CookieConsent />
+          </NavigationProvider>
+        </LocaleProvider>
       </body>
     </html>
   );

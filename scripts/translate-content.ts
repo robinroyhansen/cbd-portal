@@ -8,6 +8,9 @@
  *   npx tsx scripts/translate-content.ts --type=glossary --lang=da,sv,no
  */
 
+import { config } from 'dotenv';
+config({ path: '.env.local' });
+
 import { createClient } from '@supabase/supabase-js';
 import Anthropic from '@anthropic-ai/sdk';
 
@@ -48,9 +51,8 @@ async function translateConditions(
 
   let query = supabase
     .from('kb_conditions')
-    .select('id, name, display_name, short_description, meta_title, meta_description')
-    .eq('is_published', true)
-    .order('research_count', { ascending: false });
+    .select('id, name, display_name, short_description, meta_title_template, meta_description_template')
+    .order('name');
 
   if (limit) {
     query = query.limit(limit);
@@ -96,16 +98,16 @@ Translate these medical condition fields from English to ${TARGET_LANGUAGES[lang
 name: ${condition.name}
 displayName: ${condition.display_name || condition.name}
 shortDescription: ${condition.short_description || ''}
-metaTitle: ${condition.meta_title || ''}
-metaDescription: ${condition.meta_description || ''}
+metaTitleTemplate: ${condition.meta_title_template || ''}
+metaDescriptionTemplate: ${condition.meta_description_template || ''}
 
 Respond in this exact JSON format:
 {
   "name": "translated name",
   "display_name": "translated display name",
   "short_description": "translated short description",
-  "meta_title": "translated meta title",
-  "meta_description": "translated meta description"
+  "meta_title": "translated meta title template",
+  "meta_description": "translated meta description template"
 }`,
             },
           ],
@@ -120,7 +122,28 @@ Respond in this exact JSON format:
           jsonStr = jsonStr.replace(/^```(?:json)?\n?/, '').replace(/\n?```$/, '');
         }
 
-        const translated = JSON.parse(jsonStr);
+        // Clean control characters that break JSON parsing
+        jsonStr = jsonStr.replace(/[\x00-\x1F\x7F]/g, ' ').replace(/\s+/g, ' ');
+
+        let translated;
+        try {
+          translated = JSON.parse(jsonStr);
+        } catch {
+          // Fallback: extract values with regex
+          const nameMatch = jsonStr.match(/"name"\s*:\s*"([^"]+)"/);
+          const displayMatch = jsonStr.match(/"display_name"\s*:\s*"([^"]+)"/);
+          if (nameMatch) {
+            translated = {
+              name: nameMatch[1],
+              display_name: displayMatch?.[1] || nameMatch[1],
+              short_description: '',
+              meta_title: '',
+              meta_description: ''
+            };
+          } else {
+            throw new Error('Could not parse translation response');
+          }
+        }
 
         // Insert translation
         const { error: insertError } = await supabase.from('condition_translations').insert({
@@ -134,15 +157,19 @@ Respond in this exact JSON format:
         });
 
         if (insertError) {
-          console.error(`❌ Failed to save translation:`, insertError);
+          if (insertError.code === '23505') {
+            console.log(`⏭️ Already exists: ${condition.name} (${lang})`);
+          } else {
+            console.error(`❌ Failed to save:`, insertError.message);
+          }
         } else {
           console.log(`✅ Saved: ${condition.name} (${lang})`);
         }
 
         // Rate limit delay
-        await new Promise((r) => setTimeout(r, 300));
-      } catch (error) {
-        console.error(`❌ Failed to translate ${condition.name} (${lang}):`, error);
+        await new Promise((r) => setTimeout(r, 200));
+      } catch (error: any) {
+        console.error(`❌ Failed: ${condition.name} (${lang}): ${error.message}`);
       }
     }
   }
@@ -299,7 +326,7 @@ async function translateGlossary(
 
   let query = supabase
     .from('kb_glossary')
-    .select('id, term, definition, simple_definition')
+    .select('id, term, definition, short_definition')
     .order('term');
 
   if (limit) {
@@ -345,7 +372,7 @@ Translate this glossary term from English to ${TARGET_LANGUAGES[lang].name}:
 
 Term: ${term.term}
 Definition: ${term.definition}
-Simple Definition: ${term.simple_definition || 'N/A'}
+Simple Definition: ${term.short_definition || 'N/A'}
 
 Respond in this exact JSON format:
 {
@@ -366,7 +393,26 @@ Respond in this exact JSON format:
           jsonStr = jsonStr.replace(/^```(?:json)?\n?/, '').replace(/\n?```$/, '');
         }
 
-        const translated = JSON.parse(jsonStr);
+        // Clean control characters that break JSON parsing
+        jsonStr = jsonStr.replace(/[\x00-\x1F\x7F]/g, ' ').replace(/\s+/g, ' ');
+
+        let translated;
+        try {
+          translated = JSON.parse(jsonStr);
+        } catch {
+          // Fallback: extract values with regex
+          const termMatch = jsonStr.match(/"term"\s*:\s*"([^"]+)"/);
+          const defMatch = jsonStr.match(/"definition"\s*:\s*"([^"]+)"/);
+          if (termMatch && defMatch) {
+            translated = {
+              term: termMatch[1],
+              definition: defMatch[1],
+              simple_definition: null
+            };
+          } else {
+            throw new Error('Could not parse translation response');
+          }
+        }
 
         // Insert translation
         const { error: insertError } = await supabase.from('glossary_translations').insert({
@@ -378,15 +424,19 @@ Respond in this exact JSON format:
         });
 
         if (insertError) {
-          console.error(`❌ Failed to save translation:`, insertError);
+          if (insertError.code === '23505') {
+            console.log(`⏭️ Already exists: ${term.term} (${lang})`);
+          } else {
+            console.error(`❌ Failed to save:`, insertError.message);
+          }
         } else {
           console.log(`✅ Saved: ${term.term} (${lang})`);
         }
 
         // Rate limit delay
-        await new Promise((r) => setTimeout(r, 300));
-      } catch (error) {
-        console.error(`❌ Failed to translate ${term.term} (${lang}):`, error);
+        await new Promise((r) => setTimeout(r, 200));
+      } catch (error: any) {
+        console.error(`❌ Failed: ${term.term} (${lang}): ${error.message}`);
       }
     }
   }

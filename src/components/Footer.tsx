@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import { useLocale } from '@/hooks/useLocale';
 
 interface FooterStats {
   studies: number;
@@ -14,6 +15,7 @@ interface FooterProps {
 }
 
 export function Footer({ stats }: FooterProps) {
+  const { t } = useLocale();
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState('');
   const [isSubscribing, setIsSubscribing] = useState(false);
@@ -58,19 +60,19 @@ export function Footer({ stats }: FooterProps) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
               <p className="text-2xl font-bold text-white">{formatNumber(displayStats.studies)}</p>
-              <p className="text-xs text-gray-400">Research Studies</p>
+              <p className="text-xs text-gray-400">{t('stats.researchStudies')}</p>
             </div>
             <div>
               <p className="text-2xl font-bold text-white">{displayStats.conditions}</p>
-              <p className="text-xs text-gray-400">Health Conditions</p>
+              <p className="text-xs text-gray-400">{t('stats.healthConditions')}</p>
             </div>
             <div>
               <p className="text-2xl font-bold text-white">{formatNumber(displayStats.glossaryTerms)}</p>
-              <p className="text-xs text-gray-400">Glossary Terms</p>
+              <p className="text-xs text-gray-400">{t('stats.glossaryTerms')}</p>
             </div>
             <div>
               <p className="text-2xl font-bold text-white">{formatNumber(displayStats.articles)}</p>
-              <p className="text-xs text-gray-400">Articles Published</p>
+              <p className="text-xs text-gray-400">{t('stats.articlesPublished')}</p>
             </div>
           </div>
         </div>
@@ -85,24 +87,24 @@ export function Footer({ stats }: FooterProps) {
               <span className="text-xl font-bold text-white">CBD Portal</span>
             </Link>
             <p className="text-sm text-gray-400 mb-4">
-              Evidence-based CBD information backed by peer-reviewed research.
+              {t('footer.brandDescription')}
             </p>
             <p className="text-xs text-gray-500 mb-6">
-              Independent. Research-driven. Transparent.
+              {t('footer.brandTagline')}
             </p>
 
             {/* Newsletter Signup */}
             <div className="bg-gray-800 rounded-lg p-4">
-              <h3 className="font-semibold text-white mb-2 text-sm">Stay Updated</h3>
+              <h3 className="font-semibold text-white mb-2 text-sm">{t('newsletter.title')}</h3>
               <p className="text-xs text-gray-400 mb-3">
-                Get the latest CBD research and guides delivered to your inbox.
+                {t('newsletter.description')}
               </p>
               <form onSubmit={handleSubscribe} className="flex gap-2">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email"
+                  placeholder={t('newsletter.placeholder')}
                   className="flex-1 px-3 py-2 bg-gray-700 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
                   disabled={isSubscribing}
                 />
@@ -111,7 +113,7 @@ export function Footer({ stats }: FooterProps) {
                   disabled={isSubscribing}
                   className="px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50"
                 >
-                  {isSubscribing ? '...' : 'Join'}
+                  {isSubscribing ? t('common.subscribing') : t('newsletter.button')}
                 </button>
               </form>
               {subscribeMessage && (
@@ -124,38 +126,38 @@ export function Footer({ stats }: FooterProps) {
 
           {/* Explore */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Explore</h3>
+            <h3 className="font-semibold text-white mb-4">{t('footer.explore')}</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/conditions" className="hover:text-white transition-colors">Health Conditions</Link></li>
-              <li><Link href="/research" className="hover:text-white transition-colors">Research Database</Link></li>
-              <li><Link href="/glossary" className="hover:text-white transition-colors">Glossary</Link></li>
-              <li><Link href="/articles" className="hover:text-white transition-colors">All Articles</Link></li>
-              <li><Link href="/authors" className="hover:text-white transition-colors">Our Authors</Link></li>
+              <li><Link href="/conditions" className="hover:text-white transition-colors">{t('footer.healthConditions')}</Link></li>
+              <li><Link href="/research" className="hover:text-white transition-colors">{t('footer.researchDatabase')}</Link></li>
+              <li><Link href="/glossary" className="hover:text-white transition-colors">{t('footer.glossary')}</Link></li>
+              <li><Link href="/articles" className="hover:text-white transition-colors">{t('footer.allArticles')}</Link></li>
+              <li><Link href="/authors" className="hover:text-white transition-colors">{t('footer.ourAuthors')}</Link></li>
             </ul>
           </div>
 
           {/* Tools */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Tools</h3>
+            <h3 className="font-semibold text-white mb-4">{t('footer.tools')}</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/tools/dosage-calculator" className="hover:text-white transition-colors">Dosage Calculator</Link></li>
-              <li><Link href="/tools/interactions" className="hover:text-white transition-colors">Drug Interactions</Link></li>
-              <li><Link href="/tools/cost-calculator" className="hover:text-white transition-colors">Cost Calculator</Link></li>
-              <li><Link href="/tools/strength-calculator" className="hover:text-white transition-colors">Strength Calculator</Link></li>
-              <li><Link href="/tools/animal-dosage-calculator" className="hover:text-white transition-colors">Pet Dosage</Link></li>
+              <li><Link href="/tools/dosage-calculator" className="hover:text-white transition-colors">{t('footer.dosageCalculator')}</Link></li>
+              <li><Link href="/tools/interactions" className="hover:text-white transition-colors">{t('footer.drugInteractions')}</Link></li>
+              <li><Link href="/tools/cost-calculator" className="hover:text-white transition-colors">{t('footer.costCalculator')}</Link></li>
+              <li><Link href="/tools/strength-calculator" className="hover:text-white transition-colors">{t('footer.strengthCalculator')}</Link></li>
+              <li><Link href="/tools/animal-dosage-calculator" className="hover:text-white transition-colors">{t('footer.petDosage')}</Link></li>
             </ul>
           </div>
 
           {/* Legal */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Legal</h3>
+            <h3 className="font-semibold text-white mb-4">{t('footer.legal')}</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/medical-disclaimer" className="hover:text-white transition-colors">Medical Disclaimer</Link></li>
-              <li><Link href="/editorial-policy" className="hover:text-white transition-colors">Editorial Policy</Link></li>
-              <li><Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link></li>
-              <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/medical-disclaimer" className="hover:text-white transition-colors">{t('footer.medicalDisclaimer')}</Link></li>
+              <li><Link href="/editorial-policy" className="hover:text-white transition-colors">{t('footer.editorialPolicy')}</Link></li>
+              <li><Link href="/privacy-policy" className="hover:text-white transition-colors">{t('footer.privacyPolicy')}</Link></li>
+              <li><Link href="/terms-of-service" className="hover:text-white transition-colors">{t('footer.termsOfService')}</Link></li>
+              <li><Link href="/about" className="hover:text-white transition-colors">{t('footer.aboutUs')}</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">{t('footer.contact')}</Link></li>
             </ul>
           </div>
         </div>
@@ -164,12 +166,11 @@ export function Footer({ stats }: FooterProps) {
         <div className="border-t border-gray-800 mt-10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-500">
-              &copy; {currentYear} CBD Portal. All rights reserved.
+              &copy; {currentYear} {t('footer.copyright')}
             </p>
             <div className="flex flex-col md:flex-row items-center gap-4">
               <p className="text-xs text-gray-500 max-w-xl text-center md:text-right">
-                This website is for informational purposes only and does not provide medical advice.
-                Always consult a healthcare professional before using CBD products.
+                {t('footer.disclaimer')}
               </p>
             </div>
           </div>
