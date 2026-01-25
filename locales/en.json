@@ -186,11 +186,26 @@
     "minShort": "{{minutes}} min"
   },
   "conditions": {
+    "pageTitle": "Health Conditions | CBD Portal",
+    "pageDescription": "Explore research-backed information on how CBD may help with anxiety, pain, sleep, inflammation, and 300+ other health conditions.",
     "sectionLabel": "Research Library",
     "title": "Browse by Condition",
     "description": "Explore evidence-based CBD research across {{count}} health conditions. Every study analyzed, scored, and summarized in plain language.",
     "browseAll": "Browse All {{count}} Conditions",
     "studiesCount": "{{count}} studies"
+  },
+  "glossary": {
+    "pageTitle": "CBD Glossary | CBD Portal",
+    "pageDescription": "Learn CBD terminology with our comprehensive glossary. 263 terms explained in plain language.",
+    "title": "CBD Glossary",
+    "subtitle": "Your guide to CBD and cannabinoid terminology",
+    "searchPlaceholder": "Search terms...",
+    "allTerms": "All Terms",
+    "popularTerms": "Popular Terms",
+    "browseByLetter": "Browse by Letter",
+    "browseByCategory": "Browse by Category",
+    "relatedTerms": "Related Terms",
+    "seeAlso": "See Also"
   },
   "trending": {
     "label": "Trending"

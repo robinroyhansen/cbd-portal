@@ -245,7 +245,9 @@ export async function POST(request: NextRequest) {
       .join('\n');
 
     // Generate the article content using Claude
-    const systemPrompt = `You are an expert health content writer for CBD Portal, writing research-backed articles about CBD and medical conditions.
+    const hasResearch = evidence.totalStudies > 0;
+
+    const systemPrompt = `You are an expert health content writer for CBD Portal, writing ${hasResearch ? 'research-backed' : 'educational'} articles about CBD and medical conditions.
 
 Author profile:
 - Name: Robin Roy Krigslund-Hansen
@@ -256,16 +258,20 @@ Author profile:
 IMPORTANT RULES:
 1. Write in first person as Robin ("I've reviewed...", "In my experience...")
 2. Be honest about evidence strength - don't oversell weak evidence
-3. Every claim needs a citation with internal link format: [study year](/research/study/[slug])
-4. Use specific numbers from studies, not vague claims
+${hasResearch ? '3. Every claim needs a citation with internal link format: [study year](/research/study/[slug])\n4. Use specific numbers from studies, not vague claims' : '3. Clearly state when research is limited or unavailable\n4. Focus on general CBD knowledge and safety information'}
 5. Reading level: Grade 8-10 (15-year-old can understand)
 6. NO medical jargon without explanation
 7. Include the "My Take" section with genuine author perspective
 8. European focus (not US-centric)
 9. DO NOT claim CBD "treats" or "cures" anything
-10. Always mention to consult a healthcare professional`;
+10. Always mention to consult a healthcare professional
+${!hasResearch ? '11. Be extra cautious with claims when no specific research exists\n12. Focus on mechanism of action, safety, and general CBD education' : ''}`;
 
-    const userPrompt = `Generate comprehensive article content for "CBD and ${conditionName}" following this exact structure.
+    const userPromptBase = hasResearch
+      ? `Generate comprehensive article content for "CBD and ${conditionName}" following this exact structure.`
+      : `Generate educational article content for "CBD and ${conditionName}". Note: There is limited specific research on CBD for this condition, so focus on general CBD education, safety, and honest assessment.`;
+
+    const userPrompt = hasResearch ? `${userPromptBase}
 
 EVIDENCE ANALYSIS:
 - Total studies: ${evidence.totalStudies}
@@ -375,6 +381,82 @@ Remember:
 - Use the actual study slugs for internal links
 - Be specific with numbers (40% reduction, 300mg dose, 57 participants)
 - Match the tone to evidence level (confident if strong, cautious if limited)
+- Include proper HTML structure with classes for styling`
+    : `${userPromptBase}
+
+CONDITION: ${conditionName}
+SHORT DESCRIPTION: ${condition.short_description || 'No description available'}
+TARGET LENGTH: 600-900 words (shorter since limited research)
+
+Generate HTML content with these sections (use proper HTML tags):
+
+1. <section class="short-answer">
+   THE SHORT ANSWER (50-100 words)
+   Be honest: There is limited specific research on CBD for ${conditionName}.
+   Explain what we know about CBD in general that might be relevant.
+   Emphasize the importance of consulting a healthcare provider.
+</section>
+
+2. <section class="research-snapshot">
+   <h3>Research Status</h3>
+   - Clearly state: "Limited specific research available"
+   - Mention if there's related research (e.g., for broader categories)
+   - Include what general CBD research tells us
+</section>
+
+3. <section class="what-we-know">
+   <h2>What We Know About CBD</h2>
+   - General CBD effects that might be relevant to ${conditionName}
+   - How the endocannabinoid system relates to this condition
+   - Related conditions where CBD has been studied
+   - Be clear about the distinction between studied vs speculated benefits
+</section>
+
+4. <section class="how-cbd-might-help">
+   <h2>How CBD Might Potentially Help</h2>
+   - Theoretical mechanisms (clearly labeled as theoretical)
+   - Related pathways CBD affects
+   - Use cautious language: "may potentially", "some researchers suggest"
+</section>
+
+5. <section class="safety-considerations">
+   <h2>Safety Considerations</h2>
+   - General CBD safety profile
+   - Potential drug interactions to discuss with doctor
+   - Importance of quality products (third-party testing)
+   - Starting low and going slow
+</section>
+
+6. <section class="my-take">
+   <h2>My Take</h2>
+   Write genuine author perspective:
+   - Be honest about the lack of specific research
+   - Share what you'd tell someone asking about this
+   - Emphasize importance of medical guidance
+   - Mention any promising directions for future research
+</section>
+
+7. <section class="faq">
+   <h2>Frequently Asked Questions</h2>
+   FAQ (3-4 questions)
+   - Is there research on CBD for ${conditionName}?
+   - Is CBD safe to try?
+   - What should I look for in a CBD product?
+   - Should I talk to my doctor before trying CBD?
+</section>
+
+8. <section class="references">
+   <h2>References & Further Reading</h2>
+   - Link to general CBD research: [Explore CBD Research](/research)
+   - Link to related conditions if applicable
+   - Note that this page will be updated as research emerges
+</section>
+
+Remember:
+- Be honest about the limited specific research
+- Focus on safety and education
+- Use cautious, measured language
+- Recommend consulting healthcare providers
 - Include proper HTML structure with classes for styling`;
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {

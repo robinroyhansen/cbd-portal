@@ -2,20 +2,23 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { GlossaryClient } from './GlossaryClient';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
+import { getLanguage } from '@/lib/get-language';
+import { getGlossaryTermsWithTranslations, getPopularGlossaryTermsWithTranslations } from '@/lib/translations';
+import { getLocaleSync } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
 const SITE_URL = 'https://cbd-portal.vercel.app';
-
 
 interface GlossaryTerm {
   id: string;
   term: string;
-  display_name: string;
+  display_name?: string | null;
   slug: string;
   definition: string;
-  short_definition: string;
+  simple_definition: string | null;
   category: string;
-  synonyms: string[];
-  pronunciation?: string;
+  synonyms: string[] | null;
+  pronunciation?: string | null;
 }
 
 interface CategoryCount {
@@ -23,32 +26,32 @@ interface CategoryCount {
   count: number;
 }
 
-// SEO Metadata
-export const metadata: Metadata = {
-  title: 'CBD & Cannabis Glossary | 250+ Terms Explained | CBD Portal',
-  description: 'Comprehensive glossary of CBD and cannabis terms. Learn about cannabinoids, terpenes, extraction methods, dosing, and more. Expert-reviewed definitions for beginners and professionals.',
-  keywords: ['CBD glossary', 'cannabis terminology', 'cannabinoid definitions', 'CBD terms', 'hemp glossary', 'cannabis science terms'],
-  alternates: {
-    canonical: `${SITE_URL}/glossary`,
-  },
-  openGraph: {
-    title: 'CBD & Cannabis Glossary - 250+ Terms Explained',
-    description: 'Comprehensive glossary covering cannabinoids, terpenes, products, extraction methods, and more. Expert-reviewed definitions.',
-    type: 'website',
-    url: `${SITE_URL}/glossary`,
-    siteName: 'CBD Portal',
-    locale: 'en_US',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'CBD & Cannabis Glossary',
-    description: 'Comprehensive glossary of CBD and cannabis terminology with expert-reviewed definitions.',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+// Dynamic SEO Metadata based on language
+export async function generateMetadata(): Promise<Metadata> {
+  const lang = await getLanguage();
+  const locale = getLocaleSync(lang as LanguageCode);
+
+  return {
+    title: locale.glossary?.pageTitle || 'CBD & Cannabis Glossary | 250+ Terms Explained | CBD Portal',
+    description: locale.glossary?.pageDescription || 'Comprehensive glossary of CBD and cannabis terms. Learn about cannabinoids, terpenes, extraction methods, dosing, and more.',
+    keywords: ['CBD glossary', 'cannabis terminology', 'cannabinoid definitions', 'CBD terms', 'hemp glossary'],
+    alternates: {
+      canonical: `${SITE_URL}/glossary`,
+    },
+    openGraph: {
+      title: locale.glossary?.title || 'CBD & Cannabis Glossary',
+      description: locale.glossary?.pageDescription || 'Comprehensive glossary of CBD and cannabis terminology.',
+      type: 'website',
+      url: `${SITE_URL}/glossary`,
+      siteName: locale.meta?.siteName || 'CBD Portal',
+      locale: lang === 'en' ? 'en_US' : lang,
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
+}
 
 const CATEGORIES = [
   { key: 'cannabinoids', label: 'Cannabinoids', icon: '🧬', description: 'Chemical compounds found in cannabis plants' },
@@ -67,14 +70,27 @@ const CATEGORIES = [
 
 export default async function GlossaryPage() {
   const supabase = await createClient();
+  const lang = await getLanguage();
 
-  // Fetch all terms for SEO (server-rendered)
-  const { data: terms } = await supabase
-    .from('kb_glossary')
-    .select('id, term, display_name, slug, short_definition, category, synonyms, pronunciation')
-    .order('term', { ascending: true });
+  // Fetch all terms with translations applied
+  const translatedTerms = await getGlossaryTermsWithTranslations(lang as LanguageCode);
 
-  // Get category counts
+  // Map to the expected format
+  const allTerms: GlossaryTerm[] = translatedTerms.map(t => ({
+    id: t.id,
+    term: t.term,
+    display_name: t.term, // Use translated term as display name
+    slug: t.slug,
+    definition: t.definition,
+    simple_definition: t.simple_definition,
+    category: t.category,
+    synonyms: t.synonyms,
+    pronunciation: t.pronunciation,
+  }));
+
+  const totalTerms = allTerms.length;
+
+  // Get category counts (categories don't change with language)
   const { data: countData } = await supabase
     .from('kb_glossary')
     .select('category');
@@ -84,18 +100,19 @@ export default async function GlossaryPage() {
     categoryCounts[item.category] = (categoryCounts[item.category] || 0) + 1;
   });
 
-  const allTerms: GlossaryTerm[] = terms || [];
-  const totalTerms = allTerms.length;
-
-  // Fetch top 15 most viewed terms (popular based on clicks)
-  const { data: popularTermsData } = await supabase
-    .from('kb_glossary')
-    .select('id, term, display_name, slug, short_definition, category, synonyms, pronunciation, view_count')
-    .order('view_count', { ascending: false, nullsFirst: false })
-    .gt('view_count', 0)
-    .limit(15);
-
-  const popularTerms: GlossaryTerm[] = popularTermsData || [];
+  // Fetch top 15 most viewed terms with translations
+  const popularTranslated = await getPopularGlossaryTermsWithTranslations(lang as LanguageCode, 15);
+  const popularTerms: GlossaryTerm[] = popularTranslated.map(t => ({
+    id: t.id,
+    term: t.term,
+    display_name: t.term,
+    slug: t.slug,
+    definition: t.definition,
+    simple_definition: t.simple_definition,
+    category: t.category,
+    synonyms: t.synonyms,
+    pronunciation: t.pronunciation,
+  }));
 
   // Breadcrumbs data
   const breadcrumbs = [
@@ -113,25 +130,29 @@ export default async function GlossaryPage() {
 
   const availableLetters = Object.keys(termsByLetter).sort();
 
+  // Get locale for schema
+  const locale = getLocaleSync(lang as LanguageCode);
+  const langCode = lang === 'en' ? 'en-US' : lang;
+
   // JSON-LD DefinedTermSet Schema
   const definedTermSetSchema = {
     '@context': 'https://schema.org',
     '@type': 'DefinedTermSet',
     '@id': `${SITE_URL}/glossary`,
-    name: 'CBD Portal Glossary',
-    description: 'Comprehensive glossary of CBD and cannabis terminology with expert-reviewed definitions covering cannabinoids, terpenes, products, extraction methods, and more.',
+    name: locale.glossary?.title || 'CBD Portal Glossary',
+    description: locale.glossary?.pageDescription || 'Comprehensive glossary of CBD and cannabis terminology.',
     url: `${SITE_URL}/glossary`,
-    inLanguage: 'en-US',
+    inLanguage: langCode,
     publisher: {
       '@type': 'Organization',
-      name: 'CBD Portal',
+      name: locale.meta?.siteName || 'CBD Portal',
       url: SITE_URL,
     },
     hasDefinedTerm: allTerms.slice(0, 100).map(term => ({
       '@type': 'DefinedTerm',
       '@id': `${SITE_URL}/glossary/${term.slug}`,
-      name: term.display_name || term.term,
-      description: term.short_definition,
+      name: term.term,
+      description: term.simple_definition || term.definition,
       url: `${SITE_URL}/glossary/${term.slug}`,
       ...(term.synonyms && term.synonyms.length > 0 && {
         alternateName: term.synonyms
@@ -143,13 +164,13 @@ export default async function GlossaryPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'CBD & Cannabis Glossary Terms',
+    name: locale.glossary?.title || 'CBD & Cannabis Glossary Terms',
     description: `${totalTerms} CBD and cannabis terms explained`,
     numberOfItems: totalTerms,
     itemListElement: allTerms.slice(0, 50).map((term, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      name: term.display_name || term.term,
+      name: term.term,
       url: `${SITE_URL}/glossary/${term.slug}`
     }))
   };

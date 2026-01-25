@@ -190,7 +190,9 @@
     "title": "Nach Erkrankung durchsuchen",
     "description": "Entdecken Sie evidenzbasierte CBD-Forschung zu {{count}} Gesundheitszuständen. Jede Studie ist analysiert, bewertet und in einfacher Sprache zusammengefasst.",
     "browseAll": "Alle {{count}} Erkrankungen durchsuchen",
-    "studiesCount": "{{count}} Studien"
+    "studiesCount": "{{count}} Studien",
+    "pageTitle": "Gesundheitszustände | CBD-Portal",
+    "pageDescription": "Entdecken Sie forschungsgestützte Informationen darüber, wie CBD bei Angst, Schmerzen, Schlaf, Entzündungen und 300+ anderen Gesundheitszuständen helfen kann."
   },
   "trending": {
     "label": "Aktuell angesagt"
@@ -272,5 +274,18 @@
     "articleTitle": "{{title}} | CBD-Portal",
     "researchTitle": "CBD-Forschungsdatenbank | {{count}}+ Studien",
     "glossaryTitle": "CBD-Glossar | {{count}} Begriffe erklärt"
+  },
+  "glossary": {
+    "pageTitle": "CBD-Glossar | CBD-Portal",
+    "pageDescription": "Lernen Sie CBD-Terminologie mit unserem umfassenden Glossar. 263 Begriffe verständlich erklärt.",
+    "title": "CBD-Glossar",
+    "subtitle": "Ihr Leitfaden zur CBD- und Cannabinoid-Terminologie",
+    "searchPlaceholder": "Begriffe suchen...",
+    "allTerms": "Alle Begriffe",
+    "popularTerms": "Beliebte Begriffe",
+    "browseByLetter": "Nach Buchstaben durchsuchen",
+    "browseByCategory": "Nach Kategorie durchsuchen",
+    "relatedTerms": "Verwandte Begriffe",
+    "seeAlso": "Siehe auch"
   }
 }

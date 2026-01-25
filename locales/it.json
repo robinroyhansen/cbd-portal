@@ -190,7 +190,9 @@
     "title": "Sfoglia per Condizione",
     "description": "Esplora la ricerca basata sull'evidenza della CBD attraverso {{count}} condizioni di salute. Ogni studio analizzato, valutato e riassunto in linguaggio semplice.",
     "browseAll": "Sfoglia Tutte le {{count}} Condizioni",
-    "studiesCount": "{{count}} studi"
+    "studiesCount": "{{count}} studi",
+    "pageTitle": "Condizioni di salute | Portale CBD",
+    "pageDescription": "Esplora informazioni basate sulla ricerca su come il CBD può aiutare con ansia, dolore, sonno, infiammazione e oltre 300 altre condizioni di salute."
   },
   "trending": {
     "label": "Tendenze"
@@ -272,5 +274,18 @@
     "articleTitle": "{{title}} | Portale CBD",
     "researchTitle": "Database di Ricerca CBD | {{count}}+ Studi",
     "glossaryTitle": "Glossario CBD | {{count}} Termini Spiegati"
+  },
+  "glossary": {
+    "pageTitle": "Glossario CBD | Portale CBD",
+    "pageDescription": "Impara la terminologia CBD con il nostro glossario completo. 263 termini spiegati in linguaggio semplice.",
+    "title": "Glossario CBD",
+    "subtitle": "La tua guida alla terminologia CBD e cannabinoidi",
+    "searchPlaceholder": "Cerca termini...",
+    "allTerms": "Tutti i termini",
+    "popularTerms": "Termini popolari",
+    "browseByLetter": "Sfoglia per lettera",
+    "browseByCategory": "Sfoglia per categoria",
+    "relatedTerms": "Termini correlati",
+    "seeAlso": "Vedi anche"
   }
 }

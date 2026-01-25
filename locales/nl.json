@@ -190,7 +190,9 @@
     "title": "Blader op Aandoening",
     "description": "Ontdek evidence-based CBD-onderzoek over {{count}} gezondheidstoestandenen. Elk onderzoek geanalyseerd, beoordeeld en samengevat in eenvoudige taal.",
     "browseAll": "Blader door Alle {{count}} Aandoeningen",
-    "studiesCount": "{{count}} studies"
+    "studiesCount": "{{count}} studies",
+    "pageTitle": "Gezondheidscondities | CBD Portaal",
+    "pageDescription": "Ontdek op onderzoek gebaseerde informatie over hoe CBD kan helpen bij angst, pijn, slaap, ontsteking en 300+ andere gezondheidscondities."
   },
   "trending": {
     "label": "Trending"
@@ -272,5 +274,18 @@
     "articleTitle": "{{title}} | CBD Portal",
     "researchTitle": "CBD Onderzoeksdatabase | {{count}}+ Studies",
     "glossaryTitle": "CBD Woordenboek | {{count}} Termen Uitgelegd"
+  },
+  "glossary": {
+    "pageTitle": "CBD-woordenlijst | CBD Portaal",
+    "pageDescription": "Leer CBD-terminologie met onze uitgebreide woordenlijst. 263 termen uitgelegd in begrijpelijke taal.",
+    "title": "CBD-woordenlijst",
+    "subtitle": "Uw gids voor CBD- en cannabinoïdenterminologie",
+    "searchPlaceholder": "Zoek termen...",
+    "allTerms": "Alle termen",
+    "popularTerms": "Populaire termen",
+    "browseByLetter": "Blader op letter",
+    "browseByCategory": "Blader op categorie",
+    "relatedTerms": "Gerelateerde termen",
+    "seeAlso": "Zie ook"
   }
 }

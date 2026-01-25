@@ -190,7 +190,9 @@
     "title": "Selaa sairauksittain",
     "description": "Tutustu tutkimusnäyttöön perustuvaan CBD-tutkimukseen {{count}} terveyskunnossa. Jokainen tutkimus analysoitu, pisteytetty ja tiivistetty selkokielelle.",
     "browseAll": "Selaa kaikkia {{count}} kuntoa",
-    "studiesCount": "{{count}} tutkimusta"
+    "studiesCount": "{{count}} tutkimusta",
+    "pageTitle": "Terveystilat | CBD-portaali",
+    "pageDescription": "Tutustu tutkimukseen perustuvaan tietoon siitä, miten CBD voi auttaa ahdistuksessa, kivussa, unessa, tulehduksessa ja yli 300 muussa terveystilassa."
   },
   "trending": {
     "label": "Suosittu"
@@ -272,5 +274,18 @@
     "articleTitle": "{{title}} | CBD-portaali",
     "researchTitle": "CBD-tutkimustietokanta | {{count}}+ tutkimusta",
     "glossaryTitle": "CBD-sanasto | {{count}} termiä selitetty"
+  },
+  "glossary": {
+    "pageTitle": "CBD-sanasto | CBD-portaali",
+    "pageDescription": "Opi CBD-terminologiaa kattavan sanastomme avulla. 263 termiä selitetty selkeällä kielellä.",
+    "title": "CBD-sanasto",
+    "subtitle": "Oppaasi CBD- ja kannabinoiditerminologiaan",
+    "searchPlaceholder": "Hae termejä...",
+    "allTerms": "Kaikki termit",
+    "popularTerms": "Suositut termit",
+    "browseByLetter": "Selaa kirjaimen mukaan",
+    "browseByCategory": "Selaa kategorian mukaan",
+    "relatedTerms": "Liittyvät termit",
+    "seeAlso": "Katso myös"
   }
 }

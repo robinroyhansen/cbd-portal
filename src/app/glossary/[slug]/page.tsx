@@ -7,6 +7,10 @@ import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { LinkedDefinition } from '@/lib/glossary-definition-linker';
 import { GlossaryViewTracker } from '@/components/GlossaryViewTracker';
 import { formatDate } from '@/lib/locale';
+import { getLanguage } from '@/lib/get-language';
+import { getGlossaryTermWithTranslation, getRelatedGlossaryTermsWithTranslations } from '@/lib/translations';
+import { getLocaleSync } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -95,16 +99,15 @@ function formatMetaDescription(text: string): string {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const supabase = await createClient();
-  const { data: term } = await supabase
-    .from('kb_glossary')
-    .select('term, display_name, short_definition')
-    .eq('slug', slug)
-    .single();
+  const lang = await getLanguage();
+  const locale = getLocaleSync(lang as LanguageCode);
+
+  // Get term with translation applied
+  const term = await getGlossaryTermWithTranslation(slug, lang as LanguageCode);
 
   if (!term) {
     return {
-      title: 'Term Not Found | CBD Portal Glossary',
+      title: `${locale.errors?.pageNotFound || 'Term Not Found'} | ${locale.meta?.siteName || 'CBD Portal'} ${locale.glossary?.title || 'Glossary'}`,
       description: 'This glossary term could not be found.',
     };
   }
@@ -113,24 +116,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const metaDescription = formatMetaDescription(term.short_definition);
 
   const canonicalUrl = `https://cbd-portal.vercel.app/glossary/${slug}`;
+  const siteName = locale.meta?.siteName || 'CBD Portal';
+  const langCode = lang === 'en' ? 'en_US' : lang;
 
   return {
-    title: `${displayTitle} - Definition | CBD Portal Glossary`,
+    title: `${displayTitle} - ${locale.glossary?.title || 'CBD Glossary'} | ${siteName}`,
     description: metaDescription,
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: `${displayTitle} - CBD Glossary Definition`,
+      title: `${displayTitle} - ${locale.glossary?.title || 'CBD Glossary'}`,
       description: metaDescription,
       type: 'article',
       url: canonicalUrl,
-      siteName: 'CBD Portal',
-      locale: 'en_US',
+      siteName,
+      locale: langCode,
     },
     twitter: {
       card: 'summary',
-      title: `${displayTitle} - CBD Glossary`,
+      title: `${displayTitle} - ${locale.glossary?.title || 'CBD Glossary'}`,
       description: metaDescription,
       site: '@cbdportal',
     },
@@ -143,16 +148,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function GlossaryTermPage({ params }: Props) {
   const { slug } = await params;
+  const lang = await getLanguage();
+  const locale = getLocaleSync(lang as LanguageCode);
   const supabase = await createClient();
 
-  // Fetch term
-  const { data: term, error } = await supabase
-    .from('kb_glossary')
-    .select('*')
-    .eq('slug', slug)
-    .single();
+  // Get term with translation applied
+  const term = await getGlossaryTermWithTranslation(slug, lang as LanguageCode);
 
-  if (error || !term) notFound();
+  if (!term) notFound();
 
   // Fetch author separately if author_id exists
   let author = null;
@@ -165,33 +168,36 @@ export default async function GlossaryTermPage({ params }: Props) {
     author = authorData;
   }
 
-  // Get related terms
+  // Get related terms with translations
   let relatedTerms: { term: string; display_name: string; slug: string; short_definition: string; category: string }[] = [];
   if (term.related_terms && term.related_terms.length > 0) {
-    const { data } = await supabase
-      .from('kb_glossary')
-      .select('term, display_name, slug, short_definition, category')
-      .in('slug', term.related_terms)
-      .limit(8);
-    relatedTerms = data || [];
+    relatedTerms = await getRelatedGlossaryTermsWithTranslations(
+      term.related_terms,
+      lang as LanguageCode
+    );
   }
 
   // Get more terms from same category if not enough related
   if (relatedTerms.length < 4) {
     const { data: categoryTerms } = await supabase
       .from('kb_glossary')
-      .select('term, display_name, slug, short_definition, category')
+      .select('id, term, slug, category')
       .eq('category', term.category)
       .neq('slug', slug)
       .limit(6 - relatedTerms.length);
 
-    if (categoryTerms) {
-      const existingSlugs = new Set(relatedTerms.map(t => t.slug));
-      categoryTerms.forEach(t => {
-        if (!existingSlugs.has(t.slug)) {
-          relatedTerms.push(t);
-        }
-      });
+    if (categoryTerms && categoryTerms.length > 0) {
+      const additionalSlugs = categoryTerms
+        .filter(t => !relatedTerms.some(rt => rt.slug === t.slug))
+        .map(t => t.slug);
+
+      if (additionalSlugs.length > 0) {
+        const additionalTerms = await getRelatedGlossaryTermsWithTranslations(
+          additionalSlugs,
+          lang as LanguageCode
+        );
+        relatedTerms = [...relatedTerms, ...additionalTerms];
+      }
     }
   }
 
@@ -234,12 +240,14 @@ export default async function GlossaryTermPage({ params }: Props) {
   const categoryColors = CATEGORY_COLORS[term.category] || { bg: 'bg-gray-100', text: 'text-gray-700' };
 
   const breadcrumbs = [
-    { name: 'Home', url: 'https://cbd-portal.vercel.app' },
-    { name: 'Glossary', url: 'https://cbd-portal.vercel.app/glossary' },
+    { name: locale.common?.home || 'Home', url: 'https://cbd-portal.vercel.app' },
+    { name: locale.glossary?.title || 'Glossary', url: 'https://cbd-portal.vercel.app/glossary' },
     { name: displayTitle, url: `https://cbd-portal.vercel.app/glossary/${term.slug}` }
   ];
 
   // JSON-LD structured data for SEO - DefinedTerm
+  const langCode = lang === 'en' ? 'en-US' : lang;
+  const siteName = locale.meta?.siteName || 'CBD Portal';
   const definedTermSchema = {
     '@context': 'https://schema.org',
     '@type': 'DefinedTerm',
@@ -247,11 +255,12 @@ export default async function GlossaryTermPage({ params }: Props) {
     name: displayTitle,
     description: term.definition,
     termCode: term.slug,
+    inLanguage: langCode,
     inDefinedTermSet: {
       '@type': 'DefinedTermSet',
       '@id': 'https://cbd-portal.vercel.app/glossary',
-      name: 'CBD Portal Glossary',
-      description: 'Comprehensive glossary of CBD and cannabis terminology'
+      name: `${siteName} ${locale.glossary?.title || 'Glossary'}`,
+      description: locale.glossary?.pageDescription || 'Comprehensive glossary of CBD and cannabis terminology'
     },
     ...(term.synonyms && term.synonyms.length > 0 && {
       alternateName: term.synonyms
@@ -444,7 +453,7 @@ export default async function GlossaryTermPage({ params }: Props) {
           {/* Synonyms */}
           {term.synonyms && term.synonyms.length > 0 && (
             <div className="mb-10 p-5 bg-white rounded-xl border border-gray-200">
-              <h2 className="text-lg font-semibold text-gray-900 mb-3">Also Known As</h2>
+              <h2 className="text-lg font-semibold text-gray-900 mb-3">{locale.glossary?.seeAlso || 'Also Known As'}</h2>
               <div className="flex flex-wrap gap-2">
                 {term.synonyms.map((synonym: string) => (
                   <span
@@ -461,7 +470,7 @@ export default async function GlossaryTermPage({ params }: Props) {
           {/* Related Terms */}
           {relatedTerms.length > 0 && (
             <section className="mb-10">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Related Terms</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">{locale.glossary?.relatedTerms || 'Related Terms'}</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {relatedTerms.map(related => {
                   const relatedColors = CATEGORY_COLORS[related.category] || { bg: 'bg-gray-100', text: 'text-gray-700' };
@@ -518,7 +527,7 @@ export default async function GlossaryTermPage({ params }: Props) {
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
-              Back to Glossary
+              {locale.common?.back || 'Back'} {locale.glossary?.title || 'Glossary'}
             </Link>
           </div>
         </div>

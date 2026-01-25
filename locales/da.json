@@ -190,7 +190,9 @@
     "title": "Gennemse efter tilstand",
     "description": "Udforsk evidensbaseret CBD-forskning på tværs af {{count}} sundhedstilstande. Hver eneste undersøgelse analyseret, scoret og opsummeret i et letforståeligt sprog.",
     "browseAll": "Gennemse alle {{count}} tilstande",
-    "studiesCount": "{{count}} undersøgelser"
+    "studiesCount": "{{count}} undersøgelser",
+    "pageTitle": "Helbredstilstande | CBD-portalen",
+    "pageDescription": "Udforsk forskningsbaseret information om, hvordan CBD kan hjælpe med angst, smerter, søvn, betændelse og 300+ andre helbredstilstande."
   },
   "trending": {
     "label": "Populært"
@@ -272,5 +274,18 @@
     "articleTitle": "{{title}} | CBD Portal",
     "researchTitle": "CBD Forskningsdatabase | {{count}}+ Studier",
     "glossaryTitle": "CBD Ordliste | {{count}} Vilkår Forklaret"
+  },
+  "glossary": {
+    "pageTitle": "CBD-ordliste | CBD-portalen",
+    "pageDescription": "Lær CBD-terminologi med vores omfattende ordliste. 263 begreber forklaret på et letforståeligt sprog.",
+    "title": "CBD-ordliste",
+    "subtitle": "Din guide til CBD- og cannabinoid-terminologi",
+    "searchPlaceholder": "Søg efter begreber...",
+    "allTerms": "Alle begreber",
+    "popularTerms": "Populære begreber",
+    "browseByLetter": "Gennemse efter bogstav",
+    "browseByCategory": "Gennemse efter kategori",
+    "relatedTerms": "Relaterede begreber",
+    "seeAlso": "Se også"
   }
 }

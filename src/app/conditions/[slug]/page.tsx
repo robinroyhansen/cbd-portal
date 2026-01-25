@@ -3,6 +3,10 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
+import { getLanguage } from '@/lib/get-language';
+import { getConditionWithTranslation, getRelatedConditionsWithTranslations } from '@/lib/translations';
+import { getLocaleSync } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -10,21 +14,24 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const supabase = await createClient();
+  const lang = await getLanguage();
+  const locale = getLocaleSync(lang as LanguageCode);
 
-  const { data: condition } = await supabase
-    .from('kb_conditions')
-    .select('name, display_name, meta_title, meta_description, short_description')
-    .eq('slug', slug)
-    .eq('is_published', true)
-    .single();
+  // Get condition with translation applied
+  const condition = await getConditionWithTranslation(slug, lang as LanguageCode);
 
   if (!condition) {
-    return { title: 'Condition Not Found | CBD Portal' };
+    return { title: locale.errors?.pageNotFound || 'Condition Not Found | CBD Portal' };
   }
 
+  // Use translated SEO title template if available
+  const title = condition.meta_title ||
+    (locale.seo?.conditionTitle
+      ? locale.seo.conditionTitle.replace('{{condition}}', condition.display_name || condition.name)
+      : `CBD for ${condition.display_name || condition.name} | ${locale.meta?.siteName || 'CBD Portal'}`);
+
   return {
-    title: condition.meta_title || `CBD for ${condition.display_name || condition.name} | CBD Portal`,
+    title,
     description: condition.meta_description || condition.short_description,
     alternates: {
       canonical: `/conditions/${slug}`,
@@ -57,14 +64,12 @@ function getEvidenceStrength(count: number): { level: string; color: string; wid
 
 export default async function ConditionPage({ params }: Props) {
   const { slug } = await params;
+  const lang = await getLanguage();
+  const locale = getLocaleSync(lang as LanguageCode);
   const supabase = await createClient();
 
-  const { data: condition } = await supabase
-    .from('kb_conditions')
-    .select('*')
-    .eq('slug', slug)
-    .eq('is_published', true)
-    .single();
+  // Get condition with translation applied
+  const condition = await getConditionWithTranslation(slug, lang as LanguageCode);
 
   if (!condition) notFound();
 
@@ -94,22 +99,21 @@ export default async function ConditionPage({ params }: Props) {
     .order('published_at', { ascending: false })
     .limit(12);
 
+  // Get related conditions with translations
   let relatedConditions: Array<{ slug: string; name: string; display_name?: string; short_description?: string; research_count?: number; category?: string }> = [];
   if (condition.related_condition_slugs && condition.related_condition_slugs.length > 0) {
-    const { data } = await supabase
-      .from('kb_conditions')
-      .select('slug, name, display_name, short_description, research_count, category')
-      .in('slug', condition.related_condition_slugs)
-      .eq('is_published', true);
-    relatedConditions = data || [];
+    relatedConditions = await getRelatedConditionsWithTranslations(
+      condition.related_condition_slugs,
+      lang as LanguageCode
+    );
   }
 
   const evidence = getEvidenceStrength(condition.research_count || 0);
   const categoryIcon = CATEGORY_ICONS[condition.category] || CATEGORY_ICONS.other;
 
   const breadcrumbs = [
-    { name: 'Home', url: 'https://cbd-portal.vercel.app' },
-    { name: 'Conditions', url: 'https://cbd-portal.vercel.app/conditions' },
+    { name: locale.common?.home || 'Home', url: 'https://cbd-portal.vercel.app' },
+    { name: locale.common?.conditions || 'Conditions', url: 'https://cbd-portal.vercel.app/conditions' },
     { name: condition.display_name || condition.name, url: `https://cbd-portal.vercel.app/conditions/${slug}` }
   ];
 

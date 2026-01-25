@@ -7,6 +7,7 @@ import { CookieConsent } from '@/components/CookieConsent';
 import { NavigationProvider } from '@/components/NavigationWrapper';
 import { MobileBottomNav } from '@/components/MobileBottomNav';
 import { LocaleProvider } from '@/components/LocaleProvider';
+import { DevLanguageSwitcher } from '@/components/DevLanguageSwitcher';
 import { getLanguage } from '@/lib/get-language';
 import { getLocaleSync } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
@@ -95,6 +96,7 @@ export default async function RootLayout({
             <Footer />
             <MobileBottomNav />
             <CookieConsent />
+            <DevLanguageSwitcher />
           </NavigationProvider>
         </LocaleProvider>
       </body>
