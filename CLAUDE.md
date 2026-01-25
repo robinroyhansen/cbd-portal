@@ -397,3 +397,9 @@ Anxiety, depression, PTSD, sleep, epilepsy, chronic_pain, neuropathic_pain, arth
 - Admin API authentication (token-based)
 - Image optimization with Next.js Image component
 - AI article generation endpoint
+
+
+## Feature Implementation Priority Rules
+- IMMEDIATE EXECUTION: Launch parallel Tasks immediately upon feature requests
+- PARALLEL BY DEFAULT: Always use 7-parallel-Task method for efficiency
+- NO CLARIFICATION: Skip asking what type of implementation unless absolutely critical
