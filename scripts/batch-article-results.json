@@ -1,0 +1,98 @@
+[
+  {
+    "condition": "cluster-headaches",
+    "displayName": "Cluster Headaches",
+    "evidenceLevel": "Limited",
+    "totalStudies": 6,
+    "wordCount": 1404,
+    "action": "created"
+  },
+  {
+    "condition": "tension-headaches",
+    "displayName": "Tension Headaches",
+    "evidenceLevel": "Insufficient",
+    "totalStudies": 3,
+    "wordCount": 1280,
+    "action": "created"
+  },
+  {
+    "condition": "occipital-neuralgia",
+    "displayName": "Occipital Neuralgia",
+    "evidenceLevel": "Moderate",
+    "totalStudies": 40,
+    "wordCount": 1499,
+    "action": "created"
+  },
+  {
+    "condition": "tmj",
+    "displayName": "TMJ (Temporomandibular Joint) Disorders",
+    "evidenceLevel": "Insufficient",
+    "totalStudies": 1,
+    "wordCount": 1006,
+    "action": "created"
+  },
+  {
+    "condition": "tooth-pain",
+    "displayName": "Tooth Pain (Dental Pain)",
+    "evidenceLevel": "Limited",
+    "totalStudies": 6,
+    "wordCount": 1339,
+    "action": "created"
+  },
+  {
+    "condition": "mouth-ulcers",
+    "displayName": "Mouth Ulcers (Canker Sores)",
+    "evidenceLevel": "Insufficient",
+    "totalStudies": 1,
+    "wordCount": 965,
+    "action": "created"
+  },
+  {
+    "condition": "gum-disease",
+    "displayName": "Gum Disease (Periodontal Disease)",
+    "evidenceLevel": "Limited",
+    "totalStudies": 6,
+    "wordCount": 1436,
+    "action": "created"
+  },
+  {
+    "condition": "seasonal-allergies",
+    "displayName": "Seasonal Allergies (Hay Fever)",
+    "evidenceLevel": "Moderate",
+    "totalStudies": 77,
+    "wordCount": 1459,
+    "action": "created"
+  },
+  {
+    "condition": "sinusitis",
+    "displayName": "Sinusitis (Sinus Infection)",
+    "evidenceLevel": "Moderate",
+    "totalStudies": 202,
+    "wordCount": 1490,
+    "action": "created"
+  },
+  {
+    "condition": "bronchitis",
+    "displayName": "Bronchitis",
+    "evidenceLevel": "Moderate",
+    "totalStudies": 40,
+    "wordCount": 1439,
+    "action": "created"
+  },
+  {
+    "condition": "copd",
+    "displayName": "COPD (Chronic Obstructive Pulmonary Disease)",
+    "evidenceLevel": "Moderate",
+    "totalStudies": 36,
+    "wordCount": 1457,
+    "action": "created"
+  },
+  {
+    "condition": "colds-flu",
+    "displayName": "Colds and Flu (Common Cold & Influenza)",
+    "evidenceLevel": "Moderate",
+    "totalStudies": 168,
+    "wordCount": 1615,
+    "action": "created"
+  }
+]
