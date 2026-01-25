@@ -4,8 +4,7 @@ import { CONDITIONS, ConditionKey } from '../../../lib/research-conditions';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 
-// Force dynamic rendering to ensure fresh data and proper condition matching
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600; // Revalidate every 1 hour
 
 interface PageProps {
   params: Promise<{ condition: string }>;

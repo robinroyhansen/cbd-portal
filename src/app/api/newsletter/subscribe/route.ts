@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { checkRateLimit, getClientIp, RATE_LIMITS } from '@/lib/rate-limit';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -7,6 +8,20 @@ const supabase = createClient(
 );
 
 export async function POST(request: NextRequest) {
+  // Rate limiting - strict for newsletter (3 requests per 5 minutes)
+  const clientIp = getClientIp(request);
+  const rateLimit = checkRateLimit(`newsletter:${clientIp}`, RATE_LIMITS.newsletter);
+
+  if (!rateLimit.success) {
+    return NextResponse.json(
+      { error: 'Too many subscription attempts. Please wait before trying again.' },
+      {
+        status: 429,
+        headers: { 'Retry-After': rateLimit.resetIn.toString() },
+      }
+    );
+  }
+
   try {
     const { email } = await request.json();
 

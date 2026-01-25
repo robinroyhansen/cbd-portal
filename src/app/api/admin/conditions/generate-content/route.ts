@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase/server';
+import { requireAdminAuth } from '@/lib/admin-api-auth';
 
 interface ResearchStudy {
   id: string;
@@ -147,6 +148,9 @@ function getEvidenceIcon(level: string): string {
 }
 
 export async function POST(request: NextRequest) {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   try {
     const { conditionSlug, preview = false } = await request.json();
 
@@ -536,7 +540,10 @@ Remember:
 }
 
 // GET endpoint to fetch generation status for all conditions
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const authError = requireAdminAuth(request);
+  if (authError) return authError;
+
   try {
     const supabase = createServiceClient();
 

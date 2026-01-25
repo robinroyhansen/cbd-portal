@@ -8,6 +8,8 @@ import { getLocaleSync } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { getHreflangAlternates } from '@/components/HreflangTags';
 
+export const revalidate = 86400; // Revalidate every 24 hours
+
 const SITE_URL = 'https://cbd-portal.vercel.app';
 
 interface GlossaryTerm {

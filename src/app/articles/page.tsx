@@ -6,6 +6,8 @@ import { getLanguageFromHostname } from '@/lib/language';
 import { ArticlesHub } from '@/components/articles/ArticlesHub';
 import { getHreflangAlternates } from '@/components/HreflangTags';
 
+export const revalidate = 1800; // Revalidate every 30 minutes
+
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'CBD Articles & Guides | Evidence-Based Information',

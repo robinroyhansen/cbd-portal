@@ -12,6 +12,7 @@ import type {
   DrugSearchResult,
   InteractionCheckResult,
 } from '@/types/drug-interactions';
+import { generateHowToSchema } from '@/lib/seo/howto-schema';
 
 type ResultState =
   | { type: 'idle' }
@@ -51,8 +52,40 @@ export default function InteractionCheckerPage() {
     setSelectedDrug(null);
   };
 
+  const howToSchema = generateHowToSchema({
+    title: 'How to Check CBD Drug Interactions',
+    description: 'Use our interaction checker to identify potential interactions between CBD and your medications. Learn about severity levels and safety precautions.',
+    steps: [
+      {
+        name: 'Search for Your Medication',
+        text: 'Type the name of your medication in the search box. You can search by brand name or generic name.'
+      },
+      {
+        name: 'Select Your Medication',
+        text: 'Choose your exact medication from the search results. The database includes thousands of prescription and over-the-counter drugs.'
+      },
+      {
+        name: 'Review Interaction Results',
+        text: 'View the interaction severity level (major, moderate, minor, or none) and detailed information about how CBD may affect your medication.'
+      },
+      {
+        name: 'Understand the Mechanism',
+        text: 'Learn which liver enzymes (CYP450) are involved and how CBD may increase or decrease your medication levels.'
+      },
+      {
+        name: 'Consult Your Healthcare Provider',
+        text: 'Always discuss the results with your doctor or pharmacist before combining CBD with any medication.'
+      }
+    ],
+    totalTime: 'PT2M'
+  });
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">

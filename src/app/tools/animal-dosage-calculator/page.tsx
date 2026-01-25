@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useLocale } from '@/hooks/useLocale';
+import { generateHowToSchema } from '@/lib/seo/howto-schema';
 
 interface AnimalDosageRecommendation {
   startingDose: number;
@@ -275,8 +276,40 @@ export default function AnimalDosageCalculator() {
     }));
   };
 
+  const howToSchema = generateHowToSchema({
+    title: 'How to Calculate CBD Dosage for Pets',
+    description: 'Calculate a safe CBD starting dose for your dog, cat, horse, or other pet based on species, weight, age, and condition.',
+    steps: [
+      {
+        name: 'Select Your Pet Species',
+        text: 'Choose whether you have a dog, cat, horse, or other animal. Each species has different CBD metabolism and dosing requirements.'
+      },
+      {
+        name: 'Enter Pet Weight and Age',
+        text: 'Input your pet\'s body weight in kg or lbs, and select their age category (young, adult, or senior). Younger and older animals require lower doses.'
+      },
+      {
+        name: 'Choose the Primary Condition',
+        text: 'Select why you want to give your pet CBD (arthritis, anxiety, general wellness, etc.). Different conditions may require different dosing approaches.'
+      },
+      {
+        name: 'Select Product Type',
+        text: 'Choose the type of pet CBD product: oil/tincture, treats, capsules, or topical. Bioavailability varies by product type.'
+      },
+      {
+        name: 'Review Safe Starting Dose',
+        text: 'Get your personalized recommendation including starting dose, maximum daily dose, administration method, and species-specific safety warnings.'
+      }
+    ],
+    totalTime: 'PT3M'
+  });
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">

@@ -8,6 +8,8 @@ import { getLocaleSync } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { getHreflangAlternates } from '@/components/HreflangTags';
 
+export const revalidate = 3600; // Revalidate every 1 hour
+
 export async function generateMetadata(): Promise<Metadata> {
   const lang = await getLanguage();
   const locale = getLocaleSync(lang as LanguageCode);

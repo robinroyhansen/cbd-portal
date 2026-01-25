@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useLocale } from '@/hooks/useLocale';
+import { generateHowToSchema } from '@/lib/seo/howto-schema';
 
 interface DosageRecommendation {
   startingDose: number;
@@ -197,8 +198,40 @@ export default function DosageCalculator() {
     }));
   };
 
+  const howToSchema = generateHowToSchema({
+    title: 'How to Calculate Your CBD Dosage',
+    description: 'Use our CBD dosage calculator to find your personalized starting dose based on body weight, experience level, and desired effects.',
+    steps: [
+      {
+        name: 'Enter Your Body Weight',
+        text: 'Input your body weight in kilograms or pounds. This is used to calculate a weight-based dosage recommendation.'
+      },
+      {
+        name: 'Select Your Experience Level',
+        text: 'Choose whether you are a beginner, intermediate, or experienced CBD user. Beginners should start with lower doses.'
+      },
+      {
+        name: 'Choose Your Primary Condition',
+        text: 'Select the main reason you want to use CBD (e.g., anxiety, pain, sleep, general wellness). Different conditions may require different dosages.'
+      },
+      {
+        name: 'Select Your Product Type',
+        text: 'Choose the type of CBD product you plan to use (oil, edibles, capsules, vape, or topical). Bioavailability varies by product type.'
+      },
+      {
+        name: 'Calculate and Review Results',
+        text: 'Click calculate to see your personalized starting dose, maximum dose, frequency recommendations, and titration schedule.'
+      }
+    ],
+    totalTime: 'PT3M'
+  });
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">

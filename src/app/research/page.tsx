@@ -31,7 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export const revalidate = 0; // Disable cache for real-time data
+export const revalidate = 3600; // Revalidate every 1 hour
 
 interface ResearchItem {
   id: string;

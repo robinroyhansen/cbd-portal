@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { useLocale } from '@/hooks/useLocale';
+import { generateHowToSchema } from '@/lib/seo/howto-schema';
 
 type Tab = 'converter' | 'drops' | 'compare' | 'switch';
 
@@ -284,8 +285,36 @@ export default function StrengthCalculatorPage() {
     { id: 'switch' as Tab, label: t('strengthCalc.switchHelper'), icon: '🔀' }
   ];
 
+  const howToSchema = generateHowToSchema({
+    title: 'How to Convert CBD Oil Strength',
+    description: 'Learn how to convert between CBD percentage, mg/ml, and total mg. Compare products and calculate how many drops you need for your desired dose.',
+    steps: [
+      {
+        name: 'Select Your Input Type',
+        text: 'Choose whether you know the CBD percentage (e.g., 5%), mg per ml concentration, or total mg in the bottle.'
+      },
+      {
+        name: 'Enter the Value',
+        text: 'Input the strength value from your CBD product label. This could be a percentage, mg/ml, or total mg amount.'
+      },
+      {
+        name: 'Set Your Bottle Size',
+        text: 'Select or enter your CBD oil bottle size in milliliters (common sizes: 10ml, 15ml, 30ml).'
+      },
+      {
+        name: 'Review Converted Values',
+        text: 'View all strength formats: percentage, mg per ml, total CBD in bottle, and mg per drop based on standard dropper size.'
+      }
+    ],
+    totalTime: 'PT2M'
+  });
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">

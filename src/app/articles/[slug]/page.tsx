@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { headers } from 'next/headers';
 import { getArticleBySlug, getRelatedArticles } from '@/lib/articles';
 import { getLanguageFromHostname } from '@/lib/language';
@@ -21,6 +22,9 @@ import { getArticleTags } from '@/lib/tags';
 import { ArticleContent } from '@/components/ArticleContent';
 import { ArticleTableOfContents } from '@/components/ArticleTableOfContents';
 import { extractTOCFromMarkdown, buildNestedTOC, countWords } from '@/lib/utils/toc';
+import { getHreflangAlternates } from '@/components/HreflangTags';
+
+export const revalidate = 86400; // Revalidate every 24 hours
 
 // Strip Medical/Veterinary disclaimers from content (we render a standardized one in the template)
 function stripDisclaimers(content: string): string {
@@ -63,9 +67,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${(article as any).title} | CBD Portal`,
     description: (article as any).excerpt,
-    alternates: {
-      canonical: `/articles/${(article as any).slug}`,
-    },
+    alternates: getHreflangAlternates(`/articles/${(article as any).slug}`),
     openGraph: {
       title: (article as any).title,
       description: (article as any).excerpt,
@@ -342,11 +344,14 @@ export default async function ArticlePage({ params }: Props) {
 
       {/* Featured Image */}
       {article.featured_image && (
-        <figure className="mb-12">
-          <img
+        <figure className="mb-12 relative aspect-[16/9]">
+          <Image
             src={article.featured_image}
             alt={article.title}
-            className="w-full rounded-lg object-cover"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+            className="rounded-lg object-cover"
+            priority
           />
         </figure>
       )}

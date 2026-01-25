@@ -96,13 +96,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Research studies (~698) - no language alternates needed for study pages
   const { data: studies } = await supabase
     .from('kb_research_queue')
-    .select('slug')
+    .select('slug, updated_at')
     .eq('status', 'approved')
     .not('slug', 'is', null);
 
   const studyPages: MetadataRoute.Sitemap = (studies || []).map(study => ({
     url: `${SITE_URL}/research/study/${study.slug}`,
-    lastModified: now,
+    lastModified: study.updated_at ? new Date(study.updated_at) : now,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
@@ -133,40 +133,70 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Brand reviews (published brands)
   const { data: brands } = await supabase
     .from('kb_brands')
-    .select('slug')
+    .select('slug, updated_at')
     .eq('is_published', true);
 
   const reviewPages: MetadataRoute.Sitemap = (brands || []).map(brand =>
-    createSitemapEntry(`/reviews/${brand.slug}`, now, 'weekly', 0.8)
+    createSitemapEntry(
+      `/reviews/${brand.slug}`,
+      brand.updated_at ? new Date(brand.updated_at) : now,
+      'weekly',
+      0.8
+    )
   );
 
-  // Articles with language alternates
+  // Articles with language alternates and images
   const { data: articles } = await supabase
     .from('kb_articles')
-    .select('slug')
+    .select('slug, updated_at, featured_image, title')
     .eq('status', 'published');
 
-  const articlePages: MetadataRoute.Sitemap = (articles || []).map(article =>
-    createSitemapEntry(`/articles/${article.slug}`, now, 'monthly', 0.7)
-  );
+  const articlePages: MetadataRoute.Sitemap = (articles || []).map(article => {
+    const entry = createSitemapEntry(
+      `/articles/${article.slug}`,
+      article.updated_at ? new Date(article.updated_at) : now,
+      'monthly',
+      0.7
+    );
+
+    // Add image entry if featured_image exists
+    if (article.featured_image) {
+      return {
+        ...entry,
+        images: [article.featured_image],
+      };
+    }
+
+    return entry;
+  });
 
   // Categories with language alternates
   const { data: categories } = await supabase
     .from('kb_categories')
-    .select('slug');
+    .select('slug, updated_at');
 
   const categoryPages: MetadataRoute.Sitemap = (categories || []).map(category =>
-    createSitemapEntry(`/categories/${category.slug}`, now, 'weekly', 0.6)
+    createSitemapEntry(
+      `/categories/${category.slug}`,
+      category.updated_at ? new Date(category.updated_at) : now,
+      'weekly',
+      0.6
+    )
   );
 
   // Authors with language alternates
   const { data: authors } = await supabase
     .from('kb_authors')
-    .select('slug')
+    .select('slug, updated_at')
     .eq('is_active', true);
 
   const authorPages: MetadataRoute.Sitemap = (authors || []).map(author =>
-    createSitemapEntry(`/authors/${author.slug}`, now, 'monthly', 0.5)
+    createSitemapEntry(
+      `/authors/${author.slug}`,
+      author.updated_at ? new Date(author.updated_at) : now,
+      'monthly',
+      0.5
+    )
   );
 
   // Health topics (research condition pages)
@@ -194,10 +224,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Tags
   const { data: tags } = await supabase
     .from('kb_tags')
-    .select('slug');
+    .select('slug, updated_at');
 
   const tagPages: MetadataRoute.Sitemap = (tags || []).map(tag =>
-    createSitemapEntry(`/tags/${tag.slug}`, now, 'weekly', 0.4)
+    createSitemapEntry(
+      `/tags/${tag.slug}`,
+      tag.updated_at ? new Date(tag.updated_at) : now,
+      'weekly',
+      0.4
+    )
   );
 
   // Combine all pages

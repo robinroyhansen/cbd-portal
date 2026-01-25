@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { SearchBar } from './SearchBar';
@@ -37,6 +37,50 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
   const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
   const { t } = useLocale();
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Focus trap for mobile menu
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (!isMobileMenuOpen || !mobileMenuRef.current) return;
+
+    if (e.key === 'Escape') {
+      setIsMobileMenuOpen(false);
+      mobileMenuButtonRef.current?.focus();
+      return;
+    }
+
+    if (e.key === 'Tab') {
+      const focusableElements = mobileMenuRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+      );
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (e.shiftKey && document.activeElement === firstElement) {
+        e.preventDefault();
+        lastElement?.focus();
+      } else if (!e.shiftKey && document.activeElement === lastElement) {
+        e.preventDefault();
+        firstElement?.focus();
+      }
+    }
+  }, [isMobileMenuOpen, setIsMobileMenuOpen]);
+
+  // Set up focus trap event listener
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+      // Focus the first focusable element when menu opens
+      const firstFocusable = mobileMenuRef.current?.querySelector<HTMLElement>(
+        'a[href], button:not([disabled])'
+      );
+      firstFocusable?.focus();
+    }
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isMobileMenuOpen, handleKeyDown]);
 
   // Build navigation items with translations
   const NAV_ITEMS: NavItem[] = useMemo(() => [
@@ -189,17 +233,17 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm" role="banner">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-            <span className="text-2xl">🌿</span>
+          <Link href="/" className="flex items-center gap-2 flex-shrink-0" aria-label={`${t('meta.siteName')} - Go to homepage`}>
+            <span className="text-2xl" aria-hidden="true">🌿</span>
             <span className="font-bold text-xl text-gray-900">{t('meta.siteName')}</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1" role="navigation" aria-label="Main navigation">
             {NAV_ITEMS.map((item) => (
               <div key={item.href} className="relative group">
                 {item.megaMenu ? (
@@ -212,16 +256,22 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
                         }`}
                       onMouseEnter={() => !isMobile && setOpenDropdown(item.label)}
                       onClick={() => isMobile && toggleDropdown(item.label)}
+                      aria-expanded={openDropdown === item.label}
+                      aria-haspopup="menu"
+                      aria-controls={`dropdown-${item.href.replace('/', '')}`}
                     >
-                      <span>{item.icon}</span>
+                      <span aria-hidden="true">{item.icon}</span>
                       <span>{item.label}</span>
-                      <svg className="w-4 h-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     </button>
 
                     {/* Mega Menu Dropdown */}
                     <div
+                      id={`dropdown-${item.href.replace('/', '')}`}
+                      role="menu"
+                      aria-label={`${item.label} submenu`}
                       className={`absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[600px] bg-white rounded-xl shadow-xl border border-gray-100 transition-all duration-200
                         ${openDropdown === item.label ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}
                       `}
@@ -349,16 +399,19 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
 
           {/* Mobile Menu Button */}
           <button
+            ref={mobileMenuButtonRef}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
-            aria-label={t('nav.toggleMenu')}
+            aria-label={isMobileMenuOpen ? t('nav.closeMenu') || 'Close menu' : t('nav.toggleMenu') || 'Open menu'}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             {isMobileMenuOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
@@ -376,18 +429,24 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
 
       {/* Mobile Menu Slide-out */}
       <div
+        ref={mobileMenuRef}
+        id="mobile-menu"
+        role="dialog"
+        aria-modal="true"
+        aria-label={t('common.menu') || 'Navigation menu'}
         className={`fixed top-0 right-0 h-screen w-[85%] max-w-sm bg-white z-50 transform transition-transform duration-300 ease-in-out lg:hidden flex flex-col
           ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
         `}
       >
         {/* Mobile Menu Header */}
         <div className="flex items-center justify-between p-4 border-b">
-          <span className="font-bold text-lg text-gray-900">{t('common.menu')}</span>
+          <span className="font-bold text-lg text-gray-900" id="mobile-menu-title">{t('common.menu')}</span>
           <button
             onClick={() => setIsMobileMenuOpen(false)}
             className="p-2 rounded-lg text-gray-500 hover:bg-gray-100"
+            aria-label={t('nav.closeMenu') || 'Close menu'}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -408,7 +467,7 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
         </div>
 
         {/* Mobile Navigation Links */}
-        <nav className="p-4 pb-20 flex-1 overflow-y-auto">
+        <nav className="p-4 pb-20 flex-1 overflow-y-auto" role="navigation" aria-label="Mobile navigation">
           {NAV_ITEMS.map((item) => (
             <div key={item.href} className="mb-2">
               {item.megaMenu ? (
@@ -418,9 +477,12 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
                     className={`flex items-center justify-between w-full px-4 py-3 rounded-lg text-left font-medium transition-colors
                       ${openDropdown === item.label ? 'bg-green-50 text-green-700' : 'text-gray-700 hover:bg-gray-50'}
                     `}
+                    aria-expanded={openDropdown === item.label}
+                    aria-haspopup="menu"
+                    aria-controls={`mobile-dropdown-${item.href.replace('/', '')}`}
                   >
                     <span className="flex items-center gap-3">
-                      <span className="text-xl">{item.icon}</span>
+                      <span className="text-xl" aria-hidden="true">{item.icon}</span>
                       <span>{item.label}</span>
                     </span>
                     <svg
@@ -428,6 +490,7 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
+                      aria-hidden="true"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
@@ -435,6 +498,9 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
 
                   {/* Mobile Dropdown Content */}
                   <div
+                    id={`mobile-dropdown-${item.href.replace('/', '')}`}
+                    role="menu"
+                    aria-label={`${item.label} submenu`}
                     className={`overflow-hidden transition-all duration-300 ease-in-out
                       ${openDropdown === item.label ? 'max-h-[1500px] opacity-100' : 'max-h-0 opacity-0'}
                     `}

@@ -1,7 +1,22 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { checkRateLimit, getClientIp, RATE_LIMITS } from '@/lib/rate-limit';
 
 export async function GET(request: NextRequest) {
+  // Rate limiting - general API limit (60 requests per minute)
+  const clientIp = getClientIp(request);
+  const rateLimit = checkRateLimit(`glossary:${clientIp}`, RATE_LIMITS.api);
+
+  if (!rateLimit.success) {
+    return NextResponse.json(
+      { error: 'Too many requests. Please try again later.' },
+      {
+        status: 429,
+        headers: { 'Retry-After': rateLimit.resetIn.toString() },
+      }
+    );
+  }
+
   try {
     const supabase = await createClient();
     const { searchParams } = new URL(request.url);

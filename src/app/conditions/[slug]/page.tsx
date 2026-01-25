@@ -1,13 +1,18 @@
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
+import { FAQSchema } from '@/components/FAQSchema';
 import { getLanguage } from '@/lib/get-language';
 import { getConditionWithTranslation, getRelatedConditionsWithTranslations } from '@/lib/translations';
 import { getLocaleSync } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { getHreflangAlternates } from '@/components/HreflangTags';
+import { generateMedicalWebPageSchema } from '@/lib/seo/page-templates';
+
+export const revalidate = 86400; // Revalidate every 24 hours
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -59,6 +64,91 @@ function getEvidenceStrength(count: number): { level: string; color: string; wid
   if (count >= 20) return { level: 'Emerging', color: 'lime', width: '50%', description: 'Growing body of evidence' };
   if (count >= 5) return { level: 'Limited', color: 'amber', width: '25%', description: 'Early-stage research' };
   return { level: 'Preliminary', color: 'gray', width: '10%', description: 'Very limited data' };
+}
+
+// Generate dynamic FAQs based on condition data
+interface ConditionFAQData {
+  name: string;
+  researchCount: number;
+  evidenceLevel: string;
+  humanStudies: number;
+  preclinicalStudies: number;
+  category?: string;
+}
+
+function generateConditionFAQs(data: ConditionFAQData): Array<{ question: string; answer: string }> {
+  const { name, researchCount, evidenceLevel, humanStudies, preclinicalStudies, category } = data;
+  const faqs: Array<{ question: string; answer: string }> = [];
+
+  // FAQ 1: What does CBD research say about [condition]?
+  let researchAnswer = `Current research on CBD and ${name} includes ${researchCount} peer-reviewed studies. `;
+  if (humanStudies > 0) {
+    researchAnswer += `Of these, ${humanStudies} ${humanStudies === 1 ? 'study involves' : 'studies involve'} human participants. `;
+  }
+  if (preclinicalStudies > 0) {
+    researchAnswer += `Additionally, ${preclinicalStudies} preclinical ${preclinicalStudies === 1 ? 'study has' : 'studies have'} examined CBD's effects in laboratory settings. `;
+  }
+  researchAnswer += `The current evidence level is classified as "${evidenceLevel}" based on the quantity and quality of available research.`;
+
+  faqs.push({
+    question: `What does CBD research say about ${name}?`,
+    answer: researchAnswer,
+  });
+
+  // FAQ 2: How might CBD help with [condition]?
+  let helpAnswer = `Research suggests CBD may interact with the body's endocannabinoid system, which plays a role in regulating various physiological processes. `;
+  if (category === 'pain') {
+    helpAnswer += `For ${name}, studies have explored CBD's potential anti-inflammatory and analgesic properties. `;
+  } else if (category === 'mental-health') {
+    helpAnswer += `For ${name}, studies have investigated CBD's potential effects on serotonin receptors and its anxiolytic properties. `;
+  } else if (category === 'sleep') {
+    helpAnswer += `For ${name}, research has examined CBD's potential calming effects and its influence on sleep-wake cycles. `;
+  } else if (category === 'neurological') {
+    helpAnswer += `For ${name}, scientists have studied CBD's potential neuroprotective and anti-seizure properties. `;
+  } else if (category === 'inflammation') {
+    helpAnswer += `For ${name}, research has focused on CBD's potential anti-inflammatory mechanisms. `;
+  } else if (category === 'skin') {
+    helpAnswer += `For ${name}, studies have explored CBD's potential anti-inflammatory and sebum-regulating effects. `;
+  } else {
+    helpAnswer += `For ${name}, researchers continue to investigate various mechanisms of action. `;
+  }
+  helpAnswer += `However, more clinical trials are needed to establish definitive conclusions. Always consult a healthcare professional before using CBD.`;
+
+  faqs.push({
+    question: `How might CBD help with ${name}?`,
+    answer: helpAnswer,
+  });
+
+  // FAQ 3: What type of CBD product is commonly used for [condition]?
+  let productAnswer = `The choice of CBD product for ${name} depends on individual needs and preferences. `;
+  if (category === 'pain' || category === 'inflammation') {
+    productAnswer += `For localized discomfort, topical CBD products (creams, balms) are often considered. For systemic effects, CBD oils or capsules may be preferred. `;
+  } else if (category === 'mental-health' || category === 'sleep') {
+    productAnswer += `CBD oils (sublingual administration) are commonly used as they offer faster absorption. Some people prefer CBD capsules for consistent dosing. `;
+  } else if (category === 'skin') {
+    productAnswer += `Topical CBD products specifically formulated for skin application are typically recommended. These may include creams, serums, or balms. `;
+  } else {
+    productAnswer += `CBD oils remain the most popular choice due to their versatility and bioavailability. Capsules offer convenience and precise dosing. `;
+  }
+  productAnswer += `Full-spectrum, broad-spectrum, and CBD isolate products are all available options. Consult with a healthcare provider to determine what may be appropriate for your situation.`;
+
+  faqs.push({
+    question: `What type of CBD product is commonly used for ${name}?`,
+    answer: productAnswer,
+  });
+
+  // FAQ 4: Is CBD safe for [condition]?
+  let safetyAnswer = `CBD is generally considered well-tolerated by most people. The World Health Organization has stated that CBD exhibits no effects indicative of abuse or dependence potential. `;
+  safetyAnswer += `However, CBD can interact with certain medications, so it's important to consult with a healthcare professional before use, especially if you have ${name} or are taking any medications. `;
+  safetyAnswer += `Potential side effects may include fatigue, changes in appetite, and digestive discomfort. Start with a low dose and monitor how your body responds. `;
+  safetyAnswer += `Quality matters - choose products from reputable brands that provide third-party lab testing results.`;
+
+  faqs.push({
+    question: `Is CBD safe for ${name}?`,
+    answer: safetyAnswer,
+  });
+
+  return faqs;
 }
 
 export default async function ConditionPage({ params }: Props) {
@@ -124,9 +214,33 @@ export default async function ConditionPage({ params }: Props) {
   }, {} as Record<string, number>) || {};
 
   const humanStudies = (studyTypes['human'] || 0) + (studyTypes['review'] || 0);
+  const preclinicalStudies = (studyTypes['animal'] || 0) + (studyTypes['in_vitro'] || 0);
+
+  // Generate MedicalWebPage schema
+  const medicalWebPageSchema = generateMedicalWebPageSchema({
+    name: condition.display_name || condition.name,
+    description: condition.short_description || condition.description,
+  });
+
+  // Generate dynamic FAQs based on condition data
+  const conditionFAQs = generateConditionFAQs({
+    name: condition.display_name || condition.name,
+    researchCount: condition.research_count || 0,
+    evidenceLevel: evidence.level,
+    humanStudies,
+    preclinicalStudies,
+    category: condition.category,
+  });
 
   return (
     <div className="min-h-screen">
+      {/* MedicalWebPage Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }}
+      />
+      {/* FAQ Schema */}
+      <FAQSchema faqs={conditionFAQs} />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-emerald-900 via-green-800 to-teal-900">
         {/* Decorative elements */}
@@ -300,16 +414,19 @@ export default async function ConditionPage({ params }: Props) {
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     {/* Image */}
-                    <div className="aspect-[16/10] bg-gradient-to-br from-emerald-100 to-teal-100 overflow-hidden">
+                    <div className="aspect-[16/10] bg-gradient-to-br from-emerald-100 to-teal-100 overflow-hidden relative">
                       {article.featured_image ? (
-                        <img
+                        <Image
                           src={article.featured_image}
                           alt={article.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center">
-                          <span className="text-6xl opacity-30">{categoryIcon}</span>
+                          <span className="text-6xl opacity-30" aria-hidden="true">{categoryIcon}</span>
                         </div>
                       )}
                     </div>

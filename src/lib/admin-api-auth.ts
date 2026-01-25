@@ -51,12 +51,6 @@ function safeCompare(a: string, b: string): boolean {
  * Returns null if authenticated, NextResponse error if not
  */
 export function requireAdminAuth(request: NextRequest): NextResponse | null {
-  // Allow in development without auth for testing
-  if (process.env.NODE_ENV === 'development' && !ADMIN_PASSWORD) {
-    console.warn('[Admin Auth] Running without ADMIN_PASSWORD in development mode');
-    return null;
-  }
-
   // Check if ADMIN_PASSWORD is configured
   if (!ADMIN_PASSWORD) {
     console.error('[Admin Auth] ADMIN_PASSWORD not configured');

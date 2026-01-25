@@ -223,6 +223,29 @@ export function generateConditionSchema(data: ConditionPageData) {
 }
 
 /**
+ * Generate MedicalWebPage schema for condition pages
+ */
+export function generateMedicalWebPageSchema(condition: {
+  name: string;
+  description?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    about: {
+      '@type': 'MedicalCondition',
+      name: condition.name,
+      description: condition.description
+    },
+    medicalAudience: {
+      '@type': 'MedicalAudience',
+      audienceType: 'Patient'
+    },
+    specialty: 'Alternative Medicine'
+  };
+}
+
+/**
  * Generate Article schema for article pages
  */
 export function generateArticleSchema(data: ArticlePageData) {

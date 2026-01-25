@@ -13,6 +13,9 @@ import { TableOfContents } from '@/components/TableOfContents';
 import { getDomainFromUrl } from '@/lib/utils/brand-helpers';
 import { generateFAQs, generateFAQSchema } from '@/lib/utils/faq-generator';
 import { formatDate } from '@/lib/locale';
+import { getHreflangAlternates } from '@/components/HreflangTags';
+
+export const revalidate = 86400; // Revalidate every 24 hours
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cbd-portal.vercel.app';
 
@@ -186,11 +189,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonicalUrl = `${SITE_URL}/reviews/${slug}`;
   const ogImage = brand.logo_url || `${SITE_URL}/og-default.png`;
 
+  // Get hreflang alternates with canonical
+  const hreflangAlternates = getHreflangAlternates(`/reviews/${slug}`);
+
   return {
     title: `${title} | CBD Portal`,
     description,
     alternates: {
-      canonical: canonicalUrl
+      canonical: canonicalUrl,
+      languages: hreflangAlternates.languages,
     },
     openGraph: {
       title,

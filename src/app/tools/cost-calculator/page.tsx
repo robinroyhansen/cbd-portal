@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useLocale } from '@/hooks/useLocale';
+import { generateHowToSchema } from '@/lib/seo/howto-schema';
 
 interface Currency {
   code: string;
@@ -197,8 +198,40 @@ export default function CostCalculator() {
   const sortedProducts = [...products].sort((a, b) => a.costPerMg - b.costPerMg);
   const bestValue = sortedProducts.length > 0 ? sortedProducts[0] : null;
 
+  const howToSchema = generateHowToSchema({
+    title: 'How to Compare CBD Product Costs',
+    description: 'Calculate and compare the true cost per mg of CBD across different products to find the best value for your money.',
+    steps: [
+      {
+        name: 'Select Your Currency',
+        text: 'Choose your local currency from the dropdown. The calculator supports EUR, GBP, USD, and many other currencies.'
+      },
+      {
+        name: 'Enter Product Details',
+        text: 'Input the product name, price, and total CBD content (in mg or grams) for each product you want to compare.'
+      },
+      {
+        name: 'Add Product Size',
+        text: 'Enter the bottle size in ml for oils or the count for gummies/capsules. This helps calculate cost per serving.'
+      },
+      {
+        name: 'Add to Comparison',
+        text: 'Click Add to Comparison to add the product. Repeat for each product you want to compare (up to 4 products).'
+      },
+      {
+        name: 'Review Results',
+        text: 'View the ranked comparison showing cost per mg, monthly costs, and potential savings. The best value product is highlighted.'
+      }
+    ],
+    totalTime: 'PT5M'
+  });
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
