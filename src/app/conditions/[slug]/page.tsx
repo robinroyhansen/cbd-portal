@@ -162,40 +162,52 @@ export default async function ConditionPage({ params }: Props) {
 
   if (!condition) notFound();
 
-  // Fetch research matching any of the condition's topic_keywords
-  // Note: Database only has relevant_topics array, no primary_topic column
+  // Prepare query parameters
   const keywords = condition.topic_keywords || [slug];
-  const { data: research } = await supabase
-    .from('kb_research_queue')
-    .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, plain_summary')
-    .eq('status', 'approved')
-    .overlaps('relevant_topics', keywords)
-    .order('quality_score', { ascending: false })
-    .limit(8);
+  const articleFilter = `condition_slug.eq.${slug},title.ilike.%${condition.name}%`;
 
-  // Get article count first
-  const { count: totalArticleCount } = await supabase
-    .from('kb_articles')
-    .select('id', { count: 'exact', head: true })
-    .or(`condition_slug.eq.${slug},title.ilike.%${condition.name}%`)
-    .eq('status', 'published');
+  // Run all data queries in parallel for better performance
+  const [
+    researchResult,
+    articleCountResult,
+    articlesResult,
+    relatedConditionsResult
+  ] = await Promise.all([
+    // Fetch research matching any of the condition's topic_keywords
+    supabase
+      .from('kb_research_queue')
+      .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, plain_summary')
+      .eq('status', 'approved')
+      .overlaps('relevant_topics', keywords)
+      .order('quality_score', { ascending: false })
+      .limit(8),
 
-  const { data: articles } = await supabase
-    .from('kb_articles')
-    .select('id, title, slug, excerpt, featured_image, published_at, reading_time')
-    .or(`condition_slug.eq.${slug},title.ilike.%${condition.name}%`)
-    .eq('status', 'published')
-    .order('published_at', { ascending: false })
-    .limit(12);
+    // Get article count
+    supabase
+      .from('kb_articles')
+      .select('id', { count: 'exact', head: true })
+      .or(articleFilter)
+      .eq('status', 'published'),
 
-  // Get related conditions with translations
-  let relatedConditions: Array<{ slug: string; name: string; display_name?: string; short_description?: string; research_count?: number; category?: string }> = [];
-  if (condition.related_condition_slugs && condition.related_condition_slugs.length > 0) {
-    relatedConditions = await getRelatedConditionsWithTranslations(
-      condition.related_condition_slugs,
-      lang as LanguageCode
-    );
-  }
+    // Get articles
+    supabase
+      .from('kb_articles')
+      .select('id, title, slug, excerpt, featured_image, published_at, reading_time')
+      .or(articleFilter)
+      .eq('status', 'published')
+      .order('published_at', { ascending: false })
+      .limit(12),
+
+    // Get related conditions with translations
+    condition.related_condition_slugs && condition.related_condition_slugs.length > 0
+      ? getRelatedConditionsWithTranslations(condition.related_condition_slugs, lang as LanguageCode)
+      : Promise.resolve([])
+  ]);
+
+  const research = researchResult.data;
+  const totalArticleCount = articleCountResult.count;
+  const articles = articlesResult.data;
+  const relatedConditions = relatedConditionsResult;
 
   const evidence = getEvidenceStrength(condition.research_count || 0);
   const categoryIcon = CATEGORY_ICONS[condition.category] || CATEGORY_ICONS.other;

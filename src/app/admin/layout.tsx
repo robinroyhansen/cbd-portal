@@ -54,6 +54,7 @@ function getNavItems(queueCounts: QueueCounts): NavItem[] {
       subItems: [
         { name: 'All Articles', href: '/admin/articles', icon: '📋' },
         { name: 'Create Article', href: '/admin/articles/new', icon: '➕' },
+        { name: 'Scheduler', href: '/admin/scheduler', icon: '📅' },
         { name: 'Categories', href: '/admin/categories', icon: '🏷️' },
         { name: 'Comments', href: '/admin/articles/comments', icon: '💬' },
         { name: 'Authors', href: '/admin/authors', icon: '👤' },
@@ -84,7 +85,15 @@ function getNavItems(queueCounts: QueueCounts): NavItem[] {
     },
     { name: 'Glossary', href: '/admin/glossary', icon: '📖' },
     { name: 'Media Library', href: '/admin/media', icon: '🖼️' },
-    { name: 'Languages', href: '/admin/languages', icon: '🌍' },
+    {
+      name: 'Languages',
+      href: '/admin/languages',
+      icon: '🌍',
+      subItems: [
+        { name: 'Overview', href: '/admin/languages', icon: '🗂️' },
+        { name: 'Translations', href: '/admin/translations', icon: '🔄' },
+      ]
+    },
     { name: 'Activity Log', href: '/admin/activity', icon: '📋' },
   ];
 }
@@ -95,7 +104,7 @@ function AdminLayoutInner({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const [expandedItems, setExpandedItems] = useState<string[]>(['Articles', 'Research', 'Reviews']);
+  const [expandedItems, setExpandedItems] = useState<string[]>(['Articles', 'Research', 'Reviews', 'Languages']);
   const queueCounts = useQueueCounts();
 
   const navItems = getNavItems(queueCounts);

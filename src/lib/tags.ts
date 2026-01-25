@@ -40,7 +40,8 @@ export async function getAllTags(): Promise<Tag[]> {
   const { data } = await supabase
     .from('kb_tags')
     .select('id, name, slug, color, article_count')
-    .order('name');
+    .order('name')
+    .limit(500); // Reasonable limit for tags
 
   return data || [];
 }

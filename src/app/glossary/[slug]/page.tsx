@@ -156,79 +156,86 @@ export default async function GlossaryTermPage({ params }: Props) {
 
   if (!term) notFound();
 
-  // Fetch author separately if author_id exists
-  let author = null;
-  if (term.author_id) {
-    const { data: authorData } = await supabase
-      .from('kb_authors')
-      .select('id, name, slug, title, avatar_url')
-      .eq('id', term.author_id)
-      .single();
-    author = authorData;
-  }
+  // Determine query flags early
+  const isCannnabinoid = CANNABINOID_SLUGS.includes(slug) || term.category === 'cannabinoids';
+  const isCondition = term.category === 'conditions';
 
-  // Get related terms with translations
-  let relatedTerms: { term: string; display_name: string; slug: string; short_definition: string; category: string }[] = [];
-  if (term.related_terms && term.related_terms.length > 0) {
-    relatedTerms = await getRelatedGlossaryTermsWithTranslations(
-      term.related_terms,
-      lang as LanguageCode
-    );
-  }
+  // Run independent queries in parallel for better performance
+  const [
+    authorResult,
+    relatedTermsResult,
+    categoryTermsResult,
+    relatedArticlesResult,
+    researchCountResult,
+    allTermsResult
+  ] = await Promise.all([
+    // Fetch author if exists
+    term.author_id
+      ? supabase
+          .from('kb_authors')
+          .select('id, name, slug, title, avatar_url')
+          .eq('id', term.author_id)
+          .single()
+      : Promise.resolve({ data: null }),
 
-  // Get more terms from same category if not enough related
-  if (relatedTerms.length < 4) {
-    const { data: categoryTerms } = await supabase
+    // Get related terms with translations
+    term.related_terms && term.related_terms.length > 0
+      ? getRelatedGlossaryTermsWithTranslations(term.related_terms, lang as LanguageCode)
+      : Promise.resolve([]),
+
+    // Get category terms for fallback
+    supabase
       .from('kb_glossary')
       .select('id, term, slug, category')
       .eq('category', term.category)
       .neq('slug', slug)
-      .limit(6 - relatedTerms.length);
+      .limit(6),
 
-    if (categoryTerms && categoryTerms.length > 0) {
-      const additionalSlugs = categoryTerms
-        .filter(t => !relatedTerms.some(rt => rt.slug === t.slug))
-        .map(t => t.slug);
+    // Get articles that reference this term
+    supabase
+      .from('kb_articles')
+      .select('title, slug')
+      .eq('status', 'published')
+      .eq('language', 'en')
+      .or(`content.ilike.%${term.term}%,title.ilike.%${term.term}%`)
+      .limit(5),
 
-      if (additionalSlugs.length > 0) {
-        const additionalTerms = await getRelatedGlossaryTermsWithTranslations(
-          additionalSlugs,
-          lang as LanguageCode
-        );
-        relatedTerms = [...relatedTerms, ...additionalTerms];
-      }
+    // Check for related research (only for cannabinoids/conditions)
+    isCannnabinoid || isCondition
+      ? supabase
+          .from('kb_research_queue')
+          .select('*', { count: 'exact', head: true })
+          .eq('status', 'approved')
+          .or(`title.ilike.%${term.term}%,abstract.ilike.%${term.term}%`)
+      : Promise.resolve({ count: 0 }),
+
+    // Fetch all glossary terms for auto-linking definitions
+    supabase
+      .from('kb_glossary')
+      .select('term, display_name, slug, synonyms')
+  ]);
+
+  const author = authorResult.data;
+  let relatedTerms = Array.isArray(relatedTermsResult) ? relatedTermsResult : [];
+  const relatedArticles = relatedArticlesResult.data;
+  const researchCount = researchCountResult.count || 0;
+  const allTermsForLinking = allTermsResult.data || [];
+
+  // Get more terms from same category if not enough related
+  if (relatedTerms.length < 4 && categoryTermsResult.data && categoryTermsResult.data.length > 0) {
+    const additionalSlugs = categoryTermsResult.data
+      .filter((t: { slug: string }) => !relatedTerms.some((rt: { slug: string }) => rt.slug === t.slug))
+      .slice(0, 6 - relatedTerms.length)
+      .map((t: { slug: string }) => t.slug);
+
+    if (additionalSlugs.length > 0) {
+      const additionalTerms = await getRelatedGlossaryTermsWithTranslations(
+        additionalSlugs,
+        lang as LanguageCode
+      );
+      relatedTerms = [...relatedTerms, ...additionalTerms];
     }
   }
-
-  // Get articles that reference this term
-  const { data: relatedArticles } = await supabase
-    .from('kb_articles')
-    .select('title, slug')
-    .eq('status', 'published')
-    .eq('language', 'en')
-    .or(`content.ilike.%${term.term}%,title.ilike.%${term.term}%`)
-    .limit(5);
-
-  // Check for related research
-  let researchCount = 0;
-  const isCannnabinoid = CANNABINOID_SLUGS.includes(slug) || term.category === 'cannabinoids';
-  const isCondition = term.category === 'conditions';
-
-  if (isCannnabinoid || isCondition) {
-    const { count } = await supabase
-      .from('kb_research_queue')
-      .select('*', { count: 'exact', head: true })
-      .eq('status', 'approved')
-      .or(`title.ilike.%${term.term}%,abstract.ilike.%${term.term}%`);
-    researchCount = count || 0;
-  }
-
-  // Fetch all glossary terms for auto-linking definitions
-  const { data: allTermsData } = await supabase
-    .from('kb_glossary')
-    .select('term, display_name, slug, synonyms');
-
-  const allTermsForLinking = allTermsData || [];
 
   // Check if this term should show dosage calculator link
   const DOSING_RELATED_SLUGS = ['bioavailability', 'titration', 'microdosing', 'sublingual', 'half-life', 'onset-time'];

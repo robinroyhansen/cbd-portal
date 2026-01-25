@@ -16,7 +16,8 @@ export const getGlossaryTermsForLinking = cache(
     const { data, error } = await supabase
       .from('kb_glossary')
       .select('term, slug, short_definition, synonyms')
-      .order('term');
+      .order('term')
+      .limit(1000); // Reasonable limit for glossary terms
 
     if (error) {
       console.error('Error fetching glossary terms:', error);

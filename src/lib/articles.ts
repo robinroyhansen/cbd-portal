@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 
-export async function getArticles(language: string = 'en') {
+export async function getArticles(language: string = 'en', limit: number = 100) {
   const supabase = await createClient();
 
   const { data, error } = await supabase
@@ -10,7 +10,8 @@ export async function getArticles(language: string = 'en') {
       category:kb_categories(name, slug)
     `)
     .eq('status', 'published')
-    .order('published_at', { ascending: false });
+    .order('published_at', { ascending: false })
+    .limit(limit);
 
   return { data, error };
 }

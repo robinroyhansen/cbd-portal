@@ -100,16 +100,18 @@ export async function getConditionWithTranslation(
  * Fetch all conditions with translations applied
  */
 export async function getConditionsWithTranslations(
-  language: LanguageCode
+  language: LanguageCode,
+  limit: number = 500
 ): Promise<TranslatedCondition[]> {
   const supabase = await createClient();
 
-  // Fetch all published conditions
+  // Fetch all published conditions with reasonable limit
   const { data: conditions, error } = await supabase
     .from('kb_conditions')
     .select('id, slug, name, display_name, short_description, meta_title_template, meta_description_template, category, research_count, is_featured, topic_keywords, display_order')
     .eq('is_published', true)
-    .order('display_order', { ascending: true });
+    .order('display_order', { ascending: true })
+    .limit(limit);
 
   if (error || !conditions) return [];
 
@@ -222,15 +224,17 @@ export async function getGlossaryTermWithTranslation(
  * Fetch all glossary terms with translations applied
  */
 export async function getGlossaryTermsWithTranslations(
-  language: LanguageCode
+  language: LanguageCode,
+  limit: number = 1000
 ): Promise<TranslatedGlossaryTerm[]> {
   const supabase = await createClient();
 
-  // Fetch all terms
+  // Fetch all terms with reasonable limit
   const { data: terms, error } = await supabase
     .from('kb_glossary')
     .select('id, slug, term, definition, short_definition, category, synonyms, pronunciation, related_terms, view_count')
-    .order('term', { ascending: true });
+    .order('term', { ascending: true })
+    .limit(limit);
 
   if (error || !terms) return [];
 
