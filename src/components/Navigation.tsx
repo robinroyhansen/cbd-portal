@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { SearchBar } from './SearchBar';
 import { useNavigationContext } from './NavigationWrapper';
+import { MobileLanguageSwitcher } from './MobileLanguageSwitcher';
 
 interface NavChild {
   label: string;
@@ -146,7 +147,11 @@ const NAV_ITEMS: NavItem[] = [
   }
 ];
 
-export function Navigation() {
+interface NavigationProps {
+  currentLang?: string;
+}
+
+export function Navigation({ currentLang = 'en' }: NavigationProps) {
   const { isMobileMenuOpen, setIsMobileMenuOpen } = useNavigationContext();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -523,6 +528,12 @@ export function Navigation() {
             </div>
           ))}
         </nav>
+
+        {/* Mobile Language Switcher */}
+        <MobileLanguageSwitcher
+          currentLang={currentLang}
+          onClose={() => setIsMobileMenuOpen(false)}
+        />
 
         {/* Mobile Menu Footer */}
         <div className="border-t bg-gray-50 p-4 flex-shrink-0">

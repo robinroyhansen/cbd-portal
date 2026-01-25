@@ -91,7 +91,7 @@ export default async function RootLayout({
         </a>
         <LocaleProvider locale={locale} lang={lang as LanguageCode}>
           <NavigationProvider>
-            <Navigation />
+            <Navigation currentLang={lang} />
             <main id="main-content" className="flex-1">{children}</main>
             <Footer currentLang={lang} />
             <MobileBottomNav />
