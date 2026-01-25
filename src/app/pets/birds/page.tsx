@@ -3,14 +3,15 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { PET_CATEGORY_META, categorizePetArticles } from '@/lib/pets';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
-export const metadata: Metadata = {
-  title: 'CBD for Birds | Parrots, Finches & Avian Guide | CBD Portal',
-  description: 'CBD guides for birds: anxiety, feather plucking, stress, and more. Avian-specific safety information and dosing guidance for parrots and pet birds.',
-  alternates: {
-    canonical: '/pets/birds',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'CBD for Birds | Parrots, Finches & Avian Guide | CBD Portal',
+    description: 'CBD guides for birds: anxiety, feather plucking, stress, and more. Avian-specific safety information and dosing guidance for parrots and pet birds.',
+    alternates: getHreflangAlternates('/pets/birds'),
+  };
+}
 
 export default async function BirdsPage() {
   const supabase = await createClient();

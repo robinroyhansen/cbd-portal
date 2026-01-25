@@ -3,14 +3,15 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { PET_CATEGORIES, categorizePetArticles, getPetCategoryStats, PetType } from '@/lib/pets';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
-export const metadata: Metadata = {
-  title: 'CBD for Pets | Complete Guide for Dogs, Cats, Horses & More | CBD Portal',
-  description: 'Comprehensive CBD guides for pets: 78+ articles and 40+ conditions covering dogs, cats, horses, birds, and small animals. Dosage calculators, safety info, and veterinary perspectives.',
-  alternates: {
-    canonical: '/pets',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'CBD for Pets | Complete Guide for Dogs, Cats, Horses & More | CBD Portal',
+    description: 'Comprehensive CBD guides for pets: 78+ articles and 40+ conditions covering dogs, cats, horses, birds, and small animals. Dosage calculators, safety info, and veterinary perspectives.',
+    alternates: getHreflangAlternates('/pets'),
+  };
+}
 
 interface Condition {
   slug: string;

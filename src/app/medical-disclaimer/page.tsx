@@ -1,12 +1,13 @@
 import { Metadata } from 'next';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
-export const metadata: Metadata = {
-  title: 'Medical Disclaimer | CBD Portal',
-  description: 'Important medical disclaimer regarding CBD information.',
-  alternates: {
-    canonical: '/medical-disclaimer',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Medical Disclaimer | CBD Portal',
+    description: 'Important medical disclaimer regarding CBD information.',
+    alternates: getHreflangAlternates('/medical-disclaimer'),
+  };
+}
 
 export default function MedicalDisclaimerPage() {
   const lastUpdated = 'January 1, 2025';

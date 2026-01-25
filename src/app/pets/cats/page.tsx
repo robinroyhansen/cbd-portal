@@ -3,14 +3,15 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { PET_CATEGORY_META, categorizePetArticles } from '@/lib/pets';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
-export const metadata: Metadata = {
-  title: 'CBD for Cats | Complete Feline Guide | CBD Portal',
-  description: 'Comprehensive CBD guides for cats: anxiety, arthritis, kidney support, hyperthyroidism, and more. Cat-specific safety information and vet-approved dosing guidelines.',
-  alternates: {
-    canonical: '/pets/cats',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'CBD for Cats | Complete Feline Guide | CBD Portal',
+    description: 'Comprehensive CBD guides for cats: anxiety, arthritis, kidney support, hyperthyroidism, and more. Cat-specific safety information and vet-approved dosing guidelines.',
+    alternates: getHreflangAlternates('/pets/cats'),
+  };
+}
 
 export default async function CatsPage() {
   const supabase = await createClient();

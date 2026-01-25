@@ -1,12 +1,13 @@
 import { Metadata } from 'next';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
-export const metadata: Metadata = {
-  title: 'Contact Us | CBD Portal',
-  description: 'Get in touch with the CBD Portal team.',
-  alternates: {
-    canonical: '/contact',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Contact Us | CBD Portal',
+    description: 'Get in touch with the CBD Portal team.',
+    alternates: getHreflangAlternates('/contact'),
+  };
+}
 
 export default function ContactPage() {
   return (

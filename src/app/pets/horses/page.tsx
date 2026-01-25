@@ -3,14 +3,15 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { PET_CATEGORY_META, categorizePetArticles } from '@/lib/pets';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
-export const metadata: Metadata = {
-  title: 'CBD for Horses | Complete Equine Guide | CBD Portal',
-  description: 'Comprehensive CBD guides for horses: performance anxiety, ulcers, laminitis, navicular, and more. Equine-specific dosing and competition regulations.',
-  alternates: {
-    canonical: '/pets/horses',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'CBD for Horses | Complete Equine Guide | CBD Portal',
+    description: 'Comprehensive CBD guides for horses: performance anxiety, ulcers, laminitis, navicular, and more. Equine-specific dosing and competition regulations.',
+    alternates: getHreflangAlternates('/pets/horses'),
+  };
+}
 
 export default async function HorsesPage() {
   const supabase = await createClient();

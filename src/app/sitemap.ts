@@ -1,7 +1,38 @@
 import { MetadataRoute } from 'next';
 import { createClient } from '@supabase/supabase-js';
+import { LANGUAGE_DOMAINS } from '@/lib/hreflang';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cbd-portal.vercel.app';
+
+// Generate language alternates for a given path
+function getLanguageAlternates(path: string): Record<string, string> {
+  const cleanPath = path === '/' ? '' : path;
+  const alternates: Record<string, string> = {};
+
+  for (const [lang, domain] of Object.entries(LANGUAGE_DOMAINS)) {
+    alternates[lang] = `https://${domain}${cleanPath}`;
+  }
+
+  return alternates;
+}
+
+// Create a sitemap entry with language alternates
+function createSitemapEntry(
+  path: string,
+  lastModified: Date,
+  changeFrequency: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never',
+  priority: number
+): MetadataRoute.Sitemap[0] {
+  return {
+    url: `${SITE_URL}${path}`,
+    lastModified,
+    changeFrequency,
+    priority,
+    alternates: {
+      languages: getLanguageAlternates(path),
+    },
+  };
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Use service role client to bypass RLS for sitemap generation
@@ -10,46 +41,59 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     process.env.SUPABASE_SERVICE_ROLE_KEY!
   );
 
-  // Static pages
+  const now = new Date();
+
+  // Static pages with language alternates
   const staticPages: MetadataRoute.Sitemap = [
-    { url: SITE_URL, lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },
-    { url: `${SITE_URL}/conditions`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.95 },
-    { url: `${SITE_URL}/research`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
-    { url: `${SITE_URL}/research/methodology`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${SITE_URL}/glossary`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${SITE_URL}/reviews`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE_URL}/reviews/methodology`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${SITE_URL}/articles`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${SITE_URL}/categories`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
-    { url: `${SITE_URL}/authors`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
-    { url: `${SITE_URL}/tags`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.5 },
-    { url: `${SITE_URL}/tools`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${SITE_URL}/tools/dosage-calculator`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${SITE_URL}/tools/animal-dosage-calculator`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${SITE_URL}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
-    { url: `${SITE_URL}/contact`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.4 },
-    { url: `${SITE_URL}/search`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
-    { url: `${SITE_URL}/privacy-policy`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${SITE_URL}/terms-of-service`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${SITE_URL}/cookie-policy`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${SITE_URL}/editorial-policy`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.4 },
-    { url: `${SITE_URL}/medical-disclaimer`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.4 },
+    createSitemapEntry('/', now, 'daily', 1.0),
+    createSitemapEntry('/conditions', now, 'daily', 0.95),
+    createSitemapEntry('/research', now, 'daily', 0.9),
+    createSitemapEntry('/research/methodology', now, 'monthly', 0.6),
+    createSitemapEntry('/glossary', now, 'weekly', 0.8),
+    createSitemapEntry('/reviews', now, 'weekly', 0.9),
+    createSitemapEntry('/reviews/methodology', now, 'monthly', 0.6),
+    createSitemapEntry('/articles', now, 'weekly', 0.8),
+    createSitemapEntry('/categories', now, 'weekly', 0.7),
+    createSitemapEntry('/authors', now, 'monthly', 0.5),
+    createSitemapEntry('/tags', now, 'weekly', 0.5),
+    createSitemapEntry('/tools', now, 'monthly', 0.7),
+    createSitemapEntry('/tools/dosage-calculator', now, 'monthly', 0.8),
+    createSitemapEntry('/tools/animal-dosage-calculator', now, 'monthly', 0.7),
+    createSitemapEntry('/tools/interactions', now, 'monthly', 0.8),
+    createSitemapEntry('/tools/cost-calculator', now, 'monthly', 0.7),
+    createSitemapEntry('/tools/strength-calculator', now, 'monthly', 0.7),
+    createSitemapEntry('/pets', now, 'weekly', 0.8),
+    createSitemapEntry('/pets/dogs', now, 'weekly', 0.7),
+    createSitemapEntry('/pets/cats', now, 'weekly', 0.7),
+    createSitemapEntry('/pets/horses', now, 'weekly', 0.6),
+    createSitemapEntry('/pets/birds', now, 'weekly', 0.6),
+    createSitemapEntry('/pets/small-pets', now, 'weekly', 0.6),
+    createSitemapEntry('/about', now, 'monthly', 0.5),
+    createSitemapEntry('/contact', now, 'yearly', 0.4),
+    createSitemapEntry('/search', now, 'monthly', 0.5),
+    createSitemapEntry('/privacy-policy', now, 'yearly', 0.3),
+    createSitemapEntry('/terms-of-service', now, 'yearly', 0.3),
+    createSitemapEntry('/cookie-policy', now, 'yearly', 0.3),
+    createSitemapEntry('/editorial-policy', now, 'yearly', 0.4),
+    createSitemapEntry('/medical-disclaimer', now, 'yearly', 0.4),
   ];
 
-  // Health conditions (~312)
+  // Health conditions (~312) with language alternates
   const { data: conditions } = await supabase
     .from('kb_conditions')
     .select('slug, updated_at')
     .eq('is_published', true);
 
-  const conditionPages: MetadataRoute.Sitemap = (conditions || []).map(condition => ({
-    url: `${SITE_URL}/conditions/${condition.slug}`,
-    lastModified: condition.updated_at ? new Date(condition.updated_at) : new Date(),
-    changeFrequency: 'weekly',
-    priority: 0.85,
-  }));
+  const conditionPages: MetadataRoute.Sitemap = (conditions || []).map(condition =>
+    createSitemapEntry(
+      `/conditions/${condition.slug}`,
+      condition.updated_at ? new Date(condition.updated_at) : now,
+      'weekly',
+      0.85
+    )
+  );
 
-  // Research studies (~698)
+  // Research studies (~698) - no language alternates needed for study pages
   const { data: studies } = await supabase
     .from('kb_research_queue')
     .select('slug')
@@ -58,34 +102,33 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const studyPages: MetadataRoute.Sitemap = (studies || []).map(study => ({
     url: `${SITE_URL}/research/study/${study.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly',
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
 
-  // Glossary terms (~262) with last modified dates
+  // Glossary terms (~262) with language alternates
   const { data: glossaryTerms } = await supabase
     .from('kb_glossary')
     .select('slug, updated_at');
 
-  const glossaryPages: MetadataRoute.Sitemap = (glossaryTerms || []).map(term => ({
-    url: `${SITE_URL}/glossary/${term.slug}`,
-    lastModified: term.updated_at ? new Date(term.updated_at) : new Date(),
-    changeFrequency: 'monthly',
-    priority: 0.6,
-  }));
+  const glossaryPages: MetadataRoute.Sitemap = (glossaryTerms || []).map(term =>
+    createSitemapEntry(
+      `/glossary/${term.slug}`,
+      term.updated_at ? new Date(term.updated_at) : now,
+      'monthly',
+      0.6
+    )
+  );
 
-  // Glossary category pages (high SEO value)
+  // Glossary category pages with language alternates
   const glossaryCategories = [
     'cannabinoids', 'terpenes', 'products', 'extraction', 'science',
     'research', 'side-effects', 'conditions', 'testing', 'legal', 'dosing', 'plant'
   ];
-  const glossaryCategoryPages: MetadataRoute.Sitemap = glossaryCategories.map(category => ({
-    url: `${SITE_URL}/glossary/category/${category}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly',
-    priority: 0.7,
-  }));
+  const glossaryCategoryPages: MetadataRoute.Sitemap = glossaryCategories.map(category =>
+    createSitemapEntry(`/glossary/category/${category}`, now, 'weekly', 0.7)
+  );
 
   // Brand reviews (published brands)
   const { data: brands } = await supabase
@@ -93,50 +136,38 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .select('slug')
     .eq('is_published', true);
 
-  const reviewPages: MetadataRoute.Sitemap = (brands || []).map(brand => ({
-    url: `${SITE_URL}/reviews/${brand.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly',
-    priority: 0.8,
-  }));
+  const reviewPages: MetadataRoute.Sitemap = (brands || []).map(brand =>
+    createSitemapEntry(`/reviews/${brand.slug}`, now, 'weekly', 0.8)
+  );
 
-  // Articles
+  // Articles with language alternates
   const { data: articles } = await supabase
     .from('kb_articles')
     .select('slug')
     .eq('status', 'published');
 
-  const articlePages: MetadataRoute.Sitemap = (articles || []).map(article => ({
-    url: `${SITE_URL}/articles/${article.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly',
-    priority: 0.7,
-  }));
+  const articlePages: MetadataRoute.Sitemap = (articles || []).map(article =>
+    createSitemapEntry(`/articles/${article.slug}`, now, 'monthly', 0.7)
+  );
 
-  // Categories
+  // Categories with language alternates
   const { data: categories } = await supabase
     .from('kb_categories')
     .select('slug');
 
-  const categoryPages: MetadataRoute.Sitemap = (categories || []).map(category => ({
-    url: `${SITE_URL}/categories/${category.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly',
-    priority: 0.6,
-  }));
+  const categoryPages: MetadataRoute.Sitemap = (categories || []).map(category =>
+    createSitemapEntry(`/categories/${category.slug}`, now, 'weekly', 0.6)
+  );
 
-  // Authors
+  // Authors with language alternates
   const { data: authors } = await supabase
     .from('kb_authors')
     .select('slug')
     .eq('is_active', true);
 
-  const authorPages: MetadataRoute.Sitemap = (authors || []).map(author => ({
-    url: `${SITE_URL}/authors/${author.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly',
-    priority: 0.5,
-  }));
+  const authorPages: MetadataRoute.Sitemap = (authors || []).map(author =>
+    createSitemapEntry(`/authors/${author.slug}`, now, 'monthly', 0.5)
+  );
 
   // Health topics (research condition pages)
   const { data: topics } = await supabase
@@ -151,24 +182,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   });
 
-  const topicPages: MetadataRoute.Sitemap = Array.from(uniqueTopics).map(topic => ({
-    url: `${SITE_URL}/research/${encodeURIComponent(topic.toLowerCase().replace(/\s+/g, '-'))}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly',
-    priority: 0.8,
-  }));
+  const topicPages: MetadataRoute.Sitemap = Array.from(uniqueTopics).map(topic =>
+    createSitemapEntry(
+      `/research/${encodeURIComponent(topic.toLowerCase().replace(/\s+/g, '-'))}`,
+      now,
+      'weekly',
+      0.8
+    )
+  );
 
   // Tags
   const { data: tags } = await supabase
     .from('kb_tags')
     .select('slug');
 
-  const tagPages: MetadataRoute.Sitemap = (tags || []).map(tag => ({
-    url: `${SITE_URL}/tags/${tag.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly',
-    priority: 0.4,
-  }));
+  const tagPages: MetadataRoute.Sitemap = (tags || []).map(tag =>
+    createSitemapEntry(`/tags/${tag.slug}`, now, 'weekly', 0.4)
+  );
 
   // Combine all pages
   return [

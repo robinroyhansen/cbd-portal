@@ -1,4 +1,14 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
+import { getHreflangAlternates } from '@/components/HreflangTags';
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'CBD Tools & Calculators | Dosage, Interactions, Cost',
+    description: 'Evidence-based CBD tools including dosage calculator, drug interaction checker, cost calculator, and strength converter. Get personalized recommendations.',
+    alternates: getHreflangAlternates('/tools'),
+  };
+}
 
 const tools = [
   {

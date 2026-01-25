@@ -4,12 +4,16 @@ import { headers } from 'next/headers';
 import { getArticles, getCategories } from '@/lib/articles';
 import { getLanguageFromHostname } from '@/lib/language';
 import { ArticlesHub } from '@/components/articles/ArticlesHub';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
-export const metadata: Metadata = {
-  title: 'CBD Articles & Guides | Evidence-Based Information',
-  description:
-    'Browse our complete collection of evidence-based articles about CBD, cannabidiol research, dosage guides, and wellness information.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'CBD Articles & Guides | Evidence-Based Information',
+    description:
+      'Browse our complete collection of evidence-based articles about CBD, cannabidiol research, dosage guides, and wellness information.',
+    alternates: getHreflangAlternates('/articles'),
+  };
+}
 
 export default async function ArticlesPage() {
   // Get hostname from headers to detect language

@@ -1,12 +1,13 @@
 import { Metadata } from 'next';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy | CBD Portal',
-  description: 'Learn how CBD Portal collects, uses, and protects your information.',
-  alternates: {
-    canonical: '/privacy-policy',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Privacy Policy | CBD Portal',
+    description: 'Learn how CBD Portal collects, uses, and protects your information.',
+    alternates: getHreflangAlternates('/privacy-policy'),
+  };
+}
 
 export default function PrivacyPolicyPage() {
   const lastUpdated = 'January 1, 2025';

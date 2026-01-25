@@ -1,14 +1,15 @@
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
-export const metadata: Metadata = {
-  title: 'Our Expert Authors | CBD Portal',
-  description: 'Meet our team of CBD industry experts and researchers.',
-  alternates: {
-    canonical: '/authors',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Our Expert Authors | CBD Portal',
+    description: 'Meet our team of CBD industry experts and researchers.',
+    alternates: getHreflangAlternates('/authors'),
+  };
+}
 
 interface Author {
   id: string;

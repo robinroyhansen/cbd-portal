@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { SearchForm } from '@/components/SearchForm';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
 interface Props {
   searchParams: Promise<{ q?: string }>;
@@ -12,9 +13,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   return {
     title: q ? `Search: ${q} | CBD Portal` : 'Search | CBD Portal',
     description: 'Search CBD Portal for articles, research studies, glossary terms, and more.',
-    alternates: {
-      canonical: '/search',
-    },
+    alternates: getHreflangAlternates('/search'),
   };
 }
 

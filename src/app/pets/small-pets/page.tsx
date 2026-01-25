@@ -3,14 +3,15 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { PET_CATEGORY_META, categorizePetArticles } from '@/lib/pets';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
-export const metadata: Metadata = {
-  title: 'CBD for Small Pets | Rabbits, Ferrets, Guinea Pigs & More | CBD Portal',
-  description: 'CBD guides for small animals: rabbits, guinea pigs, ferrets, hamsters, and more. Precise dosing guidance and safety information for tiny companions.',
-  alternates: {
-    canonical: '/pets/small-pets',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'CBD for Small Pets | Rabbits, Ferrets, Guinea Pigs & More | CBD Portal',
+    description: 'CBD guides for small animals: rabbits, guinea pigs, ferrets, hamsters, and more. Precise dosing guidance and safety information for tiny companions.',
+    alternates: getHreflangAlternates('/pets/small-pets'),
+  };
+}
 
 export default async function SmallPetsPage() {
   const supabase = await createClient();

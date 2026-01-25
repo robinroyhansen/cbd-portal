@@ -1,14 +1,15 @@
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
-export const metadata: Metadata = {
-  title: 'About CBD Portal | Evidence-Based CBD Information',
-  description: 'CBD Portal provides evidence-based CBD information written by industry experts.',
-  alternates: {
-    canonical: '/about',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'About CBD Portal | Evidence-Based CBD Information',
+    description: 'CBD Portal provides evidence-based CBD information written by industry experts.',
+    alternates: getHreflangAlternates('/about'),
+  };
+}
 
 export default async function AboutPage() {
   const supabase = await createClient();

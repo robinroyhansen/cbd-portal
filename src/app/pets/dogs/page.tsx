@@ -3,14 +3,15 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { PET_CATEGORY_META, categorizePetArticles } from '@/lib/pets';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
-export const metadata: Metadata = {
-  title: 'CBD for Dogs | Complete Canine Guide | CBD Portal',
-  description: 'Comprehensive CBD guides for dogs: anxiety, pain relief, seizures, hip dysplasia, and more. Vet-guided dosing, safety information, and research-backed recommendations.',
-  alternates: {
-    canonical: '/pets/dogs',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'CBD for Dogs | Complete Canine Guide | CBD Portal',
+    description: 'Comprehensive CBD guides for dogs: anxiety, pain relief, seizures, hip dysplasia, and more. Vet-guided dosing, safety information, and research-backed recommendations.',
+    alternates: getHreflangAlternates('/pets/dogs'),
+  };
+}
 
 export default async function DogsPage() {
   const supabase = await createClient();

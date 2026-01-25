@@ -1,14 +1,15 @@
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
-export const metadata: Metadata = {
-  title: 'Browse Topics | CBD Portal',
-  description: 'Explore our comprehensive CBD knowledge base. Browse articles on CBD basics, products, guides, science, cannabinoids, terpenes, pet CBD, and more.',
-  alternates: {
-    canonical: '/categories',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Browse Topics | CBD Portal',
+    description: 'Explore our comprehensive CBD knowledge base. Browse articles on CBD basics, products, guides, science, cannabinoids, terpenes, pet CBD, and more.',
+    alternates: getHreflangAlternates('/categories'),
+  };
+}
 
 // Category configuration with styling and organization
 const CATEGORY_CONFIG: Record<string, {

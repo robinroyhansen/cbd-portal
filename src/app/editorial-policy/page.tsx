@@ -1,13 +1,14 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
-export const metadata: Metadata = {
-  title: 'Editorial Policy | CBD Portal',
-  description: 'Learn about CBD Portal editorial standards and research methodology.',
-  alternates: {
-    canonical: '/editorial-policy',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Editorial Policy | CBD Portal',
+    description: 'Learn about CBD Portal editorial standards and research methodology.',
+    alternates: getHreflangAlternates('/editorial-policy'),
+  };
+}
 
 export default function EditorialPolicyPage() {
   return (

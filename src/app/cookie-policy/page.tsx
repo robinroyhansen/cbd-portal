@@ -1,12 +1,13 @@
 import { Metadata } from 'next';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
-export const metadata: Metadata = {
-  title: 'Cookie Policy | CBD Portal',
-  description: 'Information about how CBD Portal uses cookies.',
-  alternates: {
-    canonical: '/cookie-policy',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Cookie Policy | CBD Portal',
+    description: 'Information about how CBD Portal uses cookies.',
+    alternates: getHreflangAlternates('/cookie-policy'),
+  };
+}
 
 export default function CookiePolicyPage() {
   const lastUpdated = 'January 1, 2025';

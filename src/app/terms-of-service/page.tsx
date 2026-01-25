@@ -1,12 +1,13 @@
 import { Metadata } from 'next';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
-export const metadata: Metadata = {
-  title: 'Terms of Service | CBD Portal',
-  description: 'Terms and conditions for using CBD Portal.',
-  alternates: {
-    canonical: '/terms-of-service',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Terms of Service | CBD Portal',
+    description: 'Terms and conditions for using CBD Portal.',
+    alternates: getHreflangAlternates('/terms-of-service'),
+  };
+}
 
 export default function TermsOfServicePage() {
   const lastUpdated = 'January 1, 2025';

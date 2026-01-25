@@ -1,38 +1,76 @@
 // Domain to default language mapping
 const domainToLanguage: Record<string, string> = {
+  // Primary English domains
+  'cbdportal.com': 'en',
+  'www.cbdportal.com': 'en',
   'swissorganic.co.uk': 'en',
   'cbd-portal.vercel.app': 'en',
+  'localhost': 'en',
+  // Scandinavia
   'cbd.dk': 'da',
+  'www.cbd.dk': 'da',
   'cbd.se': 'sv',
+  'www.cbd.se': 'sv',
   'cbd.no': 'no',
+  'www.cbd.no': 'no',
   'cbd.fi': 'fi',
+  'www.cbd.fi': 'fi',
+  // Central Europe
   'cbd.de': 'de',
+  'www.cbd.de': 'de',
   'cbd.it': 'it',
+  'www.cbd.it': 'it',
   'cbd.pt': 'pt',
-  'cbdportaal.nl': 'nl',
+  'www.cbd.pt': 'pt',
   'cbdportail.fr': 'fr',
-  'cbdportal.ro': 'ro',
+  'www.cbdportail.fr': 'fr',
+  'cbdportaal.nl': 'nl',
+  'www.cbdportaal.nl': 'nl',
+  // Southern Europe
   'cbdportal.es': 'es',
+  'www.cbdportal.es': 'es',
+  'cbdportal.ro': 'ro',
+  'www.cbdportal.ro': 'ro',
+  // Switzerland (multi-language)
   'cbdportal.ch': 'de-CH',
-  'localhost': 'en'
+  'www.cbdportal.ch': 'de-CH',
 };
 
 const logoMap: Record<string, string> = {
+  // English
+  'cbdportal.com': 'CBDportal.com',
+  'www.cbdportal.com': 'CBDportal.com',
   'swissorganic.co.uk': 'CBD.uk',
   'cbd-portal.vercel.app': 'CBD Portal',
+  'localhost': 'CBD Portal',
+  // Scandinavia
   'cbd.dk': 'CBD.dk',
+  'www.cbd.dk': 'CBD.dk',
   'cbd.se': 'CBD.se',
+  'www.cbd.se': 'CBD.se',
   'cbd.no': 'CBD.no',
+  'www.cbd.no': 'CBD.no',
   'cbd.fi': 'CBD.fi',
+  'www.cbd.fi': 'CBD.fi',
+  // Central Europe
   'cbd.de': 'CBD.de',
+  'www.cbd.de': 'CBD.de',
   'cbd.it': 'CBD.it',
+  'www.cbd.it': 'CBD.it',
   'cbd.pt': 'CBD.pt',
-  'cbdportaal.nl': 'CBDportaal.nl',
+  'www.cbd.pt': 'CBD.pt',
   'cbdportail.fr': 'CBDportail.fr',
-  'cbdportal.ro': 'CBDportal.ro',
+  'www.cbdportail.fr': 'CBDportail.fr',
+  'cbdportaal.nl': 'CBDportaal.nl',
+  'www.cbdportaal.nl': 'CBDportaal.nl',
+  // Southern Europe
   'cbdportal.es': 'CBDportal.es',
+  'www.cbdportal.es': 'CBDportal.es',
+  'cbdportal.ro': 'CBDportal.ro',
+  'www.cbdportal.ro': 'CBDportal.ro',
+  // Switzerland
   'cbdportal.ch': 'CBDportal.ch',
-  'localhost': 'CBD Portal'
+  'www.cbdportal.ch': 'CBDportal.ch',
 };
 
 // Swiss language detection from browser
