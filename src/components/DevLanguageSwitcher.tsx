@@ -19,6 +19,10 @@ const LANGUAGES: Language[] = [
   { code: 'fi', name: 'Suomi', flag: '🇫🇮' },
   { code: 'fr', name: 'Français', flag: '🇫🇷' },
   { code: 'it', name: 'Italiano', flag: '🇮🇹' },
+  // Swiss variants (cbdportal.ch)
+  { code: 'de-CH', name: 'Schweizerdeutsch', flag: '🇨🇭' },
+  { code: 'fr-CH', name: 'Français (CH)', flag: '🇨🇭' },
+  { code: 'it-CH', name: 'Italiano (CH)', flag: '🇨🇭' },
 ];
 
 /**
@@ -83,22 +87,29 @@ export function DevLanguageSwitcher() {
               <p className="text-xs text-slate-500 font-medium">Dev Language Switcher</p>
             </div>
             <div className="max-h-64 overflow-y-auto">
-              {LANGUAGES.map((lang) => (
-                <button
-                  key={lang.code}
-                  onClick={() => handleLanguageChange(lang.code)}
-                  className={`w-full flex items-center gap-3 px-4 py-2.5 text-left hover:bg-slate-50 transition-colors ${
-                    currentLang === lang.code ? 'bg-emerald-50 text-emerald-700' : 'text-slate-700'
-                  }`}
-                >
-                  <span className="text-lg">{lang.flag}</span>
-                  <span className="text-sm font-medium">{lang.name}</span>
-                  {currentLang === lang.code && (
-                    <svg className="w-4 h-4 ml-auto text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
+              {LANGUAGES.map((lang, index) => (
+                <div key={lang.code}>
+                  {/* Add separator before Swiss variants */}
+                  {lang.code === 'de-CH' && (
+                    <div className="px-3 py-1.5 bg-slate-50 border-y border-slate-200">
+                      <p className="text-xs text-slate-500">Switzerland (cbdportal.ch)</p>
+                    </div>
                   )}
-                </button>
+                  <button
+                    onClick={() => handleLanguageChange(lang.code)}
+                    className={`w-full flex items-center gap-3 px-4 py-2.5 text-left hover:bg-slate-50 transition-colors ${
+                      currentLang === lang.code ? 'bg-emerald-50 text-emerald-700' : 'text-slate-700'
+                    }`}
+                  >
+                    <span className="text-lg">{lang.flag}</span>
+                    <span className="text-sm font-medium">{lang.name}</span>
+                    {currentLang === lang.code && (
+                      <svg className="w-4 h-4 ml-auto text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    )}
+                  </button>
+                </div>
               ))}
             </div>
           </div>

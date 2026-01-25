@@ -7,6 +7,10 @@ import nlLocale from './nl.json';
 import fiLocale from './fi.json';
 import frLocale from './fr.json';
 import itLocale from './it.json';
+// Swiss variants
+import deCHLocale from './de-CH.json';
+import frCHLocale from './fr-CH.json';
+import itCHLocale from './it-CH.json';
 import type { LanguageCode } from '@/lib/translation-service';
 
 // Type for the locale structure
@@ -44,6 +48,10 @@ const localeCache: Partial<Record<LanguageCode, LocaleStrings>> = {
   fi: fiLocale,
   fr: frLocale,
   it: itLocale,
+  // Swiss variants
+  'de-CH': deCHLocale,
+  'fr-CH': frCHLocale,
+  'it-CH': itCHLocale,
 };
 
 /**
@@ -122,14 +130,12 @@ export function createTranslator(locale: LocaleStrings) {
  * Get all available locales that have been loaded/generated
  */
 export function getAvailableLocales(): LanguageCode[] {
-  // This will be updated as we generate locale files
-  const available: LanguageCode[] = ['en', 'da', 'sv', 'no', 'de', 'nl', 'fi', 'fr', 'it'];
+  // All available locale files including Swiss variants
+  const available: LanguageCode[] = [
+    'en', 'da', 'sv', 'no', 'de', 'nl', 'fi', 'fr', 'it',
+    'de-CH', 'fr-CH', 'it-CH'
+  ];
 
-  // Check which locale files exist (at build time this is known)
-  const possibleLocales: LanguageCode[] = ['da', 'sv', 'no', 'de', 'nl', 'fi', 'fr', 'it'];
-
-  // In a real scenario, you'd check file existence
-  // For now, return what we know exists
   return available;
 }
 
