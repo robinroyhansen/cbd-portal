@@ -9,13 +9,30 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
+async function getAllRows(table: string): Promise<{ language: string }[]> {
+  let allData: { language: string }[] = [];
+  let offset = 0;
+  const pageSize = 1000;
+  while (true) {
+    const { data } = await supabase
+      .from(table)
+      .select("language")
+      .range(offset, offset + pageSize - 1);
+    if (!data || data.length === 0) break;
+    allData = allData.concat(data);
+    if (data.length < pageSize) break;
+    offset += pageSize;
+  }
+  return allData;
+}
+
 async function main() {
   console.log("=== TRANSLATION VALIDATION ===\n");
 
-  // Condition translations breakdown
-  const { data: condData } = await supabase.from("condition_translations").select("language");
+  // Condition translations breakdown with pagination
+  const condData = await getAllRows("condition_translations");
   const condByLang: Record<string, number> = {};
-  condData?.forEach(row => { condByLang[row.language] = (condByLang[row.language] || 0) + 1; });
+  condData.forEach(row => { condByLang[row.language] = (condByLang[row.language] || 0) + 1; });
 
   console.log("CONDITION TRANSLATIONS BY LANGUAGE:");
   let condTotal = 0;
@@ -25,10 +42,10 @@ async function main() {
   });
   console.log(`  TOTAL: ${condTotal}`);
 
-  // Glossary translations breakdown
-  const { data: glossData } = await supabase.from("glossary_translations").select("language");
+  // Glossary translations breakdown with pagination
+  const glossData = await getAllRows("glossary_translations");
   const glossByLang: Record<string, number> = {};
-  glossData?.forEach(row => { glossByLang[row.language] = (glossByLang[row.language] || 0) + 1; });
+  glossData.forEach(row => { glossByLang[row.language] = (glossByLang[row.language] || 0) + 1; });
 
   console.log("\nGLOSSARY TRANSLATIONS BY LANGUAGE:");
   let glossTotal = 0;
