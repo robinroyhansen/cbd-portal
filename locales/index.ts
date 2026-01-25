@@ -7,6 +7,7 @@ import nlLocale from './nl.json';
 import fiLocale from './fi.json';
 import frLocale from './fr.json';
 import itLocale from './it.json';
+import ptLocale from './pt.json';
 // Swiss variants
 import deCHLocale from './de-CH.json';
 import frCHLocale from './fr-CH.json';
@@ -48,6 +49,7 @@ const localeCache: Partial<Record<LanguageCode, LocaleStrings>> = {
   fi: fiLocale,
   fr: frLocale,
   it: itLocale,
+  pt: ptLocale,
   // Swiss variants
   'de-CH': deCHLocale,
   'fr-CH': frCHLocale,
@@ -132,7 +134,7 @@ export function createTranslator(locale: LocaleStrings) {
 export function getAvailableLocales(): LanguageCode[] {
   // All available locale files including Swiss variants
   const available: LanguageCode[] = [
-    'en', 'da', 'sv', 'no', 'de', 'nl', 'fi', 'fr', 'it',
+    'en', 'da', 'sv', 'no', 'de', 'nl', 'fi', 'fr', 'it', 'pt',
     'de-CH', 'fr-CH', 'it-CH'
   ];
 

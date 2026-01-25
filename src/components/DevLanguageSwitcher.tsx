@@ -19,6 +19,7 @@ const LANGUAGES: Language[] = [
   { code: 'fi', name: 'Suomi', flag: '🇫🇮' },
   { code: 'fr', name: 'Français', flag: '🇫🇷' },
   { code: 'it', name: 'Italiano', flag: '🇮🇹' },
+  { code: 'pt', name: 'Português', flag: '🇵🇹' },
   // Swiss variants (cbdportal.ch)
   { code: 'de-CH', name: 'Schweizerdeutsch', flag: '🇨🇭' },
   { code: 'fr-CH', name: 'Français (CH)', flag: '🇨🇭' },

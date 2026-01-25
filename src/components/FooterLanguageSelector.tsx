@@ -24,6 +24,7 @@ const LANGUAGE_SITES: LanguageSite[] = [
   { code: 'nl', domain: 'cbdportaal.nl', displayName: 'CBDportaal.nl', flag: '🇳🇱', region: 'central-europe' },
   { code: 'fr', domain: 'cbdportail.fr', displayName: 'CBDportail.fr', flag: '🇫🇷', region: 'central-europe' },
   { code: 'it', domain: 'cbd.it', displayName: 'CBD.it', flag: '🇮🇹', region: 'central-europe' },
+  { code: 'pt', domain: 'cbd.pt', displayName: 'CBD.pt', flag: '🇵🇹', region: 'central-europe' },
 
   // Switzerland (single domain, multiple languages)
   { code: 'de-CH', domain: 'cbdportal.ch', displayName: 'CBDportal.ch', flag: '🇨🇭', region: 'switzerland' },

@@ -21,6 +21,7 @@ export const LANGUAGE_DOMAINS: Record<string, string> = {
   nl: 'cbdportaal.nl',
   fr: 'cbdportail.fr',
   it: 'cbd.it',
+  pt: 'cbd.pt',
   'de-CH': 'cbdportal.ch',
   'fr-CH': 'cbdportal.ch',
   'it-CH': 'cbdportal.ch',
