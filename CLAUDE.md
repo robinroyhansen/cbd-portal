@@ -16,6 +16,70 @@ CBD educational portal built with Next.js 14, Supabase, and TailwindCSS. Feature
 
 ---
 
+## Multi-Language Support
+
+The portal supports 8 European languages with domain-based routing. Each language has its own domain.
+
+### Languages & Domains
+
+| Code | Language | Domain | Priority |
+|------|----------|--------|----------|
+| en | English | cbd-portal.vercel.app | Primary |
+| da | Danish | cbd.dk | High |
+| sv | Swedish | cbd.se | High |
+| no | Norwegian | cbd.no | High |
+| de | German | cbd.de | High |
+| nl | Dutch | cbdportaal.nl | Medium |
+| fi | Finnish | cbd.fi | Medium |
+| fr | French | cbdportail.fr | Medium |
+| it | Italian | cbd.it | Medium |
+
+**Swiss Variants** (on cbdportal.ch):
+- de-CH (Swiss German)
+- fr-CH (Swiss French)
+- it-CH (Swiss Italian)
+
+### Translation Status
+
+| Content Type | Count | Status |
+|--------------|-------|--------|
+| Conditions | 312 × 8 = 2,496 | 100% translated |
+| Glossary Terms | 263 × 8 = 2,104 | 100% translated |
+| UI Strings | 8 locale files | 100% translated |
+
+### Translation Tables
+
+- `condition_translations` - Translated condition names and descriptions
+- `glossary_translations` - Translated glossary terms and definitions
+- `article_translations` - Translated article content (future)
+
+### Key Files
+
+- `locales/*.json` - UI string translations (da, sv, no, de, nl, fi, fr, it)
+- `src/lib/language.ts` - Domain-based language detection
+- `src/lib/translation-service.ts` - Claude API translation service
+- `src/components/LocaleProvider.tsx` - React context for translations
+- `src/hooks/useLocale.ts` - Translation hook for components
+- `scripts/translate-content.ts` - Batch translation script
+
+### Translation Scripts
+
+```bash
+# Translate conditions to all languages
+npx tsx scripts/translate-content.ts --type=conditions --lang=all
+
+# Translate glossary to specific languages
+npx tsx scripts/translate-content.ts --type=glossary --lang=da,sv,no
+
+# Check translation coverage
+npx tsx scripts/check-counts.ts
+
+# Find missing translations
+npx tsx scripts/find-missing.ts
+```
+
+---
+
 ## IMPORTANT: DOCUMENTATION RULES
 
 ### Before Writing Condition Articles
@@ -56,7 +120,7 @@ CBD educational portal built with Next.js 14, Supabase, and TailwindCSS. Feature
 
 ---
 
-## CURRENT STATE (January 21, 2026)
+## CURRENT STATE (January 25, 2026)
 
 ### Research Database
 - **4000+ approved studies** in `kb_research_queue`
@@ -65,23 +129,32 @@ CBD educational portal built with Next.js 14, Supabase, and TailwindCSS. Feature
 - **106 search keywords** across all therapeutic areas
 
 ### Content Production
-- **39 medical conditions** in `kb_conditions` with SEO templates
-- **251 glossary terms** in `kb_glossary_terms`
+- **312 medical conditions** in `kb_conditions` with SEO templates
+- **263 glossary terms** in `kb_glossary`
 - **Condition article spec v1.1** — Ready for article production
 - **Evidence-tiered system** — Article length (600-2,400 words) based on research depth
+
+### Multi-Language System
+- **8 European languages** fully supported (da, sv, no, de, nl, fi, fr, it)
+- **2,496 condition translations** (312 × 8 languages)
+- **2,104 glossary translations** (263 × 8 languages)
+- **8 UI locale files** with all interface strings translated
+- **Domain-based routing** ready for cbd.dk, cbd.se, cbd.no, etc.
 
 ### Database Tables
 - **kb_conditions**: Medical conditions with SEO templates (foundation for programmatic pages)
 - **kb_articles**: Articles linked to conditions with FAQ schema, RLS policies, full-text search
 - **kb_research_queue**: Research studies with quality/relevance scores, topics, study_subject
 - **kb_scan_jobs**: Scanner job tracking with pause/resume support
-- **kb_glossary_terms**: Glossary definitions for auto-linking
+- **kb_glossary**: Glossary definitions for auto-linking
+- **condition_translations**: Translated condition content (8 languages)
+- **glossary_translations**: Translated glossary terms (8 languages)
 
 ### Recent Updates
-- Added condition article documentation system (v1.1)
-- Hybrid citation strategy (internal links + PubMed/DOI)
-- Evidence strength rating methodology
-- "My Take" author perspective section for E-E-A-T
+- Multi-language translation system (8 European languages)
+- Domain-based language routing infrastructure
+- AI-powered batch translation via Claude API
+- LocaleProvider and useLocale hook for React components
 
 ---
 
@@ -257,6 +330,34 @@ Anxiety, depression, PTSD, sleep, epilepsy, chronic_pain, neuropathic_pain, arth
 ---
 
 ## SESSION LOG
+
+### January 25, 2026 - Multi-Language Translation System
+
+**Implemented:**
+- Complete translation system for 8 European languages
+- Domain-based routing infrastructure (cbd.dk, cbd.se, cbd.no, etc.)
+- AI-powered translation via Claude API (claude-3-haiku)
+- LocaleProvider context and useLocale hook
+
+**Translation Coverage:**
+- Conditions: 2,496/2,496 (100%)
+- Glossary: 2,104/2,104 (100%)
+- UI Strings: 8 locale JSON files
+
+**Key Files Created:**
+- `locales/*.json` - UI translations for all 8 languages
+- `src/components/LocaleProvider.tsx` - React context provider
+- `src/hooks/useLocale.ts` - Translation hook
+- `scripts/translate-content.ts` - Batch translation script
+- `scripts/validate-translations.ts` - Coverage checker
+- `scripts/check-counts.ts` - Quick count verification
+- `scripts/find-missing.ts` - Find missing translations
+
+**Database Tables Added:**
+- `condition_translations` - Condition name/description translations
+- `glossary_translations` - Glossary term translations
+
+---
 
 ### January 18, 2026 - Content Documentation System
 
