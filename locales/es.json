@@ -154,6 +154,14 @@
     "insufficient": "Evidencia Insuficiente",
     "clinicallyProven": "Clínicamente probado"
   },
+  "conditions": {
+    "anxiety": "Ansiedad",
+    "sleep": "Sueño & Insomnio",
+    "chronicPain": "Dolor crónico",
+    "depression": "Depresión",
+    "epilepsy": "Epilepsia",
+    "inflammation": "Inflamación"
+  },
   "research": {
     "title": "Últimos Estudios",
     "sectionLabel": "Base de Datos de Investigación",

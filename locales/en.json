@@ -147,6 +147,14 @@
     "glossaryTerms": "Glossary Terms",
     "articlesPublished": "Articles Published"
   },
+  "conditions": {
+    "anxiety": "Anxiety",
+    "sleep": "Sleep & Insomnia",
+    "chronicPain": "Chronic Pain",
+    "depression": "Depression",
+    "epilepsy": "Epilepsy",
+    "inflammation": "Inflammation"
+  },
   "evidence": {
     "strong": "Strong Evidence",
     "moderate": "Moderate Evidence",

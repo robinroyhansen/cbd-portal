@@ -154,6 +154,14 @@
     "insufficient": "Onvoldoende bewijs",
     "clinicallyProven": "Klinisch bewezen"
   },
+  "conditions": {
+    "anxiety": "Angst",
+    "sleep": "Slaap & Slapeloosheid",
+    "chronicPain": "Chronische pijn",
+    "depression": "Depressie",
+    "epilepsy": "Epilepsie",
+    "inflammation": "Ontsteking"
+  },
   "research": {
     "title": "Meest recente studies",
     "sectionLabel": "Onderzoeksdatabase",

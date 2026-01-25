@@ -154,6 +154,14 @@
     "insufficient": "Utilstrekkelig bevis",
     "clinicallyProven": "Klinisk bevist"
   },
+  "conditions": {
+    "anxiety": "Angst",
+    "sleep": "Søvn & Søvnløshet",
+    "chronicPain": "Kronisk smerte",
+    "depression": "Depresjon",
+    "epilepsy": "Epilepsi",
+    "inflammation": "Betennelse"
+  },
   "research": {
     "title": "Nyeste studier",
     "sectionLabel": "Forskningsdatabase",

@@ -154,6 +154,14 @@
     "insufficient": "Otillräckliga belägg",
     "clinicallyProven": "Kliniskt bevisat"
   },
+  "conditions": {
+    "anxiety": "Ångest",
+    "sleep": "Sömn & Sömnlöshet",
+    "chronicPain": "Kronisk smärta",
+    "depression": "Depression",
+    "epilepsy": "Epilepsi",
+    "inflammation": "Inflammation"
+  },
   "research": {
     "title": "Senaste studier",
     "sectionLabel": "Forskningsdatabas",

@@ -154,6 +154,14 @@
     "insufficient": "Dovezi Insuficiente",
     "clinicallyProven": "Dovedit clinic"
   },
+  "conditions": {
+    "anxiety": "Anxietate",
+    "sleep": "Somn & Insomnie",
+    "chronicPain": "Durere cronică",
+    "depression": "Depresie",
+    "epilepsy": "Epilepsie",
+    "inflammation": "Inflamație"
+  },
   "research": {
     "title": "Cele Mai Recente Studii",
     "sectionLabel": "Baza de Date Cercetare",

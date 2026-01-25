@@ -147,6 +147,14 @@
     "glossaryTerms": "Ordlistevilkår",
     "articlesPublished": "Publicerede artikler"
   },
+  "conditions": {
+    "anxiety": "Angst",
+    "sleep": "Søvn & Søvnløshed",
+    "chronicPain": "Kronisk smerte",
+    "depression": "Depression",
+    "epilepsy": "Epilepsi",
+    "inflammation": "Inflammation"
+  },
   "evidence": {
     "strong": "Stærk evidens",
     "moderate": "Moderat evidens",

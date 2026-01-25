@@ -1,17 +1,18 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { SearchBar } from './SearchBar';
 import { useNavigationContext } from './NavigationWrapper';
 import { MobileLanguageSwitcher } from './MobileLanguageSwitcher';
+import { useLocale } from '@/hooks/useLocale';
 
 interface NavChild {
   label: string;
   href: string;
   description?: string;
   icon?: string;
-  researchHref?: string; // Link to filtered research database
+  researchHref?: string;
 }
 
 interface NavItem {
@@ -26,127 +27,6 @@ interface NavItem {
   };
 }
 
-const NAV_ITEMS: NavItem[] = [
-  {
-    label: 'Health Topics',
-    href: '/conditions',
-    icon: '🏥',
-    megaMenu: {
-      featured: [
-        { label: 'Anxiety', href: '/conditions/anxiety', description: '353 studies', icon: '😰', researchHref: '/research/anxiety' },
-        { label: 'Sleep & Insomnia', href: '/conditions/sleep', description: '287 studies', icon: '😴', researchHref: '/research/sleep' },
-        { label: 'Chronic Pain', href: '/conditions/chronic_pain', description: '412 studies', icon: '💪', researchHref: '/research/chronic_pain' },
-        { label: 'Depression', href: '/conditions/depression', description: '198 studies', icon: '😔', researchHref: '/research/depression' },
-        { label: 'Epilepsy', href: '/conditions/epilepsy', description: 'Clinically proven', icon: '⚡', researchHref: '/research/epilepsy' },
-        { label: 'Inflammation', href: '/conditions/inflammation', description: '267 studies', icon: '🔥', researchHref: '/research/inflammation' },
-      ],
-      categories: [
-        {
-          title: 'Browse by Body System',
-          items: [
-            { label: 'Mental Health', href: '/conditions?category=mental_health', icon: '🧠' },
-            { label: 'Pain & Discomfort', href: '/conditions?category=pain', icon: '💪' },
-            { label: 'Neurological', href: '/conditions?category=neurological', icon: '⚡' },
-            { label: 'Digestive Health', href: '/conditions?category=gastrointestinal', icon: '🍃' },
-            { label: 'Skin Conditions', href: '/conditions?category=skin', icon: '✨' },
-            { label: 'Cardiovascular', href: '/conditions?category=cardiovascular', icon: '❤️' },
-          ]
-        }
-      ],
-      footer: { label: 'View all 300+ conditions', href: '/conditions' }
-    }
-  },
-  {
-    label: 'Learn',
-    href: '/articles',
-    icon: '📚',
-    megaMenu: {
-      featured: [
-        { label: 'CBD Basics', href: '/categories/cbd-basics', description: 'Start here if you\'re new', icon: '🌱' },
-        { label: 'Science & Research', href: '/categories/science', description: 'How cannabinoids work', icon: '🔬' },
-        { label: 'Guides & How-To', href: '/categories/guides', description: 'Practical advice', icon: '📖' },
-        { label: 'Products & Formats', href: '/categories/products', description: 'Oils, capsules, topicals', icon: '💊' },
-        { label: 'Legal & Safety', href: '/categories/legal', description: 'Regulations and safety', icon: '⚖️' },
-      ],
-      categories: [
-        {
-          title: 'Quick Access',
-          items: [
-            { label: 'Glossary', href: '/glossary', description: '263 terms defined', icon: '📖' },
-            { label: 'All Articles', href: '/articles', description: '1,000+ articles', icon: '📄' },
-            { label: 'Our Authors', href: '/authors', description: 'Meet our experts', icon: '👨‍⚕️' },
-          ]
-        }
-      ],
-      footer: { label: 'Browse all articles', href: '/articles' }
-    }
-  },
-  {
-    label: 'Research',
-    href: '/research',
-    icon: '🔬'
-  },
-  {
-    label: 'Tools',
-    href: '/tools',
-    icon: '🧮',
-    megaMenu: {
-      featured: [
-        { label: 'CBD Dosage Calculator', href: '/tools/dosage-calculator', description: 'Personalized recommendations', icon: '💊' },
-        { label: 'Drug Interaction Checker', href: '/tools/interactions', description: 'Check CBD-medication safety', icon: '⚠️' },
-        { label: 'CBD Cost Calculator', href: '/tools/cost-calculator', description: 'Compare price per mg', icon: '💰' },
-        { label: 'Strength Calculator', href: '/tools/strength-calculator', description: 'Convert mg/ml & percentages', icon: '📊' },
-      ],
-      categories: [
-        {
-          title: 'Coming Soon',
-          items: [
-            { label: 'Product Comparison Tool', href: '/tools', description: 'Compare CBD products', icon: '📋' },
-            { label: 'Lab Report Decoder', href: '/tools', description: 'Understand COAs', icon: '🔍' },
-            { label: 'Tolerance Calculator', href: '/tools', description: 'Track your usage', icon: '📈' },
-          ]
-        }
-      ],
-      footer: { label: 'View all tools', href: '/tools' }
-    }
-  },
-  {
-    label: 'Pets',
-    href: '/pets',
-    icon: '🐾',
-    megaMenu: {
-      featured: [
-        { label: 'Dogs', href: '/pets/dogs', description: 'Anxiety, pain, seizures & more', icon: '🐕' },
-        { label: 'Cats', href: '/pets/cats', description: 'Arthritis, anxiety, kidney health', icon: '🐈' },
-        { label: 'Horses', href: '/pets/horses', description: 'Performance, ulcers, laminitis', icon: '🐴' },
-        { label: 'Small Pets', href: '/pets/small-pets', description: 'Rabbits, ferrets, hamsters', icon: '🐰' },
-        { label: 'Birds', href: '/pets/birds', description: 'Parrots, anxiety, feather plucking', icon: '🦜' },
-      ],
-      categories: [
-        {
-          title: 'Pet Tools',
-          items: [
-            { label: 'Pet Dosage Calculator', href: '/tools/animal-dosage-calculator', description: 'Vet-guided dosing', icon: '💊' },
-          ]
-        },
-        {
-          title: 'Quick Links',
-          items: [
-            { label: 'All Pet Articles', href: '/pets', description: '78+ guides', icon: '📄' },
-            { label: 'Pet Research', href: '/research?topic=veterinary', description: 'Scientific studies', icon: '🔬' },
-          ]
-        }
-      ],
-      footer: { label: 'View all pet guides', href: '/pets' }
-    }
-  },
-  {
-    label: 'Reviews',
-    href: '/reviews',
-    icon: '⭐'
-  }
-];
-
 interface NavigationProps {
   currentLang?: string;
 }
@@ -156,6 +36,129 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
+  const { t } = useLocale();
+
+  // Build navigation items with translations
+  const NAV_ITEMS: NavItem[] = useMemo(() => [
+    {
+      label: t('nav.healthTopics'),
+      href: '/conditions',
+      icon: '🏥',
+      megaMenu: {
+        featured: [
+          { label: t('conditions.anxiety') || 'Anxiety', href: '/conditions/anxiety', description: `353 ${t('common.studies')}`, icon: '😰', researchHref: '/research/anxiety' },
+          { label: t('conditions.sleep') || 'Sleep & Insomnia', href: '/conditions/sleep', description: `287 ${t('common.studies')}`, icon: '😴', researchHref: '/research/sleep' },
+          { label: t('conditions.chronicPain') || 'Chronic Pain', href: '/conditions/chronic_pain', description: `412 ${t('common.studies')}`, icon: '💪', researchHref: '/research/chronic_pain' },
+          { label: t('conditions.depression') || 'Depression', href: '/conditions/depression', description: `198 ${t('common.studies')}`, icon: '😔', researchHref: '/research/depression' },
+          { label: t('conditions.epilepsy') || 'Epilepsy', href: '/conditions/epilepsy', description: t('evidence.clinicallyProven'), icon: '⚡', researchHref: '/research/epilepsy' },
+          { label: t('conditions.inflammation') || 'Inflammation', href: '/conditions/inflammation', description: `267 ${t('common.studies')}`, icon: '🔥', researchHref: '/research/inflammation' },
+        ],
+        categories: [
+          {
+            title: t('nav.browseByBodySystem'),
+            items: [
+              { label: t('navCategories.mentalHealth'), href: '/conditions?category=mental_health', icon: '🧠' },
+              { label: t('navCategories.painDiscomfort'), href: '/conditions?category=pain', icon: '💪' },
+              { label: t('navCategories.neurological'), href: '/conditions?category=neurological', icon: '⚡' },
+              { label: t('navCategories.digestiveHealth'), href: '/conditions?category=gastrointestinal', icon: '🍃' },
+              { label: t('navCategories.skinConditions'), href: '/conditions?category=skin', icon: '✨' },
+              { label: t('navCategories.cardiovascular'), href: '/conditions?category=cardiovascular', icon: '❤️' },
+            ]
+          }
+        ],
+        footer: { label: t('nav.viewAllConditions'), href: '/conditions' }
+      }
+    },
+    {
+      label: t('nav.learn'),
+      href: '/articles',
+      icon: '📚',
+      megaMenu: {
+        featured: [
+          { label: t('navLearn.cbdBasics'), href: '/categories/cbd-basics', description: t('navLearn.cbdBasicsDesc'), icon: '🌱' },
+          { label: t('navLearn.scienceResearch'), href: '/categories/science', description: t('navLearn.scienceResearchDesc'), icon: '🔬' },
+          { label: t('navLearn.guidesHowTo'), href: '/categories/guides', description: t('navLearn.guidesHowToDesc'), icon: '📖' },
+          { label: t('navLearn.productsFormats'), href: '/categories/products', description: t('navLearn.productsFormatsDesc'), icon: '💊' },
+          { label: t('navLearn.legalSafety'), href: '/categories/legal', description: t('navLearn.legalSafetyDesc'), icon: '⚖️' },
+        ],
+        categories: [
+          {
+            title: t('nav.quickAccess'),
+            items: [
+              { label: t('nav.glossary'), href: '/glossary', description: t('navLearn.termsDefinedCount', { count: '263' }), icon: '📖' },
+              { label: t('nav.allArticles'), href: '/articles', description: t('navLearn.articlesCount', { count: '1,000' }), icon: '📄' },
+              { label: t('nav.authors'), href: '/authors', description: t('navLearn.meetExperts'), icon: '👨‍⚕️' },
+            ]
+          }
+        ],
+        footer: { label: t('nav.viewAllArticles'), href: '/articles' }
+      }
+    },
+    {
+      label: t('nav.research'),
+      href: '/research',
+      icon: '🔬'
+    },
+    {
+      label: t('nav.tools'),
+      href: '/tools',
+      icon: '🧮',
+      megaMenu: {
+        featured: [
+          { label: t('navTools.dosageCalculator'), href: '/tools/dosage-calculator', description: t('navTools.dosageCalculatorDesc'), icon: '💊' },
+          { label: t('navTools.interactionChecker'), href: '/tools/interactions', description: t('navTools.interactionCheckerDesc'), icon: '⚠️' },
+          { label: t('navTools.costCalculator'), href: '/tools/cost-calculator', description: t('navTools.costCalculatorDesc'), icon: '💰' },
+          { label: t('navTools.strengthCalculator'), href: '/tools/strength-calculator', description: t('navTools.strengthCalculatorDesc'), icon: '📊' },
+        ],
+        categories: [
+          {
+            title: t('nav.comingSoon'),
+            items: [
+              { label: t('navTools.productComparison'), href: '/tools', description: t('navTools.productComparisonDesc'), icon: '📋' },
+              { label: t('navTools.labReportDecoder'), href: '/tools', description: t('navTools.labReportDecoderDesc'), icon: '🔍' },
+              { label: t('navTools.toleranceCalculator'), href: '/tools', description: t('navTools.toleranceCalculatorDesc'), icon: '📈' },
+            ]
+          }
+        ],
+        footer: { label: t('nav.viewAllTools'), href: '/tools' }
+      }
+    },
+    {
+      label: t('nav.pets'),
+      href: '/pets',
+      icon: '🐾',
+      megaMenu: {
+        featured: [
+          { label: t('navPets.dogs'), href: '/pets/dogs', description: t('navPets.dogsDesc'), icon: '🐕' },
+          { label: t('navPets.cats'), href: '/pets/cats', description: t('navPets.catsDesc'), icon: '🐈' },
+          { label: t('navPets.horses'), href: '/pets/horses', description: t('navPets.horsesDesc'), icon: '🐴' },
+          { label: t('navPets.smallPets'), href: '/pets/small-pets', description: t('navPets.smallPetsDesc'), icon: '🐰' },
+          { label: t('navPets.birds'), href: '/pets/birds', description: t('navPets.birdsDesc'), icon: '🦜' },
+        ],
+        categories: [
+          {
+            title: t('nav.petTools'),
+            items: [
+              { label: t('navPets.petDosageCalculator'), href: '/tools/animal-dosage-calculator', description: t('navPets.petDosageCalculatorDesc'), icon: '💊' },
+            ]
+          },
+          {
+            title: t('nav.quickLinks'),
+            items: [
+              { label: t('navPets.allPetArticles'), href: '/pets', description: t('navPets.allPetArticlesCount', { count: '78' }), icon: '📄' },
+              { label: t('navPets.petResearch'), href: '/research?topic=veterinary', description: t('navPets.petResearchDesc'), icon: '🔬' },
+            ]
+          }
+        ],
+        footer: { label: t('nav.viewAllPetGuides'), href: '/pets' }
+      }
+    },
+    {
+      label: t('nav.reviews'),
+      href: '/reviews',
+      icon: '⭐'
+    }
+  ], [t]);
 
   // Check if mobile on mount and resize
   useEffect(() => {
@@ -179,6 +182,12 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
     return pathname.startsWith(href);
   };
 
+  // Helper to get column header based on nav item
+  const getColumnHeader = (itemLabel: string) => {
+    if (itemLabel === t('nav.healthTopics')) return t('nav.popularConditions');
+    return t('nav.categories');
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4">
@@ -186,13 +195,13 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 flex-shrink-0">
             <span className="text-2xl">🌿</span>
-            <span className="font-bold text-xl text-gray-900">CBD Portal</span>
+            <span className="font-bold text-xl text-gray-900">{t('meta.siteName')}</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
             {NAV_ITEMS.map((item) => (
-              <div key={item.label} className="relative group">
+              <div key={item.href} className="relative group">
                 {item.megaMenu ? (
                   <>
                     <button
@@ -224,7 +233,7 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
                         {item.megaMenu.featured && (
                           <div className="p-4 border-r border-gray-100">
                             <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
-                              {item.label === 'Health Topics' ? 'Popular Conditions' : 'Categories'}
+                              {getColumnHeader(item.label)}
                             </h3>
                             <div className="space-y-1">
                               {item.megaMenu.featured.map((child) => (
@@ -331,7 +340,7 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
           <Link
             href="/search"
             className="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
-            aria-label="Search"
+            aria-label={t('common.search')}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -342,7 +351,7 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
-            aria-label="Toggle menu"
+            aria-label={t('nav.toggleMenu')}
           >
             {isMobileMenuOpen ? (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -373,7 +382,7 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
       >
         {/* Mobile Menu Header */}
         <div className="flex items-center justify-between p-4 border-b">
-          <span className="font-bold text-lg text-gray-900">Menu</span>
+          <span className="font-bold text-lg text-gray-900">{t('common.menu')}</span>
           <button
             onClick={() => setIsMobileMenuOpen(false)}
             className="p-2 rounded-lg text-gray-500 hover:bg-gray-100"
@@ -394,14 +403,14 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-            <span>Search CBD Portal...</span>
+            <span>{t('common.searchPlaceholder')}</span>
           </Link>
         </div>
 
         {/* Mobile Navigation Links */}
         <nav className="p-4 pb-20 flex-1 overflow-y-auto">
           {NAV_ITEMS.map((item) => (
-            <div key={item.label} className="mb-2">
+            <div key={item.href} className="mb-2">
               {item.megaMenu ? (
                 <div>
                   <button
@@ -543,28 +552,28 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
               className="px-3 py-2 text-center text-gray-600 hover:text-gray-900 rounded-lg hover:bg-white"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              About Us
+              {t('nav.about')}
             </Link>
             <Link
               href="/contact"
               className="px-3 py-2 text-center text-gray-600 hover:text-gray-900 rounded-lg hover:bg-white"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Contact
+              {t('nav.contact')}
             </Link>
             <Link
               href="/authors"
               className="px-3 py-2 text-center text-gray-600 hover:text-gray-900 rounded-lg hover:bg-white"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Our Experts
+              {t('nav.ourExperts')}
             </Link>
             <Link
               href="/editorial-policy"
               className="px-3 py-2 text-center text-gray-600 hover:text-gray-900 rounded-lg hover:bg-white"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Editorial Policy
+              {t('nav.editorialPolicy')}
             </Link>
           </div>
         </div>

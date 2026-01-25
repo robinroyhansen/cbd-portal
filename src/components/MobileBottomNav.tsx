@@ -1,8 +1,9 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useNavigationContext } from './NavigationWrapper';
+import { useLocale } from '@/hooks/useLocale';
 
 interface NavItem {
   label: string;
@@ -19,6 +20,7 @@ export function MobileBottomNav() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const { t } = useLocale();
 
   // Hide on scroll down, show on scroll up
   useEffect(() => {
@@ -43,9 +45,9 @@ export function MobileBottomNav() {
     return pathname.startsWith(href);
   };
 
-  const navItems: NavItem[] = [
+  const navItems: NavItem[] = useMemo(() => [
     {
-      label: 'Home',
+      label: t('common.home'),
       href: '/',
       action: 'link',
       icon: (
@@ -60,7 +62,7 @@ export function MobileBottomNav() {
       ),
     },
     {
-      label: 'Search',
+      label: t('mobile.search'),
       href: '/search',
       action: 'search',
       icon: (
@@ -75,7 +77,7 @@ export function MobileBottomNav() {
       ),
     },
     {
-      label: 'Topics',
+      label: t('mobile.topics'),
       href: '/conditions',
       action: 'link',
       icon: (
@@ -90,7 +92,7 @@ export function MobileBottomNav() {
       ),
     },
     {
-      label: 'Tools',
+      label: t('mobile.tools'),
       href: '/tools',
       action: 'link',
       icon: (
@@ -105,7 +107,7 @@ export function MobileBottomNav() {
       ),
     },
     {
-      label: 'Menu',
+      label: t('mobile.menu'),
       href: '#',
       action: 'menu',
       icon: (
@@ -119,7 +121,7 @@ export function MobileBottomNav() {
         </svg>
       ),
     },
-  ];
+  ], [t]);
 
   const handleNavClick = (item: NavItem) => {
     if (item.action === 'search') {
@@ -138,6 +140,15 @@ export function MobileBottomNav() {
     }
   };
 
+  // Popular search terms - these could be translated in the future
+  const popularSearchTerms = useMemo(() => [
+    { key: 'anxiety', label: t('conditions.anxiety') || 'Anxiety' },
+    { key: 'sleep', label: t('conditions.sleep') || 'Sleep' },
+    { key: 'pain', label: t('conditions.chronicPain') || 'Pain Relief' },
+    { key: 'dosage', label: t('tools.dosageCalculator') || 'Dosage' },
+    { key: 'interactions', label: t('quickLinks.drugInteractions') || 'Drug Interactions' },
+  ], [t]);
+
   return (
     <>
       {/* Bottom Navigation Bar */}
@@ -155,7 +166,7 @@ export function MobileBottomNav() {
             if (item.action === 'link') {
               return (
                 <Link
-                  key={item.label}
+                  key={item.href}
                   href={item.href}
                   className={`flex flex-col items-center justify-center gap-1 transition-colors
                     ${active ? 'text-green-600' : 'text-gray-500 hover:text-gray-700'}
@@ -169,7 +180,7 @@ export function MobileBottomNav() {
 
             return (
               <button
-                key={item.label}
+                key={item.action}
                 onClick={() => handleNavClick(item)}
                 className={`flex flex-col items-center justify-center gap-1 transition-colors
                   ${isSearchItem && isSearchOpen ? 'text-green-600' : 'text-gray-500 hover:text-gray-700'}
@@ -195,7 +206,7 @@ export function MobileBottomNav() {
           >
             <div className="p-4">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-lg font-semibold text-gray-900">Search</h2>
+                <h2 className="text-lg font-semibold text-gray-900">{t('common.search')}</h2>
                 <button
                   onClick={() => setIsSearchOpen(false)}
                   className="p-2 rounded-lg text-gray-500 hover:bg-gray-100"
@@ -211,7 +222,7 @@ export function MobileBottomNav() {
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search conditions, articles, research..."
+                    placeholder={t('common.searchConditions')}
                     className="w-full px-4 py-3 pl-12 bg-gray-100 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
                     autoFocus
                   />
@@ -228,22 +239,22 @@ export function MobileBottomNav() {
                   type="submit"
                   className="w-full mt-3 px-4 py-3 bg-green-600 text-white font-medium rounded-xl hover:bg-green-700 transition-colors"
                 >
-                  Search
+                  {t('common.search')}
                 </button>
               </form>
 
               {/* Quick links */}
               <div className="mt-4 pt-4 border-t">
-                <p className="text-xs text-gray-500 uppercase font-semibold mb-2">Popular searches</p>
+                <p className="text-xs text-gray-500 uppercase font-semibold mb-2">{t('mobile.popularSearches')}</p>
                 <div className="flex flex-wrap gap-2">
-                  {['Anxiety', 'Sleep', 'Pain Relief', 'Dosage', 'Drug Interactions'].map((term) => (
+                  {popularSearchTerms.map((term) => (
                     <Link
-                      key={term}
-                      href={`/search?q=${encodeURIComponent(term)}`}
+                      key={term.key}
+                      href={`/search?q=${encodeURIComponent(term.key)}`}
                       onClick={() => setIsSearchOpen(false)}
                       className="px-3 py-1.5 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200 transition-colors"
                     >
-                      {term}
+                      {term.label}
                     </Link>
                   ))}
                 </div>

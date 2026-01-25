@@ -154,6 +154,14 @@
     "insufficient": "Riittämätön näyttö",
     "clinicallyProven": "Kliinisesti todistettu"
   },
+  "conditions": {
+    "anxiety": "Ahdistus",
+    "sleep": "Uni & Unettomuus",
+    "chronicPain": "Krooninen kipu",
+    "depression": "Masennus",
+    "epilepsy": "Epilepsia",
+    "inflammation": "Tulehdus"
+  },
   "research": {
     "title": "Uusimmat tutkimukset",
     "sectionLabel": "Tutkimustietokanta",
