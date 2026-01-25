@@ -58,10 +58,6 @@ CREATE INDEX IF NOT EXISTS idx_conditions_category_published
 -- Optimizing research database queries
 -- ============================================================
 
--- Index for primary_topic filtering (condition research pages)
-CREATE INDEX IF NOT EXISTS idx_research_primary_topic
-  ON kb_research_queue(primary_topic);
-
 -- Composite index for status + quality_score (research pages with quality sorting)
 CREATE INDEX IF NOT EXISTS idx_research_status_quality
   ON kb_research_queue(status, quality_score DESC NULLS LAST);
@@ -127,24 +123,6 @@ CREATE INDEX IF NOT EXISTS idx_glossary_view_count
   ON kb_glossary(view_count DESC NULLS LAST);
 
 -- ============================================================
--- ARTICLE_TRANSLATIONS INDEXES
--- Optimizing multi-language article queries
--- ============================================================
-
--- Composite index for article_id + language lookups
-CREATE INDEX IF NOT EXISTS idx_article_trans_article_lang
-  ON article_translations(article_id, language);
-
--- ============================================================
--- RESEARCH_TRANSLATIONS INDEXES
--- Optimizing multi-language research queries
--- ============================================================
-
--- Composite index for research_id + language lookups
-CREATE INDEX IF NOT EXISTS idx_research_trans_research_lang
-  ON research_translations(research_id, language);
-
--- ============================================================
 -- ANALYZE TABLES
 -- Update table statistics for query planner
 -- ============================================================
@@ -154,8 +132,6 @@ ANALYZE kb_research_queue;
 ANALYZE kb_glossary;
 ANALYZE condition_translations;
 ANALYZE glossary_translations;
-ANALYZE article_translations;
-ANALYZE research_translations;
 
 -- ============================================================
 -- DOCUMENTATION
@@ -164,7 +140,6 @@ COMMENT ON INDEX idx_articles_slug IS 'Fast article lookup by slug';
 COMMENT ON INDEX idx_articles_slug_status IS 'Fast published article lookup by slug';
 COMMENT ON INDEX idx_conditions_slug IS 'Fast condition lookup by slug';
 COMMENT ON INDEX idx_conditions_slug_published IS 'Fast published condition lookup by slug';
-COMMENT ON INDEX idx_research_primary_topic IS 'Filter research by primary topic/condition';
 COMMENT ON INDEX idx_research_relevant_topics IS 'GIN index for array overlap queries on relevant_topics';
 COMMENT ON INDEX idx_condition_trans_condition_lang IS 'Fast condition translation lookup by ID and language';
 COMMENT ON INDEX idx_glossary_trans_term_lang IS 'Fast glossary translation lookup by term ID and language';
