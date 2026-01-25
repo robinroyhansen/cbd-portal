@@ -93,7 +93,7 @@ export default async function RootLayout({
           <NavigationProvider>
             <Navigation />
             <main id="main-content" className="flex-1">{children}</main>
-            <Footer />
+            <Footer currentLang={lang} />
             <MobileBottomNav />
             <CookieConsent />
             <DevLanguageSwitcher />

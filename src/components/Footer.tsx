@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useLocale } from '@/hooks/useLocale';
+import { FooterLanguageSelector } from './FooterLanguageSelector';
 
 interface FooterStats {
   studies: number;
@@ -12,9 +13,10 @@ interface FooterStats {
 
 interface FooterProps {
   stats?: FooterStats;
+  currentLang?: string;
 }
 
-export function Footer({ stats }: FooterProps) {
+export function Footer({ stats, currentLang = 'en' }: FooterProps) {
   const { t } = useLocale();
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState('');
@@ -162,8 +164,11 @@ export function Footer({ stats }: FooterProps) {
           </div>
         </div>
 
+        {/* Language Selector */}
+        <FooterLanguageSelector currentLang={currentLang} />
+
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-10 pt-8">
+        <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-500">
               &copy; {currentYear} {t('footer.copyright')}
