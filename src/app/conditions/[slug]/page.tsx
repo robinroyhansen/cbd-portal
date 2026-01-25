@@ -7,6 +7,7 @@ import { getLanguage } from '@/lib/get-language';
 import { getConditionWithTranslation, getRelatedConditionsWithTranslations } from '@/lib/translations';
 import { getLocaleSync } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -33,9 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description: condition.meta_description || condition.short_description,
-    alternates: {
-      canonical: `/conditions/${slug}`,
-    },
+    alternates: getHreflangAlternates(`/conditions/${slug}`),
   };
 }
 

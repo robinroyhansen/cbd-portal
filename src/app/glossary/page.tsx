@@ -6,6 +6,7 @@ import { getLanguage } from '@/lib/get-language';
 import { getGlossaryTermsWithTranslations, getPopularGlossaryTermsWithTranslations } from '@/lib/translations';
 import { getLocaleSync } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
 const SITE_URL = 'https://cbd-portal.vercel.app';
 
@@ -35,9 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: locale.glossary?.pageTitle || 'CBD & Cannabis Glossary | 250+ Terms Explained | CBD Portal',
     description: locale.glossary?.pageDescription || 'Comprehensive glossary of CBD and cannabis terms. Learn about cannabinoids, terpenes, extraction methods, dosing, and more.',
     keywords: ['CBD glossary', 'cannabis terminology', 'cannabinoid definitions', 'CBD terms', 'hemp glossary'],
-    alternates: {
-      canonical: `${SITE_URL}/glossary`,
-    },
+    alternates: getHreflangAlternates('/glossary'),
     openGraph: {
       title: locale.glossary?.title || 'CBD & Cannabis Glossary',
       description: locale.glossary?.pageDescription || 'Comprehensive glossary of CBD and cannabis terminology.',

@@ -6,6 +6,7 @@ import { getLanguage } from '@/lib/get-language';
 import { getConditionsWithTranslations } from '@/lib/translations';
 import { getLocaleSync } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
 export async function generateMetadata(): Promise<Metadata> {
   const lang = await getLanguage();
@@ -14,9 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: locale.conditions?.pageTitle || 'Health Conditions | CBD Portal',
     description: locale.conditions?.pageDescription || 'Explore research-backed information on how CBD may help with anxiety, pain, sleep, inflammation, and 300+ other health conditions.',
-    alternates: {
-      canonical: '/conditions',
-    },
+    alternates: getHreflangAlternates('/conditions'),
   };
 }
 

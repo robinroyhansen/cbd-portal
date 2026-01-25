@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { Hero } from '@/components/home/Hero';
 import { TrendingTopics } from '@/components/home/TrendingTopics';
 import { BrowseByCondition } from '@/components/home/BrowseByCondition';
@@ -8,9 +9,16 @@ import { BrowseByProduct } from '@/components/home/BrowseByProduct';
 import { AuthorTrust } from '@/components/home/AuthorTrust';
 import { NewsletterSignup } from '@/components/home/NewsletterSignup';
 import { getHomePageStats } from '@/lib/stats';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
 // Revalidate stats every 5 minutes
 export const revalidate = 300;
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    alternates: getHreflangAlternates('/'),
+  };
+}
 
 export default async function HomePage() {
   const stats = await getHomePageStats();

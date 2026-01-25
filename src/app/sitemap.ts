@@ -13,6 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
     { url: SITE_URL, lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },
+    { url: `${SITE_URL}/conditions`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.95 },
     { url: `${SITE_URL}/research`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
     { url: `${SITE_URL}/research/methodology`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${SITE_URL}/glossary`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
@@ -34,6 +35,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/editorial-policy`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.4 },
     { url: `${SITE_URL}/medical-disclaimer`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.4 },
   ];
+
+  // Health conditions (~312)
+  const { data: conditions } = await supabase
+    .from('kb_conditions')
+    .select('slug, updated_at')
+    .eq('is_published', true);
+
+  const conditionPages: MetadataRoute.Sitemap = (conditions || []).map(condition => ({
+    url: `${SITE_URL}/conditions/${condition.slug}`,
+    lastModified: condition.updated_at ? new Date(condition.updated_at) : new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.85,
+  }));
 
   // Research studies (~698)
   const { data: studies } = await supabase
@@ -159,6 +173,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Combine all pages
   return [
     ...staticPages,
+    ...conditionPages,
     ...studyPages,
     ...glossaryPages,
     ...glossaryCategoryPages,

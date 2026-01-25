@@ -11,6 +11,7 @@ import { getLanguage } from '@/lib/get-language';
 import { getGlossaryTermWithTranslation, getRelatedGlossaryTermsWithTranslations } from '@/lib/translations';
 import { getLocaleSync } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
+import { getHreflangAlternates } from '@/components/HreflangTags';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -122,9 +123,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${displayTitle} - ${locale.glossary?.title || 'CBD Glossary'} | ${siteName}`,
     description: metaDescription,
-    alternates: {
-      canonical: canonicalUrl,
-    },
+    alternates: getHreflangAlternates(`/glossary/${slug}`),
     openGraph: {
       title: `${displayTitle} - ${locale.glossary?.title || 'CBD Glossary'}`,
       description: metaDescription,
