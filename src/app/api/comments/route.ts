@@ -3,6 +3,111 @@ import { NextRequest, NextResponse } from 'next/server';
 import { checkRateLimit, getClientIp, RATE_LIMITS } from '@/lib/rate-limit';
 import { commentCreateSchema, validate } from '@/lib/validations';
 
+// Spam detection configuration
+const SPAM_PATTERNS = [
+  // Pharmaceutical spam
+  /\b(viagra|cialis|levitra|pharmacy|pills?|medication|prescription|drug store)\b/i,
+  // Casino/gambling
+  /\b(casino|poker|gambling|bet(ting)?|slot machine|jackpot|blackjack|roulette)\b/i,
+  // Adult content
+  /\b(porn|xxx|sex|adult|nude|naked|escort|dating|hookup|singles)\b/i,
+  // Money scams
+  /\b(lottery|winner|congratulations|million|billion|inheritance|prince|nigeria)\b/i,
+  // Marketing spam
+  /\b(click here|buy now|order now|limited time|act now|free trial|discount|cheap)\b/i,
+  // Crypto scams
+  /\b(bitcoin|crypto|ethereum|nft|investment opportunity|guaranteed returns|passive income)\b/i,
+  // SEO spam
+  /\b(seo|backlink|page rank|website traffic|guest post)\b/i,
+  // Typical spam phrases
+  /\b(work from home|make money|earn \$|weight loss|lose weight fast)\b/i,
+];
+
+const SPAM_EMAIL_DOMAINS = [
+  'tempmail.com', 'throwaway.com', 'mailinator.com', 'guerrillamail.com',
+  'temp-mail.org', '10minutemail.com', 'trashmail.com', 'fakeinbox.com',
+  'yopmail.com', 'sharklasers.com', 'getairmail.com', 'dispostable.com',
+];
+
+/**
+ * Detect if a comment is likely spam
+ */
+function detectSpam(text: string, email: string, name: string): boolean {
+  // Check spam patterns in text
+  for (const pattern of SPAM_PATTERNS) {
+    if (pattern.test(text)) return true;
+  }
+
+  // Check for spam email domains
+  const emailDomain = email.split('@')[1]?.toLowerCase();
+  if (emailDomain && SPAM_EMAIL_DOMAINS.includes(emailDomain)) return true;
+
+  // Too many URLs (more than 2 links is suspicious)
+  const urlCount = (text.match(/https?:\/\/[^\s]+/g) || []).length;
+  if (urlCount > 2) return true;
+
+  // All caps detection (more than 50% caps in text over 20 chars)
+  if (text.length > 20) {
+    const capsCount = (text.match(/[A-Z]/g) || []).length;
+    const letterCount = (text.match(/[a-zA-Z]/g) || []).length;
+    if (letterCount > 0 && capsCount / letterCount > 0.5) return true;
+  }
+
+  // Repeated characters (e.g., "aaaaaaaa" or "!!!!!!")
+  if (/(.)\1{5,}/.test(text)) return true;
+
+  // Name is a URL or contains suspicious patterns
+  if (/https?:\/\//.test(name) || SPAM_PATTERNS.some(p => p.test(name))) return true;
+
+  // Very short generic names that are often used by bots
+  const suspiciousNames = ['admin', 'user', 'guest', 'test', 'webmaster', 'info'];
+  if (suspiciousNames.includes(name.toLowerCase())) return true;
+
+  return false;
+}
+
+/**
+ * Get detailed spam signals for review
+ */
+function getSpamSignals(text: string, email: string, name: string): string[] {
+  const signals: string[] = [];
+
+  // Check each spam pattern
+  for (const pattern of SPAM_PATTERNS) {
+    if (pattern.test(text)) {
+      const match = text.match(pattern);
+      if (match) signals.push(`Contains: "${match[0]}"`);
+    }
+  }
+
+  // URL count
+  const urlCount = (text.match(/https?:\/\/[^\s]+/g) || []).length;
+  if (urlCount > 0) signals.push(`Contains ${urlCount} URL(s)`);
+
+  // Caps detection
+  if (text.length > 20) {
+    const capsCount = (text.match(/[A-Z]/g) || []).length;
+    const letterCount = (text.match(/[a-zA-Z]/g) || []).length;
+    if (letterCount > 0 && capsCount / letterCount > 0.3) {
+      signals.push(`High caps ratio: ${Math.round(capsCount / letterCount * 100)}%`);
+    }
+  }
+
+  // Email domain check
+  const emailDomain = email.split('@')[1]?.toLowerCase();
+  if (emailDomain && SPAM_EMAIL_DOMAINS.includes(emailDomain)) {
+    signals.push(`Disposable email domain: ${emailDomain}`);
+  }
+
+  // Repeated characters
+  const repeatedMatch = text.match(/(.)\1{4,}/);
+  if (repeatedMatch) {
+    signals.push(`Repeated chars: "${repeatedMatch[0]}"`);
+  }
+
+  return signals;
+}
+
 // GET approved comments for an article
 export async function GET(request: NextRequest) {
   try {
@@ -93,19 +198,11 @@ export async function POST(request: NextRequest) {
     const author_ip = forwarded ? forwarded.split(',')[0].trim() : request.headers.get('x-real-ip') || null;
     const user_agent = request.headers.get('user-agent') || null;
 
-    // Basic spam detection
-    const spamPatterns = [
-      /\b(viagra|cialis|casino|porn|xxx|sex|lottery|winner|congratulations|click here|buy now)\b/i,
-      /https?:\/\/[^\s]+/g, // URLs in comments are suspicious
-    ];
+    // Comprehensive spam detection
+    const isSpam = detectSpam(comment_text, author_email, author_name);
 
-    let isSpam = false;
-    for (const pattern of spamPatterns) {
-      if (pattern.test(comment_text)) {
-        isSpam = true;
-        break;
-      }
-    }
+    // Additional spam signals tracking for review
+    const spamSignals = getSpamSignals(comment_text, author_email, author_name);
 
     // Insert comment
     const { data: comment, error } = await supabase
@@ -118,7 +215,8 @@ export async function POST(request: NextRequest) {
         parent_id: parent_id || null,
         author_ip,
         user_agent,
-        status: isSpam ? 'spam' : 'pending'
+        status: isSpam ? 'spam' : 'pending',
+        spam_signals: spamSignals.length > 0 ? spamSignals : null
       })
       .select('id')
       .single();

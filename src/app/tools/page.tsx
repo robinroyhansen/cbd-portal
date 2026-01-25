@@ -1,6 +1,10 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { headers } from 'next/headers';
 import { getHreflangAlternates } from '@/components/HreflangTags';
+import { detectLanguage } from '@/lib/language';
+import { getLocaleSync, createTranslator } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -10,124 +14,137 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const tools = [
+interface Tool {
+  titleKey: string;
+  descKey: string;
+  href: string;
+  icon: string;
+  featuresKeys: string[];
+  status: 'available' | 'coming-soon';
+}
+
+const tools: Tool[] = [
   {
-    title: 'CBD Dosage Calculator',
-    description: 'Get personalized CBD dosing recommendations based on your body weight, experience level, and health goals. Science-based calculations with proper safety guidelines.',
+    titleKey: 'toolsPage.dosageCalculatorTitle',
+    descKey: 'toolsPage.dosageCalculatorDesc',
     href: '/tools/dosage-calculator',
     icon: '💊',
-    features: [
-      'Personalized recommendations',
-      'Multiple product types',
-      'Safety warnings',
-      'Titration schedule'
+    featuresKeys: [
+      'toolsPage.personalizedRecommendations',
+      'toolsPage.multipleProductTypes',
+      'toolsPage.safetyWarnings',
+      'toolsPage.titrationSchedule'
     ],
     status: 'available'
   },
   {
-    title: 'CBD Strength Calculator',
-    description: 'Convert between CBD percentages, mg/ml, and total mg. Calculate drops needed for your target dose and compare product strengths side-by-side.',
+    titleKey: 'toolsPage.strengthCalculatorTitle',
+    descKey: 'toolsPage.strengthCalculatorDesc',
     href: '/tools/strength-calculator',
     icon: '🧮',
-    features: [
-      'Convert %, mg/ml, total mg',
-      'Drops calculator',
-      'Product comparison',
-      'Switching helper'
+    featuresKeys: [
+      'toolsPage.convertUnits',
+      'toolsPage.dropsCalculator',
+      'toolsPage.productComparison',
+      'toolsPage.switchingHelper'
     ],
     status: 'available'
   },
   {
-    title: 'Animal CBD Dosage Calculator',
-    description: 'Veterinary-guided CBD dosing recommendations for dogs, cats, horses, and other animals. Species-specific calculations with enhanced safety protocols.',
+    titleKey: 'toolsPage.animalDosageTitle',
+    descKey: 'toolsPage.animalDosageDesc',
     href: '/tools/animal-dosage-calculator',
     icon: '🐾',
-    features: [
-      'Species-specific dosing',
-      'Age sensitivity adjustments',
-      'Veterinary safety protocols',
-      'Animal product guidance'
+    featuresKeys: [
+      'toolsPage.speciesSpecificDosing',
+      'toolsPage.ageSensitivity',
+      'toolsPage.vetSafetyProtocols',
+      'toolsPage.animalProductGuidance'
     ],
     status: 'available'
   },
   {
-    title: 'Drug Interaction Checker',
-    description: 'Check potential interactions between CBD and your current medications. Essential safety tool for anyone taking prescription drugs.',
+    titleKey: 'toolsPage.interactionCheckerTitle',
+    descKey: 'toolsPage.interactionCheckerDesc',
     href: '/tools/interactions',
     icon: '💊⚠️',
-    features: [
-      'Comprehensive drug database',
-      'Severity ratings',
-      'Medical guidance',
-      'Safety recommendations'
+    featuresKeys: [
+      'toolsPage.comprehensiveDrugDatabase',
+      'toolsPage.severityRatings',
+      'toolsPage.medicalGuidance',
+      'toolsPage.safetyRecommendations'
     ],
     status: 'available'
   },
   {
-    title: 'Product Finder Quiz',
-    description: 'Find the right CBD product for your specific needs. Answer a few questions about your goals and preferences to get tailored recommendations.',
+    titleKey: 'toolsPage.productFinderTitle',
+    descKey: 'toolsPage.productFinderDesc',
     href: '/tools/product-finder',
     icon: '🔍',
-    features: [
-      'Personalized matching',
-      'Product comparisons',
-      'Budget considerations',
-      'Quality verification'
+    featuresKeys: [
+      'toolsPage.personalizedMatching',
+      'toolsPage.productComparisons',
+      'toolsPage.budgetConsiderations',
+      'toolsPage.qualityVerification'
     ],
     status: 'coming-soon'
   },
   {
-    title: 'Symptom Tracker',
-    description: 'Track your symptoms and CBD effects over time. Monitor your progress and optimize your CBD routine with data-driven insights.',
+    titleKey: 'toolsPage.symptomTrackerTitle',
+    descKey: 'toolsPage.symptomTrackerDesc',
     href: '/tools/symptom-tracker',
     icon: '📊',
-    features: [
-      'Daily tracking',
-      'Progress charts',
-      'Effect correlation',
-      'Export reports'
+    featuresKeys: [
+      'toolsPage.dailyTracking',
+      'toolsPage.progressCharts',
+      'toolsPage.effectCorrelation',
+      'toolsPage.exportReports'
     ],
     status: 'coming-soon'
   },
   {
-    title: 'Cost Calculator',
-    description: 'Compare CBD product costs per milligram of active CBD. Find the best value products without compromising on quality.',
+    titleKey: 'toolsPage.costCalculatorTitle',
+    descKey: 'toolsPage.costCalculatorDesc',
     href: '/tools/cost-calculator',
     icon: '💰',
-    features: [
-      'Price per mg calculation',
-      'Product comparisons',
-      'Value rankings',
-      'Budget planning'
+    featuresKeys: [
+      'toolsPage.pricePerMg',
+      'toolsPage.productComparisons',
+      'toolsPage.valueRankings',
+      'toolsPage.budgetPlanning'
     ],
     status: 'available'
   },
   {
-    title: 'Lab Report Analyzer',
-    description: 'Upload and analyze Certificate of Analysis (COA) documents. Understand product quality, potency, and safety test results.',
+    titleKey: 'toolsPage.labAnalyzerTitle',
+    descKey: 'toolsPage.labAnalyzerDesc',
     href: '/tools/lab-analyzer',
     icon: '🧪',
-    features: [
-      'COA analysis',
-      'Safety verification',
-      'Potency validation',
-      'Contaminant checking'
+    featuresKeys: [
+      'toolsPage.coaAnalysis',
+      'toolsPage.safetyVerification',
+      'toolsPage.potencyValidation',
+      'toolsPage.contaminantChecking'
     ],
     status: 'coming-soon'
   }
 ];
 
-export default function ToolsPage() {
+export default async function ToolsPage() {
+  const headersList = await headers();
+  const lang = detectLanguage(headersList) as LanguageCode;
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">CBD Tools & Calculators</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">{t('toolsPage.title')}</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Evidence-based tools to help you make informed decisions about CBD use.
-              Get personalized recommendations, check safety information, and track your progress.
+              {t('toolsPage.subtitle')}
             </p>
           </div>
         </div>
@@ -136,9 +153,9 @@ export default function ToolsPage() {
       {/* Tools Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {tools.map((tool, index) => (
+          {tools.map((tool) => (
             <div
-              key={tool.title}
+              key={tool.titleKey}
               className={`bg-white rounded-xl shadow-sm border border-gray-200 p-6 transition-all duration-200 hover:shadow-md
                 ${tool.status === 'available' ? 'hover:border-blue-300' : 'opacity-75'}
               `}
@@ -148,27 +165,27 @@ export default function ToolsPage() {
 
               {/* Title and Status */}
               <div className="flex items-start justify-between mb-3">
-                <h3 className="text-xl font-semibold text-gray-900">{tool.title}</h3>
+                <h3 className="text-xl font-semibold text-gray-900">{t(tool.titleKey)}</h3>
                 {tool.status === 'coming-soon' && (
                   <span className="bg-amber-100 text-amber-800 text-xs font-medium px-2 py-1 rounded-full">
-                    Coming Soon
+                    {t('toolsPage.comingSoon')}
                   </span>
                 )}
               </div>
 
               {/* Description */}
               <p className="text-gray-600 mb-4 leading-relaxed">
-                {tool.description}
+                {t(tool.descKey)}
               </p>
 
               {/* Features */}
               <div className="mb-6">
-                <h4 className="text-sm font-medium text-gray-900 mb-2">Features:</h4>
+                <h4 className="text-sm font-medium text-gray-900 mb-2">{t('toolsPage.features')}:</h4>
                 <ul className="space-y-1">
-                  {tool.features.map((feature, featureIndex) => (
+                  {tool.featuresKeys.map((featureKey, featureIndex) => (
                     <li key={featureIndex} className="text-sm text-gray-600 flex items-center">
                       <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
-                      {feature}
+                      {t(featureKey)}
                     </li>
                   ))}
                 </ul>
@@ -181,14 +198,14 @@ export default function ToolsPage() {
                     href={tool.href}
                     className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium text-center block"
                   >
-                    Use This Tool
+                    {t('toolsPage.useThisTool')}
                   </Link>
                 ) : (
                   <button
                     disabled
                     className="w-full bg-gray-300 text-gray-500 py-3 px-4 rounded-lg font-medium text-center cursor-not-allowed"
                   >
-                    Coming Soon
+                    {t('toolsPage.comingSoon')}
                   </button>
                 )}
               </div>
@@ -205,12 +222,9 @@ export default function ToolsPage() {
               <span className="text-3xl">⚠️</span>
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-red-900 mb-2">Important Safety Notice</h3>
+              <h3 className="text-lg font-semibold text-red-900 mb-2">{t('toolsPage.safetyNoticeTitle')}</h3>
               <p className="text-red-800 leading-relaxed">
-                <strong>These tools are for educational purposes only and do not constitute medical advice.</strong>
-                CBD affects everyone differently and can interact with medications. Always consult with a healthcare
-                provider before starting CBD, especially if you have medical conditions, take medications, are pregnant
-                or nursing, or are treating serious health conditions.
+                {t('toolsPage.safetyNoticeText')}
               </p>
             </div>
           </div>
@@ -225,27 +239,27 @@ export default function ToolsPage() {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🔬</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Science-Based</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('toolsPage.scienceBased')}</h3>
               <p className="text-gray-600">
-                All our tools are built on published research and expert recommendations from the medical cannabis community.
+                {t('toolsPage.scienceBasedDesc')}
               </p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🛡️</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Safety First</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('toolsPage.safetyFirst')}</h3>
               <p className="text-gray-600">
-                Every tool includes comprehensive safety information, warnings, and guidance on when to consult healthcare providers.
+                {t('toolsPage.safetyFirstDesc')}
               </p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">📱</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Easy to Use</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('toolsPage.easyToUse')}</h3>
               <p className="text-gray-600">
-                Designed for both beginners and experienced users with intuitive interfaces and clear explanations.
+                {t('toolsPage.easyToUseDesc')}
               </p>
             </div>
           </div>

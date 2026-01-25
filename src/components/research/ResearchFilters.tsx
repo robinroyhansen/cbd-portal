@@ -10,6 +10,7 @@ import {
   CannabinoidKey,
   SubjectType,
 } from './types';
+import { useLocale } from '@/hooks/useLocale';
 
 interface ResearchFiltersProps {
   selectedConditions: ConditionKey[];
@@ -64,6 +65,7 @@ export function ResearchFilters({
   clearAllFilters,
   setCurrentPage,
 }: ResearchFiltersProps) {
+  const { t } = useLocale();
   const [advancedExpanded, setAdvancedExpanded] = useState(false);
 
   return (
@@ -71,7 +73,7 @@ export function ResearchFilters({
       {/* Condition Filter - Top 8 with expand */}
       <div className="bg-white rounded-lg border border-gray-200 p-3">
         <div className="flex items-center justify-between mb-2">
-          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Condition</h3>
+          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide">{t('researchFilters.condition')}</h3>
           {selectedConditions.length > 0 && (
             <button
               onClick={() => {
@@ -79,7 +81,7 @@ export function ResearchFilters({
               }}
               className="text-xs text-gray-500 hover:text-red-600"
             >
-              Clear
+              {t('researchFilters.clear')}
             </button>
           )}
         </div>
@@ -114,7 +116,7 @@ export function ResearchFilters({
             onClick={() => setShowAllConditions(true)}
             className="mt-2 text-xs text-blue-600 hover:text-blue-700 font-medium"
           >
-            Show all {Object.keys(CONDITIONS).length} conditions...
+            {t('researchFilters.showAllConditions').replace('{{count}}', Object.keys(CONDITIONS).length.toString())}
           </button>
         )}
         {showAllConditions && (
@@ -122,14 +124,14 @@ export function ResearchFilters({
             onClick={() => setShowAllConditions(false)}
             className="mt-2 text-xs text-gray-500 hover:text-gray-700"
           >
-            Show less
+            {t('researchFilters.showLess')}
           </button>
         )}
       </div>
 
       {/* Year Range */}
       <div className="bg-white rounded-lg border border-gray-200 p-3">
-        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Publication Year</h3>
+        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">{t('researchFilters.publicationYear')}</h3>
         <div className="flex items-center gap-2">
           <select
             value={yearRange.min}
@@ -163,7 +165,7 @@ export function ResearchFilters({
 
       {/* Quality Score */}
       <div className="bg-white rounded-lg border border-gray-200 p-3">
-        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Quality Score</h3>
+        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">{t('researchFilters.qualityScore')}</h3>
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1.5">
             <span className={`w-2.5 h-2.5 rounded-full ${
@@ -205,7 +207,7 @@ export function ResearchFilters({
 
       {/* Subject Type Filter */}
       <div className="bg-white rounded-lg border border-gray-200 p-3">
-        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Subject Type</h3>
+        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">{t('researchFilters.subjectType')}</h3>
         <div className="flex rounded-lg border border-gray-200 overflow-hidden">
           <button
             onClick={() => { setSubjectType('all'); setCurrentPage(1); }}
@@ -215,7 +217,7 @@ export function ResearchFilters({
                 : 'bg-white text-gray-600 hover:bg-gray-50'
             }`}
           >
-            All
+            {t('researchFilters.all')}
           </button>
           <button
             onClick={() => { setSubjectType('human'); setCurrentPage(1); }}
@@ -225,7 +227,7 @@ export function ResearchFilters({
                 : 'bg-white text-gray-600 hover:bg-gray-50'
             }`}
           >
-            Human
+            {t('researchFilters.human')}
           </button>
           <button
             onClick={() => { setSubjectType('animal'); setCurrentPage(1); }}
@@ -235,7 +237,7 @@ export function ResearchFilters({
                 : 'bg-white text-gray-600 hover:bg-gray-50'
             }`}
           >
-            Animal
+            {t('researchFilters.animal')}
           </button>
         </div>
       </div>
@@ -246,7 +248,7 @@ export function ResearchFilters({
           onClick={() => setAdvancedExpanded(!advancedExpanded)}
           className="w-full px-3 py-2 flex items-center justify-between text-left hover:bg-gray-50"
         >
-          <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Advanced</span>
+          <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">{t('researchFilters.advanced')}</span>
           <svg
             className={`w-4 h-4 text-gray-400 transition-transform ${advancedExpanded ? 'rotate-180' : ''}`}
             fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -258,7 +260,7 @@ export function ResearchFilters({
           <div className="px-3 pb-3 space-y-3 border-t border-gray-100 pt-3">
             {/* Quality Tiers */}
             <div>
-              <label className="text-xs text-gray-600 mb-1 block">Quality Tiers</label>
+              <label className="text-xs text-gray-600 mb-1 block">{t('researchFilters.qualityTiers')}</label>
               <div className="grid grid-cols-2 gap-1">
                 {Object.entries(qualityStats).map(([tier, count]) => (
                   <button
@@ -278,7 +280,7 @@ export function ResearchFilters({
             </div>
             {/* Study Types */}
             <div>
-              <label className="text-xs text-gray-600 mb-1 block">Study Types</label>
+              <label className="text-xs text-gray-600 mb-1 block">{t('researchFilters.studyTypes')}</label>
               <div className="max-h-32 overflow-y-auto space-y-1">
                 {availableStudyTypes.map((type) => (
                   <label key={type} className="flex items-center gap-2 cursor-pointer">
@@ -295,7 +297,7 @@ export function ResearchFilters({
             </div>
             {/* Cannabinoids */}
             <div>
-              <label className="text-xs text-gray-600 mb-1 block">Cannabinoids</label>
+              <label className="text-xs text-gray-600 mb-1 block">{t('researchFilters.cannabinoids')}</label>
               <div className="max-h-48 overflow-y-auto space-y-1">
                 {(Object.keys(CANNABINOIDS) as CannabinoidKey[]).map((key) => {
                   const cannabinoid = CANNABINOIDS[key];
@@ -339,7 +341,7 @@ export function ResearchFilters({
         onClick={clearAllFilters}
         className="w-full px-3 py-2 text-sm text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg border border-gray-200 font-medium"
       >
-        Clear All Filters
+        {t('researchFilters.clearAllFilters')}
       </button>
     </>
   );

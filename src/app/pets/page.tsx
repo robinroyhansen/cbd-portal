@@ -1,9 +1,13 @@
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { headers } from 'next/headers';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { PET_CATEGORIES, categorizePetArticles, getPetCategoryStats, PetType } from '@/lib/pets';
 import { getHreflangAlternates } from '@/components/HreflangTags';
+import { detectLanguage } from '@/lib/language';
+import { getLocaleSync, createTranslator } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -21,6 +25,11 @@ interface Condition {
 }
 
 export default async function PetsHubPage() {
+  const headersList = await headers();
+  const lang = detectLanguage(headersList) as LanguageCode;
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
+
   const supabase = await createClient();
 
   // Get pets category for articles
@@ -107,28 +116,25 @@ export default async function PetsHubPage() {
             <div className="flex items-center gap-3 mb-4">
               <span className="text-5xl md:text-6xl">🐾</span>
               <div>
-                <h1 className="text-3xl md:text-4xl font-bold text-gray-900">CBD for Pets</h1>
-                <p className="text-orange-700 font-semibold">{stats.total} articles • {conditions.length} conditions</p>
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-900">{t('petsPage.title')}</h1>
+                <p className="text-orange-700 font-semibold">{stats.total} {t('petsPage.articles')} • {conditions.length} {t('petsPage.conditions')}</p>
               </div>
             </div>
-            <p className="text-gray-600 text-lg mb-6">
-              Evidence-based CBD information for dogs, cats, horses, birds, and small animals.
-              Safety guides, species-specific dosing, and veterinary perspectives.
-            </p>
+            <p className="text-gray-600 text-lg mb-6">{t('petsPage.subtitle')}</p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="/tools/animal-dosage-calculator"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-orange-600 text-white rounded-xl font-semibold hover:bg-orange-700 transition-colors"
               >
                 <span>💊</span>
-                Pet Dosage Calculator
+                {t('petsPage.petDosageCalculator')}
               </Link>
               <Link
                 href="/research?topic=veterinary"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-orange-700 rounded-xl font-semibold border-2 border-orange-300 hover:bg-orange-50 transition-colors"
               >
                 <span>🔬</span>
-                Pet Research Studies
+                {t('petsPage.petResearchStudies')}
               </Link>
             </div>
           </div>
@@ -137,7 +143,7 @@ export default async function PetsHubPage() {
 
       {/* Species Cards */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Browse by Pet Type</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('petsPage.browseByPetType')}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {speciesSections.map(({ id, href }) => {
             const category = PET_CATEGORIES.find(c => c.id === id)!;
@@ -162,12 +168,12 @@ export default async function PetsHubPage() {
                     <div className="flex flex-wrap gap-2 text-xs">
                       {articleCount > 0 && (
                         <span className="px-2 py-1 bg-white/70 rounded-full text-gray-600">
-                          {articleCount} articles
+                          {articleCount} {t('petsPage.articles')}
                         </span>
                       )}
                       {conditionCount > 0 && (
                         <span className="px-2 py-1 bg-white/70 rounded-full text-gray-600">
-                          {conditionCount} conditions
+                          {conditionCount} {t('petsPage.conditions')}
                         </span>
                       )}
                     </div>
@@ -186,12 +192,12 @@ export default async function PetsHubPage() {
       {conditions.length > 0 && (
         <section className="mb-12">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">Popular Pet Conditions</h2>
+            <h2 className="text-2xl font-bold text-gray-900">{t('petsPage.popularConditions')}</h2>
             <Link
               href="/conditions?category=pets"
               className="text-sm font-medium text-orange-600 hover:text-orange-700 flex items-center gap-1"
             >
-              View all {conditions.length}
+              {t('petsPage.viewAll')} {conditions.length}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
@@ -215,7 +221,7 @@ export default async function PetsHubPage() {
 
       {/* Recent Pet Articles by Category */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Latest Pet Articles</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('petsPage.latestArticles')}</h2>
         <div className="space-y-8">
           {speciesSections.map(({ id, href }) => {
             const category = PET_CATEGORIES.find(c => c.id === id)!;
@@ -234,7 +240,7 @@ export default async function PetsHubPage() {
                     href={href}
                     className="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1"
                   >
-                    See all {sectionArticles.length}
+                    {t('petsPage.seeAll')} {sectionArticles.length}
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
@@ -270,13 +276,13 @@ export default async function PetsHubPage() {
           <div className="flex items-start gap-4">
             <span className="text-3xl">⚠️</span>
             <div>
-              <h3 className="text-lg font-bold text-blue-900 mb-2">Important Safety Information</h3>
+              <h3 className="text-lg font-bold text-blue-900 mb-2">{t('petsPage.safetyTitle')}</h3>
               <ul className="text-blue-800 space-y-2 text-sm">
-                <li>• Always consult your veterinarian before giving CBD to your pet</li>
-                <li>• Never use human CBD products for pets without professional guidance</li>
-                <li>• Cats metabolize CBD differently than dogs - use species-specific products</li>
-                <li>• Start with low doses and monitor your pet&apos;s response carefully</li>
-                <li>• Check competition regulations before using CBD with sport horses</li>
+                <li>• {t('petsPage.safetyConsultVet')}</li>
+                <li>• {t('petsPage.safetyHumanProducts')}</li>
+                <li>• {t('petsPage.safetyCats')}</li>
+                <li>• {t('petsPage.safetyLowDose')}</li>
+                <li>• {t('petsPage.safetyHorses')}</li>
               </ul>
             </div>
           </div>
@@ -287,14 +293,14 @@ export default async function PetsHubPage() {
       <div className="p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-2 border-green-200">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <h3 className="text-xl font-bold text-gray-900 mb-1">Not sure where to start?</h3>
-            <p className="text-gray-600">Calculate the right CBD dose for your pet based on species, weight, and condition</p>
+            <h3 className="text-xl font-bold text-gray-900 mb-1">{t('petsPage.notSureTitle')}</h3>
+            <p className="text-gray-600">{t('petsPage.notSureDesc')}</p>
           </div>
           <Link
             href="/tools/animal-dosage-calculator"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition-colors whitespace-nowrap"
           >
-            Pet Dosage Calculator
+            {t('petsPage.petDosageCalculator')}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

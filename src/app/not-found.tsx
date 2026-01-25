@@ -1,32 +1,41 @@
 import Link from 'next/link';
+import { headers } from 'next/headers';
+import { detectLanguage } from '@/lib/language';
+import { getLocaleSync, createTranslator } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
-export default function NotFound() {
+export default async function NotFound() {
+  const headersList = await headers();
+  const lang = detectLanguage(headersList) as LanguageCode;
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
+
   return (
     <div className="min-h-[60vh] flex items-center justify-center px-4">
       <div className="text-center">
         <div className="text-8xl font-bold text-gray-200 mb-4">404</div>
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">Page not found</h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-2">{t('notFoundPage.title')}</h1>
         <p className="text-gray-600 mb-8 max-w-md mx-auto">
-          The page you&apos;re looking for doesn&apos;t exist or has been moved.
+          {t('notFoundPage.description')}
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
           <Link
             href="/"
             className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
           >
-            Go home
+            {t('notFoundPage.goHome')}
           </Link>
           <Link
             href="/research"
             className="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
           >
-            Browse research
+            {t('notFoundPage.browseResearch')}
           </Link>
           <Link
             href="/glossary"
             className="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
           >
-            View glossary
+            {t('notFoundPage.viewGlossary')}
           </Link>
         </div>
       </div>

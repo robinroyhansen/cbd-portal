@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
+import { useLocale } from '@/hooks/useLocale';
 
 type Tab = 'converter' | 'drops' | 'compare' | 'switch';
 
@@ -128,6 +129,7 @@ const ResultsCard = ({ values, showDrops = true }: { values: StrengthValues; sho
 };
 
 export default function StrengthCalculatorPage() {
+  const { t } = useLocale();
   const [activeTab, setActiveTab] = useState<Tab>('converter');
 
   // Converter state
@@ -276,10 +278,10 @@ export default function StrengthCalculatorPage() {
   };
 
   const tabs = [
-    { id: 'converter' as Tab, label: 'Strength Converter', icon: '🔄' },
-    { id: 'drops' as Tab, label: 'Drops Calculator', icon: '💧' },
-    { id: 'compare' as Tab, label: 'Compare Products', icon: '⚖️' },
-    { id: 'switch' as Tab, label: 'Switch Helper', icon: '🔀' }
+    { id: 'converter' as Tab, label: t('strengthCalc.strengthConverter'), icon: '🔄' },
+    { id: 'drops' as Tab, label: t('strengthCalc.dropsCalculator'), icon: '💧' },
+    { id: 'compare' as Tab, label: t('strengthCalc.compareProducts'), icon: '⚖️' },
+    { id: 'switch' as Tab, label: t('strengthCalc.switchHelper'), icon: '🔀' }
   ];
 
   return (
@@ -290,10 +292,10 @@ export default function StrengthCalculatorPage() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
-                CBD Strength Calculator
+                {t('strengthCalc.title')}
               </h1>
               <p className="text-gray-600 mt-1">
-                Convert, calculate, and compare CBD product strengths
+                {t('strengthCalc.subtitle')}
               </p>
             </div>
             <Link
@@ -303,7 +305,7 @@ export default function StrengthCalculatorPage() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
-              Back to Tools
+              {t('strengthCalc.backToTools')}
             </Link>
           </div>
         </div>
@@ -338,18 +340,18 @@ export default function StrengthCalculatorPage() {
           {activeTab === 'converter' && (
             <>
               <div className="bg-white rounded-xl shadow-sm p-6">
-                <h2 className="text-xl font-semibold text-gray-900 mb-6">Enter CBD Strength</h2>
+                <h2 className="text-xl font-semibold text-gray-900 mb-6">{t('strengthCalc.enterStrength')}</h2>
 
                 {/* Input Type Selection */}
                 <div className="mb-6">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    I know the...
+                    {t('strengthCalc.iKnowThe')}
                   </label>
                   <div className="grid grid-cols-3 gap-2">
                     {[
-                      { value: 'percentage', label: 'Percentage', example: 'e.g., 5%' },
-                      { value: 'mgPerMl', label: 'mg/ml', example: 'e.g., 50mg/ml' },
-                      { value: 'totalMg', label: 'Total mg', example: 'e.g., 500mg' }
+                      { value: 'percentage', label: t('strengthCalc.percentage'), example: t('strengthCalc.examplePercent') },
+                      { value: 'mgPerMl', label: t('strengthCalc.mgPerMl'), example: t('strengthCalc.exampleMgMl') },
+                      { value: 'totalMg', label: t('strengthCalc.totalMg'), example: t('strengthCalc.exampleTotalMg') }
                     ].map(option => (
                       <label key={option.value} className="cursor-pointer">
                         <input
@@ -376,8 +378,8 @@ export default function StrengthCalculatorPage() {
                 {/* Value Input */}
                 <div className="mb-6">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    {converterInput.type === 'percentage' ? 'CBD Percentage' :
-                     converterInput.type === 'mgPerMl' ? 'mg per ml' : 'Total mg in bottle'}
+                    {converterInput.type === 'percentage' ? t('strengthCalc.cbdPercentage') :
+                     converterInput.type === 'mgPerMl' ? t('strengthCalc.mgPerMlLabel') : t('strengthCalc.totalMgInBottle')}
                   </label>
                   <div className="relative">
                     <input
@@ -398,7 +400,7 @@ export default function StrengthCalculatorPage() {
                 {/* Bottle Size */}
                 <div className="mb-6">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Bottle Size
+                    {t('strengthCalc.bottleSize')}
                   </label>
                   <div className="flex gap-2">
                     {[10, 15, 30, 50, 100].map(size => (
@@ -421,7 +423,7 @@ export default function StrengthCalculatorPage() {
                       value={converterInput.bottleSize}
                       onChange={(e) => setConverterInput(prev => ({ ...prev, bottleSize: parseFloat(e.target.value) || 10 }))}
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-                      placeholder="Custom size (ml)"
+                      placeholder={t('strengthCalc.customSize')}
                       min="1"
                     />
                   </div>
@@ -429,19 +431,19 @@ export default function StrengthCalculatorPage() {
 
                 {/* Common Products Reference */}
                 <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                  <h4 className="text-sm font-medium text-gray-700 mb-2">Common Product Strengths</h4>
+                  <h4 className="text-sm font-medium text-gray-700 mb-2">{t('strengthCalc.commonStrengths')}</h4>
                   <div className="grid grid-cols-2 gap-2 text-xs">
-                    <div className="flex justify-between"><span>Low strength:</span><span className="font-medium">2-5%</span></div>
-                    <div className="flex justify-between"><span>Medium:</span><span className="font-medium">5-10%</span></div>
-                    <div className="flex justify-between"><span>High:</span><span className="font-medium">10-20%</span></div>
-                    <div className="flex justify-between"><span>Very high:</span><span className="font-medium">20-30%+</span></div>
+                    <div className="flex justify-between"><span>{t('strengthCalc.lowStrength')}:</span><span className="font-medium">2-5%</span></div>
+                    <div className="flex justify-between"><span>{t('strengthCalc.medium')}:</span><span className="font-medium">5-10%</span></div>
+                    <div className="flex justify-between"><span>{t('strengthCalc.high')}:</span><span className="font-medium">10-20%</span></div>
+                    <div className="flex justify-between"><span>{t('strengthCalc.veryHigh')}:</span><span className="font-medium">20-30%+</span></div>
                   </div>
                 </div>
               </div>
 
               <div className="space-y-6">
                 <div className="bg-white rounded-xl shadow-sm p-6">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-6">Converted Values</h2>
+                  <h2 className="text-xl font-semibold text-gray-900 mb-6">{t('strengthCalc.convertedValues')}</h2>
                   <ResultsCard values={converterValues} />
                 </div>
 
@@ -454,12 +456,12 @@ export default function StrengthCalculatorPage() {
           {activeTab === 'drops' && (
             <>
               <div className="bg-white rounded-xl shadow-sm p-6">
-                <h2 className="text-xl font-semibold text-gray-900 mb-6">Calculate Drops Needed</h2>
+                <h2 className="text-xl font-semibold text-gray-900 mb-6">{t('strengthCalc.calculateDrops')}</h2>
 
                 {/* Target Dose */}
                 <div className="mb-6">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Target Dose (mg)
+                    {t('strengthCalc.targetDose')}
                   </label>
                   <input
                     type="number"
@@ -489,7 +491,7 @@ export default function StrengthCalculatorPage() {
                 {/* Oil Strength */}
                 <div className="mb-6">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Oil Strength
+                    {t('strengthCalc.yourOilStrength')}
                   </label>
                   <div className="flex gap-3">
                     <input
@@ -515,7 +517,7 @@ export default function StrengthCalculatorPage() {
                 {/* Drop Size */}
                 <div className="mb-6">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Drop Size (ml)
+                    {t('strengthCalc.dropSize')}
                   </label>
                   <div className="flex gap-2">
                     {[0.03, 0.04, 0.05, 0.06].map(size => (
@@ -533,30 +535,30 @@ export default function StrengthCalculatorPage() {
                     ))}
                   </div>
                   <p className="text-xs text-gray-500 mt-2">
-                    Standard dropper: ~0.05ml per drop. Thicker oils may have larger drops.
+                    {t('strengthCalc.dropSizeNote')}
                   </p>
                 </div>
               </div>
 
               <div className="space-y-6">
                 <div className="bg-white rounded-xl shadow-sm p-6">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-6">Drops Needed</h2>
+                  <h2 className="text-xl font-semibold text-gray-900 mb-6">{t('strengthCalc.dropsNeeded')}</h2>
 
                   {/* Big Result */}
                   <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-6 text-white text-center mb-6">
                     <div className="text-5xl font-bold mb-2">
                       {dropsResult.drops === Infinity || isNaN(dropsResult.drops) ? '—' : dropsResult.drops.toFixed(1)}
                     </div>
-                    <div className="text-blue-100 text-lg">drops</div>
+                    <div className="text-blue-100 text-lg">{t('strengthCalc.drops')}</div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                      <div className="text-sm text-gray-600 mb-1">mg per drop</div>
+                      <div className="text-sm text-gray-600 mb-1">{t('strengthCalc.mgPerDrop')}</div>
                       <div className="text-xl font-bold text-gray-900">{dropsResult.mgPerDrop.toFixed(2)}</div>
                     </div>
                     <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                      <div className="text-sm text-gray-600 mb-1">Total volume</div>
+                      <div className="text-sm text-gray-600 mb-1">{t('strengthCalc.totalVolume')}</div>
                       <div className="text-xl font-bold text-gray-900">{dropsResult.totalMl.toFixed(2)}ml</div>
                     </div>
                   </div>
@@ -564,7 +566,7 @@ export default function StrengthCalculatorPage() {
 
                 {/* Visual Drops */}
                 <div className="bg-white rounded-xl shadow-sm p-6">
-                  <h3 className="text-sm font-medium text-gray-700 mb-4">Visual Guide</h3>
+                  <h3 className="text-sm font-medium text-gray-700 mb-4">{t('strengthCalc.visualGuide')}</h3>
                   <div className="flex flex-wrap gap-1">
                     {Array.from({ length: Math.min(Math.ceil(dropsResult.drops), 20) }).map((_, i) => (
                       <div
@@ -580,7 +582,7 @@ export default function StrengthCalculatorPage() {
                     )}
                   </div>
                   <p className="text-xs text-gray-500 mt-3">
-                    Each circle represents one drop
+                    {t('strengthCalc.eachCircle')}
                   </p>
                 </div>
               </div>
@@ -592,13 +594,13 @@ export default function StrengthCalculatorPage() {
             <>
               <div className="bg-white rounded-xl shadow-sm p-6">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-xl font-semibold text-gray-900">Compare Products</h2>
+                  <h2 className="text-xl font-semibold text-gray-900">{t('strengthCalc.compareProducts')}</h2>
                   {compareProducts.length < 4 && (
                     <button
                       onClick={addCompareProduct}
                       className="text-blue-600 hover:text-blue-800 text-sm font-medium"
                     >
-                      + Add Product
+                      + {t('strengthCalc.addProduct')}
                     </button>
                   )}
                 </div>
@@ -618,27 +620,27 @@ export default function StrengthCalculatorPage() {
                             onClick={() => removeCompareProduct(product.id)}
                             className="text-red-500 hover:text-red-700 text-sm"
                           >
-                            Remove
+                            {t('strengthCalc.remove')}
                           </button>
                         )}
                       </div>
 
                       <div className="grid grid-cols-2 gap-3">
                         <div>
-                          <label className="text-xs text-gray-500 mb-1 block">Strength Type</label>
+                          <label className="text-xs text-gray-500 mb-1 block">{t('strengthCalc.strengthType')}</label>
                           <select
                             value={product.inputType}
                             onChange={(e) => updateCompareProduct(product.id, 'inputType', e.target.value)}
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
                           >
-                            <option value="percentage">Percentage (%)</option>
-                            <option value="mgPerMl">mg/ml</option>
-                            <option value="totalMg">Total mg</option>
+                            <option value="percentage">{t('strengthCalc.percentage')} (%)</option>
+                            <option value="mgPerMl">{t('strengthCalc.mgPerMl')}</option>
+                            <option value="totalMg">{t('strengthCalc.totalMg')}</option>
                           </select>
                         </div>
 
                         <div>
-                          <label className="text-xs text-gray-500 mb-1 block">Value</label>
+                          <label className="text-xs text-gray-500 mb-1 block">{t('strengthCalc.value')}</label>
                           <input
                             type="number"
                             value={product.value}
@@ -649,7 +651,7 @@ export default function StrengthCalculatorPage() {
                         </div>
 
                         <div>
-                          <label className="text-xs text-gray-500 mb-1 block">Bottle Size (ml)</label>
+                          <label className="text-xs text-gray-500 mb-1 block">{t('strengthCalc.bottleSizeMl')}</label>
                           <input
                             type="number"
                             value={product.bottleSize}
@@ -660,7 +662,7 @@ export default function StrengthCalculatorPage() {
                         </div>
 
                         <div>
-                          <label className="text-xs text-gray-500 mb-1 block">Price (optional)</label>
+                          <label className="text-xs text-gray-500 mb-1 block">{t('strengthCalc.priceOptional')}</label>
                           <input
                             type="text"
                             value={product.price}
@@ -676,13 +678,13 @@ export default function StrengthCalculatorPage() {
               </div>
 
               <div className="bg-white rounded-xl shadow-sm p-6">
-                <h2 className="text-xl font-semibold text-gray-900 mb-6">Comparison Results</h2>
+                <h2 className="text-xl font-semibold text-gray-900 mb-6">{t('strengthCalc.comparisonResults')}</h2>
 
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
                       <tr className="border-b border-gray-200">
-                        <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">Metric</th>
+                        <th className="text-left py-3 px-2 text-sm font-medium text-gray-600">{t('strengthCalc.metric')}</th>
                         {compareValues.map((v, i) => (
                           <th key={i} className="text-right py-3 px-2 text-sm font-medium text-gray-900">
                             {v.name}
@@ -692,31 +694,31 @@ export default function StrengthCalculatorPage() {
                     </thead>
                     <tbody className="divide-y divide-gray-100">
                       <tr>
-                        <td className="py-3 px-2 text-sm text-gray-600">Percentage</td>
+                        <td className="py-3 px-2 text-sm text-gray-600">{t('strengthCalc.percentage')}</td>
                         {compareValues.map((v, i) => (
                           <td key={i} className="py-3 px-2 text-sm text-right font-medium">{v.percentage.toFixed(2)}%</td>
                         ))}
                       </tr>
                       <tr>
-                        <td className="py-3 px-2 text-sm text-gray-600">mg/ml</td>
+                        <td className="py-3 px-2 text-sm text-gray-600">{t('strengthCalc.mgPerMl')}</td>
                         {compareValues.map((v, i) => (
                           <td key={i} className="py-3 px-2 text-sm text-right font-medium">{v.mgPerMl.toFixed(1)}</td>
                         ))}
                       </tr>
                       <tr>
-                        <td className="py-3 px-2 text-sm text-gray-600">Total CBD</td>
+                        <td className="py-3 px-2 text-sm text-gray-600">{t('strengthCalc.totalCBD')}</td>
                         {compareValues.map((v, i) => (
                           <td key={i} className="py-3 px-2 text-sm text-right font-medium">{v.totalMg.toFixed(0)}mg</td>
                         ))}
                       </tr>
                       <tr>
-                        <td className="py-3 px-2 text-sm text-gray-600">mg/drop</td>
+                        <td className="py-3 px-2 text-sm text-gray-600">{t('strengthCalc.mgPerDrop')}</td>
                         {compareValues.map((v, i) => (
                           <td key={i} className="py-3 px-2 text-sm text-right font-medium">{v.mgPerDrop.toFixed(2)}</td>
                         ))}
                       </tr>
                       <tr>
-                        <td className="py-3 px-2 text-sm text-gray-600">Strength Level</td>
+                        <td className="py-3 px-2 text-sm text-gray-600">{t('strengthCalc.strengthLevel')}</td>
                         {compareValues.map((v, i) => {
                           const level = getStrengthLevel(v.percentage);
                           return (
@@ -728,7 +730,7 @@ export default function StrengthCalculatorPage() {
                       </tr>
                       {compareValues.some(v => v.costPerMg !== null) && (
                         <tr className="bg-green-50">
-                          <td className="py-3 px-2 text-sm text-green-700 font-medium">Cost per mg</td>
+                          <td className="py-3 px-2 text-sm text-green-700 font-medium">{t('strengthCalc.costPerMg')}</td>
                           {compareValues.map((v, i) => {
                             const isBest = v.costPerMg !== null &&
                               v.costPerMg === Math.min(...compareValues.filter(x => x.costPerMg !== null).map(x => x.costPerMg!));
@@ -752,17 +754,17 @@ export default function StrengthCalculatorPage() {
           {activeTab === 'switch' && (
             <>
               <div className="bg-white rounded-xl shadow-sm p-6">
-                <h2 className="text-xl font-semibold text-gray-900 mb-6">Switching Products?</h2>
+                <h2 className="text-xl font-semibold text-gray-900 mb-6">{t('strengthCalc.switchingProducts')}</h2>
                 <p className="text-gray-600 text-sm mb-6">
-                  Calculate equivalent drops when changing to a different strength oil.
+                  {t('strengthCalc.switchingDesc')}
                 </p>
 
                 {/* Current Product */}
                 <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-                  <h3 className="font-medium text-blue-900 mb-3">Current Product</h3>
+                  <h3 className="font-medium text-blue-900 mb-3">{t('strengthCalc.currentProduct')}</h3>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="text-xs text-blue-700 mb-1 block">Drops you take</label>
+                      <label className="text-xs text-blue-700 mb-1 block">{t('strengthCalc.dropsYouTake')}</label>
                       <input
                         type="number"
                         value={switchInput.currentDrops}
@@ -772,7 +774,7 @@ export default function StrengthCalculatorPage() {
                       />
                     </div>
                     <div>
-                      <label className="text-xs text-blue-700 mb-1 block">Strength</label>
+                      <label className="text-xs text-blue-700 mb-1 block">{t('strengthCalc.strength')}</label>
                       <div className="flex gap-2">
                         <input
                           type="number"
@@ -788,7 +790,7 @@ export default function StrengthCalculatorPage() {
                           className="px-2 py-2 border border-blue-300 rounded-lg text-sm"
                         >
                           <option value="percentage">%</option>
-                          <option value="mgPerMl">mg/ml</option>
+                          <option value="mgPerMl">{t('strengthCalc.mgPerMl')}</option>
                         </select>
                       </div>
                     </div>
@@ -797,9 +799,9 @@ export default function StrengthCalculatorPage() {
 
                 {/* New Product */}
                 <div className="p-4 bg-green-50 rounded-lg border border-green-200">
-                  <h3 className="font-medium text-green-900 mb-3">New Product</h3>
+                  <h3 className="font-medium text-green-900 mb-3">{t('strengthCalc.newProduct')}</h3>
                   <div>
-                    <label className="text-xs text-green-700 mb-1 block">Strength</label>
+                    <label className="text-xs text-green-700 mb-1 block">{t('strengthCalc.strength')}</label>
                     <div className="flex gap-2">
                       <input
                         type="number"
@@ -824,27 +826,27 @@ export default function StrengthCalculatorPage() {
 
               <div className="space-y-6">
                 <div className="bg-white rounded-xl shadow-sm p-6">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-6">Equivalent Dose</h2>
+                  <h2 className="text-xl font-semibold text-gray-900 mb-6">{t('strengthCalc.equivalentDose')}</h2>
 
                   <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-6 text-white text-center mb-6">
-                    <div className="text-lg text-green-100 mb-1">Take</div>
+                    <div className="text-lg text-green-100 mb-1">{t('strengthCalc.take')}</div>
                     <div className="text-5xl font-bold mb-1">
                       {switchResult.newDrops === Infinity || isNaN(switchResult.newDrops) ? '—' : switchResult.newDrops.toFixed(1)}
                     </div>
-                    <div className="text-green-100 text-lg">drops of new oil</div>
+                    <div className="text-green-100 text-lg">{t('strengthCalc.dropsOfNewOil')}</div>
                   </div>
 
                   <div className="space-y-4">
                     <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Your current dose</span>
+                      <span className="text-gray-600">{t('strengthCalc.yourCurrentDose')}</span>
                       <span className="font-medium">{switchResult.currentTotalMg.toFixed(1)}mg CBD</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Current oil: mg/drop</span>
+                      <span className="text-gray-600">{t('strengthCalc.currentOilMgDrop')}</span>
                       <span className="font-medium">{switchResult.currentMgPerDrop.toFixed(2)}mg</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                      <span className="text-gray-600">New oil: mg/drop</span>
+                      <span className="text-gray-600">{t('strengthCalc.newOilMgDrop')}</span>
                       <span className="font-medium">{switchResult.newMgPerDrop.toFixed(2)}mg</span>
                     </div>
                   </div>
@@ -854,9 +856,9 @@ export default function StrengthCalculatorPage() {
                   <div className="flex gap-3">
                     <span className="text-2xl">💡</span>
                     <div>
-                      <h4 className="font-medium text-amber-900">Tip</h4>
+                      <h4 className="font-medium text-amber-900">{t('strengthCalc.tip')}</h4>
                       <p className="text-sm text-amber-800 mt-1">
-                        When switching to a stronger oil, you'll need fewer drops. Start with the calculated amount and adjust based on how you feel.
+                        {t('strengthCalc.tipText')}
                       </p>
                     </div>
                   </div>
@@ -868,27 +870,24 @@ export default function StrengthCalculatorPage() {
 
         {/* Educational Section */}
         <div className="mt-8 bg-white rounded-xl shadow-sm p-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Understanding CBD Strength</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">{t('strengthCalc.understandingStrength')}</h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div>
-              <h3 className="font-medium text-gray-900 mb-2">Percentage vs mg/ml</h3>
+              <h3 className="font-medium text-gray-900 mb-2">{t('strengthCalc.percentVsMg')}</h3>
               <p className="text-sm text-gray-600">
-                A 5% CBD oil contains 50mg of CBD per ml. The formula: percentage × 10 = mg/ml.
-                So 10% oil = 100mg/ml, and 3% oil = 30mg/ml.
+                {t('strengthCalc.percentVsMgDesc')}
               </p>
             </div>
             <div>
-              <h3 className="font-medium text-gray-900 mb-2">Total mg in Bottle</h3>
+              <h3 className="font-medium text-gray-900 mb-2">{t('strengthCalc.totalMgBottle')}</h3>
               <p className="text-sm text-gray-600">
-                Total mg depends on both strength AND bottle size. A 10ml bottle of 5% oil contains 500mg total,
-                while a 30ml bottle of the same strength contains 1500mg.
+                {t('strengthCalc.totalMgBottleDesc')}
               </p>
             </div>
             <div>
-              <h3 className="font-medium text-gray-900 mb-2">Drops per ml</h3>
+              <h3 className="font-medium text-gray-900 mb-2">{t('strengthCalc.dropsPerMlTitle')}</h3>
               <p className="text-sm text-gray-600">
-                Standard droppers dispense about 20 drops per ml (0.05ml each). Thicker oils may have slightly
-                larger drops. Our calculator uses this standard but allows adjustments.
+                {t('strengthCalc.dropsPerMlDesc')}
               </p>
             </div>
           </div>
@@ -897,13 +896,7 @@ export default function StrengthCalculatorPage() {
         {/* Disclaimer */}
         <div className="mt-6 bg-gray-100 rounded-xl p-4 border border-gray-200">
           <p className="text-sm text-gray-600">
-            <strong>Disclaimer:</strong> This calculator provides general information for educational purposes.
-            CBD dosing is highly individual. Always start with lower doses and consult a healthcare professional,
-            especially if you take medications. See our{' '}
-            <Link href="/tools/interactions" className="text-blue-600 hover:underline">
-              Drug Interaction Checker
-            </Link>{' '}
-            for safety information.
+            <strong>{t('strengthCalc.disclaimer')}:</strong> {t('strengthCalc.disclaimerText')}
           </p>
         </div>
       </div>

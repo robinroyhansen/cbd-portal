@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
+import { useLocale } from '@/hooks/useLocale';
 
 interface AnimalDosageRecommendation {
   startingDose: number;
@@ -246,6 +247,7 @@ const getSpeciesSpecificInfo = (species: string, age: string, weightKg: number):
 };
 
 export default function AnimalDosageCalculator() {
+  const { t } = useLocale();
   const [inputs, setInputs] = useState<AnimalCalculatorInputs>({
     species: 'dog',
     bodyWeight: 10,
@@ -282,15 +284,15 @@ export default function AnimalDosageCalculator() {
             <div>
               <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
                 <span className="text-4xl">🐾</span>
-                Animal CBD Dosage Calculator
+                {t('animalDosageCalc.title')}
               </h1>
-              <p className="text-gray-600 mt-2">Veterinary-guided CBD dosing recommendations for dogs, cats, horses, and other animals</p>
+              <p className="text-gray-600 mt-2">{t('animalDosageCalc.subtitle')}</p>
             </div>
             <Link
               href="/tools"
               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
             >
-              Back to Tools
+              {t('animalDosageCalc.backToTools')}
             </Link>
           </div>
         </div>
@@ -301,19 +303,19 @@ export default function AnimalDosageCalculator() {
 
           {/* Calculator Form */}
           <div className="bg-white rounded-xl shadow-sm p-6">
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">Enter Your Pet's Information</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-6">{t('animalDosageCalc.enterPetInfo')}</h2>
 
             {/* Animal Species */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Animal Species *
+                {t('animalDosageCalc.animalSpecies')} *
               </label>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { value: 'dog', label: '🐕 Dog', desc: 'Most common pet' },
-                  { value: 'cat', label: '🐱 Cat', desc: 'Unique metabolism' },
-                  { value: 'horse', label: '🐎 Horse', desc: 'Large animal dosing' },
-                  { value: 'other', label: '🐰 Other', desc: 'Rabbits, birds, etc.' }
+                  { value: 'dog', label: `🐕 ${t('animalDosageCalc.dog')}`, desc: t('animalDosageCalc.dogDesc') },
+                  { value: 'cat', label: `🐱 ${t('animalDosageCalc.cat')}`, desc: t('animalDosageCalc.catDesc') },
+                  { value: 'horse', label: `🐎 ${t('animalDosageCalc.horse')}`, desc: t('animalDosageCalc.horseDesc') },
+                  { value: 'other', label: `🐰 ${t('animalDosageCalc.other')}`, desc: t('animalDosageCalc.otherDesc') }
                 ].map(option => (
                   <label key={option.value} className="cursor-pointer">
                     <input
@@ -340,7 +342,7 @@ export default function AnimalDosageCalculator() {
             {/* Body Weight */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Body Weight *
+                {t('animalDosageCalc.bodyWeight')} *
               </label>
               <div className="flex gap-3">
                 <input
@@ -366,13 +368,13 @@ export default function AnimalDosageCalculator() {
             {/* Age Category */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Age Category *
+                {t('animalDosageCalc.ageCategory')} *
               </label>
               <div className="grid grid-cols-3 gap-3">
                 {[
-                  { value: 'puppy_kitten', label: 'Young' },
-                  { value: 'adult', label: 'Adult' },
-                  { value: 'senior', label: 'Senior' }
+                  { value: 'puppy_kitten', label: t('animalDosageCalc.young') },
+                  { value: 'adult', label: t('animalDosageCalc.adult') },
+                  { value: 'senior', label: t('animalDosageCalc.senior') }
                 ].map(option => (
                   <label key={option.value} className="cursor-pointer">
                     <input
@@ -398,49 +400,49 @@ export default function AnimalDosageCalculator() {
             {/* Primary Condition */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Primary Reason for Use *
+                {t('animalDosageCalc.primaryReason')} *
               </label>
               <select
                 value={inputs.condition}
                 onChange={(e) => handleInputChange('condition', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               >
-                <option value="general">General wellness</option>
-                <option value="arthritis">Arthritis & joint pain</option>
-                <option value="anxiety">Anxiety & stress</option>
-                <option value="behavioral">Behavioral issues</option>
-                <option value="inflammation">Inflammation</option>
-                <option value="seizures">Seizures (requires vet supervision)</option>
+                <option value="general">{t('animalDosageCalc.generalWellness')}</option>
+                <option value="arthritis">{t('animalDosageCalc.arthritisJoint')}</option>
+                <option value="anxiety">{t('animalDosageCalc.anxietyStress')}</option>
+                <option value="behavioral">{t('animalDosageCalc.behavioralIssues')}</option>
+                <option value="inflammation">{t('animalDosageCalc.inflammation')}</option>
+                <option value="seizures">{t('animalDosageCalc.seizuresVet')}</option>
               </select>
             </div>
 
             {/* Product Type */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Product Type *
+                {t('animalDosageCalc.productType')} *
               </label>
               <select
                 value={inputs.productType}
                 onChange={(e) => handleInputChange('productType', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               >
-                <option value="oil">Pet CBD Oil/Tincture</option>
-                <option value="treats">CBD Treats/Edibles</option>
-                <option value="capsules">CBD Capsules</option>
-                <option value="topical">Topical CBD (creams, balms)</option>
+                <option value="oil">{t('animalDosageCalc.petOilTincture')}</option>
+                <option value="treats">{t('animalDosageCalc.cbdTreats')}</option>
+                <option value="capsules">{t('animalDosageCalc.cbdCapsules')}</option>
+                <option value="topical">{t('animalDosageCalc.topicalCBD')}</option>
               </select>
             </div>
 
             {/* Desired Strength */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Desired Effect Strength *
+                {t('animalDosageCalc.desiredStrength')} *
               </label>
               <div className="grid grid-cols-3 gap-2">
                 {[
-                  { value: 'mild', label: 'Mild', desc: 'Subtle effects' },
-                  { value: 'moderate', label: 'Moderate', desc: 'Noticeable effects' },
-                  { value: 'strong', label: 'Strong', desc: 'Pronounced effects' }
+                  { value: 'mild', label: t('animalDosageCalc.mild'), desc: t('animalDosageCalc.mildDesc') },
+                  { value: 'moderate', label: t('animalDosageCalc.moderate'), desc: t('animalDosageCalc.moderateDesc') },
+                  { value: 'strong', label: t('animalDosageCalc.strong'), desc: t('animalDosageCalc.strongDesc') }
                 ].map(option => (
                   <label key={option.value} className="cursor-pointer">
                     <input
@@ -467,13 +469,13 @@ export default function AnimalDosageCalculator() {
             {/* Animal Experience */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Pet's CBD Experience Level *
+                {t('animalDosageCalc.petExperience')} *
               </label>
               <div className="grid grid-cols-3 gap-2">
                 {[
-                  { value: 'never', label: 'Never Used', desc: 'First time with CBD' },
-                  { value: 'some', label: 'Some Experience', desc: 'Tried CBD before' },
-                  { value: 'experienced', label: 'Experienced', desc: 'Regular CBD user' }
+                  { value: 'never', label: t('animalDosageCalc.neverUsed'), desc: t('animalDosageCalc.neverUsedDesc') },
+                  { value: 'some', label: t('animalDosageCalc.someExperience'), desc: t('animalDosageCalc.someExperienceDesc') },
+                  { value: 'experienced', label: t('animalDosageCalc.experienced'), desc: t('animalDosageCalc.experiencedDesc') }
                 ].map(option => (
                   <label key={option.value} className="cursor-pointer">
                     <input
@@ -507,7 +509,7 @@ export default function AnimalDosageCalculator() {
                   className="mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
                 <span className="text-sm font-medium text-gray-700">
-                  My pet currently takes prescription medications
+                  {t('animalDosageCalc.prescriptionMeds')}
                 </span>
               </label>
             </div>
@@ -522,7 +524,7 @@ export default function AnimalDosageCalculator() {
                   className="mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
                 <span className="text-sm font-medium text-gray-700">
-                  I have discussed CBD use with my veterinarian
+                  {t('animalDosageCalc.vetConsulted')}
                 </span>
               </label>
             </div>
@@ -532,18 +534,18 @@ export default function AnimalDosageCalculator() {
               onClick={handleCalculate}
               className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium"
             >
-              Calculate Animal CBD Dosage
+              {t('animalDosageCalc.calculateButton')}
             </button>
           </div>
 
           {/* Results */}
           {recommendation && (
             <div className="bg-white rounded-xl shadow-sm p-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">Dosage Recommendation for Your {inputs.species === 'other' ? 'Pet' : inputs.species.charAt(0).toUpperCase() + inputs.species.slice(1)}</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mb-6">{t('animalDosageCalc.recommendationFor')} {inputs.species === 'other' ? t('animalDosageCalc.pet') : t(`animalDosageCalc.${inputs.species}`)}</h2>
 
               {/* Starting Dose */}
               <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
-                <h3 className="text-lg font-semibold text-green-900 mb-2">Recommended Starting Dose</h3>
+                <h3 className="text-lg font-semibold text-green-900 mb-2">{t('animalDosageCalc.startingDose')}</h3>
                 <div className="text-3xl font-bold text-green-700 mb-2">
                   {recommendation.startingDose}mg
                 </div>
@@ -551,20 +553,20 @@ export default function AnimalDosageCalculator() {
                   {recommendation.frequency}
                 </p>
                 <p className="text-green-700 text-sm mt-2 font-medium">
-                  Maximum daily dose: {recommendation.maxDose}mg
+                  {t('animalDosageCalc.maxDaily')}: {recommendation.maxDose}mg
                 </p>
               </div>
 
               {/* Administration Method */}
               <div className="mb-6">
-                <h4 className="font-semibold text-gray-900 mb-2">How to Give to Your Pet</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('animalDosageCalc.howToGive')}</h4>
                 <p className="text-gray-700 text-sm">{recommendation.method}</p>
               </div>
 
               {/* Species-Specific Information */}
               {recommendation.speciesSpecificInfo.length > 0 && (
                 <div className="mb-6">
-                  <h4 className="font-semibold text-gray-900 mb-2">Species-Specific Information</h4>
+                  <h4 className="font-semibold text-gray-900 mb-2">{t('animalDosageCalc.speciesInfo')}</h4>
                   <ul className="space-y-1">
                     {recommendation.speciesSpecificInfo.map((info, index) => (
                       <li key={index} className="text-blue-700 text-sm flex items-start">
@@ -578,7 +580,7 @@ export default function AnimalDosageCalculator() {
 
               {/* Titration Schedule */}
               <div className="mb-6">
-                <h4 className="font-semibold text-gray-900 mb-2">Gradual Increase Schedule</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('animalDosageCalc.gradualSchedule')}</h4>
                 <ul className="space-y-1">
                   {recommendation.titrationSchedule.map((step, index) => (
                     <li key={index} className="text-gray-700 text-sm flex items-start">
@@ -595,7 +597,7 @@ export default function AnimalDosageCalculator() {
               <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
                 <h4 className="font-semibold text-red-900 mb-2 flex items-center">
                   <span className="mr-2">⚠️</span>
-                  Critical Safety Information
+                  {t('animalDosageCalc.criticalSafety')}
                 </h4>
                 <ul className="space-y-1">
                   {recommendation.warnings.map((warning, index) => (
@@ -608,7 +610,7 @@ export default function AnimalDosageCalculator() {
 
               {/* Additional Notes */}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                <h4 className="font-semibold text-gray-900 mb-2">Important Notes</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('animalDosageCalc.importantNotes')}</h4>
                 <ul className="space-y-1">
                   {recommendation.notes.map((note, index) => (
                     <li key={index} className="text-gray-700 text-sm">
@@ -623,33 +625,33 @@ export default function AnimalDosageCalculator() {
           {/* Educational Information */}
           {!recommendation && (
             <div className="bg-white rounded-xl shadow-sm p-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">Understanding Animal CBD Dosing</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">{t('animalDosageCalc.understandingTitle')}</h2>
 
               <div className="space-y-4 text-sm text-gray-700">
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-1">Why Animals Need Different Dosing</h4>
-                  <p>Animals metabolize CBD very differently than humans. Dogs, cats, horses, and other species have unique liver enzymes, body compositions, and sensitivities that require species-specific dosing protocols.</p>
+                  <h4 className="font-medium text-gray-900 mb-1">{t('animalDosageCalc.whyDifferent')}</h4>
+                  <p>{t('animalDosageCalc.whyDifferentDesc')}</p>
                 </div>
 
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-1">Start Very Low, Go Very Slow</h4>
-                  <p>Unlike humans who can report side effects, animals cannot communicate discomfort. Always start with the minimum effective dose and increase gradually while monitoring closely.</p>
+                  <h4 className="font-medium text-gray-900 mb-1">{t('animalDosageCalc.startLow')}</h4>
+                  <p>{t('animalDosageCalc.startLowDesc')}</p>
                 </div>
 
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-1">Never Use Human CBD Products</h4>
-                  <p>Human CBD products often contain xylitol, chocolate, or other ingredients that are toxic to animals. Always use products specifically formulated for pets.</p>
+                  <h4 className="font-medium text-gray-900 mb-1">{t('animalDosageCalc.neverHuman')}</h4>
+                  <p>{t('animalDosageCalc.neverHumanDesc')}</p>
                 </div>
 
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-1">Veterinary Supervision is Essential</h4>
-                  <p>CBD can interact with medications and may not be appropriate for animals with certain health conditions. Your veterinarian can provide guidance specific to your pet's needs.</p>
+                  <h4 className="font-medium text-gray-900 mb-1">{t('animalDosageCalc.vetSupervision')}</h4>
+                  <p>{t('animalDosageCalc.vetSupervisionDesc')}</p>
                 </div>
               </div>
 
               <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
                 <p className="text-blue-800 text-sm">
-                  <strong>Evidence-Based:</strong> Our animal dosing recommendations are based on veterinary research and clinical experience with CBD use in animals, adjusted for safety and efficacy.
+                  <strong>{t('animalDosageCalc.evidenceBased')}:</strong> {t('animalDosageCalc.evidenceBasedDesc')}
                 </p>
               </div>
             </div>

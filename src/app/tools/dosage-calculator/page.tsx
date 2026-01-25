@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useLocale } from '@/hooks/useLocale';
 
 interface DosageRecommendation {
   startingDose: number;
@@ -171,6 +172,7 @@ const getMethodInstructions = (productType: string): string => {
 };
 
 export default function DosageCalculator() {
+  const { t } = useLocale();
   const [inputs, setInputs] = useState<CalculatorInputs>({
     bodyWeight: 70,
     weightUnit: 'kg',
@@ -202,14 +204,14 @@ export default function DosageCalculator() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">CBD Dosage Calculator</h1>
-              <p className="text-gray-600 mt-2">Get personalized CBD dosing recommendations based on current research</p>
+              <h1 className="text-3xl font-bold text-gray-900">{t('dosageCalc.title')}</h1>
+              <p className="text-gray-600 mt-2">{t('dosageCalc.subtitle')}</p>
             </div>
             <Link
               href="/"
               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
             >
-              Back to Home
+              {t('dosageCalc.backToHome')}
             </Link>
           </div>
         </div>
@@ -220,12 +222,12 @@ export default function DosageCalculator() {
 
           {/* Calculator Form */}
           <div className="bg-white rounded-xl shadow-sm p-6">
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">Enter Your Information</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-6">{t('dosageCalc.enterInfo')}</h2>
 
             {/* Body Weight */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Body Weight *
+                {t('dosageCalc.bodyWeight')} *
               </label>
               <div className="flex gap-3">
                 <input
@@ -251,13 +253,13 @@ export default function DosageCalculator() {
             {/* Experience Level */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                CBD Experience Level *
+                {t('dosageCalc.experienceLevel')} *
               </label>
               <div className="grid grid-cols-3 gap-2">
                 {[
-                  { value: 'beginner', label: 'Beginner', desc: 'Never or rarely used' },
-                  { value: 'intermediate', label: 'Intermediate', desc: 'Some experience' },
-                  { value: 'experienced', label: 'Experienced', desc: 'Regular user' }
+                  { value: 'beginner', label: t('dosageCalc.beginner'), desc: t('dosageCalc.beginnerDesc') },
+                  { value: 'intermediate', label: t('dosageCalc.intermediate'), desc: t('dosageCalc.intermediateDesc') },
+                  { value: 'experienced', label: t('dosageCalc.experienced'), desc: t('dosageCalc.experiencedDesc') }
                 ].map(option => (
                   <label key={option.value} className="cursor-pointer">
                     <input
@@ -284,51 +286,51 @@ export default function DosageCalculator() {
             {/* Primary Condition */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Primary Reason for Use *
+                {t('dosageCalc.primaryReason')} *
               </label>
               <select
                 value={inputs.condition}
                 onChange={(e) => handleInputChange('condition', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               >
-                <option value="general">General wellness</option>
-                <option value="anxiety">Anxiety & stress</option>
-                <option value="pain">Pain management</option>
-                <option value="sleep">Sleep disorders</option>
-                <option value="inflammation">Inflammation</option>
-                <option value="epilepsy">Epilepsy (requires medical supervision)</option>
+                <option value="general">{t('dosageCalc.generalWellness')}</option>
+                <option value="anxiety">{t('dosageCalc.anxietyStress')}</option>
+                <option value="pain">{t('dosageCalc.painManagement')}</option>
+                <option value="sleep">{t('dosageCalc.sleepDisorders')}</option>
+                <option value="inflammation">{t('dosageCalc.inflammation')}</option>
+                <option value="epilepsy">{t('dosageCalc.epilepsyMedical')}</option>
               </select>
             </div>
 
             {/* Product Type */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Product Type *
+                {t('dosageCalc.productType')} *
               </label>
               <select
                 value={inputs.productType}
                 onChange={(e) => handleInputChange('productType', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               >
-                <option value="oil">CBD Oil (tincture)</option>
-                <option value="sublingual">Sublingual drops</option>
-                <option value="edibles">Edibles (gummies, chocolates)</option>
-                <option value="capsules">Capsules/softgels</option>
-                <option value="vape">Vape/inhalation</option>
-                <option value="topical">Topical (creams, balms)</option>
+                <option value="oil">{t('dosageCalc.oilTincture')}</option>
+                <option value="sublingual">{t('dosageCalc.sublingualDrops')}</option>
+                <option value="edibles">{t('dosageCalc.ediblesGummies')}</option>
+                <option value="capsules">{t('dosageCalc.capsulesSoftgels')}</option>
+                <option value="vape">{t('dosageCalc.vapeInhalation')}</option>
+                <option value="topical">{t('dosageCalc.topicalCreams')}</option>
               </select>
             </div>
 
             {/* Desired Strength */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Desired Effect Strength *
+                {t('dosageCalc.desiredStrength')} *
               </label>
               <div className="grid grid-cols-3 gap-2">
                 {[
-                  { value: 'mild', label: 'Mild', desc: 'Subtle effects' },
-                  { value: 'moderate', label: 'Moderate', desc: 'Noticeable effects' },
-                  { value: 'strong', label: 'Strong', desc: 'Pronounced effects' }
+                  { value: 'mild', label: t('dosageCalc.mild'), desc: t('dosageCalc.mildDesc') },
+                  { value: 'moderate', label: t('dosageCalc.moderate'), desc: t('dosageCalc.moderateDesc') },
+                  { value: 'strong', label: t('dosageCalc.strong'), desc: t('dosageCalc.strongDesc') }
                 ].map(option => (
                   <label key={option.value} className="cursor-pointer">
                     <input
@@ -362,7 +364,7 @@ export default function DosageCalculator() {
                   className="mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
                 <span className="text-sm font-medium text-gray-700">
-                  I currently take prescription medications
+                  {t('dosageCalc.currentMedications')}
                 </span>
               </label>
             </div>
@@ -372,18 +374,18 @@ export default function DosageCalculator() {
               onClick={handleCalculate}
               className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium"
             >
-              Calculate My CBD Dosage
+              {t('dosageCalc.calculateButton')}
             </button>
           </div>
 
           {/* Results */}
           {recommendation && (
             <div className="bg-white rounded-xl shadow-sm p-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">Your Dosage Recommendation</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mb-6">{t('dosageCalc.yourRecommendation')}</h2>
 
               {/* Starting Dose */}
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-                <h3 className="text-lg font-semibold text-blue-900 mb-2">Recommended Starting Dose</h3>
+                <h3 className="text-lg font-semibold text-blue-900 mb-2">{t('dosageCalc.startingDose')}</h3>
                 <div className="text-3xl font-bold text-blue-700 mb-2">
                   {recommendation.startingDose}mg
                 </div>
@@ -391,19 +393,19 @@ export default function DosageCalculator() {
                   {recommendation.frequency}
                 </p>
                 <p className="text-blue-700 text-sm mt-2 font-medium">
-                  Maximum: {recommendation.maxDose}mg per day
+                  {t('dosageCalc.maximum')}: {recommendation.maxDose}mg {t('dosageCalc.perDay')}
                 </p>
               </div>
 
               {/* Administration Method */}
               <div className="mb-6">
-                <h4 className="font-semibold text-gray-900 mb-2">How to Take</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('dosageCalc.howToTake')}</h4>
                 <p className="text-gray-700 text-sm">{recommendation.method}</p>
               </div>
 
               {/* Titration Schedule */}
               <div className="mb-6">
-                <h4 className="font-semibold text-gray-900 mb-2">Gradual Increase Schedule</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('dosageCalc.gradualSchedule')}</h4>
                 <ul className="space-y-1">
                   {recommendation.titrationSchedule.map((step, index) => (
                     <li key={index} className="text-gray-700 text-sm flex items-start">
@@ -420,7 +422,7 @@ export default function DosageCalculator() {
               <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
                 <h4 className="font-semibold text-red-900 mb-2 flex items-center">
                   <span className="mr-2">⚠️</span>
-                  Important Safety Information
+                  {t('dosageCalc.safetyInfo')}
                 </h4>
                 <ul className="space-y-1">
                   {recommendation.warnings.map((warning, index) => (
@@ -433,7 +435,7 @@ export default function DosageCalculator() {
 
               {/* Additional Notes */}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                <h4 className="font-semibold text-gray-900 mb-2">Additional Notes</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('dosageCalc.additionalNotes')}</h4>
                 <ul className="space-y-1">
                   {recommendation.notes.map((note, index) => (
                     <li key={index} className="text-gray-700 text-sm">
@@ -448,33 +450,33 @@ export default function DosageCalculator() {
           {/* Educational Information */}
           {!recommendation && (
             <div className="bg-white rounded-xl shadow-sm p-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">Understanding CBD Dosing</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">{t('dosageCalc.understandingTitle')}</h2>
 
               <div className="space-y-4 text-sm text-gray-700">
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-1">Why Individual Dosing Matters</h4>
-                  <p>CBD affects everyone differently due to factors like metabolism, body chemistry, medical conditions, and product quality. What works for one person may not work for another.</p>
+                  <h4 className="font-medium text-gray-900 mb-1">{t('dosageCalc.whyIndividual')}</h4>
+                  <p>{t('dosageCalc.whyIndividualDesc')}</p>
                 </div>
 
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-1">Start Low, Go Slow</h4>
-                  <p>The golden rule of CBD dosing is to start with a low dose and gradually increase until you find what works for you. This approach minimizes side effects and helps you find your optimal dose.</p>
+                  <h4 className="font-medium text-gray-900 mb-1">{t('dosageCalc.startLow')}</h4>
+                  <p>{t('dosageCalc.startLowDesc')}</p>
                 </div>
 
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-1">Product Quality Matters</h4>
-                  <p>Always choose third-party tested products with Certificates of Analysis (COAs) to ensure you're getting accurate potency and purity information.</p>
+                  <h4 className="font-medium text-gray-900 mb-1">{t('dosageCalc.productQuality')}</h4>
+                  <p>{t('dosageCalc.productQualityDesc')}</p>
                 </div>
 
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-1">Medical Supervision</h4>
-                  <p>If you're treating a medical condition, especially epilepsy or other serious conditions, work with a healthcare provider experienced in cannabis medicine.</p>
+                  <h4 className="font-medium text-gray-900 mb-1">{t('dosageCalc.medicalSupervision')}</h4>
+                  <p>{t('dosageCalc.medicalSupervisionDesc')}</p>
                 </div>
               </div>
 
               <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
                 <p className="text-blue-800 text-sm">
-                  <strong>Research-Based:</strong> Our calculator uses dosing guidelines from published clinical research and expert recommendations to provide science-based starting points.
+                  <strong>{t('dosageCalc.researchBased')}:</strong> {t('dosageCalc.researchBasedDesc')}
                 </p>
               </div>
             </div>

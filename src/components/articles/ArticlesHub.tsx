@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useLocale } from '@/hooks/useLocale';
 
 interface Article {
   id: string;
@@ -51,8 +52,9 @@ function getCategoryStyle(slug: string) {
   return categoryStyles[slug] || { icon: '📄', color: 'text-gray-700', bgColor: 'bg-gray-50' };
 }
 
-function formatDate(dateString: string) {
-  return new Date(dateString).toLocaleDateString('en-GB', {
+function formatDate(dateString: string, lang: string) {
+  const locale = lang === 'en' ? 'en-GB' : lang;
+  return new Date(dateString).toLocaleDateString(locale, {
     month: 'short',
     day: 'numeric',
     year: 'numeric',
@@ -60,6 +62,7 @@ function formatDate(dateString: string) {
 }
 
 export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
+  const { t, lang } = useLocale();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState<'newest' | 'oldest'>('newest');
@@ -106,13 +109,13 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
               </svg>
-              Knowledge Base
+              {t('articlesPage.knowledgeBase')}
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              CBD Articles & Guides
+              {t('articlesPage.title')}
             </h1>
             <p className="text-xl text-white/80 mb-8 leading-relaxed max-w-2xl">
-              Evidence-based information about CBD, backed by scientific research.
+              {t('articlesPage.subtitle')}
             </p>
             <div className="flex flex-wrap gap-6">
               <div className="flex items-center gap-3">
@@ -123,7 +126,7 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
                 </div>
                 <div>
                   <p className="text-2xl font-bold">{totalArticles}</p>
-                  <p className="text-sm text-white/70">Articles</p>
+                  <p className="text-sm text-white/70">{t('articlesPage.articles')}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -134,7 +137,7 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
                 </div>
                 <div>
                   <p className="text-2xl font-bold">{totalCategories}</p>
-                  <p className="text-sm text-white/70">Topics</p>
+                  <p className="text-sm text-white/70">{t('articlesPage.topics')}</p>
                 </div>
               </div>
             </div>
@@ -150,7 +153,7 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
             <div className="flex-1 relative">
               <input
                 type="text"
-                placeholder="Search articles..."
+                placeholder={t('articlesPage.searchPlaceholder')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 focus:bg-white transition-colors"
@@ -171,8 +174,8 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
               onChange={(e) => setSortBy(e.target.value as 'newest' | 'oldest')}
               className="px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700"
             >
-              <option value="newest">Newest First</option>
-              <option value="oldest">Oldest First</option>
+              <option value="newest">{t('articlesPage.newest')}</option>
+              <option value="oldest">{t('articlesPage.oldest')}</option>
             </select>
           </div>
 
@@ -181,7 +184,7 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
               onClick={() => setSelectedCategory(null)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${!selectedCategory ? 'bg-blue-600 text-white shadow-md' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
             >
-              All Articles
+              {t('articlesPage.allArticles')}
             </button>
             {categories.map((category) => {
               const style = getCategoryStyle(category.slug);
@@ -202,11 +205,11 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
           {(searchQuery || selectedCategory) && (
             <div className="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between">
               <span className="text-sm text-gray-600">
-                Showing <span className="font-semibold text-gray-900">{filteredArticles.length}</span> of {totalArticles} articles
-                {selectedCategory && <> in <span className="font-medium">{categories.find((c) => c.slug === selectedCategory)?.name}</span></>}
+                {t('articlesPage.showingOf')} <span className="font-semibold text-gray-900">{filteredArticles.length}</span> {t('articlesPage.of')} {totalArticles} {t('common.articles')}
+                {selectedCategory && <> {t('articlesPage.articlesIn')} <span className="font-medium">{categories.find((c) => c.slug === selectedCategory)?.name}</span></>}
               </span>
               <button onClick={() => { setSearchQuery(''); setSelectedCategory(null); }} className="text-sm text-blue-600 hover:text-blue-700 font-medium">
-                Clear filters
+                {t('articlesPage.clearFilters')}
               </button>
             </div>
           )}
@@ -222,8 +225,8 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
                 </svg>
               </div>
               <div>
-                <h2 className="text-xl md:text-2xl font-bold text-gray-900">Featured Articles</h2>
-                <p className="text-gray-500 text-sm">Our most popular guides</p>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">{t('articlesPage.featuredArticles')}</h2>
+                <p className="text-gray-500 text-sm">{t('articlesPage.featuredSubtitle')}</p>
               </div>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
@@ -265,7 +268,7 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
                       <div className="flex items-center justify-between text-xs text-gray-400">
                         <div className="flex items-center gap-3">
                           {article.reading_time && <span className="flex items-center gap-1"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>{article.reading_time}</span>}
-                          {(article.published_at || article.created_at) && <span>{formatDate(article.published_at || article.created_at || '')}</span>}
+                          {(article.published_at || article.created_at) && <span>{formatDate(article.published_at || article.created_at || '', lang)}</span>}
                         </div>
                         <svg className="w-5 h-5 text-gray-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                       </div>
@@ -287,8 +290,8 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
                 </svg>
               </div>
               <div>
-                <h2 className="text-xl md:text-2xl font-bold text-gray-900">All Articles</h2>
-                <p className="text-gray-500 text-sm">Browse our complete knowledge base</p>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">{t('articlesPage.allArticlesTitle')}</h2>
+                <p className="text-gray-500 text-sm">{t('articlesPage.allArticlesSubtitle')}</p>
               </div>
             </div>
           )}
@@ -331,7 +334,7 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
                         <div className="flex items-center gap-2">
                           {article.reading_time && <span>{article.reading_time}</span>}
                           {article.reading_time && (article.published_at || article.created_at) && <span>•</span>}
-                          {(article.published_at || article.created_at) && <span>{formatDate(article.published_at || article.created_at || '')}</span>}
+                          {(article.published_at || article.created_at) && <span>{formatDate(article.published_at || article.created_at || '', lang)}</span>}
                         </div>
                         <svg className="w-4 h-4 text-gray-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                       </div>
@@ -347,12 +350,12 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">No articles found</h3>
-              <p className="text-gray-500 mb-6 max-w-md mx-auto">Try adjusting your search or filters.</p>
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">{t('articlesPage.noArticlesFound')}</h3>
+              <p className="text-gray-500 mb-6 max-w-md mx-auto">{t('articlesPage.noArticlesDesc')}</p>
               <button onClick={() => { setSearchQuery(''); setSelectedCategory(null); }}
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
-                Reset filters
+                {t('articlesPage.resetFilters')}
               </button>
             </div>
           )}
@@ -361,16 +364,16 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
         {/* CTA Section */}
         <section className="mt-16 relative overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-8 md:p-12 text-white">
           <div className="relative z-10 text-center max-w-2xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Explore Health Conditions</h2>
-            <p className="text-gray-300 mb-8 text-lg">Browse our comprehensive database of peer-reviewed CBD studies.</p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">{t('articlesPage.exploreConditions')}</h2>
+            <p className="text-gray-300 mb-8 text-lg">{t('articlesPage.exploreConditionsDesc')}</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/conditions" className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-semibold rounded-xl hover:bg-gray-100 transition-colors">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
-                Browse Conditions
+                {t('articlesPage.browseConditions')}
               </Link>
               <Link href="/research" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                View Research
+                {t('articlesPage.viewResearch')}
               </Link>
             </div>
           </div>

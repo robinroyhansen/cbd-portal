@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { StudyType } from '@/lib/quality-tiers';
 import { CONDITION_COLORS, ConditionKey, SampleInfo } from './types';
+import { useLocale } from '@/hooks/useLocale';
 
 // Country code to flag emoji mapping
 const COUNTRY_FLAGS: Record<string, string> = {
@@ -104,10 +105,12 @@ interface ResearchCardProps {
 }
 
 export function ResearchCard({ study, onConditionClick, topicStats }: ResearchCardProps) {
+  const { t } = useLocale();
+
   const statusConfig: Record<string, { label: string; bg: string; text: string; icon: string }> = {
-    completed: { label: 'Completed', bg: 'bg-green-100', text: 'text-green-700', icon: '✓' },
-    ongoing: { label: 'Ongoing', bg: 'bg-blue-100', text: 'text-blue-700', icon: '⏳' },
-    recruiting: { label: 'Recruiting', bg: 'bg-amber-100', text: 'text-amber-700', icon: '📢' }
+    completed: { label: t('researchCard.completed'), bg: 'bg-green-100', text: 'text-green-700', icon: '✓' },
+    ongoing: { label: t('researchCard.ongoing'), bg: 'bg-blue-100', text: 'text-blue-700', icon: '⏳' },
+    recruiting: { label: t('researchCard.recruiting'), bg: 'bg-amber-100', text: 'text-amber-700', icon: '📢' }
   };
 
   const conditionColors = study.primaryCondition
@@ -153,7 +156,7 @@ export function ResearchCard({ study, onConditionClick, topicStats }: ResearchCa
             <span>{study.studyType}</span>
             {isHighQuality && !isPreclinical && (
               <span className="ml-2 inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-amber-100 text-amber-700 rounded text-[10px] font-semibold">
-                TOP 15% ⭐
+                {t('researchCard.topQuality')} ⭐
               </span>
             )}
           </p>
@@ -162,7 +165,7 @@ export function ResearchCard({ study, onConditionClick, topicStats }: ResearchCa
           {isPreclinical ? (
             <div className="flex flex-col items-center justify-center w-11 h-11 rounded-full bg-purple-100 border-2 border-purple-200" title="Preclinical Study">
               <span className="text-base">🧪</span>
-              <span className="text-[8px] font-semibold text-purple-700 -mt-0.5">PRE</span>
+              <span className="text-[8px] font-semibold text-purple-700 -mt-0.5">{t('researchCard.preclinical')}</span>
             </div>
           ) : (
             <div title={`Quality Score: ${study.qualityScore}/100`}>
@@ -229,8 +232,8 @@ export function ResearchCard({ study, onConditionClick, topicStats }: ResearchCa
       <div className="flex items-center justify-between pt-3 border-t border-gray-100">
         {topicStats && study.primaryCondition && (
           <p className="text-xs text-gray-400">
-            📊 1 of {topicStats.total} {study.primaryCondition.data.label.toLowerCase()} studies
-            {topicStats.rank > 0 && !isPreclinical && ` • Ranks #${topicStats.rank} for quality`}
+            📊 {t('researchCard.studiesCount').replace('{{total}}', topicStats.total.toString()).replace('{{condition}}', study.primaryCondition.data.label.toLowerCase())}
+            {topicStats.rank > 0 && !isPreclinical && ` • ${t('researchCard.ranksForQuality').replace('{{rank}}', topicStats.rank.toString())}`}
           </p>
         )}
         {!topicStats && <div />}
@@ -240,7 +243,7 @@ export function ResearchCard({ study, onConditionClick, topicStats }: ResearchCa
             href={`/research/study/${study.slug}`}
             className="inline-flex items-center gap-1 px-3 py-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium whitespace-nowrap shrink-0"
           >
-            View
+            {t('researchCard.view')}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
@@ -252,7 +255,7 @@ export function ResearchCard({ study, onConditionClick, topicStats }: ResearchCa
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 px-3 py-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium whitespace-nowrap shrink-0"
           >
-            View
+            {t('researchCard.view')}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

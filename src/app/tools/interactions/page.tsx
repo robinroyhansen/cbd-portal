@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useLocale } from '@/hooks/useLocale';
 import {
   DrugSearchInput,
   InteractionResultCard,
@@ -19,6 +20,7 @@ type ResultState =
   | { type: 'error'; message: string };
 
 export default function InteractionCheckerPage() {
+  const { t } = useLocale();
   const [result, setResult] = useState<ResultState>({ type: 'idle' });
   const [selectedDrug, setSelectedDrug] = useState<DrugSearchResult | null>(
     null
@@ -57,10 +59,10 @@ export default function InteractionCheckerPage() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
-                CBD Drug Interaction Checker
+                {t('interactionChecker.title')}
               </h1>
               <p className="text-gray-600 mt-1">
-                Check potential interactions between CBD and your medications
+                {t('interactionChecker.subtitle')}
               </p>
             </div>
             <Link
@@ -80,7 +82,7 @@ export default function InteractionCheckerPage() {
                   d="M10 19l-7-7m0 0l7-7m-7 7h18"
                 />
               </svg>
-              Back to Tools
+              {t('interactionChecker.backToTools')}
             </Link>
           </div>
         </div>
@@ -92,25 +94,25 @@ export default function InteractionCheckerPage() {
           <div className="space-y-6">
             <div className="bg-white rounded-xl shadow-sm p-6">
               <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                Search for a Medication
+                {t('interactionChecker.searchMedication')}
               </h2>
               <DrugSearchInput
                 onSelect={handleDrugSelect}
-                placeholder="Enter medication name (generic or brand)..."
+                placeholder={t('interactionChecker.searchPlaceholder')}
                 autoFocus
               />
 
               {selectedDrug && (
                 <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg flex justify-between items-center">
                   <span className="text-blue-800">
-                    Checking:{' '}
+                    {t('interactionChecker.checking')}:{' '}
                     <strong>{selectedDrug.display_name}</strong>
                   </span>
                   <button
                     onClick={handleClear}
                     className="text-blue-600 hover:text-blue-800 font-medium text-sm"
                   >
-                    Clear
+                    {t('interactionChecker.clear')}
                   </button>
                 </div>
               )}
@@ -119,12 +121,10 @@ export default function InteractionCheckerPage() {
               {result.type === 'idle' && (
                 <div className="mt-6 space-y-4 text-sm text-gray-700">
                   <h3 className="font-semibold text-gray-900">
-                    How CBD Interacts with Medications
+                    {t('interactionChecker.howCBDInteracts')}
                   </h3>
                   <p>
-                    CBD (cannabidiol) can affect how your body processes certain
-                    medications through the cytochrome P450 enzyme system. The
-                    most significant interactions involve:
+                    {t('interactionChecker.howCBDInteractsDesc')}
                   </p>
                   <div className="grid grid-cols-2 gap-3 mt-4">
                     <div className="p-3 bg-gray-50 rounded-lg border border-gray-200">
@@ -132,7 +132,7 @@ export default function InteractionCheckerPage() {
                         CYP3A4
                       </div>
                       <div className="text-xs text-gray-600">
-                        Metabolizes ~50% of all medications
+                        {t('interactionChecker.metabolizes')}
                       </div>
                     </div>
                     <div className="p-3 bg-gray-50 rounded-lg border border-gray-200">
@@ -140,7 +140,7 @@ export default function InteractionCheckerPage() {
                         CYP2C19
                       </div>
                       <div className="text-xs text-gray-600">
-                        Important for psychiatric drugs
+                        {t('interactionChecker.psychiatricDrugs')}
                       </div>
                     </div>
                     <div className="p-3 bg-gray-50 rounded-lg border border-gray-200">
@@ -148,7 +148,7 @@ export default function InteractionCheckerPage() {
                         CYP2D6
                       </div>
                       <div className="text-xs text-gray-600">
-                        Antidepressants, opioids
+                        {t('interactionChecker.antidepressantsOpioids')}
                       </div>
                     </div>
                     <div className="p-3 bg-gray-50 rounded-lg border border-gray-200">
@@ -156,7 +156,7 @@ export default function InteractionCheckerPage() {
                         CYP2C9
                       </div>
                       <div className="text-xs text-gray-600">
-                        Warfarin, NSAIDs
+                        {t('interactionChecker.warfarinNSAIDs')}
                       </div>
                     </div>
                   </div>
@@ -168,32 +168,32 @@ export default function InteractionCheckerPage() {
             {result.type === 'idle' && (
               <div className="bg-white rounded-xl shadow-sm p-6">
                 <h3 className="font-semibold text-gray-900 mb-4">
-                  High-Risk Drug Categories
+                  {t('interactionChecker.highRiskCategories')}
                 </h3>
                 <div className="space-y-3">
                   {[
                     {
-                      name: 'Blood Thinners',
+                      name: t('interactionChecker.bloodThinners'),
                       example: 'Warfarin, Rivaroxaban, Apixaban',
                       severity: 'major',
                     },
                     {
-                      name: 'Seizure Medications',
+                      name: t('interactionChecker.seizureMedications'),
                       example: 'Clobazam, Valproate, Phenytoin',
                       severity: 'major',
                     },
                     {
-                      name: 'Immunosuppressants',
+                      name: t('interactionChecker.immunosuppressants'),
                       example: 'Cyclosporine, Tacrolimus',
                       severity: 'major',
                     },
                     {
-                      name: 'Benzodiazepines',
+                      name: t('interactionChecker.benzodiazepines'),
                       example: 'Diazepam, Alprazolam, Lorazepam',
                       severity: 'moderate',
                     },
                     {
-                      name: 'SSRIs',
+                      name: t('interactionChecker.ssris'),
                       example: 'Sertraline, Fluoxetine, Escitalopram',
                       severity: 'moderate',
                     },
@@ -217,7 +217,7 @@ export default function InteractionCheckerPage() {
                               : 'bg-orange-100 text-orange-700'
                           }`}
                         >
-                          {cat.severity === 'major' ? 'Major' : 'Moderate'}
+                          {cat.severity === 'major' ? t('interactionChecker.major') : t('interactionChecker.moderate')}
                         </span>
                       </div>
                       <div className="text-sm text-gray-600 mt-1">
@@ -237,7 +237,7 @@ export default function InteractionCheckerPage() {
                 <div className="text-center">
                   <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
                   <p className="mt-4 text-gray-600">
-                    Checking interaction...
+                    {t('interactionChecker.checkingInteraction')}
                   </p>
                 </div>
               </div>
@@ -264,13 +264,13 @@ export default function InteractionCheckerPage() {
                     />
                   </svg>
                   <div>
-                    <h3 className="font-semibold text-red-900">Error</h3>
+                    <h3 className="font-semibold text-red-900">{t('interactionChecker.error')}</h3>
                     <p className="text-red-800 mt-1">{result.message}</p>
                     <button
                       onClick={handleClear}
                       className="mt-3 text-red-700 hover:text-red-900 font-medium text-sm"
                     >
-                      Try again
+                      {t('interactionChecker.tryAgain')}
                     </button>
                   </div>
                 </div>
@@ -280,43 +280,39 @@ export default function InteractionCheckerPage() {
             {result.type === 'idle' && (
               <div className="bg-white rounded-xl shadow-sm p-6">
                 <h3 className="font-semibold text-gray-900 mb-4">
-                  Understanding Interaction Severity
+                  {t('interactionChecker.understandingSeverity')}
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <span className="w-20 flex-shrink-0 px-2 py-1 text-xs font-medium text-center rounded-full bg-red-100 text-red-800 border border-red-200">
-                      Major
+                      {t('interactionChecker.major')}
                     </span>
                     <p className="text-sm text-gray-600">
-                      Avoid this combination unless under close medical
-                      supervision. Significant risk of adverse effects.
+                      {t('interactionChecker.majorDesc')}
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="w-20 flex-shrink-0 px-2 py-1 text-xs font-medium text-center rounded-full bg-orange-100 text-orange-800 border border-orange-200">
-                      Moderate
+                      {t('interactionChecker.moderate')}
                     </span>
                     <p className="text-sm text-gray-600">
-                      Use with caution. Monitor for side effects and consider
-                      timing separation or dose adjustments.
+                      {t('interactionChecker.moderateDesc')}
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="w-20 flex-shrink-0 px-2 py-1 text-xs font-medium text-center rounded-full bg-yellow-100 text-yellow-800 border border-yellow-200">
-                      Minor
+                      {t('interactionChecker.minor')}
                     </span>
                     <p className="text-sm text-gray-600">
-                      Low risk interaction. Be aware of potential effects but
-                      generally considered safe.
+                      {t('interactionChecker.minorDesc')}
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="w-20 flex-shrink-0 px-2 py-1 text-xs font-medium text-center rounded-full bg-gray-100 text-gray-800 border border-gray-200">
-                      Unknown
+                      {t('interactionChecker.unknown')}
                     </span>
                     <p className="text-sm text-gray-600">
-                      Insufficient research data. Exercise caution and consult
-                      your healthcare provider.
+                      {t('interactionChecker.unknownDesc')}
                     </p>
                   </div>
                 </div>
@@ -331,54 +327,39 @@ export default function InteractionCheckerPage() {
         {/* FAQ Section */}
         <div className="mt-8 bg-white rounded-xl shadow-sm p-6">
           <h2 className="text-xl font-semibold text-gray-900 mb-6">
-            Frequently Asked Questions
+            {t('interactionChecker.faqTitle')}
           </h2>
           <div className="space-y-6">
             <div>
               <h3 className="font-medium text-gray-900">
-                How does CBD interact with medications?
+                {t('interactionChecker.faqHowInteract')}
               </h3>
               <p className="mt-2 text-gray-600 text-sm">
-                CBD primarily interacts with medications through the cytochrome
-                P450 enzyme system in the liver. CBD can inhibit certain CYP
-                enzymes (especially CYP3A4 and CYP2C19), which can slow down how
-                your body processes certain drugs. This may lead to higher
-                levels of the medication in your blood.
+                {t('interactionChecker.faqHowInteractAnswer')}
               </p>
             </div>
             <div>
               <h3 className="font-medium text-gray-900">
-                Should I stop my medication to use CBD?
+                {t('interactionChecker.faqStopMedication')}
               </h3>
               <p className="mt-2 text-gray-600 text-sm">
-                Never stop or change your prescribed medications without
-                consulting your doctor. If you want to use CBD, discuss it with
-                your healthcare provider first. They can advise on potential
-                interactions, timing, and whether any medication adjustments are
-                needed.
+                {t('interactionChecker.faqStopMedicationAnswer')}
               </p>
             </div>
             <div>
               <h3 className="font-medium text-gray-900">
-                Can I take CBD at a different time than my medication?
+                {t('interactionChecker.faqDifferentTime')}
               </h3>
               <p className="mt-2 text-gray-600 text-sm">
-                While spacing CBD and medications apart may reduce some
-                interactions, it doesn&apos;t eliminate them. CBD has a long
-                half-life and its effects on liver enzymes can persist. Always
-                consult your healthcare provider about timing strategies.
+                {t('interactionChecker.faqDifferentTimeAnswer')}
               </p>
             </div>
             <div>
               <h3 className="font-medium text-gray-900">
-                How accurate is this interaction checker?
+                {t('interactionChecker.faqAccuracy')}
               </h3>
               <p className="mt-2 text-gray-600 text-sm">
-                This tool is based on current published research and provides
-                general guidance. However, individual responses vary, and new
-                interactions may be discovered. It should not replace
-                professional medical advice. Always consult your doctor or
-                pharmacist for personalised guidance.
+                {t('interactionChecker.faqAccuracyAnswer')}
               </p>
             </div>
           </div>

@@ -1,8 +1,12 @@
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { headers } from 'next/headers';
 import { SearchForm } from '@/components/SearchForm';
 import { getHreflangAlternates } from '@/components/HreflangTags';
+import { detectLanguage } from '@/lib/language';
+import { getLocaleSync, createTranslator } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
 interface Props {
   searchParams: Promise<{ q?: string }>;
@@ -18,6 +22,11 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 }
 
 export default async function SearchPage({ searchParams }: Props) {
+  const headersList = await headers();
+  const lang = detectLanguage(headersList) as LanguageCode;
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
+
   const { q } = await searchParams;
   const query = q || '';
   const supabase = await createClient();
@@ -79,20 +88,20 @@ export default async function SearchPage({ searchParams }: Props) {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold mb-8 text-center">Search CBD Portal</h1>
+      <h1 className="text-3xl font-bold mb-8 text-center">{t('searchPage.title')}</h1>
 
       <SearchForm />
 
       {query ? (
         <div className="mt-8">
           <h2 className="text-xl font-semibold mb-4">
-            {totalResults} result{totalResults !== 1 ? 's' : ''} for "{query}"
+            {totalResults} {totalResults !== 1 ? t('common.articles') : t('common.article')} for "{query}"
           </h2>
 
           {/* Categories */}
           {categories.length > 0 && (
             <section className="mb-10">
-              <h2 className="text-lg font-semibold text-gray-500 mb-4">Categories</h2>
+              <h2 className="text-lg font-semibold text-gray-500 mb-4">{t('searchPage.categories')}</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {categories.map((cat) => (
                   <Link
@@ -114,7 +123,7 @@ export default async function SearchPage({ searchParams }: Props) {
           {/* Research Studies */}
           {studies.length > 0 && (
             <section className="mb-10">
-              <h2 className="text-lg font-semibold text-gray-500 mb-4">Research Studies</h2>
+              <h2 className="text-lg font-semibold text-gray-500 mb-4">{t('searchPage.researchStudies')}</h2>
               <div className="space-y-4">
                 {studies.map((study) => (
                   <Link
@@ -142,7 +151,7 @@ export default async function SearchPage({ searchParams }: Props) {
           {/* Glossary Terms */}
           {glossary.length > 0 && (
             <section className="mb-10">
-              <h2 className="text-lg font-semibold text-gray-500 mb-4">Glossary Terms</h2>
+              <h2 className="text-lg font-semibold text-gray-500 mb-4">{t('searchPage.glossaryTerms')}</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {glossary.map((term) => (
                   <Link
@@ -164,7 +173,7 @@ export default async function SearchPage({ searchParams }: Props) {
           {/* Articles */}
           {articles.length > 0 && (
             <section>
-              <h2 className="text-lg font-semibold text-gray-500 mb-4">Articles</h2>
+              <h2 className="text-lg font-semibold text-gray-500 mb-4">{t('searchPage.articles')}</h2>
               <div className="space-y-4">
                 {articles.map((article) => (
                   <Link
@@ -175,8 +184,8 @@ export default async function SearchPage({ searchParams }: Props) {
                     <h3 className="font-semibold text-lg mb-2">{article.title}</h3>
                     <p className="text-gray-600 text-sm line-clamp-2 mb-2">{article.excerpt}</p>
                     <div className="flex items-center gap-3 text-xs text-gray-400">
-                      {article.reading_time && <span>{article.reading_time} min read</span>}
-                      <span>Updated {new Date(article.updated_at).toLocaleDateString('en-GB')}</span>
+                      {article.reading_time && <span>{article.reading_time} {t('searchPage.minRead')}</span>}
+                      <span>{t('searchPage.updated')} {new Date(article.updated_at).toLocaleDateString(lang === 'en' ? 'en-GB' : lang)}</span>
                     </div>
                   </Link>
                 ))}
@@ -186,26 +195,26 @@ export default async function SearchPage({ searchParams }: Props) {
 
           {totalResults === 0 && (
             <div className="text-center py-12">
-              <p className="text-gray-500 mb-4">No results found for &quot;{query}&quot;</p>
-              <p className="text-sm text-gray-400">Try different keywords or browse our resources</p>
+              <p className="text-gray-500 mb-4">{t('searchPage.noResults')} &quot;{query}&quot;</p>
+              <p className="text-sm text-gray-400">{t('searchPage.noResultsHint')}</p>
               <div className="flex flex-wrap justify-center gap-3 mt-4">
                 <Link
                   href="/categories"
                   className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
                 >
-                  Browse Categories
+                  {t('searchPage.browseCategories')}
                 </Link>
                 <Link
                   href="/research"
                   className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
                 >
-                  Browse Research
+                  {t('searchPage.browseResearch')}
                 </Link>
                 <Link
                   href="/glossary"
                   className="px-6 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700"
                 >
-                  Browse Glossary
+                  {t('searchPage.browseGlossary')}
                 </Link>
               </div>
             </div>

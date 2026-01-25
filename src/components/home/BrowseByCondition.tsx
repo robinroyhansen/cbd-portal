@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
+import { getLocaleSync, createTranslator } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
 const categoryConfig: Record<string, { icon: string; color: string; bgColor: string }> = {
   'mental_health': { icon: '🧠', color: 'text-violet-600', bgColor: 'bg-violet-500/10' },
@@ -14,7 +16,13 @@ const categoryConfig: Record<string, { icon: string; color: string; bgColor: str
   'other': { icon: '🏥', color: 'text-slate-600', bgColor: 'bg-slate-500/10' },
 };
 
-export async function BrowseByCondition() {
+interface BrowseByConditionProps {
+  lang?: LanguageCode;
+}
+
+export async function BrowseByCondition({ lang = 'en' }: BrowseByConditionProps) {
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
   const supabase = await createClient();
 
   const { data: conditions } = await supabase
@@ -45,14 +53,13 @@ export async function BrowseByCondition() {
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
           <span className="inline-block text-emerald-600 font-semibold text-sm uppercase tracking-wider mb-4">
-            Research Library
+            {t('conditions.sectionLabel')}
           </span>
           <h2 className="text-4xl lg:text-5xl font-serif font-bold text-slate-900 mb-6">
-            Browse by Condition
+            {t('conditions.title')}
           </h2>
           <p className="text-xl text-slate-600 leading-relaxed">
-            Explore evidence-based CBD research across {totalConditions || 312} health conditions.
-            Every study analyzed, scored, and summarized in plain language.
+            {t('conditions.description', { count: totalConditions || 312 })}
           </p>
         </div>
 
@@ -101,12 +108,12 @@ export async function BrowseByCondition() {
                           <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
                         </svg>
                         <span className="font-semibold text-slate-700">{condition.research_count || 0}</span>
-                        <span className="text-slate-400">studies</span>
+                        <span className="text-slate-400">{t('common.studies')}</span>
                       </div>
                     </div>
 
                     <span className="inline-flex items-center gap-1 text-sm font-medium text-emerald-600 group-hover:gap-2 transition-all">
-                      Explore
+                      {t('common.explore')}
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
@@ -124,7 +131,7 @@ export async function BrowseByCondition() {
             href="/conditions"
             className="group inline-flex items-center gap-3 px-8 py-4 bg-slate-900 text-white rounded-xl font-semibold hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl"
           >
-            <span>Browse All {totalConditions || 312} Conditions</span>
+            <span>{t('conditions.browseAll', { count: totalConditions || 312 })}</span>
             <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>

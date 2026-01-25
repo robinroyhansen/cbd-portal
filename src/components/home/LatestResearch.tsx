@@ -1,22 +1,29 @@
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
+import { getLocaleSync, createTranslator } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
-function QualityBadge({ score }: { score: number }) {
+interface QualityBadgeProps {
+  score: number;
+  t: (key: string, params?: Record<string, string | number>) => string;
+}
+
+function QualityBadge({ score, t }: QualityBadgeProps) {
   let color = 'bg-slate-100 text-slate-500';
-  let label = 'Unrated';
+  let label = t('research.qualityBadge.unrated');
 
   if (score >= 80) {
     color = 'bg-emerald-100 text-emerald-700';
-    label = 'High Quality';
+    label = t('research.qualityBadge.highQuality');
   } else if (score >= 60) {
     color = 'bg-blue-100 text-blue-700';
-    label = 'Good';
+    label = t('research.qualityBadge.good');
   } else if (score >= 40) {
     color = 'bg-amber-100 text-amber-700';
-    label = 'Moderate';
+    label = t('research.qualityBadge.moderate');
   } else if (score > 0) {
     color = 'bg-orange-100 text-orange-700';
-    label = 'Low';
+    label = t('research.qualityBadge.low');
   }
 
   return (
@@ -26,25 +33,36 @@ function QualityBadge({ score }: { score: number }) {
   );
 }
 
-function StudyTypeBadge({ type }: { type: string }) {
-  const badges: Record<string, { color: string; icon: string; label: string }> = {
-    human: { color: 'text-blue-600', icon: '👤', label: 'Human Trial' },
-    animal: { color: 'text-orange-600', icon: '🐭', label: 'Preclinical' },
-    review: { color: 'text-violet-600', icon: '📚', label: 'Review' },
-    in_vitro: { color: 'text-cyan-600', icon: '🧫', label: 'In Vitro' },
+interface StudyTypeBadgeProps {
+  type: string;
+  t: (key: string, params?: Record<string, string | number>) => string;
+}
+
+function StudyTypeBadge({ type, t }: StudyTypeBadgeProps) {
+  const badges: Record<string, { color: string; icon: string; labelKey: string }> = {
+    human: { color: 'text-blue-600', icon: '👤', labelKey: 'research.studyType.human' },
+    animal: { color: 'text-orange-600', icon: '🐭', labelKey: 'research.studyType.animal' },
+    review: { color: 'text-violet-600', icon: '📚', labelKey: 'research.studyType.review' },
+    in_vitro: { color: 'text-cyan-600', icon: '🧫', labelKey: 'research.studyType.inVitro' },
   };
 
-  const badge = badges[type] || { color: 'text-slate-600', icon: '📄', label: type };
+  const badge = badges[type] || { color: 'text-slate-600', icon: '📄', labelKey: type };
 
   return (
     <span className={`inline-flex items-center gap-1 text-xs ${badge.color}`}>
       <span>{badge.icon}</span>
-      <span className="font-medium">{badge.label}</span>
+      <span className="font-medium">{t(badge.labelKey)}</span>
     </span>
   );
 }
 
-export async function LatestResearch() {
+interface LatestResearchProps {
+  lang?: LanguageCode;
+}
+
+export async function LatestResearch({ lang = 'en' }: LatestResearchProps) {
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
   const supabase = await createClient();
 
   const { data: latestResearch, count: totalCount } = await supabase
@@ -65,14 +83,13 @@ export async function LatestResearch() {
           {/* Left column - Info */}
           <div className="lg:col-span-1">
             <span className="inline-block text-emerald-400 font-semibold text-sm uppercase tracking-wider mb-4">
-              Research Database
+              {t('research.sectionLabel')}
             </span>
             <h2 className="text-4xl font-serif font-bold text-white mb-6">
-              Latest Studies
+              {t('research.title')}
             </h2>
             <p className="text-emerald-100/60 text-lg leading-relaxed mb-8">
-              We continuously monitor PubMed, ClinicalTrials.gov, and peer-reviewed journals
-              for the latest CBD research, scoring each study for quality and relevance.
+              {t('research.description')}
             </p>
 
             {/* Stats card */}
@@ -80,15 +97,15 @@ export async function LatestResearch() {
               <div className="text-5xl font-bold text-white font-mono mb-2">
                 {totalCount?.toLocaleString() || 0}
               </div>
-              <p className="text-emerald-400/80 mb-4">Peer-reviewed studies</p>
+              <p className="text-emerald-400/80 mb-4">{t('stats.peerReviewedStudies')}</p>
               <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
                 <div>
                   <div className="text-2xl font-bold text-white font-mono">100%</div>
-                  <div className="text-xs text-white/40">Quality scored</div>
+                  <div className="text-xs text-white/40">{t('stats.qualityScored')}</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-white font-mono">AI</div>
-                  <div className="text-xs text-white/40">Summarized</div>
+                  <div className="text-xs text-white/40">{t('stats.aiSummarized')}</div>
                 </div>
               </div>
             </div>
@@ -97,7 +114,7 @@ export async function LatestResearch() {
               href="/research"
               className="group inline-flex items-center gap-3 px-6 py-3.5 bg-white text-slate-900 rounded-xl font-semibold hover:bg-emerald-50 transition-all"
             >
-              <span>Browse All Studies</span>
+              <span>{t('research.browseAll')}</span>
               <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -108,10 +125,10 @@ export async function LatestResearch() {
           <div className="lg:col-span-2">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-sm font-medium text-white/40 uppercase tracking-wider">
-                Recently Added
+                {t('research.recentlyAdded')}
               </h3>
               <Link href="/research" className="text-sm text-emerald-400 hover:text-emerald-300 font-medium">
-                View all →
+                {t('common.viewAll')} →
               </Link>
             </div>
 
@@ -126,8 +143,8 @@ export async function LatestResearch() {
                 >
                   {/* Badges row */}
                   <div className="flex items-center gap-3 mb-3">
-                    {item.quality_score && <QualityBadge score={item.quality_score} />}
-                    {item.study_subject && <StudyTypeBadge type={item.study_subject} />}
+                    {item.quality_score && <QualityBadge score={item.quality_score} t={t} />}
+                    {item.study_subject && <StudyTypeBadge type={item.study_subject} t={t} />}
                     <span className="text-xs text-white/30 ml-auto">{item.year}</span>
                   </div>
 
@@ -150,7 +167,7 @@ export async function LatestResearch() {
                       {item.authors?.split(',').length > 2 ? ' et al.' : ''}
                     </p>
                     <span className="inline-flex items-center gap-1 text-emerald-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                      Read
+                      {t('research.readStudy')}
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>

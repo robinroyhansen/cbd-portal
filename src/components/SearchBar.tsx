@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
+import { useLocale } from '@/hooks/useLocale';
 
 interface SearchResult {
   slug: string;
@@ -12,6 +13,7 @@ interface SearchResult {
 }
 
 export function SearchBar() {
+  const { t } = useLocale();
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -152,7 +154,7 @@ export function SearchBar() {
               setIsOpen(true);
             }}
             onFocus={() => setIsOpen(true)}
-            placeholder="Search articles..."
+            placeholder={t('searchBar.placeholder')}
             className="w-full sm:w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-base"
           />
           <svg
@@ -174,7 +176,7 @@ export function SearchBar() {
         >
           {loading ? (
             <div className="p-4 text-center text-gray-500">
-              Searching...
+              {t('searchBar.searching')}
             </div>
           ) : results.length > 0 ? (
             <div className="max-h-96 overflow-y-auto">
@@ -194,7 +196,7 @@ export function SearchBar() {
                         ? 'bg-amber-100 text-amber-700'
                         : 'bg-green-100 text-green-700'
                     }`}>
-                      {result.type === 'category' ? 'Category' : result.type === 'study' ? 'Study' : result.type === 'glossary' ? 'Term' : 'Article'}
+                      {result.type === 'category' ? t('searchBar.category') : result.type === 'study' ? t('searchBar.study') : result.type === 'glossary' ? t('searchBar.term') : t('searchBar.article')}
                     </span>
                     <span className="font-medium text-gray-900 line-clamp-1">{result.title}</span>
                   </div>
@@ -212,13 +214,13 @@ export function SearchBar() {
                   }}
                   className="w-full text-left px-4 py-3 bg-gray-50 text-green-600 hover:bg-gray-100 font-medium"
                 >
-                  View all results for "{query}" →
+                  {t('searchBar.viewAllResults').replace('{{query}}', query)} →
                 </button>
               )}
             </div>
           ) : query.length >= 2 ? (
             <div className="p-4 text-center text-gray-500">
-              No results found for "{query}"
+              {t('searchBar.noResults').replace('{{query}}', query)}
             </div>
           ) : null}
         </div>

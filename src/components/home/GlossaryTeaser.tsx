@@ -1,7 +1,15 @@
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
+import { getLocaleSync, createTranslator } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
-export async function GlossaryTeaser() {
+interface GlossaryTeaserProps {
+  lang?: LanguageCode;
+}
+
+export async function GlossaryTeaser({ lang = 'en' }: GlossaryTeaserProps) {
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
   const supabase = await createClient();
 
   // Get recently updated glossary terms
@@ -45,15 +53,15 @@ export async function GlossaryTeaser() {
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <span className="text-2xl">📖</span>
-              <h2 className="text-xl font-bold text-gray-900">CBD Glossary</h2>
+              <h2 className="text-xl font-bold text-gray-900">{t('glossary.title')}</h2>
             </div>
             <div className="text-right">
               <div className="text-2xl font-bold text-green-600">{totalTerms || 0}</div>
-              <div className="text-xs text-gray-500">Terms</div>
+              <div className="text-xs text-gray-500">{t('common.terms')}</div>
             </div>
           </div>
           <p className="text-sm text-gray-600 mb-4">
-            CBD terminology explained in plain language.
+            {t('glossary.subtitle')}
           </p>
         </div>
 
@@ -62,16 +70,15 @@ export async function GlossaryTeaser() {
           <div className="hidden md:block">
             <div className="flex items-center gap-2 mb-4">
               <span className="text-3xl">📖</span>
-              <h2 className="text-3xl font-bold text-gray-900">CBD Glossary</h2>
+              <h2 className="text-3xl font-bold text-gray-900">{t('glossary.title')}</h2>
             </div>
             <p className="text-gray-600 mb-6">
-              Understand CBD terminology with our comprehensive glossary. From cannabinoids to
-              terpenes, we explain the science in plain language.
+              {t('glossary.subtitle')}
             </p>
 
             <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 mb-6">
               <div className="text-4xl font-bold text-green-600 mb-1">{totalTerms || 0}</div>
-              <div className="text-gray-600 mb-4">Terms Defined</div>
+              <div className="text-gray-600 mb-4">{t('stats.termsExplained')}</div>
 
               {topCategories.length > 0 && (
                 <div className="flex flex-wrap gap-2">
@@ -92,7 +99,7 @@ export async function GlossaryTeaser() {
               href="/glossary"
               className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors"
             >
-              Browse Full Glossary
+              {t('glossary.browseAll')}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
@@ -103,13 +110,13 @@ export async function GlossaryTeaser() {
           <div className="md:col-span-2">
             <div className="flex items-center justify-between mb-3 md:mb-4">
               <h3 className="text-xs md:text-sm font-medium text-gray-500 uppercase tracking-wide">
-                Recently Updated
+                {t('research.recentlyAdded')}
               </h3>
               <Link
                 href="/glossary"
                 className="text-xs md:text-sm text-green-600 hover:text-green-700"
               >
-                View all →
+                {t('common.viewAll')} →
               </Link>
             </div>
             <div className="grid grid-cols-2 gap-2 md:gap-4">
@@ -142,7 +149,7 @@ export async function GlossaryTeaser() {
                 href="/glossary"
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors text-sm"
               >
-                Browse All {totalTerms || 0} Terms
+                {t('glossary.browseAllCount', { count: totalTerms || 0 })}
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>

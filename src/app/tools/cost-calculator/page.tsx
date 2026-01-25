@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useLocale } from '@/hooks/useLocale';
 
 interface Currency {
   code: string;
@@ -138,6 +139,7 @@ const getInitialCurrency = (): Currency => {
 };
 
 export default function CostCalculator() {
+  const { t } = useLocale();
   const [inputs, setInputs] = useState<CalculatorInputs>(defaultInputs);
   const [products, setProducts] = useState<Product[]>([]);
   const [selectedCurrency, setSelectedCurrency] = useState<Currency>(currencies[0]);
@@ -202,14 +204,14 @@ export default function CostCalculator() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">CBD Cost Calculator</h1>
-              <p className="text-gray-600 mt-2">Compare CBD product costs per milligram to find the best value</p>
+              <h1 className="text-3xl font-bold text-gray-900">{t('costCalc.title')}</h1>
+              <p className="text-gray-600 mt-2">{t('costCalc.subtitle')}</p>
             </div>
             <Link
               href="/tools"
               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
             >
-              All Tools
+              {t('costCalc.allTools')}
             </Link>
           </div>
         </div>
@@ -220,12 +222,12 @@ export default function CostCalculator() {
 
           {/* Calculator Form */}
           <div className="bg-white rounded-xl shadow-sm p-6">
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">Add Product to Compare</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-6">{t('costCalc.addProduct')}</h2>
 
             {/* Currency Selector */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Currency
+                {t('costCalc.currency')}
               </label>
               <select
                 value={selectedCurrency.code}
@@ -246,21 +248,21 @@ export default function CostCalculator() {
             {/* Product Name */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Product Name *
+                {t('costCalc.productName')} *
               </label>
               <input
                 type="text"
                 value={inputs.productName}
                 onChange={(e) => handleInputChange('productName', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="e.g., Brand X CBD Oil 1000mg"
+                placeholder={t('costCalc.productNamePlaceholder')}
               />
             </div>
 
             {/* Product Price */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Product Price ({selectedCurrency.symbol}) *
+                {t('costCalc.productPrice')} ({selectedCurrency.symbol}) *
               </label>
               <div className="relative">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">{selectedCurrency.symbol}</span>
@@ -279,7 +281,7 @@ export default function CostCalculator() {
             {/* CBD Amount */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Total CBD Content *
+                {t('costCalc.totalCBDContent')} *
               </label>
               <div className="flex gap-3">
                 <input
@@ -300,13 +302,13 @@ export default function CostCalculator() {
                   <option value="g">g</option>
                 </select>
               </div>
-              <p className="text-xs text-gray-500 mt-1">Total CBD in the entire product (not per serving)</p>
+              <p className="text-xs text-gray-500 mt-1">{t('costCalc.totalCBDHint')}</p>
             </div>
 
             {/* Volume/Servings */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Product Size / Servings
+                {t('costCalc.productSize')}
               </label>
               <div className="flex gap-3">
                 <input
@@ -323,11 +325,11 @@ export default function CostCalculator() {
                   onChange={(e) => handleInputChange('volumeUnit', e.target.value as 'ml' | 'count')}
                   className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 >
-                  <option value="ml">ml (oils)</option>
-                  <option value="count">count (gummies/capsules)</option>
+                  <option value="ml">{t('costCalc.mlOils')}</option>
+                  <option value="count">{t('costCalc.countGummies')}</option>
                 </select>
               </div>
-              <p className="text-xs text-gray-500 mt-1">For oils: bottle size in ml. For gummies/capsules: number of pieces</p>
+              <p className="text-xs text-gray-500 mt-1">{t('costCalc.productSizeHint')}</p>
             </div>
 
             {/* Add Product Button */}
@@ -336,19 +338,19 @@ export default function CostCalculator() {
               disabled={!inputs.productName.trim() || inputs.price <= 0 || inputs.cbdAmount <= 0}
               className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium disabled:bg-gray-300 disabled:cursor-not-allowed"
             >
-              Add Product to Compare
+              {t('costCalc.addButton')}
             </button>
 
             {/* Product List */}
             {products.length > 0 && (
               <div className="mt-6 pt-6 border-t border-gray-200">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-medium text-gray-900">Products Added ({products.length})</h3>
+                  <h3 className="font-medium text-gray-900">{t('costCalc.productsAdded')} ({products.length})</h3>
                   <button
                     onClick={handleClearAll}
                     className="text-sm text-red-600 hover:text-red-700"
                   >
-                    Clear All
+                    {t('costCalc.clearAll')}
                   </button>
                 </div>
                 <div className="space-y-2">
@@ -376,7 +378,7 @@ export default function CostCalculator() {
           {/* Results */}
           {products.length > 0 ? (
             <div className="bg-white rounded-xl shadow-sm p-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">Cost Comparison Results</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mb-6">{t('costCalc.results')}</h2>
 
               {/* Best Value Highlight */}
               {bestValue && (
@@ -385,7 +387,7 @@ export default function CostCalculator() {
                     <div>
                       <div className="flex items-center mb-1">
                         <span className="text-2xl mr-2">🏆</span>
-                        <h3 className="text-lg font-semibold text-green-900">Best Value</h3>
+                        <h3 className="text-lg font-semibold text-green-900">{t('costCalc.bestValue')}</h3>
                       </div>
                       <p className="text-green-800 font-medium">{bestValue.name}</p>
                     </div>
@@ -393,22 +395,22 @@ export default function CostCalculator() {
                       <p className="text-3xl font-bold text-green-700">
                         {formatCurrency(bestValue.costPerMg, selectedCurrency)}
                       </p>
-                      <p className="text-green-600 text-sm">per mg</p>
+                      <p className="text-green-600 text-sm">{t('costCalc.perMg')}</p>
                     </div>
                   </div>
                   {/* Cost for common doses */}
                   <div className="mt-4 pt-3 border-t border-green-200 grid grid-cols-3 gap-2 text-center">
                     <div>
                       <p className="text-lg font-semibold text-green-700">{formatCurrency(bestValue.costPerMg * 25, selectedCurrency)}</p>
-                      <p className="text-xs text-green-600">per 25mg dose</p>
+                      <p className="text-xs text-green-600">{t('costCalc.perDose25')}</p>
                     </div>
                     <div>
                       <p className="text-lg font-semibold text-green-700">{formatCurrency(bestValue.costPerMg * 50, selectedCurrency)}</p>
-                      <p className="text-xs text-green-600">per 50mg dose</p>
+                      <p className="text-xs text-green-600">{t('costCalc.perDose50')}</p>
                     </div>
                     <div>
                       <p className="text-lg font-semibold text-green-700">{formatCurrency(bestValue.costPerMg * 25 * 30, selectedCurrency)}</p>
-                      <p className="text-xs text-green-600">per month (25mg/day)</p>
+                      <p className="text-xs text-green-600">{t('costCalc.perMonth')}</p>
                     </div>
                   </div>
                 </div>
@@ -465,18 +467,18 @@ export default function CostCalculator() {
                           <p className={`text-xl font-bold ${textColor}`}>
                             {formatCurrency(product.costPerMg, selectedCurrency)}
                           </p>
-                          <p className="text-xs text-gray-500">per mg</p>
+                          <p className="text-xs text-gray-500">{t('costCalc.perMg')}</p>
                         </div>
                       </div>
 
                       {/* Visual cost bar */}
                       <div className="mt-3">
                         <div className="flex items-center justify-between text-xs mb-1">
-                          <span className="text-gray-500">Relative cost</span>
+                          <span className="text-gray-500">{t('costCalc.relativeCost')}</span>
                           {index === 0 ? (
-                            <span className="font-medium text-green-600">Best value</span>
+                            <span className="font-medium text-green-600">{t('costCalc.bestValue')}</span>
                           ) : (
-                            <span className={`font-medium ${textColor}`}>+{percentFromBest.toFixed(0)}% vs best</span>
+                            <span className={`font-medium ${textColor}`}>+{percentFromBest.toFixed(0)}% {t('costCalc.vsBest')}</span>
                           )}
                         </div>
                         <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
@@ -489,7 +491,7 @@ export default function CostCalculator() {
 
                       {/* Monthly cost comparison */}
                       <div className="mt-3 pt-3 border-t border-gray-200 flex justify-between text-sm">
-                        <span className="text-gray-600">Monthly cost (25mg/day):</span>
+                        <span className="text-gray-600">{t('costCalc.monthlyCost')}:</span>
                         <span className={`font-semibold ${textColor}`}>
                           {formatCurrency(product.costPerMg * 25 * 30, selectedCurrency)}
                         </span>
@@ -506,20 +508,20 @@ export default function CostCalculator() {
                     <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    Potential Savings
+                    {t('costCalc.potentialSavings')}
                   </h4>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <p className="text-2xl font-bold text-blue-700">
                         {((1 - sortedProducts[0].costPerMg / sortedProducts[sortedProducts.length - 1].costPerMg) * 100).toFixed(0)}%
                       </p>
-                      <p className="text-sm text-blue-600">less per mg vs worst</p>
+                      <p className="text-sm text-blue-600">{t('costCalc.lessPerMg')}</p>
                     </div>
                     <div>
                       <p className="text-2xl font-bold text-blue-700">
                         {formatCurrency((sortedProducts[sortedProducts.length - 1].costPerMg - sortedProducts[0].costPerMg) * 25 * 30, selectedCurrency)}
                       </p>
-                      <p className="text-sm text-blue-600">saved per month (25mg/day)</p>
+                      <p className="text-sm text-blue-600">{t('costCalc.savedPerMonth')}</p>
                     </div>
                   </div>
                 </div>
@@ -527,44 +529,44 @@ export default function CostCalculator() {
 
               {/* Additional Notes */}
               <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
-                <h4 className="font-semibold text-gray-900 mb-2">Remember</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('costCalc.remember')}</h4>
                 <ul className="space-y-1 text-sm text-gray-700">
-                  <li>• Price isn't everything — always verify product quality with third-party lab tests (COAs)</li>
-                  <li>• Full-spectrum products may offer additional benefits over isolates</li>
-                  <li>• Consider shipping costs and subscription discounts when comparing</li>
+                  <li>• {t('costCalc.rememberTip1')}</li>
+                  <li>• {t('costCalc.rememberTip2')}</li>
+                  <li>• {t('costCalc.rememberTip3')}</li>
                 </ul>
               </div>
             </div>
           ) : (
             /* Educational Content */
             <div className="bg-white rounded-xl shadow-sm p-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">Why Compare Cost Per Milligram?</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">{t('costCalc.whyCompare')}</h2>
 
               <div className="space-y-4 text-sm text-gray-700">
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-1">The Real Value Metric</h4>
-                  <p>CBD products vary wildly in price and potency. A {selectedCurrency.symbol}30 bottle with 500mg CBD is actually more expensive than a {selectedCurrency.symbol}50 bottle with 1500mg CBD when you calculate the cost per milligram.</p>
+                  <h4 className="font-medium text-gray-900 mb-1">{t('costCalc.realValue')}</h4>
+                  <p>{t('costCalc.realValueDesc').replace(/\{\{currency\}\}/g, selectedCurrency.symbol)}</p>
                 </div>
 
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-1">How to Calculate</h4>
-                  <p>Cost per mg = Total Price / Total CBD Content. For example, a {selectedCurrency.symbol}60 bottle containing 1000mg CBD costs {selectedCurrency.symbol}0.06 per mg.</p>
+                  <h4 className="font-medium text-gray-900 mb-1">{t('costCalc.howToCalculate')}</h4>
+                  <p>{t('costCalc.howToCalculateDesc').replace(/\{\{currency\}\}/g, selectedCurrency.symbol)}</p>
                 </div>
 
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-1">Quality Matters Too</h4>
-                  <p>The cheapest option isn't always the best. Always check for third-party lab testing (COA) to verify potency and purity. A slightly more expensive product with verified quality may be worth it.</p>
+                  <h4 className="font-medium text-gray-900 mb-1">{t('costCalc.qualityMatters')}</h4>
+                  <p>{t('costCalc.qualityMattersDesc')}</p>
                 </div>
 
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-1">What's a Good Price?</h4>
-                  <p>Generally, {selectedCurrency.symbol}0.05-0.10 per mg is considered reasonable for quality CBD oil. Prices below {selectedCurrency.symbol}0.03/mg may indicate lower quality, while premium brands often charge {selectedCurrency.symbol}0.15+ per mg.</p>
+                  <h4 className="font-medium text-gray-900 mb-1">{t('costCalc.goodPrice')}</h4>
+                  <p>{t('costCalc.goodPriceDesc').replace(/\{\{currency\}\}/g, selectedCurrency.symbol)}</p>
                 </div>
               </div>
 
               <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
                 <p className="text-blue-800 text-sm">
-                  <strong>Tip:</strong> Add 2-3 products you're considering to quickly see which offers the best value for your budget.
+                  <strong>{t('costCalc.tip')}:</strong> {t('costCalc.tipText')}
                 </p>
               </div>
             </div>
@@ -576,7 +578,7 @@ export default function CostCalculator() {
       <div className="bg-gray-100 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <p className="text-sm text-gray-600 text-center">
-            <strong>Disclaimer:</strong> This calculator is for informational purposes only. Always verify CBD content from the product's Certificate of Analysis (COA). Prices and formulations may vary by retailer and over time.
+            <strong>{t('costCalc.disclaimer')}:</strong> {t('costCalc.disclaimerText')}
           </p>
         </div>
       </div>

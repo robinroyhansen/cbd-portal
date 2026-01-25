@@ -1,8 +1,12 @@
 import { Metadata } from 'next';
+import { headers } from 'next/headers';
 import { createClient } from '../../lib/supabase/server';
 import { ResearchPageClient, CONDITIONS, ConditionKey } from '../../components/ResearchPageClient';
 import Link from 'next/link';
 import { getHreflangAlternates } from '@/components/HreflangTags';
+import { detectLanguage } from '@/lib/language';
+import { getLocaleSync, createTranslator } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
 export async function generateMetadata(): Promise<Metadata> {
   const hreflang = getHreflangAlternates('/research');
@@ -48,6 +52,11 @@ interface ResearchItem {
 }
 
 export default async function ResearchPage() {
+  const headersList = await headers();
+  const lang = detectLanguage(headersList) as LanguageCode;
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
+
   const supabase = await createClient();
 
   let allResearch: ResearchItem[] = [];
@@ -212,17 +221,17 @@ export default async function ResearchPage() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
             </span>
-            Updated regularly
+            {t('researchPage.updatedRegularly')}
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            CBD Research
-            <span className="block text-blue-200">Database</span>
+            {t('researchPage.title')}
+            <span className="block text-blue-200">{t('researchPage.titleHighlight')}</span>
           </h1>
 
           <p className="text-xl text-blue-100 mb-8 max-w-2xl leading-relaxed">
-            Evidence-based research with advanced quality assessment and classification.
-            {studyStats.total.toLocaleString()} peer-reviewed studies from trusted sources.
+            {t('researchPage.subtitle')}
+            {' '}{studyStats.total.toLocaleString()} {t('researchPage.peerReviewedStudies')}.
           </p>
 
           {/* Stats Grid */}
@@ -234,7 +243,7 @@ export default async function ResearchPage() {
               <div className="text-3xl md:text-4xl font-bold text-white mb-1">
                 {studyStats.total.toLocaleString()}
               </div>
-              <div className="text-sm text-blue-200 font-medium">Total Studies</div>
+              <div className="text-sm text-blue-200 font-medium">{t('researchPage.totalStudies')}</div>
               <div className="mt-2 h-1 w-full bg-white/20 rounded-full overflow-hidden">
                 <div className="h-full w-full bg-gradient-to-r from-blue-300 to-purple-300 rounded-full" />
               </div>
@@ -248,7 +257,7 @@ export default async function ResearchPage() {
                 <span className="text-2xl">👤</span>
                 <span className="text-3xl md:text-4xl font-bold text-white">{studyStats.human.toLocaleString()}</span>
               </div>
-              <div className="text-sm text-blue-200 font-medium">Human Studies</div>
+              <div className="text-sm text-blue-200 font-medium">{t('researchPage.humanStudies')}</div>
               <div className="mt-2 h-1 w-full bg-white/20 rounded-full overflow-hidden">
                 <div className="h-full bg-gradient-to-r from-green-300 to-emerald-300 rounded-full" style={{ width: `${(studyStats.human / studyStats.total) * 100}%` }} />
               </div>
@@ -262,7 +271,7 @@ export default async function ResearchPage() {
                 <span className="text-2xl">📚</span>
                 <span className="text-3xl md:text-4xl font-bold text-white">{studyStats.reviews.toLocaleString()}</span>
               </div>
-              <div className="text-sm text-blue-200 font-medium">Systematic Reviews</div>
+              <div className="text-sm text-blue-200 font-medium">{t('researchPage.systematicReviews')}</div>
               <div className="mt-2 h-1 w-full bg-white/20 rounded-full overflow-hidden">
                 <div className="h-full bg-gradient-to-r from-cyan-300 to-blue-300 rounded-full" style={{ width: `${(studyStats.reviews / studyStats.total) * 100}%` }} />
               </div>
@@ -276,7 +285,7 @@ export default async function ResearchPage() {
                 <span className="text-2xl">🧪</span>
                 <span className="text-3xl md:text-4xl font-bold text-white">{studyStats.preclinical.toLocaleString()}</span>
               </div>
-              <div className="text-sm text-blue-200 font-medium">Preclinical Studies</div>
+              <div className="text-sm text-blue-200 font-medium">{t('researchPage.preclinicalStudies')}</div>
               <div className="mt-2 h-1 w-full bg-white/20 rounded-full overflow-hidden">
                 <div className="h-full bg-gradient-to-r from-purple-300 to-pink-300 rounded-full" style={{ width: `${(studyStats.preclinical / studyStats.total) * 100}%` }} />
               </div>
@@ -285,7 +294,7 @@ export default async function ResearchPage() {
 
           {lastUpdated && (
             <p className="text-sm text-blue-200 mt-8">
-              Last updated: {lastUpdated}
+              {t('researchPage.lastUpdated')}: {lastUpdated}
             </p>
           )}
         </div>
@@ -295,7 +304,7 @@ export default async function ResearchPage() {
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-4 py-3 md:py-4">
           <div className="flex flex-wrap items-center justify-center gap-x-3 md:gap-x-6 gap-y-2 text-xs md:text-sm text-gray-500">
-            <span className="font-medium text-gray-700 w-full text-center sm:w-auto">Data from:</span>
+            <span className="font-medium text-gray-700 w-full text-center sm:w-auto">{t('researchPage.dataFrom')}:</span>
             <span className="flex items-center gap-1">
               <span className="text-base md:text-lg">🔬</span> PubMed
             </span>
@@ -332,17 +341,17 @@ export default async function ResearchPage() {
           <div className="mb-8 bg-white rounded-2xl border border-gray-200 shadow-sm p-4 md:p-6 max-w-4xl mx-auto">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4 md:mb-6">
               <div>
-                <h3 className="text-base md:text-lg font-bold text-gray-900">Publication Trends</h3>
+                <h3 className="text-base md:text-lg font-bold text-gray-900">{t('researchPage.publicationTrends')}</h3>
                 <p className="text-xs md:text-sm text-gray-500">{minYear} – {maxYear}</p>
               </div>
               <div className="flex items-center gap-3 md:gap-4 text-xs md:text-sm">
                 <span className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500"></span>
-                  <span className="text-gray-600">Historical</span>
+                  <span className="text-gray-600">{t('researchPage.historical')}</span>
                 </span>
                 <span className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-gradient-to-r from-emerald-400 to-green-500"></span>
-                  <span className="text-gray-600">Recent</span>
+                  <span className="text-gray-600">{t('researchPage.recent')}</span>
                 </span>
               </div>
             </div>
@@ -426,7 +435,7 @@ export default async function ResearchPage() {
             </div>
             <div className="mt-3 md:mt-4 p-2 md:p-3 bg-blue-50 rounded-lg">
               <p className="text-xs md:text-sm text-blue-700 text-center">
-                <span className="font-medium">Research is accelerating:</span> CBD research has grown significantly, with a surge following regulatory changes in 2018.
+                {t('researchPage.researchAccelerating')}
               </p>
             </div>
           </div>
@@ -471,10 +480,10 @@ export default async function ResearchPage() {
                 FAQ
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-                Frequently Asked Questions
+                {t('researchPage.faqTitle')}
               </h2>
               <p className="text-gray-600 max-w-xl mx-auto">
-                Common questions about CBD research and how to use this database
+                {t('researchPage.faqSubtitle')}
               </p>
             </div>
 
@@ -502,15 +511,15 @@ export default async function ResearchPage() {
             {/* Methodology CTA */}
             <div className="mt-8 max-w-3xl mx-auto">
               <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 md:p-8 text-white text-center">
-                <h3 className="text-xl font-bold mb-2">Understanding Our Quality Scores</h3>
+                <h3 className="text-xl font-bold mb-2">{t('researchPage.qualityScoresTitle')}</h3>
                 <p className="text-indigo-100 mb-4">
-                  Learn how we evaluate and score research quality to help you find the most reliable evidence.
+                  {t('researchPage.qualityScoresDesc')}
                 </p>
                 <Link
                   href="/research/methodology"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-white text-indigo-700 rounded-xl font-semibold hover:bg-indigo-50 transition-colors"
                 >
-                  View Methodology
+                  {t('researchPage.viewMethodology')}
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -521,8 +530,7 @@ export default async function ResearchPage() {
             {/* Disclaimer */}
             <div className="mt-6 text-center text-sm text-gray-500 max-w-2xl mx-auto">
               <p>
-                All research indexed here is from third-party sources. We do not own or claim copyright over the original studies.
-                Study abstracts and metadata are aggregated under fair use for educational purposes.
+                {t('researchPage.disclaimer')}
               </p>
             </div>
           </section>

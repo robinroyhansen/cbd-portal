@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { headers } from 'next/headers';
 import { Hero } from '@/components/home/Hero';
 import { TrendingTopics } from '@/components/home/TrendingTopics';
 import { BrowseByCondition } from '@/components/home/BrowseByCondition';
@@ -10,6 +11,7 @@ import { AuthorTrust } from '@/components/home/AuthorTrust';
 import { NewsletterSignup } from '@/components/home/NewsletterSignup';
 import { getHomePageStats } from '@/lib/stats';
 import { getHreflangAlternates } from '@/components/HreflangTags';
+import { detectLanguage } from '@/lib/language';
 
 // Revalidate stats every 5 minutes
 export const revalidate = 300;
@@ -22,17 +24,19 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function HomePage() {
   const stats = await getHomePageStats();
+  const headersList = await headers();
+  const lang = detectLanguage(headersList);
 
   return (
     <>
       <Hero stats={stats} />
-      <TrendingTopics />
-      <BrowseByCondition />
-      <FeaturedArticles />
-      <LatestResearch />
-      <GlossaryTeaser />
-      <BrowseByProduct />
-      <AuthorTrust />
+      <TrendingTopics lang={lang} />
+      <BrowseByCondition lang={lang} />
+      <FeaturedArticles lang={lang} />
+      <LatestResearch lang={lang} />
+      <GlossaryTeaser lang={lang} />
+      <BrowseByProduct lang={lang} />
+      <AuthorTrust lang={lang} />
       <NewsletterSignup />
     </>
   );

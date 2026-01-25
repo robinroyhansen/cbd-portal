@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { HomePageStats } from '@/lib/stats';
 import { SearchBar } from './SearchBar';
 import { useEffect, useState } from 'react';
+import { useLocale } from '@/hooks/useLocale';
 
 interface HeroProps {
   stats: HomePageStats;
@@ -35,6 +36,7 @@ function AnimatedNumber({ value, suffix = '' }: { value: number; suffix?: string
 
 export function Hero({ stats }: HeroProps) {
   const [loaded, setLoaded] = useState(false);
+  const { t } = useLocale();
 
   useEffect(() => {
     setLoaded(true);
@@ -100,16 +102,16 @@ export function Hero({ stats }: HeroProps) {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
                 </span>
-                Independent Research Platform
+                {t('hero.badge')}
               </span>
             </div>
 
             {/* Main headline */}
             <div>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.05] tracking-tight">
-                Science-First
+                {t('hero.title')}
                 <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-300">
-                  CBD Research
+                  {t('hero.titleHighlight')}
                 </span>
               </h1>
             </div>
@@ -117,9 +119,7 @@ export function Hero({ stats }: HeroProps) {
             {/* Subheadline */}
             <div>
               <p className="text-xl text-emerald-100/70 max-w-xl leading-relaxed">
-                The world&apos;s largest independent CBD research database.
-                We analyze peer-reviewed studies and present unbiased,
-                quality-scored information you can trust.
+                {t('hero.subtitle')}
               </p>
             </div>
 
@@ -129,7 +129,7 @@ export function Hero({ stats }: HeroProps) {
                 href="/conditions"
                 className="btn btn-white btn-lg group"
               >
-                Explore Conditions
+                {t('hero.exploreConditions')}
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -141,7 +141,7 @@ export function Hero({ stats }: HeroProps) {
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                Browse Studies
+                {t('hero.browseStudies')}
               </Link>
             </div>
 
@@ -169,9 +169,9 @@ export function Hero({ stats }: HeroProps) {
                 <div className="relative">
                   {/* Header */}
                   <div className="flex items-center justify-between mb-8">
-                    <h2 className="text-lg font-semibold text-white">Research Database</h2>
+                    <h2 className="text-lg font-semibold text-white">{t('stats.researchDatabase')}</h2>
                     <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-medium rounded-full">
-                      Live Stats
+                      {t('stats.liveStats')}
                     </span>
                   </div>
 
@@ -180,7 +180,7 @@ export function Hero({ stats }: HeroProps) {
                     <div className="text-6xl lg:text-7xl font-bold text-white font-mono tracking-tight">
                       <AnimatedNumber value={stats.researchStudies} />
                     </div>
-                    <p className="text-emerald-400/80 mt-2">Peer-Reviewed Studies</p>
+                    <p className="text-emerald-400/80 mt-2">{t('stats.peerReviewedStudies')}</p>
                   </div>
 
                   {/* Stats grid */}
@@ -189,31 +189,31 @@ export function Hero({ stats }: HeroProps) {
                       <div className="text-2xl font-bold text-white font-mono">
                         <AnimatedNumber value={stats.healthConditions} />
                       </div>
-                      <p className="text-sm text-white/50 mt-1">Health Conditions</p>
+                      <p className="text-sm text-white/50 mt-1">{t('stats.healthConditions')}</p>
                     </div>
                     <div className="bg-white/5 rounded-2xl p-4">
                       <div className="text-2xl font-bold text-white font-mono">
                         <AnimatedNumber value={stats.studySubjectDistribution.human + stats.studySubjectDistribution.review} />
                       </div>
-                      <p className="text-sm text-white/50 mt-1">Human Studies</p>
+                      <p className="text-sm text-white/50 mt-1">{t('stats.humanStudies')}</p>
                     </div>
                     <div className="bg-white/5 rounded-2xl p-4">
                       <div className="text-2xl font-bold text-white font-mono">
                         <AnimatedNumber value={stats.glossaryTerms} />
                       </div>
-                      <p className="text-sm text-white/50 mt-1">Terms Explained</p>
+                      <p className="text-sm text-white/50 mt-1">{t('stats.termsExplained')}</p>
                     </div>
                     <div className="bg-white/5 rounded-2xl p-4">
                       <div className="text-2xl font-bold text-white font-mono">
                         {stats.yearRange}
                       </div>
-                      <p className="text-sm text-white/50 mt-1">Years of Research</p>
+                      <p className="text-sm text-white/50 mt-1">{t('stats.yearsOfResearch')}</p>
                     </div>
                   </div>
 
                   {/* Data sources */}
                   <div className="pt-6 border-t border-white/10">
-                    <p className="text-xs text-white/40 uppercase tracking-wider mb-3">Trusted Sources</p>
+                    <p className="text-xs text-white/40 uppercase tracking-wider mb-3">{t('stats.trustedSources')}</p>
                     <div className="flex flex-wrap gap-2">
                       {['PubMed', 'Cochrane', 'ClinicalTrials.gov', 'Europe PMC'].map((source) => (
                         <span
@@ -232,19 +232,19 @@ export function Hero({ stats }: HeroProps) {
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
-                      No products sold
+                      {t('stats.noProductsSold')}
                     </span>
                     <span className="inline-flex items-center gap-1.5 text-xs text-emerald-400/80">
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
-                      Independent
+                      {t('stats.independent')}
                     </span>
                     <span className="inline-flex items-center gap-1.5 text-xs text-emerald-400/80">
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
-                      100% Transparent
+                      {t('stats.transparent')}
                     </span>
                   </div>
                 </div>
@@ -260,7 +260,7 @@ export function Hero({ stats }: HeroProps) {
           style={{ transitionDelay: '400ms' }}
         >
           <div className="flex flex-col items-center gap-2 text-white/40">
-            <span className="text-xs uppercase tracking-wider">Scroll to explore</span>
+            <span className="text-xs uppercase tracking-wider">{t('common.scrollToExplore')}</span>
             <svg className="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>

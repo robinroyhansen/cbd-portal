@@ -1,7 +1,16 @@
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
+import { getLocaleSync, createTranslator } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
-export async function TrendingTopics() {
+interface TrendingTopicsProps {
+  lang?: LanguageCode;
+}
+
+export async function TrendingTopics({ lang = 'en' }: TrendingTopicsProps) {
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
+
   const supabase = await createClient();
 
   const { data: trendingConditions } = await supabase
@@ -13,9 +22,9 @@ export async function TrendingTopics() {
     .limit(8);
 
   const popularSearches = [
-    { label: 'Dosage Guide', href: '/tools/dosage-calculator', icon: '💊' },
-    { label: 'Drug Interactions', href: '/tools/interactions', icon: '⚠️' },
-    { label: 'For Pets', href: '/pets', icon: '🐾' },
+    { label: t('quickLinks.dosageGuide'), href: '/tools/dosage-calculator', icon: '💊' },
+    { label: t('quickLinks.drugInteractions'), href: '/tools/interactions', icon: '⚠️' },
+    { label: t('quickLinks.forPets'), href: '/pets', icon: '🐾' },
   ];
 
   return (
@@ -28,7 +37,7 @@ export async function TrendingTopics() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
-              Trending
+              {t('trending.label')}
             </div>
 
             {/* Trending conditions - horizontal scroll on mobile */}

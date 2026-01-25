@@ -1,8 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { createClient } from '@/lib/supabase/server';
+import { getLocaleSync, createTranslator } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
-export async function FeaturedArticles() {
+interface FeaturedArticlesProps {
+  lang?: LanguageCode;
+}
+
+export async function FeaturedArticles({ lang = 'en' }: FeaturedArticlesProps) {
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
   const supabase = await createClient();
 
   const { data: articles } = await supabase
@@ -26,21 +34,20 @@ export async function FeaturedArticles() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
           <div className="max-w-2xl">
             <span className="inline-block text-emerald-600 font-semibold text-sm uppercase tracking-wider mb-4">
-              Latest Insights
+              {t('articles.sectionLabel')}
             </span>
             <h2 className="text-4xl lg:text-5xl font-serif font-bold text-slate-900 mb-4">
-              Expert Analysis
+              {t('articles.title')}
             </h2>
             <p className="text-xl text-slate-600 leading-relaxed">
-              Deep dives into CBD research, expert guides, and evidence-based insights
-              to help you make informed decisions.
+              {t('articles.description')}
             </p>
           </div>
           <Link
             href="/articles"
             className="group inline-flex items-center gap-2 text-slate-600 hover:text-emerald-600 font-medium transition-colors"
           >
-            <span>View all articles</span>
+            <span>{t('articles.viewAll')}</span>
             <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -91,12 +98,12 @@ export async function FeaturedArticles() {
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      {featured.reading_time} min read
+                      {t('articles.minRead', { minutes: featured.reading_time })}
                     </span>
                   )}
                 </div>
                 <span className="inline-flex items-center gap-2 text-emerald-400 font-medium text-sm ml-auto group-hover:gap-3 transition-all">
-                  Read article
+                  {t('articles.readArticle')}
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -144,11 +151,11 @@ export async function FeaturedArticles() {
                   </h3>
                   <div className="flex items-center gap-3 text-sm text-slate-400">
                     {article.reading_time && (
-                      <span>{article.reading_time} min</span>
+                      <span>{t('articles.minShort', { minutes: article.reading_time })}</span>
                     )}
                     <span className="w-1 h-1 rounded-full bg-slate-300" />
                     <span>
-                      {new Date(article.updated_at).toLocaleDateString('en-GB', { month: 'short', day: 'numeric' })}
+                      {new Date(article.updated_at).toLocaleDateString(lang === 'en' ? 'en-GB' : lang, { month: 'short', day: 'numeric' })}
                     </span>
                   </div>
                 </div>

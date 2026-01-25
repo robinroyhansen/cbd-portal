@@ -121,3 +121,14 @@ export function isSwissDomain(hostname: string): boolean {
 export function getLanguageFromHostname(hostname: string): string {
   return domainToLanguage[hostname] || 'en';
 }
+
+/**
+ * Server-side language detection from request headers
+ * Uses the Host header to determine language based on domain
+ */
+export function detectLanguage(headers: Headers): string {
+  const host = headers.get('host') || headers.get('x-forwarded-host') || 'localhost';
+  // Remove port if present
+  const hostname = host.split(':')[0];
+  return getLanguageFromHostname(hostname);
+}
