@@ -6,13 +6,18 @@
  */
 
 import { useState, useCallback, useEffect } from 'react';
-import type { ChatMessage, ChatResponse, ChatState } from '@/lib/chat/types';
+import type { ChatMessage, ChatResponse, ChatState, FeedbackRating, MessageFeedback } from '@/lib/chat/types';
 import { WELCOME_MESSAGE } from '@/lib/chat/system-prompt';
+import { detectGuidedFlow, getFlowById, type GuidedFlow } from '@/lib/chat/guided-flows';
 
 const STORAGE_KEY = 'cbd-chat-state';
 
 function generateId(): string {
   return `msg_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`;
+}
+
+function generateSessionId(): string {
+  return `session_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`;
 }
 
 function getInitialState(): ChatState {
@@ -29,6 +34,9 @@ function getInitialState(): ChatState {
     isLoading: false,
     error: null,
     isOpen: false,
+    sessionId: generateSessionId(),
+    conversationId: undefined,
+    feedbackSubmitted: {},
   };
 }
 
@@ -63,6 +71,7 @@ function saveToStorage(state: Partial<ChatState>): void {
 
 export function useChat() {
   const [state, setState] = useState<ChatState>(getInitialState);
+  const [activeGuidedFlow, setActiveGuidedFlow] = useState<GuidedFlow | null>(null);
 
   // Load persisted state on mount
   useEffect(() => {
@@ -132,6 +141,8 @@ export function useChat() {
         body: JSON.stringify({
           message: content.trim(),
           conversationHistory,
+          sessionId: state.sessionId,
+          conversationId: state.conversationId,
         }),
       });
 
@@ -144,6 +155,7 @@ export function useChat() {
       // Add assistant message
       const assistantMessage: ChatMessage = {
         id: generateId(),
+        messageId: data.messageId, // Server-assigned ID for feedback
         role: 'assistant',
         content: data.message,
         timestamp: new Date(),
@@ -155,6 +167,7 @@ export function useChat() {
         ...prev,
         messages: [...prev.messages, assistantMessage],
         isLoading: false,
+        conversationId: data.conversationId || prev.conversationId,
       }));
     } catch (error) {
       console.error('Chat error:', error);
@@ -180,16 +193,146 @@ export function useChat() {
     setState(getInitialState());
   }, []);
 
+  /**
+   * Submit feedback for a message
+   */
+  const submitFeedback = useCallback(async (
+    messageId: string,
+    rating: FeedbackRating,
+    comment?: string
+  ): Promise<void> => {
+    // Check if already submitted
+    if (state.feedbackSubmitted[messageId]) {
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/chat/feedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          messageId,
+          conversationId: state.conversationId,
+          rating,
+          comment,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit feedback');
+      }
+
+      // Mark feedback as submitted
+      const feedback: MessageFeedback = {
+        rating,
+        comment,
+        submittedAt: new Date(),
+      };
+
+      setState(prev => ({
+        ...prev,
+        feedbackSubmitted: {
+          ...prev.feedbackSubmitted,
+          [messageId]: feedback,
+        },
+      }));
+    } catch (error) {
+      console.error('Feedback submission error:', error);
+      throw error;
+    }
+  }, [state.conversationId, state.feedbackSubmitted]);
+
+  /**
+   * Check if feedback has been submitted for a message
+   */
+  const getFeedback = useCallback((messageId: string): MessageFeedback | undefined => {
+    return state.feedbackSubmitted[messageId];
+  }, [state.feedbackSubmitted]);
+
+  /**
+   * Start a guided flow by ID
+   */
+  const startGuidedFlow = useCallback((flowId: string) => {
+    const flow = getFlowById(flowId);
+    if (flow) {
+      setActiveGuidedFlow(flow);
+    }
+  }, []);
+
+  /**
+   * Cancel the active guided flow
+   */
+  const cancelGuidedFlow = useCallback(() => {
+    setActiveGuidedFlow(null);
+  }, []);
+
+  /**
+   * Complete a guided flow and add the response to chat
+   */
+  const completeGuidedFlow = useCallback((answers: Record<string, string>) => {
+    if (!activeGuidedFlow) return;
+
+    // Generate the response using the flow's generator
+    const responseContent = activeGuidedFlow.generateResponse(answers);
+
+    // Add a user message summarizing what they asked about
+    const userSummary = `I'd like help with ${activeGuidedFlow.name.toLowerCase()}.`;
+    const userMessage: ChatMessage = {
+      id: generateId(),
+      role: 'user',
+      content: userSummary,
+      timestamp: new Date(),
+    };
+
+    // Add the generated response as an assistant message
+    const assistantMessage: ChatMessage = {
+      id: generateId(),
+      role: 'assistant',
+      content: responseContent,
+      timestamp: new Date(),
+    };
+
+    setState(prev => ({
+      ...prev,
+      messages: [...prev.messages, userMessage, assistantMessage],
+    }));
+
+    // Clear the active flow
+    setActiveGuidedFlow(null);
+  }, [activeGuidedFlow]);
+
+  /**
+   * Check message and potentially trigger a guided flow
+   * Returns true if a flow was triggered, false otherwise
+   */
+  const checkForGuidedFlow = useCallback((message: string): boolean => {
+    const detectedFlow = detectGuidedFlow(message);
+    if (detectedFlow) {
+      setActiveGuidedFlow(detectedFlow);
+      return true;
+    }
+    return false;
+  }, []);
+
   return {
     messages: state.messages,
     isLoading: state.isLoading,
     error: state.error,
     isOpen: state.isOpen,
+    conversationId: state.conversationId,
+    feedbackSubmitted: state.feedbackSubmitted,
+    activeGuidedFlow,
     toggleChat,
     openChat,
     closeChat,
     sendMessage,
     clearError,
     resetChat,
+    submitFeedback,
+    getFeedback,
+    startGuidedFlow,
+    cancelGuidedFlow,
+    completeGuidedFlow,
+    checkForGuidedFlow,
   };
 }

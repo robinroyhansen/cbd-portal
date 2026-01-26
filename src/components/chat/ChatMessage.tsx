@@ -6,10 +6,16 @@
  */
 
 import Link from 'next/link';
-import type { ChatMessage as ChatMessageType, ChatLink, ChatCitation } from '@/lib/chat/types';
+import type { ChatMessage as ChatMessageType, ChatLink, ChatCitation, FeedbackRating, MessageFeedback } from '@/lib/chat/types';
+import { QuickReplies } from './QuickReplies';
+import { MessageFeedback as MessageFeedbackComponent } from './MessageFeedback';
 
 interface ChatMessageProps {
   message: ChatMessageType;
+  onQuickReplySelect?: (suggestion: string) => void;
+  conversationId?: string;
+  existingFeedback?: MessageFeedback;
+  onSubmitFeedback?: (messageId: string, rating: FeedbackRating, comment?: string) => Promise<void>;
 }
 
 /**
@@ -125,11 +131,18 @@ function CitationCard({ citation }: { citation: ChatCitation }) {
   );
 }
 
-export function ChatMessage({ message }: ChatMessageProps) {
+export function ChatMessage({
+  message,
+  onQuickReplySelect,
+  conversationId,
+  existingFeedback,
+  onSubmitFeedback,
+}: ChatMessageProps) {
   const isUser = message.role === 'user';
+  const showFeedback = !isUser && message.messageId && onSubmitFeedback;
 
   return (
-    <div className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}>
+    <div className={`group flex ${isUser ? 'justify-end' : 'justify-start'}`}>
       <div
         className={`max-w-[85%] rounded-lg px-4 py-3 ${
           isUser
@@ -168,10 +181,28 @@ export function ChatMessage({ message }: ChatMessageProps) {
           </div>
         )}
 
+        {/* Quick Replies - Only show for assistant messages with suggestions */}
+        {!isUser && message.suggestedFollowUps && message.suggestedFollowUps.length > 0 && onQuickReplySelect && (
+          <QuickReplies
+            suggestions={message.suggestedFollowUps}
+            onSelect={onQuickReplySelect}
+          />
+        )}
+
         {/* Timestamp */}
         <p className={`mt-2 text-xs ${isUser ? 'text-emerald-600' : 'text-gray-400'}`}>
           {formatTime(message.timestamp)}
         </p>
+
+        {/* Feedback buttons - only for assistant messages with messageId */}
+        {showFeedback && (
+          <MessageFeedbackComponent
+            messageId={message.messageId!}
+            conversationId={conversationId}
+            existingFeedback={existingFeedback}
+            onSubmit={onSubmitFeedback}
+          />
+        )}
       </div>
     </div>
   );

@@ -1,10 +1,14 @@
 /**
  * RAG Context Builder for Chat
  * Fetches relevant data from conditions, research, glossary, and articles
+ * Now with intent-aware search and conversation memory integration
  */
 
 import { createClient } from '@supabase/supabase-js';
 import type { ChatContext, ConditionContext, StudyContext, GlossaryContext, ArticleContext } from './types';
+import type { Intent } from './intent-classifier';
+import { getIntentSearchBoost } from './intent-classifier';
+import type { ConversationContext } from './conversation-memory';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -60,7 +64,7 @@ function extractKeywords(message: string): string[] {
     }
   }
 
-  return [...new Set(keywords)].slice(0, 10); // Limit to 10 keywords
+  return Array.from(new Set(keywords)).slice(0, 10); // Limit to 10 keywords
 }
 
 /**
@@ -135,13 +139,100 @@ async function searchConditions(keywords: string[], language: string = 'en'): Pr
 }
 
 /**
+ * Intent-specific research search configuration
+ */
+interface IntentSearchConfig {
+  minQuality: number;
+  limit: number;
+  preferHuman: boolean;
+  studyTypeFilter?: string[];
+  boostTerms: string[];
+}
+
+/**
+ * Get search configuration based on intent
+ */
+function getIntentSearchConfig(intent: Intent): IntentSearchConfig {
+  const baseConfig: IntentSearchConfig = {
+    minQuality: 50,
+    limit: 5,
+    preferHuman: true,
+    boostTerms: getIntentSearchBoost(intent),
+  };
+
+  switch (intent) {
+    case 'dosage':
+      return {
+        ...baseConfig,
+        minQuality: 60,
+        limit: 7,
+        studyTypeFilter: ['clinical_trial', 'rct', 'systematic_review', 'meta_analysis'],
+        boostTerms: [...baseConfig.boostTerms, 'dose', 'dosage', 'mg', 'titration'],
+      };
+    case 'safety':
+      return {
+        ...baseConfig,
+        minQuality: 55,
+        limit: 8,
+        studyTypeFilter: ['clinical_trial', 'rct', 'systematic_review', 'meta_analysis', 'cohort'],
+        boostTerms: [...baseConfig.boostTerms, 'safety', 'adverse', 'interaction', 'side effect'],
+      };
+    case 'condition':
+      return {
+        ...baseConfig,
+        minQuality: 50,
+        limit: 6,
+        preferHuman: true,
+      };
+    case 'definition':
+      return {
+        ...baseConfig,
+        minQuality: 40,
+        limit: 3,
+        boostTerms: [...baseConfig.boostTerms, 'mechanism', 'receptor', 'pharmacology'],
+      };
+    case 'comparison':
+      return {
+        ...baseConfig,
+        minQuality: 45,
+        limit: 5,
+        boostTerms: [...baseConfig.boostTerms, 'comparison', 'thc', 'versus'],
+      };
+    case 'product':
+      return {
+        ...baseConfig,
+        minQuality: 45,
+        limit: 4,
+        boostTerms: [...baseConfig.boostTerms, 'formulation', 'bioavailability', 'delivery'],
+      };
+    case 'legal':
+      // Legal questions need less research, more general info
+      return {
+        ...baseConfig,
+        minQuality: 30,
+        limit: 2,
+        boostTerms: [],
+      };
+    default:
+      return baseConfig;
+  }
+}
+
+/**
  * Get relevant research studies
  */
 async function getRelevantResearch(
   conditions: ConditionContext[],
-  options: { limit?: number; minQuality?: number; preferHuman?: boolean } = {}
+  options: { limit?: number; minQuality?: number; preferHuman?: boolean; intent?: Intent } = {}
 ): Promise<StudyContext[]> {
-  const { limit = 5, minQuality = 50, preferHuman = true } = options;
+  const { intent = 'general' } = options;
+  const intentConfig = getIntentSearchConfig(intent);
+
+  const {
+    limit = intentConfig.limit,
+    minQuality = intentConfig.minQuality,
+    preferHuman = intentConfig.preferHuman
+  } = options;
 
   if (conditions.length === 0) {
     // Return top-quality general CBD studies
@@ -242,12 +333,39 @@ async function getRelatedArticles(
 
 /**
  * Build complete context for a user message
+ * @param userMessage - The current user message
+ * @param language - Language code for content
+ * @param intent - Classified intent of the message
+ * @param conversationContext - Extracted context from conversation history
  */
 export async function buildContext(
   userMessage: string,
-  language: string = 'en'
+  language: string = 'en',
+  intent: Intent = 'general',
+  conversationContext?: ConversationContext
 ): Promise<ChatContext> {
-  const keywords = extractKeywords(userMessage);
+  let keywords = extractKeywords(userMessage);
+
+  // Add keywords from intent search boost
+  const intentBoostTerms = getIntentSearchBoost(intent);
+  keywords = [...keywords, ...intentBoostTerms].slice(0, 15);
+
+  // If we have conversation context, prioritize previously discussed conditions
+  if (conversationContext?.mentionedConditions.length) {
+    // Add previously mentioned conditions to keywords for continuity
+    const previousConditions = conversationContext.mentionedConditions.slice(0, 3);
+    keywords = [...previousConditions, ...keywords].slice(0, 15);
+  }
+
+  // For safety intent with medications, add interaction-related keywords
+  if (intent === 'safety' && conversationContext?.mentionedMedications.length) {
+    keywords = ['drug interaction', 'safety', ...keywords].slice(0, 15);
+  }
+
+  // For dosage intent with conditions, prioritize dosage studies for those conditions
+  if (intent === 'dosage' && conversationContext?.primaryConcern) {
+    keywords = [conversationContext.primaryConcern, 'dosage', 'dose', ...keywords].slice(0, 15);
+  }
 
   // Fetch all data in parallel
   const [conditions, glossaryTerms] = await Promise.all([
@@ -255,10 +373,18 @@ export async function buildContext(
     matchGlossaryTerms(userMessage, language),
   ]);
 
-  // Fetch studies and articles based on conditions
+  // Determine search config based on intent
+  const intentConfig = getIntentSearchConfig(intent);
+
+  // Fetch studies and articles based on conditions and intent
   const [studies, articles] = await Promise.all([
-    getRelevantResearch(conditions, { limit: 5, minQuality: 50, preferHuman: true }),
-    getRelatedArticles(conditions, language, 3),
+    getRelevantResearch(conditions, {
+      limit: intentConfig.limit,
+      minQuality: intentConfig.minQuality,
+      preferHuman: intentConfig.preferHuman,
+      intent,
+    }),
+    getRelatedArticles(conditions, language, intent === 'definition' ? 5 : 3),
   ]);
 
   // Calculate stats

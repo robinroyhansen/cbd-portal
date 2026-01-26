@@ -14,10 +14,16 @@ export function ChatWidget() {
     isLoading,
     error,
     isOpen,
+    conversationId,
+    feedbackSubmitted,
+    activeGuidedFlow,
     toggleChat,
     closeChat,
     sendMessage,
     resetChat,
+    submitFeedback,
+    completeGuidedFlow,
+    cancelGuidedFlow,
   } = useChat();
 
   return (
@@ -65,9 +71,15 @@ export function ChatWidget() {
           messages={messages}
           isLoading={isLoading}
           error={error}
+          activeGuidedFlow={activeGuidedFlow}
+          conversationId={conversationId}
+          feedbackSubmitted={feedbackSubmitted}
           onSend={sendMessage}
           onClose={closeChat}
           onReset={resetChat}
+          onFlowComplete={completeGuidedFlow}
+          onFlowCancel={cancelGuidedFlow}
+          onSubmitFeedback={submitFeedback}
         />
       </div>
 
@@ -83,9 +95,15 @@ export function ChatWidget() {
           messages={messages}
           isLoading={isLoading}
           error={error}
+          activeGuidedFlow={activeGuidedFlow}
+          conversationId={conversationId}
+          feedbackSubmitted={feedbackSubmitted}
           onSend={sendMessage}
           onClose={closeChat}
           onReset={resetChat}
+          onFlowComplete={completeGuidedFlow}
+          onFlowCancel={cancelGuidedFlow}
+          onSubmitFeedback={submitFeedback}
         />
       </div>
 
