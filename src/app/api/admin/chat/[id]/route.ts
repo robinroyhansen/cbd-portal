@@ -62,39 +62,39 @@ export async function GET(
     const { id } = await params;
     const supabase = createServiceClient();
 
-    // Fetch session
-    const { data: session, error: sessionError } = await supabase
-      .from('chat_sessions')
+    // Fetch conversation
+    const { data: conversation, error: conversationError } = await supabase
+      .from('chat_conversations')
       .select('*')
       .eq('id', id)
       .single();
 
-    if (sessionError || !session) {
+    if (conversationError || !conversation) {
       // Try to find by session_id if not found by id
-      const { data: sessionBySessionId, error: sessionByIdError } = await supabase
-        .from('chat_sessions')
+      const { data: conversationBySessionId, error: conversationByIdError } = await supabase
+        .from('chat_conversations')
         .select('*')
         .eq('session_id', id)
         .single();
 
-      if (sessionByIdError || !sessionBySessionId) {
+      if (conversationByIdError || !conversationBySessionId) {
         return NextResponse.json(
           { error: 'Conversation not found' },
           { status: 404 }
         );
       }
 
-      // Use the found session
-      Object.assign(session || {}, sessionBySessionId);
+      // Use the found conversation
+      Object.assign(conversation || {}, conversationBySessionId);
     }
 
-    const actualSession = session;
+    const actualSession = conversation;
 
-    // Fetch all messages for this session
+    // Fetch all messages for this conversation
     const { data: messages, error: messagesError } = await supabase
       .from('chat_messages')
       .select('*')
-      .eq('session_id', actualSession.id)
+      .eq('conversation_id', actualSession.id)
       .order('created_at', { ascending: true });
 
     if (messagesError) {
@@ -105,11 +105,11 @@ export async function GET(
       );
     }
 
-    // Fetch all feedback for this session
+    // Fetch all feedback for this conversation
     const { data: feedbackData, error: feedbackError } = await supabase
       .from('chat_feedback')
       .select('*')
-      .eq('session_id', actualSession.id);
+      .eq('conversation_id', actualSession.id);
 
     if (feedbackError) {
       console.error('[Chat Detail API] Feedback error:', feedbackError);
@@ -125,9 +125,9 @@ export async function GET(
 
     feedbackData?.forEach(f => {
       feedbackByMessageId[f.message_id] = {
-        is_helpful: f.is_helpful,
-        feedback_text: f.feedback_text,
-        feedback_category: f.feedback_category,
+        is_helpful: f.rating === 'helpful',
+        feedback_text: f.comment || null,
+        feedback_category: null,
         created_at: f.created_at,
       };
     });
@@ -138,35 +138,32 @@ export async function GET(
       role: m.role,
       content: m.content,
       created_at: m.created_at,
-      intent_classification: m.intent_classification,
-      detected_topics: m.detected_topics,
-      links: m.links,
-      citations: m.citations,
-      suggested_follow_ups: m.suggested_follow_ups,
-      response_time_ms: m.response_time_ms,
-      tokens_used: m.tokens_used,
+      intent_classification: m.intent || null,
+      detected_topics: null,
+      links: m.links || null,
+      citations: null,
+      suggested_follow_ups: null,
+      response_time_ms: null,
+      tokens_used: null,
       feedback: feedbackByMessageId[m.id] || null,
     }));
 
     // Calculate feedback summary
     const feedbackSummary = {
       total: feedbackData?.length || 0,
-      helpful: feedbackData?.filter(f => f.is_helpful).length || 0,
-      not_helpful: feedbackData?.filter(f => !f.is_helpful).length || 0,
+      helpful: feedbackData?.filter(f => f.rating === 'helpful').length || 0,
+      not_helpful: feedbackData?.filter(f => f.rating === 'not_helpful').length || 0,
       categories: {} as Record<string, number>,
     };
-
-    feedbackData?.forEach(f => {
-      if (f.feedback_category) {
-        feedbackSummary.categories[f.feedback_category] =
-          (feedbackSummary.categories[f.feedback_category] || 0) + 1;
-      }
-    });
 
     // Calculate duration
     const startTime = new Date(actualSession.started_at).getTime();
     const endTime = new Date(actualSession.last_message_at).getTime();
     const durationSeconds = Math.round((endTime - startTime) / 1000);
+
+    // Count user and assistant messages
+    const userMsgCount = messagesWithFeedback.filter(m => m.role === 'user').length;
+    const assistantMsgCount = messagesWithFeedback.filter(m => m.role === 'assistant').length;
 
     const response: ChatConversationDetail = {
       id: actualSession.id,
@@ -174,11 +171,11 @@ export async function GET(
       started_at: actualSession.started_at,
       last_message_at: actualSession.last_message_at,
       message_count: actualSession.message_count || 0,
-      user_message_count: actualSession.user_message_count || 0,
-      assistant_message_count: actualSession.assistant_message_count || 0,
+      user_message_count: userMsgCount,
+      assistant_message_count: assistantMsgCount,
       language: actualSession.language || 'en',
       user_agent: actualSession.user_agent,
-      ip_hash: actualSession.ip_hash,
+      ip_hash: actualSession.ip_address || null,
       metadata: actualSession.metadata || {},
       messages: messagesWithFeedback,
       feedback_summary: feedbackSummary,

@@ -71,7 +71,7 @@ export async function GET(request: NextRequest) {
 
     // Build base query
     let query = supabase
-      .from('chat_sessions')
+      .from('chat_conversations')
       .select('*', { count: 'exact' });
 
     // Apply filters
@@ -130,43 +130,56 @@ export async function GET(request: NextRequest) {
     // Get session IDs for fetching related data
     const sessionIds = sessions.map(s => s.id);
 
-    // Fetch feedback counts per session
+    // Fetch feedback counts per conversation
     const { data: feedbackData } = await supabase
       .from('chat_feedback')
-      .select('session_id, is_helpful')
-      .in('session_id', sessionIds);
+      .select('conversation_id, rating')
+      .in('conversation_id', sessionIds);
 
-    // Group feedback by session
+    // Group feedback by conversation
     const feedbackBySession: Record<string, { helpful: number; not_helpful: number }> = {};
     feedbackData?.forEach(f => {
-      if (!feedbackBySession[f.session_id]) {
-        feedbackBySession[f.session_id] = { helpful: 0, not_helpful: 0 };
+      if (!feedbackBySession[f.conversation_id]) {
+        feedbackBySession[f.conversation_id] = { helpful: 0, not_helpful: 0 };
       }
-      if (f.is_helpful) {
-        feedbackBySession[f.session_id].helpful++;
+      if (f.rating === 'helpful') {
+        feedbackBySession[f.conversation_id].helpful++;
       } else {
-        feedbackBySession[f.session_id].not_helpful++;
+        feedbackBySession[f.conversation_id].not_helpful++;
       }
     });
 
-    // Fetch last messages per session
+    // Fetch last messages per conversation
     const { data: lastMessages } = await supabase
       .from('chat_messages')
-      .select('session_id, role, content, created_at')
-      .in('session_id', sessionIds)
+      .select('conversation_id, role, content, created_at')
+      .in('conversation_id', sessionIds)
       .order('created_at', { ascending: false });
 
-    // Group last messages by session and role
+    // Group last messages by conversation and role
     const lastMessageBySession: Record<string, { user: string | null; assistant: string | null }> = {};
     lastMessages?.forEach(m => {
-      if (!lastMessageBySession[m.session_id]) {
-        lastMessageBySession[m.session_id] = { user: null, assistant: null };
+      if (!lastMessageBySession[m.conversation_id]) {
+        lastMessageBySession[m.conversation_id] = { user: null, assistant: null };
       }
-      if (m.role === 'user' && !lastMessageBySession[m.session_id].user) {
-        lastMessageBySession[m.session_id].user = m.content.substring(0, 200);
+      if (m.role === 'user' && !lastMessageBySession[m.conversation_id].user) {
+        lastMessageBySession[m.conversation_id].user = m.content.substring(0, 200);
       }
-      if (m.role === 'assistant' && !lastMessageBySession[m.session_id].assistant) {
-        lastMessageBySession[m.session_id].assistant = m.content.substring(0, 200);
+      if (m.role === 'assistant' && !lastMessageBySession[m.conversation_id].assistant) {
+        lastMessageBySession[m.conversation_id].assistant = m.content.substring(0, 200);
+      }
+    });
+
+    // Count user/assistant messages per conversation
+    const messageCountsByConversation: Record<string, { user: number; assistant: number }> = {};
+    lastMessages?.forEach(m => {
+      if (!messageCountsByConversation[m.conversation_id]) {
+        messageCountsByConversation[m.conversation_id] = { user: 0, assistant: 0 };
+      }
+      if (m.role === 'user') {
+        messageCountsByConversation[m.conversation_id].user++;
+      } else {
+        messageCountsByConversation[m.conversation_id].assistant++;
       }
     });
 
@@ -174,6 +187,7 @@ export async function GET(request: NextRequest) {
     let conversations: ChatConversation[] = sessions.map(session => {
       const feedback = feedbackBySession[session.id] || { helpful: 0, not_helpful: 0 };
       const messages = lastMessageBySession[session.id] || { user: null, assistant: null };
+      const msgCounts = messageCountsByConversation[session.id] || { user: 0, assistant: 0 };
 
       return {
         id: session.id,
@@ -181,8 +195,8 @@ export async function GET(request: NextRequest) {
         started_at: session.started_at,
         last_message_at: session.last_message_at,
         message_count: session.message_count || 0,
-        user_message_count: session.user_message_count || 0,
-        assistant_message_count: session.assistant_message_count || 0,
+        user_message_count: msgCounts.user,
+        assistant_message_count: msgCounts.assistant,
         language: session.language || 'en',
         user_agent: session.user_agent,
         feedback_count: feedback.helpful + feedback.not_helpful,
@@ -219,18 +233,19 @@ export async function GET(request: NextRequest) {
       { count: conversationsToday },
       { count: conversationsThisWeek },
     ] = await Promise.all([
-      supabase.from('chat_sessions').select('*', { count: 'exact', head: true }),
-      supabase.from('chat_sessions').select('message_count, user_message_count, assistant_message_count'),
+      supabase.from('chat_conversations').select('*', { count: 'exact', head: true }),
+      supabase.from('chat_conversations').select('message_count'),
       supabase.from('chat_feedback').select('*', { count: 'exact', head: true }),
-      supabase.from('chat_feedback').select('*', { count: 'exact', head: true }).eq('is_helpful', true),
-      supabase.from('chat_sessions').select('*', { count: 'exact', head: true }).gte('started_at', todayStart),
-      supabase.from('chat_sessions').select('*', { count: 'exact', head: true }).gte('started_at', weekStart),
+      supabase.from('chat_feedback').select('*', { count: 'exact', head: true }).eq('rating', 'helpful'),
+      supabase.from('chat_conversations').select('*', { count: 'exact', head: true }).gte('started_at', todayStart),
+      supabase.from('chat_conversations').select('*', { count: 'exact', head: true }).gte('started_at', weekStart),
     ]);
 
     // Calculate message totals
     const totalMessages = messageStats?.reduce((sum, s) => sum + (s.message_count || 0), 0) || 0;
-    const totalUserMessages = messageStats?.reduce((sum, s) => sum + (s.user_message_count || 0), 0) || 0;
-    const totalAssistantMessages = messageStats?.reduce((sum, s) => sum + (s.assistant_message_count || 0), 0) || 0;
+    // Estimate user/assistant split (roughly half each since chat is back-and-forth)
+    const totalUserMessages = Math.ceil(totalMessages / 2);
+    const totalAssistantMessages = Math.floor(totalMessages / 2);
 
     const stats: ChatStats = {
       total_conversations: totalConversations || 0,
