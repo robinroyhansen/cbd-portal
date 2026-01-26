@@ -41,21 +41,25 @@ export async function TrendingTopics({ lang = 'en' }: TrendingTopicsProps) {
             </div>
 
             {/* Trending conditions - horizontal scroll on mobile */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 scrollbar-hide flex-1">
-              {trendingConditions?.slice(0, 5).map((condition) => (
-                <Link
-                  key={condition.slug}
-                  href={`/conditions/${condition.slug}`}
-                  className="group inline-flex items-center gap-2 px-4 py-2 bg-slate-50 hover:bg-emerald-50 rounded-lg transition-all flex-shrink-0"
-                >
-                  <span className="text-sm font-medium text-slate-700 group-hover:text-emerald-700 whitespace-nowrap">
-                    {condition.display_name || condition.name}
-                  </span>
-                  <span className="text-xs text-slate-400 group-hover:text-emerald-500 bg-white px-1.5 py-0.5 rounded">
-                    {condition.research_count}
-                  </span>
-                </Link>
-              ))}
+            <div className="relative flex-1">
+              <div className="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 scrollbar-hide">
+                {trendingConditions?.slice(0, 5).map((condition) => (
+                  <Link
+                    key={condition.slug}
+                    href={`/conditions/${condition.slug}`}
+                    className="group inline-flex items-center gap-2 px-4 py-2 min-h-[44px] bg-slate-50 hover:bg-emerald-50 rounded-lg transition-all flex-shrink-0"
+                  >
+                    <span className="text-sm font-medium text-slate-700 group-hover:text-emerald-700 whitespace-nowrap">
+                      {condition.display_name || condition.name}
+                    </span>
+                    <span className="text-xs text-slate-400 group-hover:text-emerald-500 bg-white px-1.5 py-0.5 rounded">
+                      {condition.research_count}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+              {/* Gradient fade indicator for scroll */}
+              <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white to-transparent pointer-events-none lg:hidden" />
             </div>
 
             {/* Divider */}
@@ -67,7 +71,7 @@ export async function TrendingTopics({ lang = 'en' }: TrendingTopicsProps) {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-slate-600 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors whitespace-nowrap"
+                  className="inline-flex items-center gap-1.5 px-3 py-2 min-h-[44px] text-sm font-medium text-slate-600 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors whitespace-nowrap"
                 >
                   <span>{item.icon}</span>
                   <span className="hidden sm:inline">{item.label}</span>

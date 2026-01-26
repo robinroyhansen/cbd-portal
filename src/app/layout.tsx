@@ -1,16 +1,21 @@
 import type { Metadata } from 'next';
 import { Inter, Merriweather, DM_Serif_Display, Source_Sans_3, Space_Mono } from 'next/font/google';
 import './globals.css';
-import { Navigation } from '@/components/Navigation';
+import { Navigation } from '@/components/layouts/Navigation';
 import { Footer } from '@/components/Footer';
 import { CookieConsent } from '@/components/CookieConsent';
 import { NavigationProvider } from '@/components/NavigationWrapper';
 import { MobileBottomNav } from '@/components/MobileBottomNav';
 import { LocaleProvider } from '@/components/LocaleProvider';
 import { DevLanguageSwitcher } from '@/components/DevLanguageSwitcher';
+import { ChatWidget } from '@/components/chat';
 import { getLanguage } from '@/lib/get-language';
 import { getLocaleSync } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
+import {
+  generateWebsiteSearchSchema,
+  generateOrganizationSchema,
+} from '@/lib/seo/schema-generators';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -82,8 +87,22 @@ export default async function RootLayout({
   const lang = await getLanguage();
   const locale = getLocaleSync(lang as LanguageCode);
 
+  // Generate site-wide schemas
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cbd-portal.vercel.app';
+  const websiteSchema = generateWebsiteSearchSchema(siteUrl);
+  const organizationSchema = generateOrganizationSchema();
+
   return (
     <html lang={lang.split('-')[0]} className={`${inter.variable} ${merriweather.variable} ${dmSerifDisplay.variable} ${sourceSans.variable} ${spaceMono.variable}`}>
+      <head>
+        {/* Site-wide structured data for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([websiteSchema, organizationSchema]),
+          }}
+        />
+      </head>
       <body className="min-h-screen bg-white font-sans text-gray-900 flex flex-col">
         {/* Skip to content link for keyboard accessibility */}
         <a href="#main-content" className="skip-to-content">
@@ -97,6 +116,7 @@ export default async function RootLayout({
             <MobileBottomNav />
             <CookieConsent />
             <DevLanguageSwitcher />
+            <ChatWidget />
           </NavigationProvider>
         </LocaleProvider>
       </body>

@@ -252,7 +252,7 @@ export function MobileBottomNav() {
                       key={term.key}
                       href={`/search?q=${encodeURIComponent(term.key)}`}
                       onClick={() => setIsSearchOpen(false)}
-                      className="px-3 py-1.5 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200 transition-colors"
+                      className="px-3 py-1.5 min-h-[44px] inline-flex items-center bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200 transition-colors"
                     >
                       {term.label}
                     </Link>

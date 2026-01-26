@@ -5,6 +5,7 @@ export type { KeyNumber } from './KeyNumbers';
 export { MyTake, extractMyTake } from './MyTake';
 export { SafetySection, SafetyWarning, extractSafetyInfo } from './SafetySection';
 export type { SafetyItem } from './SafetySection';
+export { KeyTakeaways, extractKeyTakeaways } from './KeyTakeaways';
 
 // Enhanced article content component (combines all enhancements)
 export { EnhancedArticleContent } from './EnhancedArticleContent';

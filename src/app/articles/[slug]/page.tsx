@@ -9,6 +9,7 @@ import { getGlossaryTermsForLinking } from '@/lib/glossary';
 import { AuthorBio, AuthorByline } from '@/components/AuthorBio';
 import { Citations, CitationCount } from '@/components/Citations';
 import { DateDisplay } from '@/components/DateDisplay';
+import { ContentFreshnessIndicator } from '@/components/ContentFreshnessIndicator';
 import { ReadingProgress } from '@/components/ReadingProgress';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { FAQSchema } from '@/components/FAQSchema';
@@ -312,10 +313,16 @@ export default async function ArticlePage({ params }: Props) {
           {/* Publication and Update Dates */}
           <div className="flex flex-wrap justify-between items-start gap-4 pb-4 border-b border-gray-200">
             <div>
-              <DateDisplay
-                publishedAt={article.published_at || article.created_at}
-                updatedAt={article.updated_at}
-              />
+              <div className="flex flex-wrap items-center gap-3">
+                <DateDisplay
+                  publishedAt={article.published_at || article.created_at}
+                  updatedAt={article.updated_at}
+                />
+                <ContentFreshnessIndicator
+                  lastUpdated={article.updated_at}
+                  variant="full"
+                />
+              </div>
               {article.citations && article.citations.length > 0 && (
                 <p className="text-xs text-gray-400 mt-2">
                   This article references {article.citations.length} peer-reviewed {article.citations.length === 1 ? 'study' : 'studies'}

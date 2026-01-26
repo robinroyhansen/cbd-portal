@@ -18,6 +18,7 @@ import {
   getStudyStatusInfo
 } from '@/lib/study-analysis';
 import { StudyPageClient } from './StudyPageClient';
+import { generateStudyQualitySchema } from '@/lib/seo/schema-generators';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cbd-portal.vercel.app';
 
@@ -563,8 +564,21 @@ export default async function ResearchStudyPage({ params }: Props) {
     ]
   };
 
+  // Generate quality review schema if study has a quality score
+  const qualityReviewSchema = assessment.score > 0
+    ? generateStudyQualitySchema({
+        title: readableTitle,
+        slug: study.slug,
+        qualityScore: assessment.score,
+      })
+    : null;
+
   // Combined schema array for single script tag
-  const combinedSchema = [scholarlyArticleSchema, breadcrumbSchema];
+  const combinedSchema = [
+    scholarlyArticleSchema,
+    breadcrumbSchema,
+    ...(qualityReviewSchema ? [qualityReviewSchema] : []),
+  ];
 
   // Study type display info
   const studyTypeLabel = detectedStudyType !== StudyType.UNKNOWN ? detectedStudyType : (study.study_type || 'Research Study');
