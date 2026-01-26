@@ -190,8 +190,7 @@ async function logMessage(
   content: string,
   intent: ChatIntent | null,
   ragContext: object | null,
-  modelUsed: string | null,
-  tokensUsed: number | null
+  links: object | null
 ): Promise<string | null> {
   try {
     const { data: message, error } = await supabase
@@ -200,10 +199,9 @@ async function logMessage(
         conversation_id: conversationId,
         role,
         content,
-        intent,
-        rag_context: ragContext,
-        model_used: modelUsed,
-        tokens_used: tokensUsed,
+        intent: intent || undefined,
+        context_used: ragContext,
+        links,
       })
       .select('id')
       .single();
@@ -395,11 +393,10 @@ export async function POST(request: NextRequest) {
           message,
           intent,
           ragContextSummary,
-          null,
           null
         );
 
-        // Log assistant message
+        // Log assistant message with extracted links
         const assistantMsgId = await logMessage(
           supabase,
           convId,
@@ -407,8 +404,7 @@ export async function POST(request: NextRequest) {
           responseText,
           null,
           null,
-          CHAT_MODEL,
-          tokensUsed
+          links.length > 0 ? links : null
         );
 
         if (assistantMsgId) {
