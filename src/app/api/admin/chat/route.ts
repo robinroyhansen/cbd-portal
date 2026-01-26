@@ -56,6 +56,9 @@ export async function GET(request: NextRequest) {
   try {
     const supabase = createServiceClient();
 
+    // Debug: Log that we're starting
+    console.log('[Chat Admin API] Starting request...');
+
     // Parse query parameters
     const { searchParams } = new URL(request.url);
     const page = parseInt(searchParams.get('page') || '1', 10);
@@ -92,10 +95,18 @@ export async function GET(request: NextRequest) {
 
     const { data: sessions, error: sessionsError, count } = await query;
 
+    // Debug logging
+    console.log('[Chat Admin API] Query result:', {
+      sessionsCount: sessions?.length ?? 0,
+      totalCount: count,
+      error: sessionsError?.message,
+      hasServiceKey: !!process.env.SUPABASE_SERVICE_ROLE_KEY,
+    });
+
     if (sessionsError) {
       console.error('[Chat Admin API] Sessions error:', sessionsError);
       return NextResponse.json(
-        { error: 'Failed to fetch chat sessions' },
+        { error: 'Failed to fetch chat sessions', details: sessionsError.message },
         { status: 500 }
       );
     }
