@@ -255,10 +255,27 @@
     "popularSearches": "Suosituimmat haut"
   },
   "cookie": {
-    "message": "Käytämme evästeitä parantaaksemme kokemustasi.",
-    "accept": "Hyväksy",
-    "decline": "Hylkää",
+    "message": "Käytämme evästeitä parantaaksemme kokemustasi sivustollamme. Jatkamalla selaamista hyväksyt evästeiden käyttömme.",
+    "accept": "Hyväksy kaikki",
+    "essentialOnly": "Vain välttämättömät",
     "learnMore": "Lue lisää"
+  },
+  "chat": {
+    "disclaimer": "Vastuuvapauslauseke",
+    "disclaimerText": "Olen tekoälyavustaja, en lääkäri. Annetut tiedot ovat vain opetustarkoituksiin. Konsultoi aina terveydenhuollon ammattilaista ennen CBD:n käyttöä.",
+    "welcome": "Tervetuloa! Voin auttaa sinua ymmärtämään, mitä tutkimus sanoo CBD:stä (kannabidiolista) eri terveystilojen osalta.",
+    "welcomeNote1": "Annan tietoa tieteelliseen tutkimukseen perustuen",
+    "welcomeNote2": "En ole lääkäri enkä voi antaa lääketieteellisiä neuvoja",
+    "welcomeNote3": "Konsultoi aina terveydenhuollon ammattilaista ennen CBD:n käyttöä",
+    "welcomeQuestion": "Mitä haluat tietää CBD:stä?",
+    "suggestedQuestions": {
+      "anxiety": "Auttaako CBD ahdistukseen?",
+      "sleep": "Mitä tutkimus sanoo CBD:stä ja unesta?",
+      "medications": "Onko CBD turvallista ottaa lääkkeiden kanssa?",
+      "dosage": "Kuinka paljon CBD:tä minun pitäisi ottaa?",
+      "conditions": "Mitä sairauksia CBD:n osalta on tutkittu?",
+      "sideEffects": "Onko CBD:llä sivuvaikutuksia?"
+    }
   },
   "errors": {
     "pageNotFound": "Sivua ei löytynyt",

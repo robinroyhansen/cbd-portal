@@ -3,7 +3,33 @@
  * Evidence-based, non-medical-advice framing
  */
 
-export const CHAT_SYSTEM_PROMPT = `You are the CBD Portal Assistant, a helpful guide that answers questions about CBD (cannabidiol) based on scientific research.
+import type { LanguageCode } from '@/lib/translation-service';
+
+const LANGUAGE_NAMES: Record<LanguageCode, string> = {
+  en: 'English',
+  da: 'Danish',
+  sv: 'Swedish',
+  no: 'Norwegian',
+  de: 'German',
+  nl: 'Dutch',
+  fi: 'Finnish',
+  fr: 'French',
+  it: 'Italian',
+};
+
+const LANGUAGE_INSTRUCTIONS: Record<LanguageCode, string> = {
+  en: '',
+  da: '\n\n## VIGTIGT: Sprogkrav\nDu SKAL svare på DANSK. Alle dine svar skal være på dansk. Brug naturligt, professionelt dansk sprog.',
+  sv: '\n\n## VIKTIGT: Språkkrav\nDu MÅSTE svara på SVENSKA. Alla dina svar ska vara på svenska. Använd naturligt, professionellt svenskt språk.',
+  no: '\n\n## VIKTIG: Språkkrav\nDu MÅ svare på NORSK. Alle dine svar skal være på norsk. Bruk naturlig, profesjonelt norsk språk.',
+  de: '\n\n## WICHTIG: Sprachanforderung\nSie MÜSSEN auf DEUTSCH antworten. Alle Ihre Antworten müssen auf Deutsch sein. Verwenden Sie natürliche, professionelle deutsche Sprache.',
+  nl: '\n\n## BELANGRIJK: Taalvereiste\nU MOET in het NEDERLANDS antwoorden. Al uw antwoorden moeten in het Nederlands zijn. Gebruik natuurlijke, professionele Nederlandse taal.',
+  fi: '\n\n## TÄRKEÄÄ: Kielivaatimus\nSinun TÄYTYY vastata SUOMEKSI. Kaikkien vastaustesi on oltava suomeksi. Käytä luonnollista, ammattimaista suomen kieltä.',
+  fr: '\n\n## IMPORTANT: Exigence linguistique\nVous DEVEZ répondre en FRANÇAIS. Toutes vos réponses doivent être en français. Utilisez un français naturel et professionnel.',
+  it: '\n\n## IMPORTANTE: Requisito linguistico\nDEVI rispondere in ITALIANO. Tutte le tue risposte devono essere in italiano. Usa un italiano naturale e professionale.',
+};
+
+const BASE_SYSTEM_PROMPT = `You are the CBD Portal Assistant, a helpful guide that answers questions about CBD (cannabidiol) based on scientific research.
 
 ## Your Role
 - Help users understand what research says about CBD for various conditions
@@ -141,6 +167,18 @@ You have access to:
 - Hundreds of educational articles
 
 Use the provided context to give accurate, helpful responses. Only mention conditions, studies, and articles that are included in the context for this conversation.`;
+
+/**
+ * Get the system prompt with language-specific instructions
+ * @param lang - The language code for the response language
+ */
+export function getSystemPrompt(lang: LanguageCode = 'en'): string {
+  const languageInstruction = LANGUAGE_INSTRUCTIONS[lang] || '';
+  return BASE_SYSTEM_PROMPT + languageInstruction;
+}
+
+// Legacy export for backward compatibility
+export const CHAT_SYSTEM_PROMPT = BASE_SYSTEM_PROMPT;
 
 export const WELCOME_MESSAGE = `Welcome! I can help you understand what research says about CBD (cannabidiol) for various health conditions.
 

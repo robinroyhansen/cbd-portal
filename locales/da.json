@@ -255,10 +255,27 @@
     "popularSearches": "Populære søgninger"
   },
   "cookie": {
-    "message": "Vi bruger cookies for at forbedre din oplevelse.",
-    "accept": "Acceptér",
-    "decline": "Afvis",
-    "learnMore": "Lær mere"
+    "message": "Vi bruger cookies for at forbedre din oplevelse på vores website. Ved at fortsætte med at browse accepterer du vores brug af cookies.",
+    "accept": "Acceptér alle",
+    "essentialOnly": "Kun nødvendige",
+    "learnMore": "Læs mere"
+  },
+  "chat": {
+    "disclaimer": "Ansvarsfraskrivelse",
+    "disclaimerText": "Jeg er en AI-assistent, ikke en læge. De oplysninger, der gives, er kun til uddannelsesformål. Konsulter altid en sundhedsprofessionel før du bruger CBD.",
+    "welcome": "Velkommen! Jeg kan hjælpe dig med at forstå, hvad forskningen siger om CBD (cannabidiol) for forskellige helbredstilstande.",
+    "welcomeNote1": "Jeg giver information baseret på videnskabelig forskning",
+    "welcomeNote2": "Jeg er ikke læge og kan ikke give medicinsk rådgivning",
+    "welcomeNote3": "Konsulter altid en sundhedsprofessionel før du bruger CBD",
+    "welcomeQuestion": "Hvad vil du gerne vide om CBD?",
+    "suggestedQuestions": {
+      "anxiety": "Hjælper CBD mod angst?",
+      "sleep": "Hvad siger forskningen om CBD til søvn?",
+      "medications": "Er CBD sikkert at tage sammen med medicin?",
+      "dosage": "Hvor meget CBD bør jeg tage?",
+      "conditions": "Hvilke tilstande er CBD blevet undersøgt for?",
+      "sideEffects": "Er der bivirkninger ved CBD?"
+    }
   },
   "errors": {
     "pageNotFound": "Side ikke fundet",

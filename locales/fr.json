@@ -255,10 +255,27 @@
     "popularSearches": "Recherches populaires"
   },
   "cookie": {
-    "message": "Nous utilisons des cookies pour améliorer votre expérience.",
-    "accept": "Accepter",
-    "decline": "Refuser",
+    "message": "Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous acceptez notre utilisation des cookies.",
+    "accept": "Tout accepter",
+    "essentialOnly": "Essentiels uniquement",
     "learnMore": "En savoir plus"
+  },
+  "chat": {
+    "disclaimer": "Avertissement",
+    "disclaimerText": "Je suis un assistant IA, pas un médecin. Les informations fournies sont uniquement à des fins éducatives. Consultez toujours un professionnel de santé avant d'utiliser du CBD.",
+    "welcome": "Bienvenue ! Je peux vous aider à comprendre ce que la recherche dit sur le CBD (cannabidiol) pour diverses conditions de santé.",
+    "welcomeNote1": "Je fournis des informations basées sur la recherche scientifique",
+    "welcomeNote2": "Je ne suis pas médecin et ne peux pas donner de conseils médicaux",
+    "welcomeNote3": "Consultez toujours un professionnel de santé avant d'utiliser du CBD",
+    "welcomeQuestion": "Que souhaitez-vous savoir sur le CBD ?",
+    "suggestedQuestions": {
+      "anxiety": "Le CBD aide-t-il contre l'anxiété ?",
+      "sleep": "Que dit la recherche sur le CBD pour le sommeil ?",
+      "medications": "Le CBD est-il sûr à prendre avec des médicaments ?",
+      "dosage": "Quelle quantité de CBD devrais-je prendre ?",
+      "conditions": "Pour quelles conditions le CBD a-t-il été étudié ?",
+      "sideEffects": "Y a-t-il des effets secondaires du CBD ?"
+    }
   },
   "errors": {
     "pageNotFound": "Page non trouvée",

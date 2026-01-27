@@ -255,10 +255,27 @@
     "popularSearches": "Populaire zoekopdrachten"
   },
   "cookie": {
-    "message": "We gebruiken cookies om uw ervaring te verbeteren.",
-    "accept": "Accepteren",
-    "decline": "Weigeren",
-    "learnMore": "Meer informatie"
+    "message": "We gebruiken cookies om uw ervaring op onze website te verbeteren. Door verder te browsen gaat u akkoord met ons gebruik van cookies.",
+    "accept": "Alles accepteren",
+    "essentialOnly": "Alleen noodzakelijk",
+    "learnMore": "Lees meer"
+  },
+  "chat": {
+    "disclaimer": "Disclaimer",
+    "disclaimerText": "Ik ben een AI-assistent, geen dokter. De verstrekte informatie is alleen voor educatieve doeleinden. Raadpleeg altijd een zorgverlener voordat u CBD gebruikt.",
+    "welcome": "Welkom! Ik kan u helpen begrijpen wat het onderzoek zegt over CBD (cannabidiol) voor verschillende gezondheidsproblemen.",
+    "welcomeNote1": "Ik geef informatie op basis van wetenschappelijk onderzoek",
+    "welcomeNote2": "Ik ben geen dokter en kan geen medisch advies geven",
+    "welcomeNote3": "Raadpleeg altijd een zorgverlener voordat u CBD gebruikt",
+    "welcomeQuestion": "Wat wilt u weten over CBD?",
+    "suggestedQuestions": {
+      "anxiety": "Helpt CBD bij angst?",
+      "sleep": "Wat zegt het onderzoek over CBD voor slaap?",
+      "medications": "Is CBD veilig om samen met medicijnen in te nemen?",
+      "dosage": "Hoeveel CBD moet ik nemen?",
+      "conditions": "Voor welke aandoeningen is CBD onderzocht?",
+      "sideEffects": "Zijn er bijwerkingen van CBD?"
+    }
   },
   "errors": {
     "pageNotFound": "Pagina niet gevonden",

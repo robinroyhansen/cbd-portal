@@ -12,7 +12,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
 import { createClient } from '@supabase/supabase-js';
-import { buildContext, formatContextForPrompt, CHAT_SYSTEM_PROMPT } from '@/lib/chat';
+import { buildContext, formatContextForPrompt, getSystemPrompt } from '@/lib/chat';
+import type { LanguageCode } from '@/lib/translation-service';
 
 // Create Supabase client directly for logging (avoiding singleton issues on Vercel)
 function getLoggingClient() {
@@ -361,11 +362,12 @@ export async function POST(request: NextRequest) {
       content: userMessageWithContext,
     });
 
-    // Call Claude API
+    // Call Claude API with language-aware system prompt
+    const systemPrompt = getSystemPrompt(language as LanguageCode);
     const response = await anthropic.messages.create({
       model: CHAT_MODEL,
       max_tokens: MAX_TOKENS,
-      system: CHAT_SYSTEM_PROMPT,
+      system: systemPrompt,
       messages,
     });
 
