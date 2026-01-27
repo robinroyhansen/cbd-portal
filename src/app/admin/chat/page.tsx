@@ -180,6 +180,8 @@ export default function ChatAdminPage() {
   const [data, setData] = useState<ChatListResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [deleting, setDeleting] = useState<string | null>(null);
+  const [showDeleteAllConfirm, setShowDeleteAllConfirm] = useState(false);
 
   // Filter state
   const [page, setPage] = useState(1);
@@ -221,6 +223,35 @@ export default function ChatAdminPage() {
     fetchData();
   }, [fetchData]);
 
+  const handleDeleteConversation = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this conversation?')) return;
+
+    setDeleting(id);
+    try {
+      const response = await fetch(`/api/admin/chat/${id}`, { method: 'DELETE' });
+      if (!response.ok) throw new Error('Failed to delete');
+      fetchData();
+    } catch (err) {
+      alert('Failed to delete conversation');
+    } finally {
+      setDeleting(null);
+    }
+  };
+
+  const handleDeleteAll = async () => {
+    setShowDeleteAllConfirm(false);
+    setDeleting('all');
+    try {
+      const response = await fetch('/api/admin/chat', { method: 'DELETE' });
+      if (!response.ok) throw new Error('Failed to delete');
+      fetchData();
+    } catch (err) {
+      alert('Failed to delete all conversations');
+    } finally {
+      setDeleting(null);
+    }
+  };
+
   const stats = data?.stats;
   const conversations = data?.conversations || [];
   const pagination = data?.pagination;
@@ -228,10 +259,58 @@ export default function ChatAdminPage() {
   return (
     <div className="p-8">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Chat Analytics</h1>
-        <p className="text-gray-600">View and analyze customer chat conversations and feedback</p>
+      <div className="mb-8 flex items-start justify-between">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Chat Analytics</h1>
+          <p className="text-gray-600">View and analyze customer chat conversations and feedback</p>
+        </div>
+        {data && data.conversations.length > 0 && (
+          <button
+            onClick={() => setShowDeleteAllConfirm(true)}
+            disabled={deleting === 'all'}
+            className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50 flex items-center gap-2"
+          >
+            {deleting === 'all' ? (
+              <>
+                <span className="animate-spin">⏳</span>
+                Deleting...
+              </>
+            ) : (
+              <>
+                <span>🗑️</span>
+                Delete All
+              </>
+            )}
+          </button>
+        )}
       </div>
+
+      {/* Delete All Confirmation Modal */}
+      {showDeleteAllConfirm && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl p-6 max-w-md mx-4 shadow-2xl">
+            <h3 className="text-xl font-bold text-gray-900 mb-2">Delete All Conversations?</h3>
+            <p className="text-gray-600 mb-4">
+              This will permanently delete all {stats?.total_conversations || 0} conversations,
+              including all messages and feedback. This action cannot be undone.
+            </p>
+            <div className="flex gap-3 justify-end">
+              <button
+                onClick={() => setShowDeleteAllConfirm(false)}
+                className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleDeleteAll}
+                className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+              >
+                Delete All
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {loading && !data ? (
         <LoadingSkeleton />
@@ -443,12 +522,21 @@ export default function ChatAdminPage() {
                           </p>
                         </td>
                         <td className="px-4 py-3 text-right">
-                          <Link
-                            href={`/admin/chat/${conversation.id}`}
-                            className="text-sm text-green-600 hover:text-green-700 font-medium"
-                          >
-                            View
-                          </Link>
+                          <div className="flex items-center justify-end gap-2">
+                            <Link
+                              href={`/admin/chat/${conversation.id}`}
+                              className="text-sm text-green-600 hover:text-green-700 font-medium"
+                            >
+                              View
+                            </Link>
+                            <button
+                              onClick={() => handleDeleteConversation(conversation.id)}
+                              disabled={deleting === conversation.id}
+                              className="text-sm text-red-500 hover:text-red-700 font-medium disabled:opacity-50"
+                            >
+                              {deleting === conversation.id ? '...' : 'Delete'}
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     ))}

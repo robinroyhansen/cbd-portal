@@ -11,8 +11,22 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { createClient } from '@supabase/supabase-js';
 import { buildContext, formatContextForPrompt, CHAT_SYSTEM_PROMPT } from '@/lib/chat';
-import { createServiceClient } from '@/lib/supabase/server';
+
+// Create Supabase client directly for logging (avoiding singleton issues on Vercel)
+function getLoggingClient() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false,
+      },
+    }
+  );
+}
 import {
   classifyIntent as classifyIntentPhase3,
   getIntentGuidance,
@@ -135,7 +149,7 @@ function historyToChatMessages(history: Array<{ role: 'user' | 'assistant'; cont
  * Returns conversationId - creates new if none provided
  */
 async function getOrCreateConversation(
-  supabase: ReturnType<typeof createServiceClient>,
+  supabase: ReturnType<typeof getLoggingClient>,
   sessionId: string | undefined,
   conversationId: string | undefined,
   language: string,
@@ -184,7 +198,7 @@ async function getOrCreateConversation(
  * Log a message to the database
  */
 async function logMessage(
-  supabase: ReturnType<typeof createServiceClient>,
+  supabase: ReturnType<typeof getLoggingClient>,
   conversationId: string,
   role: 'user' | 'assistant',
   content: string,
@@ -222,7 +236,7 @@ async function logMessage(
  * Update conversation metadata after messages are logged
  */
 async function updateConversationMetadata(
-  supabase: ReturnType<typeof createServiceClient>,
+  supabase: ReturnType<typeof getLoggingClient>,
   conversationId: string,
   messageCount: number
 ): Promise<void> {
@@ -362,7 +376,7 @@ export async function POST(request: NextRequest) {
     let assistantMessageId: string | undefined;
 
     try {
-      const supabase = createServiceClient();
+      const supabase = getLoggingClient();
 
       // Get or create conversation
       const convId = await getOrCreateConversation(

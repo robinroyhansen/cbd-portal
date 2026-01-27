@@ -7,10 +7,24 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase/server';
+import { createClient } from '@supabase/supabase-js';
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
+
+// Create Supabase client directly (avoiding service client singleton issues on Vercel)
+function getSupabaseClient() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false,
+      },
+    }
+  );
+}
 
 export interface ChatMessageDetail {
   id: string;
@@ -60,7 +74,7 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const supabase = createServiceClient();
+    const supabase = getSupabaseClient();
 
     // Fetch conversation
     const { data: conversation, error: conversationError } = await supabase
@@ -185,6 +199,68 @@ export async function GET(
     return NextResponse.json(response);
   } catch (error) {
     console.error('[Chat Detail API] Error:', error);
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : 'Unknown error' },
+      { status: 500 }
+    );
+  }
+}
+
+/**
+ * DELETE /api/admin/chat/[id]
+ * Delete a single conversation and all its messages and feedback
+ */
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    const supabase = getSupabaseClient();
+
+    console.log('[Chat Delete API] Deleting conversation:', id);
+
+    // Delete feedback first (references messages)
+    const { error: feedbackError } = await supabase
+      .from('chat_feedback')
+      .delete()
+      .eq('conversation_id', id);
+
+    if (feedbackError) {
+      console.error('[Chat Delete API] Feedback delete error:', feedbackError);
+    }
+
+    // Delete messages (references conversation)
+    const { error: messagesError } = await supabase
+      .from('chat_messages')
+      .delete()
+      .eq('conversation_id', id);
+
+    if (messagesError) {
+      console.error('[Chat Delete API] Messages delete error:', messagesError);
+      return NextResponse.json(
+        { error: 'Failed to delete messages' },
+        { status: 500 }
+      );
+    }
+
+    // Delete conversation
+    const { error: conversationError } = await supabase
+      .from('chat_conversations')
+      .delete()
+      .eq('id', id);
+
+    if (conversationError) {
+      console.error('[Chat Delete API] Conversation delete error:', conversationError);
+      return NextResponse.json(
+        { error: 'Failed to delete conversation' },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({ success: true, deleted: id });
+  } catch (error) {
+    console.error('[Chat Delete API] Error:', error);
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }

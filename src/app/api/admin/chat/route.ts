@@ -308,3 +308,80 @@ export async function GET(request: NextRequest) {
     );
   }
 }
+
+/**
+ * DELETE /api/admin/chat
+ * Delete all chat conversations, messages, and feedback
+ */
+export async function DELETE(request: NextRequest) {
+  try {
+    // Create Supabase client directly
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!,
+      {
+        auth: {
+          autoRefreshToken: false,
+          persistSession: false,
+        },
+      }
+    );
+
+    console.log('[Chat Admin API] Deleting all chat data...');
+
+    // Get count before deletion
+    const { count: beforeCount } = await supabase
+      .from('chat_conversations')
+      .select('id', { count: 'exact', head: true });
+
+    // Delete all feedback first (references messages)
+    const { error: feedbackError } = await supabase
+      .from('chat_feedback')
+      .delete()
+      .neq('id', '00000000-0000-0000-0000-000000000000'); // Delete all (workaround for delete without filter)
+
+    if (feedbackError) {
+      console.error('[Chat Admin API] Feedback delete error:', feedbackError);
+    }
+
+    // Delete all messages (references conversations)
+    const { error: messagesError } = await supabase
+      .from('chat_messages')
+      .delete()
+      .neq('id', '00000000-0000-0000-0000-000000000000');
+
+    if (messagesError) {
+      console.error('[Chat Admin API] Messages delete error:', messagesError);
+      return NextResponse.json(
+        { error: 'Failed to delete messages' },
+        { status: 500 }
+      );
+    }
+
+    // Delete all conversations
+    const { error: conversationError } = await supabase
+      .from('chat_conversations')
+      .delete()
+      .neq('id', '00000000-0000-0000-0000-000000000000');
+
+    if (conversationError) {
+      console.error('[Chat Admin API] Conversation delete error:', conversationError);
+      return NextResponse.json(
+        { error: 'Failed to delete conversations' },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      deleted: beforeCount || 0,
+      message: `Deleted ${beforeCount || 0} conversations and all related data`
+    });
+  } catch (error) {
+    console.error('[Chat Admin API] Delete error:', error);
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : 'Unknown error' },
+      { status: 500 }
+    );
+  }
+}
