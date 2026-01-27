@@ -84,6 +84,7 @@ function getNavItems(queueCounts: QueueCounts): NavItem[] {
       ]
     },
     { name: 'Glossary', href: '/admin/glossary', icon: '📖' },
+    { name: 'Chat Analytics', href: '/admin/chat', icon: '💬' },
     { name: 'Media Library', href: '/admin/media', icon: '🖼️' },
     {
       name: 'Languages',
