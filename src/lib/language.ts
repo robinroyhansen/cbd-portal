@@ -124,9 +124,17 @@ export function getLanguageFromHostname(hostname: string): string {
 
 /**
  * Server-side language detection from request headers
- * Uses the Host header to determine language based on domain
+ * First checks x-language header (set by middleware from ?lang= param)
+ * Falls back to hostname-based detection
  */
 export function detectLanguage(headers: Headers): string {
+  // First check for language header set by middleware (supports ?lang= override)
+  const langHeader = headers.get('x-language');
+  if (langHeader) {
+    return langHeader;
+  }
+
+  // Fall back to hostname-based detection
   const host = headers.get('host') || headers.get('x-forwarded-host') || 'localhost';
   // Remove port if present
   const hostname = host.split(':')[0];
