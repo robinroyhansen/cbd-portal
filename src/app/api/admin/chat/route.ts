@@ -82,6 +82,14 @@ export async function GET(request: NextRequest) {
     // Calculate offset
     const offset = (page - 1) * limit;
 
+    // TEMP: Simple query to debug
+    const { data: testData, error: testError, count: testCount } = await supabase
+      .from('chat_conversations')
+      .select('id, session_id', { count: 'exact' })
+      .limit(5);
+
+    console.log('[Chat Admin API] Test query result:', { testData, testError, testCount });
+
     // Build base query
     let query = supabase
       .from('chat_conversations')
@@ -129,6 +137,7 @@ export async function GET(request: NextRequest) {
         supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL?.substring(0, 30) || 'NOT_SET',
         queryError: sessionsError?.message || null,
         count,
+        testQueryResult: { data: testData, error: testError?.message, count: testCount },
       };
       console.log('[Chat Admin API] Returning empty - debug:', debugInfo);
 
