@@ -90,28 +90,12 @@ export async function GET(request: NextRequest) {
 
     console.log('[Chat Admin API] Test query result:', { testData, testError, testCount });
 
-    // Build base query
-    let query = supabase
+    // TEMP: Simplified query for debugging
+    const { data: sessions, error: sessionsError, count } = await supabase
       .from('chat_conversations')
-      .select('*', { count: 'exact' });
-
-    // Apply filters
-    if (dateFrom) {
-      query = query.gte('started_at', dateFrom);
-    }
-    if (dateTo) {
-      query = query.lte('started_at', dateTo);
-    }
-    if (language) {
-      query = query.eq('language', language);
-    }
-
-    // Apply pagination and sorting
-    query = query
+      .select('*', { count: 'exact' })
       .order('last_message_at', { ascending: false })
-      .range(offset, offset + limit - 1);
-
-    const { data: sessions, error: sessionsError, count } = await query;
+      .limit(limit);
 
     // Debug logging
     console.log('[Chat Admin API] Query result:', {
