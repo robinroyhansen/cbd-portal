@@ -82,10 +82,10 @@ export async function GET(request: NextRequest) {
     // Calculate offset
     const offset = (page - 1) * limit;
 
-    // Build query with proper pagination using limit/offset instead of range
+    // Build query with proper pagination - select specific columns to avoid issues
     let query = supabase
       .from('chat_conversations')
-      .select('*', { count: 'exact' });
+      .select('id, session_id, user_agent, language, started_at, last_message_at, message_count', { count: 'exact' });
 
     // Apply filters
     if (dateFrom) {
@@ -252,6 +252,7 @@ export async function GET(request: NextRequest) {
     const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
     const weekStart = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000).toISOString();
 
+    // Use simple queries for stats to avoid any caching/RLS issues
     const [
       { count: totalConversations },
       { data: messageStats },
@@ -260,12 +261,12 @@ export async function GET(request: NextRequest) {
       { count: conversationsToday },
       { count: conversationsThisWeek },
     ] = await Promise.all([
-      supabase.from('chat_conversations').select('*', { count: 'exact', head: true }),
+      supabase.from('chat_conversations').select('id', { count: 'exact', head: true }),
       supabase.from('chat_conversations').select('message_count'),
-      supabase.from('chat_feedback').select('*', { count: 'exact', head: true }),
-      supabase.from('chat_feedback').select('*', { count: 'exact', head: true }).eq('rating', 'helpful'),
-      supabase.from('chat_conversations').select('*', { count: 'exact', head: true }).gte('started_at', todayStart),
-      supabase.from('chat_conversations').select('*', { count: 'exact', head: true }).gte('started_at', weekStart),
+      supabase.from('chat_feedback').select('id', { count: 'exact', head: true }),
+      supabase.from('chat_feedback').select('id', { count: 'exact', head: true }).eq('rating', 'helpful'),
+      supabase.from('chat_conversations').select('id', { count: 'exact', head: true }).gte('started_at', todayStart),
+      supabase.from('chat_conversations').select('id', { count: 'exact', head: true }).gte('started_at', weekStart),
     ]);
 
     // Calculate message totals
