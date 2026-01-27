@@ -55,7 +55,6 @@ function buildCSP(): string {
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const response = NextResponse.next();
 
   // Detect language from domain
   const hostname = request.headers.get('host')?.split(':')[0] || 'localhost';
@@ -74,15 +73,38 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  // Check for language override in URL query or cookie
+  // Check for language override in URL query parameter
   const urlLang = request.nextUrl.searchParams.get('lang');
-  if (urlLang && Object.values(domainToLanguage).includes(urlLang)) {
+  if (urlLang) {
+    // Accept any language code from the switcher
     language = urlLang;
   }
 
-  // Set language header for server components to read
-  response.headers.set('x-language', language);
-  response.headers.set('x-hostname', hostname);
+  // Check for language override in cookie (persisted preference)
+  const cookieLang = request.cookies.get('NEXT_LOCALE')?.value;
+  if (cookieLang && !urlLang) {
+    language = cookieLang;
+  }
+
+  // Create response with request headers modified
+  // This is the correct way to pass data to server components
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set('x-language', language);
+  requestHeaders.set('x-hostname', hostname);
+
+  const response = NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+  });
+
+  // Also set cookie for persistence when ?lang= is used
+  if (urlLang) {
+    response.cookies.set('NEXT_LOCALE', language, {
+      path: '/',
+      maxAge: 60 * 60 * 24 * 365, // 1 year
+    });
+  }
 
   // Apply security headers to all routes
   Object.entries(securityHeaders).forEach(([key, value]) => {
