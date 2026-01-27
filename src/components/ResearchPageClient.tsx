@@ -729,11 +729,13 @@ function OutcomeBadge({ outcome }: { outcome: StudyOutcome }) {
 function TopConditionsSummary({
   conditionStats,
   onConditionClick,
-  selectedConditions
+  selectedConditions,
+  t
 }: {
   conditionStats: Record<ConditionKey, number>;
   onConditionClick: (condition: ConditionKey) => void;
   selectedConditions: ConditionKey[];
+  t: (key: string, params?: Record<string, string | number>) => string;
 }) {
   // Get top 6 conditions by count
   const topConditions = Object.entries(conditionStats)
@@ -745,10 +747,11 @@ function TopConditionsSummary({
 
   return (
     <div className="flex flex-wrap items-center gap-2 text-sm">
-      <span className="text-gray-500 font-medium">Most researched:</span>
+      <span className="text-gray-500 font-medium">{t('researchFilters.mostResearched') || 'Most researched'}:</span>
       {topConditions.map(([key, count], index) => {
         const condition = CONDITIONS[key];
         const isSelected = selectedConditions.includes(key);
+        const conditionLabel = t(`researchConditions.${key}`) || condition.label;
         return (
           <button
             key={key}
@@ -758,10 +761,10 @@ function TopConditionsSummary({
                 ? 'bg-blue-600 text-white'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
-            title={`Filter by ${condition.label}`}
+            title={conditionLabel}
           >
             <span aria-hidden="true">{condition.icon}</span>
-            <span>{condition.label}</span>
+            <span>{conditionLabel}</span>
             <span className={`ml-1 ${isSelected ? 'text-blue-200' : 'text-gray-400'}`}>({count})</span>
           </button>
         );
@@ -1331,22 +1334,28 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
     const labels: string[] = [];
     if (activeCategory !== 'all') {
       const catLabels: Record<StudyCategory, string> = {
-        all: 'All', cbd: 'CBD', cannabinoids: 'Cannabinoids',
-        cannabis: 'Cannabis', 'medical-cannabis': 'Medical Cannabis'
+        all: t('researchFilters.all') || 'All',
+        cbd: 'CBD',
+        cannabinoids: t('researchFilters.cannabinoids') || 'Cannabinoids',
+        cannabis: 'Cannabis',
+        'medical-cannabis': 'Medical Cannabis'
       };
       labels.push(catLabels[activeCategory]);
     }
-    selectedConditions.forEach(c => labels.push(CONDITIONS[c].label));
+    selectedConditions.forEach(c => {
+      const conditionLabel = t(`researchConditions.${c}`) || CONDITIONS[c].label;
+      labels.push(conditionLabel);
+    });
     if (yearRange.min !== dataYearRange.min || yearRange.max !== dataYearRange.max) {
       labels.push(`${yearRange.min}-${yearRange.max}`);
     }
     if (qualityRange.min > 0 || qualityRange.max < 100) {
-      labels.push(`Quality ${qualityRange.min}-${qualityRange.max}`);
+      labels.push(`${t('researchFilters.qualityScore') || 'Quality'} ${qualityRange.min}-${qualityRange.max}`);
     }
-    if (subjectType === 'human') labels.push('Human only');
-    if (subjectType === 'animal') labels.push('Animal only');
+    if (subjectType === 'human') labels.push(t('researchFilters.human') || 'Human only');
+    if (subjectType === 'animal') labels.push(t('researchFilters.animal') || 'Animal only');
     return labels;
-  }, [activeCategory, selectedConditions, yearRange, qualityRange, subjectType, dataYearRange]);
+  }, [activeCategory, selectedConditions, yearRange, qualityRange, subjectType, dataYearRange, t]);
 
   return (
     <div className="space-y-4">
@@ -1619,6 +1628,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
                 }
                 setCurrentPage(1);
               }}
+              t={t}
             />
           </div>
 
@@ -1954,7 +1964,7 @@ function FilterSidebarContent({
       {/* Condition Filter - Top 8 with expand */}
       <div className="bg-white rounded-lg border border-gray-200 p-3">
         <div className="flex items-center justify-between mb-2">
-          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Condition</h3>
+          <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide">{t('researchFilters.condition')}</h3>
           {selectedConditions.length > 0 && (
             <button
               onClick={() => {
@@ -1962,19 +1972,24 @@ function FilterSidebarContent({
               }}
               className="text-xs text-gray-500 hover:text-red-600"
             >
-              Clear
+              {t('researchFilters.clear')}
             </button>
           )}
         </div>
         <div className="flex flex-wrap gap-1.5">
           {(showAllConditions
-            ? (Object.keys(CONDITIONS) as ConditionKey[]).sort((a, b) => CONDITIONS[a].label.localeCompare(CONDITIONS[b].label))
+            ? (Object.keys(CONDITIONS) as ConditionKey[]).sort((a, b) => {
+                const labelA = t(`researchConditions.${a}`) || CONDITIONS[a].label;
+                const labelB = t(`researchConditions.${b}`) || CONDITIONS[b].label;
+                return labelA.localeCompare(labelB);
+              })
             : TOP_CONDITIONS
           ).map((key) => {
             const cond = CONDITIONS[key];
             const colors = CONDITION_COLORS[key] || { bg: 'bg-gray-100', text: 'text-gray-700' };
             const isSelected = selectedConditions.includes(key);
             const count = conditionStats[key] || 0;
+            const conditionLabel = t(`researchConditions.${key}`) || cond.label;
             return (
               <button
                 key={key}
@@ -1986,7 +2001,7 @@ function FilterSidebarContent({
                 }`}
               >
                 <span>{cond.icon}</span>
-                <span>{cond.label}</span>
+                <span>{conditionLabel}</span>
                 <span className="opacity-60">({count})</span>
               </button>
             );
@@ -1997,7 +2012,7 @@ function FilterSidebarContent({
             onClick={() => setShowAllConditions(true)}
             className="mt-2 text-xs text-blue-600 hover:text-blue-700 font-medium"
           >
-            Show all {Object.keys(CONDITIONS).length} conditions...
+            {t('researchFilters.showAllConditions').replace('{{count}}', String(Object.keys(CONDITIONS).length))}
           </button>
         )}
         {showAllConditions && (
@@ -2005,14 +2020,14 @@ function FilterSidebarContent({
             onClick={() => setShowAllConditions(false)}
             className="mt-2 text-xs text-gray-500 hover:text-gray-700"
           >
-            Show less
+            {t('researchFilters.showLess')}
           </button>
         )}
       </div>
 
       {/* Year Range */}
       <div className="bg-white rounded-lg border border-gray-200 p-3">
-        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Publication Year</h3>
+        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">{t('researchFilters.publicationYear')}</h3>
         <div className="flex items-center gap-2">
           <select
             value={yearRange.min}
