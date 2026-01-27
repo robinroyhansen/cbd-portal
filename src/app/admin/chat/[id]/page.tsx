@@ -5,7 +5,8 @@
  * View full conversation thread with messages and feedback
  */
 
-import { useEffect, useState, use } from 'react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'next/navigation';
 import Link from 'next/link';
 
 // Types for the chat detail API response
@@ -454,12 +455,9 @@ function NotFoundState() {
   );
 }
 
-export default function ChatConversationDetailPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = use(params);
+export default function ChatConversationDetailPage() {
+  const params = useParams();
+  const id = params.id as string;
   const [conversation, setConversation] = useState<ChatConversationDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
