@@ -13,8 +13,8 @@ import { getHomePageStats } from '@/lib/stats';
 import { getHreflangAlternates } from '@/components/HreflangTags';
 import { detectLanguage } from '@/lib/language';
 
-// Revalidate stats every 5 minutes
-export const revalidate = 300;
+// Force dynamic rendering to support language switching via ?lang= parameter
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
