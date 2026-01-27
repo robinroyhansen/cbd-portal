@@ -145,6 +145,15 @@ function historyToChatMessages(history: Array<{ role: 'user' | 'assistant'; cont
 }
 
 /**
+ * Geo info from Vercel headers
+ */
+interface GeoInfo {
+  country?: string;
+  countryRegion?: string;
+  city?: string;
+}
+
+/**
  * Get or create a conversation record
  * Returns conversationId - creates new if none provided
  */
@@ -153,7 +162,8 @@ async function getOrCreateConversation(
   sessionId: string | undefined,
   conversationId: string | undefined,
   language: string,
-  userAgent: string | null
+  userAgent: string | null,
+  geoInfo: GeoInfo | null
 ): Promise<string | null> {
   try {
     // If we have an existing conversation, verify it exists and update last_message_at
@@ -170,7 +180,13 @@ async function getOrCreateConversation(
       // If conversation doesn't exist, create a new one
     }
 
-    // Create new conversation
+    // Create new conversation with geo metadata
+    const metadata = geoInfo ? {
+      country: geoInfo.country || null,
+      country_region: geoInfo.countryRegion || null,
+      city: geoInfo.city || null,
+    } : null;
+
     const { data: newConversation, error: createError } = await supabase
       .from('chat_conversations')
       .insert({
@@ -178,6 +194,7 @@ async function getOrCreateConversation(
         language,
         user_agent: userAgent,
         message_count: 0,
+        metadata,
       })
       .select('id')
       .single();
@@ -273,6 +290,13 @@ export async function POST(request: NextRequest) {
 
     // Get user agent for logging
     const userAgent = request.headers.get('user-agent');
+
+    // Get geo info from Vercel headers
+    const geoInfo: GeoInfo = {
+      country: request.headers.get('x-vercel-ip-country') || undefined,
+      countryRegion: request.headers.get('x-vercel-ip-country-region') || undefined,
+      city: request.headers.get('x-vercel-ip-city') || undefined,
+    };
 
     // Phase 3: Use new intent classifier for better intent detection
     const phase3Intent = classifyIntentPhase3(message);
@@ -384,7 +408,8 @@ export async function POST(request: NextRequest) {
         sessionId,
         requestConversationId,
         language,
-        userAgent
+        userAgent,
+        geoInfo
       );
 
       if (convId) {

@@ -76,22 +76,109 @@ function formatDuration(seconds: number): string {
   return `${hours}h ${remainingMinutes}m`;
 }
 
-// Parse user agent to get browser info
-function parseUserAgent(userAgent: string | null): { browser: string; device: string } {
-  if (!userAgent) return { browser: 'Unknown', device: 'Unknown' };
+// Parse user agent to get detailed info
+function parseUserAgent(userAgent: string | null): {
+  browser: string;
+  browserVersion: string;
+  os: string;
+  device: string;
+} {
+  if (!userAgent) return { browser: 'Unknown', browserVersion: '', os: 'Unknown', device: 'Unknown' };
 
   let browser = 'Unknown';
+  let browserVersion = '';
+  let os = 'Unknown';
   let device = 'Desktop';
 
-  if (userAgent.includes('Chrome')) browser = 'Chrome';
-  else if (userAgent.includes('Firefox')) browser = 'Firefox';
-  else if (userAgent.includes('Safari')) browser = 'Safari';
-  else if (userAgent.includes('Edge')) browser = 'Edge';
+  // Detect browser and version
+  if (userAgent.includes('Edg/')) {
+    browser = 'Edge';
+    const match = userAgent.match(/Edg\/([\d.]+)/);
+    browserVersion = match ? match[1] : '';
+  } else if (userAgent.includes('Chrome/')) {
+    browser = 'Chrome';
+    const match = userAgent.match(/Chrome\/([\d.]+)/);
+    browserVersion = match ? match[1] : '';
+  } else if (userAgent.includes('Firefox/')) {
+    browser = 'Firefox';
+    const match = userAgent.match(/Firefox\/([\d.]+)/);
+    browserVersion = match ? match[1] : '';
+  } else if (userAgent.includes('Safari/') && !userAgent.includes('Chrome')) {
+    browser = 'Safari';
+    const match = userAgent.match(/Version\/([\d.]+)/);
+    browserVersion = match ? match[1] : '';
+  }
 
-  if (userAgent.includes('Mobile') || userAgent.includes('Android')) device = 'Mobile';
-  else if (userAgent.includes('iPad') || userAgent.includes('Tablet')) device = 'Tablet';
+  // Detect OS
+  if (userAgent.includes('Windows NT 10')) os = 'Windows 10/11';
+  else if (userAgent.includes('Windows NT')) os = 'Windows';
+  else if (userAgent.includes('Mac OS X')) {
+    const match = userAgent.match(/Mac OS X ([\d_]+)/);
+    os = match ? `macOS ${match[1].replace(/_/g, '.')}` : 'macOS';
+  }
+  else if (userAgent.includes('Android')) {
+    const match = userAgent.match(/Android ([\d.]+)/);
+    os = match ? `Android ${match[1]}` : 'Android';
+  }
+  else if (userAgent.includes('iPhone') || userAgent.includes('iPad')) {
+    const match = userAgent.match(/OS ([\d_]+)/);
+    os = match ? `iOS ${match[1].replace(/_/g, '.')}` : 'iOS';
+  }
+  else if (userAgent.includes('Linux')) os = 'Linux';
 
-  return { browser, device };
+  // Detect device
+  if (userAgent.includes('Mobile') || userAgent.includes('Android') && !userAgent.includes('Tablet')) {
+    device = 'Mobile';
+  } else if (userAgent.includes('iPad') || userAgent.includes('Tablet')) {
+    device = 'Tablet';
+  } else if (userAgent.includes('iPhone')) {
+    device = 'iPhone';
+  }
+
+  return { browser, browserVersion, os, device };
+}
+
+// Country code to flag emoji
+function countryToFlag(countryCode: string | null): string {
+  if (!countryCode || countryCode.length !== 2) return '🌍';
+  const codePoints = countryCode
+    .toUpperCase()
+    .split('')
+    .map(char => 127397 + char.charCodeAt(0));
+  return String.fromCodePoint(...codePoints);
+}
+
+// Country code to name
+const COUNTRY_NAMES: Record<string, string> = {
+  US: 'United States',
+  GB: 'United Kingdom',
+  DK: 'Denmark',
+  SE: 'Sweden',
+  NO: 'Norway',
+  FI: 'Finland',
+  DE: 'Germany',
+  FR: 'France',
+  NL: 'Netherlands',
+  IT: 'Italy',
+  ES: 'Spain',
+  CH: 'Switzerland',
+  AT: 'Austria',
+  BE: 'Belgium',
+  PL: 'Poland',
+  CZ: 'Czech Republic',
+  CA: 'Canada',
+  AU: 'Australia',
+  NZ: 'New Zealand',
+  JP: 'Japan',
+  CN: 'China',
+  IN: 'India',
+  BR: 'Brazil',
+  MX: 'Mexico',
+};
+
+function getCountryName(code: string | null): string {
+  if (!code) return 'Unknown';
+  return COUNTRY_NAMES[code.toUpperCase()] || code.toUpperCase();
 }
 
 // Chat Message Component
@@ -256,19 +343,65 @@ function ChatMessage({ message, isLast }: { message: ChatMessageDetail; isLast: 
 
 // Metadata Sidebar Component
 function MetadataSidebar({ conversation }: { conversation: ChatConversationDetail }) {
-  const { browser, device } = parseUserAgent(conversation.user_agent);
+  const { browser, browserVersion, os, device } = parseUserAgent(conversation.user_agent);
+
+  // Extract geo info from metadata
+  const metadata = conversation.metadata as { country?: string; country_region?: string; city?: string } | null;
+  const country = metadata?.country || null;
+  const city = metadata?.city || null;
 
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sticky top-6">
       <h2 className="text-lg font-semibold text-gray-900 mb-4">Conversation Details</h2>
 
       <div className="space-y-4">
-        {/* Session ID */}
+        {/* Location */}
+        <div className="pb-4 border-b border-gray-200">
+          <label className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Location
+          </label>
+          <div className="mt-1 flex items-center gap-2">
+            <span className="text-2xl">{countryToFlag(country)}</span>
+            <div>
+              <p className="text-sm font-medium text-gray-900">
+                {getCountryName(country)}
+              </p>
+              {city && (
+                <p className="text-xs text-gray-500">{city}</p>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Device Info */}
+        <div className="pb-4 border-b border-gray-200">
+          <label className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Device
+          </label>
+          <div className="mt-2 grid grid-cols-2 gap-2 text-sm">
+            <div>
+              <span className="text-gray-500">Type:</span>
+              <span className="ml-1 text-gray-900">{device}</span>
+            </div>
+            <div>
+              <span className="text-gray-500">OS:</span>
+              <span className="ml-1 text-gray-900">{os}</span>
+            </div>
+            <div className="col-span-2">
+              <span className="text-gray-500">Browser:</span>
+              <span className="ml-1 text-gray-900">
+                {browser} {browserVersion && `v${browserVersion.split('.')[0]}`}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Session Info */}
         <div>
           <label className="text-xs font-medium text-gray-500 uppercase tracking-wider">
             Session ID
           </label>
-          <p className="mt-1 text-sm font-mono text-gray-900 break-all">
+          <p className="mt-1 text-xs font-mono text-gray-600 break-all">
             {conversation.session_id}
           </p>
         </div>
@@ -299,20 +432,10 @@ function MetadataSidebar({ conversation }: { conversation: ChatConversationDetai
         {/* Language */}
         <div>
           <label className="text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Language
+            Chat Language
           </label>
           <p className="mt-1 text-sm text-gray-900 uppercase">
             {conversation.language}
-          </p>
-        </div>
-
-        {/* Browser/Device */}
-        <div>
-          <label className="text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Browser / Device
-          </label>
-          <p className="mt-1 text-sm text-gray-900">
-            {browser} / {device}
           </p>
         </div>
 
