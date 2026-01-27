@@ -147,20 +147,38 @@ export async function GET(
     });
 
     // Build messages with feedback
-    const messagesWithFeedback: ChatMessageDetail[] = (messages || []).map(m => ({
-      id: m.id,
-      role: m.role,
-      content: m.content,
-      created_at: m.created_at,
-      intent_classification: m.intent || null,
-      detected_topics: null,
-      links: m.links || null,
-      citations: null,
-      suggested_follow_ups: null,
-      response_time_ms: null,
-      tokens_used: null,
-      feedback: feedbackByMessageId[m.id] || null,
-    }));
+    const messagesWithFeedback: ChatMessageDetail[] = (messages || []).map(m => {
+      // Ensure intent is a string, not an object
+      let intentStr: string | null = null;
+      if (m.intent) {
+        intentStr = typeof m.intent === 'string' ? m.intent : String(m.intent);
+      }
+
+      // Ensure links are properly formatted
+      let linksArray: Array<{ label: string; href: string; type: string }> | null = null;
+      if (m.links && Array.isArray(m.links)) {
+        linksArray = m.links.map((link: Record<string, unknown>) => ({
+          label: String(link.label || ''),
+          href: String(link.href || ''),
+          type: String(link.type || 'article'),
+        }));
+      }
+
+      return {
+        id: m.id,
+        role: m.role,
+        content: String(m.content || ''),
+        created_at: m.created_at,
+        intent_classification: intentStr,
+        detected_topics: null,
+        links: linksArray,
+        citations: null,
+        suggested_follow_ups: null,
+        response_time_ms: null,
+        tokens_used: null,
+        feedback: feedbackByMessageId[m.id] || null,
+      };
+    });
 
     // Calculate feedback summary
     const feedbackSummary = {
