@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { headers } from 'next/headers';
+import { headers, cookies } from 'next/headers';
 import { Hero } from '@/components/home/Hero';
 import { TrendingTopics } from '@/components/home/TrendingTopics';
 import { BrowseByCondition } from '@/components/home/BrowseByCondition';
@@ -25,7 +25,9 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function HomePage() {
   const stats = await getHomePageStats();
   const headersList = await headers();
-  const lang = detectLanguage(headersList);
+  const cookieStore = await cookies();
+  const localeCookie = cookieStore.get('NEXT_LOCALE')?.value;
+  const lang = detectLanguage(headersList, localeCookie);
 
   return (
     <>

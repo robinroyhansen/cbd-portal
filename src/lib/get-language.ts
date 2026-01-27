@@ -1,14 +1,44 @@
-import { headers } from 'next/headers';
+import { headers, cookies } from 'next/headers';
 import type { LanguageCode } from './translation-service';
 
+// Domain to language mapping
+const domainToLanguage: Record<string, LanguageCode> = {
+  'cbdportal.com': 'en',
+  'cbd-portal.vercel.app': 'en',
+  'localhost': 'en',
+  'cbd.dk': 'da',
+  'cbd.se': 'sv',
+  'cbd.no': 'no',
+  'cbd.fi': 'fi',
+  'cbd.de': 'de',
+  'cbd.it': 'it',
+  'cbdportaal.nl': 'nl',
+  'cbdportail.fr': 'fr',
+};
+
 /**
- * Get the current language from request headers (set by middleware)
+ * Get the current language from cookies or hostname
  * For use in Server Components
  */
 export async function getLanguage(): Promise<LanguageCode> {
+  // First check for language cookie (set by middleware when ?lang= is used)
+  const cookieStore = await cookies();
+  const localeCookie = cookieStore.get('NEXT_LOCALE')?.value;
+  if (localeCookie) {
+    return localeCookie as LanguageCode;
+  }
+
+  // Check x-language header as fallback
   const headersList = await headers();
-  const language = headersList.get('x-language') || 'en';
-  return language as LanguageCode;
+  const langHeader = headersList.get('x-language');
+  if (langHeader) {
+    return langHeader as LanguageCode;
+  }
+
+  // Fall back to hostname-based detection
+  const host = headersList.get('host') || headersList.get('x-forwarded-host') || 'localhost';
+  const hostname = host.split(':')[0];
+  return domainToLanguage[hostname] || 'en';
 }
 
 /**

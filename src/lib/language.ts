@@ -123,12 +123,16 @@ export function getLanguageFromHostname(hostname: string): string {
 }
 
 /**
- * Server-side language detection from request headers
- * First checks x-language header (set by middleware from ?lang= param)
- * Falls back to hostname-based detection
+ * Server-side language detection from request headers and cookies
+ * Priority: 1) NEXT_LOCALE cookie (set by middleware), 2) hostname
  */
-export function detectLanguage(headers: Headers): string {
-  // First check for language header set by middleware (supports ?lang= override)
+export function detectLanguage(headers: Headers, cookieValue?: string | null): string {
+  // First check for language cookie set by middleware (supports ?lang= override)
+  if (cookieValue) {
+    return cookieValue;
+  }
+
+  // Check x-language header as fallback
   const langHeader = headers.get('x-language');
   if (langHeader) {
     return langHeader;
