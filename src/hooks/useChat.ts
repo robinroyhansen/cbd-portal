@@ -5,10 +5,10 @@
  * State management for the chat assistant
  */
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useMemo } from 'react';
 import type { ChatMessage, ChatResponse, ChatState, FeedbackRating, MessageFeedback } from '@/lib/chat/types';
-import { WELCOME_MESSAGE } from '@/lib/chat/system-prompt';
 import { detectGuidedFlow, getFlowById, type GuidedFlow } from '@/lib/chat/guided-flows';
+import { useLocale } from '@/hooks/useLocale';
 
 const STORAGE_KEY = 'cbd-chat-state';
 
@@ -20,12 +20,23 @@ function generateSessionId(): string {
   return `session_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`;
 }
 
-function getInitialState(): ChatState {
+function buildWelcomeMessage(t: (key: string) => string): string {
+  return `${t('chat.welcome')}
+
+**${t('chat.thingsToKeepInMind') || 'A few things to keep in mind:'}**
+- ${t('chat.welcomeNote1')}
+- ${t('chat.welcomeNote2')}
+- ${t('chat.welcomeNote3')}
+
+${t('chat.welcomeQuestion')}`;
+}
+
+function getInitialState(welcomeContent: string): ChatState {
   // Create welcome message
   const welcomeMessage: ChatMessage = {
     id: generateId(),
     role: 'assistant',
-    content: WELCOME_MESSAGE,
+    content: welcomeContent,
     timestamp: new Date(),
   };
 
@@ -70,8 +81,27 @@ function saveToStorage(state: Partial<ChatState>): void {
 }
 
 export function useChat() {
-  const [state, setState] = useState<ChatState>(getInitialState);
+  const { t } = useLocale();
+  const welcomeContent = useMemo(() => buildWelcomeMessage(t), [t]);
+  const [state, setState] = useState<ChatState>(() => getInitialState(welcomeContent));
   const [activeGuidedFlow, setActiveGuidedFlow] = useState<GuidedFlow | null>(null);
+
+  // Update welcome message when language changes
+  useEffect(() => {
+    setState(prev => {
+      // Only update if the first message is the welcome message
+      if (prev.messages.length > 0 && prev.messages[0].role === 'assistant' && prev.messages.length === 1) {
+        return {
+          ...prev,
+          messages: [{
+            ...prev.messages[0],
+            content: welcomeContent,
+          }],
+        };
+      }
+      return prev;
+    });
+  }, [welcomeContent]);
 
   // Load persisted state on mount
   useEffect(() => {
