@@ -631,7 +631,10 @@
     "clearAll": "Ryd alle",
     "apply": "Anvend",
     "results": "resultater",
-    "noStudiesMatch": "Ingen studier matcher dine nuværende filtre."
+    "noStudiesMatch": "Ingen studier matcher dine nuværende filtre.",
+    "searchPlaceholder": "Søg efter titel, forfattere, resumé, tilstand...",
+    "searchLabel": "Søg i forskningsstudier",
+    "clearSearch": "Ryd søgning"
   },
   "researchCard": {
     "completed": "Afsluttet",

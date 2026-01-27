@@ -720,7 +720,10 @@
     "clearAll": "Clear All",
     "apply": "Apply",
     "results": "results",
-    "noStudiesMatch": "No studies match your current filters."
+    "noStudiesMatch": "No studies match your current filters.",
+    "searchPlaceholder": "Search by title, authors, abstract, condition...",
+    "searchLabel": "Search research studies",
+    "clearSearch": "Clear search"
   },
   "researchCard": {
     "completed": "Completed",
