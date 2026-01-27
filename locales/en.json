@@ -650,7 +650,13 @@
     "qualityTiers": "Quality Tiers",
     "studyTypes": "Study Types",
     "cannabinoids": "Cannabinoids",
-    "clearAllFilters": "Clear All Filters"
+    "clearAllFilters": "Clear All Filters",
+    "filters": "Filters",
+    "closeFilters": "Close filters",
+    "to": "to",
+    "clearAll": "Clear All",
+    "apply": "Apply",
+    "results": "results"
   },
   "researchCard": {
     "completed": "Completed",

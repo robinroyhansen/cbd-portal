@@ -561,7 +561,13 @@
     "qualityTiers": "Kvalitetsniveauer",
     "studyTypes": "Studietyper",
     "cannabinoids": "Cannabinoider",
-    "clearAllFilters": "Ryd alle filtre"
+    "clearAllFilters": "Ryd alle filtre",
+    "filters": "Filtre",
+    "closeFilters": "Luk filtre",
+    "to": "til",
+    "clearAll": "Ryd alle",
+    "apply": "Anvend",
+    "results": "resultater"
   },
   "researchCard": {
     "completed": "Afsluttet",
