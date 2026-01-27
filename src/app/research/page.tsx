@@ -4,9 +4,16 @@ import { createClient } from '../../lib/supabase/server';
 import { ResearchPageClient, CONDITIONS, ConditionKey } from '../../components/ResearchPageClient';
 import Link from 'next/link';
 import { getHreflangAlternates } from '@/components/HreflangTags';
-import { detectLanguage } from '@/lib/language';
+import { getLanguageFromHostname } from '@/lib/language';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
+
+// Force dynamic rendering to support language switching via ?lang= parameter
+export const dynamic = 'force-dynamic';
+
+interface PageProps {
+  searchParams: Promise<{ lang?: string }>;
+}
 
 export async function generateMetadata(): Promise<Metadata> {
   const hreflang = getHreflangAlternates('/research');
@@ -51,9 +58,17 @@ interface ResearchItem {
   display_title?: string;
 }
 
-export default async function ResearchPage() {
-  const headersList = await headers();
-  const lang = detectLanguage(headersList) as LanguageCode;
+export default async function ResearchPage({ searchParams }: PageProps) {
+  const params = await searchParams;
+
+  // Get language from URL param, or fall back to hostname-based detection
+  let lang: LanguageCode = (params.lang as LanguageCode) || 'en';
+  if (!params.lang) {
+    const headersList = await headers();
+    const host = headersList.get('host') || 'localhost';
+    lang = getLanguageFromHostname(host.split(':')[0]) as LanguageCode;
+  }
+
   const locale = getLocaleSync(lang);
   const t = createTranslator(locale);
 

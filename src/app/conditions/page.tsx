@@ -1,14 +1,21 @@
 import { createClient } from '@/lib/supabase/server';
 import { Metadata } from 'next';
+import { headers } from 'next/headers';
 import { ConditionsHub } from '@/components/conditions';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { getLanguage } from '@/lib/get-language';
 import { getConditionsWithTranslations } from '@/lib/translations';
-import { getLocaleSync } from '@/../locales';
+import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { getHreflangAlternates } from '@/components/HreflangTags';
+import { getLanguageFromHostname } from '@/lib/language';
 
-export const revalidate = 3600; // Revalidate every 1 hour
+// Force dynamic rendering to support language switching via ?lang= parameter
+export const dynamic = 'force-dynamic';
+
+interface PageProps {
+  searchParams: Promise<{ lang?: string }>;
+}
 
 export async function generateMetadata(): Promise<Metadata> {
   const lang = await getLanguage();
@@ -21,9 +28,20 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function ConditionsPage() {
+export default async function ConditionsPage({ searchParams }: PageProps) {
   const supabase = await createClient();
-  const lang = await getLanguage();
+  const params = await searchParams;
+
+  // Get language from URL param, or fall back to hostname-based detection
+  let lang: LanguageCode = (params.lang as LanguageCode) || 'en';
+  if (!params.lang) {
+    const headersList = await headers();
+    const host = headersList.get('host') || 'localhost';
+    lang = getLanguageFromHostname(host.split(':')[0]) as LanguageCode;
+  }
+
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
 
   // Get all published conditions with translations applied
   const conditions = await getConditionsWithTranslations(lang as LanguageCode);

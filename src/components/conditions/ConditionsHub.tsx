@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
+import { useLocale } from '@/hooks/useLocale';
 
 // Category configuration - matches database category values
 const CATEGORY_CONFIG: Record<string, {
@@ -139,6 +140,7 @@ interface ConditionsHubProps {
 export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const { t } = useLocale();
   const categoryFromUrl = searchParams.get('category');
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -246,14 +248,13 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
                 </span>
-                Research-Backed Information
+                {t('conditions.researchBacked')}
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-                CBD & Health Conditions
+                {t('conditions.heroTitle')}
               </h1>
               <p className="text-lg md:text-xl text-white/80 leading-relaxed">
-                Explore evidence-based research on how CBD may help with {totalConditions} health conditions.
-                Each topic includes scientific studies, dosage guidance, and expert insights.
+                {t('conditions.heroDescription').replace('{{count}}', String(totalConditions))}
               </p>
             </div>
 
@@ -261,11 +262,11 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
             <div className="grid grid-cols-2 gap-3 md:gap-4 shrink-0">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-5 text-center border border-white/20">
                 <p className="text-3xl md:text-4xl font-bold">{totalConditions}</p>
-                <p className="text-sm text-white/70">Conditions</p>
+                <p className="text-sm text-white/70">{t('common.conditions')}</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-5 text-center border border-white/20">
                 <p className="text-3xl md:text-4xl font-bold">{totalStudies.toLocaleString()}+</p>
-                <p className="text-sm text-white/70">Studies</p>
+                <p className="text-sm text-white/70">{t('common.studies')}</p>
               </div>
             </div>
           </div>
@@ -279,7 +280,7 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
           <div className="flex-1 relative">
             <input
               type="text"
-              placeholder="Search conditions (e.g., anxiety, pain, sleep)..."
+              placeholder={t('conditions.searchPlaceholder')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-12 pr-10 py-3 md:py-3.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 text-base md:text-lg bg-gray-50 focus:bg-white transition-colors"
@@ -312,7 +313,7 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
               </svg>
-              Grid
+              {t('conditions.grid')}
             </button>
             <button
               onClick={() => setViewMode('list')}
@@ -325,7 +326,7 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
               </svg>
-              A-Z
+              {t('conditions.listAZ')}
             </button>
           </div>
         </div>
@@ -340,7 +341,7 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
-            All Conditions
+            {t('conditions.allConditions')}
           </button>
           {categories.map(cat => {
             const config = CATEGORY_CONFIG[cat];
@@ -357,7 +358,7 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
                 }`}
               >
                 <span className="text-base">{config.icon}</span>
-                <span className="hidden sm:inline">{config.name}</span>
+                <span className="hidden sm:inline">{t(`conditions.categories.${cat}`) || config.name}</span>
                 <span className="text-xs opacity-60">({count})</span>
               </button>
             );
@@ -368,15 +369,15 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
         {(searchQuery || selectedCategory) && (
           <div className="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between">
             <span className="text-sm text-gray-600">
-              Showing <span className="font-semibold text-gray-900">{filteredConditions.length}</span> of {totalConditions} conditions
-              {selectedCategory && <> in <span className="font-medium">{CATEGORY_CONFIG[selectedCategory]?.name}</span></>}
-              {searchQuery && <> matching &quot;<span className="font-medium">{searchQuery}</span>&quot;</>}
+              {t('conditions.showing')} <span className="font-semibold text-gray-900">{filteredConditions.length}</span> {t('conditions.of')} {totalConditions} {t('common.conditions')}
+              {selectedCategory && <> {t('conditions.in')} <span className="font-medium">{t(`conditions.categories.${selectedCategory}`) || CATEGORY_CONFIG[selectedCategory]?.name}</span></>}
+              {searchQuery && <> {t('conditions.matching')} &quot;<span className="font-medium">{searchQuery}</span>&quot;</>}
             </span>
             <button
               onClick={() => { setSearchQuery(''); handleCategoryChange(null); }}
               className="text-sm text-green-600 hover:text-green-700 font-medium"
             >
-              Clear filters
+              {t('conditions.clearFilters')}
             </button>
           </div>
         )}
