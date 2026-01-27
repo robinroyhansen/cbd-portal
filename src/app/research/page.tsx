@@ -15,25 +15,35 @@ interface PageProps {
   searchParams: Promise<{ lang?: string }>;
 }
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {
+  const params = await searchParams;
+  let lang: LanguageCode = (params.lang as LanguageCode) || 'en';
+  if (!params.lang) {
+    const headersList = await headers();
+    const host = headersList.get('host') || 'localhost';
+    lang = getLanguageFromHostname(host.split(':')[0]) as LanguageCode;
+  }
+
+  const locale = getLocaleSync(lang);
   const hreflang = getHreflangAlternates('/research');
+
   return {
-    title: 'CBD Research Database | Evidence-Based Studies | CBD Portal',
-    description: 'Browse 200+ peer-reviewed CBD and cannabis research studies. Filter by condition (anxiety, pain, sleep, epilepsy), study type, and quality score. Features schema.org structured data.',
+    title: locale.researchPage?.pageTitle || 'CBD Research Database | Evidence-Based Studies | CBD Portal',
+    description: locale.researchPage?.pageDescription || 'Browse 200+ peer-reviewed CBD and cannabis research studies. Filter by condition (anxiety, pain, sleep, epilepsy), study type, and quality score. Features schema.org structured data.',
     alternates: {
       canonical: '/research',
       languages: hreflang.languages,
     },
     keywords: ['CBD research', 'cannabidiol studies', 'medical cannabis research', 'CBD clinical trials', 'cannabis science'],
     openGraph: {
-      title: 'CBD Research Database | Peer-Reviewed Studies',
-      description: 'Explore our comprehensive database of peer-reviewed CBD and cannabis research from PubMed, ClinicalTrials.gov, and other authoritative sources. Filter by condition, study type, and quality assessment.',
+      title: locale.researchPage?.title || 'CBD Research Database | Peer-Reviewed Studies',
+      description: locale.researchPage?.pageDescription || 'Explore our comprehensive database of peer-reviewed CBD and cannabis research from PubMed, ClinicalTrials.gov, and other authoritative sources. Filter by condition, study type, and quality assessment.',
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'CBD Research Database',
-      description: 'Browse peer-reviewed CBD research studies with advanced quality assessment and filtering.',
+      title: locale.researchPage?.title || 'CBD Research Database',
+      description: locale.researchPage?.pageDescription || 'Browse peer-reviewed CBD research studies with advanced quality assessment and filtering.',
     },
   };
 }
