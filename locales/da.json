@@ -604,7 +604,8 @@
     "to": "til",
     "clearAll": "Ryd alle",
     "apply": "Anvend",
-    "results": "resultater"
+    "results": "resultater",
+    "noStudiesMatch": "Ingen studier matcher dine nuværende filtre."
   },
   "researchCard": {
     "completed": "Afsluttet",

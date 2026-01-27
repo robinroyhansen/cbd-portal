@@ -693,7 +693,8 @@
     "to": "to",
     "clearAll": "Clear All",
     "apply": "Apply",
-    "results": "results"
+    "results": "results",
+    "noStudiesMatch": "No studies match your current filters."
   },
   "researchCard": {
     "completed": "Completed",

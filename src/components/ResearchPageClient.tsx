@@ -18,6 +18,7 @@ import { StudyTypeBadge, StudyTypeBadgeSimple, EvidenceLevelIndicator, StudyType
 import { CONDITIONS, CONDITION_CATEGORIES, ConditionKey } from '../lib/research-conditions';
 import { MobileFilterDrawer, MobileFilterDrawerFilters } from './research/MobileFilterDrawer';
 import { CannabinoidKey as CannabinoidKeyType } from './research/types';
+import { useLocale } from '@/hooks/useLocale';
 
 // Re-export for backwards compatibility
 export { CONDITIONS, CONDITION_CATEGORIES, ConditionKey } from '../lib/research-conditions';
@@ -828,6 +829,7 @@ function matchesCondition(study: any, conditionKey: ConditionKey): boolean {
 export function ResearchPageClient({ initialResearch, condition }: ResearchPageClientProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { t } = useLocale();
   const currentYear = new Date().getFullYear();
 
   // Calculate year range from data
@@ -1423,7 +1425,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
             <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
             </svg>
-            <span className="font-medium text-gray-900">Filters</span>
+            <span className="font-medium text-gray-900">{t('researchFilters.filters')}</span>
             {activeFilterCount > 0 && (
               <span className="px-2 py-0.5 bg-blue-600 text-white text-xs font-medium rounded-full min-w-[1.25rem] text-center">
                 {activeFilterCount}
@@ -1652,12 +1654,12 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
           {/* No Results */}
           {filteredStudies.length === 0 && (
             <div className="text-center py-12 bg-gray-50 rounded-lg" role="status">
-              <p className="text-gray-500 mb-4">No studies match your current filters.</p>
+              <p className="text-gray-500 mb-4">{t('researchFilters.noStudiesMatch')}</p>
               <button
                 onClick={clearAllFilters}
                 className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               >
-                Clear All Filters
+                {t('researchFilters.clearAllFilters')}
               </button>
             </div>
           )}
@@ -1944,6 +1946,7 @@ function FilterSidebarContent({
   clearAllFilters,
   setCurrentPage,
 }: FilterSidebarContentProps) {
+  const { t } = useLocale();
   const [advancedExpanded, setAdvancedExpanded] = useState(false);
 
   return (
@@ -2219,7 +2222,7 @@ function FilterSidebarContent({
         onClick={clearAllFilters}
         className="w-full px-3 py-2 text-sm text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg border border-gray-200 font-medium"
       >
-        Clear All Filters
+        {t('researchFilters.clearAllFilters')}
       </button>
     </>
   );
