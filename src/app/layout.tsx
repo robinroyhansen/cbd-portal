@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { Inter, Merriweather, DM_Serif_Display, Source_Sans_3, Space_Mono } from 'next/font/google';
 import './globals.css';
 import { Navigation } from '@/components/layouts/Navigation';
@@ -108,17 +109,19 @@ export default async function RootLayout({
         <a href="#main-content" className="skip-to-content">
           Skip to main content
         </a>
-        <LocaleProvider locale={locale} lang={lang as LanguageCode}>
-          <NavigationProvider>
-            <Navigation currentLang={lang} />
-            <main id="main-content" className="flex-1">{children}</main>
-            <Footer currentLang={lang} />
-            <MobileBottomNav />
-            <CookieConsent />
-            <DevLanguageSwitcher />
-            <ChatWidget />
-          </NavigationProvider>
-        </LocaleProvider>
+        <Suspense fallback={null}>
+          <LocaleProvider locale={locale} lang={lang as LanguageCode}>
+            <NavigationProvider>
+              <Navigation currentLang={lang} />
+              <main id="main-content" className="flex-1">{children}</main>
+              <Footer currentLang={lang} />
+              <MobileBottomNav />
+              <CookieConsent />
+              <DevLanguageSwitcher />
+              <ChatWidget />
+            </NavigationProvider>
+          </LocaleProvider>
+        </Suspense>
       </body>
     </html>
   );
