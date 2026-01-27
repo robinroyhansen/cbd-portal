@@ -5,15 +5,19 @@
  * Quick question chips for starting conversations
  */
 
+import { useLocale } from '@/components/LocaleProvider';
+
 interface ChatSuggestionsProps {
   suggestions: string[];
   onSelect: (suggestion: string) => void;
 }
 
 export function ChatSuggestions({ suggestions, onSelect }: ChatSuggestionsProps) {
+  const { t } = useLocale();
+
   return (
     <div className="px-4 py-3">
-      <p className="mb-2 text-xs font-medium text-gray-500">Try asking:</p>
+      <p className="mb-2 text-xs font-medium text-gray-500">{t('chat.tryAsking') || 'Try asking:'}</p>
       <div className="flex flex-wrap gap-2">
         {suggestions.map((suggestion, i) => (
           <button

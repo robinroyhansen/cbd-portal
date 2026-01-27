@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useLocale } from '@/hooks/useLocale';
 
 interface SearchResult {
   type: 'condition' | 'glossary' | 'research' | 'article';
@@ -12,6 +13,7 @@ interface SearchResult {
 
 export function SearchBar() {
   const router = useRouter();
+  const { t } = useLocale();
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -102,7 +104,7 @@ export function SearchBar() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => query.length >= 2 && setIsOpen(true)}
-            placeholder="Search conditions, research, glossary..."
+            placeholder={t('common.searchConditions')}
             className="w-full px-4 py-3 pl-10 md:px-5 md:py-4 md:pl-12 text-base md:text-lg border-2 border-gray-200 rounded-xl focus:border-green-500 focus:outline-none shadow-sm bg-white"
           />
           <svg
@@ -155,7 +157,7 @@ export function SearchBar() {
             onClick={handleSubmit}
             className="w-full px-4 py-3 text-center text-green-600 hover:bg-green-50 font-medium border-t border-gray-100"
           >
-            View all results for "{query}"
+            {t('searchBar.viewAllResults').replace('{{query}}', query)}
           </button>
         </div>
       )}

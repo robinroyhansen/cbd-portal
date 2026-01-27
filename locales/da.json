@@ -20,7 +20,7 @@
     "article": "artikel",
     "conditions": "tilstande",
     "condition": "tilstand",
-    "terms": "vilkår",
+    "terms": "begreber",
     "loading": "Indlæser...",
     "error": "Fejl",
     "back": "Tilbage",
@@ -123,7 +123,7 @@
   },
   "hero": {
     "badge": "Uafhængig forskningsplatform",
-    "title": "Videnskabelig først",
+    "title": "Forskning først",
     "titleHighlight": "CBD-forskning",
     "subtitle": "Verdens største uafhængige database for CBD-forskning. Vi analyserer peer-reviewed studier og præsenterer objektiv, kvalitetsmærket information, som du kan stole på.",
     "exploreConditions": "Udforsk tilstande",
@@ -133,9 +133,9 @@
     "researchDatabase": "Forskningsdatabase",
     "liveStats": "Live statistik",
     "peerReviewedStudies": "Fagfællebedømte studier",
-    "healthConditions": "Sundhedstilstande",
+    "healthConditions": "Sygdomme",
     "humanStudies": "Menneskelige studier",
-    "termsExplained": "Forklarede vilkår",
+    "termsExplained": "Forklarede begreber",
     "yearsOfResearch": "Forskningsår",
     "trustedSources": "Pålidelige kilder",
     "noProductsSold": "Ingen produkter solgt",
@@ -144,7 +144,7 @@
     "qualityScored": "Kvalitet scoret",
     "aiSummarized": "AI-resumeret",
     "researchStudies": "Forskningsstudier",
-    "glossaryTerms": "Ordlistevilkår",
+    "glossaryTerms": "Ordlistebegreber",
     "articlesPublished": "Publicerede artikler"
   },
   "conditions": {
@@ -268,6 +268,14 @@
     "welcomeNote2": "Jeg er ikke læge og kan ikke give medicinsk rådgivning",
     "welcomeNote3": "Konsulter altid en sundhedsprofessionel før du bruger CBD",
     "welcomeQuestion": "Hvad vil du gerne vide om CBD?",
+    "tryAsking": "Prøv at spørge:",
+    "inputPlaceholder": "Spørg om CBD...",
+    "waitingForResponse": "Venter på svar...",
+    "sendMessage": "Send besked",
+    "openChat": "Åbn chat-assistent",
+    "resetConversation": "Nulstil samtale",
+    "closeChat": "Luk chat",
+    "assistant": "CBD Portal-assistent",
     "suggestedQuestions": {
       "anxiety": "Hjælper CBD mod angst?",
       "sleep": "Hvad siger forskningen om CBD til søvn?",
@@ -1053,5 +1061,33 @@
     "contactTitle": "Kontakt os",
     "contactText": "Hvis du har spørgsmål om denne medicinske ansvarsfraskrivelse, kontakt os venligst på:",
     "contactEmail": "E-mail: info@cbdportal.com"
+  },
+  "searchBar": {
+    "placeholder": "Søg i artikler...",
+    "searching": "Søger...",
+    "category": "Kategori",
+    "study": "Studie",
+    "term": "Begreb",
+    "article": "Artikel",
+    "viewAllResults": "Se alle resultater for \"{{query}}\"",
+    "noResults": "Ingen resultater fundet for \"{{query}}\""
+  },
+  "toolsShowcase": {
+    "title": "Gratis CBD-værktøjer og -beregnere",
+    "subtitle": "Evidensbaserede beregnere til at hjælpe dig med at bruge CBD sikkert og effektivt",
+    "interactionChecker": "Lægemiddelinteraktionskontrol",
+    "essentialSafetyTool": "Vigtigt sikkerhedsværktøj",
+    "interactionCheckerDesc": "Kontroller potentielle interaktioner mellem CBD og din medicin. Dækker 141 almindelige lægemidler inklusiv blodfortyndere, antidepressiva, krampemedicin og mere.",
+    "majorInteractions": "Alvorlige interaktioner markeret",
+    "researchCitations": "Forskningscitater inkluderet",
+    "medicationsCovered": "141 lægemidler dækket",
+    "checkInteractions": "Tjek interaktioner",
+    "dosageCalculator": "Doseringsberegner",
+    "dosageCalculatorDesc": "Få personlige CBD-doseringsanbefalinger baseret på din vægt og dine mål",
+    "strengthCalculator": "Styrkeberegner",
+    "strengthCalculatorDesc": "Konvertér mellem %, mg/ml og sammenlign produkter",
+    "petDosageCalculator": "Kæledyrs doseringsberegner",
+    "petDosageCalculatorDesc": "Artsspecifik dosering til hunde, katte og heste",
+    "viewAllTools": "Se alle værktøjer"
   }
 }

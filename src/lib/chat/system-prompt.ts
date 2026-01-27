@@ -197,3 +197,13 @@ export const SUGGESTED_QUESTIONS = [
   "What conditions has CBD been studied for?",
   "Are there side effects from CBD?",
 ];
+
+// Keys for localized suggested questions - use these with the translation function
+export const SUGGESTED_QUESTION_KEYS = [
+  'chat.suggestedQuestions.anxiety',
+  'chat.suggestedQuestions.sleep',
+  'chat.suggestedQuestions.medications',
+  'chat.suggestedQuestions.dosage',
+  'chat.suggestedQuestions.conditions',
+  'chat.suggestedQuestions.sideEffects',
+];

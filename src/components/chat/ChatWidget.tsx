@@ -7,6 +7,7 @@
 
 import { useChat } from '@/hooks/useChat';
 import { ChatWindow } from './ChatWindow';
+import { useLocale } from '@/components/LocaleProvider';
 
 export function ChatWidget() {
   const {
@@ -25,13 +26,17 @@ export function ChatWidget() {
     completeGuidedFlow,
     cancelGuidedFlow,
   } = useChat();
+  const { t } = useLocale();
+
+  const closeLabel = t('chat.closeChat') || 'Close chat';
+  const openLabel = t('chat.openChat') || 'Open chat assistant';
 
   return (
     <>
       {/* Floating Button */}
       <button
         onClick={toggleChat}
-        aria-label={isOpen ? 'Close chat' : 'Open chat assistant'}
+        aria-label={isOpen ? closeLabel : openLabel}
         aria-expanded={isOpen}
         className={`fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-600 text-white shadow-lg transition-all hover:bg-emerald-700 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 ${
           isOpen ? 'scale-0 opacity-0' : 'scale-100 opacity-100'

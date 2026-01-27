@@ -5,7 +5,7 @@
  * Main chat interface with message list and input
  */
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useMemo } from 'react';
 import { ChatHeader } from './ChatHeader';
 import { ChatDisclaimer } from './ChatDisclaimer';
 import { ChatMessage } from './ChatMessage';
@@ -13,7 +13,7 @@ import { ChatInput } from './ChatInput';
 import { ChatSuggestions } from './ChatSuggestions';
 import { TypingIndicator } from './TypingIndicator';
 import { GuidedFlowUI } from './GuidedFlowUI';
-import { SUGGESTED_QUESTIONS } from '@/lib/chat/system-prompt';
+import { useLocale } from '@/components/LocaleProvider';
 import type { ChatMessage as ChatMessageType, FeedbackRating, MessageFeedback } from '@/lib/chat/types';
 import type { GuidedFlow } from '@/lib/chat/guided-flows';
 
@@ -48,6 +48,20 @@ export function ChatWindow({
 }: ChatWindowProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
+  const { t } = useLocale();
+
+  // Localized suggested questions
+  const localizedSuggestions = useMemo(() => [
+    t('chat.suggestedQuestions.anxiety'),
+    t('chat.suggestedQuestions.sleep'),
+    t('chat.suggestedQuestions.medications'),
+    t('chat.suggestedQuestions.dosage'),
+  ], [t]);
+
+  // Localized placeholders
+  const inputPlaceholder = isLoading
+    ? t('chat.waitingForResponse') || 'Waiting for response...'
+    : t('chat.inputPlaceholder') || 'Ask about CBD...';
 
   // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
@@ -115,7 +129,7 @@ export function ChatWindow({
       {/* Suggestions (shown initially, hidden during guided flow) */}
       {showSuggestions && !activeGuidedFlow && (
         <ChatSuggestions
-          suggestions={SUGGESTED_QUESTIONS.slice(0, 4)}
+          suggestions={localizedSuggestions}
           onSelect={onSend}
         />
       )}
@@ -132,7 +146,7 @@ export function ChatWindow({
         <ChatInput
           onSend={onSend}
           disabled={isLoading}
-          placeholder={isLoading ? 'Waiting for response...' : 'Ask about CBD...'}
+          placeholder={inputPlaceholder}
         />
       )}
     </div>

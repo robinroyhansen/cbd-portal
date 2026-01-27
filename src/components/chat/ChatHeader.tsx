@@ -5,12 +5,16 @@
  * Header with title and close button
  */
 
+import { useLocale } from '@/components/LocaleProvider';
+
 interface ChatHeaderProps {
   onClose: () => void;
   onReset?: () => void;
 }
 
 export function ChatHeader({ onClose, onReset }: ChatHeaderProps) {
+  const { t } = useLocale();
+
   return (
     <div className="flex items-center justify-between bg-emerald-600 px-4 py-3 text-white">
       <div className="flex items-center gap-2">
@@ -27,14 +31,14 @@ export function ChatHeader({ onClose, onReset }: ChatHeaderProps) {
             clipRule="evenodd"
           />
         </svg>
-        <h2 className="font-semibold">CBD Portal Assistant</h2>
+        <h2 className="font-semibold">{t('chat.assistant') || 'CBD Portal Assistant'}</h2>
       </div>
       <div className="flex items-center gap-1">
         {/* Reset button */}
         {onReset && (
           <button
             onClick={onReset}
-            aria-label="Reset conversation"
+            aria-label={t('chat.resetConversation') || 'Reset conversation'}
             className="rounded-lg p-2 hover:bg-emerald-500 transition-colors"
           >
             <svg
@@ -56,7 +60,7 @@ export function ChatHeader({ onClose, onReset }: ChatHeaderProps) {
         {/* Close button */}
         <button
           onClick={onClose}
-          aria-label="Close chat"
+          aria-label={t('chat.closeChat') || 'Close chat'}
           className="rounded-lg p-2 hover:bg-emerald-500 transition-colors"
         >
           <svg

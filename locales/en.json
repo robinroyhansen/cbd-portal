@@ -283,6 +283,14 @@
     "welcomeNote2": "I am not a doctor and cannot give medical advice",
     "welcomeNote3": "Always consult a healthcare provider before using CBD",
     "welcomeQuestion": "What would you like to know about CBD?",
+    "tryAsking": "Try asking:",
+    "inputPlaceholder": "Ask about CBD...",
+    "waitingForResponse": "Waiting for response...",
+    "sendMessage": "Send message",
+    "openChat": "Open chat assistant",
+    "resetConversation": "Reset conversation",
+    "closeChat": "Close chat",
+    "assistant": "CBD Portal Assistant",
     "suggestedQuestions": {
       "anxiety": "Does CBD help with anxiety?",
       "sleep": "What's the research on CBD for sleep?",
@@ -1110,5 +1118,33 @@
     "contactTitle": "Contact Us",
     "contactText": "If you have questions about this Medical Disclaimer, please contact us at:",
     "contactEmail": "Email: info@cbdportal.com"
+  },
+  "searchBar": {
+    "placeholder": "Search articles...",
+    "searching": "Searching...",
+    "category": "Category",
+    "study": "Study",
+    "term": "Term",
+    "article": "Article",
+    "viewAllResults": "View all results for \"{{query}}\"",
+    "noResults": "No results found for \"{{query}}\""
+  },
+  "toolsShowcase": {
+    "title": "Free CBD Tools & Calculators",
+    "subtitle": "Evidence-based calculators to help you use CBD safely and effectively",
+    "interactionChecker": "Drug Interaction Checker",
+    "essentialSafetyTool": "Essential Safety Tool",
+    "interactionCheckerDesc": "Check potential interactions between CBD and your medications. Covers 141 common drugs including blood thinners, antidepressants, seizure medications, and more.",
+    "majorInteractions": "Major interactions flagged",
+    "researchCitations": "Research citations included",
+    "medicationsCovered": "141 medications covered",
+    "checkInteractions": "Check Interactions",
+    "dosageCalculator": "Dosage Calculator",
+    "dosageCalculatorDesc": "Get personalized CBD dosing based on your weight and goals",
+    "strengthCalculator": "Strength Calculator",
+    "strengthCalculatorDesc": "Convert between %, mg/ml, and compare products",
+    "petDosageCalculator": "Pet Dosage Calculator",
+    "petDosageCalculatorDesc": "Species-specific dosing for dogs, cats, and horses",
+    "viewAllTools": "View all tools"
   }
 }
