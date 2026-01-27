@@ -3,6 +3,7 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { useLocale } from '@/hooks/useLocale';
 
 interface GlossaryTerm {
   id: string;
@@ -59,6 +60,7 @@ export function GlossaryClient({
 }: GlossaryClientProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { t } = useLocale();
 
   // Initialize state from URL params
   const [searchQuery, setSearchQuery] = useState(searchParams.get('q') || '');
@@ -247,25 +249,25 @@ export function GlossaryClient({
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
               <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
             </svg>
-            Knowledge Base
+            {t('glossary.knowledgeBase')}
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-            CBD & Cannabis
-            <span className="block text-green-200">Glossary</span>
+            {t('glossary.cbdCannabis')}
+            <span className="block text-green-200">{t('glossary.title')}</span>
           </h1>
           <p className="text-xl text-green-100 mb-8 max-w-xl leading-relaxed">
-            {totalTerms} terms explained — from cannabinoids and terpenes to legal terminology and product types.
+            {t('glossary.termsExplained').replace('{{count}}', String(totalTerms))}
           </p>
 
           {/* Search Box with Autocomplete */}
           <div className="relative max-w-xl">
-            <label htmlFor="glossary-search" className="sr-only">Search glossary terms</label>
+            <label htmlFor="glossary-search" className="sr-only">{t('glossary.searchLabel')}</label>
             <input
               id="glossary-search"
               ref={searchInputRef}
               type="text"
-              placeholder="Search terms, synonyms..."
+              placeholder={t('glossary.searchTermsSynonyms')}
               value={searchQuery}
               onChange={(e) => handleSearchChange(e.target.value)}
               onFocus={() => setShowSuggestions(true)}
@@ -291,7 +293,7 @@ export function GlossaryClient({
                 style={{ maxHeight: '400px', overflowY: 'auto' }}
               >
                 <div className="px-4 py-3 bg-gray-50 border-b border-gray-200 text-xs font-medium text-gray-600">
-                  {suggestions.length} suggestion{suggestions.length !== 1 ? 's' : ''} found
+                  {t('glossary.suggestionsFound').replace('{{count}}', String(suggestions.length))}
                 </div>
                 {suggestions.map((suggestion, index) => {
                   const categoryInfo = categories.find(c => c.key === suggestion.term.category);
@@ -312,7 +314,7 @@ export function GlossaryClient({
                           {suggestion.term.display_name || suggestion.term.term}
                         </div>
                         {suggestion.matchType === 'synonym' && (
-                          <div className="text-xs text-gray-500">Matched synonym</div>
+                          <div className="text-xs text-gray-500">{t('glossary.matchedSynonym')}</div>
                         )}
                       </div>
                       <div className="flex items-center gap-2">
@@ -335,7 +337,7 @@ export function GlossaryClient({
                     <path d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" />
                   </svg>
                 </span>
-                Most Popular Terms
+                {t('glossary.mostPopular')}
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 md:gap-3">
                 {popularTerms.map(term => (
@@ -362,7 +364,7 @@ export function GlossaryClient({
       <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
         <div className="max-w-6xl mx-auto px-4">
           {/* Alphabet Navigation */}
-          <nav className="py-2 md:py-3 flex items-center gap-0.5 md:gap-1 overflow-x-auto scrollbar-hide -mx-1 px-1" aria-label="Filter by letter">
+          <nav className="py-2 md:py-3 flex items-center gap-0.5 md:gap-1 overflow-x-auto scrollbar-hide -mx-1 px-1" aria-label={t('glossary.filterByLetter')}>
             <button
               onClick={() => handleLetterChange(null)}
               className={`px-2.5 md:px-3 py-1.5 text-xs md:text-sm font-semibold rounded-lg transition-all shrink-0 ${
@@ -372,7 +374,7 @@ export function GlossaryClient({
               }`}
               aria-pressed={!selectedLetter}
             >
-              All
+              {t('glossary.all')}
             </button>
             {ALPHABET.map(letter => {
               const hasTerms = availableLetters.includes(letter);
@@ -407,7 +409,7 @@ export function GlossaryClient({
                 onChange={(e) => handleCategoryChange(e.target.value || null)}
                 className="flex-1 px-4 py-2.5 bg-white border border-gray-200 rounded-lg text-sm font-medium text-gray-700 focus:ring-2 focus:ring-green-500 focus:border-green-500"
               >
-                <option value="">All Categories ({totalTerms})</option>
+                <option value="">{t('glossary.allCategories')} ({totalTerms})</option>
                 {categories.map(cat => {
                   const count = categoryCounts[cat.key] || 0;
                   return (
@@ -419,7 +421,7 @@ export function GlossaryClient({
               </select>
 
               {/* View Toggle - Mobile */}
-              <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-1" role="group" aria-label="View mode">
+              <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-1" role="group" aria-label={t('glossary.viewMode')}>
                 <button
                   onClick={() => setViewMode('cards')}
                   aria-pressed={viewMode === 'cards'}
@@ -428,12 +430,12 @@ export function GlossaryClient({
                       ? 'bg-white shadow text-gray-900'
                       : 'text-gray-500 hover:text-gray-700'
                   }`}
-                  title="Card view"
+                  title={t('glossary.cardView')}
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                   </svg>
-                  <span className="sr-only">Card view</span>
+                  <span className="sr-only">{t('glossary.cardView')}</span>
                 </button>
                 <button
                   onClick={() => setViewMode('table')}
@@ -443,12 +445,12 @@ export function GlossaryClient({
                       ? 'bg-white shadow text-gray-900'
                       : 'text-gray-500 hover:text-gray-700'
                   }`}
-                  title="Table view"
+                  title={t('glossary.tableView')}
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
                   </svg>
-                  <span className="sr-only">Table view</span>
+                  <span className="sr-only">{t('glossary.tableView')}</span>
                 </button>
               </div>
             </div>
@@ -464,7 +466,7 @@ export function GlossaryClient({
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 }`}
               >
-                All Categories ({totalTerms})
+                {t('glossary.allCategories')} ({totalTerms})
               </button>
 
               {categories.map(cat => {
@@ -495,7 +497,7 @@ export function GlossaryClient({
               })}
 
               {/* View Toggle - Desktop */}
-              <div className="ml-auto flex items-center gap-1 bg-gray-100 rounded-lg p-1" role="group" aria-label="View mode">
+              <div className="ml-auto flex items-center gap-1 bg-gray-100 rounded-lg p-1" role="group" aria-label={t('glossary.viewMode')}>
                 <button
                   onClick={() => setViewMode('cards')}
                   aria-pressed={viewMode === 'cards'}
@@ -504,12 +506,12 @@ export function GlossaryClient({
                       ? 'bg-white shadow text-gray-900'
                       : 'text-gray-500 hover:text-gray-700'
                   }`}
-                  title="Card view"
+                  title={t('glossary.cardView')}
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                   </svg>
-                  <span className="sr-only">Card view</span>
+                  <span className="sr-only">{t('glossary.cardView')}</span>
                 </button>
                 <button
                   onClick={() => setViewMode('table')}
@@ -519,12 +521,12 @@ export function GlossaryClient({
                       ? 'bg-white shadow text-gray-900'
                       : 'text-gray-500 hover:text-gray-700'
                   }`}
-                  title="Table view"
+                  title={t('glossary.tableView')}
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
                   </svg>
-                  <span className="sr-only">Table view</span>
+                  <span className="sr-only">{t('glossary.tableView')}</span>
                 </button>
               </div>
             </div>
@@ -537,27 +539,28 @@ export function GlossaryClient({
         {filteredTerms.length === 0 ? (
           <div className="text-center py-16">
             <div className="text-4xl mb-4" aria-hidden="true">📚</div>
-            <h2 className="text-lg font-medium text-gray-900">No terms found</h2>
+            <h2 className="text-lg font-medium text-gray-900">{t('glossary.noTermsFound')}</h2>
             <p className="text-gray-600 mt-1">
-              {searchQuery ? `No results for "${searchQuery}"` : 'No glossary terms match your filters'}
+              {searchQuery ? t('glossary.noResultsFor').replace('{{query}}', searchQuery) : t('glossary.noTermsMatchFilters')}
             </p>
             {(searchQuery || selectedCategory || selectedLetter) && (
               <button
                 onClick={clearFilters}
                 className="mt-4 px-4 py-2 text-green-600 hover:text-green-700 font-medium"
               >
-                Clear filters
+                {t('glossary.clearFilters')}
               </button>
             )}
           </div>
         ) : viewMode === 'table' ? (
-          <TableView terms={filteredTerms} categories={categories} />
+          <TableView terms={filteredTerms} categories={categories} t={t} />
         ) : (
           <CardView
             terms={filteredTerms}
             termsByLetter={termsByLetter}
             categories={categories}
             isFiltered={!!(selectedLetter || searchQuery)}
+            t={t}
           />
         )}
       </main>
@@ -565,15 +568,15 @@ export function GlossaryClient({
   );
 }
 
-function TableView({ terms, categories }: { terms: GlossaryTerm[]; categories: Category[] }) {
+function TableView({ terms, categories, t }: { terms: GlossaryTerm[]; categories: Category[]; t: (key: string) => string }) {
   return (
     <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
       <table className="w-full">
         <thead className="bg-gray-50 border-b border-gray-200">
           <tr>
-            <th scope="col" className="text-left px-4 py-3 text-sm font-medium text-gray-600">Term</th>
-            <th scope="col" className="text-left px-4 py-3 text-sm font-medium text-gray-600 hidden md:table-cell">Category</th>
-            <th scope="col" className="text-left px-4 py-3 text-sm font-medium text-gray-600 hidden lg:table-cell">Definition</th>
+            <th scope="col" className="text-left px-4 py-3 text-sm font-medium text-gray-600">{t('glossary.term')}</th>
+            <th scope="col" className="text-left px-4 py-3 text-sm font-medium text-gray-600 hidden md:table-cell">{t('glossary.category')}</th>
+            <th scope="col" className="text-left px-4 py-3 text-sm font-medium text-gray-600 hidden lg:table-cell">{t('glossary.definition')}</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-100">
@@ -593,7 +596,7 @@ function TableView({ terms, categories }: { terms: GlossaryTerm[]; categories: C
                     )}
                     {term.synonyms && term.synonyms.length > 0 && (
                       <div className="text-xs text-gray-500 mt-0.5">
-                        Also: {term.synonyms.slice(0, 2).join(', ')}
+                        {t('glossary.also')}: {term.synonyms.slice(0, 2).join(', ')}
                         {term.synonyms.length > 2 && '...'}
                       </div>
                     )}
@@ -626,17 +629,19 @@ function CardView({
   termsByLetter,
   categories,
   isFiltered,
+  t,
 }: {
   terms: GlossaryTerm[];
   termsByLetter: Record<string, GlossaryTerm[]>;
   categories: Category[];
   isFiltered: boolean;
+  t: (key: string) => string;
 }) {
   if (isFiltered) {
     return (
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {terms.map(term => (
-          <TermCard key={term.id} term={term} categories={categories} />
+          <TermCard key={term.id} term={term} categories={categories} t={t} />
         ))}
       </div>
     );
@@ -654,12 +659,12 @@ function CardView({
             >
               {letter}
               <span className="text-sm font-normal text-gray-500 ml-2">
-                ({letterTerms.length} {letterTerms.length === 1 ? 'term' : 'terms'})
+                ({letterTerms.length === 1 ? t('glossary.termCount').replace('{{count}}', '1') : t('glossary.termsCount').replace('{{count}}', String(letterTerms.length))})
               </span>
             </h2>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {letterTerms.map(term => (
-                <TermCard key={term.id} term={term} categories={categories} />
+                <TermCard key={term.id} term={term} categories={categories} t={t} />
               ))}
             </div>
           </section>
@@ -668,7 +673,7 @@ function CardView({
   );
 }
 
-function TermCard({ term, categories }: { term: GlossaryTerm; categories: Category[] }) {
+function TermCard({ term, categories, t }: { term: GlossaryTerm; categories: Category[]; t: (key: string) => string }) {
   const categoryColors = CATEGORY_COLORS[term.category] || CATEGORY_COLORS.cannabinoids;
   const categoryInfo = categories.find(c => c.key === term.category);
 
@@ -700,7 +705,7 @@ function TermCard({ term, categories }: { term: GlossaryTerm; categories: Catego
         <div className="flex items-center justify-between">
           {term.synonyms && term.synonyms.length > 0 ? (
             <div className="text-[10px] md:text-xs text-gray-500 line-clamp-1">
-              Also: {term.synonyms.slice(0, 2).join(', ')}
+              {t('glossary.also')}: {term.synonyms.slice(0, 2).join(', ')}
               {term.synonyms.length > 2 && '...'}
             </div>
           ) : (

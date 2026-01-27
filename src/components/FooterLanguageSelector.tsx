@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useLocale } from '@/hooks/useLocale';
 
 interface LanguageSite {
   code: string;
@@ -51,6 +52,7 @@ interface FooterLanguageSelectorProps {
 export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSelectorProps) {
   const pathname = usePathname();
   const [currentDomain, setCurrentDomain] = useState<string>('');
+  const { t } = useLocale();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -94,12 +96,12 @@ export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSel
 
   return (
     <div className="border-t border-gray-800 mt-8 pt-8">
-      <h3 className="text-sm font-semibold text-white mb-4">Available in</h3>
+      <h3 className="text-sm font-semibold text-white mb-4">{t('footer.availableIn')}</h3>
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {/* Scandinavia */}
         <div>
-          <p className="text-xs text-gray-500 mb-2 uppercase tracking-wider">Scandinavia</p>
+          <p className="text-xs text-gray-500 mb-2 uppercase tracking-wider">{t('footer.scandinavia')}</p>
           <ul className="space-y-1.5">
             {scandinaviaSites.map((site) => (
               <li key={site.code}>
@@ -123,7 +125,7 @@ export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSel
 
         {/* Central Europe */}
         <div>
-          <p className="text-xs text-gray-500 mb-2 uppercase tracking-wider">Central Europe</p>
+          <p className="text-xs text-gray-500 mb-2 uppercase tracking-wider">{t('footer.centralEurope')}</p>
           <ul className="space-y-1.5">
             {centralEuropeSites.map((site) => (
               <li key={site.code}>
@@ -147,7 +149,7 @@ export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSel
 
         {/* Southern & Eastern Europe */}
         <div>
-          <p className="text-xs text-gray-500 mb-2 uppercase tracking-wider">Southern Europe</p>
+          <p className="text-xs text-gray-500 mb-2 uppercase tracking-wider">{t('footer.southernEurope')}</p>
           <ul className="space-y-1.5">
             {southernEuropeSites.map((site) => (
               <li key={site.code}>
@@ -171,7 +173,7 @@ export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSel
 
         {/* Switzerland */}
         <div>
-          <p className="text-xs text-gray-500 mb-2 uppercase tracking-wider">Switzerland</p>
+          <p className="text-xs text-gray-500 mb-2 uppercase tracking-wider">{t('footer.switzerland')}</p>
           {swissSite && (
             <div className="space-y-2">
               <a
@@ -213,7 +215,7 @@ export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSel
 
         {/* English / International */}
         <div>
-          <p className="text-xs text-gray-500 mb-2 uppercase tracking-wider">International</p>
+          <p className="text-xs text-gray-500 mb-2 uppercase tracking-wider">{t('footer.international')}</p>
           {englishSite && (
             <a
               href={buildUrl(englishSite.domain, 'en')}
