@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { headers, cookies } from 'next/headers';
+import { headers } from 'next/headers';
 import { Hero } from '@/components/home/Hero';
 import { TrendingTopics } from '@/components/home/TrendingTopics';
 import { BrowseByCondition } from '@/components/home/BrowseByCondition';
@@ -11,7 +11,7 @@ import { AuthorTrust } from '@/components/home/AuthorTrust';
 import { NewsletterSignup } from '@/components/home/NewsletterSignup';
 import { getHomePageStats } from '@/lib/stats';
 import { getHreflangAlternates } from '@/components/HreflangTags';
-import { detectLanguage } from '@/lib/language';
+import { getLanguageFromHostname } from '@/lib/language';
 
 // Force dynamic rendering to support language switching via ?lang= parameter
 export const dynamic = 'force-dynamic';
@@ -22,12 +22,21 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function HomePage() {
+interface PageProps {
+  searchParams: Promise<{ lang?: string }>;
+}
+
+export default async function HomePage({ searchParams }: PageProps) {
   const stats = await getHomePageStats();
-  const headersList = await headers();
-  const cookieStore = await cookies();
-  const localeCookie = cookieStore.get('NEXT_LOCALE')?.value;
-  const lang = detectLanguage(headersList, localeCookie);
+  const params = await searchParams;
+
+  // Get language from URL param, or fall back to hostname-based detection
+  let lang = params.lang;
+  if (!lang) {
+    const headersList = await headers();
+    const host = headersList.get('host') || 'localhost';
+    lang = getLanguageFromHostname(host.split(':')[0]);
+  }
 
   return (
     <>

@@ -1,7 +1,8 @@
 'use client';
 
-import { createContext, useContext, useMemo, ReactNode } from 'react';
-import { type LocaleStrings, enLocale, t, createTranslator } from '@/../locales';
+import { createContext, useContext, useMemo, useState, useEffect, ReactNode } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { type LocaleStrings, enLocale, getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 
 interface LocaleContextValue {
@@ -20,18 +21,35 @@ interface LocaleProviderProps {
 
 /**
  * Provider component for locale context
- * Wrap your app or page with this to provide translations
+ * Automatically detects ?lang= parameter and overrides server-provided language
  */
 export function LocaleProvider({
   children,
-  locale = enLocale,
-  lang = 'en',
+  locale: serverLocale = enLocale,
+  lang: serverLang = 'en',
 }: LocaleProviderProps) {
+  const searchParams = useSearchParams();
+  const urlLang = searchParams.get('lang') as LanguageCode | null;
+
+  // Use URL lang if present, otherwise use server-provided lang
+  const [activeLang, setActiveLang] = useState<LanguageCode>(serverLang);
+  const [activeLocale, setActiveLocale] = useState<LocaleStrings>(serverLocale);
+
+  useEffect(() => {
+    if (urlLang && urlLang !== activeLang) {
+      setActiveLang(urlLang);
+      setActiveLocale(getLocaleSync(urlLang));
+    } else if (!urlLang && serverLang !== activeLang) {
+      setActiveLang(serverLang);
+      setActiveLocale(serverLocale);
+    }
+  }, [urlLang, serverLang, serverLocale, activeLang]);
+
   const value = useMemo(() => ({
-    locale,
-    lang,
-    t: createTranslator(locale),
-  }), [locale, lang]);
+    locale: activeLocale,
+    lang: activeLang,
+    t: createTranslator(activeLocale),
+  }), [activeLocale, activeLang]);
 
   return (
     <LocaleContext.Provider value={value}>
