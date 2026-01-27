@@ -41,11 +41,12 @@ The portal supports 8 European languages with domain-based routing. Each languag
 
 ### Translation Status
 
-| Content Type | Count | Status |
-|--------------|-------|--------|
-| Conditions | 312 × 8 = 2,496 | 100% translated |
-| Glossary Terms | 263 × 8 = 2,104 | 100% translated |
-| UI Strings | 8 locale files | 100% translated |
+| Content Type | Target | Current | Status |
+|--------------|--------|---------|--------|
+| Conditions | 312 × 8 = 2,496 | 1,000 | ~40% translated |
+| Glossary Terms | 263 × 8 = 2,104 | 1,000 | ~48% translated |
+| Articles | 1,259 × 8 = 10,072 | 0 | Not started |
+| UI Strings | 8 locale files | 8 files | 100% translated |
 
 ### Translation Tables
 
@@ -120,26 +121,80 @@ npx tsx scripts/find-missing.ts
 
 ---
 
-## CURRENT STATE (January 25, 2026)
+## CURRENT STATE (January 27, 2026)
+
+### Content Database - Complete
+
+| Content Type | Count | Status |
+|--------------|-------|--------|
+| **Articles** | 1,259 | ✅ All published |
+| **Conditions** | 312 | ✅ 100% have articles |
+| **Approved Studies** | 4,879 | ✅ Complete |
+| **Glossary Terms** | 263 | ✅ Complete |
+
+### Articles by Type
+
+| Type | Count |
+|------|-------|
+| educational | 322 |
+| educational-guide | 209 |
+| condition | 120 |
+| comparison | 77 |
+| legal-guide | 53 |
+| science | 44 |
+| product-guide | 39 |
+| standard | 30 |
+| pillar | 29 |
+| guide | 24 |
+| cannabinoid-profile | 20 |
+| terpene-profile | 20 |
+| basics | 8 |
+| application-guide | 5 |
 
 ### Research Database
-- **4000+ approved studies** in `kb_research_queue`
-- **37 topics** covered (anxiety, pain, sleep, epilepsy, etc.)
-- **7 data sources** integrated (PubMed, PMC, ClinicalTrials.gov, OpenAlex, Europe PMC, Semantic Scholar, bioRxiv/medRxiv)
-- **106 search keywords** across all therapeutic areas
 
-### Content Production
-- **312 medical conditions** in `kb_conditions` with SEO templates
-- **263 glossary terms** in `kb_glossary`
-- **Condition article spec v1.1** — Ready for article production
-- **Evidence-tiered system** — Article length (600-2,400 words) based on research depth
+| Metric | Count |
+|--------|-------|
+| Approved Studies | 4,879 |
+| Rejected Studies | 4,523 |
+| Human Studies | 4,814 |
+| Reviews/Meta-analyses | 29 |
+| High Quality (70+) | 147 |
+| Pending Review | 0 |
 
-### Multi-Language System
-- **8 European languages** fully supported (da, sv, no, de, nl, fi, fr, it)
-- **2,496 condition translations** (312 × 8 languages)
-- **2,104 glossary translations** (263 × 8 languages)
-- **8 UI locale files** with all interface strings translated
-- **Domain-based routing** ready for cbd.dk, cbd.se, cbd.no, etc.
+- **39 topics** covered (anxiety, pain, sleep, epilepsy, addiction, adhd, alzheimers, etc.)
+- **6 data sources** integrated (PubMed, PMC, OpenAlex, Europe PMC, Semantic Scholar, citation imports)
+- **48 search keywords** matched across therapeutic areas
+
+### Translation Status
+
+| Language | Conditions | Glossary | Articles |
+|----------|------------|----------|----------|
+| Danish (da) | 124/312 (40%) | 263/263 ✅ | 0/1,259 |
+| Swedish (sv) | 125/312 (40%) | 0/263 | 0/1,259 |
+| Norwegian (no) | 124/312 (40%) | 0/263 | 0/1,259 |
+| German (de) | 126/312 (40%) | 263/263 ✅ | 0/1,259 |
+| Dutch (nl) | 125/312 (40%) | 0/263 | 0/1,259 |
+| Finnish (fi) | 123/312 (39%) | 263/263 ✅ | 0/1,259 |
+| French (fr) | 126/312 (40%) | 211/263 (80%) | 0/1,259 |
+| Italian (it) | 127/312 (41%) | 0/263 | 0/1,259 |
+
+**Totals:** Conditions: 1,000/2,496 (40%) | Glossary: 1,000/2,104 (48%) | Articles: 0/10,072
+
+**UI Strings:** 8 locale JSON files (100% translated)
+
+### AI Chat System - Complete
+
+| Feature | Status |
+|---------|--------|
+| Chat Widget | ✅ Live on public site |
+| RAG Context (conditions, research, glossary) | ✅ Working |
+| Conversation Logging | ✅ Working |
+| Chat Analytics Admin | ✅ Working |
+| View Conversation Details | ✅ Working |
+| Delete Individual/All Logs | ✅ Working |
+| Geo Info Capture (Vercel) | ✅ Working |
+| User Agent Parsing | ✅ Working |
 
 ### Database Tables
 - **kb_conditions**: Medical conditions with SEO templates (foundation for programmatic pages)
@@ -149,12 +204,23 @@ npx tsx scripts/find-missing.ts
 - **kb_glossary**: Glossary definitions for auto-linking
 - **condition_translations**: Translated condition content (8 languages)
 - **glossary_translations**: Translated glossary terms (8 languages)
+- **chat_conversations**: Chat session tracking with geo metadata
+- **chat_messages**: Individual chat messages with intent classification
+- **chat_feedback**: User feedback on chat responses
 
-### Recent Updates
-- Multi-language translation system (8 European languages)
-- Domain-based language routing infrastructure
-- AI-powered batch translation via Claude API
-- LocaleProvider and useLocale hook for React components
+### What's Remaining
+
+1. **Complete Condition Translations** - 1,496 remaining (currently 1,000/2,496 = 40%)
+2. **Complete Glossary Translations** - 1,104 remaining (currently 1,000/2,104 = 48%)
+3. **Article Translations** - 1,259 articles × 8 languages = 10,072 translations needed (not started)
+4. **Domain Setup** - Configure cbd.dk, cbd.se, cbd.no, etc. DNS and Vercel domains
+
+### Chat System Usage
+
+| Metric | Count |
+|--------|-------|
+| Total Conversations | 10 |
+| Total Messages | 22 |
 
 ---
 
@@ -208,7 +274,7 @@ ORDER BY quality_score DESC;
 - `/docs/content/research-data-strategy.md` - Research database strategy
 
 ### Scanner System
-- `src/lib/research-scanner.ts` - Main scanner with 7 source adapters
+- `src/lib/research-scanner.ts` - Main scanner with 6 source adapters
 - `src/app/api/admin/scanner/process/route.ts` - Job processing API
 - `src/app/admin/research/scanner/page.tsx` - Scanner UI
 - `src/hooks/useScannerJob.ts` - Real-time job tracking hook
@@ -245,6 +311,19 @@ ORDER BY quality_score DESC;
 - `src/app/conditions/page.tsx` - Conditions list with categories
 - `src/app/conditions/[slug]/page.tsx` - Condition page with research & articles
 - `src/app/kb/articles/[slug]/page.tsx` - KB article page (uses kb_articles table)
+
+### Chat System
+- `src/components/chat/ChatWidget.tsx` - Floating chat button + window container
+- `src/components/chat/ChatWindow.tsx` - Main chat interface
+- `src/components/chat/ChatMessage.tsx` - Message bubbles with links
+- `src/components/chat/ChatInput.tsx` - Message input with send button
+- `src/lib/chat/context-builder.ts` - RAG context from conditions, research, glossary
+- `src/lib/chat/system-prompt.ts` - Claude system prompt for chat
+- `src/lib/chat/intent-classifier.ts` - Message intent classification
+- `src/lib/chat/conversation-memory.ts` - Conversation context extraction
+- `src/app/api/chat/route.ts` - Chat API with RAG and logging
+- `src/app/admin/chat/page.tsx` - Chat analytics dashboard
+- `src/app/admin/chat/[id]/page.tsx` - Conversation detail view
 
 ---
 
@@ -296,6 +375,14 @@ After completing any build or feature:
 ### Articles
 - `POST /api/admin/articles/generate` - Generate article drafts from research
 
+### Chat
+- `POST /api/chat` - Send chat message (RAG-powered responses)
+- `GET /api/admin/chat` - List all chat conversations
+- `DELETE /api/admin/chat` - Delete all chat conversations
+- `GET /api/admin/chat/[id]` - Get conversation details with messages
+- `DELETE /api/admin/chat/[id]` - Delete single conversation
+- `POST /api/chat/feedback` - Submit feedback on chat response
+
 ---
 
 ## ENVIRONMENT VARIABLES
@@ -318,8 +405,8 @@ ADMIN_API_SECRET=
 - `animal` - Preclinical animal studies (hidden by default)
 - `in_vitro` - Cell culture, lab studies (hidden by default)
 
-### Key Topics (37 total)
-Anxiety, depression, PTSD, sleep, epilepsy, chronic_pain, neuropathic_pain, arthritis, fibromyalgia, inflammation, migraines, cancer, skin conditions (acne, psoriasis, eczema), cardiovascular, diabetes, and more.
+### Key Topics (39 total)
+addiction, adhd, aging, alzheimers, anxiety, arthritis, athletic, autism, blood_pressure, cancer, chemo_side_effects, chronic_pain, covid, crohns, depression, diabetes, eczema, epilepsy, fibromyalgia, general, glaucoma, heart, inflammation, migraines, ms, nausea, neurological, neuropathic_pain, obesity, pain, parkinsons, psoriasis, ptsd, schizophrenia, sleep, stress, tourettes, veterinary, womens
 
 ### Quality Thresholds
 - **High quality:** score ≥ 70
@@ -331,6 +418,31 @@ Anxiety, depression, PTSD, sleep, epilepsy, chronic_pain, neuropathic_pain, arth
 
 ## SESSION LOG
 
+### January 27, 2026 - Chat Analytics & Project Status
+
+**Chat Analytics Fixes:**
+- Fixed React error #438 in chat detail page (changed `use(params)` to `useParams()`)
+- Fixed chat logging not appearing (Supabase client singleton issue on Vercel)
+- Added delete individual conversation functionality
+- Added delete all conversations functionality
+- Added geo info capture from Vercel headers (country, region, city)
+- Added enhanced user agent parsing (browser, OS, device type)
+- Added country flag emoji display in conversation details
+
+**Key Files Modified:**
+- `src/app/api/admin/chat/[id]/route.ts` - Fixed client, added DELETE endpoint
+- `src/app/api/admin/chat/route.ts` - Added DELETE ALL endpoint
+- `src/app/api/chat/route.ts` - Fixed logging client, added geo capture
+- `src/app/admin/chat/page.tsx` - Added delete UI with confirmation
+- `src/app/admin/chat/[id]/page.tsx` - Fixed useParams, enhanced user info display
+
+**Project Status Update:**
+- Verified all 1,259 articles published
+- Verified all 312 conditions have articles (100% coverage)
+- Updated CLAUDE.md with complete project status
+
+---
+
 ### January 25, 2026 - Multi-Language Translation System
 
 **Implemented:**
@@ -339,10 +451,10 @@ Anxiety, depression, PTSD, sleep, epilepsy, chronic_pain, neuropathic_pain, arth
 - AI-powered translation via Claude API (claude-3-haiku)
 - LocaleProvider context and useLocale hook
 
-**Translation Coverage:**
-- Conditions: 2,496/2,496 (100%)
-- Glossary: 2,104/2,104 (100%)
-- UI Strings: 8 locale JSON files
+**Translation Coverage (partial - in progress):**
+- Conditions: 1,000/2,496 (~40%)
+- Glossary: 1,000/2,104 (~48%)
+- UI Strings: 8 locale JSON files (100%)
 
 **Key Files Created:**
 - `locales/*.json` - UI translations for all 8 languages
@@ -380,8 +492,8 @@ Anxiety, depression, PTSD, sleep, epilepsy, chronic_pain, neuropathic_pain, arth
 ### January 16, 2026 - Research Scanner Completion
 
 **Scanner System - Fully Operational:**
-- 7 data sources integrated
-- 106 search keywords across all therapeutic areas
+- 6 data sources integrated (PubMed, PMC, OpenAlex, Europe PMC, Semantic Scholar, citation imports)
+- 48 search keywords across therapeutic areas
 - Cross-source deduplication (DOI, PMID, PMC ID, title similarity)
 - Job controls (pause/resume/cancel)
 - Real-time UI updates via Supabase subscriptions

@@ -45,7 +45,8 @@ async function translateConditions(
   supabase: ReturnType<typeof createClient>,
   client: Anthropic,
   langs: LangCode[],
-  limit?: number
+  limit?: number,
+  offset?: number
 ) {
   console.log('\n📋 Fetching conditions...');
 
@@ -54,7 +55,9 @@ async function translateConditions(
     .select('id, name, display_name, short_description, meta_title_template, meta_description_template')
     .order('name');
 
-  if (limit) {
+  if (offset !== undefined && limit !== undefined) {
+    query = query.range(offset, offset + limit - 1);
+  } else if (limit) {
     query = query.limit(limit);
   }
 
@@ -179,7 +182,8 @@ async function translateArticles(
   supabase: ReturnType<typeof createClient>,
   client: Anthropic,
   langs: LangCode[],
-  limit?: number
+  limit?: number,
+  offset?: number
 ) {
   console.log('\n📄 Fetching articles...');
 
@@ -189,7 +193,9 @@ async function translateArticles(
     .eq('status', 'published')
     .order('updated_at', { ascending: false });
 
-  if (limit) {
+  if (offset !== undefined && limit !== undefined) {
+    query = query.range(offset, offset + limit - 1);
+  } else if (limit) {
     query = query.limit(limit);
   }
 
@@ -245,7 +251,7 @@ Provide ONLY the translated title:`,
         // Translate content
         const contentResponse = await client.messages.create({
           model: 'claude-3-haiku-20240307',
-          max_tokens: 8192,
+          max_tokens: 4096,
           messages: [
             {
               role: 'user',
@@ -320,7 +326,8 @@ async function translateGlossary(
   supabase: ReturnType<typeof createClient>,
   client: Anthropic,
   langs: LangCode[],
-  limit?: number
+  limit?: number,
+  offset?: number
 ) {
   console.log('\n📖 Fetching glossary terms...');
 
@@ -329,7 +336,9 @@ async function translateGlossary(
     .select('id, term, definition, short_definition')
     .order('term');
 
-  if (limit) {
+  if (offset !== undefined && limit !== undefined) {
+    query = query.range(offset, offset + limit - 1);
+  } else if (limit) {
     query = query.limit(limit);
   }
 
@@ -446,7 +455,8 @@ async function translateResearch(
   supabase: ReturnType<typeof createClient>,
   client: Anthropic,
   langs: LangCode[],
-  limit?: number
+  limit?: number,
+  offset?: number
 ) {
   console.log('\n🔬 Fetching research studies...');
 
@@ -457,7 +467,9 @@ async function translateResearch(
     .not('plain_summary', 'is', null)
     .order('quality_score', { ascending: false });
 
-  if (limit) {
+  if (offset !== undefined && limit !== undefined) {
+    query = query.range(offset, offset + limit - 1);
+  } else if (limit) {
     query = query.limit(limit);
   }
 
@@ -538,6 +550,7 @@ async function main() {
   const typeArg = args.find((a) => a.startsWith('--type='));
   const langArg = args.find((a) => a.startsWith('--lang='));
   const limitArg = args.find((a) => a.startsWith('--limit='));
+  const offsetArg = args.find((a) => a.startsWith('--offset='));
 
   if (!typeArg || !langArg) {
     console.log(`
@@ -555,7 +568,8 @@ Languages:
   Can also specify multiple: --lang=da,sv,no
 
 Options:
-  --limit=N   - Only translate first N items (useful for testing)
+  --limit=N   - Only translate N items (useful for testing or batching)
+  --offset=N  - Skip first N items (for parallel batching)
 
 Examples:
   npx tsx scripts/translate-content.ts --type=conditions --lang=da
@@ -567,6 +581,7 @@ Examples:
   const contentType = typeArg.replace('--type=', '') as ContentType | 'all';
   const langValue = langArg.replace('--lang=', '');
   const limit = limitArg ? parseInt(limitArg.replace('--limit=', ''), 10) : undefined;
+  const offset = offsetArg ? parseInt(offsetArg.replace('--offset=', ''), 10) : undefined;
 
   // Parse languages
   let targetLangs: LangCode[];
@@ -607,22 +622,25 @@ Examples:
   if (limit) {
     console.log(`📊 Limited to ${limit} items`);
   }
+  if (offset) {
+    console.log(`⏭️ Starting from offset ${offset}`);
+  }
 
   // Run translations based on type
   if (contentType === 'all' || contentType === 'conditions') {
-    await translateConditions(supabase, anthropic, targetLangs, limit);
+    await translateConditions(supabase, anthropic, targetLangs, limit, offset);
   }
 
   if (contentType === 'all' || contentType === 'articles') {
-    await translateArticles(supabase, anthropic, targetLangs, limit);
+    await translateArticles(supabase, anthropic, targetLangs, limit, offset);
   }
 
   if (contentType === 'all' || contentType === 'glossary') {
-    await translateGlossary(supabase, anthropic, targetLangs, limit);
+    await translateGlossary(supabase, anthropic, targetLangs, limit, offset);
   }
 
   if (contentType === 'all' || contentType === 'research') {
-    await translateResearch(supabase, anthropic, targetLangs, limit);
+    await translateResearch(supabase, anthropic, targetLangs, limit, offset);
   }
 
   console.log('\n🎉 Translation complete!');
