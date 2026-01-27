@@ -6,7 +6,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { createFreshServiceClient } from '@/lib/supabase/server';
+import { createClient } from '@supabase/supabase-js';
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
@@ -54,7 +54,17 @@ export interface ChatListResponse {
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createFreshServiceClient();
+    // Create Supabase client directly (avoiding config issues)
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!,
+      {
+        auth: {
+          autoRefreshToken: false,
+          persistSession: false,
+        },
+      }
+    );
 
     // Debug: Log that we're starting
     console.log('[Chat Admin API] Starting request...');
