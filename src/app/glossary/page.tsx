@@ -4,11 +4,32 @@ import { GlossaryClient } from './GlossaryClient';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { getLanguage } from '@/lib/get-language';
 import { getGlossaryTermsWithTranslations, getPopularGlossaryTermsWithTranslations } from '@/lib/translations';
-import { getLocaleSync } from '@/../locales';
+import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { getHreflangAlternates } from '@/components/HreflangTags';
 
 export const revalidate = 86400; // Revalidate every 24 hours
+
+// Category keys - labels are fetched from translations
+const CATEGORY_KEYS = [
+  'cannabinoids', 'terpenes', 'products', 'extraction', 'science',
+  'research', 'side-effects', 'conditions', 'testing', 'legal', 'dosing', 'plant'
+];
+
+const CATEGORY_ICONS: Record<string, string> = {
+  cannabinoids: '🧬',
+  terpenes: '🌿',
+  products: '📦',
+  extraction: '🔬',
+  science: '🧠',
+  research: '📊',
+  'side-effects': '⚠️',
+  conditions: '🩺',
+  testing: '🧪',
+  legal: '⚖️',
+  dosing: '💊',
+  plant: '🌱',
+};
 
 const SITE_URL = 'https://cbd-portal.vercel.app';
 
@@ -54,24 +75,19 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const CATEGORIES = [
-  { key: 'cannabinoids', label: 'Cannabinoids', icon: '🧬', description: 'Chemical compounds found in cannabis plants' },
-  { key: 'terpenes', label: 'Terpenes', icon: '🌿', description: 'Aromatic compounds that give cannabis its scent' },
-  { key: 'products', label: 'Products', icon: '📦', description: 'CBD product types and formats' },
-  { key: 'extraction', label: 'Extraction', icon: '🔬', description: 'Methods for extracting cannabinoids' },
-  { key: 'science', label: 'Science & Biology', icon: '🧠', description: 'Scientific and biological terms' },
-  { key: 'research', label: 'Research', icon: '📊', description: 'Clinical and research terminology' },
-  { key: 'side-effects', label: 'Side Effects', icon: '⚠️', description: 'Potential effects and safety terms' },
-  { key: 'conditions', label: 'Conditions', icon: '🩺', description: 'Health conditions and symptoms' },
-  { key: 'testing', label: 'Testing & Quality', icon: '🧪', description: 'Lab testing and quality terms' },
-  { key: 'legal', label: 'Legal & Compliance', icon: '⚖️', description: 'Legal and regulatory terminology' },
-  { key: 'dosing', label: 'Dosing', icon: '💊', description: 'Dosage and administration terms' },
-  { key: 'plant', label: 'Plant & Cultivation', icon: '🌱', description: 'Cannabis plant and growing terms' },
-];
-
 export default async function GlossaryPage() {
   const supabase = await createClient();
   const lang = await getLanguage();
+  const locale = getLocaleSync(lang as LanguageCode);
+  const t = createTranslator(locale);
+
+  // Build translated categories
+  const CATEGORIES = CATEGORY_KEYS.map(key => ({
+    key,
+    label: t(`glossaryCategories.${key}`) || key,
+    icon: CATEGORY_ICONS[key] || '📋',
+    description: t(`glossaryCategories.${key}_desc`) || '',
+  }));
 
   // Fetch all terms with translations applied
   const translatedTerms = await getGlossaryTermsWithTranslations(lang as LanguageCode);
@@ -115,10 +131,10 @@ export default async function GlossaryPage() {
     pronunciation: t.pronunciation,
   }));
 
-  // Breadcrumbs data
+  // Breadcrumbs data with translations
   const breadcrumbs = [
-    { name: 'Home', url: SITE_URL },
-    { name: 'Glossary', url: `${SITE_URL}/glossary` },
+    { name: t('glossary.home') || 'Home', url: SITE_URL },
+    { name: t('glossary.title') || 'Glossary', url: `${SITE_URL}/glossary` },
   ];
 
   // Group terms by first letter for SEO-friendly rendering
@@ -131,8 +147,7 @@ export default async function GlossaryPage() {
 
   const availableLetters = Object.keys(termsByLetter).sort();
 
-  // Get locale for schema
-  const locale = getLocaleSync(lang as LanguageCode);
+  // Get lang code for schema
   const langCode = lang === 'en' ? 'en-US' : lang;
 
   // JSON-LD DefinedTermSet Schema

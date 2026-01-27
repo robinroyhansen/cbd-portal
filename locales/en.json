@@ -287,6 +287,32 @@
     "learnMore": "Learn More",
     "backToGlossary": "Back to Glossary"
   },
+  "glossaryCategories": {
+    "cannabinoids": "Cannabinoids",
+    "cannabinoids_desc": "CBD, THC, CBG and other cannabis compounds",
+    "terpenes": "Terpenes",
+    "terpenes_desc": "Aromatic compounds affecting scent and effects",
+    "products": "Products",
+    "products_desc": "Oils, capsules, topicals and other CBD products",
+    "extraction": "Extraction",
+    "extraction_desc": "Methods of extracting CBD from the plant",
+    "science": "Science",
+    "science_desc": "The endocannabinoid system and how CBD works",
+    "research": "Research",
+    "research_desc": "Scientific studies and clinical research",
+    "side-effects": "Side Effects",
+    "side-effects_desc": "Potential side effects and interactions",
+    "conditions": "Conditions",
+    "conditions_desc": "Health conditions CBD may help with",
+    "testing": "Testing",
+    "testing_desc": "Quality control and lab testing",
+    "legal": "Legal",
+    "legal_desc": "Laws, regulations and compliance",
+    "dosing": "Dosing",
+    "dosing_desc": "Dosage guidelines and administration",
+    "plant": "Plant",
+    "plant_desc": "Cannabis plant, strains and cultivation"
+  },
   "trending": {
     "label": "Trending"
   },
