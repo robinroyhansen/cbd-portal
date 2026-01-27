@@ -111,8 +111,17 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // If no sessions, return early
+    // If no sessions, return early with debug info
     if (!sessions || sessions.length === 0) {
+      const debugInfo = {
+        hasServiceKey: !!process.env.SUPABASE_SERVICE_ROLE_KEY,
+        serviceKeyPrefix: process.env.SUPABASE_SERVICE_ROLE_KEY?.substring(0, 20) || 'NOT_SET',
+        supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL?.substring(0, 30) || 'NOT_SET',
+        queryError: sessionsError?.message || null,
+        count,
+      };
+      console.log('[Chat Admin API] Returning empty - debug:', debugInfo);
+
       const emptyStats: ChatStats = {
         total_conversations: 0,
         total_messages: 0,
@@ -129,6 +138,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({
         conversations: [],
         stats: emptyStats,
+        _debug: debugInfo,
         pagination: {
           page,
           limit,
