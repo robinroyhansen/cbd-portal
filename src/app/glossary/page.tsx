@@ -1,14 +1,20 @@
 import { Metadata } from 'next';
+import { headers } from 'next/headers';
 import { createClient } from '@/lib/supabase/server';
 import { GlossaryClient } from './GlossaryClient';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
-import { getLanguage } from '@/lib/get-language';
 import { getGlossaryTermsWithTranslations, getPopularGlossaryTermsWithTranslations } from '@/lib/translations';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { getHreflangAlternates } from '@/components/HreflangTags';
+import { getLanguageFromHostname } from '@/lib/language';
 
-export const revalidate = 86400; // Revalidate every 24 hours
+// Force dynamic rendering to support language switching via ?lang= parameter
+export const dynamic = 'force-dynamic';
+
+interface PageProps {
+  searchParams: Promise<{ lang?: string; category?: string; q?: string; letter?: string }>;
+}
 
 // Category keys - labels are fetched from translations
 const CATEGORY_KEYS = [
@@ -51,9 +57,16 @@ interface CategoryCount {
 }
 
 // Dynamic SEO Metadata based on language
-export async function generateMetadata(): Promise<Metadata> {
-  const lang = await getLanguage();
-  const locale = getLocaleSync(lang as LanguageCode);
+export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {
+  const params = await searchParams;
+  let lang: LanguageCode = (params.lang as LanguageCode) || 'en';
+  if (!params.lang) {
+    const headersList = await headers();
+    const host = headersList.get('host') || 'localhost';
+    lang = getLanguageFromHostname(host.split(':')[0]) as LanguageCode;
+  }
+
+  const locale = getLocaleSync(lang);
 
   return {
     title: locale.glossary?.pageTitle || 'CBD & Cannabis Glossary | 250+ Terms Explained | CBD Portal',
@@ -75,10 +88,19 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function GlossaryPage() {
+export default async function GlossaryPage({ searchParams }: PageProps) {
   const supabase = await createClient();
-  const lang = await getLanguage();
-  const locale = getLocaleSync(lang as LanguageCode);
+  const params = await searchParams;
+
+  // Get language from URL param, or fall back to hostname-based detection
+  let lang: LanguageCode = (params.lang as LanguageCode) || 'en';
+  if (!params.lang) {
+    const headersList = await headers();
+    const host = headersList.get('host') || 'localhost';
+    lang = getLanguageFromHostname(host.split(':')[0]) as LanguageCode;
+  }
+
+  const locale = getLocaleSync(lang);
   const t = createTranslator(locale);
 
   // Build translated categories
