@@ -546,6 +546,33 @@
     "viewMethodology": "Se metodik",
     "disclaimer": "Al forskning indekseret her er fra tredjepartskilder. Vi ejer ikke eller gør krav på ophavsret over de originale studier."
   },
+  "researchFilters": {
+    "condition": "Tilstand",
+    "clear": "Ryd",
+    "showAllConditions": "Vis alle {{count}} tilstande...",
+    "showLess": "Vis færre",
+    "publicationYear": "Udgivelsesår",
+    "qualityScore": "Kvalitetsscore",
+    "subjectType": "Forsøgstype",
+    "all": "Alle",
+    "human": "Menneske",
+    "animal": "Dyr",
+    "advanced": "Avanceret",
+    "qualityTiers": "Kvalitetsniveauer",
+    "studyTypes": "Studietyper",
+    "cannabinoids": "Cannabinoider",
+    "clearAllFilters": "Ryd alle filtre"
+  },
+  "researchCard": {
+    "completed": "Afsluttet",
+    "ongoing": "Igangværende",
+    "recruiting": "Rekrutterer",
+    "topQuality": "TOP 15%",
+    "preclinical": "PRÆ",
+    "studiesCount": "1 af {{total}} {{condition}}-studier",
+    "ranksForQuality": "Rangerer #{{rank}} for kvalitet",
+    "view": "Se"
+  },
   "articlesPage": {
     "pageTitle": "CBD-artikler og -guider | Evidensbaseret information",
     "pageDescription": "Gennemse vores komplette samling af evidensbaserede artikler om CBD, cannabidiol-forskning, doseringsguider og wellness-information.",
