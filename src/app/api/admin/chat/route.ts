@@ -6,7 +6,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase/server';
+import { createFreshServiceClient } from '@/lib/supabase/server';
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
@@ -54,7 +54,7 @@ export interface ChatListResponse {
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createServiceClient();
+    const supabase = createFreshServiceClient();
 
     // Debug: Log that we're starting
     console.log('[Chat Admin API] Starting request...');
