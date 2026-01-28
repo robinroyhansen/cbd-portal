@@ -18,6 +18,10 @@ import {
   generateOrganizationSchema,
 } from '@/lib/seo/schema-generators';
 
+// Force dynamic rendering for the root layout to ensure language detection
+// works correctly with the ?lang= URL parameter and middleware headers
+export const dynamic = 'force-dynamic';
+
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',

@@ -21,7 +21,13 @@ interface LocaleProviderProps {
 
 /**
  * Provider component for locale context
- * Automatically detects ?lang= parameter and overrides server-provided language
+ *
+ * IMPORTANT: This component handles language detection with these priorities:
+ * 1. Server-provided lang (from layout.tsx via getLanguage())
+ * 2. URL ?lang= parameter (checked on client-side navigation)
+ *
+ * The server-provided values are the source of truth for initial render,
+ * since the middleware sets x-language header and NEXT_LOCALE cookie.
  */
 export function LocaleProvider({
   children,
@@ -29,24 +35,35 @@ export function LocaleProvider({
   lang: serverLang = 'en',
 }: LocaleProviderProps) {
   const searchParams = useSearchParams();
-  const urlLang = searchParams.get('lang') as LanguageCode | null;
 
-  // Initialize with URL lang if present to avoid hydration flash
-  const initialLang = urlLang || serverLang;
-  const initialLocale = urlLang ? getLocaleSync(urlLang) : serverLocale;
+  // ALWAYS initialize with server-provided values for consistent SSR/hydration
+  // The server already detected ?lang= via middleware and getLanguage()
+  const [activeLang, setActiveLang] = useState<LanguageCode>(serverLang);
+  const [activeLocale, setActiveLocale] = useState<LocaleStrings>(serverLocale);
 
-  const [activeLang, setActiveLang] = useState<LanguageCode>(initialLang);
-  const [activeLocale, setActiveLocale] = useState<LocaleStrings>(initialLocale);
-
+  // Effect to sync with URL param on client-side navigation (after initial mount)
+  // This handles cases where user navigates to a different ?lang= without full page reload
   useEffect(() => {
+    const urlLang = searchParams.get('lang') as LanguageCode | null;
+
     if (urlLang && urlLang !== activeLang) {
+      // URL has a lang param that differs from current state
       setActiveLang(urlLang);
       setActiveLocale(getLocaleSync(urlLang));
-    } else if (!urlLang && serverLang !== activeLang) {
+    }
+    // Note: We don't reset to serverLang when urlLang is removed,
+    // because that would cause issues with client-side navigation
+  }, [searchParams, activeLang]);
+
+  // Also sync if serverLang changes (e.g., from layout re-render)
+  useEffect(() => {
+    // Only sync if there's no URL override
+    const urlLang = searchParams.get('lang') as LanguageCode | null;
+    if (!urlLang && serverLang !== activeLang) {
       setActiveLang(serverLang);
       setActiveLocale(serverLocale);
     }
-  }, [urlLang, serverLang, serverLocale, activeLang]);
+  }, [serverLang, serverLocale, searchParams, activeLang]);
 
   const value = useMemo(() => ({
     locale: activeLocale,
