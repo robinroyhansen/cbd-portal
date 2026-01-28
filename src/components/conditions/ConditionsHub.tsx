@@ -417,8 +417,8 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
               </svg>
             </div>
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-gray-900">Most Researched</h2>
-              <p className="text-gray-500 text-sm">Conditions with the strongest scientific evidence</p>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">{t('researchFilters.mostResearched')}</h2>
+              <p className="text-gray-500 text-sm">{t('conditions.strongestEvidence')}</p>
             </div>
           </div>
 
@@ -453,7 +453,7 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
                               <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
                               <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
                             </svg>
-                            {condition.research_count} {condition.research_count === 1 ? 'study' : 'studies'}
+                            {condition.research_count} {t('common.studies')}
                           </span>
                         )}
                         {(condition.article_count || 0) > 0 && (
@@ -461,7 +461,7 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
                             <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                               <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
                             </svg>
-                            {condition.article_count} {condition.article_count === 1 ? 'article' : 'articles'}
+                            {condition.article_count} {t('common.articles')}
                           </span>
                         )}
                       </div>
@@ -487,8 +487,8 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
               </svg>
             </div>
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-gray-900">Browse by Body System</h2>
-              <p className="text-gray-500 text-sm">Find conditions organized by affected area</p>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">{t('nav.browseByBodySystem')}</h2>
+              <p className="text-gray-500 text-sm">{t('conditions.findByArea')}</p>
             </div>
           </div>
 
@@ -506,14 +506,14 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
                   <div className="flex items-center gap-4">
                     <span className="text-4xl group-hover:scale-110 transition-transform">{config.icon}</span>
                     <div className="flex-1">
-                      <h3 className={`font-bold text-lg ${config.color}`}>{config.name}</h3>
-                      <p className="text-sm text-gray-600">{count} conditions</p>
+                      <h3 className={`font-bold text-lg ${config.color}`}>{t(`conditions.categories.${cat}`) || config.name}</h3>
+                      <p className="text-sm text-gray-600">{count} {t('common.conditions')}</p>
                     </div>
                     <svg className="w-5 h-5 text-gray-300 group-hover:text-current group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
-                  <p className="text-sm text-gray-500 mt-3">{config.description}</p>
+                  <p className="text-sm text-gray-500 mt-3">{t(`conditions.categories.${cat}_desc`) || config.description}</p>
                 </button>
               );
             })}
@@ -532,9 +532,9 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
                 <span className="text-4xl">{CATEGORY_CONFIG[selectedCategory]?.icon}</span>
                 <div>
                   <h2 className="text-2xl font-bold text-gray-900">
-                    {CATEGORY_CONFIG[selectedCategory]?.name}
+                    {t(`conditions.categories.${selectedCategory}`) || CATEGORY_CONFIG[selectedCategory]?.name}
                   </h2>
-                  <p className="text-gray-500">{filteredConditions.length} conditions • {CATEGORY_CONFIG[selectedCategory]?.description}</p>
+                  <p className="text-gray-500">{filteredConditions.length} {t('common.conditions')} • {t(`conditions.categories.${selectedCategory}_desc`) || CATEGORY_CONFIG[selectedCategory]?.description}</p>
                 </div>
               </div>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -547,7 +547,7 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
             /* Search results */
             <div>
               <h2 className="text-xl font-bold text-gray-900 mb-4">
-                Search Results
+                {t('conditions.searchResults')}
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {filteredConditions.map(condition => (
@@ -566,7 +566,7 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
                     <div key={cat} id={`category-${cat}`}>
                       <div className="flex items-center gap-3 mb-4">
                         <span className="text-2xl">{config.icon}</span>
-                        <h2 className="text-xl font-bold text-gray-900">{config.name}</h2>
+                        <h2 className="text-xl font-bold text-gray-900">{t(`conditions.categories.${cat}`) || config.name}</h2>
                         <span className="text-sm text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">{catConditions.length}</span>
                       </div>
                       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -606,9 +606,9 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
                           {condition.display_name || condition.name}
                         </span>
                         <span className="ml-2 text-xs">
-                          <span className={researchCount > 0 ? 'text-emerald-600' : 'text-gray-400'}>{researchCount} studies</span>
+                          <span className={researchCount > 0 ? 'text-emerald-600' : 'text-gray-400'}>{researchCount} {t('common.studies')}</span>
                           <span className="text-gray-300 mx-1">•</span>
-                          <span className={articleCount > 0 ? 'text-blue-600' : 'text-gray-400'}>{articleCount} articles</span>
+                          <span className={articleCount > 0 ? 'text-blue-600' : 'text-gray-400'}>{articleCount} {t('common.articles')}</span>
                         </span>
                       </div>
                       <svg className="w-4 h-4 text-gray-300 group-hover:text-green-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -631,9 +631,9 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </div>
-          <h3 className="text-xl font-semibold text-gray-700 mb-2">No conditions found</h3>
+          <h3 className="text-xl font-semibold text-gray-700 mb-2">{t('conditions.noResults')}</h3>
           <p className="text-gray-500 mb-6 max-w-md mx-auto">
-            We couldn&apos;t find any conditions matching your search. Try different keywords or browse by category.
+            {t('conditions.noResultsDescription')}
           </p>
           <button
             onClick={() => { setSearchQuery(''); handleCategoryChange(null); }}
@@ -642,7 +642,7 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
-            Reset filters
+            {t('conditions.clearFilters')}
           </button>
         </div>
       )}
@@ -707,6 +707,7 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
 
 // Condition Card Component - Enhanced design
 function ConditionCard({ condition, showCategory = false }: { condition: Condition; showCategory?: boolean }) {
+  const { t } = useLocale();
   const config = CATEGORY_CONFIG[condition.category] || CATEGORY_CONFIG.other;
   const researchCount = condition.research_count || 0;
   const articleCount = condition.article_count || 0;
@@ -729,18 +730,18 @@ function ConditionCard({ condition, showCategory = false }: { condition: Conditi
               <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
               <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
-            <span className="font-medium">{researchCount}</span> {researchCount === 1 ? 'study' : 'studies'}
+            <span className="font-medium">{researchCount}</span> {t('common.studies')}
           </span>
           <span className={`flex items-center gap-1 ${articleCount > 0 ? 'text-blue-600' : 'text-gray-400'}`}>
             <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
             </svg>
-            <span className="font-medium">{articleCount}</span> {articleCount === 1 ? 'article' : 'articles'}
+            <span className="font-medium">{articleCount}</span> {t('common.articles')}
           </span>
           {showCategory && (
             <>
               <span className="text-gray-300">•</span>
-              <span className="text-gray-500">{config.name}</span>
+              <span className="text-gray-500">{t(`conditions.categories.${condition.category}`) || config.name}</span>
             </>
           )}
         </div>

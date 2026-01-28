@@ -172,6 +172,9 @@
     "clearFilters": "Clear filters",
     "noResults": "No Conditions Found",
     "noResultsDescription": "Try adjusting your search or category filter to see more results.",
+    "strongestEvidence": "Conditions with the strongest scientific evidence",
+    "findByArea": "Find conditions organized by affected area",
+    "searchResults": "Search Results",
     "categories": {
       "mental_health": "Mental Health",
       "mental_health_desc": "Anxiety, depression, PTSD, stress, and mood disorders",

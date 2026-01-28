@@ -83,7 +83,7 @@ export async function BrowseByCondition({ lang = 'en' }: BrowseByConditionProps)
                       {config.icon}
                     </span>
                     <span className={`text-xs font-semibold uppercase tracking-wider ${config.color}`}>
-                      {condition.category?.replace(/_/g, ' ')}
+                      {t(`conditions.categories.${condition.category}`) || condition.category?.replace(/_/g, ' ')}
                     </span>
                   </div>
 

@@ -177,6 +177,9 @@
     "clearFilters": "Ryd filtre",
     "noResults": "Ingen sygdomme fundet",
     "noResultsDescription": "Prøv at justere din søgning eller kategori-filter for at se flere resultater.",
+    "strongestEvidence": "Sygdomme med den stærkeste videnskabelige evidens",
+    "findByArea": "Find sygdomme organiseret efter kropsdel",
+    "searchResults": "Søgeresultater",
     "categories": {
       "mental_health": "Mental sundhed",
       "mental_health_desc": "Angst, depression, PTSD, stress og humørforstyrrelser",
@@ -676,7 +679,7 @@
     "blood_pressure": "Blodtryk",
     "diabetes": "Diabetes",
     "obesity": "Fedme",
-    "athletic": "Sport & genopretning",
+    "athletic": "Sport & genoptræning",
     "veterinary": "Veterinær",
     "aging": "Aldring",
     "womens": "Kvindesundhed",
