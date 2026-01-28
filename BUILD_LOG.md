@@ -4,6 +4,33 @@ This file tracks build, deploy, and browser validation results.
 
 ---
 
+## 2026-01-28 - Build & Deploy Workflow Documentation
+
+**Commit:** `88fd6e7` - Add build & deploy workflow with browser validation
+**Build:** ✅ Success (459 pages generated)
+**Deploy:** ✅ Live
+
+### Validation Results
+| Viewport | Status | Notes |
+|----------|--------|-------|
+| Desktop (1280px) | ✅ Pass | All sections rendering, navigation/footer/chat functional |
+| Mobile (375px) | ✅ Pass | Responsive layout, mobile nav, bottom bar visible |
+
+### Changes Deployed
+- Added build & deploy workflow to CLAUDE.md
+- Created BUILD_LOG.md for tracking deployments
+- Documented browser validation commands (desktop + mobile)
+
+### Screenshots
+- Desktop: `/tmp/deploy-desktop.png`
+- Mobile: `/tmp/deploy-mobile.png`
+
+### Build Warnings (non-blocking)
+- `ConditionKey` export warning in ResearchPageClient.tsx
+- `calculateRelevance` import warning in research-scanner-chunked.ts
+
+---
+
 ## 2026-01-28 - Danish Localization Complete
 
 **Commit:** `f27d026` - Fix newsletter and chat translations for Danish
