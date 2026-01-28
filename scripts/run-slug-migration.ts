@@ -1,6 +1,6 @@
 /**
  * Run the slug translations migration
- * Usage: npx tsx scripts/run-slug-migration.ts
+ * Usage: npx tsx scripts/run-slug-migration.ts --lang=no
  *
  * NOTE: This script generates slugs for existing translations AFTER the
  * schema changes have been applied via Supabase Dashboard SQL Editor.
@@ -16,6 +16,18 @@ const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 
 if (!supabaseUrl || !supabaseServiceKey) {
   console.error('Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY');
+  process.exit(1);
+}
+
+// Parse --lang argument
+const args = process.argv.slice(2);
+const langArg = args.find(arg => arg.startsWith('--lang='));
+const targetLang = langArg ? langArg.split('=')[1] : 'da'; // Default to Danish for backwards compatibility
+
+const SUPPORTED_LANGUAGES = ['da', 'sv', 'no', 'de', 'nl', 'fi', 'fr', 'it'];
+if (!SUPPORTED_LANGUAGES.includes(targetLang)) {
+  console.error(`Unsupported language: ${targetLang}`);
+  console.error(`Supported languages: ${SUPPORTED_LANGUAGES.join(', ')}`);
   process.exit(1);
 }
 
@@ -85,12 +97,12 @@ CREATE INDEX IF NOT EXISTS idx_glossary_translations_slug_lang ON glossary_trans
   console.log('   condition_translations.slug: ✓ exists');
   console.log('   glossary_translations.slug: ✓ exists');
 
-  // Step 2: Generate slugs for existing Danish condition translations
-  console.log('\n2. Generating slugs for Danish condition translations...');
+  // Step 2: Generate slugs for existing condition translations
+  console.log(`\n2. Generating slugs for ${targetLang.toUpperCase()} condition translations...`);
   const { data: conditions, error: condErr } = await supabase
     .from('condition_translations')
     .select('id, name')
-    .eq('language', 'da')
+    .eq('language', targetLang)
     .is('slug', null)
     .not('name', 'is', null);
 
@@ -109,15 +121,15 @@ CREATE INDEX IF NOT EXISTS idx_glossary_translations_slug_lang ON glossary_trans
     }
     console.log(`   Generated ${updated} slugs for conditions`);
   } else {
-    console.log('   All conditions already have slugs (or no Danish translations exist)');
+    console.log(`   All conditions already have slugs (or no ${targetLang.toUpperCase()} translations exist)`);
   }
 
-  // Step 3: Generate slugs for existing Danish glossary translations
-  console.log('\n3. Generating slugs for Danish glossary translations...');
+  // Step 3: Generate slugs for existing glossary translations
+  console.log(`\n3. Generating slugs for ${targetLang.toUpperCase()} glossary translations...`);
   const { data: glossary, error: glossErr } = await supabase
     .from('glossary_translations')
     .select('id, term')
-    .eq('language', 'da')
+    .eq('language', targetLang)
     .is('slug', null)
     .not('term', 'is', null);
 
@@ -136,7 +148,7 @@ CREATE INDEX IF NOT EXISTS idx_glossary_translations_slug_lang ON glossary_trans
     }
     console.log(`   Generated ${updated} slugs for glossary terms`);
   } else {
-    console.log('   All glossary terms already have slugs (or no Danish translations exist)');
+    console.log(`   All glossary terms already have slugs (or no ${targetLang.toUpperCase()} translations exist)`);
   }
 
   // Step 4: Verify results
@@ -145,23 +157,23 @@ CREATE INDEX IF NOT EXISTS idx_glossary_translations_slug_lang ON glossary_trans
   const { count: condCount } = await supabase
     .from('condition_translations')
     .select('*', { count: 'exact', head: true })
-    .eq('language', 'da')
+    .eq('language', targetLang)
     .not('slug', 'is', null);
 
   const { count: glossCount } = await supabase
     .from('glossary_translations')
     .select('*', { count: 'exact', head: true })
-    .eq('language', 'da')
+    .eq('language', targetLang)
     .not('slug', 'is', null);
 
-  console.log(`   Conditions with Danish slugs: ${condCount || 0}`);
-  console.log(`   Glossary terms with Danish slugs: ${glossCount || 0}`);
+  console.log(`   Conditions with ${targetLang.toUpperCase()} slugs: ${condCount || 0}`);
+  console.log(`   Glossary terms with ${targetLang.toUpperCase()} slugs: ${glossCount || 0}`);
 
   // Show some examples
   const { data: examples } = await supabase
     .from('condition_translations')
     .select('name, slug')
-    .eq('language', 'da')
+    .eq('language', targetLang)
     .not('slug', 'is', null)
     .limit(5);
 
