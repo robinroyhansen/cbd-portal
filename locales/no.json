@@ -722,7 +722,9 @@
   },
   "petsPage": {
     "pageTitle": "CBD for kjæledyr | Komplett guide for hunder, katter, hester og mer",
+    "metaTitle": "CBD for kjæledyr | Komplett guide for hunder, katter, hester og mer | CBD.no",
     "pageDescription": "Omfattende CBD-guider for kjæledyr som dekker hunder, katter, hester, fugler og smådyr. Doseringskalkulatorer, sikkerhetsinformasjon og veterinærperspektiver.",
+    "metaDescription": "Omfattende CBD-guider for kjæledyr: 88+ artikler og 44+ tilstander som dekker hunder, katter, hester, fugler og smådyr. Doseringskalkulatorer, sikkerhetsinformasjon og veterinærperspektiver.",
     "title": "CBD for kjæledyr",
     "articlesCount": "{{count}} artikler",
     "conditionsCount": "{{count}} tilstander",
