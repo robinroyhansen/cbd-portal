@@ -85,8 +85,7 @@ export function Footer({ stats, currentLang = 'en' }: FooterProps) {
           {/* Brand & Newsletter */}
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <span className="text-2xl">🌿</span>
-              <span className="text-xl font-bold text-white">CBD Portal</span>
+              <span className="text-xl font-bold text-white">{t('meta.siteName')}</span>
             </Link>
             <p className="text-sm text-gray-400 mb-4">
               {t('footer.brandDescription')}
