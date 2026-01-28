@@ -4,6 +4,46 @@ This file tracks build, deploy, and browser validation results.
 
 ---
 
+## 2026-01-28 - Fix Condition Pages Danish Translation
+
+**Commits:**
+- `36f3c95` - Add Danish translations for condition detail pages
+- `92fc165` - Fix language detection using searchParams
+
+**Build:** ✅ Success
+**Deploy:** ✅ Live
+
+### Problem Solved
+Condition detail pages (e.g., `/conditions/sleep?lang=da`) were showing English content even when accessed with the Danish language parameter. The page title, buttons, stats, and sections all displayed in English.
+
+### Root Cause
+The condition page is a server component that used `getLanguage()` to detect the language from headers. However, with `revalidate = 86400` (static generation), headers were not available during static generation, causing the page to always render in English.
+
+### Solution
+1. Added `searchParams` to the page's Props interface
+2. Read `lang` directly from URL searchParams instead of relying on headers
+3. Added translation keys for all condition page UI strings to locale files
+
+### Files Changed
+- `src/app/conditions/[slug]/page.tsx` - Read lang from searchParams, use t() for translations
+- `locales/da.json` - Added `conditionPage` section with Danish translations
+- `locales/en.json` - Added `conditionPage` section with English strings
+
+### Validation Results
+| Test | Status | Notes |
+|------|--------|-------|
+| Sleep page in Danish | ✅ Pass | All UI in Danish |
+| Anxiety page in Danish | ✅ Pass | All UI in Danish |
+| Buttons translated | ✅ Pass | "Læs artikler", "Gennemse studier" |
+| Stats section translated | ✅ Pass | "Forskningsoversigt", "studier", etc. |
+| Links preserve lang param | ✅ Pass | Internal links include `?lang=da` |
+
+### Screenshots
+- Danish sleep condition: `/tmp/production-danish.png`
+- Danish anxiety condition: `/tmp/production-danish-anxiety.png`
+
+---
+
 ## 2026-01-28 - Fix Language Preservation in Internal Links
 
 **Commit:** `4ad7d3e` - Update NavLink and NavSearchBar to use LocaleLink
