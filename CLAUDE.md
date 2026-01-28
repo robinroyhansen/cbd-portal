@@ -345,13 +345,92 @@ npm run lint
 
 ---
 
-## Deployment Rules
+## Build & Deploy Workflow
 
-After completing any build or feature:
-1. Run `npm run build` to verify it works
-2. Commit changes with descriptive message
-3. Push to GitHub: `git push origin main`
-4. Vercel auto-deploys from GitHub
+**IMPORTANT:** Follow this workflow after completing any feature or fix.
+
+### Workflow Steps
+
+1. **Build Verification**
+   ```bash
+   cd "/Users/robinroyhansen/Development with AI/cbd-portal"
+   npm run build
+   ```
+
+2. **Commit & Push**
+   ```bash
+   git add -A
+   git commit -m "Description of changes"
+   git push origin main
+   ```
+   - Vercel auto-deploys from GitHub (typically 1-2 minutes)
+
+3. **Browser Validation** (using agent-browser)
+
+   **Desktop (1280px):**
+   ```bash
+   agent-browser open https://cbd-portal.vercel.app
+   agent-browser snapshot -i
+   agent-browser screenshot /tmp/deploy-desktop.png
+   ```
+
+   **Mobile (375px):**
+   ```bash
+   agent-browser set viewport 375 812
+   agent-browser reload
+   agent-browser snapshot -i
+   agent-browser screenshot /tmp/deploy-mobile.png
+   agent-browser close
+   ```
+
+4. **Log Results** → Append to `BUILD_LOG.md`
+
+### Validation Checklist
+
+| Check | Desktop | Mobile |
+|-------|---------|--------|
+| Page loads without errors | ✓ | ✓ |
+| Navigation renders correctly | ✓ | ✓ |
+| Key content visible | ✓ | ✓ |
+| No console errors | ✓ | ✓ |
+| Interactive elements work | ✓ | ✓ |
+
+### Quick Deploy Command Sequence
+
+```bash
+# Full deploy workflow
+cd "/Users/robinroyhansen/Development with AI/cbd-portal"
+npm run build && git add -A && git commit -m "feat: description" && git push origin main
+
+# Wait for Vercel deploy, then validate
+agent-browser open https://cbd-portal.vercel.app
+agent-browser snapshot -i
+agent-browser screenshot /tmp/deploy-desktop.png
+agent-browser set viewport 375 812
+agent-browser reload
+agent-browser screenshot /tmp/deploy-mobile.png
+agent-browser close
+```
+
+### Log Entry Format
+
+After each deploy, append to `BUILD_LOG.md`:
+```markdown
+## [DATE] - [Feature/Fix Description]
+
+**Commit:** [commit hash]
+**Build:** ✅ Success | ❌ Failed
+**Deploy:** ✅ Live | ⏳ Pending
+
+### Validation Results
+| Viewport | Status | Screenshot |
+|----------|--------|------------|
+| Desktop (1280px) | ✅ Pass | /tmp/deploy-desktop.png |
+| Mobile (375px) | ✅ Pass | /tmp/deploy-mobile.png |
+
+### Notes
+- [Any issues or observations]
+```
 
 ---
 
