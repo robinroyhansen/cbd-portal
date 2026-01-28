@@ -3,7 +3,7 @@ import { createClient } from '@/lib/supabase/server';
 export async function getArticles(language: string = 'en', limit: number = 100) {
   const supabase = await createClient();
 
-  const { data, error } = await supabase
+  const { data: articles, error } = await supabase
     .from('kb_articles')
     .select(`
       *,
@@ -13,7 +13,39 @@ export async function getArticles(language: string = 'en', limit: number = 100) 
     .order('published_at', { ascending: false })
     .limit(limit);
 
-  return { data, error };
+  if (error || !articles) {
+    return { data: articles, error };
+  }
+
+  // If English, return as-is
+  if (language === 'en') {
+    return { data: articles, error: null };
+  }
+
+  // Fetch translations for non-English languages
+  const articleIds = articles.map(a => a.id);
+  const { data: translations } = await supabase
+    .from('article_translations')
+    .select('article_id, title, meta_description, excerpt')
+    .eq('language', language)
+    .in('article_id', articleIds);
+
+  const translationMap = new Map(
+    (translations || []).map(t => [t.article_id, t])
+  );
+
+  // Merge translations with articles
+  const translatedArticles = articles.map(article => {
+    const trans = translationMap.get(article.id);
+    return {
+      ...article,
+      title: trans?.title || article.title,
+      meta_description: trans?.meta_description || article.meta_description,
+      excerpt: trans?.excerpt || article.excerpt,
+    };
+  });
+
+  return { data: translatedArticles, error: null };
 }
 
 export async function getArticleBySlug(slug: string, language: string = 'en') {

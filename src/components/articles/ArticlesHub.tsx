@@ -33,6 +33,7 @@ interface Category {
 interface ArticlesHubProps {
   articles: Article[];
   categories: Category[];
+  lang?: string;
 }
 
 const categoryStyles: Record<string, { icon: string; color: string; bgColor: string }> = {

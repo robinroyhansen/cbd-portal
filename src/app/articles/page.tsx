@@ -17,11 +17,20 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function ArticlesPage() {
-  // Get hostname from headers to detect language
-  const headersList = headers();
-  const host = headersList.get('host') || 'localhost';
-  const language = getLanguageFromHostname(host);
+interface ArticlesPageProps {
+  searchParams: Promise<{ lang?: string }>;
+}
+
+export default async function ArticlesPage({ searchParams }: ArticlesPageProps) {
+  const params = await searchParams;
+
+  // Get language from URL param first, then fallback to hostname
+  let language = params.lang;
+  if (!language) {
+    const headersList = await headers();
+    const host = headersList.get('host') || 'localhost';
+    language = getLanguageFromHostname(host);
+  }
 
   // Fetch articles and categories for the detected language
   const { data: articles } = await getArticles(language);
@@ -31,6 +40,7 @@ export default async function ArticlesPage() {
     <ArticlesHub
       articles={articles || []}
       categories={categories || []}
+      lang={language}
     />
   );
 }
