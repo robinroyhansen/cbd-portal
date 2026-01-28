@@ -43,16 +43,18 @@ The portal supports 8 European languages with domain-based routing. Each languag
 
 | Content Type | Target | Current | Status |
 |--------------|--------|---------|--------|
-| Conditions | 312 × 8 = 2,496 | 1,000 | ~40% translated |
-| Glossary Terms | 263 × 8 = 2,104 | 1,000 | ~48% translated |
-| Articles | 1,259 × 8 = 10,072 | 0 | Not started |
+| Conditions | 312 × 8 = 2,496 | 1,000 | ~40% per language |
+| Glossary Terms | 263 × 8 = 2,104 | 1,000 | da/de/fi: 100%, fr: 80% |
+| Articles | 1,259 × 8 = 10,072 | 1,000 | Danish: 79% (1,000/1,259) |
+| Research | 4,879 × 8 = 39,032 | 1,000 | Danish: 20% (1,000/4,879) |
 | UI Strings | 8 locale files | 8 files | 100% translated |
 
 ### Translation Tables
 
 - `condition_translations` - Translated condition names and descriptions
 - `glossary_translations` - Translated glossary terms and definitions
-- `article_translations` - Translated article content (future)
+- `article_translations` - Translated article titles and content
+- `research_translations` - Translated research summaries
 
 ### Key Files
 
@@ -168,18 +170,18 @@ npx tsx scripts/find-missing.ts
 
 ### Translation Status
 
-| Language | Conditions | Glossary | Articles |
-|----------|------------|----------|----------|
-| Danish (da) | 124/312 (40%) | 263/263 ✅ | 0/1,259 |
-| Swedish (sv) | 125/312 (40%) | 0/263 | 0/1,259 |
-| Norwegian (no) | 124/312 (40%) | 0/263 | 0/1,259 |
-| German (de) | 126/312 (40%) | 263/263 ✅ | 0/1,259 |
-| Dutch (nl) | 125/312 (40%) | 0/263 | 0/1,259 |
-| Finnish (fi) | 123/312 (39%) | 263/263 ✅ | 0/1,259 |
-| French (fr) | 126/312 (40%) | 211/263 (80%) | 0/1,259 |
-| Italian (it) | 127/312 (41%) | 0/263 | 0/1,259 |
+| Language | Conditions | Glossary | Articles | Research |
+|----------|------------|----------|----------|----------|
+| Danish (da) | 124/312 (40%) | 263/263 ✅ | 1,000/1,259 (79%) | 1,000/4,879 (20%) |
+| Swedish (sv) | 125/312 (40%) | 0/263 | 0/1,259 | 0/4,879 |
+| Norwegian (no) | 124/312 (40%) | 0/263 | 0/1,259 | 0/4,879 |
+| German (de) | 126/312 (40%) | 263/263 ✅ | 0/1,259 | 0/4,879 |
+| Dutch (nl) | 125/312 (40%) | 0/263 | 0/1,259 | 0/4,879 |
+| Finnish (fi) | 123/312 (39%) | 263/263 ✅ | 0/1,259 | 0/4,879 |
+| French (fr) | 126/312 (40%) | 211/263 (80%) | 0/1,259 | 0/4,879 |
+| Italian (it) | 127/312 (41%) | 0/263 | 0/1,259 | 0/4,879 |
 
-**Totals:** Conditions: 1,000/2,496 (40%) | Glossary: 1,000/2,104 (48%) | Articles: 0/10,072
+**Totals:** Conditions: 1,000/2,496 (40%) | Glossary: 1,000/2,104 (48%) | Articles: 1,000/10,072 (10%) | Research: 1,000/39,032 (3%)
 
 **UI Strings:** 8 locale JSON files (100% translated)
 
@@ -204,6 +206,8 @@ npx tsx scripts/find-missing.ts
 - **kb_glossary**: Glossary definitions for auto-linking
 - **condition_translations**: Translated condition content (8 languages)
 - **glossary_translations**: Translated glossary terms (8 languages)
+- **article_translations**: Translated article titles and content
+- **research_translations**: Translated research summaries
 - **chat_conversations**: Chat session tracking with geo metadata
 - **chat_messages**: Individual chat messages with intent classification
 - **chat_feedback**: User feedback on chat responses
@@ -211,9 +215,10 @@ npx tsx scripts/find-missing.ts
 ### What's Remaining
 
 1. **Complete Condition Translations** - 1,496 remaining (currently 1,000/2,496 = 40%)
-2. **Complete Glossary Translations** - 1,104 remaining (currently 1,000/2,104 = 48%)
-3. **Article Translations** - 1,259 articles × 8 languages = 10,072 translations needed (not started)
-4. **Domain Setup** - Configure cbd.dk, cbd.se, cbd.no, etc. DNS and Vercel domains
+2. **Complete Glossary Translations** - sv/no/nl/it need translations (da/de/fi at 100%, fr at 80%)
+3. **Article Translations** - Danish: 259 remaining (1,000/1,259 = 79%), other languages: not started
+4. **Research Translations** - Danish: 3,879 remaining (1,000/4,879 = 20%), other languages: not started
+5. **Domain Setup** - Configure cbd.dk, cbd.se, cbd.no, etc. DNS and Vercel domains
 
 ### Chat System Usage
 
