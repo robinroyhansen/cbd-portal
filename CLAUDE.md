@@ -182,6 +182,31 @@ Pages with `revalidate` may show stale content. Force fresh fetch:
 agent-browser open "https://site.com/page?lang=da&_t=$(date +%s)"
 ```
 
+#### 9. Hardcoded Config Objects
+
+**Watch for objects like `CATEGORY_CONFIG` with hardcoded English names:**
+
+```typescript
+// BAD - Hardcoded English
+const CATEGORY_CONFIG = {
+  'mental_health': { name: 'Mental Health', description: '...' }
+};
+
+// Display (shows English even on Danish site)
+<span>{config.name}</span>
+
+// GOOD - Use translation function with fallback
+<span>{t(`conditions.categories.${category}`) || config.name}</span>
+<p>{t(`conditions.categories.${category}_desc`) || config.description}</p>
+```
+
+**Common places to check for hardcoded text:**
+- Category/filter configuration objects
+- Tooltip and placeholder text
+- Error messages and empty states
+- Section headers and labels
+- Button text and CTAs
+
 ### Translation Scripts
 
 ```bash
@@ -631,7 +656,33 @@ addiction, adhd, aging, alzheimers, anxiety, arthritis, athletic, autism, blood_
 
 4. **Conditions title** - Changed "Gennemse efter sygdom" to "CBD og sygdomme"
 
-**Key Learning:** Having translations in the database doesn't mean they display! Each component must explicitly fetch and merge translations.
+5. **Category labels showing in English** - Category names like "MENTAL HEALTH", "NEUROLOGICAL" displayed raw database values instead of translations
+   - Fixed `src/components/home/BrowseByCondition.tsx` - Use `t()` for category labels
+   - Fixed `src/components/conditions/ConditionsHub.tsx` - Updated all category display areas:
+     - Category filter buttons
+     - "Browse by Body System" section (header + category cards)
+     - Selected category header
+     - Grid view category labels
+     - ConditionCard component (studies/articles counts)
+     - No Results section
+     - A-Z list view (studies/articles counts)
+   - Added missing translation keys to `locales/da.json` and `locales/en.json`:
+     - `conditions.strongestEvidence`
+     - `conditions.findByArea`
+     - `conditions.searchResults`
+
+**Key Learnings:**
+
+1. **Translations Stored ≠ Translations Displayed** - Having data in database or locale files doesn't mean components use it
+2. **Hardcoded config objects** - Watch for objects like `CATEGORY_CONFIG` with hardcoded English names/descriptions
+3. **Fallback pattern** - Always use `t('key') || fallbackValue` to gracefully handle missing translations
+4. **Client vs Server components** - Client components use `useLocale()` hook, server components use `getLocaleSync()` and `createTranslator()`
+
+**Verification Completed:**
+- ✅ Homepage: Category labels show "MENTAL SUNDHED", "NEUROLOGISKE SYGDOMME" etc.
+- ✅ Conditions page: All category cards translated with Danish names and descriptions
+- ✅ Study/article counts: "studier" and "artikler" instead of "studies" and "articles"
+- ✅ Section headers: "Gennemse efter kropssystem", "Find sygdomme organiseret efter kropsdel"
 
 **Files Modified:**
 - `src/lib/translations.ts` - Added `getFeaturedArticlesWithTranslations()`
@@ -640,7 +691,10 @@ addiction, adhd, aging, alzheimers, anxiety, arthritis, athletic, autism, blood_
 - `src/components/articles/ArticlesHub.tsx` - Added lang prop
 - `src/components/home/FeaturedArticles.tsx` - Use translation function
 - `src/components/home/Hero.tsx` - Reduced spacing
-- `locales/da.json` - Fixed conditions title
+- `src/components/home/BrowseByCondition.tsx` - Use `t()` for category labels
+- `src/components/conditions/ConditionsHub.tsx` - Full translation support for categories
+- `locales/da.json` - Fixed conditions title + added missing keys
+- `locales/en.json` - Added missing keys for consistency
 - `locales/*.json` - Fixed all domain-based site names
 
 **Documentation Added:**
