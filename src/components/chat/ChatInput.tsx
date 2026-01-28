@@ -6,6 +6,7 @@
  */
 
 import { useState, useRef, useCallback, KeyboardEvent, ChangeEvent } from 'react';
+import { useLocale } from '@/components/LocaleProvider';
 
 interface ChatInputProps {
   onSend: (message: string) => void;
@@ -16,8 +17,11 @@ interface ChatInputProps {
 export function ChatInput({
   onSend,
   disabled = false,
-  placeholder = 'Ask about CBD...',
+  placeholder,
 }: ChatInputProps) {
+  const { t } = useLocale();
+  const defaultPlaceholder = t('chat.inputPlaceholder') || 'Ask about CBD...';
+  const sendMessageLabel = t('chat.sendMessage') || 'Send message';
   const [value, setValue] = useState('');
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -63,7 +67,7 @@ export function ChatInput({
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         disabled={disabled}
-        placeholder={placeholder}
+        placeholder={placeholder || defaultPlaceholder}
         rows={1}
         className="flex-1 resize-none rounded-lg border border-gray-300 px-3 py-2 text-base leading-6 placeholder:text-gray-400 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 disabled:bg-gray-50 disabled:text-gray-500"
         style={{
@@ -75,7 +79,7 @@ export function ChatInput({
       <button
         onClick={handleSend}
         disabled={disabled || !value.trim()}
-        aria-label="Send message"
+        aria-label={sendMessageLabel}
         className="flex h-11 w-11 items-center justify-center rounded-lg bg-emerald-600 text-white transition-colors hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 disabled:bg-gray-300 disabled:cursor-not-allowed"
       >
         <svg

@@ -254,10 +254,10 @@
     "strengthCalculator": "Styrke Kalkulator"
   },
   "newsletter": {
-    "title": "Bliv opdateret",
+    "title": "Hold dig opdateret",
     "description": "Få de seneste CBD-forsknings- og vejledninger leveret til din indbakke.",
-    "placeholder": "Din email",
-    "button": "Bliv medlem",
+    "placeholder": "Din e-mail",
+    "button": "Tilmeld",
     "noSpam": "Ingen spam. Afmeld når som helst. Vi respekterer dit privatliv."
   },
   "footer": {
