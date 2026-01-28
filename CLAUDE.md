@@ -62,8 +62,13 @@ The portal supports 8 European languages with domain-based routing. Each languag
 - `src/lib/language.ts` - Domain-based language detection
 - `src/lib/translation-service.ts` - Claude API translation service
 - `src/components/LocaleProvider.tsx` - React context for translations
+- `src/components/FooterLanguageSelector.tsx` - **Canonical domain names** (check here for correct siteName!)
 - `src/hooks/useLocale.ts` - Translation hook for components
 - `scripts/translate-content.ts` - Batch translation script
+
+### Translation Guide
+
+**IMPORTANT:** Before translating to a new language, read `/docs/translation-guide.md` for the complete process, common pitfalls, and verification steps.
 
 ### Translation Scripts
 
