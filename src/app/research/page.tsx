@@ -1,10 +1,9 @@
 import { Metadata } from 'next';
-import { headers } from 'next/headers';
 import { createClient } from '../../lib/supabase/server';
 import { ResearchPageClient, CONDITIONS, ConditionKey } from '../../components/ResearchPageClient';
 import Link from 'next/link';
 import { getHreflangAlternates } from '@/components/HreflangTags';
-import { getLanguageFromHostname } from '@/lib/language';
+import { getLanguage } from '@/lib/get-language';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { formatDateLong } from '@/lib/utils/format-date';
@@ -18,12 +17,7 @@ interface PageProps {
 
 export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {
   const params = await searchParams;
-  let lang: LanguageCode = (params.lang as LanguageCode) || 'en';
-  if (!params.lang) {
-    const headersList = await headers();
-    const host = headersList.get('host') || 'localhost';
-    lang = getLanguageFromHostname(host.split(':')[0]) as LanguageCode;
-  }
+  const lang = (params.lang || await getLanguage()) as LanguageCode;
 
   const locale = getLocaleSync(lang);
   const hreflang = getHreflangAlternates('/research');
@@ -70,13 +64,8 @@ interface ResearchItem {
 export default async function ResearchPage({ searchParams }: PageProps) {
   const params = await searchParams;
 
-  // Get language from URL param, or fall back to hostname-based detection
-  let lang: LanguageCode = (params.lang as LanguageCode) || 'en';
-  if (!params.lang) {
-    const headersList = await headers();
-    const host = headersList.get('host') || 'localhost';
-    lang = getLanguageFromHostname(host.split(':')[0]) as LanguageCode;
-  }
+  // Get language from URL param, or fall back to cookie/hostname detection
+  const lang = (params.lang || await getLanguage()) as LanguageCode;
 
   const locale = getLocaleSync(lang);
   const t = createTranslator(locale);

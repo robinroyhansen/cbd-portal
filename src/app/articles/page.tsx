@@ -1,12 +1,11 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
-import { headers } from 'next/headers';
 import { getArticles, getCategories } from '@/lib/articles';
-import { getLanguageFromHostname } from '@/lib/language';
+import { getLanguage } from '@/lib/get-language';
 import { ArticlesHub } from '@/components/articles/ArticlesHub';
 import { getHreflangAlternates } from '@/components/HreflangTags';
 
-export const revalidate = 1800; // Revalidate every 30 minutes
+// Force dynamic to support language persistence via cookies
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -24,13 +23,8 @@ interface ArticlesPageProps {
 export default async function ArticlesPage({ searchParams }: ArticlesPageProps) {
   const params = await searchParams;
 
-  // Get language from URL param first, then fallback to hostname
-  let language = params.lang;
-  if (!language) {
-    const headersList = await headers();
-    const host = headersList.get('host') || 'localhost';
-    language = getLanguageFromHostname(host);
-  }
+  // Get language from URL param, or fall back to cookie/hostname detection
+  const language = params.lang || await getLanguage();
 
   // Fetch articles and categories for the detected language
   const { data: articles } = await getArticles(language);

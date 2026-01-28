@@ -2,9 +2,8 @@ import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { headers } from 'next/headers';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
-import { getLanguageFromHostname } from '@/lib/language';
+import { getLanguage } from '@/lib/get-language';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 
@@ -56,14 +55,9 @@ export default async function AuthorPage({ params, searchParams }: Props) {
   let author: any = null;
   let articles: any[] = [];
 
-  // Get language from URL param, or fall back to hostname-based detection
+  // Get language from URL param, or fall back to cookie/hostname detection
   const { lang: langParam } = await searchParams;
-  let language: LanguageCode = (langParam as LanguageCode) || 'en';
-  if (!langParam) {
-    const headersList = headers();
-    const host = headersList.get('host') || 'localhost';
-    language = getLanguageFromHostname(host.split(':')[0]) as LanguageCode;
-  }
+  const language = (langParam || await getLanguage()) as LanguageCode;
   const locale = getLocaleSync(language);
   const t = createTranslator(locale);
   const dateLocale = language === 'en' ? 'en-GB' : language;

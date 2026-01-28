@@ -2,9 +2,8 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { headers } from 'next/headers';
 import { getArticleBySlug, getRelatedArticles } from '@/lib/articles';
-import { getLanguageFromHostname } from '@/lib/language';
+import { getLanguage } from '@/lib/get-language';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { getGlossaryTermsForLinking } from '@/lib/glossary';
@@ -58,13 +57,8 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
   const { slug } = await params;
   const { lang: langParam } = await searchParams;
 
-  // Get language from URL param, or fall back to hostname-based detection
-  let language: LanguageCode = (langParam as LanguageCode) || 'en';
-  if (!langParam) {
-    const headersList = headers();
-    const host = headersList.get('host') || 'localhost';
-    language = getLanguageFromHostname(host.split(':')[0]) as LanguageCode;
-  }
+  // Get language from URL param, or fall back to cookie/hostname detection
+  const language = (langParam || await getLanguage()) as LanguageCode;
 
   const { data: article } = await getArticleBySlug(slug, language);
 
@@ -137,13 +131,8 @@ export default async function ArticlePage({ params, searchParams }: Props) {
   const { slug } = await params;
   const { lang: langParam } = await searchParams;
 
-  // Get language from URL param, or fall back to hostname-based detection
-  let language: LanguageCode = (langParam as LanguageCode) || 'en';
-  if (!langParam) {
-    const headersList = headers();
-    const host = headersList.get('host') || 'localhost';
-    language = getLanguageFromHostname(host.split(':')[0]) as LanguageCode;
-  }
+  // Get language from URL param, or fall back to cookie/hostname detection
+  const language = (langParam || await getLanguage()) as LanguageCode;
 
   const { data } = await getArticleBySlug(slug, language);
   const article = data as any;

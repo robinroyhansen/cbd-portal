@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { headers } from 'next/headers';
 import { Hero } from '@/components/home/Hero';
 import { TrendingTopics } from '@/components/home/TrendingTopics';
 import { BrowseByCondition } from '@/components/home/BrowseByCondition';
@@ -11,7 +10,8 @@ import { AuthorTrust } from '@/components/home/AuthorTrust';
 import { NewsletterSignup } from '@/components/home/NewsletterSignup';
 import { getHomePageStats } from '@/lib/stats';
 import { getHreflangAlternates } from '@/components/HreflangTags';
-import { getLanguageFromHostname } from '@/lib/language';
+import { getLanguage } from '@/lib/get-language';
+import type { LanguageCode } from '@/lib/translation-service';
 
 // Force dynamic rendering to support language switching via ?lang= parameter
 export const dynamic = 'force-dynamic';
@@ -30,13 +30,8 @@ export default async function HomePage({ searchParams }: PageProps) {
   const stats = await getHomePageStats();
   const params = await searchParams;
 
-  // Get language from URL param, or fall back to hostname-based detection
-  let lang = params.lang;
-  if (!lang) {
-    const headersList = await headers();
-    const host = headersList.get('host') || 'localhost';
-    lang = getLanguageFromHostname(host.split(':')[0]);
-  }
+  // Get language from URL param, or fall back to cookie/hostname detection
+  const lang = (params.lang || await getLanguage()) as LanguageCode;
 
   return (
     <>

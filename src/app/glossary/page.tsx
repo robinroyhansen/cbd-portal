@@ -1,13 +1,12 @@
 import { Metadata } from 'next';
-import { headers } from 'next/headers';
 import { createClient } from '@/lib/supabase/server';
 import { GlossaryClient } from './GlossaryClient';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { getGlossaryTermsWithTranslations, getPopularGlossaryTermsWithTranslations } from '@/lib/translations';
+import { getLanguage } from '@/lib/get-language';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { getHreflangAlternates } from '@/components/HreflangTags';
-import { getLanguageFromHostname } from '@/lib/language';
 
 // Force dynamic rendering to support language switching via ?lang= parameter
 export const dynamic = 'force-dynamic';
@@ -59,12 +58,7 @@ interface CategoryCount {
 // Dynamic SEO Metadata based on language
 export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {
   const params = await searchParams;
-  let lang: LanguageCode = (params.lang as LanguageCode) || 'en';
-  if (!params.lang) {
-    const headersList = await headers();
-    const host = headersList.get('host') || 'localhost';
-    lang = getLanguageFromHostname(host.split(':')[0]) as LanguageCode;
-  }
+  const lang = (params.lang || await getLanguage()) as LanguageCode;
 
   const locale = getLocaleSync(lang);
 
@@ -92,13 +86,8 @@ export default async function GlossaryPage({ searchParams }: PageProps) {
   const supabase = await createClient();
   const params = await searchParams;
 
-  // Get language from URL param, or fall back to hostname-based detection
-  let lang: LanguageCode = (params.lang as LanguageCode) || 'en';
-  if (!params.lang) {
-    const headersList = await headers();
-    const host = headersList.get('host') || 'localhost';
-    lang = getLanguageFromHostname(host.split(':')[0]) as LanguageCode;
-  }
+  // Get language from URL param, or fall back to cookie/hostname detection
+  const lang = (params.lang || await getLanguage()) as LanguageCode;
 
   const locale = getLocaleSync(lang);
   const t = createTranslator(locale);

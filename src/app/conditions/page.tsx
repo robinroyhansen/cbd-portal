@@ -1,6 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
 import { Metadata } from 'next';
-import { headers } from 'next/headers';
 import { ConditionsHub } from '@/components/conditions';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { getLanguage } from '@/lib/get-language';
@@ -8,7 +7,6 @@ import { getConditionsWithTranslations } from '@/lib/translations';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { getHreflangAlternates } from '@/components/HreflangTags';
-import { getLanguageFromHostname } from '@/lib/language';
 
 // Force dynamic rendering to support language switching via ?lang= parameter
 export const dynamic = 'force-dynamic';
@@ -32,13 +30,8 @@ export default async function ConditionsPage({ searchParams }: PageProps) {
   const supabase = await createClient();
   const params = await searchParams;
 
-  // Get language from URL param, or fall back to hostname-based detection
-  let lang: LanguageCode = (params.lang as LanguageCode) || 'en';
-  if (!params.lang) {
-    const headersList = await headers();
-    const host = headersList.get('host') || 'localhost';
-    lang = getLanguageFromHostname(host.split(':')[0]) as LanguageCode;
-  }
+  // Get language from URL param, or fall back to cookie/hostname detection
+  const lang = (params.lang || await getLanguage()) as LanguageCode;
 
   const locale = getLocaleSync(lang);
   const t = createTranslator(locale);
