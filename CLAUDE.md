@@ -678,16 +678,43 @@ addiction, adhd, aging, alzheimers, anxiety, arthritis, athletic, autism, blood_
 3. **Fallback pattern** - Always use `t('key') || fallbackValue` to gracefully handle missing translations
 4. **Client vs Server components** - Client components use `useLocale()` hook, server components use `getLocaleSync()` and `createTranslator()`
 
+6. **Condition detail page showing English** - `/conditions/[slug]` page had multiple untranslated areas:
+   - Article titles and excerpts in English
+   - Research summaries (plain_summary) in English
+   - Category badge showing raw database value
+   - Evidence level ("Strong") and description in English
+   - Study subject badges ("human", "animal") in English
+
+   **Fixes applied:**
+   - Added `getArticlesForConditionWithTranslations()` to `src/lib/translations.ts`
+   - Added `getResearchWithTranslations()` to `src/lib/translations.ts`
+   - Updated `src/app/conditions/[slug]/page.tsx` to use translation functions
+   - Category badge now uses `t('conditions.categories.{category}')`
+   - Evidence level uses `t('evidence.strong')`, `t('evidence.strongDesc')`, etc.
+   - Study subject uses `t('research.studySubject.{subject}')`
+   - Added missing translation keys:
+     - `evidence.strongDesc`, `moderateDesc`, `emergingDesc`, `limitedDesc`, `preliminaryDesc`
+     - `evidence.emerging`, `evidence.preliminary`
+     - `research.studySubject.human`, `animal`, `review`, `in_vitro`
+     - `common.healthCondition`
+
 **Verification Completed:**
 - ✅ Homepage: Category labels show "MENTAL SUNDHED", "NEUROLOGISKE SYGDOMME" etc.
 - ✅ Conditions page: All category cards translated with Danish names and descriptions
 - ✅ Study/article counts: "studier" and "artikler" instead of "studies" and "articles"
 - ✅ Section headers: "Gennemse efter kropssystem", "Find sygdomme organiseret efter kropsdel"
+- ✅ Condition detail page (`/conditions/sleep?lang=da`):
+  - Category badge: "Mental sundhed" instead of raw category
+  - Evidence level: "Stærk" with Danish description
+  - Article titles: All translated to Danish
+  - Research summaries: Translated plain_summary from database
+  - Study subject badges: "Menneskelig studie" instead of "human"
 
 **Files Modified:**
-- `src/lib/translations.ts` - Added `getFeaturedArticlesWithTranslations()`
+- `src/lib/translations.ts` - Added `getFeaturedArticlesWithTranslations()`, `getArticlesForConditionWithTranslations()`, `getResearchWithTranslations()`
 - `src/lib/articles.ts` - Updated `getArticles()` with translation support
 - `src/app/articles/page.tsx` - Added searchParams language detection
+- `src/app/conditions/[slug]/page.tsx` - Full translation support for detail page
 - `src/components/articles/ArticlesHub.tsx` - Added lang prop
 - `src/components/home/FeaturedArticles.tsx` - Use translation function
 - `src/components/home/Hero.tsx` - Reduced spacing
