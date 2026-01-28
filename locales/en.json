@@ -20,6 +20,7 @@
     "article": "article",
     "conditions": "conditions",
     "condition": "condition",
+    "healthCondition": "Health Condition",
     "terms": "terms",
     "loading": "Loading...",
     "error": "Error",
@@ -204,9 +205,16 @@
     "studiesCount": "{{count}} studies"
   },
   "evidence": {
-    "strong": "Strong Evidence",
-    "moderate": "Moderate Evidence",
-    "limited": "Limited Evidence",
+    "strong": "Strong",
+    "strongDesc": "Extensive research available",
+    "moderate": "Moderate",
+    "moderateDesc": "Good research foundation",
+    "emerging": "Emerging",
+    "emergingDesc": "Growing body of evidence",
+    "limited": "Limited",
+    "limitedDesc": "Early-stage research",
+    "preliminary": "Preliminary",
+    "preliminaryDesc": "Very limited data",
     "insufficient": "Insufficient Evidence",
     "clinicallyProven": "Clinically proven"
   },
@@ -230,6 +238,12 @@
       "animal": "Preclinical",
       "review": "Review",
       "inVitro": "In Vitro"
+    },
+    "studySubject": {
+      "human": "Human Study",
+      "animal": "Animal Study",
+      "review": "Review",
+      "in_vitro": "In Vitro"
     }
   },
   "articles": {

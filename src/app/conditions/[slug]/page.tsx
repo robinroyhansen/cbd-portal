@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { FAQSchema } from '@/components/FAQSchema';
 import { getLanguage } from '@/lib/get-language';
-import { getConditionWithTranslation, getRelatedConditionsWithTranslations } from '@/lib/translations';
+import { getConditionWithTranslation, getRelatedConditionsWithTranslations, getArticlesForConditionWithTranslations, getResearchWithTranslations } from '@/lib/translations';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { getHreflangAlternates } from '@/components/HreflangTags';
@@ -62,12 +62,12 @@ const CATEGORY_ICONS: Record<string, string> = {
 };
 
 // Evidence strength based on research count
-function getEvidenceStrength(count: number): { level: string; color: string; width: string; description: string } {
-  if (count >= 100) return { level: 'Strong', color: 'emerald', width: '100%', description: 'Extensive research available' };
-  if (count >= 50) return { level: 'Moderate', color: 'green', width: '75%', description: 'Good research foundation' };
-  if (count >= 20) return { level: 'Emerging', color: 'lime', width: '50%', description: 'Growing body of evidence' };
-  if (count >= 5) return { level: 'Limited', color: 'amber', width: '25%', description: 'Early-stage research' };
-  return { level: 'Preliminary', color: 'gray', width: '10%', description: 'Very limited data' };
+function getEvidenceStrength(count: number, t: (key: string) => string): { level: string; color: string; width: string; description: string; key: string } {
+  if (count >= 100) return { level: t('evidence.strong'), color: 'emerald', width: '100%', description: t('evidence.strongDesc'), key: 'strong' };
+  if (count >= 50) return { level: t('evidence.moderate'), color: 'green', width: '75%', description: t('evidence.moderateDesc'), key: 'moderate' };
+  if (count >= 20) return { level: t('evidence.emerging'), color: 'lime', width: '50%', description: t('evidence.emergingDesc'), key: 'emerging' };
+  if (count >= 5) return { level: t('evidence.limited'), color: 'amber', width: '25%', description: t('evidence.limitedDesc'), key: 'limited' };
+  return { level: t('evidence.preliminary'), color: 'gray', width: '10%', description: t('evidence.preliminaryDesc'), key: 'preliminary' };
 }
 
 // Generate dynamic FAQs based on condition data
@@ -176,19 +176,13 @@ export default async function ConditionPage({ params, searchParams }: Props) {
 
   // Run all data queries in parallel for better performance
   const [
-    researchResult,
+    research,
     articleCountResult,
-    articlesResult,
-    relatedConditionsResult
+    articles,
+    relatedConditions
   ] = await Promise.all([
-    // Fetch research matching any of the condition's topic_keywords
-    supabase
-      .from('kb_research_queue')
-      .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, plain_summary')
-      .eq('status', 'approved')
-      .overlaps('relevant_topics', keywords)
-      .order('quality_score', { ascending: false })
-      .limit(8),
+    // Fetch research with translations
+    getResearchWithTranslations(keywords, lang as LanguageCode, 8),
 
     // Get article count
     supabase
@@ -197,14 +191,8 @@ export default async function ConditionPage({ params, searchParams }: Props) {
       .or(articleFilter)
       .eq('status', 'published'),
 
-    // Get articles
-    supabase
-      .from('kb_articles')
-      .select('id, title, slug, excerpt, featured_image, published_at, reading_time')
-      .or(articleFilter)
-      .eq('status', 'published')
-      .order('published_at', { ascending: false })
-      .limit(12),
+    // Get articles with translations
+    getArticlesForConditionWithTranslations(slug, condition.name, lang as LanguageCode, 12),
 
     // Get related conditions with translations
     condition.related_condition_slugs && condition.related_condition_slugs.length > 0
@@ -212,12 +200,9 @@ export default async function ConditionPage({ params, searchParams }: Props) {
       : Promise.resolve([])
   ]);
 
-  const research = researchResult.data;
   const totalArticleCount = articleCountResult.count;
-  const articles = articlesResult.data;
-  const relatedConditions = relatedConditionsResult;
 
-  const evidence = getEvidenceStrength(condition.research_count || 0);
+  const evidence = getEvidenceStrength(condition.research_count || 0, t);
   const categoryIcon = CATEGORY_ICONS[condition.category] || CATEGORY_ICONS.other;
 
   const breadcrumbs = [
@@ -282,7 +267,7 @@ export default async function ConditionPage({ params, searchParams }: Props) {
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-4xl">{categoryIcon}</span>
                 <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-emerald-200 text-sm font-medium border border-white/20">
-                  {condition.category?.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()) || 'Health Condition'}
+                  {t(`conditions.categories.${condition.category?.replace(/-/g, '_')}`) || condition.category?.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()) || t('common.healthCondition')}
                 </span>
               </div>
 
@@ -568,7 +553,7 @@ export default async function ConditionPage({ params, searchParams }: Props) {
                                   study.study_subject === 'animal' ? 'bg-amber-100 text-amber-700' :
                                   'bg-slate-100 text-slate-600'
                                 }`}>
-                                  {study.study_subject}
+                                  {t(`research.studySubject.${study.study_subject}`) || study.study_subject}
                                 </span>
                               )}
                               {study.sample_size && (

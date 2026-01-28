@@ -20,6 +20,7 @@
     "article": "artikel",
     "conditions": "sygdomme",
     "condition": "sygdom",
+    "healthCondition": "Helbredstilstand",
     "terms": "begreber",
     "loading": "Indlæser...",
     "error": "Fejl",
@@ -204,9 +205,16 @@
     }
   },
   "evidence": {
-    "strong": "Stærk evidens",
-    "moderate": "Moderat evidens",
-    "limited": "Begrænset evidens",
+    "strong": "Stærk",
+    "strongDesc": "Omfattende forskning tilgængelig",
+    "moderate": "Moderat",
+    "moderateDesc": "Godt forskningsgrundlag",
+    "emerging": "Voksende",
+    "emergingDesc": "Voksende mængde evidens",
+    "limited": "Begrænset",
+    "limitedDesc": "Tidlig forskning",
+    "preliminary": "Indledende",
+    "preliminaryDesc": "Meget begrænset data",
     "insufficient": "Utilstrækkelig evidens",
     "clinicallyProven": "Klinisk bevist"
   },
@@ -230,6 +238,12 @@
       "animal": "Præklinisk",
       "review": "Gennemgang",
       "inVitro": "In vitro"
+    },
+    "studySubject": {
+      "human": "Menneskelig studie",
+      "animal": "Dyrestudie",
+      "review": "Gennemgang",
+      "in_vitro": "In vitro"
     }
   },
   "articles": {

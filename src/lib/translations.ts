@@ -684,3 +684,114 @@ export async function getFeaturedArticlesWithTranslations(
     };
   });
 }
+
+/**
+ * Fetch articles for a condition with translations
+ */
+export async function getArticlesForConditionWithTranslations(
+  conditionSlug: string,
+  conditionName: string,
+  language: LanguageCode,
+  limit: number = 12
+): Promise<Array<{
+  id: string;
+  title: string;
+  slug: string;
+  excerpt?: string;
+  featured_image?: string;
+  published_at?: string;
+  reading_time?: number;
+}>> {
+  const supabase = await createClient();
+  const articleFilter = `condition_slug.eq.${conditionSlug},title.ilike.%${conditionName}%`;
+
+  // Fetch articles
+  const { data: articles, error } = await supabase
+    .from('kb_articles')
+    .select('id, title, slug, excerpt, featured_image, published_at, reading_time')
+    .or(articleFilter)
+    .eq('status', 'published')
+    .order('published_at', { ascending: false })
+    .limit(limit);
+
+  if (error || !articles) return [];
+
+  // If English, return as-is
+  if (language === 'en') return articles;
+
+  // Fetch translations for non-English
+  const articleIds = articles.map(a => a.id);
+  const { data: translations } = await supabase
+    .from('article_translations')
+    .select('article_id, title, excerpt')
+    .eq('language', language)
+    .in('article_id', articleIds);
+
+  const translationMap = new Map(
+    (translations || []).map(t => [t.article_id, t])
+  );
+
+  return articles.map(a => {
+    const trans = translationMap.get(a.id);
+    return {
+      ...a,
+      title: trans?.title || a.title,
+      excerpt: trans?.excerpt || a.excerpt,
+    };
+  });
+}
+
+/**
+ * Fetch research studies with translated summaries
+ */
+export async function getResearchWithTranslations(
+  keywords: string[],
+  language: LanguageCode,
+  limit: number = 8
+): Promise<Array<{
+  id: string;
+  title: string;
+  slug: string;
+  year: number;
+  study_type?: string;
+  study_subject?: string;
+  sample_size?: number;
+  quality_score?: number;
+  plain_summary?: string;
+}>> {
+  const supabase = await createClient();
+
+  // Fetch research
+  const { data: research, error } = await supabase
+    .from('kb_research_queue')
+    .select('id, title, slug, year, study_type, study_subject, sample_size, quality_score, plain_summary')
+    .eq('status', 'approved')
+    .overlaps('relevant_topics', keywords)
+    .order('quality_score', { ascending: false })
+    .limit(limit);
+
+  if (error || !research) return [];
+
+  // If English, return as-is
+  if (language === 'en') return research;
+
+  // Fetch translations for non-English
+  const researchIds = research.map(r => r.id);
+  const { data: translations } = await supabase
+    .from('research_translations')
+    .select('research_id, plain_summary')
+    .eq('language', language)
+    .in('research_id', researchIds);
+
+  const translationMap = new Map(
+    (translations || []).map(t => [t.research_id, t])
+  );
+
+  return research.map(r => {
+    const trans = translationMap.get(r.id);
+    return {
+      ...r,
+      plain_summary: trans?.plain_summary || r.plain_summary,
+    };
+  });
+}
