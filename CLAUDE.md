@@ -778,6 +778,121 @@ addiction, adhd, aging, alzheimers, anxiety, arthritis, athletic, autism, blood_
 
 ---
 
+### January 28, 2026 (Session 2) - Complete UI Translation & Slug Localization Plan
+
+**Translation Tasks Completed:**
+
+| Task | Pages/Components | Description |
+|------|------------------|-------------|
+| 1 | methodology, editorial-policy | Full page translations with 80+ keys each |
+| 2 | ReviewsClient.tsx | Scoring system, filters, score labels, categories |
+| 3 | topics/page.tsx | Topic categories, study/article counts, CTA text |
+| 4 | pets/dogs, pets/cats | Health conditions, common uses, dosage calculator |
+| 5 | ResearchPageClient.tsx | Filter/sort/pagination, table headers, status badges |
+| 6 | ArticlesHub.tsx | Category filter buttons translated |
+| 7 | authors/page.tsx | Stats, credentials, editorial standards |
+
+**Translation Keys Added to Locale Files:**
+
+```
+locales/en.json & locales/da.json:
+├── reviewsPage (50+ keys)
+│   ├── scoring labels (excellent, good, average, etc.)
+│   ├── filter options (allScores, excellent80, etc.)
+│   ├── scoring categories (qualityTesting, transparency, etc.)
+│   └── UI text (learnHowWeScore, noReviewsFound, etc.)
+├── topicsPage (20+ keys)
+│   ├── category names (mentalHealth, painInflammation, etc.)
+│   └── UI text (researchStudies, healthTopics, etc.)
+├── dogsPage (20+ keys)
+│   ├── health section (dogHealthConditions, dogCBDArticles)
+│   └── common uses (anxietyStress, painMobility, seizures, etc.)
+├── catsPage (20+ keys)
+│   ├── health section (catHealthConditions, catCBDArticles)
+│   └── common uses (anxiety, arthritis, kidneySupport, etc.)
+├── authorsPage (15+ keys)
+│   └── stats and editorial (expertAuthors, combinedYearsExperience, etc.)
+└── articlesPage.categories (10 keys)
+    └── basics, dosage, conditions, research, products, legal, pets, wellness, safety, news
+```
+
+**Files Modified:**
+- `locales/en.json` - Added 6 new translation sections
+- `locales/da.json` - Added 6 new translation sections (Danish)
+- `src/app/reviews/ReviewsClient.tsx` - useLocale hook + translated strings
+- `src/app/topics/page.tsx` - Server component translation with getLocaleSync/createTranslator
+- `src/app/pets/dogs/page.tsx` - Full translation support
+- `src/app/pets/cats/page.tsx` - Full translation support
+- `src/app/authors/page.tsx` - Full translation support
+- `src/components/articles/ArticlesHub.tsx` - Category filter translations
+
+**Slug Localization Plan:**
+
+Comprehensive analysis completed for implementing localized URL slugs:
+
+**Current State:**
+- All URLs use English slugs (e.g., `/conditions/anxiety`)
+- Language switching via domain (cbd.dk for Danish) or `?lang=` parameter
+- `article_translations` table has `slug` column (exists but unused in routing)
+- `condition_translations` and `glossary_translations` lack slug columns
+
+**Recommended Implementation (Hybrid Approach):**
+
+1. **Database Changes:**
+   ```sql
+   ALTER TABLE condition_translations ADD COLUMN slug TEXT UNIQUE;
+   ALTER TABLE glossary_translations ADD COLUMN slug TEXT UNIQUE;
+   CREATE INDEX idx_condition_trans_slug_lang ON condition_translations(slug, language);
+   CREATE INDEX idx_glossary_trans_slug_lang ON glossary_translations(slug, language);
+   ```
+
+2. **Route Handler Updates:**
+   ```typescript
+   // Modified pattern for slug lookup
+   async function getConditionBySlug(slug: string, language: string = 'en') {
+     if (language !== 'en') {
+       // Try translated slug first
+       const translated = await supabase
+         .from('condition_translations')
+         .select('condition_id')
+         .eq('slug', slug)
+         .eq('language', language)
+         .single();
+
+       if (translated) {
+         return getConditionById(translated.condition_id, language);
+       }
+     }
+     // Fallback to English slug
+     return getConditionByEnglishSlug(slug, language);
+   }
+   ```
+
+3. **Files to Modify for Implementation:**
+   - Database migrations (add slug columns)
+   - `src/lib/articles.ts` - getArticleBySlug()
+   - `src/lib/glossary.ts` - getGlossaryTermBySlug()
+   - `src/lib/translations.ts` - Add getByTranslatedSlug() functions
+   - Page routes (`[slug]/page.tsx` files)
+   - `src/middleware.ts` - 301 redirects from English to localized slugs
+
+4. **Expected Result:**
+   ```
+   https://cbd.dk/sygdomme/angst     (Danish: /conditions/anxiety)
+   https://cbd.se/tillstand/angest   (Swedish: /conditions/anxiety)
+   https://cbdportal.com/conditions/anxiety (English - default)
+
+   With 301 redirects:
+   https://cbd.dk/conditions/anxiety → https://cbd.dk/sygdomme/angst
+   ```
+
+**Benefits:**
+- Improved local SEO (localized URLs rank better regionally)
+- Better user experience (URLs match content language)
+- Maintains compatibility with current domain-based routing
+
+---
+
 ### January 27, 2026 - Chat Analytics & Project Status
 
 **Chat Analytics Fixes:**

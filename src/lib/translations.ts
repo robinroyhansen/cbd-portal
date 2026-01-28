@@ -10,6 +10,7 @@ import type { LanguageCode } from './translation-service';
 export interface TranslatedCondition {
   id: string;
   slug: string;
+  translated_slug: string | null; // Localized URL slug (e.g., "angst" for Danish "anxiety")
   name: string;
   display_name: string | null;
   short_description: string | null;
@@ -25,6 +26,7 @@ export interface TranslatedCondition {
 export interface TranslatedGlossaryTerm {
   id: string;
   slug: string;
+  translated_slug: string | null; // Localized URL slug
   term: string;
   definition: string;
   simple_definition: string | null;
@@ -38,6 +40,7 @@ export interface TranslatedGlossaryTerm {
 
 /**
  * Fetch a single condition with translation applied
+ * Supports lookup by either English slug or translated slug
  */
 export async function getConditionWithTranslation(
   slug: string,
@@ -45,7 +48,44 @@ export async function getConditionWithTranslation(
 ): Promise<TranslatedCondition | null> {
   const supabase = await createClient();
 
-  // Always fetch the base condition first
+  // For non-English, first try to find by translated slug
+  if (language !== 'en') {
+    const { data: translationBySlug } = await supabase
+      .from('condition_translations')
+      .select('condition_id, slug, name, display_name, short_description, meta_title, meta_description')
+      .eq('slug', slug)
+      .eq('language', language)
+      .single();
+
+    if (translationBySlug) {
+      // Found by translated slug - fetch the base condition
+      const { data: condition } = await supabase
+        .from('kb_conditions')
+        .select('id, slug, name, display_name, short_description, meta_title_template, meta_description_template, category, research_count, is_featured, topic_keywords')
+        .eq('id', translationBySlug.condition_id)
+        .eq('is_published', true)
+        .single();
+
+      if (condition) {
+        return {
+          id: condition.id,
+          slug: condition.slug,
+          translated_slug: translationBySlug.slug,
+          name: translationBySlug.name || condition.name,
+          display_name: translationBySlug.display_name || condition.display_name,
+          short_description: translationBySlug.short_description || condition.short_description,
+          meta_title: translationBySlug.meta_title || condition.meta_title_template,
+          meta_description: translationBySlug.meta_description || condition.meta_description_template,
+          category: condition.category,
+          research_count: condition.research_count,
+          is_featured: condition.is_featured,
+          topic_keywords: condition.topic_keywords || [],
+        };
+      }
+    }
+  }
+
+  // Fetch by English slug (default path)
   const { data: condition, error } = await supabase
     .from('kb_conditions')
     .select('id, slug, name, display_name, short_description, meta_title_template, meta_description_template, category, research_count, is_featured, topic_keywords')
@@ -60,6 +100,7 @@ export async function getConditionWithTranslation(
     return {
       id: condition.id,
       slug: condition.slug,
+      translated_slug: null,
       name: condition.name,
       display_name: condition.display_name,
       short_description: condition.short_description,
@@ -72,10 +113,10 @@ export async function getConditionWithTranslation(
     };
   }
 
-  // Fetch translation
+  // Fetch translation by condition_id
   const { data: translation } = await supabase
     .from('condition_translations')
-    .select('name, display_name, short_description, meta_title, meta_description')
+    .select('slug, name, display_name, short_description, meta_title, meta_description')
     .eq('condition_id', condition.id)
     .eq('language', language)
     .single();
@@ -84,6 +125,7 @@ export async function getConditionWithTranslation(
   return {
     id: condition.id,
     slug: condition.slug,
+    translated_slug: translation?.slug || null,
     name: translation?.name || condition.name,
     display_name: translation?.display_name || condition.display_name,
     short_description: translation?.short_description || condition.short_description,
@@ -120,6 +162,7 @@ export async function getConditionsWithTranslations(
     return conditions.map(c => ({
       id: c.id,
       slug: c.slug,
+      translated_slug: null,
       name: c.name,
       display_name: c.display_name,
       short_description: c.short_description,
@@ -136,7 +179,7 @@ export async function getConditionsWithTranslations(
   const conditionIds = conditions.map(c => c.id);
   const { data: translations } = await supabase
     .from('condition_translations')
-    .select('condition_id, name, display_name, short_description, meta_title, meta_description')
+    .select('condition_id, slug, name, display_name, short_description, meta_title, meta_description')
     .eq('language', language)
     .in('condition_id', conditionIds);
 
@@ -151,6 +194,7 @@ export async function getConditionsWithTranslations(
     return {
       id: c.id,
       slug: c.slug,
+      translated_slug: trans?.slug || null,
       name: trans?.name || c.name,
       display_name: trans?.display_name || c.display_name,
       short_description: trans?.short_description || c.short_description,
@@ -166,6 +210,7 @@ export async function getConditionsWithTranslations(
 
 /**
  * Fetch a single glossary term with translation applied
+ * Supports lookup by either English slug or translated slug
  */
 export async function getGlossaryTermWithTranslation(
   slug: string,
@@ -173,7 +218,42 @@ export async function getGlossaryTermWithTranslation(
 ): Promise<TranslatedGlossaryTerm | null> {
   const supabase = await createClient();
 
-  // Fetch the base term
+  // For non-English, first try to find by translated slug
+  if (language !== 'en') {
+    const { data: translationBySlug } = await supabase
+      .from('glossary_translations')
+      .select('term_id, slug, term, definition, simple_definition')
+      .eq('slug', slug)
+      .eq('language', language)
+      .single();
+
+    if (translationBySlug) {
+      // Found by translated slug - fetch the base term
+      const { data: term } = await supabase
+        .from('kb_glossary')
+        .select('id, slug, term, definition, short_definition, category, synonyms, pronunciation, related_terms, view_count')
+        .eq('id', translationBySlug.term_id)
+        .single();
+
+      if (term) {
+        return {
+          id: term.id,
+          slug: term.slug,
+          translated_slug: translationBySlug.slug,
+          term: translationBySlug.term || term.term,
+          definition: translationBySlug.definition || term.definition,
+          simple_definition: translationBySlug.simple_definition || term.short_definition,
+          category: term.category,
+          synonyms: term.synonyms,
+          pronunciation: term.pronunciation,
+          related_terms: term.related_terms,
+          view_count: term.view_count || 0,
+        };
+      }
+    }
+  }
+
+  // Fetch by English slug (default path)
   const { data: term, error } = await supabase
     .from('kb_glossary')
     .select('id, slug, term, definition, short_definition, category, synonyms, pronunciation, related_terms, view_count')
@@ -187,6 +267,7 @@ export async function getGlossaryTermWithTranslation(
     return {
       id: term.id,
       slug: term.slug,
+      translated_slug: null,
       term: term.term,
       definition: term.definition,
       simple_definition: term.short_definition,
@@ -198,10 +279,10 @@ export async function getGlossaryTermWithTranslation(
     };
   }
 
-  // Fetch translation
+  // Fetch translation by term_id
   const { data: translation } = await supabase
     .from('glossary_translations')
-    .select('term, definition, simple_definition')
+    .select('slug, term, definition, simple_definition')
     .eq('term_id', term.id)
     .eq('language', language)
     .single();
@@ -209,6 +290,7 @@ export async function getGlossaryTermWithTranslation(
   return {
     id: term.id,
     slug: term.slug,
+    translated_slug: translation?.slug || null,
     term: translation?.term || term.term,
     definition: translation?.definition || term.definition,
     simple_definition: translation?.simple_definition || term.short_definition,
@@ -243,6 +325,7 @@ export async function getGlossaryTermsWithTranslations(
     return terms.map(t => ({
       id: t.id,
       slug: t.slug,
+      translated_slug: null,
       term: t.term,
       definition: t.definition,
       simple_definition: t.short_definition,
@@ -258,7 +341,7 @@ export async function getGlossaryTermsWithTranslations(
   const termIds = terms.map(t => t.id);
   const { data: translations } = await supabase
     .from('glossary_translations')
-    .select('term_id, term, definition, simple_definition')
+    .select('term_id, slug, term, definition, simple_definition')
     .eq('language', language)
     .in('term_id', termIds);
 
@@ -273,6 +356,7 @@ export async function getGlossaryTermsWithTranslations(
     return {
       id: t.id,
       slug: t.slug,
+      translated_slug: trans?.slug || null,
       term: trans?.term || t.term,
       definition: trans?.definition || t.definition,
       simple_definition: trans?.simple_definition || t.short_definition,
@@ -309,6 +393,7 @@ export async function getPopularGlossaryTermsWithTranslations(
     return terms.map(t => ({
       id: t.id,
       slug: t.slug,
+      translated_slug: null,
       term: t.term,
       definition: t.definition,
       simple_definition: t.short_definition,
@@ -324,7 +409,7 @@ export async function getPopularGlossaryTermsWithTranslations(
   const termIds = terms.map(t => t.id);
   const { data: translations } = await supabase
     .from('glossary_translations')
-    .select('term_id, term, definition, simple_definition')
+    .select('term_id, slug, term, definition, simple_definition')
     .eq('language', language)
     .in('term_id', termIds);
 
@@ -337,6 +422,7 @@ export async function getPopularGlossaryTermsWithTranslations(
     return {
       id: t.id,
       slug: t.slug,
+      translated_slug: trans?.slug || null,
       term: trans?.term || t.term,
       definition: trans?.definition || t.definition,
       simple_definition: trans?.simple_definition || t.short_definition,
@@ -372,6 +458,7 @@ export async function getRelatedGlossaryTermsWithTranslations(
     return terms.map(t => ({
       id: t.id,
       slug: t.slug,
+      translated_slug: null,
       term: t.term,
       definition: t.definition,
       simple_definition: t.short_definition,
@@ -386,7 +473,7 @@ export async function getRelatedGlossaryTermsWithTranslations(
   const termIds = terms.map(t => t.id);
   const { data: translations } = await supabase
     .from('glossary_translations')
-    .select('term_id, term, definition, simple_definition')
+    .select('term_id, slug, term, definition, simple_definition')
     .eq('language', language)
     .in('term_id', termIds);
 
@@ -399,6 +486,7 @@ export async function getRelatedGlossaryTermsWithTranslations(
     return {
       id: t.id,
       slug: t.slug,
+      translated_slug: trans?.slug || null,
       term: trans?.term || t.term,
       definition: trans?.definition || t.definition,
       simple_definition: trans?.simple_definition || t.short_definition,
@@ -436,6 +524,7 @@ export async function getFeaturedConditionsWithTranslations(
     return conditions.map(c => ({
       id: c.id,
       slug: c.slug,
+      translated_slug: null,
       name: c.name,
       display_name: c.display_name,
       short_description: c.short_description,
@@ -452,7 +541,7 @@ export async function getFeaturedConditionsWithTranslations(
   const conditionIds = conditions.map(c => c.id);
   const { data: translations } = await supabase
     .from('condition_translations')
-    .select('condition_id, name, display_name, short_description, meta_title, meta_description')
+    .select('condition_id, slug, name, display_name, short_description, meta_title, meta_description')
     .eq('language', language)
     .in('condition_id', conditionIds);
 
@@ -467,6 +556,7 @@ export async function getFeaturedConditionsWithTranslations(
     return {
       id: c.id,
       slug: c.slug,
+      translated_slug: trans?.slug || null,
       name: trans?.name || c.name,
       display_name: trans?.display_name || c.display_name,
       short_description: trans?.short_description || c.short_description,
@@ -503,6 +593,7 @@ export async function getRecentGlossaryTermsWithTranslations(
     return terms.map(t => ({
       id: t.id,
       slug: t.slug,
+      translated_slug: null,
       term: t.term,
       definition: t.definition,
       simple_definition: t.short_definition,
@@ -518,7 +609,7 @@ export async function getRecentGlossaryTermsWithTranslations(
   const termIds = terms.map(t => t.id);
   const { data: translations } = await supabase
     .from('glossary_translations')
-    .select('term_id, term, definition, simple_definition')
+    .select('term_id, slug, term, definition, simple_definition')
     .eq('language', language)
     .in('term_id', termIds);
 
@@ -531,6 +622,7 @@ export async function getRecentGlossaryTermsWithTranslations(
     return {
       id: t.id,
       slug: t.slug,
+      translated_slug: trans?.slug || null,
       term: trans?.term || t.term,
       definition: trans?.definition || t.definition,
       simple_definition: trans?.simple_definition || t.short_definition,
@@ -566,6 +658,7 @@ export async function getRelatedConditionsWithTranslations(
     return conditions.map(c => ({
       id: c.id,
       slug: c.slug,
+      translated_slug: null,
       name: c.name,
       display_name: c.display_name,
       short_description: c.short_description,
@@ -581,7 +674,7 @@ export async function getRelatedConditionsWithTranslations(
   const conditionIds = conditions.map(c => c.id);
   const { data: translations } = await supabase
     .from('condition_translations')
-    .select('condition_id, name, display_name, short_description')
+    .select('condition_id, slug, name, display_name, short_description')
     .eq('language', language)
     .in('condition_id', conditionIds);
 
@@ -594,6 +687,7 @@ export async function getRelatedConditionsWithTranslations(
     return {
       id: c.id,
       slug: c.slug,
+      translated_slug: trans?.slug || null,
       name: trans?.name || c.name,
       display_name: trans?.display_name || c.display_name,
       short_description: trans?.short_description || c.short_description,
