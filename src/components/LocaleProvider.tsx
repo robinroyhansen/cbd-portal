@@ -31,9 +31,12 @@ export function LocaleProvider({
   const searchParams = useSearchParams();
   const urlLang = searchParams.get('lang') as LanguageCode | null;
 
-  // Use URL lang if present, otherwise use server-provided lang
-  const [activeLang, setActiveLang] = useState<LanguageCode>(serverLang);
-  const [activeLocale, setActiveLocale] = useState<LocaleStrings>(serverLocale);
+  // Initialize with URL lang if present to avoid hydration flash
+  const initialLang = urlLang || serverLang;
+  const initialLocale = urlLang ? getLocaleSync(urlLang) : serverLocale;
+
+  const [activeLang, setActiveLang] = useState<LanguageCode>(initialLang);
+  const [activeLocale, setActiveLocale] = useState<LocaleStrings>(initialLocale);
 
   useEffect(() => {
     if (urlLang && urlLang !== activeLang) {
