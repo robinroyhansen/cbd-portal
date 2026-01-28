@@ -933,6 +933,11 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
     if (!urlInitialized || condition) return;
 
     const params = new URLSearchParams();
+
+    // Preserve the lang parameter for translation support
+    const currentLang = searchParams.get('lang');
+    if (currentLang) params.set('lang', currentLang);
+
     if (activeCategory !== 'all') params.set('category', activeCategory);
     if (selectedConditions.length === 1) params.set('condition', selectedConditions[0]);
     if (qualityRange.min > 0) params.set('quality', qualityRange.min.toString());
@@ -946,7 +951,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
 
     const newUrl = params.toString() ? `/research?${params.toString()}` : '/research';
     window.history.replaceState({}, '', newUrl);
-  }, [activeCategory, selectedConditions, qualityRange, yearRange, searchQuery, urlInitialized, condition, dataYearRange.min, selectedStudyTypes, subjectType, selectedCannabinoids]);
+  }, [activeCategory, selectedConditions, qualityRange, yearRange, searchQuery, urlInitialized, condition, dataYearRange.min, selectedStudyTypes, subjectType, selectedCannabinoids, searchParams]);
 
   // Save filters when they change
   useEffect(() => {

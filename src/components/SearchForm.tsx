@@ -1,16 +1,20 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export function SearchForm() {
   const [query, setQuery] = useState('');
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (query.trim()) {
-      router.push(`/search?q=${encodeURIComponent(query.trim())}`);
+      // Preserve the lang parameter for translation support
+      const currentLang = searchParams.get('lang');
+      const langParam = currentLang ? `&lang=${currentLang}` : '';
+      router.push(`/search?q=${encodeURIComponent(query.trim())}${langParam}`);
     }
   };
 

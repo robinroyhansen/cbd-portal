@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useLocale } from '@/hooks/useLocale';
 
 interface SearchResult {
@@ -13,7 +13,20 @@ interface SearchResult {
 
 export function SearchBar() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { t } = useLocale();
+
+  // Helper to preserve lang parameter in navigation
+  const getLangParam = () => {
+    const lang = searchParams.get('lang');
+    return lang ? `&lang=${lang}` : '';
+  };
+
+  const buildUrlWithLang = (baseUrl: string) => {
+    const lang = searchParams.get('lang');
+    if (!lang) return baseUrl;
+    return baseUrl.includes('?') ? `${baseUrl}&lang=${lang}` : `${baseUrl}?lang=${lang}`;
+  };
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -63,7 +76,7 @@ export function SearchBar() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (query.trim()) {
-      router.push(`/search?q=${encodeURIComponent(query)}`);
+      router.push(`/search?q=${encodeURIComponent(query)}${getLangParam()}`);
       setIsOpen(false);
     }
   };
@@ -75,7 +88,8 @@ export function SearchBar() {
       research: `/research/study/${result.slug}`,
       article: `/articles/${result.slug}`,
     };
-    router.push(paths[result.type] || `/search?q=${encodeURIComponent(result.title)}`);
+    const baseUrl = paths[result.type] || `/search?q=${encodeURIComponent(result.title)}`;
+    router.push(buildUrlWithLang(baseUrl));
     setIsOpen(false);
     setQuery('');
   };

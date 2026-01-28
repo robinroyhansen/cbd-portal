@@ -155,10 +155,14 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
   // Update URL when category changes
   const handleCategoryChange = (category: string | null) => {
     setSelectedCategory(category);
+    // Preserve the lang parameter for translation support
+    const currentLang = searchParams.get('lang');
+    const langParam = currentLang ? `lang=${currentLang}&` : '';
+
     if (category) {
-      router.push(`/conditions?category=${category}`, { scroll: false });
+      router.push(`/conditions?${langParam}category=${category}`, { scroll: false });
     } else {
-      router.push('/conditions', { scroll: false });
+      router.push(currentLang ? `/conditions?lang=${currentLang}` : '/conditions', { scroll: false });
     }
   };
 

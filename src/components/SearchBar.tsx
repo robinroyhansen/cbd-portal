@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 import { useLocale } from '@/hooks/useLocale';
 
@@ -21,6 +21,19 @@ export function SearchBar() {
   const inputRef = useRef<HTMLInputElement>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  // Helper to preserve lang parameter in navigation
+  const getLangParam = () => {
+    const lang = searchParams.get('lang');
+    return lang ? `&lang=${lang}` : '';
+  };
+
+  const buildUrlWithLang = (baseUrl: string) => {
+    const lang = searchParams.get('lang');
+    if (!lang) return baseUrl;
+    return baseUrl.includes('?') ? `${baseUrl}&lang=${lang}` : `${baseUrl}?lang=${lang}`;
+  };
 
   // Debounced search
   useEffect(() => {
@@ -123,7 +136,7 @@ export function SearchBar() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (query.trim()) {
-      router.push(`/search?q=${encodeURIComponent(query)}`);
+      router.push(`/search?q=${encodeURIComponent(query)}${getLangParam()}`);
       setIsOpen(false);
       setQuery('');
     }
@@ -136,7 +149,7 @@ export function SearchBar() {
       study: `/research/study/${result.slug}`,
       glossary: `/glossary/${result.slug}`
     };
-    router.push(urls[result.type]);
+    router.push(buildUrlWithLang(urls[result.type]));
     setIsOpen(false);
     setQuery('');
   };
@@ -209,7 +222,7 @@ export function SearchBar() {
               {query.length >= 2 && (
                 <button
                   onClick={() => {
-                    router.push(`/search?q=${encodeURIComponent(query)}`);
+                    router.push(`/search?q=${encodeURIComponent(query)}${getLangParam()}`);
                     setIsOpen(false);
                   }}
                   className="w-full text-left px-4 py-3 bg-gray-50 text-green-600 hover:bg-gray-100 font-medium"

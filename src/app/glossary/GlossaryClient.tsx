@@ -81,12 +81,15 @@ export function GlossaryClient({
   // Update URL when filters change
   const updateUrl = useCallback((category: string | null, letter: string | null, query: string) => {
     const params = new URLSearchParams();
+    // Preserve the lang parameter for translation support
+    const currentLang = searchParams.get('lang');
+    if (currentLang) params.set('lang', currentLang);
     if (category) params.set('category', category);
     if (letter) params.set('letter', letter);
     if (query) params.set('q', query);
     const newUrl = params.toString() ? `/glossary?${params.toString()}` : '/glossary';
     router.push(newUrl, { scroll: false });
-  }, [router]);
+  }, [router, searchParams]);
 
   // Filter terms based on current state
   const filteredTerms = useMemo(() => {
@@ -178,7 +181,9 @@ export function GlossaryClient({
       case 'Enter':
         e.preventDefault();
         if (selectedSuggestionIndex >= 0) {
-          router.push(`/glossary/${suggestions[selectedSuggestionIndex].term.slug}`);
+          const currentLang = searchParams.get('lang');
+          const langParam = currentLang ? `?lang=${currentLang}` : '';
+          router.push(`/glossary/${suggestions[selectedSuggestionIndex].term.slug}${langParam}`);
         }
         break;
       case 'Escape':
@@ -229,7 +234,9 @@ export function GlossaryClient({
     setSearchQuery('');
     setSelectedCategory(null);
     setSelectedLetter(null);
-    router.push('/glossary', { scroll: false });
+    // Preserve the lang parameter for translation support
+    const currentLang = searchParams.get('lang');
+    router.push(currentLang ? `/glossary?lang=${currentLang}` : '/glossary', { scroll: false });
   };
 
   return (
