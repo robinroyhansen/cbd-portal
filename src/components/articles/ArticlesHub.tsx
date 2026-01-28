@@ -196,7 +196,7 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-1.5 ${selectedCategory === category.slug ? `${style.bgColor} ${style.color} ring-2 ring-offset-1 ring-current` : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
                 >
                   <span>{style.icon}</span>
-                  <span className="hidden sm:inline">{category.name}</span>
+                  <span className="hidden sm:inline">{t(`articlesPage.categories.${category.slug}`) || category.name}</span>
                   {category.article_count !== undefined && <span className="text-xs opacity-60">({category.article_count})</span>}
                 </button>
               );
@@ -207,7 +207,7 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
             <div className="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between">
               <span className="text-sm text-gray-600">
                 {t('articlesPage.showingOf')} <span className="font-semibold text-gray-900">{filteredArticles.length}</span> {t('articlesPage.of')} {totalArticles} {t('common.articles')}
-                {selectedCategory && <> {t('articlesPage.articlesIn')} <span className="font-medium">{categories.find((c) => c.slug === selectedCategory)?.name}</span></>}
+                {selectedCategory && <> {t('articlesPage.articlesIn')} <span className="font-medium">{t(`articlesPage.categories.${selectedCategory}`) || categories.find((c) => c.slug === selectedCategory)?.name}</span></>}
               </span>
               <button onClick={() => { setSearchQuery(''); setSelectedCategory(null); }} className="text-sm text-blue-600 hover:text-blue-700 font-medium">
                 {t('articlesPage.clearFilters')}
@@ -259,7 +259,7 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
                     <div className={`p-5 ${index === 0 ? 'md:p-8' : ''}`}>
                       {article.category && (
                         <span className={`inline-flex items-center gap-1.5 px-3 py-1 ${categoryStyle.bgColor} ${categoryStyle.color} text-xs font-medium rounded-full mb-3`}>
-                          <span>{categoryStyle.icon}</span>{article.category.name}
+                          <span>{categoryStyle.icon}</span>{article.category.slug ? t(`articlesPage.categories.${article.category.slug}`) || article.category.name : article.category.name}
                         </span>
                       )}
                       <h3 className={`font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2 ${index === 0 ? 'text-xl md:text-2xl' : 'text-lg'}`}>{article.title}</h3>
@@ -326,7 +326,7 @@ export function ArticlesHub({ articles, categories }: ArticlesHubProps) {
                     <div className="p-5">
                       {article.category && (
                         <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 ${categoryStyle.bgColor} ${categoryStyle.color} text-xs font-medium rounded-full mb-3`}>
-                          <span>{categoryStyle.icon}</span>{article.category.name}
+                          <span>{categoryStyle.icon}</span>{article.category.slug ? t(`articlesPage.categories.${article.category.slug}`) || article.category.name : article.category.name}
                         </span>
                       )}
                       <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2 line-clamp-2">{article.title}</h3>

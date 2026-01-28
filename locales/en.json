@@ -661,7 +661,19 @@
     "exploreConditions": "Explore Health Conditions",
     "exploreConditionsDesc": "Browse our comprehensive database of peer-reviewed CBD studies.",
     "browseConditions": "Browse Conditions",
-    "viewResearch": "View Research"
+    "viewResearch": "View Research",
+    "categories": {
+      "basics": "CBD Basics",
+      "dosage": "Dosage",
+      "conditions": "Conditions",
+      "research": "Research",
+      "products": "Products",
+      "legal": "Legal",
+      "pets": "Pets",
+      "wellness": "Wellness",
+      "safety": "Safety",
+      "news": "News"
+    }
   },
   "petsPage": {
     "pageTitle": "CBD for Pets | Complete Guide for Dogs, Cats, Horses & More",

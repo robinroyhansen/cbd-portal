@@ -772,7 +772,19 @@
     "exploreConditions": "Udforsk sygdomme",
     "exploreConditionsDesc": "Gennemse vores omfattende database med fagfællebedømte CBD-studier.",
     "browseConditions": "Gennemse sygdomme",
-    "viewResearch": "Se forskning"
+    "viewResearch": "Se forskning",
+    "categories": {
+      "basics": "CBD-grundlæggende",
+      "dosage": "Dosering",
+      "conditions": "Sygdomme",
+      "research": "Forskning",
+      "products": "Produkter",
+      "legal": "Juridisk",
+      "pets": "Kæledyr",
+      "wellness": "Velvære",
+      "safety": "Sikkerhed",
+      "news": "Nyheder"
+    }
   },
   "petsPage": {
     "pageTitle": "CBD til kæledyr | Komplet guide til hunde, katte, heste og mere",
