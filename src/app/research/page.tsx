@@ -49,8 +49,6 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
   };
 }
 
-export const revalidate = 3600; // Revalidate every 1 hour
-
 interface ResearchItem {
   id: string;
   title: string;
