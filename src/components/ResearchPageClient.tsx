@@ -1576,19 +1576,19 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value as SortOption)}
                     className="px-2 py-1 text-sm border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
-                    aria-label="Sort by"
+                    aria-label={t('researchFilters.sortBy')}
                   >
-                    <option value="quality">Quality</option>
-                    <option value="year">Year</option>
-                    <option value="title">Title</option>
-                    <option value="relevance">Relevance</option>
+                    <option value="quality">{t('researchFilters.sortQuality')}</option>
+                    <option value="year">{t('researchFilters.sortYear')}</option>
+                    <option value="title">{t('researchFilters.sortTitle')}</option>
+                    <option value="relevance">{t('researchFilters.sortRelevance')}</option>
                   </select>
                   <div className="hidden sm:flex items-center border border-gray-300 rounded overflow-hidden">
                     <button
                       onClick={() => setViewMode('cards')}
                       aria-pressed={viewMode === 'cards'}
                       className={`p-1.5 ${viewMode === 'cards' ? 'bg-blue-100 text-blue-700' : 'text-gray-500 hover:bg-gray-100'}`}
-                      title="Card view"
+                      title={t('researchFilters.cardView')}
                     >
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
@@ -1598,7 +1598,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
                       onClick={() => setViewMode('table')}
                       aria-pressed={viewMode === 'table'}
                       className={`p-1.5 ${viewMode === 'table' ? 'bg-blue-100 text-blue-700' : 'text-gray-500 hover:bg-gray-100'}`}
-                      title="Table view"
+                      title={t('researchFilters.tableView')}
                     >
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
@@ -1608,7 +1608,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
                       onClick={() => setViewMode('timeline')}
                       aria-pressed={viewMode === 'timeline'}
                       className={`p-1.5 ${viewMode === 'timeline' ? 'bg-blue-100 text-blue-700' : 'text-gray-500 hover:bg-gray-100'}`}
-                      title="Timeline view"
+                      title={t('researchFilters.timelineView')}
                     >
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11 4a1 1 0 10-2 0v4a1 1 0 102 0V7zm-3 1a1 1 0 10-2 0v3a1 1 0 102 0V8zM8 9a1 1 0 00-2 0v2a1 1 0 102 0V9z" clipRule="evenodd" />
@@ -1686,17 +1686,17 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
                 onClick={() => setCurrentPage(1)}
                 disabled={currentPage === 1}
                 className="px-3 py-1.5 text-sm border rounded disabled:opacity-50 hover:bg-gray-50"
-                aria-label="First page"
+                aria-label={t('researchFilters.firstPage')}
               >
-                First
+                {t('researchFilters.first')}
               </button>
               <button
                 onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                 disabled={currentPage === 1}
                 className="px-3 py-1.5 text-sm border rounded disabled:opacity-50 hover:bg-gray-50"
-                aria-label="Previous page"
+                aria-label={t('researchFilters.previousPage')}
               >
-                Prev
+                {t('researchFilters.prev')}
               </button>
               <span className="px-4 py-1.5 text-sm font-medium">
                 {currentPage} / {totalPages}
@@ -1705,17 +1705,17 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
                 onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
                 disabled={currentPage === totalPages}
                 className="px-3 py-1.5 text-sm border rounded disabled:opacity-50 hover:bg-gray-50"
-                aria-label="Next page"
+                aria-label={t('researchFilters.nextPage')}
               >
-                Next
+                {t('researchFilters.next')}
               </button>
               <button
                 onClick={() => setCurrentPage(totalPages)}
                 disabled={currentPage === totalPages}
                 className="px-3 py-1.5 text-sm border rounded disabled:opacity-50 hover:bg-gray-50"
-                aria-label="Last page"
+                aria-label={t('researchFilters.lastPage')}
               >
-                Last
+                {t('researchFilters.last')}
               </button>
             </nav>
           )}
@@ -2330,11 +2330,13 @@ interface ResearchCardProps {
 }
 
 function ResearchCard({ study, onConditionClick, topicStats }: ResearchCardProps) {
-  // Status badge config
+  const { t } = useLocale();
+
+  // Status badge config - using translations
   const statusConfig: Record<string, { label: string; bg: string; text: string; icon: string }> = {
-    completed: { label: 'Completed', bg: 'bg-green-100', text: 'text-green-700', icon: '✓' },
-    ongoing: { label: 'Ongoing', bg: 'bg-blue-100', text: 'text-blue-700', icon: '⏳' },
-    recruiting: { label: 'Recruiting', bg: 'bg-amber-100', text: 'text-amber-700', icon: '📢' }
+    completed: { label: t('researchFilters.completed'), bg: 'bg-green-100', text: 'text-green-700', icon: '✓' },
+    ongoing: { label: t('researchFilters.ongoing'), bg: 'bg-blue-100', text: 'text-blue-700', icon: '⏳' },
+    recruiting: { label: t('researchFilters.recruiting'), bg: 'bg-amber-100', text: 'text-amber-700', icon: '📢' }
   };
 
   const conditionColors = study.primaryCondition
@@ -2393,7 +2395,7 @@ function ResearchCard({ study, onConditionClick, topicStats }: ResearchCardProps
             {isHighQuality && !isPreclinical && (
               <>
                 <span className="ml-2 inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-amber-100 text-amber-700 rounded text-[10px] font-semibold">
-                  TOP 15% ⭐
+                  {t('researchFilters.topQuality')} ⭐
                 </span>
               </>
             )}
@@ -2401,12 +2403,12 @@ function ResearchCard({ study, onConditionClick, topicStats }: ResearchCardProps
         </div>
         <div className="shrink-0">
           {isPreclinical ? (
-            <div className="flex flex-col items-center justify-center w-11 h-11 rounded-full bg-purple-100 border-2 border-purple-200" title="Preclinical Study">
+            <div className="flex flex-col items-center justify-center w-11 h-11 rounded-full bg-purple-100 border-2 border-purple-200" title={t('researchFilters.preclinicalStudy')}>
               <span className="text-base">🧪</span>
               <span className="text-[8px] font-semibold text-purple-700 -mt-0.5">PRE</span>
             </div>
           ) : (
-            <div title={`Quality Score: ${study.qualityScore}/100`}>
+            <div title={`${t('researchFilters.qualityScore')}: ${study.qualityScore}/100`}>
               <CircularQualityScore score={study.qualityScore} size={44} />
             </div>
           )}
@@ -2475,8 +2477,8 @@ function ResearchCard({ study, onConditionClick, topicStats }: ResearchCardProps
         {/* Research Context */}
         {topicStats && study.primaryCondition && (
           <p className="text-xs text-gray-400">
-            📊 1 of {topicStats.total} {study.primaryCondition.data.label.toLowerCase()} studies
-            {topicStats.rank > 0 && !isPreclinical && ` • Ranks #${topicStats.rank} for quality`}
+            📊 1 {t('researchFilters.of')} {topicStats.total} {study.primaryCondition.data.label.toLowerCase()} {t('common.studies')}
+            {topicStats.rank > 0 && !isPreclinical && ` • ${t('researchFilters.ranksForQuality').replace('{{rank}}', String(topicStats.rank))}`}
           </p>
         )}
         {!topicStats && <div />}
@@ -2487,7 +2489,7 @@ function ResearchCard({ study, onConditionClick, topicStats }: ResearchCardProps
             href={`/research/study/${study.slug}`}
             className="inline-flex items-center gap-1 px-3 py-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium whitespace-nowrap shrink-0"
           >
-            View
+            {t('researchFilters.view')}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
@@ -2499,7 +2501,7 @@ function ResearchCard({ study, onConditionClick, topicStats }: ResearchCardProps
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 px-3 py-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium whitespace-nowrap shrink-0"
           >
-            View
+            {t('researchFilters.view')}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
@@ -2515,18 +2517,19 @@ function ResearchCard({ study, onConditionClick, topicStats }: ResearchCardProps
 // ============================================================================
 
 function ResearchTable({ studies }: { studies: any[] }) {
+  const { t } = useLocale();
   return (
     <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full" role="table">
           <thead className="bg-gray-50">
             <tr className="text-left">
-              <th scope="col" className="px-4 py-3 text-sm font-medium text-gray-900">Study</th>
-              <th scope="col" className="px-4 py-3 text-sm font-medium text-gray-900">Quality</th>
-              <th scope="col" className="px-4 py-3 text-sm font-medium text-gray-900">Type</th>
-              <th scope="col" className="px-4 py-3 text-sm font-medium text-gray-900">Year</th>
-              <th scope="col" className="px-4 py-3 text-sm font-medium text-gray-900">Sample</th>
-              <th scope="col" className="px-4 py-3 text-sm font-medium text-gray-900">Action</th>
+              <th scope="col" className="px-4 py-3 text-sm font-medium text-gray-900">{t('researchFilters.tableStudy')}</th>
+              <th scope="col" className="px-4 py-3 text-sm font-medium text-gray-900">{t('researchFilters.tableQuality')}</th>
+              <th scope="col" className="px-4 py-3 text-sm font-medium text-gray-900">{t('researchFilters.tableType')}</th>
+              <th scope="col" className="px-4 py-3 text-sm font-medium text-gray-900">{t('researchFilters.tableYear')}</th>
+              <th scope="col" className="px-4 py-3 text-sm font-medium text-gray-900">{t('researchFilters.tableSample')}</th>
+              <th scope="col" className="px-4 py-3 text-sm font-medium text-gray-900">{t('researchFilters.tableAction')}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
@@ -2541,7 +2544,7 @@ function ResearchTable({ studies }: { studies: any[] }) {
                 <td className="px-4 py-3">
                   {study.studyType === StudyType.ANIMAL_STUDY || study.studyType === StudyType.IN_VITRO_STUDY ? (
                     <span className="inline-flex items-center gap-1 px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-medium">
-                      🧪 Preclinical
+                      🧪 {t('researchFilters.preclinical')}
                     </span>
                   ) : (
                     <>
@@ -2564,7 +2567,7 @@ function ResearchTable({ studies }: { studies: any[] }) {
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:text-blue-700 text-sm focus:outline-none focus:underline"
                   >
-                    View →
+                    {t('researchFilters.view')} →
                   </a>
                 </td>
               </tr>
