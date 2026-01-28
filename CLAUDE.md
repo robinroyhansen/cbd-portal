@@ -70,6 +70,118 @@ The portal supports 8 European languages with domain-based routing. Each languag
 
 **IMPORTANT:** Before translating to a new language, read `/docs/translation-guide.md` for the complete process, common pitfalls, and verification steps.
 
+### Translation Implementation Guidelines
+
+**CRITICAL LESSONS LEARNED from Danish translation:**
+
+#### 1. Translations Stored ≠ Translations Displayed
+
+Having data in `*_translations` tables does NOT mean it will display. Each component/page must:
+- Accept a `language` parameter
+- Query the translation table
+- Merge translations with fallback to English
+
+**Pattern for translation-aware data fetching:**
+```typescript
+// 1. Fetch base data
+const { data: items } = await supabase.from('kb_items').select('*');
+
+// 2. Return as-is if English
+if (language === 'en') return items;
+
+// 3. Fetch translations for non-English
+const { data: translations } = await supabase
+  .from('item_translations')
+  .select('item_id, title, description')
+  .eq('language', language)
+  .in('item_id', itemIds);
+
+// 4. Merge with fallback
+const translationMap = new Map(translations.map(t => [t.item_id, t]));
+return items.map(item => {
+  const trans = translationMap.get(item.id);
+  return {
+    ...item,
+    title: trans?.title || item.title,
+    description: trans?.description || item.description,
+  };
+});
+```
+
+#### 2. Check ALL Data Fetching Paths
+
+A single content type may be fetched in multiple places:
+- Homepage component (e.g., `FeaturedArticles.tsx`)
+- Listing page (e.g., `/articles/page.tsx`)
+- Detail page (e.g., `/articles/[slug]/page.tsx`)
+- API routes
+
+**Each path needs translation support independently!**
+
+#### 3. Language Detection Priority
+
+Always check URL parameter first, then hostname:
+```typescript
+// Correct order
+let language = searchParams.lang;  // URL param first (?lang=da)
+if (!language) {
+  const host = headers.get('host');
+  language = getLanguageFromHostname(host);  // Hostname fallback
+}
+```
+
+#### 4. Verify with Browser Agent
+
+After implementing translations, always verify visually:
+```bash
+agent-browser open "https://cbd-portal.vercel.app/?lang=da"
+agent-browser scroll down 1000
+agent-browser screenshot /tmp/verify-danish.png
+```
+
+Look for:
+- English text that should be translated
+- Raw translation keys (e.g., `articlesPage.title`)
+- Mixed language content
+
+#### 5. Translation Table Column Names
+
+The column is `language`, NOT `language_code`:
+```sql
+-- Correct
+.eq('language', 'da')
+
+-- Wrong
+.eq('language_code', 'da')
+```
+
+#### 6. Site Name Source of Truth
+
+**Always check `FooterLanguageSelector.tsx`** for correct domain/site names:
+- `nl` → `CBDportaal.nl` (not CBD.nl)
+- `fr` → `CBDportail.fr` (not CBD.fr)
+- Swiss → `CBDportal.ch` (not CBD.ch)
+
+#### 7. Files That Need Translation Support
+
+When adding a new content type, update ALL these:
+
+| File | Purpose |
+|------|---------|
+| `src/lib/translations.ts` | Add `getXWithTranslations()` function |
+| `src/lib/[content].ts` | Update `getX()` to fetch translations |
+| `src/components/home/[X].tsx` | Homepage component |
+| `src/app/[content]/page.tsx` | Listing page |
+| `src/app/[content]/[slug]/page.tsx` | Detail page |
+
+#### 8. Vercel Caching
+
+Pages with `revalidate` may show stale content. Force fresh fetch:
+```bash
+# Add cache buster for testing
+agent-browser open "https://site.com/page?lang=da&_t=$(date +%s)"
+```
+
 ### Translation Scripts
 
 ```bash
@@ -501,6 +613,41 @@ addiction, adhd, aging, alzheimers, anxiety, arthritis, athletic, autism, blood_
 ---
 
 ## SESSION LOG
+
+### January 28, 2026 - Danish Translation Verification & Fixes
+
+**Issues Found & Fixed:**
+
+1. **Article titles showing in English** - FeaturedArticles and articles page fetched from `kb_articles` without joining `article_translations`
+   - Added `getFeaturedArticlesWithTranslations()` to `src/lib/translations.ts`
+   - Updated `getArticles()` in `src/lib/articles.ts` to merge translations
+   - Updated `src/app/articles/page.tsx` to detect `?lang=` URL parameter
+
+2. **Wrong domain names in branding** - Used `CBD.nl` instead of `CBDportaal.nl`
+   - Fixed all locale files to match `FooterLanguageSelector.tsx` domains
+   - `nl` → `CBDportaal.nl`, `fr` → `CBDportail.fr`, Swiss → `CBDportal.ch`
+
+3. **Hero section excessive whitespace** - Reduced `min-h-[90vh]` to `min-h-[75vh]`
+
+4. **Conditions title** - Changed "Gennemse efter sygdom" to "CBD og sygdomme"
+
+**Key Learning:** Having translations in the database doesn't mean they display! Each component must explicitly fetch and merge translations.
+
+**Files Modified:**
+- `src/lib/translations.ts` - Added `getFeaturedArticlesWithTranslations()`
+- `src/lib/articles.ts` - Updated `getArticles()` with translation support
+- `src/app/articles/page.tsx` - Added searchParams language detection
+- `src/components/articles/ArticlesHub.tsx` - Added lang prop
+- `src/components/home/FeaturedArticles.tsx` - Use translation function
+- `src/components/home/Hero.tsx` - Reduced spacing
+- `locales/da.json` - Fixed conditions title
+- `locales/*.json` - Fixed all domain-based site names
+
+**Documentation Added:**
+- `docs/translation-guide.md` - Complete translation guide
+- `CLAUDE.md` - Translation Implementation Guidelines section
+
+---
 
 ### January 27, 2026 - Chat Analytics & Project Status
 
