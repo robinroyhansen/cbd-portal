@@ -4,16 +4,33 @@ import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { PET_CATEGORY_META, categorizePetArticles } from '@/lib/pets';
 import { getHreflangAlternates } from '@/components/HreflangTags';
+import { getLanguage } from '@/lib/get-language';
+import { getLocaleSync, createTranslator } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
-export async function generateMetadata(): Promise<Metadata> {
+interface Props {
+  searchParams: Promise<{ lang?: string }>;
+}
+
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
+
   return {
-    title: 'CBD for Cats | Complete Feline Guide | CBD Portal',
+    title: t('catsPage.title') || 'CBD for Cats | Complete Feline Guide | CBD Portal',
     description: 'Comprehensive CBD guides for cats: anxiety, arthritis, kidney support, hyperthyroidism, and more. Cat-specific safety information and vet-approved dosing guidelines.',
     alternates: getHreflangAlternates('/pets/cats'),
   };
 }
 
-export default async function CatsPage() {
+export default async function CatsPage({ searchParams }: Props) {
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
+
   const supabase = await createClient();
   const category = PET_CATEGORY_META.cats;
 
@@ -46,9 +63,9 @@ export default async function CatsPage() {
   const articles = categorized.cats;
 
   const breadcrumbs = [
-    { name: 'Home', url: 'https://cbd-portal.vercel.app' },
-    { name: 'Pets', url: 'https://cbd-portal.vercel.app/pets' },
-    { name: 'Cats', url: 'https://cbd-portal.vercel.app/pets/cats' }
+    { name: t('common.home'), url: 'https://cbd-portal.vercel.app' },
+    { name: t('nav.pets'), url: 'https://cbd-portal.vercel.app/pets' },
+    { name: t('petTypes.cats.name'), url: 'https://cbd-portal.vercel.app/pets/cats' }
   ];
 
   return (
@@ -62,17 +79,16 @@ export default async function CatsPage() {
             <div className="flex items-center gap-3 mb-4">
               <span className="text-5xl md:text-6xl">{category.icon}</span>
               <div>
-                <h1 className="text-3xl md:text-4xl font-bold text-gray-900">CBD for Cats</h1>
-                <p className={`${category.color} font-semibold`}>{articles.length} articles • {conditions.length} conditions</p>
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-900">{t('catsPage.title')}</h1>
+                <p className={`${category.color} font-semibold`}>{t('catsPage.articlesConditions').replace('{{articles}}', articles.length.toString()).replace('{{conditions}}', conditions.length.toString())}</p>
               </div>
             </div>
             <p className="text-gray-600 text-lg mb-4">
-              {category.description}. Cats require special consideration when it comes to CBD -
-              they metabolize compounds differently than dogs.
+              {category.description}. {t('catsPage.description')}
             </p>
             <div className="bg-white/60 rounded-lg p-3 mb-6">
               <p className="text-sm text-gray-700">
-                <strong>Important:</strong> {category.safetyNote}
+                <strong>{t('catsPage.important')}</strong> {category.safetyNote}
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
@@ -81,14 +97,14 @@ export default async function CatsPage() {
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-xl font-semibold hover:bg-purple-700 transition-colors"
               >
                 <span>💊</span>
-                Cat Dosage Calculator
+                {t('catsPage.catDosageCalculator')}
               </Link>
               <Link
                 href="/pets"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-purple-700 rounded-xl font-semibold border-2 border-purple-300 hover:bg-purple-50 transition-colors"
               >
                 <span>🐾</span>
-                All Pets
+                {t('catsPage.allPets')}
               </Link>
             </div>
           </div>
@@ -98,7 +114,7 @@ export default async function CatsPage() {
       {/* Cat Conditions */}
       {conditions.length > 0 && (
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Cat Health Conditions</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('catsPage.catHealthConditions')}</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
             {conditions.map((condition) => (
               <Link
@@ -120,7 +136,7 @@ export default async function CatsPage() {
 
       {/* Cat Articles */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Cat CBD Articles</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('catsPage.catCBDArticles')}</h2>
         {articles.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {articles.map((article) => (
@@ -138,26 +154,26 @@ export default async function CatsPage() {
                   </p>
                 )}
                 {article.reading_time && (
-                  <span className="text-xs text-gray-400">{article.reading_time} min read</span>
+                  <span className="text-xs text-gray-400">{t('catsPage.minRead').replace('{{time}}', article.reading_time.toString())}</span>
                 )}
               </Link>
             ))}
           </div>
         ) : (
-          <p className="text-gray-500">No cat-specific articles yet. Check back soon!</p>
+          <p className="text-gray-500">{t('catsPage.noArticlesYet')}</p>
         )}
       </section>
 
       {/* Common Topics */}
       <section className="mb-12">
         <div className="bg-purple-50 border-2 border-purple-200 rounded-xl p-6">
-          <h3 className="text-lg font-bold text-gray-900 mb-4">Common Uses of CBD for Cats</h3>
+          <h3 className="text-lg font-bold text-gray-900 mb-4">{t('catsPage.commonUses')}</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { icon: '😰', label: 'Anxiety', desc: 'Vet visits, travel' },
-              { icon: '💪', label: 'Arthritis', desc: 'Joint pain & mobility' },
-              { icon: '🫘', label: 'Kidney Support', desc: 'Senior cat health' },
-              { icon: '😾', label: 'Aggression', desc: 'Behavioral support' },
+              { icon: '😰', label: t('catsPage.anxiety'), desc: t('catsPage.anxietyDesc') },
+              { icon: '💪', label: t('catsPage.arthritis'), desc: t('catsPage.arthritisDesc') },
+              { icon: '🫘', label: t('catsPage.kidneySupport'), desc: t('catsPage.kidneySupportDesc') },
+              { icon: '😾', label: t('catsPage.aggression'), desc: t('catsPage.aggressionDesc') },
             ].map((item) => (
               <div key={item.label} className="text-center p-3 bg-white/60 rounded-lg">
                 <span className="text-2xl block mb-2">{item.icon}</span>
@@ -173,14 +189,14 @@ export default async function CatsPage() {
       <div className="p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border-2 border-purple-200">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <h3 className="text-xl font-bold text-gray-900 mb-1">Calculate Your Cat&apos;s CBD Dose</h3>
-            <p className="text-gray-600">Cat-specific dosing based on weight and condition</p>
+            <h3 className="text-xl font-bold text-gray-900 mb-1">{t('catsPage.calculateDose')}</h3>
+            <p className="text-gray-600">{t('catsPage.catSpecificDosing')}</p>
           </div>
           <Link
             href="/tools/animal-dosage-calculator?species=cat"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-xl font-semibold hover:bg-purple-700 transition-colors whitespace-nowrap"
           >
-            Cat Dosage Calculator
+            {t('catsPage.catDosageCalculator')}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

@@ -2,10 +2,22 @@ import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { getHreflangAlternates } from '@/components/HreflangTags';
+import { getLanguage } from '@/lib/get-language';
+import { getLocaleSync, createTranslator } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
-export async function generateMetadata(): Promise<Metadata> {
+interface Props {
+  searchParams: Promise<{ lang?: string }>;
+}
+
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
+
   return {
-    title: 'Our Expert Authors | CBD Portal',
+    title: t('authorsPage.title') || 'Our Expert Authors | CBD Portal',
     description: 'Meet our team of CBD industry experts and researchers.',
     alternates: getHreflangAlternates('/authors'),
   };
@@ -28,7 +40,12 @@ interface Author {
   companies?: { name: string; role: string }[];
 }
 
-export default async function AuthorsPage() {
+export default async function AuthorsPage({ searchParams }: Props) {
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
+
   const supabase = await createClient();
 
   // Get authors from authors table, fallback to mock data if table doesn't exist
@@ -135,26 +152,24 @@ export default async function AuthorsPage() {
     <div className="max-w-6xl mx-auto px-4 py-12">
       {/* Hero section */}
       <div className="text-center mb-16">
-        <h1 className="text-4xl font-bold mb-4">Our Expert Authors</h1>
+        <h1 className="text-4xl font-bold mb-4">{t('authorsPage.title')}</h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-          Our content is written by industry experts with real-world experience in CBD product development,
-          cannabinoid research, and health science. Every article is backed by peer-reviewed research
-          and decades of combined industry knowledge.
+          {t('authorsPage.subtitle')}
         </p>
 
         {/* Trust stats */}
         <div className="flex justify-center gap-8 flex-wrap">
           <div className="text-center">
             <div className="text-3xl font-bold text-green-700">{authors?.length || 0}</div>
-            <div className="text-sm text-gray-500">Expert Authors</div>
+            <div className="text-sm text-gray-500">{t('authorsPage.expertAuthors')}</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-green-700">{totalYears}+</div>
-            <div className="text-sm text-gray-500">Combined Years Experience</div>
+            <div className="text-sm text-gray-500">{t('authorsPage.combinedYearsExperience')}</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-green-700">{totalArticles}</div>
-            <div className="text-sm text-gray-500">Articles Published</div>
+            <div className="text-sm text-gray-500">{t('authorsPage.articlesPublished')}</div>
           </div>
         </div>
       </div>
@@ -192,10 +207,10 @@ export default async function AuthorsPage() {
                     {author.name}
                   </h2>
                   {author.is_verified && (
-                    <span className="text-blue-500" title="Verified CBD Expert">✓</span>
+                    <span className="text-blue-500" title={t('authorsPage.verifiedExpert')}>✓</span>
                   )}
                   <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded font-medium">
-                    Since 2013
+                    {t('authorsPage.since')} 2013
                   </span>
                 </div>
 
@@ -213,7 +228,7 @@ export default async function AuthorsPage() {
                       ))}
                       {author.credentials.length > 2 && (
                         <span className="text-gray-400">
-                          +{author.credentials.length - 2} more credentials
+                          {t('authorsPage.moreCredentials').replace('{{count}}', (author.credentials.length - 2).toString())}
                         </span>
                       )}
                     </div>
@@ -225,10 +240,10 @@ export default async function AuthorsPage() {
                 {/* Stats */}
                 <div className="flex gap-4 text-sm">
                   <span className="text-gray-500">
-                    <strong className="text-gray-700">{author.years_experience}+</strong> years
+                    <strong className="text-gray-700">{author.years_experience}+</strong> {t('authorsPage.years')}
                   </span>
                   <span className="text-gray-500">
-                    <strong className="text-gray-700">{author.article_count}</strong> articles
+                    <strong className="text-gray-700">{author.article_count}</strong> {t('authorsPage.articles')}
                   </span>
                 </div>
 
@@ -242,7 +257,7 @@ export default async function AuthorsPage() {
                     ))}
                     {author.expertise_areas.length > 3 && (
                       <span className="px-2 py-0.5 text-gray-400 text-xs">
-                        +{author.expertise_areas.length - 3} more
+                        {t('authorsPage.more').replace('{{count}}', (author.expertise_areas.length - 3).toString())}
                       </span>
                     )}
                   </div>
@@ -255,17 +270,15 @@ export default async function AuthorsPage() {
 
       {/* Editorial standards note */}
       <div className="mt-16 bg-green-50 rounded-xl p-8 text-center">
-        <h2 className="text-2xl font-bold mb-4">Our Editorial Standards</h2>
+        <h2 className="text-2xl font-bold mb-4">{t('authorsPage.editorialStandards')}</h2>
         <p className="text-gray-600 max-w-2xl mx-auto mb-6">
-          Every piece of content on CBD Portal undergoes rigorous fact-checking and is supported by
-          citations from peer-reviewed research. Our authors follow strict editorial guidelines to
-          ensure accuracy, transparency, and trustworthiness.
+          {t('authorsPage.editorialDescription')}
         </p>
         <Link
           href="/editorial-policy"
           className="text-green-600 hover:text-green-800 font-medium"
         >
-          Read our Editorial Policy →
+          {t('authorsPage.readEditorialPolicy')} →
         </Link>
       </div>
     </div>

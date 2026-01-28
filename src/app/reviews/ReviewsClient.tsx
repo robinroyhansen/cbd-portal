@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { getDomainFromUrl, getCountryFlag } from '@/lib/utils/brand-helpers';
 import { formatDate } from '@/lib/locale';
+import { useLocale } from '@/hooks/useLocale';
 
 interface Brand {
   id: string;
@@ -31,18 +32,19 @@ interface Review {
   author: Author | null;
 }
 
-const SCORE_RANGES = [
-  { label: 'All Scores', min: 0, max: 100 },
-  { label: 'Excellent (80+)', min: 80, max: 100 },
-  { label: 'Good (60-79)', min: 60, max: 79 },
-  { label: 'Average (40-59)', min: 40, max: 59 },
-  { label: 'Below Average (<40)', min: 0, max: 39 }
+// Keys for translation - labels will be resolved in component
+const SCORE_RANGE_KEYS = [
+  { key: 'allScores', min: 0, max: 100 },
+  { key: 'excellent80', min: 80, max: 100 },
+  { key: 'good60', min: 60, max: 79 },
+  { key: 'average40', min: 40, max: 59 },
+  { key: 'belowAverage', min: 0, max: 39 }
 ];
 
-const SORT_OPTIONS = [
-  { value: 'score', label: 'Highest Score' },
-  { value: 'name', label: 'Brand Name' },
-  { value: 'date', label: 'Most Recent' }
+const SORT_OPTION_KEYS = [
+  { value: 'score', key: 'highestScore' },
+  { value: 'name', key: 'brandName' },
+  { value: 'date', key: 'mostRecent' }
 ];
 
 interface ReviewsClientProps {
@@ -50,10 +52,23 @@ interface ReviewsClientProps {
 }
 
 export function ReviewsClient({ initialReviews }: ReviewsClientProps) {
+  const { t } = useLocale();
   const [reviews, setReviews] = useState<Review[]>(initialReviews);
   const [loading, setLoading] = useState(false);
   const [scoreFilter, setScoreFilter] = useState(0);
   const [sortBy, setSortBy] = useState('score');
+
+  // Translated score ranges
+  const scoreRanges = SCORE_RANGE_KEYS.map(range => ({
+    ...range,
+    label: t(`reviewsPage.${range.key}`)
+  }));
+
+  // Translated sort options
+  const sortOptions = SORT_OPTION_KEYS.map(opt => ({
+    ...opt,
+    label: t(`reviewsPage.${opt.key}`)
+  }));
 
   const fetchReviews = useCallback(async () => {
     setLoading(true);
@@ -61,7 +76,7 @@ export function ReviewsClient({ initialReviews }: ReviewsClientProps) {
       const params = new URLSearchParams();
       params.set('sort', sortBy);
 
-      const range = SCORE_RANGES[scoreFilter];
+      const range = SCORE_RANGE_KEYS[scoreFilter];
       if (scoreFilter > 0) {
         params.set('min_score', range.min.toString());
         params.set('max_score', range.max.toString());
@@ -93,10 +108,10 @@ export function ReviewsClient({ initialReviews }: ReviewsClientProps) {
   };
 
   const getScoreLabel = (score: number) => {
-    if (score >= 80) return 'Excellent';
-    if (score >= 60) return 'Good';
-    if (score >= 40) return 'Average';
-    return 'Below Average';
+    if (score >= 80) return t('reviewsPage.excellent');
+    if (score >= 60) return t('reviewsPage.good');
+    if (score >= 40) return t('reviewsPage.average');
+    return t('reviewsPage.belowAverage');
   };
 
   const formatDateSafe = (dateStr: string | null) => {
@@ -128,15 +143,15 @@ export function ReviewsClient({ initialReviews }: ReviewsClientProps) {
           <div className="text-center">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium mb-6 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
               <span>⭐</span>
-              Independent Reviews
+              {t('reviewsPage.independentReviews')}
             </span>
 
             <h1 className="hub-display-heading text-4xl md:text-5xl lg:text-6xl font-normal mb-6 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
-              CBD Brand Reviews
+              {t('reviewsPage.title')}
             </h1>
 
             <p className="hub-body-text text-xl text-emerald-100 max-w-2xl mx-auto mb-8 leading-relaxed opacity-0 animate-fade-in-up" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
-              Independent, expert reviews using our comprehensive 100-point scoring system. We evaluate quality, transparency, value, and more.
+              {t('reviewsPage.subtitle')}
             </p>
 
             <Link
@@ -144,7 +159,7 @@ export function ReviewsClient({ initialReviews }: ReviewsClientProps) {
               className="inline-flex items-center gap-2 text-emerald-200 hover:text-white transition-colors text-sm font-medium opacity-0 animate-fade-in-up"
               style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}
             >
-              Learn how we score brands
+              {t('reviewsPage.learnHowWeScore')}
               <span aria-hidden="true">→</span>
             </Link>
           </div>
@@ -168,7 +183,7 @@ export function ReviewsClient({ initialReviews }: ReviewsClientProps) {
               onChange={(e) => setScoreFilter(parseInt(e.target.value))}
               className="px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 hub-body-text shadow-sm"
             >
-              {SCORE_RANGES.map((range, i) => (
+              {scoreRanges.map((range, i) => (
                 <option key={i} value={i}>{range.label}</option>
               ))}
             </select>
@@ -177,13 +192,15 @@ export function ReviewsClient({ initialReviews }: ReviewsClientProps) {
               onChange={(e) => setSortBy(e.target.value)}
               className="px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 hub-body-text shadow-sm"
             >
-              {SORT_OPTIONS.map(opt => (
+              {sortOptions.map(opt => (
                 <option key={opt.value} value={opt.value}>{opt.label}</option>
               ))}
             </select>
           </div>
           <div className="text-sm text-gray-500 hub-stat-number">
-            {reviews.length} brand{reviews.length !== 1 ? 's' : ''} reviewed
+            {reviews.length === 1
+              ? t('reviewsPage.brandsReviewed').replace('{{count}}', '1')
+              : t('reviewsPage.brandsReviewedPlural').replace('{{count}}', reviews.length.toString())}
           </div>
         </div>
 
@@ -207,18 +224,18 @@ export function ReviewsClient({ initialReviews }: ReviewsClientProps) {
         ) : reviews.length === 0 ? (
           <div className="text-center py-20 bg-white rounded-2xl border border-gray-100">
             <div className="text-6xl mb-6">🔍</div>
-            <h3 className="hub-display-heading text-2xl text-gray-900 mb-3">No reviews found</h3>
+            <h3 className="hub-display-heading text-2xl text-gray-900 mb-3">{t('reviewsPage.noReviewsFound')}</h3>
             <p className="text-gray-600 hub-body-text max-w-md mx-auto">
               {scoreFilter > 0
-                ? 'No brands match your score filter. Try a different range.'
-                : 'Check back soon for new brand reviews.'}
+                ? t('reviewsPage.noMatchFilter')
+                : t('reviewsPage.checkBackSoon')}
             </p>
             {scoreFilter > 0 && (
               <button
                 onClick={() => setScoreFilter(0)}
                 className="mt-6 px-6 py-3 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition-colors font-medium"
               >
-                Clear filters
+                {t('reviewsPage.clearFilters')}
               </button>
             )}
           </div>
@@ -276,7 +293,7 @@ export function ReviewsClient({ initialReviews }: ReviewsClientProps) {
                         </span>
                         {review.last_reviewed_at && (
                           <p className="text-xs text-gray-400 hub-stat-number mt-0.5">
-                            Updated {formatDateSafe(review.last_reviewed_at)}
+                            {t('reviewsPage.updated')} {formatDateSafe(review.last_reviewed_at)}
                           </p>
                         )}
                       </div>
@@ -292,10 +309,10 @@ export function ReviewsClient({ initialReviews }: ReviewsClientProps) {
                     {/* Footer */}
                     <div className="flex items-center justify-between mt-5 pt-5 border-t border-gray-100">
                       {review.author && (
-                        <span className="text-xs text-gray-400">By {review.author.name}</span>
+                        <span className="text-xs text-gray-400">{t('reviewsPage.by')} {review.author.name}</span>
                       )}
                       <span className="text-sm font-medium text-emerald-600 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200">
-                        Read review →
+                        {t('reviewsPage.readReview')} →
                       </span>
                     </div>
                   </div>
@@ -311,30 +328,30 @@ export function ReviewsClient({ initialReviews }: ReviewsClientProps) {
           <div className="absolute inset-0 botanical-pattern opacity-40" />
 
           <div className="relative z-10">
-            <h2 className="hub-display-heading text-2xl sm:text-3xl text-gray-900 mb-4 text-center">Our Scoring System</h2>
+            <h2 className="hub-display-heading text-2xl sm:text-3xl text-gray-900 mb-4 text-center">{t('reviewsPage.ourScoringSystem')}</h2>
             <p className="hub-body-text text-gray-600 text-center max-w-2xl mx-auto mb-6 leading-relaxed">
-              Each brand is evaluated across 9 categories totaling 100 points. Our comprehensive review process ensures fair, consistent, and transparent evaluations.
+              {t('reviewsPage.scoringDescription')}
             </p>
             <div className="text-center mb-10">
               <Link
                 href="/reviews/methodology"
                 className="text-emerald-600 hover:text-emerald-700 text-sm font-medium"
               >
-                See our full review methodology →
+                {t('reviewsPage.seeMethodology')} →
               </Link>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                { name: 'Quality & Testing', points: 20, desc: 'Lab testing, potency, purity', color: 'emerald' },
-                { name: 'Transparency', points: 15, desc: 'COAs, labeling, ingredients', color: 'blue' },
-                { name: 'Reputation', points: 12, desc: 'Reviews, track record, recognition', color: 'purple' },
-                { name: 'Value & Pricing', points: 12, desc: 'Price per mg, discounts, shipping', color: 'amber' },
-                { name: 'Customer Experience', points: 10, desc: 'Website, shipping, support', color: 'pink' },
-                { name: 'Product Range', points: 10, desc: 'Formats, spectrum, strengths', color: 'cyan' },
-                { name: 'Certifications', points: 10, desc: 'GMP, organic, third-party', color: 'green' },
-                { name: 'Sourcing', points: 6, desc: 'Hemp origin, farming practices', color: 'lime' },
-                { name: 'Education', points: 5, desc: 'Dosing guides, content, research', color: 'orange' }
+                { name: t('reviewsPage.qualityTesting'), points: 20, desc: t('reviewsPage.qualityTestingDesc'), color: 'emerald' },
+                { name: t('reviewsPage.transparency'), points: 15, desc: t('reviewsPage.transparencyDesc'), color: 'blue' },
+                { name: t('reviewsPage.reputation'), points: 12, desc: t('reviewsPage.reputationDesc'), color: 'purple' },
+                { name: t('reviewsPage.valuePricing'), points: 12, desc: t('reviewsPage.valuePricingDesc'), color: 'amber' },
+                { name: t('reviewsPage.customerExperience'), points: 10, desc: t('reviewsPage.customerExperienceDesc'), color: 'pink' },
+                { name: t('reviewsPage.productRange'), points: 10, desc: t('reviewsPage.productRangeDesc'), color: 'cyan' },
+                { name: t('reviewsPage.certifications'), points: 10, desc: t('reviewsPage.certificationsDesc'), color: 'green' },
+                { name: t('reviewsPage.sourcing'), points: 6, desc: t('reviewsPage.sourcingDesc'), color: 'lime' },
+                { name: t('reviewsPage.education'), points: 5, desc: t('reviewsPage.educationDesc'), color: 'orange' }
               ].map((cat, index) => (
                 <div
                   key={cat.name}

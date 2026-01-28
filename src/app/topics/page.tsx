@@ -8,22 +8,35 @@ import {
   type TopicCategory,
   type TopicWithDetails,
 } from '@/lib/topics';
+import { getHreflangAlternates } from '@/components/HreflangTags';
+import { getLanguage } from '@/lib/get-language';
+import { getLocaleSync, createTranslator } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
+
+interface Props {
+  searchParams: Promise<{ lang?: string }>;
+}
 
 export const revalidate = 3600; // Revalidate every 1 hour
 
-export const metadata: Metadata = {
-  title: 'CBD Research Topics | Explore Evidence by Health Topic',
-  description: 'Browse CBD research organized by health topics. Explore studies on anxiety, pain, sleep, epilepsy, inflammation and 30+ other conditions with evidence-based summaries.',
-  alternates: {
-    canonical: '/topics',
-  },
-  openGraph: {
-    title: 'CBD Research Topics | CBD Portal',
-    description: 'Explore CBD research organized by health topics with evidence-based summaries and study counts.',
-    type: 'website',
-    url: '/topics',
-  },
-};
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
+
+  return {
+    title: t('topicsPage.title') || 'CBD Research Topics | Explore Evidence by Health Topic',
+    description: 'Browse CBD research organized by health topics. Explore studies on anxiety, pain, sleep, epilepsy, inflammation and 30+ other conditions with evidence-based summaries.',
+    alternates: getHreflangAlternates('/topics'),
+    openGraph: {
+      title: t('topicsPage.title') || 'CBD Research Topics | CBD Portal',
+      description: 'Explore CBD research organized by health topics with evidence-based summaries and study counts.',
+      type: 'website',
+      url: '/topics',
+    },
+  };
+}
 
 // Color mapping for topic cards
 const colorClasses: Record<string, { bg: string; border: string; text: string; badge: string }> = {
@@ -162,7 +175,7 @@ const icons: Record<string, React.ReactNode> = {
   ),
 };
 
-function TopicCard({ topic }: { topic: TopicWithDetails }) {
+function TopicCard({ topic, t }: { topic: TopicWithDetails; t: (key: string) => string }) {
   const colors = colorClasses[topic.color] || colorClasses.gray;
   const icon = icons[topic.icon] || icons.activity;
 
@@ -185,12 +198,12 @@ function TopicCard({ topic }: { topic: TopicWithDetails }) {
           <div className="flex items-center gap-3 mt-3 text-xs text-gray-500">
             {topic.studyCount > 0 && (
               <span className={`px-2 py-0.5 rounded-full ${colors.badge}`}>
-                {topic.studyCount} {topic.studyCount === 1 ? 'study' : 'studies'}
+                {topic.studyCount} {topic.studyCount === 1 ? t('topicsPage.study') : t('topicsPage.studies')}
               </span>
             )}
             {topic.articleCount > 0 && (
               <span className="text-gray-400">
-                {topic.articleCount} {topic.articleCount === 1 ? 'article' : 'articles'}
+                {topic.articleCount} {topic.articleCount === 1 ? t('topicsPage.article') : t('topicsPage.articles')}
               </span>
             )}
           </div>
@@ -223,8 +236,21 @@ function CategoryPill({
   );
 }
 
-// Client component for filtering
-function TopicsGrid({ topics }: { topics: TopicWithDetails[] }) {
+// Map category names to translation keys
+const categoryTranslationKeys: Record<TopicCategory, string> = {
+  'Mental Health': 'mentalHealth',
+  'Pain & Inflammation': 'painInflammation',
+  'Neurological': 'neurological',
+  'Gastrointestinal': 'gastrointestinal',
+  'Cancer': 'cancer',
+  'Skin': 'skin',
+  'Cardiovascular': 'cardiovascular',
+  'Metabolic': 'metabolic',
+  'Other': 'other',
+};
+
+// Component for filtering
+function TopicsGrid({ topics, t }: { topics: TopicWithDetails[]; t: (key: string) => string }) {
   // Group topics by category
   const groupedTopics: Record<TopicCategory, TopicWithDetails[]> = {
     'Mental Health': [],
@@ -266,11 +292,11 @@ function TopicsGrid({ topics }: { topics: TopicWithDetails[] }) {
                     '#6b7280'
                 }}
               />
-              {cat.name}
+              {t(`topicsPage.${categoryTranslationKeys[cat.name]}`)}
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {categoryTopics.map(topic => (
-                <TopicCard key={topic.slug} topic={topic} />
+                <TopicCard key={topic.slug} topic={topic} t={t} />
               ))}
             </div>
           </section>
@@ -280,7 +306,12 @@ function TopicsGrid({ topics }: { topics: TopicWithDetails[] }) {
   );
 }
 
-export default async function TopicsPage() {
+export default async function TopicsPage({ searchParams }: Props) {
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
+
   const [topics, totalResearch] = await Promise.all([
     getTopics(),
     getTotalTopicResearchCount(),
@@ -288,11 +319,11 @@ export default async function TopicsPage() {
 
   const breadcrumbs = [
     { name: 'Home', url: 'https://cbd-portal.vercel.app' },
-    { name: 'Research Topics', url: 'https://cbd-portal.vercel.app/topics' },
+    { name: t('topicsPage.title'), url: 'https://cbd-portal.vercel.app/topics' },
   ];
 
   // Count topics with research
-  const topicsWithStudies = topics.filter(t => t.studyCount > 0).length;
+  const topicsWithStudies = topics.filter(tp => tp.studyCount > 0).length;
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
@@ -301,24 +332,23 @@ export default async function TopicsPage() {
       {/* Hero Section */}
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          CBD Research Topics
+          {t('topicsPage.title')}
         </h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
-          Explore evidence-based CBD research organized by health topics.
-          Browse studies, articles, and expert insights on over {topicsWithStudies} different conditions.
+          {t('topicsPage.subtitle').replace('{{count}}', topicsWithStudies.toString())}
         </p>
         <div className="flex items-center justify-center gap-6 text-sm">
           <div className="flex items-center gap-2">
             <span className="w-8 h-8 bg-green-100 text-green-700 rounded-full flex items-center justify-center font-bold">
               {totalResearch.toLocaleString()}
             </span>
-            <span className="text-gray-600">Research Studies</span>
+            <span className="text-gray-600">{t('topicsPage.researchStudies')}</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="w-8 h-8 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center font-bold">
               {topics.length}
             </span>
-            <span className="text-gray-600">Health Topics</span>
+            <span className="text-gray-600">{t('topicsPage.healthTopics')}</span>
           </div>
         </div>
       </div>
@@ -332,27 +362,26 @@ export default async function TopicsPage() {
               href={`#${cat.name.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
               className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors"
             >
-              {cat.name}
+              {t(`topicsPage.${categoryTranslationKeys[cat.name]}`)}
             </a>
           ))}
         </div>
       </div>
 
       {/* Topics Grid by Category */}
-      <TopicsGrid topics={topics} />
+      <TopicsGrid topics={topics} t={t} />
 
       {/* CTA Section */}
       <div className="mt-16 bg-green-50 rounded-2xl p-8 text-center">
-        <h2 className="text-2xl font-bold mb-3">Looking for Specific Conditions?</h2>
+        <h2 className="text-2xl font-bold mb-3">{t('topicsPage.lookingForConditions')}</h2>
         <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-          Our conditions database contains detailed information on 300+ specific health conditions
-          with research summaries and practical guidance.
+          {t('topicsPage.conditionsDescription')}
         </p>
         <Link
           href="/conditions"
           className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors"
         >
-          Browse All Conditions
+          {t('topicsPage.browseAllConditions')}
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
