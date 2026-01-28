@@ -43,7 +43,7 @@ export function Hero({ stats }: HeroProps) {
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[75vh] flex items-center overflow-hidden">
       {/* Dynamic gradient background */}
       <div className="absolute inset-0 bg-[#0a1f1a]">
         {/* Gradient orbs */}
@@ -88,12 +88,12 @@ export function Hero({ stats }: HeroProps) {
       </div>
 
       {/* Content */}
-      <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-8 py-20">
+      <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left column - Main content */}
           {/* Optimized: Consolidated to single animation group for better performance */}
           <div
-            className={`lg:col-span-7 space-y-8 transition-all duration-500 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+            className={`lg:col-span-7 space-y-6 transition-all duration-500 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
           >
             {/* Eyebrow */}
             <div>
