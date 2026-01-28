@@ -4,6 +4,46 @@ This file tracks build, deploy, and browser validation results.
 
 ---
 
+## 2026-01-28 - Fix Language Preservation in Internal Links
+
+**Commit:** `4ad7d3e` - Update NavLink and NavSearchBar to use LocaleLink
+**Build:** ✅ Success (459 pages generated)
+**Deploy:** ✅ Live
+
+### Problem Solved
+Internal links were losing the `?lang=da` parameter when navigating, causing Danish users to fall back to English pages.
+
+### Solution
+- Created `LocaleLink` component that automatically appends `?lang=` to internal links
+- Created `createLocalizedHref()` utility for server components
+- Updated 12 components to use locale-aware links
+
+### Files Changed
+- `src/components/LocaleLink.tsx` (new) - Client-side locale-aware Link wrapper
+- `src/lib/utils/locale-href.ts` (new) - Server-side localized href builder
+- `src/components/Footer.tsx` - All footer links
+- `src/components/home/Hero.tsx` - CTA buttons
+- `src/components/home/BrowseByCondition.tsx` - Condition cards
+- `src/components/home/BrowseByProduct.tsx` - Product cards
+- `src/components/home/GlossaryTeaser.tsx` - Glossary links
+- `src/components/home/LatestResearch.tsx` - Research cards
+- `src/components/articles/ArticlesHub.tsx` - Article cards
+- `src/components/layouts/Navigation/*.tsx` - Nav links
+
+### Validation Results
+| Test | Status | Notes |
+|------|--------|-------|
+| Homepage loads in Danish | ✅ Pass | `?lang=da` shows full Danish UI |
+| Hero CTA links | ✅ Pass | `/conditions?lang=da` preserved |
+| Footer links | ✅ Pass | `/conditions?lang=da` preserved |
+| Navigation links | ✅ Pass | `/research?lang=da` preserved |
+| Page content stays Danish | ✅ Pass | All UI strings translated |
+
+### Screenshots
+- Danish homepage: `/tmp/danish-final-test.png`
+
+---
+
 ## 2026-01-28 - Build & Deploy Workflow Documentation
 
 **Commit:** `88fd6e7` - Add build & deploy workflow with browser validation
