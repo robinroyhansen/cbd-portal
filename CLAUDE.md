@@ -39,15 +39,15 @@ The portal supports 8 European languages with domain-based routing. Each languag
 - fr-CH (Swiss French)
 - it-CH (Swiss Italian)
 
-### Translation Status
+### Translation Status (Danish)
 
-| Content Type | Target | Current | Status |
-|--------------|--------|---------|--------|
-| Conditions | 312 × 8 = 2,496 | 2,496 | ✅ 100% all languages |
-| Glossary Terms | 263 × 8 = 2,104 | 2,104 | ✅ 100% all languages |
-| Articles | 1,259 × 8 = 10,072 | 1,259 | Danish: 100%, others: 0% |
-| Research | 4,879 × 8 = 39,032 | 4,488 | Danish: 92%, others: 0% |
-| UI Strings | 8 locale files | 8 files | ✅ 100% translated |
+| Content Type | Total | Translated | Status |
+|--------------|-------|------------|--------|
+| Conditions | 312 | 312 | ✅ 100% |
+| Glossary Terms | 263 | 263 | ✅ 100% |
+| Articles | 1,259 | 1,259 | ✅ 100% |
+| Research | 4,879 | 4,488 | 92% (391 remaining) |
+| UI Strings | 1 file | da.json | ✅ 100% |
 
 ### Translation Tables
 
@@ -168,22 +168,17 @@ npx tsx scripts/find-missing.ts
 - **6 data sources** integrated (PubMed, PMC, OpenAlex, Europe PMC, Semantic Scholar, citation imports)
 - **48 search keywords** matched across therapeutic areas
 
-### Translation Status
+### Translation Status (Danish)
 
-| Language | Conditions | Glossary | Articles | Research |
-|----------|------------|----------|----------|----------|
-| Danish (da) | 312/312 ✅ | 263/263 ✅ | 1,259/1,259 ✅ | 4,488/4,879 (92%) |
-| Swedish (sv) | 312/312 ✅ | 263/263 ✅ | 0/1,259 | 0/4,879 |
-| Norwegian (no) | 312/312 ✅ | 263/263 ✅ | 0/1,259 | 0/4,879 |
-| German (de) | 312/312 ✅ | 263/263 ✅ | 0/1,259 | 0/4,879 |
-| Dutch (nl) | 312/312 ✅ | 263/263 ✅ | 0/1,259 | 0/4,879 |
-| Finnish (fi) | 312/312 ✅ | 263/263 ✅ | 0/1,259 | 0/4,879 |
-| French (fr) | 312/312 ✅ | 263/263 ✅ | 0/1,259 | 0/4,879 |
-| Italian (it) | 312/312 ✅ | 263/263 ✅ | 0/1,259 | 0/4,879 |
+| Content Type | Total | Translated | Gap | Status |
+|--------------|-------|------------|-----|--------|
+| Conditions | 312 | 312 | 0 | ✅ Complete |
+| Glossary | 263 | 263 | 0 | ✅ Complete |
+| Articles | 1,259 | 1,259 | 0 | ✅ Complete |
+| Research | 4,879 | 4,488 | 391 | 92% |
+| UI Strings | da.json | ✅ | - | ✅ Complete |
 
-**Totals:** Conditions: 2,496/2,496 ✅ (100%) | Glossary: 2,104/2,104 ✅ (100%) | Articles: 1,259/10,072 (12%) | Research: 4,488/39,032 (11%)
-
-**UI Strings:** 8 locale JSON files (100% translated)
+**Gap Analysis:** Only 391 research translations remaining for Danish (8% gap).
 
 ### AI Chat System - Complete
 
@@ -212,13 +207,13 @@ npx tsx scripts/find-missing.ts
 - **chat_messages**: Individual chat messages with intent classification
 - **chat_feedback**: User feedback on chat responses
 
-### What's Remaining
+### What's Remaining (Danish)
 
-1. **Condition Translations** - ✅ COMPLETE (100% for all 8 languages)
-2. **Glossary Translations** - ✅ COMPLETE (100% for all 8 languages)
-3. **Article Translations** - Danish ✅ complete, 7 languages remaining (sv, no, de, nl, fi, fr, it)
-4. **Research Translations** - Danish 92% (391 remaining), 7 languages not started
-5. **Domain Setup** - Configure cbd.dk, cbd.se, cbd.no, etc. DNS and Vercel domains
+1. **Condition Translations** - ✅ Complete (312/312)
+2. **Glossary Translations** - ✅ Complete (263/263)
+3. **Article Translations** - ✅ Complete (1,259/1,259)
+4. **Research Translations** - 391 remaining (4,488/4,879 = 92%)
+5. **Domain Setup** - Configure cbd.dk DNS and Vercel domain
 
 ### Chat System Usage
 
