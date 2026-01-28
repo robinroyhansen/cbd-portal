@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import { useLocale } from '@/hooks/useLocale';
 import { ComponentProps } from 'react';
 
 type LocaleLinkProps = ComponentProps<typeof Link>;
@@ -21,8 +21,9 @@ type LocaleLinkProps = ComponentProps<typeof Link>;
  * // On /page?lang=da, this will navigate to /conditions?lang=da
  */
 export function LocaleLink({ href, children, ...props }: LocaleLinkProps) {
-  const searchParams = useSearchParams();
-  const lang = searchParams.get('lang');
+  const { lang: currentLang } = useLocale();
+  // Only add lang param if not English (default)
+  const lang = currentLang !== 'en' ? currentLang : null;
 
   // Only modify internal links (starting with /)
   // Don't modify external links, hash links, or links that already have lang param
@@ -80,8 +81,8 @@ export function LocaleLink({ href, children, ...props }: LocaleLinkProps) {
  * const conditionsUrl = getLocalizedHref('/conditions');
  */
 export function useLocalizedHref() {
-  const searchParams = useSearchParams();
-  const lang = searchParams.get('lang');
+  const { lang: currentLang } = useLocale();
+  const lang = currentLang !== 'en' ? currentLang : null;
 
   return (href: string): string => {
     if (!lang) return href;
