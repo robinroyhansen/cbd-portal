@@ -116,7 +116,7 @@
     "smallPetsDesc": "Kaniner, fritter, hamstere",
     "birds": "Fugle",
     "birdsDesc": "Papegøjer, angst, fjerpluk",
-    "petDosageCalculator": "Dyrkedosis-beregner",
+    "petDosageCalculator": "Beregn CBD til dyr",
     "petDosageCalculatorDesc": "Vejledt dosering fra dyrlæge",
     "allPetArticles": "Alle artikler om dyr",
     "allPetArticlesCount": "{{count}}+ guider",
@@ -247,11 +247,11 @@
     "forPets": "Til kæledyr"
   },
   "tools": {
-    "dosageCalculator": "Dosis Kalkulator",
+    "dosageCalculator": "Beregn CBD dosis",
     "interactionChecker": "Interaktions Kontrollør",
-    "petDosage": "Kæledyrs Dosis Kalkulator",
-    "costCalculator": "Omkostnings Kalkulator",
-    "strengthCalculator": "Styrke Kalkulator"
+    "petDosage": "Beregn CBD til dyr",
+    "costCalculator": "Prisberegner",
+    "strengthCalculator": "Beregn CBD-styrke"
   },
   "newsletter": {
     "title": "Hold dig opdateret",
