@@ -606,3 +606,81 @@ export async function getRelatedConditionsWithTranslations(
     };
   });
 }
+
+// ============================================================
+// ARTICLE TRANSLATIONS
+// ============================================================
+
+export interface TranslatedArticle {
+  id: string;
+  slug: string;
+  title: string;
+  meta_description: string | null;
+  reading_time: number | null;
+  updated_at: string;
+  featured_image: string | null;
+  category: { name: string; slug: string } | null;
+}
+
+/**
+ * Fetch featured articles with translations (for homepage)
+ */
+export async function getFeaturedArticlesWithTranslations(
+  language: LanguageCode,
+  limit: number = 5
+): Promise<TranslatedArticle[]> {
+  const supabase = await createClient();
+
+  // Fetch published articles
+  const { data: articles, error } = await supabase
+    .from('kb_articles')
+    .select(`
+      id, slug, title, meta_description, reading_time, updated_at, featured_image,
+      category:kb_categories(name, slug)
+    `)
+    .eq('status', 'published')
+    .order('published_at', { ascending: false })
+    .limit(limit);
+
+  if (error || !articles) return [];
+
+  // If English, return as-is
+  if (language === 'en') {
+    return articles.map(a => ({
+      id: a.id,
+      slug: a.slug,
+      title: a.title,
+      meta_description: a.meta_description,
+      reading_time: a.reading_time,
+      updated_at: a.updated_at,
+      featured_image: a.featured_image,
+      category: a.category as { name: string; slug: string } | null,
+    }));
+  }
+
+  // Fetch translations for non-English
+  const articleIds = articles.map(a => a.id);
+  const { data: translations } = await supabase
+    .from('article_translations')
+    .select('article_id, title, meta_description')
+    .eq('language', language)
+    .in('article_id', articleIds);
+
+  const translationMap = new Map(
+    (translations || []).map(t => [t.article_id, t])
+  );
+
+  return articles.map(a => {
+    const trans = translationMap.get(a.id);
+    return {
+      id: a.id,
+      slug: a.slug,
+      title: trans?.title || a.title,
+      meta_description: trans?.meta_description || a.meta_description,
+      reading_time: a.reading_time,
+      updated_at: a.updated_at,
+      featured_image: a.featured_image,
+      category: a.category as { name: string; slug: string } | null,
+    };
+  });
+}

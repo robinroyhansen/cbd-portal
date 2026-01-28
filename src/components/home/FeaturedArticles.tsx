@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { createClient } from '@/lib/supabase/server';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
+import { getFeaturedArticlesWithTranslations } from '@/lib/translations';
 
 interface FeaturedArticlesProps {
   lang?: LanguageCode;
@@ -11,17 +11,9 @@ interface FeaturedArticlesProps {
 export async function FeaturedArticles({ lang = 'en' }: FeaturedArticlesProps) {
   const locale = getLocaleSync(lang);
   const t = createTranslator(locale);
-  const supabase = await createClient();
 
-  const { data: articles } = await supabase
-    .from('kb_articles')
-    .select(`
-      slug, title, meta_description, reading_time, updated_at, featured_image,
-      category:kb_categories(name, slug)
-    `)
-    .eq('status', 'published')
-    .order('published_at', { ascending: false })
-    .limit(5);
+  // Fetch articles with translations for the current language
+  const articles = await getFeaturedArticlesWithTranslations(lang, 5);
 
   if (!articles || articles.length === 0) return null;
 
