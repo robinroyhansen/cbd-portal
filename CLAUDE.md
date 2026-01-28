@@ -728,6 +728,54 @@ addiction, adhd, aging, alzheimers, anxiety, arthritis, athletic, autism, blood_
 - `docs/translation-guide.md` - Complete translation guide
 - `CLAUDE.md` - Translation Implementation Guidelines section
 
+7. **URL Parameter Detection Fix** - Many pages didn't detect the `?lang=` URL parameter
+
+   **Root Cause:** Pages were using `detectLanguage(headersList)` or `getLanguage()` without checking `searchParams.lang` first. For testing Danish translations before domain deployment, the `?lang=da` parameter must be detected.
+
+   **Pattern Applied to Fix:**
+   ```typescript
+   interface Props {
+     searchParams: Promise<{ lang?: string }>;
+   }
+
+   export default async function Page({ searchParams }: Props) {
+     const { lang: langParam } = await searchParams;
+     const lang = (langParam || await getLanguage()) as LanguageCode;
+     // ...
+   }
+   ```
+
+   **Pages Fixed (9 total):**
+   - `src/app/about/page.tsx`
+   - `src/app/articles/[slug]/page.tsx`
+   - `src/app/contact/page.tsx`
+   - `src/app/editorial-policy/page.tsx`
+   - `src/app/glossary/[slug]/page.tsx`
+   - `src/app/not-found.tsx`
+   - `src/app/pets/page.tsx`
+   - `src/app/search/page.tsx`
+   - `src/app/tools/page.tsx`
+
+8. **Pet Type Names Translation** - Pet category names showed in English on pets page
+   - Updated `src/app/pets/page.tsx` to use `t()` for pet type names and descriptions
+   - Added `petTypes` section to `locales/da.json` and `locales/en.json`
+   - Breadcrumbs now use translated text
+
+**Verification Results After Fixes:**
+
+| Page | Status | Notes |
+|------|--------|-------|
+| `/tools?lang=da` | ✅ PASS | Fully translated |
+| `/about?lang=da` | ✅ PASS | Fully translated |
+| `/pets?lang=da` | ⚠️ PARTIAL | UI translated, dynamic content (articles, conditions) still English |
+| `/search?lang=da` | ⚠️ PARTIAL | Minor English in placeholder |
+| `/glossary/cbd?lang=da` | ⚠️ PARTIAL | UI translated, "Learn More" articles in English |
+
+**Remaining Work:**
+- Dynamic content (article titles, condition names) fetched from database needs translation merge functions applied
+- Pet sub-pages (`/pets/dogs`, `/pets/cats`, etc.) need full translation support
+- Search placeholder text
+
 ---
 
 ### January 27, 2026 - Chat Analytics & Project Status
