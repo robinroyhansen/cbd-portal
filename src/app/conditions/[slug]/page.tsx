@@ -7,10 +7,11 @@ import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { FAQSchema } from '@/components/FAQSchema';
 import { getLanguage } from '@/lib/get-language';
 import { getConditionWithTranslation, getRelatedConditionsWithTranslations } from '@/lib/translations';
-import { getLocaleSync } from '@/../locales';
+import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { getHreflangAlternates } from '@/components/HreflangTags';
 import { generateMedicalWebPageSchema } from '@/lib/seo/page-templates';
+import { createLocalizedHref } from '@/lib/utils/locale-href';
 
 export const revalidate = 86400; // Revalidate every 24 hours
 
@@ -155,6 +156,8 @@ export default async function ConditionPage({ params }: Props) {
   const { slug } = await params;
   const lang = await getLanguage();
   const locale = getLocaleSync(lang as LanguageCode);
+  const t = createTranslator(locale);
+  const localizedHref = createLocalizedHref(lang as string);
   const supabase = await createClient();
 
   // Get condition with translation applied
@@ -293,16 +296,16 @@ export default async function ConditionPage({ params }: Props) {
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>
-                    Read Articles
+                    {t('conditionPage.readArticles')}
                     <span className="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full text-xs">{totalArticleCount || articles.length}</span>
                   </a>
                 )}
                 {condition.research_count && condition.research_count > 0 && (
-                  <Link href={`/research/${slug}`} className="group inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm text-white rounded-xl font-semibold border border-white/20 hover:bg-white/20 transition-all">
+                  <Link href={localizedHref(`/research/${slug}`)} className="group inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm text-white rounded-xl font-semibold border border-white/20 hover:bg-white/20 transition-all">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
-                    Browse {condition.research_count} Studies
+                    {t('conditionPage.browseStudies', { count: condition.research_count })}
                   </Link>
                 )}
               </div>
@@ -311,21 +314,21 @@ export default async function ConditionPage({ params }: Props) {
             {/* Stats card */}
             <div className="lg:col-span-2">
               <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-6 shadow-2xl">
-                <h3 className="text-sm font-semibold text-emerald-200 uppercase tracking-wider mb-4">Research Overview</h3>
+                <h3 className="text-sm font-semibold text-emerald-200 uppercase tracking-wider mb-4">{t('conditionPage.researchOverview')}</h3>
 
                 {/* Research count */}
                 <div className="mb-6">
                   <div className="flex items-baseline gap-2 mb-1">
                     <span className="text-5xl font-bold text-white font-serif">{condition.research_count || 0}</span>
-                    <span className="text-emerald-200">studies</span>
+                    <span className="text-emerald-200">{t('conditionPage.studies')}</span>
                   </div>
-                  <p className="text-emerald-300/80 text-sm">peer-reviewed research papers</p>
+                  <p className="text-emerald-300/80 text-sm">{t('conditionPage.peerReviewedPapers')}</p>
                 </div>
 
                 {/* Evidence strength meter */}
                 <div className="mb-6">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm text-emerald-200">Evidence Strength</span>
+                    <span className="text-sm text-emerald-200">{t('conditionPage.evidenceStrength')}</span>
                     <span className={`text-sm font-semibold text-${evidence.color}-400`}>{evidence.level}</span>
                   </div>
                   <div className="h-2 bg-white/10 rounded-full overflow-hidden">
@@ -343,11 +346,11 @@ export default async function ConditionPage({ params }: Props) {
                     <div className="grid grid-cols-2 gap-4">
                       <div className="text-center p-3 bg-white/5 rounded-xl">
                         <div className="text-2xl font-bold text-white">{humanStudies}</div>
-                        <div className="text-xs text-emerald-300">Human Studies</div>
+                        <div className="text-xs text-emerald-300">{t('conditionPage.humanStudies')}</div>
                       </div>
                       <div className="text-center p-3 bg-white/5 rounded-xl">
                         <div className="text-2xl font-bold text-white">{(studyTypes['animal'] || 0) + (studyTypes['in_vitro'] || 0)}</div>
-                        <div className="text-xs text-emerald-300">Preclinical</div>
+                        <div className="text-xs text-emerald-300">{t('conditionPage.preclinical')}</div>
                       </div>
                     </div>
                   </div>
@@ -378,9 +381,9 @@ export default async function ConditionPage({ params }: Props) {
                   RK
                 </div>
                 <div>
-                  <p className="font-semibold text-slate-900">By Robin Roy Krigslund-Hansen</p>
+                  <p className="font-semibold text-slate-900">{t('conditionPage.byAuthor', { author: 'Robin Roy Krigslund-Hansen' })}</p>
                   <p className="text-sm text-slate-500">
-                    12+ years in CBD industry • Reviewed {condition.research_count || 0} studies for this article
+                    {t('conditionPage.authorExperience', { years: '12+' })} • {t('conditionPage.reviewedStudies', { count: condition.research_count || 0 })}
                   </p>
                 </div>
               </div>
@@ -398,18 +401,18 @@ export default async function ConditionPage({ params }: Props) {
               <div className="flex items-center justify-between mb-8">
                 <div>
                   <h2 className="font-serif text-3xl font-bold text-slate-900">
-                    Articles &amp; Guides
+                    {t('conditionPage.articlesAndGuides')}
                   </h2>
                   <p className="text-slate-600 mt-1">
-                    {totalArticleCount || articles.length} articles about CBD and {condition.display_name || condition.name}
+                    {t('conditionPage.articlesAbout', { count: totalArticleCount || articles.length, condition: condition.display_name || condition.name })}
                   </p>
                 </div>
                 {totalArticleCount && totalArticleCount > 12 && (
                   <Link
-                    href={`/articles?q=${encodeURIComponent(condition.name)}`}
+                    href={localizedHref(`/articles?q=${encodeURIComponent(condition.name)}`)}
                     className="hidden sm:flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 font-medium transition-colors"
                   >
-                    View all {totalArticleCount}
+                    {t('conditionPage.viewAll', { count: totalArticleCount })}
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
@@ -421,7 +424,7 @@ export default async function ConditionPage({ params }: Props) {
                 {articles.map((article: { id: string; title: string; slug: string; excerpt?: string; featured_image?: string; published_at?: string; reading_time?: number }, index: number) => (
                   <Link
                     key={article.id}
-                    href={`/articles/${article.slug}`}
+                    href={localizedHref(`/articles/${article.slug}`)}
                     className="group relative bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-xl hover:border-emerald-200 transition-all duration-300"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
@@ -481,10 +484,10 @@ export default async function ConditionPage({ params }: Props) {
               {/* Mobile CTA & View all link */}
               {totalArticleCount && totalArticleCount > 12 && (
                 <Link
-                  href={`/articles?q=${encodeURIComponent(condition.name)}`}
+                  href={localizedHref(`/articles?q=${encodeURIComponent(condition.name)}`)}
                   className="flex sm:hidden items-center justify-center gap-2 mt-6 px-6 py-3 bg-slate-100 text-slate-700 rounded-xl font-semibold hover:bg-slate-200 transition-colors"
                 >
-                  View all {totalArticleCount} articles
+                  {t('conditionPage.viewAll', { count: totalArticleCount })} {t('common.articles')}
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -499,15 +502,15 @@ export default async function ConditionPage({ params }: Props) {
               <div className="flex items-center justify-between mb-8">
                 <div>
                   <h2 className="font-serif text-3xl font-bold text-slate-900">
-                    Scientific Research
+                    {t('conditionPage.scientificResearch')}
                   </h2>
-                  <p className="text-slate-600 mt-1">Peer-reviewed studies on CBD and {condition.display_name || condition.name}</p>
+                  <p className="text-slate-600 mt-1">{t('conditionPage.peerReviewedStudiesOn', { condition: condition.display_name || condition.name })}</p>
                 </div>
                 <Link
-                  href={`/research/${slug}`}
+                  href={localizedHref(`/research/${slug}`)}
                   className="hidden sm:flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 font-medium transition-colors"
                 >
-                  Browse all {condition.research_count || ''} studies
+                  {t('conditionPage.browseAllStudies', { count: condition.research_count || '' })}
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -518,7 +521,7 @@ export default async function ConditionPage({ params }: Props) {
                 {research.map((study) => (
                   <Link
                     key={study.id}
-                    href={`/research/study/${study.slug}`}
+                    href={localizedHref(`/research/study/${study.slug}`)}
                     className="group block bg-white rounded-xl border border-slate-200 hover:border-emerald-300 hover:shadow-lg transition-all duration-300 overflow-hidden"
                   >
                     <div className="flex">
@@ -597,10 +600,10 @@ export default async function ConditionPage({ params }: Props) {
 
               {/* Mobile CTA */}
               <Link
-                href={`/research/${slug}`}
+                href={localizedHref(`/research/${slug}`)}
                 className="sm:hidden flex items-center justify-center gap-2 mt-6 px-6 py-3 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition-colors"
               >
-                Browse all {condition.research_count || ''} studies
+                {t('conditionPage.browseAllStudies', { count: condition.research_count || '' })}
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -612,7 +615,7 @@ export default async function ConditionPage({ params }: Props) {
           {relatedConditions.length > 0 && (
             <section className="mb-16">
               <h2 className="font-serif text-3xl font-bold text-slate-900 mb-8">
-                Related Conditions
+                {t('conditionPage.relatedConditions')}
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {relatedConditions.map((related) => {
@@ -620,7 +623,7 @@ export default async function ConditionPage({ params }: Props) {
                   return (
                     <Link
                       key={related.slug}
-                      href={`/conditions/${related.slug}`}
+                      href={localizedHref(`/conditions/${related.slug}`)}
                       className="group flex items-start gap-4 p-5 bg-white rounded-xl border border-slate-200 hover:border-emerald-300 hover:shadow-md transition-all"
                     >
                       <span className="text-2xl mt-0.5">{relatedIcon}</span>
@@ -639,7 +642,7 @@ export default async function ConditionPage({ params }: Props) {
                               <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
                               <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
                             </svg>
-                            {related.research_count} studies
+                            {related.research_count} {t('conditionPage.studies')}
                           </span>
                         )}
                       </div>
@@ -656,19 +659,19 @@ export default async function ConditionPage({ params }: Props) {
           {/* Navigation Footer */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-slate-200">
             <Link
-              href="/conditions"
+              href={localizedHref('/conditions')}
               className="inline-flex items-center gap-2 text-slate-600 hover:text-emerald-700 font-medium transition-colors"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
-              Browse All Conditions
+              {t('conditionPage.browseAllConditions')}
             </Link>
             <Link
-              href="/research"
+              href={localizedHref('/research')}
               className="inline-flex items-center gap-2 text-slate-600 hover:text-emerald-700 font-medium transition-colors"
             >
-              Research Database
+              {t('conditionPage.researchDatabase')}
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
@@ -684,11 +687,9 @@ export default async function ConditionPage({ params }: Props) {
                 </svg>
               </div>
               <div>
-                <h3 className="font-semibold text-amber-900 mb-1">Medical Disclaimer</h3>
+                <h3 className="font-semibold text-amber-900 mb-1">{t('conditionPage.medicalDisclaimer')}</h3>
                 <p className="text-sm text-amber-800">
-                  This information is for educational purposes only and is not intended as medical advice.
-                  Always consult with a healthcare professional before using CBD, especially if you have a
-                  medical condition or are taking medications.
+                  {t('conditionPage.medicalDisclaimerText')}
                 </p>
               </div>
             </div>

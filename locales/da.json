@@ -1374,5 +1374,29 @@
     "contactTitle": "Kontakt os",
     "contactText": "Hvis du har spørgsmål om vores brug af cookies, kontakt os venligst på:",
     "contactEmail": "E-mail: privacy@cbdportal.com"
+  },
+  "conditionPage": {
+    "readArticles": "Læs artikler",
+    "browseStudies": "Gennemse {{count}} studier",
+    "researchOverview": "Forskningsoversigt",
+    "studies": "studier",
+    "peerReviewedPapers": "fagfællebedømte forskningsartikler",
+    "evidenceStrength": "Evidensstyrke",
+    "humanStudies": "Menneskelige studier",
+    "preclinical": "Præklinisk",
+    "byAuthor": "Af {{author}}",
+    "authorExperience": "{{years}} i CBD-branchen",
+    "reviewedStudies": "Gennemgået {{count}} studier til denne artikel",
+    "articlesAndGuides": "Artikler og vejledninger",
+    "articlesAbout": "{{count}} artikler om CBD og {{condition}}",
+    "viewAll": "Se alle {{count}}",
+    "scientificResearch": "Videnskabelig forskning",
+    "peerReviewedStudiesOn": "Fagfællebedømte studier om CBD og {{condition}}",
+    "browseAllStudies": "Gennemse alle {{count}} studier",
+    "relatedConditions": "Relaterede sygdomme",
+    "browseAllConditions": "Gennemse alle sygdomme",
+    "researchDatabase": "Forskningsdatabase",
+    "medicalDisclaimer": "Medicinsk ansvarsfraskrivelse",
+    "medicalDisclaimerText": "Disse oplysninger er kun til uddannelsesmæssige formål og er ikke beregnet som medicinsk rådgivning. Rådfør dig altid med en sundhedsfaglig, før du bruger CBD, især hvis du har en medicinsk tilstand eller tager medicin."
   }
 }

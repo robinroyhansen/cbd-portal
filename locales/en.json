@@ -1403,5 +1403,29 @@
     "contactTitle": "Contact Us",
     "contactText": "If you have questions about our use of cookies, please contact us at:",
     "contactEmail": "Email: privacy@cbdportal.com"
+  },
+  "conditionPage": {
+    "readArticles": "Read Articles",
+    "browseStudies": "Browse {{count}} Studies",
+    "researchOverview": "Research Overview",
+    "studies": "studies",
+    "peerReviewedPapers": "peer-reviewed research papers",
+    "evidenceStrength": "Evidence Strength",
+    "humanStudies": "Human Studies",
+    "preclinical": "Preclinical",
+    "byAuthor": "By {{author}}",
+    "authorExperience": "{{years}} in CBD industry",
+    "reviewedStudies": "Reviewed {{count}} studies for this article",
+    "articlesAndGuides": "Articles & Guides",
+    "articlesAbout": "{{count}} articles about CBD and {{condition}}",
+    "viewAll": "View all {{count}}",
+    "scientificResearch": "Scientific Research",
+    "peerReviewedStudiesOn": "Peer-reviewed studies on CBD and {{condition}}",
+    "browseAllStudies": "Browse all {{count}} studies",
+    "relatedConditions": "Related Conditions",
+    "browseAllConditions": "Browse All Conditions",
+    "researchDatabase": "Research Database",
+    "medicalDisclaimer": "Medical Disclaimer",
+    "medicalDisclaimerText": "This information is for educational purposes only and is not intended as medical advice. Always consult with a healthcare professional before using CBD, especially if you have a medical condition or are taking medications."
   }
 }
