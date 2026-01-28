@@ -1,10 +1,11 @@
 'use client';
 
 import { useLocale } from '@/hooks/useLocale';
+import { formatDateLong } from '@/lib/utils/format-date';
 
 export default function MedicalDisclaimerPage() {
-  const { t } = useLocale();
-  const lastUpdated = 'January 1, 2025';
+  const { t, lang } = useLocale();
+  const lastUpdated = formatDateLong(new Date('2025-01-01'), lang);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">

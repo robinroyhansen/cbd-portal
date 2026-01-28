@@ -7,6 +7,7 @@ import { getHreflangAlternates } from '@/components/HreflangTags';
 import { getLanguageFromHostname } from '@/lib/language';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
+import { formatDateLong } from '@/lib/utils/format-date';
 
 // Force dynamic rendering to support language switching via ?lang= parameter
 export const dynamic = 'force-dynamic';
@@ -141,11 +142,7 @@ export default async function ResearchPage({ searchParams }: PageProps) {
       .single();
 
     if (latestStudy?.reviewed_at) {
-      lastUpdated = new Date(latestStudy.reviewed_at).toLocaleDateString('en-GB', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
+      lastUpdated = formatDateLong(latestStudy.reviewed_at, lang);
     }
   } catch (e) {
     // Ignore errors, lastUpdated will remain null

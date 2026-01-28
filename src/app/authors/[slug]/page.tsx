@@ -2,7 +2,11 @@ import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
+import { headers } from 'next/headers';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
+import { getLanguageFromHostname } from '@/lib/language';
+import { getLocaleSync, createTranslator } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
 interface Props {
   params: { slug: string };
@@ -50,6 +54,14 @@ export default async function AuthorPage({ params }: Props) {
   const supabase = await createClient();
   let author: any = null;
   let articles: any[] = [];
+
+  // Get hostname from headers to detect language
+  const headersList = headers();
+  const host = headersList.get('host') || 'localhost';
+  const language = getLanguageFromHostname(host);
+  const locale = getLocaleSync(language as LanguageCode);
+  const t = createTranslator(locale);
+  const dateLocale = language === 'en' ? 'en-GB' : language;
 
   // Handle fallback for Robin if table doesn't exist
   if (params.slug === 'robin-roy-krigslund-hansen') {
@@ -563,7 +575,7 @@ Through this portal, Robin shares his decade-plus of practical experience to pro
                   <p className="text-gray-600 text-sm line-clamp-2 mb-2">{article.excerpt}</p>
                   <div className="flex gap-4 text-xs text-gray-400">
                     {article.reading_time && <span>{article.reading_time} min read</span>}
-                    <span>Updated {new Date(article.updated_at).toLocaleDateString('en-GB', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                    <span>{t('common.updated')} {new Date(article.updated_at).toLocaleDateString(dateLocale, { month: 'short', day: 'numeric', year: 'numeric' })}</span>
                   </div>
                 </Link>
               ))}

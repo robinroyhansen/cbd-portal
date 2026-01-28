@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useLocale } from '@/hooks/useLocale';
+import { formatDateLong } from '@/lib/utils/format-date';
 
 interface AuthorBioProps {
   className?: string;
@@ -100,11 +101,7 @@ export function AuthorByline({ date, className = '' }: { date?: string; classNam
       {date && (
         <>
           <span className="text-gray-300 ml-2">•</span>
-          <span className="text-xs">{new Date(date).toLocaleDateString(lang === 'da' ? 'da-DK' : 'en-GB', {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric'
-          })}</span>
+          <span className="text-xs">{formatDateLong(date, lang)}</span>
         </>
       )}
     </div>

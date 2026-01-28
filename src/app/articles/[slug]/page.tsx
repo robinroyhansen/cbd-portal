@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { headers } from 'next/headers';
 import { getArticleBySlug, getRelatedArticles } from '@/lib/articles';
 import { getLanguageFromHostname } from '@/lib/language';
+import { getLocaleSync, createTranslator } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 import { getGlossaryTermsForLinking } from '@/lib/glossary';
 import { AuthorBio, AuthorByline } from '@/components/AuthorBio';
 import { Citations, CitationCount } from '@/components/Citations';
@@ -400,11 +402,16 @@ export default async function ArticlePage({ params }: Props) {
 
       {/* Last Updated Note */}
       <p className="text-xs text-gray-400 mt-6 text-center">
-        Last reviewed and updated: {new Date(article.updated_at).toLocaleDateString('en-GB', {
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric'
-        })}
+        {(() => {
+          const locale = getLocaleSync(language as LanguageCode);
+          const t = createTranslator(locale);
+          const dateLocale = language === 'en' ? 'en-GB' : language;
+          return `${t('common.lastReviewedAndUpdated')} ${new Date(article.updated_at).toLocaleDateString(dateLocale, {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+          })}`;
+        })()}
       </p>
 
       {/* Comments */}

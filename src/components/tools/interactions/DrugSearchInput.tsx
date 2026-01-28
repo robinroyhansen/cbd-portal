@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import type { DrugSearchResult } from '@/types/drug-interactions';
 import { DRUG_CATEGORY_LABELS } from '@/types/drug-interactions';
+import { useLocale } from '@/hooks/useLocale';
 
 interface DrugSearchInputProps {
   onSelect: (drug: DrugSearchResult) => void;
@@ -15,6 +16,7 @@ export function DrugSearchInput({
   placeholder = 'Enter medication name...',
   autoFocus = false,
 }: DrugSearchInputProps) {
+  const { t } = useLocale();
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<DrugSearchResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -118,7 +120,7 @@ export function DrugSearchInput({
           placeholder={placeholder}
           autoFocus={autoFocus}
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500"
-          aria-label="Search for a medication"
+          aria-label={t('accessibility.searchMedication')}
           aria-expanded={isOpen}
           aria-autocomplete="list"
           role="combobox"
@@ -138,7 +140,7 @@ export function DrugSearchInput({
               inputRef.current?.focus();
             }}
             className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-            aria-label="Clear search"
+            aria-label={t('accessibility.clearSearch')}
           >
             <svg
               className="h-5 w-5"
