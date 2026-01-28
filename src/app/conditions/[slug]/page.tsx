@@ -17,11 +17,14 @@ export const revalidate = 86400; // Revalidate every 24 hours
 
 interface Props {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ lang?: string }>;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const lang = await getLanguage();
+  const { lang: langParam } = await searchParams;
+  // Use lang from URL param if available, otherwise fall back to header detection
+  const lang = langParam || await getLanguage();
   const locale = getLocaleSync(lang as LanguageCode);
 
   // Get condition with translation applied
@@ -152,9 +155,11 @@ function generateConditionFAQs(data: ConditionFAQData): Array<{ question: string
   return faqs;
 }
 
-export default async function ConditionPage({ params }: Props) {
+export default async function ConditionPage({ params, searchParams }: Props) {
   const { slug } = await params;
-  const lang = await getLanguage();
+  const { lang: langParam } = await searchParams;
+  // Use lang from URL param if available, otherwise fall back to header detection
+  const lang = langParam || await getLanguage();
   const locale = getLocaleSync(lang as LanguageCode);
   const t = createTranslator(locale);
   const localizedHref = createLocalizedHref(lang as string);
