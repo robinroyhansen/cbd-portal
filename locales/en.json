@@ -686,7 +686,19 @@
     "safetyLowDose": "Start with low doses and monitor your pet's response carefully",
     "safetyHorses": "Check competition regulations before using CBD with sport horses",
     "notSureTitle": "Not sure where to start?",
-    "notSureDesc": "Calculate the right CBD dose for your pet based on species, weight, and condition"
+    "notSureDesc": "Calculate the right CBD dose for your pet based on species, weight, and condition",
+    "petTypes": {
+      "dogs": "Dogs",
+      "dogs_desc": "CBD guides for canine companions - from puppies to senior dogs",
+      "cats": "Cats",
+      "cats_desc": "CBD information for feline friends - special considerations for cats",
+      "horses": "Horses",
+      "horses_desc": "CBD for equine health - supporting performance and recovery",
+      "birds": "Birds",
+      "birds_desc": "CBD guidance for avian pets - parrots, finches, and more",
+      "small-pets": "Small Pets",
+      "small-pets_desc": "CBD for rabbits, guinea pigs, ferrets, hamsters, and other small animals"
+    }
   },
   "searchPage": {
     "pageTitle": "Search | CBD Portal",

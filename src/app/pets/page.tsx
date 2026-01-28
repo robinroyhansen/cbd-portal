@@ -100,8 +100,8 @@ export default async function PetsHubPage({ searchParams }: Props) {
   const categorizedConditions = categorizeConditions(conditions);
 
   const breadcrumbs = [
-    { name: 'Home', url: 'https://cbd-portal.vercel.app' },
-    { name: 'CBD for Pets', url: 'https://cbd-portal.vercel.app/pets' }
+    { name: t('common.home') || 'Home', url: 'https://cbd-portal.vercel.app' },
+    { name: t('petsPage.title') || 'CBD for Pets', url: 'https://cbd-portal.vercel.app/pets' }
   ];
 
   // Species sections for display
@@ -168,10 +168,10 @@ export default async function PetsHubPage({ searchParams }: Props) {
                   <span className="text-4xl">{category.icon}</span>
                   <div className="flex-1">
                     <h3 className={`text-xl font-bold ${category.color} group-hover:underline`}>
-                      {category.name}
+                      {t(`petsPage.petTypes.${id}`) || category.name}
                     </h3>
                     <p className="text-sm text-gray-600 mt-1 mb-3">
-                      {category.description}
+                      {t(`petsPage.petTypes.${id}_desc`) || category.description}
                     </p>
                     <div className="flex flex-wrap gap-2 text-xs">
                       {articleCount > 0 && (
@@ -242,7 +242,7 @@ export default async function PetsHubPage({ searchParams }: Props) {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <span className="text-2xl">{category.icon}</span>
-                    <h3 className={`text-lg font-bold ${category.color}`}>{category.name}</h3>
+                    <h3 className={`text-lg font-bold ${category.color}`}>{t(`petsPage.petTypes.${id}`) || category.name}</h3>
                   </div>
                   <Link
                     href={href}
