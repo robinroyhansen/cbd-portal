@@ -51,15 +51,20 @@ function stripDisclaimers(content: string): string {
 
 interface Props {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ lang?: string }>;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const { slug } = await params;
+  const { lang: langParam } = await searchParams;
 
-  // Get hostname from headers to detect language
-  const headersList = headers();
-  const host = headersList.get('host') || 'localhost';
-  const language = getLanguageFromHostname(host);
+  // Get language from URL param, or fall back to hostname-based detection
+  let language: LanguageCode = (langParam as LanguageCode) || 'en';
+  if (!langParam) {
+    const headersList = headers();
+    const host = headersList.get('host') || 'localhost';
+    language = getLanguageFromHostname(host.split(':')[0]) as LanguageCode;
+  }
 
   const { data: article } = await getArticleBySlug(slug, language);
 
@@ -128,13 +133,17 @@ function extractFAQs(content: string): Array<{ question: string; answer: string 
 //   }));
 // }
 
-export default async function ArticlePage({ params }: Props) {
+export default async function ArticlePage({ params, searchParams }: Props) {
   const { slug } = await params;
+  const { lang: langParam } = await searchParams;
 
-  // Get hostname from headers to detect language
-  const headersList = headers();
-  const host = headersList.get('host') || 'localhost';
-  const language = getLanguageFromHostname(host);
+  // Get language from URL param, or fall back to hostname-based detection
+  let language: LanguageCode = (langParam as LanguageCode) || 'en';
+  if (!langParam) {
+    const headersList = headers();
+    const host = headersList.get('host') || 'localhost';
+    language = getLanguageFromHostname(host.split(':')[0]) as LanguageCode;
+  }
 
   const { data } = await getArticleBySlug(slug, language);
   const article = data as any;

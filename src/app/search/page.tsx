@@ -1,33 +1,34 @@
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { headers } from 'next/headers';
 import { SearchForm } from '@/components/SearchForm';
 import { getHreflangAlternates } from '@/components/HreflangTags';
-import { detectLanguage } from '@/lib/language';
+import { getLanguage } from '@/lib/get-language';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 
 interface Props {
-  searchParams: Promise<{ q?: string }>;
+  searchParams: Promise<{ q?: string; lang?: string }>;
 }
 
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
-  const { q } = await searchParams;
+  const { q, lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
+
   return {
-    title: q ? `Search: ${q} | CBD Portal` : 'Search | CBD Portal',
-    description: 'Search CBD Portal for articles, research studies, glossary terms, and more.',
+    title: q ? `${t('searchPage.title') || 'Search'}: ${q} | ${locale.meta?.siteName || 'CBD Portal'}` : `${t('searchPage.title') || 'Search'} | ${locale.meta?.siteName || 'CBD Portal'}`,
+    description: t('searchPage.metaDescription') || 'Search CBD Portal for articles, research studies, glossary terms, and more.',
     alternates: getHreflangAlternates('/search'),
   };
 }
 
 export default async function SearchPage({ searchParams }: Props) {
-  const headersList = await headers();
-  const lang = detectLanguage(headersList) as LanguageCode;
+  const { q, lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
   const locale = getLocaleSync(lang);
   const t = createTranslator(locale);
-
-  const { q } = await searchParams;
   const query = q || '';
   const supabase = await createClient();
 

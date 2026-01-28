@@ -1,16 +1,32 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { getHreflangAlternates } from '@/components/HreflangTags';
+import { getLanguage } from '@/lib/get-language';
+import { getLocaleSync, createTranslator } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
-export async function generateMetadata(): Promise<Metadata> {
+interface Props {
+  searchParams: Promise<{ lang?: string }>;
+}
+
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
+
   return {
-    title: 'Editorial Policy | CBD Portal',
-    description: 'Learn about CBD Portal editorial standards and research methodology.',
+    title: t('editorialPolicy.metaTitle') || 'Editorial Policy | CBD Portal',
+    description: t('editorialPolicy.metaDescription') || 'Learn about CBD Portal editorial standards and research methodology.',
     alternates: getHreflangAlternates('/editorial-policy'),
   };
 }
 
-export default function EditorialPolicyPage() {
+export default async function EditorialPolicyPage({ searchParams }: Props) {
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <h1 className="text-4xl font-bold mb-4">Editorial Policy</h1>

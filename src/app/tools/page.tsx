@@ -1,15 +1,24 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { headers } from 'next/headers';
 import { getHreflangAlternates } from '@/components/HreflangTags';
-import { detectLanguage } from '@/lib/language';
+import { getLanguage } from '@/lib/get-language';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
+import { createLocalizedHref } from '@/lib/utils/locale-href';
 
-export async function generateMetadata(): Promise<Metadata> {
+interface Props {
+  searchParams: Promise<{ lang?: string }>;
+}
+
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
+
   return {
-    title: 'CBD Tools & Calculators | Dosage, Interactions, Cost',
-    description: 'Evidence-based CBD tools including dosage calculator, drug interaction checker, cost calculator, and strength converter. Get personalized recommendations.',
+    title: t('toolsPage.metaTitle') || 'CBD Tools & Calculators | Dosage, Interactions, Cost',
+    description: t('toolsPage.metaDescription') || 'Evidence-based CBD tools including dosage calculator, drug interaction checker, cost calculator, and strength converter.',
     alternates: getHreflangAlternates('/tools'),
   };
 }
@@ -130,11 +139,12 @@ const tools: Tool[] = [
   }
 ];
 
-export default async function ToolsPage() {
-  const headersList = await headers();
-  const lang = detectLanguage(headersList) as LanguageCode;
+export default async function ToolsPage({ searchParams }: Props) {
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
   const locale = getLocaleSync(lang);
   const t = createTranslator(locale);
+  const localizedHref = createLocalizedHref(lang);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -195,7 +205,7 @@ export default async function ToolsPage() {
               <div className="pt-4 border-t border-gray-100">
                 {tool.status === 'available' ? (
                   <Link
-                    href={tool.href}
+                    href={localizedHref(tool.href)}
                     className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium text-center block"
                   >
                     {t('toolsPage.useThisTool')}

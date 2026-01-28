@@ -1,12 +1,10 @@
 import Link from 'next/link';
-import { headers } from 'next/headers';
-import { detectLanguage } from '@/lib/language';
+import { getLanguage } from '@/lib/get-language';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 
 export default async function NotFound() {
-  const headersList = await headers();
-  const lang = detectLanguage(headersList) as LanguageCode;
+  const lang = await getLanguage() as LanguageCode;
   const locale = getLocaleSync(lang);
   const t = createTranslator(locale);
 

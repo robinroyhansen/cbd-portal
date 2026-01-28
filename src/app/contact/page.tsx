@@ -1,21 +1,29 @@
 import { Metadata } from 'next';
-import { headers } from 'next/headers';
 import { getHreflangAlternates } from '@/components/HreflangTags';
-import { detectLanguage } from '@/lib/language';
+import { getLanguage } from '@/lib/get-language';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 
-export async function generateMetadata(): Promise<Metadata> {
+interface Props {
+  searchParams: Promise<{ lang?: string }>;
+}
+
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
+
   return {
-    title: 'Contact Us | CBD Portal',
-    description: 'Get in touch with the CBD Portal team.',
+    title: t('contact.metaTitle') || 'Contact Us | CBD Portal',
+    description: t('contact.metaDescription') || 'Get in touch with the CBD Portal team.',
     alternates: getHreflangAlternates('/contact'),
   };
 }
 
-export default async function ContactPage() {
-  const headersList = await headers();
-  const lang = detectLanguage(headersList) as LanguageCode;
+export default async function ContactPage({ searchParams }: Props) {
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
   const locale = getLocaleSync(lang);
   const t = createTranslator(locale);
 

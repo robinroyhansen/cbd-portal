@@ -1,23 +1,31 @@
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { headers } from 'next/headers';
 import { getHreflangAlternates } from '@/components/HreflangTags';
-import { detectLanguage } from '@/lib/language';
+import { getLanguage } from '@/lib/get-language';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 
-export async function generateMetadata(): Promise<Metadata> {
+interface Props {
+  searchParams: Promise<{ lang?: string }>;
+}
+
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
+
   return {
-    title: 'About CBD Portal | Evidence-Based CBD Information',
-    description: 'CBD Portal provides evidence-based CBD information written by industry experts.',
+    title: t('about.metaTitle') || 'About CBD Portal | Evidence-Based CBD Information',
+    description: t('about.metaDescription') || 'CBD Portal provides evidence-based CBD information written by industry experts.',
     alternates: getHreflangAlternates('/about'),
   };
 }
 
-export default async function AboutPage() {
-  const headersList = await headers();
-  const lang = detectLanguage(headersList) as LanguageCode;
+export default async function AboutPage({ searchParams }: Props) {
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
   const locale = getLocaleSync(lang);
   const t = createTranslator(locale);
 

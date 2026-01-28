@@ -15,6 +15,7 @@ import { getHreflangAlternates } from '@/components/HreflangTags';
 
 interface Props {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ lang?: string }>;
 }
 
 // Generate static params for all glossary terms at build time
@@ -98,10 +99,11 @@ function formatMetaDescription(text: string): string {
 
 // Using formatDate from @/lib/locale for consistent international formatting
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const lang = await getLanguage();
-  const locale = getLocaleSync(lang as LanguageCode);
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
+  const locale = getLocaleSync(lang);
 
   // Get term with translation applied
   const term = await getGlossaryTermWithTranslation(slug, lang as LanguageCode);
@@ -145,10 +147,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function GlossaryTermPage({ params }: Props) {
+export default async function GlossaryTermPage({ params, searchParams }: Props) {
   const { slug } = await params;
-  const lang = await getLanguage();
-  const locale = getLocaleSync(lang as LanguageCode);
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
+  const locale = getLocaleSync(lang);
   const supabase = await createClient();
 
   // Get term with translation applied

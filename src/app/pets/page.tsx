@@ -1,18 +1,26 @@
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { headers } from 'next/headers';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { PET_CATEGORIES, categorizePetArticles, getPetCategoryStats, PetType } from '@/lib/pets';
 import { getHreflangAlternates } from '@/components/HreflangTags';
-import { detectLanguage } from '@/lib/language';
+import { getLanguage } from '@/lib/get-language';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 
-export async function generateMetadata(): Promise<Metadata> {
+interface Props {
+  searchParams: Promise<{ lang?: string }>;
+}
+
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
+  const locale = getLocaleSync(lang);
+  const t = createTranslator(locale);
+
   return {
-    title: 'CBD for Pets | Complete Guide for Dogs, Cats, Horses & More | CBD Portal',
-    description: 'Comprehensive CBD guides for pets: 78+ articles and 40+ conditions covering dogs, cats, horses, birds, and small animals. Dosage calculators, safety info, and veterinary perspectives.',
+    title: t('petsPage.metaTitle') || 'CBD for Pets | Complete Guide for Dogs, Cats, Horses & More | CBD Portal',
+    description: t('petsPage.metaDescription') || 'Comprehensive CBD guides for pets: 78+ articles and 40+ conditions covering dogs, cats, horses, birds, and small animals. Dosage calculators, safety info, and veterinary perspectives.',
     alternates: getHreflangAlternates('/pets'),
   };
 }
@@ -24,9 +32,9 @@ interface Condition {
   short_description: string | null;
 }
 
-export default async function PetsHubPage() {
-  const headersList = await headers();
-  const lang = detectLanguage(headersList) as LanguageCode;
+export default async function PetsHubPage({ searchParams }: Props) {
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
   const locale = getLocaleSync(lang);
   const t = createTranslator(locale);
 
