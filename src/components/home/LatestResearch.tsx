@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
+import { createLocalizedHref } from '@/lib/utils/locale-href';
 
 interface QualityBadgeProps {
   score: number;
@@ -63,6 +64,7 @@ interface LatestResearchProps {
 export async function LatestResearch({ lang = 'en' }: LatestResearchProps) {
   const locale = getLocaleSync(lang);
   const t = createTranslator(locale);
+  const localizedHref = createLocalizedHref(lang);
   const supabase = await createClient();
 
   const { data: latestResearch, count: totalCount } = await supabase
@@ -111,7 +113,7 @@ export async function LatestResearch({ lang = 'en' }: LatestResearchProps) {
             </div>
 
             <Link
-              href="/research"
+              href={localizedHref('/research')}
               className="group inline-flex items-center gap-3 px-6 py-3.5 bg-white text-slate-900 rounded-xl font-semibold hover:bg-emerald-50 transition-all"
             >
               <span>{t('research.browseAll')}</span>
@@ -127,7 +129,7 @@ export async function LatestResearch({ lang = 'en' }: LatestResearchProps) {
               <h3 className="text-sm font-medium text-white/40 uppercase tracking-wider">
                 {t('research.recentlyAdded')}
               </h3>
-              <Link href="/research" className="text-sm text-emerald-400 hover:text-emerald-300 font-medium">
+              <Link href={localizedHref('/research')} className="text-sm text-emerald-400 hover:text-emerald-300 font-medium">
                 {t('common.viewAll')} →
               </Link>
             </div>
@@ -136,7 +138,7 @@ export async function LatestResearch({ lang = 'en' }: LatestResearchProps) {
               {research.map((item) => (
                 <Link
                   key={item.id}
-                  href={item.slug ? `/research/study/${item.slug}` : item.url}
+                  href={item.slug ? localizedHref(`/research/study/${item.slug}`) : item.url}
                   target={item.slug ? undefined : "_blank"}
                   rel={item.slug ? undefined : "noopener noreferrer"}
                   className="group block bg-white/[0.03] backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/[0.06] hover:border-emerald-500/30 transition-all"

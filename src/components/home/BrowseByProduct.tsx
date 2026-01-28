@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
+import { createLocalizedHref } from '@/lib/utils/locale-href';
 
 const productTypes = [
   {
@@ -61,6 +62,7 @@ interface BrowseByProductProps {
 export async function BrowseByProduct({ lang = 'en' }: BrowseByProductProps) {
   const locale = getLocaleSync(lang);
   const t = createTranslator(locale);
+  const localizedHref = createLocalizedHref(lang);
 
   const supabase = await createClient();
 
@@ -92,8 +94,8 @@ export async function BrowseByProduct({ lang = 'en' }: BrowseByProductProps) {
           {productTypes.map((product) => {
             // Link to glossary if term exists, otherwise to search
             const href = existingGlossarySlugs.has(product.glossarySlug)
-              ? `/glossary/${product.glossarySlug}`
-              : `/search?q=${encodeURIComponent(product.searchQuery)}`;
+              ? localizedHref(`/glossary/${product.glossarySlug}`)
+              : localizedHref(`/search?q=${encodeURIComponent(product.searchQuery)}`);
 
             return (
               <Link
@@ -114,21 +116,21 @@ export async function BrowseByProduct({ lang = 'en' }: BrowseByProductProps) {
         {/* Additional resources - scrollable on mobile */}
         <div className="mt-6 md:mt-10 flex overflow-x-auto pb-2 md:pb-0 md:flex-wrap md:justify-center gap-3 md:gap-4 scrollbar-hide">
           <Link
-            href="/glossary/bioavailability"
+            href={localizedHref('/glossary/bioavailability')}
             className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-600 hover:border-green-300 hover:text-green-700 transition-colors whitespace-nowrap flex-shrink-0"
           >
             <span>📊</span>
             {t('products.bioavailability')}
           </Link>
           <Link
-            href="/tools/dosage-calculator"
+            href={localizedHref('/tools/dosage-calculator')}
             className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-600 hover:border-green-300 hover:text-green-700 transition-colors whitespace-nowrap flex-shrink-0"
           >
             <span>💊</span>
             {t('tools.dosageCalculator')}
           </Link>
           <Link
-            href="/glossary/full-spectrum"
+            href={localizedHref('/glossary/full-spectrum')}
             className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-600 hover:border-green-300 hover:text-green-700 transition-colors whitespace-nowrap flex-shrink-0"
           >
             <span>🌿</span>
@@ -136,7 +138,7 @@ export async function BrowseByProduct({ lang = 'en' }: BrowseByProductProps) {
           </Link>
           {brandCount && brandCount > 0 && (
             <Link
-              href="/reviews"
+              href={localizedHref('/reviews')}
               className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-green-50 border border-green-200 rounded-lg text-sm text-green-700 hover:bg-green-100 transition-colors whitespace-nowrap flex-shrink-0"
             >
               <span>⭐</span>

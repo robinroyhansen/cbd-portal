@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { HomePageStats } from '@/lib/stats';
 import { SearchBar } from './SearchBar';
 import { useEffect, useState } from 'react';

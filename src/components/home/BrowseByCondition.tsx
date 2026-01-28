@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
+import { createLocalizedHref } from '@/lib/utils/locale-href';
 
 const categoryConfig: Record<string, { icon: string; color: string; bgColor: string }> = {
   'mental_health': { icon: '🧠', color: 'text-violet-600', bgColor: 'bg-violet-500/10' },
@@ -23,6 +24,7 @@ interface BrowseByConditionProps {
 export async function BrowseByCondition({ lang = 'en' }: BrowseByConditionProps) {
   const locale = getLocaleSync(lang);
   const t = createTranslator(locale);
+  const localizedHref = createLocalizedHref(lang);
   const supabase = await createClient();
 
   const { data: conditions } = await supabase
@@ -72,7 +74,7 @@ export async function BrowseByCondition({ lang = 'en' }: BrowseByConditionProps)
             return (
               <Link
                 key={condition.slug}
-                href={`/conditions/${condition.slug}`}
+                href={localizedHref(`/conditions/${condition.slug}`)}
                 className={`group relative bg-white rounded-2xl p-6 lg:p-8 border border-slate-200/80 hover:border-emerald-300 hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-500 ${isLarge ? 'md:col-span-2 lg:col-span-1' : ''}`}
               >
                 {/* Hover gradient overlay */}
@@ -128,7 +130,7 @@ export async function BrowseByCondition({ lang = 'en' }: BrowseByConditionProps)
         {/* View All CTA */}
         <div className="mt-12 text-center">
           <Link
-            href="/conditions"
+            href={localizedHref('/conditions')}
             className="group inline-flex items-center gap-3 px-8 py-4 bg-slate-900 text-white rounded-xl font-semibold hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl"
           >
             <span>{t('conditions.browseAll', { count: totalConditions || 312 })}</span>

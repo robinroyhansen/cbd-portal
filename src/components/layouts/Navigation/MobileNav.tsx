@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useCallback, useRef } from 'react';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import type { NavItem, NavChild } from './navItems';
 import { NavLink } from './NavLink';
 import { MobileMenuSearchLink } from './NavSearchBar';

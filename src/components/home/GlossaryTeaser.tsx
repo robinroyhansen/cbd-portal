@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
+import { createLocalizedHref } from '@/lib/utils/locale-href';
 
 interface GlossaryTeaserProps {
   lang?: LanguageCode;
@@ -10,6 +11,7 @@ interface GlossaryTeaserProps {
 export async function GlossaryTeaser({ lang = 'en' }: GlossaryTeaserProps) {
   const locale = getLocaleSync(lang);
   const t = createTranslator(locale);
+  const localizedHref = createLocalizedHref(lang);
   const supabase = await createClient();
 
   // Get recently updated glossary terms
@@ -85,7 +87,7 @@ export async function GlossaryTeaser({ lang = 'en' }: GlossaryTeaserProps) {
                   {topCategories.map(([category, count]) => (
                     <Link
                       key={category}
-                      href={`/glossary/category/${category.toLowerCase().replace(/\s+/g, '-')}`}
+                      href={localizedHref(`/glossary/category/${category.toLowerCase().replace(/\s+/g, '-')}`)}
                       className="text-xs px-2 py-1 bg-gray-100 hover:bg-green-100 text-gray-600 hover:text-green-700 rounded-full transition-colors"
                     >
                       {category} ({count})
@@ -96,7 +98,7 @@ export async function GlossaryTeaser({ lang = 'en' }: GlossaryTeaserProps) {
             </div>
 
             <Link
-              href="/glossary"
+              href={localizedHref('/glossary')}
               className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors"
             >
               {t('glossary.browseAll')}
@@ -113,7 +115,7 @@ export async function GlossaryTeaser({ lang = 'en' }: GlossaryTeaserProps) {
                 {t('research.recentlyAdded')}
               </h3>
               <Link
-                href="/glossary"
+                href={localizedHref('/glossary')}
                 className="text-xs md:text-sm text-green-600 hover:text-green-700"
               >
                 {t('common.viewAll')} →
@@ -123,7 +125,7 @@ export async function GlossaryTeaser({ lang = 'en' }: GlossaryTeaserProps) {
               {recentTerms.slice(0, 6).map((term) => (
                 <Link
                   key={term.slug}
-                  href={`/glossary/${term.slug}`}
+                  href={localizedHref(`/glossary/${term.slug}`)}
                   className="group bg-white p-3 md:p-4 rounded-lg border border-gray-100 hover:border-green-200 hover:shadow-md transition-all"
                 >
                   <div className="flex items-start justify-between gap-1 mb-1 md:mb-2">
@@ -146,7 +148,7 @@ export async function GlossaryTeaser({ lang = 'en' }: GlossaryTeaserProps) {
             {/* Mobile CTA */}
             <div className="mt-4 text-center md:hidden">
               <Link
-                href="/glossary"
+                href={localizedHref('/glossary')}
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors text-sm"
               >
                 {t('glossary.browseAllCount', { count: totalTerms || 0 })}
