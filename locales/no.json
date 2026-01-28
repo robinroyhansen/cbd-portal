@@ -152,8 +152,15 @@
   },
   "evidence": {
     "strong": "Sterkt bevis",
+    "strongDesc": "Omfattende forskning tilgjengelig",
     "moderate": "Moderat bevis",
+    "moderateDesc": "God forskningsgrunnlag",
+    "emerging": "Fremvoksende",
+    "emergingDesc": "Økende mengde bevis",
     "limited": "Begrenset bevis",
+    "limitedDesc": "Tidlig forskning",
+    "preliminary": "Foreløpig",
+    "preliminaryDesc": "Svært begrensede data",
     "insufficient": "Utilstrekkelig bevis",
     "clinicallyProven": "Klinisk bevist"
   },
@@ -211,6 +218,30 @@
       "other_desc": "Diverse helsetilstander og velvære"
     }
   },
+  "conditionPage": {
+    "readArticles": "Les artikler",
+    "browseStudies": "Bla gjennom {{count}} studier",
+    "researchOverview": "Forskningsoversikt",
+    "studies": "studier",
+    "peerReviewedPapers": "fagfellevurderte forskningsartikler",
+    "evidenceStrength": "Bevisstyrke",
+    "humanStudies": "Menneskestudier",
+    "preclinical": "Prekliniske",
+    "byAuthor": "Av {{author}}",
+    "authorExperience": "{{years}} i CBD-bransjen",
+    "reviewedStudies": "Gjennomgått {{count}} studier for denne artikkelen",
+    "articlesAndGuides": "Artikler og veiledninger",
+    "articlesAbout": "{{count}} artikler om CBD og {{condition}}",
+    "viewAll": "Se alle {{count}}",
+    "scientificResearch": "Vitenskapelig forskning",
+    "peerReviewedStudiesOn": "Fagfellevurderte studier om CBD og {{condition}}",
+    "browseAllStudies": "Bla gjennom alle {{count}} studier",
+    "relatedConditions": "Relaterte tilstander",
+    "browseAllConditions": "Bla gjennom alle tilstander",
+    "researchDatabase": "Forskningsdatabase",
+    "medicalDisclaimer": "Medisinsk ansvarsfraskrivelse",
+    "medicalDisclaimerText": "Denne informasjonen er kun for utdanningsformål og er ikke ment som medisinsk rådgivning. Konsulter alltid en helsepersonell før du bruker CBD, spesielt hvis du har en medisinsk tilstand eller tar medisiner."
+  },
   "research": {
     "title": "Nyeste studier",
     "sectionLabel": "Forskningsdatabase",
@@ -231,6 +262,12 @@
       "animal": "Preklinisk",
       "review": "Oversikt",
       "inVitro": "In vitro"
+    },
+    "studySubject": {
+      "human": "Menneskestudie",
+      "animal": "Dyrestudie",
+      "review": "Oversikt",
+      "in_vitro": "In vitro"
     }
   },
   "articles": {
@@ -287,7 +324,13 @@
     "aboutUs": "Om oss",
     "contact": "Kontakt",
     "copyright": "CBD Portal. Alle rettigheter forbeholdt.",
-    "disclaimer": "Denne nettsiden er kun for informasjonsformål og gir ikke medisinsk rådgivning. Rådfør deg alltid med en helseprofesjonell før du bruker CBD-produkter."
+    "disclaimer": "Denne nettsiden er kun for informasjonsformål og gir ikke medisinsk rådgivning. Rådfør deg alltid med en helseprofesjonell før du bruker CBD-produkter.",
+    "availableIn": "Tilgjengelig i",
+    "scandinavia": "Skandinavia",
+    "centralEurope": "Sentral-Europa",
+    "southernEurope": "Sør-Europa",
+    "switzerland": "Sveits",
+    "international": "Internasjonalt"
   },
   "mobile": {
     "search": "Søk",
@@ -308,6 +351,9 @@
     "resetConversation": "Start ny samtale",
     "inputPlaceholder": "Skriv meldingen din...",
     "sendMessage": "Send melding",
+    "assistant": "AI-assistent",
+    "thingsToKeepInMind": "Ting å huske på",
+    "tryAsking": "Prøv å spørre",
     "disclaimer": "Ansvarsfraskrivelse",
     "disclaimerText": "Jeg er en AI-assistent, ikke en lege. Informasjonen som gis er kun for utdanningsformål. Konsulter alltid en helsepersonell før du bruker CBD.",
     "welcome": "Velkommen! Jeg kan hjelpe deg med å forstå hva forskningen sier om CBD (cannabidiol) for ulike helsetilstander.",
