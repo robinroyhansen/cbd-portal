@@ -1,15 +1,18 @@
 'use client';
 
 import React from 'react';
+import { useLocale } from '@/hooks/useLocale';
 
 interface AuthorBioProps {
   className?: string;
 }
 
 export function AuthorBio({ className = '' }: AuthorBioProps) {
+  const { t } = useLocale();
+
   return (
     <div className={`bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 mt-12 border border-blue-100 ${className}`}>
-      <h3 className="text-lg font-semibold mb-4 text-gray-900">About the Author</h3>
+      <h3 className="text-lg font-semibold mb-4 text-gray-900">{t('authorBio.aboutAuthor')}</h3>
       <div className="flex gap-4">
         <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shrink-0">
           <span className="text-white text-xl font-bold">RK</span>
@@ -19,33 +22,29 @@ export function AuthorBio({ className = '' }: AuthorBioProps) {
             <p className="font-semibold text-lg text-gray-900">Robin Roy Krigslund-Hansen</p>
             <span className="text-blue-500" title="Verified CBD Expert">✓</span>
           </div>
-          <p className="text-sm text-blue-700 mb-3 font-medium">CBD Products Expert, Industry Pioneer & Co-founder of Formula Swiss AG</p>
+          <p className="text-sm text-blue-700 mb-3 font-medium">{t('authorBio.authorTitle')}</p>
 
           <p className="text-gray-700 text-sm mb-3 leading-relaxed">
-            Swiss entrepreneur, CBD products expert, and CBD industry pioneer who co-founded Formula Swiss AG in 2013.
-            With over 12 years of hands-on experience and extensive academic background (studied at university 4 times), he has
-            served 100,000+ customers across 60+ countries and developed 300+ CBD product formulations under GMP certification
-            standards. Robin is also recognized as an expert on European cannabis laws and is well-known for his legal advocacy
-            work, including ongoing cases against regulatory authorities.
+            {t('authorBio.authorBio')}
           </p>
 
           {/* Trust badges */}
           <div className="grid grid-cols-2 gap-2 mb-4">
             <div className="flex items-center gap-1 text-xs text-gray-600">
               <span className="text-blue-500">🗓️</span>
-              <span>Since 2013</span>
+              <span>{t('authorBio.since')}</span>
             </div>
             <div className="flex items-center gap-1 text-xs text-gray-600">
               <span className="text-blue-500">🧪</span>
-              <span>300+ Products</span>
+              <span>{t('authorBio.products')}</span>
             </div>
             <div className="flex items-center gap-1 text-xs text-gray-600">
               <span className="text-blue-500">✅</span>
-              <span>GMP Certified</span>
+              <span>{t('authorBio.gmpCertified')}</span>
             </div>
             <div className="flex items-center gap-1 text-xs text-gray-600">
               <span className="text-blue-500">🌍</span>
-              <span>16+ Countries</span>
+              <span>{t('authorBio.countries')}</span>
             </div>
           </div>
 
@@ -66,16 +65,13 @@ export function AuthorBio({ className = '' }: AuthorBioProps) {
           <div className="flex items-center gap-3 text-xs text-gray-500 mb-4">
             <span>🇨🇭 Zug, Switzerland</span>
             <span>•</span>
-            <span>12+ years industry experience</span>
+            <span>{t('authorBio.experience')}</span>
             <span>•</span>
             <span>100% renewable energy operations</span>
           </div>
 
           <p className="text-xs text-gray-500 italic border-t border-gray-200 pt-3">
-            <strong>Disclaimer:</strong> The views and opinions expressed in these articles are
-            Robin's personal expert opinions based on his extensive industry experience and
-            independent research. They do not represent the official position of any company
-            or organization he has founded or been affiliated with.
+            <strong>{t('authorBio.disclaimer')}</strong> {t('authorBio.disclaimerText')}
           </p>
         </div>
       </div>
@@ -85,6 +81,8 @@ export function AuthorBio({ className = '' }: AuthorBioProps) {
 
 // Also export a simplified byline component for the article header
 export function AuthorByline({ date, className = '' }: { date?: string; className?: string }) {
+  const { t, lang } = useLocale();
+
   return (
     <div className={`flex items-center gap-3 text-sm text-gray-600 mb-6 pb-6 border-b border-gray-100 ${className}`}>
       <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
@@ -96,13 +94,13 @@ export function AuthorByline({ date, className = '' }: { date?: string; classNam
           <span className="text-blue-500 text-xs" title="Verified CBD Expert">✓</span>
         </div>
         <p className="text-xs text-gray-500">
-          CBD Industry Pioneer • 12+ years experience • Since 2013
+          {t('authorBio.bylineSubtext')} • {t('authorBio.experience')} • {t('authorBio.since')}
         </p>
       </div>
       {date && (
         <>
           <span className="text-gray-300 ml-2">•</span>
-          <span className="text-xs">{new Date(date).toLocaleDateString('en-GB', {
+          <span className="text-xs">{new Date(date).toLocaleDateString(lang === 'da' ? 'da-DK' : 'en-GB', {
             day: 'numeric',
             month: 'long',
             year: 'numeric'

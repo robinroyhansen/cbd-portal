@@ -1274,5 +1274,29 @@
     "petDosageCalculator": "Kæledyrs doseringsberegner",
     "petDosageCalculatorDesc": "Artsspecifik dosering til hunde, katte og heste",
     "viewAllTools": "Se alle værktøjer"
+  },
+  "cannabinoidHub": {
+    "syntheticNovelTitle": "Syntetiske og nye cannabinoider",
+    "syntheticNovelDesc": "Laboratorieudviklede eller konverterede cannabinoider med begrænset forskning. Tjek lokale love før brug.",
+    "rareResearchTitle": "Sjældne forskningscannabinoider",
+    "rareResearchDesc": "Ukendte cannabinoider med minimal forskning. Inkluderet for fuldstændighedens skyld."
+  },
+  "conditionArticlesHub": {
+    "lookingForOverview": "Leder du efter sygdomsoversigter?",
+    "overviewDescription": "Hver sygdom har en dedikeret oversigtsside med forskningsresuméer og relaterede studier. Gennemse alle {{count}} sygdomme, vi dækker, inklusive dem, der stadig venter på detaljerede artikler.",
+    "browseAllConditions": "Gennemse alle sygdomme"
+  },
+  "authorBio": {
+    "aboutAuthor": "Om forfatteren",
+    "authorTitle": "CBD-produktekspert, branchepioner og medstifter af Formula Swiss AG",
+    "authorBio": "Schweizisk iværksætter, CBD-produktekspert og branchepioner, der medstiftede Formula Swiss AG i 2013. Med over 12 års praktisk erfaring og omfattende akademisk baggrund (studeret på universitetet 4 gange) har han betjent 100.000+ kunder i 60+ lande og udviklet 300+ CBD-produktformuleringer under GMP-certificeringsstandarder. Robin er også anerkendt som ekspert i europæisk cannabislovgivning og er kendt for sit juridiske fortalervirke, herunder igangværende sager mod tilsynsmyndigheder.",
+    "since": "Siden 2013",
+    "products": "300+ produkter",
+    "gmpCertified": "GMP-certificeret",
+    "countries": "16+ lande",
+    "disclaimer": "Ansvarsfraskrivelse:",
+    "disclaimerText": "De synspunkter og meninger, der udtrykkes i disse artikler, er Robins personlige ekspertudtalelser baseret på hans omfattende brancheerfaring og uafhængige forskning. De repræsenterer ikke den officielle holdning hos nogen virksomhed eller organisation, han har stiftet eller været tilknyttet.",
+    "bylineSubtext": "CBD-branchepioner",
+    "experience": "12+ års erfaring"
   }
 }

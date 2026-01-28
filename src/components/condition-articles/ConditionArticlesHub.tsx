@@ -10,6 +10,7 @@ import {
   HubCTA,
   HubEmptyState,
 } from '@/components/hub';
+import { useLocale } from '@/hooks/useLocale';
 
 // Body system/subcategory configuration based on master plan
 const CONDITION_SUBCATEGORIES: Record<string, {
@@ -284,6 +285,7 @@ export function ConditionArticlesHub({
   conditionsCount,
   plannedArticleCount
 }: ConditionArticlesHubProps) {
+  const { t } = useLocale();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
@@ -613,17 +615,16 @@ export function ConditionArticlesHub({
       <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border border-green-200 p-8">
         <div className="flex flex-col md:flex-row md:items-center gap-6">
           <div className="flex-1">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Looking for Condition Overview Pages?</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">{t('conditionArticlesHub.lookingForOverview')}</h3>
             <p className="text-gray-600">
-              Each condition has a dedicated overview page with research summaries and related studies.
-              Browse all {conditionsCount} conditions we cover, including those still awaiting detailed articles.
+              {t('conditionArticlesHub.overviewDescription', { count: conditionsCount.toString() })}
             </p>
           </div>
           <Link
             href="/conditions"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-green-600 text-white font-semibold rounded-xl hover:bg-green-700 transition-colors whitespace-nowrap"
           >
-            Browse All Conditions
+            {t('conditionArticlesHub.browseAllConditions')}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

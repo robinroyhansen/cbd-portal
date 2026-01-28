@@ -1303,5 +1303,29 @@
     "petDosageCalculator": "Pet Dosage Calculator",
     "petDosageCalculatorDesc": "Species-specific dosing for dogs, cats, and horses",
     "viewAllTools": "View all tools"
+  },
+  "cannabinoidHub": {
+    "syntheticNovelTitle": "Synthetic & Novel Cannabinoids",
+    "syntheticNovelDesc": "Lab-derived or converted cannabinoids with limited research. Check local laws before use.",
+    "rareResearchTitle": "Rare & Research Cannabinoids",
+    "rareResearchDesc": "Obscure cannabinoids with minimal research. Included for completeness."
+  },
+  "conditionArticlesHub": {
+    "lookingForOverview": "Looking for Condition Overview Pages?",
+    "overviewDescription": "Each condition has a dedicated overview page with research summaries and related studies. Browse all {{count}} conditions we cover, including those still awaiting detailed articles.",
+    "browseAllConditions": "Browse All Conditions"
+  },
+  "authorBio": {
+    "aboutAuthor": "About the Author",
+    "authorTitle": "CBD Products Expert, Industry Pioneer & Co-founder of Formula Swiss AG",
+    "authorBio": "Swiss entrepreneur, CBD products expert, and CBD industry pioneer who co-founded Formula Swiss AG in 2013. With over 12 years of hands-on experience and extensive academic background (studied at university 4 times), he has served 100,000+ customers across 60+ countries and developed 300+ CBD product formulations under GMP certification standards. Robin is also recognized as an expert on European cannabis laws and is well-known for his legal advocacy work, including ongoing cases against regulatory authorities.",
+    "since": "Since 2013",
+    "products": "300+ Products",
+    "gmpCertified": "GMP Certified",
+    "countries": "16+ Countries",
+    "disclaimer": "Disclaimer:",
+    "disclaimerText": "The views and opinions expressed in these articles are Robin's personal expert opinions based on his extensive industry experience and independent research. They do not represent the official position of any company or organization he has founded or been affiliated with.",
+    "bylineSubtext": "CBD Industry Pioneer",
+    "experience": "12+ years experience"
   }
 }

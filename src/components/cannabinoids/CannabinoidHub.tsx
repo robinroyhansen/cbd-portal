@@ -7,6 +7,7 @@ import {
   getCannabinoidsByType,
   Cannabinoid,
 } from '@/lib/cannabinoids';
+import { useLocale } from '@/hooks/useLocale';
 import { CannabinoidFeatureCard } from './CannabinoidFeatureCard';
 import { CannabinoidCompactCard } from './CannabinoidCompactCard';
 import { CannabinoidTable } from './CannabinoidTable';
@@ -86,6 +87,8 @@ function categorizeArticles(articles: Article[]) {
 }
 
 export function CannabinoidHub({ articles, studyCounts = {}, totalStudyCount = 0 }: CannabinoidHubProps) {
+  const { t } = useLocale();
+
   // Get cannabinoid groupings
   const majorCannabinoids = getMajorCannabinoids();
   const acidicCannabinoids = getCannabinoidsByType('acidic');
@@ -239,9 +242,9 @@ export function CannabinoidHub({ articles, studyCounts = {}, totalStudyCount = 0
             <div className="flex items-start gap-3">
               <span className="text-2xl">⚠️</span>
               <div>
-                <h2 className="text-2xl font-bold text-gray-900">Synthetic & Novel Cannabinoids</h2>
+                <h2 className="text-2xl font-bold text-gray-900">{t('cannabinoidHub.syntheticNovelTitle')}</h2>
                 <p className="text-gray-600">
-                  Lab-derived or converted cannabinoids with limited research. Check local laws before use.
+                  {t('cannabinoidHub.syntheticNovelDesc')}
                 </p>
               </div>
             </div>
@@ -262,9 +265,9 @@ export function CannabinoidHub({ articles, studyCounts = {}, totalStudyCount = 0
       {rareCannabinoids.length > 0 && (
         <section>
           <div className="mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">Rare & Research Cannabinoids</h2>
+            <h2 className="text-2xl font-bold text-gray-900">{t('cannabinoidHub.rareResearchTitle')}</h2>
             <p className="text-gray-600">
-              Obscure cannabinoids with minimal research. Included for completeness.
+              {t('cannabinoidHub.rareResearchDesc')}
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
