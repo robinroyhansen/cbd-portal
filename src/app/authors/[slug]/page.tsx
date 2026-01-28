@@ -10,6 +10,7 @@ import type { LanguageCode } from '@/lib/translation-service';
 
 interface Props {
   params: { slug: string };
+  searchParams: Promise<{ lang?: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -50,16 +51,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function AuthorPage({ params }: Props) {
+export default async function AuthorPage({ params, searchParams }: Props) {
   const supabase = await createClient();
   let author: any = null;
   let articles: any[] = [];
 
-  // Get hostname from headers to detect language
-  const headersList = headers();
-  const host = headersList.get('host') || 'localhost';
-  const language = getLanguageFromHostname(host);
-  const locale = getLocaleSync(language as LanguageCode);
+  // Get language from URL param, or fall back to hostname-based detection
+  const { lang: langParam } = await searchParams;
+  let language: LanguageCode = (langParam as LanguageCode) || 'en';
+  if (!langParam) {
+    const headersList = headers();
+    const host = headersList.get('host') || 'localhost';
+    language = getLanguageFromHostname(host.split(':')[0]) as LanguageCode;
+  }
+  const locale = getLocaleSync(language);
   const t = createTranslator(locale);
   const dateLocale = language === 'en' ? 'en-GB' : language;
 

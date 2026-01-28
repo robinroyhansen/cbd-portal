@@ -469,23 +469,23 @@ export default async function ResearchPage({ searchParams }: PageProps) {
       {(() => {
         const faqs = [
           {
-            question: "Is CBD backed by scientific research?",
-            answer: `Yes. We index ${studyStats.total.toLocaleString()} peer-reviewed studies from PubMed, ClinicalTrials.gov, and other authoritative medical databases. This includes ${studyStats.human.toLocaleString()} human clinical studies, ${studyStats.reviews.toLocaleString()} systematic reviews, and ${studyStats.preclinical.toLocaleString()} preclinical studies. Research quality varies—use our filters and quality scores to find the most robust evidence.`,
+            question: t('researchPage.faqCbdResearch') || "Is CBD backed by scientific research?",
+            answer: t('researchPage.faqCbdResearchAnswer') || `Yes. We index ${studyStats.total.toLocaleString()} peer-reviewed studies from PubMed, ClinicalTrials.gov, and other authoritative medical databases. This includes ${studyStats.human.toLocaleString()} human clinical studies, ${studyStats.reviews.toLocaleString()} systematic reviews, and ${studyStats.preclinical.toLocaleString()} preclinical studies. Research quality varies—use our filters and quality scores to find the most robust evidence.`,
             icon: "📊"
           },
           {
-            question: "Is CBD medically approved?",
-            answer: "Most CBD products are sold as food supplements, not approved medicines. However, Epidiolex (prescription CBD) is approved in multiple countries (EU, UK, USA, Australia, and others) for treating seizures in Lennox-Gastaut syndrome, Dravet syndrome, and tuberous sclerosis complex. This database includes clinical trials supporting that approval, plus ongoing research into anxiety, pain, sleep, and other conditions.",
+            question: t('researchPage.faqMedicallyApproved') || "Is CBD medically approved?",
+            answer: t('researchPage.faqMedicallyApprovedAnswer') || "Most CBD products are sold as food supplements, not approved medicines. However, Epidiolex (prescription CBD) is approved in multiple countries (EU, UK, USA, Australia, and others) for treating seizures in Lennox-Gastaut syndrome, Dravet syndrome, and tuberous sclerosis complex. This database includes clinical trials supporting that approval, plus ongoing research into anxiety, pain, sleep, and other conditions.",
             icon: "💊"
           },
           {
-            question: "What health conditions have CBD research?",
-            answer: "The most-researched conditions include epilepsy (approved prescription use), anxiety disorders, chronic pain, sleep problems, and inflammatory conditions. Use the condition filters above to explore studies for specific health topics, or browse our condition pages which summarise the available evidence.",
+            question: t('researchPage.faqConditions') || "What health conditions have CBD research?",
+            answer: t('researchPage.faqConditionsAnswer') || "The most-researched conditions include epilepsy (approved prescription use), anxiety disorders, chronic pain, sleep problems, and inflammatory conditions. Use the condition filters above to explore studies for specific health topics, or browse our condition pages which summarise the available evidence.",
             icon: "🩺"
           },
           {
-            question: "Can I use this research to make health decisions?",
-            answer: "This database is for educational purposes only. We aggregate and index published research—we do not conduct studies or provide medical advice. Individual studies have limitations and results vary. Always consult a qualified healthcare professional before using CBD, especially if you have health conditions or take medications.",
+            question: t('researchPage.faqHealthDecisions') || "Can I use this research to make health decisions?",
+            answer: t('researchPage.faqHealthDecisionsAnswer') || "This database is for educational purposes only. We aggregate and index published research—we do not conduct studies or provide medical advice. Individual studies have limitations and results vary. Always consult a qualified healthcare professional before using CBD, especially if you have health conditions or take medications.",
             icon: "⚕️"
           }
         ];
