@@ -743,7 +743,19 @@
     "safetyLowDose": "Start med lave doser og overvåk kjæledyrets reaksjon nøye",
     "safetyHorses": "Sjekk konkurranseregler før du bruker CBD med sporthester",
     "notSureTitle": "Usikker på hvor du skal starte?",
-    "notSureDesc": "Beregn riktig CBD-dose for kjæledyret ditt basert på art, vekt og tilstand"
+    "notSureDesc": "Beregn riktig CBD-dose for kjæledyret ditt basert på art, vekt og tilstand",
+    "petTypes": {
+      "dogs": "Hunder",
+      "dogs_desc": "CBD-guider for hundevenner - fra valper til eldre hunder",
+      "cats": "Katter",
+      "cats_desc": "CBD-informasjon for kattevenner - spesielle hensyn for katter",
+      "horses": "Hester",
+      "horses_desc": "CBD for hestehelse - støtter ytelse og restitusjon",
+      "birds": "Fugler",
+      "birds_desc": "CBD-veiledning for fuglekjæledyr - papegøyer, finker og mer",
+      "small-pets": "Smådyr",
+      "small-pets_desc": "CBD for kaniner, marsvin, ildere, hamstere og andre smådyr"
+    }
   },
   "searchPage": {
     "pageTitle": "Søk | CBD Portal",
