@@ -3,6 +3,7 @@ import { createClient } from '@/lib/supabase/server';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { createLocalizedHref } from '@/lib/utils/locale-href';
+import { getFeaturedConditionsWithTranslations } from '@/lib/translations';
 
 const categoryConfig: Record<string, { icon: string; color: string; bgColor: string }> = {
   'mental_health': { icon: '🧠', color: 'text-violet-600', bgColor: 'bg-violet-500/10' },
@@ -27,13 +28,8 @@ export async function BrowseByCondition({ lang = 'en' }: BrowseByConditionProps)
   const localizedHref = createLocalizedHref(lang);
   const supabase = await createClient();
 
-  const { data: conditions } = await supabase
-    .from('kb_conditions')
-    .select('slug, name, display_name, short_description, category, research_count')
-    .eq('is_published', true)
-    .eq('is_featured', true)
-    .order('display_order', { ascending: true })
-    .limit(6);
+  // Fetch featured conditions with translations
+  const conditions = await getFeaturedConditionsWithTranslations(lang, 6);
 
   const { count: totalConditions } = await supabase
     .from('kb_conditions')

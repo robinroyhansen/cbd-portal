@@ -412,6 +412,138 @@ export async function getRelatedGlossaryTermsWithTranslations(
 }
 
 /**
+ * Fetch featured conditions with translations applied (for homepage)
+ */
+export async function getFeaturedConditionsWithTranslations(
+  language: LanguageCode,
+  limit: number = 6
+): Promise<TranslatedCondition[]> {
+  const supabase = await createClient();
+
+  // Fetch featured published conditions
+  const { data: conditions, error } = await supabase
+    .from('kb_conditions')
+    .select('id, slug, name, display_name, short_description, meta_title_template, meta_description_template, category, research_count, is_featured, topic_keywords, display_order')
+    .eq('is_published', true)
+    .eq('is_featured', true)
+    .order('display_order', { ascending: true })
+    .limit(limit);
+
+  if (error || !conditions) return [];
+
+  // If English, return as-is
+  if (language === 'en') {
+    return conditions.map(c => ({
+      id: c.id,
+      slug: c.slug,
+      name: c.name,
+      display_name: c.display_name,
+      short_description: c.short_description,
+      meta_title: c.meta_title_template,
+      meta_description: c.meta_description_template,
+      category: c.category,
+      research_count: c.research_count,
+      is_featured: c.is_featured,
+      topic_keywords: c.topic_keywords || [],
+    }));
+  }
+
+  // Fetch all translations for this language
+  const conditionIds = conditions.map(c => c.id);
+  const { data: translations } = await supabase
+    .from('condition_translations')
+    .select('condition_id, name, display_name, short_description, meta_title, meta_description')
+    .eq('language', language)
+    .in('condition_id', conditionIds);
+
+  // Create a map for quick lookup
+  const translationMap = new Map(
+    (translations || []).map(t => [t.condition_id, t])
+  );
+
+  // Merge translations with base conditions
+  return conditions.map(c => {
+    const trans = translationMap.get(c.id);
+    return {
+      id: c.id,
+      slug: c.slug,
+      name: trans?.name || c.name,
+      display_name: trans?.display_name || c.display_name,
+      short_description: trans?.short_description || c.short_description,
+      meta_title: trans?.meta_title || c.meta_title_template,
+      meta_description: trans?.meta_description || c.meta_description_template,
+      category: c.category,
+      research_count: c.research_count,
+      is_featured: c.is_featured,
+      topic_keywords: c.topic_keywords || [],
+    };
+  });
+}
+
+/**
+ * Fetch recent glossary terms with translations (for homepage teaser)
+ */
+export async function getRecentGlossaryTermsWithTranslations(
+  language: LanguageCode,
+  limit: number = 8
+): Promise<TranslatedGlossaryTerm[]> {
+  const supabase = await createClient();
+
+  // Fetch recently updated terms
+  const { data: terms, error } = await supabase
+    .from('kb_glossary')
+    .select('id, slug, term, definition, short_definition, category, synonyms, pronunciation, related_terms, view_count')
+    .order('updated_at', { ascending: false })
+    .limit(limit);
+
+  if (error || !terms) return [];
+
+  // If English, return as-is
+  if (language === 'en') {
+    return terms.map(t => ({
+      id: t.id,
+      slug: t.slug,
+      term: t.term,
+      definition: t.definition,
+      simple_definition: t.short_definition,
+      category: t.category,
+      synonyms: t.synonyms,
+      pronunciation: t.pronunciation,
+      related_terms: t.related_terms,
+      view_count: t.view_count || 0,
+    }));
+  }
+
+  // Fetch translations
+  const termIds = terms.map(t => t.id);
+  const { data: translations } = await supabase
+    .from('glossary_translations')
+    .select('term_id, term, definition, simple_definition')
+    .eq('language', language)
+    .in('term_id', termIds);
+
+  const translationMap = new Map(
+    (translations || []).map(t => [t.term_id, t])
+  );
+
+  return terms.map(t => {
+    const trans = translationMap.get(t.id);
+    return {
+      id: t.id,
+      slug: t.slug,
+      term: trans?.term || t.term,
+      definition: trans?.definition || t.definition,
+      simple_definition: trans?.simple_definition || t.short_definition,
+      category: t.category,
+      synonyms: t.synonyms,
+      pronunciation: t.pronunciation,
+      related_terms: t.related_terms,
+      view_count: t.view_count || 0,
+    };
+  });
+}
+
+/**
  * Get related conditions with translations
  */
 export async function getRelatedConditionsWithTranslations(

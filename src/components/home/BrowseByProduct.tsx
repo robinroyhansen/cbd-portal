@@ -4,52 +4,53 @@ import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { createLocalizedHref } from '@/lib/utils/locale-href';
 
-const productTypes = [
+// Product types with translation keys
+const productTypeKeys = [
   {
-    name: 'CBD Oils',
+    nameKey: 'productTypes.cbdOils',
+    descKey: 'productTypes.cbdOilsDesc',
     slug: 'cbd-oil',
     icon: '💧',
-    description: 'Full spectrum, broad spectrum, and isolate oils',
     glossarySlug: 'cbd-oil',
     searchQuery: 'CBD oil',
   },
   {
-    name: 'CBD Capsules',
+    nameKey: 'productTypes.cbdCapsules',
+    descKey: 'productTypes.cbdCapsulesDesc',
     slug: 'cbd-capsules',
     icon: '💊',
-    description: 'Convenient pre-measured doses',
     glossarySlug: 'capsule',
     searchQuery: 'CBD capsules',
   },
   {
-    name: 'CBD Topicals',
+    nameKey: 'productTypes.cbdTopicals',
+    descKey: 'productTypes.cbdTopicalsDesc',
     slug: 'cbd-topicals',
     icon: '🧴',
-    description: 'Creams, balms, and lotions for targeted relief',
     glossarySlug: 'topical',
     searchQuery: 'CBD topical cream',
   },
   {
-    name: 'CBD Edibles',
+    nameKey: 'productTypes.cbdEdibles',
+    descKey: 'productTypes.cbdEdiblesDesc',
     slug: 'cbd-edibles',
     icon: '🍬',
-    description: 'Gummies and food products',
     glossarySlug: 'edible',
     searchQuery: 'CBD gummies edibles',
   },
   {
-    name: 'CBD Vapes',
+    nameKey: 'productTypes.cbdVapes',
+    descKey: 'productTypes.cbdVapesDesc',
     slug: 'cbd-vapes',
     icon: '💨',
-    description: 'Fast-acting inhalation products',
     glossarySlug: 'vaporization',
     searchQuery: 'CBD vape',
   },
   {
-    name: 'CBD Isolate',
+    nameKey: 'productTypes.cbdIsolate',
+    descKey: 'productTypes.cbdIsolateDesc',
     slug: 'cbd-isolate',
     icon: '💎',
-    description: 'Pure CBD crystal powder',
     glossarySlug: 'isolate',
     searchQuery: 'CBD isolate',
   },
@@ -70,7 +71,7 @@ export async function BrowseByProduct({ lang = 'en' }: BrowseByProductProps) {
   const { data: glossaryTerms } = await supabase
     .from('kb_glossary')
     .select('slug, term')
-    .in('slug', productTypes.map(p => p.glossarySlug));
+    .in('slug', productTypeKeys.map(p => p.glossarySlug));
 
   const existingGlossarySlugs = new Set(glossaryTerms?.map(t => t.slug) || []);
 
@@ -91,7 +92,7 @@ export async function BrowseByProduct({ lang = 'en' }: BrowseByProductProps) {
         </div>
 
         <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
-          {productTypes.map((product) => {
+          {productTypeKeys.map((product) => {
             // Link to glossary if term exists, otherwise to search
             const href = existingGlossarySlugs.has(product.glossarySlug)
               ? localizedHref(`/glossary/${product.glossarySlug}`)
@@ -105,9 +106,9 @@ export async function BrowseByProduct({ lang = 'en' }: BrowseByProductProps) {
               >
                 <span className="text-3xl md:text-4xl block mb-2 md:mb-3">{product.icon}</span>
                 <h3 className="font-semibold text-gray-900 group-hover:text-green-700 mb-0.5 md:mb-1 text-xs md:text-sm">
-                  {product.name}
+                  {t(product.nameKey)}
                 </h3>
-                <p className="text-[10px] md:text-xs text-gray-500 line-clamp-2 hidden sm:block">{product.description}</p>
+                <p className="text-[10px] md:text-xs text-gray-500 line-clamp-2 hidden sm:block">{t(product.descKey)}</p>
               </Link>
             );
           })}

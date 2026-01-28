@@ -1375,6 +1375,20 @@
     "contactText": "Hvis du har spørgsmål om vores brug af cookies, kontakt os venligst på:",
     "contactEmail": "E-mail: privacy@cbdportal.com"
   },
+  "productTypes": {
+    "cbdOils": "CBD Olier",
+    "cbdOilsDesc": "Fuld spektrum, bred spektrum og isolatolier",
+    "cbdCapsules": "CBD Kapsler",
+    "cbdCapsulesDesc": "Praktiske forudmålte doser",
+    "cbdTopicals": "CBD Hudprodukter",
+    "cbdTopicalsDesc": "Cremer, balsam og lotioner til målrettet lindring",
+    "cbdEdibles": "CBD Spiselige produkter",
+    "cbdEdiblesDesc": "Gummier og fødevarer",
+    "cbdVapes": "CBD Vapes",
+    "cbdVapesDesc": "Hurtigtvirkende inhalationsprodukter",
+    "cbdIsolate": "CBD Isolat",
+    "cbdIsolateDesc": "Rent CBD-krystalpulver"
+  },
   "conditionPage": {
     "readArticles": "Læs artikler",
     "browseStudies": "Gennemse {{count}} studier",

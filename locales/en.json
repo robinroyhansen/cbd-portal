@@ -1404,6 +1404,20 @@
     "contactText": "If you have questions about our use of cookies, please contact us at:",
     "contactEmail": "Email: privacy@cbdportal.com"
   },
+  "productTypes": {
+    "cbdOils": "CBD Oils",
+    "cbdOilsDesc": "Full spectrum, broad spectrum, and isolate oils",
+    "cbdCapsules": "CBD Capsules",
+    "cbdCapsulesDesc": "Convenient pre-measured doses",
+    "cbdTopicals": "CBD Topicals",
+    "cbdTopicalsDesc": "Creams, balms, and lotions for targeted relief",
+    "cbdEdibles": "CBD Edibles",
+    "cbdEdiblesDesc": "Gummies and food products",
+    "cbdVapes": "CBD Vapes",
+    "cbdVapesDesc": "Fast-acting inhalation products",
+    "cbdIsolate": "CBD Isolate",
+    "cbdIsolateDesc": "Pure CBD crystal powder"
+  },
   "conditionPage": {
     "readArticles": "Read Articles",
     "browseStudies": "Browse {{count}} Studies",

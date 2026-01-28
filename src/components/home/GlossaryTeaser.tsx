@@ -3,6 +3,7 @@ import { createClient } from '@/lib/supabase/server';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { createLocalizedHref } from '@/lib/utils/locale-href';
+import { getRecentGlossaryTermsWithTranslations } from '@/lib/translations';
 
 interface GlossaryTeaserProps {
   lang?: LanguageCode;
@@ -14,12 +15,8 @@ export async function GlossaryTeaser({ lang = 'en' }: GlossaryTeaserProps) {
   const localizedHref = createLocalizedHref(lang);
   const supabase = await createClient();
 
-  // Get recently updated glossary terms
-  const { data: recentTerms } = await supabase
-    .from('kb_glossary')
-    .select('term, slug, short_definition, category')
-    .order('updated_at', { ascending: false })
-    .limit(8);
+  // Get recently updated glossary terms with translations
+  const recentTerms = await getRecentGlossaryTermsWithTranslations(lang, 8);
 
   // Get total count
   const { count: totalTerms } = await supabase
@@ -43,7 +40,7 @@ export async function GlossaryTeaser({ lang = 'en' }: GlossaryTeaserProps) {
     .sort((a, b) => b[1] - a[1])
     .slice(0, 5);
 
-  if (!recentTerms || recentTerms.length === 0) {
+  if (recentTerms.length === 0) {
     return null;
   }
 
@@ -139,7 +136,7 @@ export async function GlossaryTeaser({ lang = 'en' }: GlossaryTeaserProps) {
                     )}
                   </div>
                   <p className="text-xs md:text-sm text-gray-600 line-clamp-2">
-                    {term.short_definition}
+                    {term.simple_definition}
                   </p>
                 </Link>
               ))}
