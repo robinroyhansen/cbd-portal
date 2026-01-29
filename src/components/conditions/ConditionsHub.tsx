@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useLocale } from '@/hooks/useLocale';
+import { getLocalizedSlug } from '@/lib/utils/locale-href';
 
 // Category configuration - matches database category values
 const CATEGORY_CONFIG: Record<string, {
@@ -123,6 +124,7 @@ const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 interface Condition {
   id: string;
   slug: string;
+  translated_slug?: string | null;
   name: string;
   display_name: string;
   short_description: string;
@@ -432,7 +434,7 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
               return (
                 <Link
                   key={condition.id}
-                  href={`/conditions/${condition.slug}`}
+                  href={`/conditions/${getLocalizedSlug(condition)}`}
                   className="group relative bg-white rounded-2xl border border-gray-200 p-5 hover:border-green-300 hover:shadow-xl transition-all duration-300 overflow-hidden"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
@@ -599,7 +601,7 @@ export function ConditionsHub({ conditions, totalStudies }: ConditionsHubProps) 
                   return (
                     <Link
                       key={condition.id}
-                      href={`/conditions/${condition.slug}`}
+                      href={`/conditions/${getLocalizedSlug(condition)}`}
                       className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-all group border border-transparent hover:border-gray-200"
                     >
                       <span className="text-xl shrink-0">
@@ -718,7 +720,7 @@ function ConditionCard({ condition, showCategory = false }: { condition: Conditi
 
   return (
     <Link
-      href={`/conditions/${condition.slug}`}
+      href={`/conditions/${getLocalizedSlug(condition)}`}
       className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 bg-white hover:border-green-300 hover:shadow-lg transition-all duration-300 group"
     >
       <div className={`text-xl p-2.5 rounded-xl ${config.bgColor} group-hover:scale-110 transition-transform shrink-0`}>

@@ -12,6 +12,7 @@ import { getGlossaryTermWithTranslation, getRelatedGlossaryTermsWithTranslations
 import { getLocaleSync } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { getHreflangAlternates } from '@/components/HreflangTags';
+import { createLocalizedHref, getLocalizedSlug } from '@/lib/utils/locale-href';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -152,6 +153,7 @@ export default async function GlossaryTermPage({ params, searchParams }: Props) 
   const { lang: langParam } = await searchParams;
   const lang = (langParam || await getLanguage()) as LanguageCode;
   const locale = getLocaleSync(lang);
+  const localizedHref = createLocalizedHref(lang);
   const supabase = await createClient();
 
   // Get term with translation applied
@@ -487,7 +489,7 @@ export default async function GlossaryTermPage({ params, searchParams }: Props) 
                   return (
                     <Link
                       key={related.slug}
-                      href={`/glossary/${related.slug}`}
+                      href={localizedHref(`/glossary/${getLocalizedSlug(related)}`)}
                       className="p-4 bg-white border border-gray-200 rounded-xl hover:border-green-400 hover:shadow-md transition-all group"
                     >
                       <div className="flex items-start justify-between gap-2 mb-2">
@@ -530,7 +532,7 @@ export default async function GlossaryTermPage({ params, searchParams }: Props) 
           {/* Back to Glossary */}
           <div className="pt-8 border-t border-gray-200">
             <Link
-              href="/glossary"
+              href={localizedHref('/glossary')}
               className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-medium transition-colors"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

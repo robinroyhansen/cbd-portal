@@ -6,6 +6,7 @@ import { getHreflangAlternates } from '@/components/HreflangTags';
 import { getLanguage } from '@/lib/get-language';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
+import { getLocalizedSlug } from '@/lib/utils/locale-href';
 
 interface Props {
   searchParams: Promise<{ q?: string; lang?: string }>;
@@ -66,7 +67,7 @@ export default async function SearchPage({ searchParams }: Props) {
     // Search glossary terms
     const { data: glossaryResults } = await supabase
       .from('glossary_terms')
-      .select('slug, term, short_definition')
+      .select('id, slug, term, short_definition')
       .or(`term.ilike.%${query}%,short_definition.ilike.%${query}%,definition.ilike.%${query}%`)
       .limit(10);
 
@@ -74,6 +75,20 @@ export default async function SearchPage({ searchParams }: Props) {
     categories = categoryResults || [];
     studies = studyResults || [];
     glossary = glossaryResults || [];
+  }
+
+  // Fetch translated slugs for glossary terms (non-English)
+  let glossarySlugMap = new Map<string, string>();
+  if (lang !== 'en' && glossary.length > 0) {
+    const glossaryIds = glossary.map((t: { id: string }) => t.id);
+    const { data: slugTranslations } = await supabase
+      .from('glossary_translations')
+      .select('term_id, slug')
+      .eq('language', lang)
+      .in('term_id', glossaryIds);
+    glossarySlugMap = new Map(
+      (slugTranslations || []).map((t: { term_id: string; slug: string }) => [t.term_id, t.slug])
+    );
   }
 
   const totalResults = articles.length + categories.length + studies.length + glossary.length;
@@ -157,7 +172,7 @@ export default async function SearchPage({ searchParams }: Props) {
                 {glossary.map((term) => (
                   <Link
                     key={term.slug}
-                    href={`/glossary/${term.slug}`}
+                    href={`/glossary/${getLocalizedSlug({ slug: term.slug, translated_slug: glossarySlugMap.get(term.id) })}`}
                     className="flex items-start gap-3 p-4 border rounded-lg hover:border-amber-400 hover:shadow-md transition-all"
                   >
                     <span className="text-2xl">📖</span>

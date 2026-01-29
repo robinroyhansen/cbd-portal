@@ -4,11 +4,15 @@ import { createClient as createServiceClient } from '@supabase/supabase-js';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
+import { getLocalizedSlug } from '@/lib/utils/locale-href';
+import { getLanguage } from '@/lib/get-language';
+import type { LanguageCode } from '@/lib/translation-service';
 
 const SITE_URL = 'https://cbd-portal.vercel.app';
 
 interface Props {
   params: Promise<{ category: string }>;
+  searchParams: Promise<{ lang?: string }>;
 }
 
 interface GlossaryTerm {
@@ -189,8 +193,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function GlossaryCategoryPage({ params }: Props) {
+export default async function GlossaryCategoryPage({ params, searchParams }: Props) {
   const { category } = await params;
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
   const categoryInfo = CATEGORIES[category];
 
   if (!categoryInfo) {
@@ -207,6 +213,20 @@ export default async function GlossaryCategoryPage({ params }: Props) {
     .order('term', { ascending: true });
 
   const categoryTerms: GlossaryTerm[] = terms || [];
+
+  // Fetch translated slugs for non-English languages
+  let glossarySlugMap = new Map<string, string>();
+  if (lang !== 'en' && categoryTerms.length > 0) {
+    const termIds = categoryTerms.map((t: { id: string }) => t.id);
+    const { data: slugTranslations } = await supabase
+      .from('glossary_translations')
+      .select('term_id, slug')
+      .eq('language', lang)
+      .in('term_id', termIds);
+    glossarySlugMap = new Map(
+      (slugTranslations || []).map((t: { term_id: string; slug: string }) => [t.term_id, t.slug])
+    );
+  }
   const colors = CATEGORY_COLORS[category] || CATEGORY_COLORS.cannabinoids;
 
   // Group terms by first letter
@@ -381,7 +401,7 @@ export default async function GlossaryCategoryPage({ params }: Props) {
                     {termsByLetter[letter].map(term => (
                       <Link
                         key={term.id}
-                        href={`/glossary/${term.slug}`}
+                        href={`/glossary/${getLocalizedSlug({ slug: term.slug, translated_slug: glossarySlugMap.get(term.id) })}`}
                         className="block bg-white rounded-lg border border-gray-200 hover:shadow-md hover:border-green-300 transition-all group"
                       >
                         <article className="p-4">

@@ -43,6 +43,7 @@ interface GlossaryTerm {
   term: string;
   display_name?: string | null;
   slug: string;
+  translated_slug?: string | null;
   definition: string;
   simple_definition: string | null;
   category: string;
@@ -109,6 +110,7 @@ export default async function GlossaryPage({ searchParams }: PageProps) {
     term: t.term,
     display_name: t.term, // Use translated term as display name
     slug: t.slug,
+    translated_slug: t.translated_slug,
     definition: t.definition,
     simple_definition: t.simple_definition,
     category: t.category,
@@ -135,6 +137,7 @@ export default async function GlossaryPage({ searchParams }: PageProps) {
     term: t.term,
     display_name: t.term,
     slug: t.slug,
+    translated_slug: t.translated_slug,
     definition: t.definition,
     simple_definition: t.simple_definition,
     category: t.category,

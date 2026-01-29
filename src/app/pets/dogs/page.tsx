@@ -7,6 +7,7 @@ import { getHreflangAlternates } from '@/components/HreflangTags';
 import { getLanguage } from '@/lib/get-language';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
+import { getLocalizedSlug } from '@/lib/utils/locale-href';
 
 interface Props {
   searchParams: Promise<{ lang?: string }>;
@@ -51,7 +52,7 @@ export default async function DogsPage({ searchParams }: Props) {
       .order('title'),
     supabase
       .from('kb_conditions')
-      .select('slug, name, display_name, short_description')
+      .select('id, slug, name, display_name, short_description')
       .eq('category', 'pets')
       .or('slug.like.dog-%,slug.eq.puppies,slug.eq.aggressive-dogs,slug.eq.senior-dogs')
       .order('name'),
@@ -59,6 +60,20 @@ export default async function DogsPage({ searchParams }: Props) {
 
   const allArticles = articlesResult.data || [];
   const conditions = conditionsResult.data || [];
+
+  // Fetch translated slugs for conditions
+  let conditionSlugMap = new Map<string, string>();
+  if (lang !== 'en' && conditionsResult.data?.length) {
+    const conditionIds = conditionsResult.data.map((c: { id: string }) => c.id);
+    const { data: slugTranslations } = await supabase
+      .from('condition_translations')
+      .select('condition_id, slug')
+      .eq('language', lang)
+      .in('condition_id', conditionIds);
+    conditionSlugMap = new Map(
+      (slugTranslations || []).map((t: { condition_id: string; slug: string }) => [t.condition_id, t.slug])
+    );
+  }
   const categorized = categorizePetArticles(allArticles);
   const articles = categorized.dogs;
 
@@ -119,7 +134,7 @@ export default async function DogsPage({ searchParams }: Props) {
             {conditions.map((condition) => (
               <Link
                 key={condition.slug}
-                href={`/conditions/${condition.slug}`}
+                href={`/conditions/${getLocalizedSlug({ slug: condition.slug, translated_slug: conditionSlugMap.get(condition.id) })}`}
                 className="p-4 bg-white rounded-lg border border-gray-200 hover:border-amber-300 hover:shadow-md transition-all group"
               >
                 <h3 className="font-medium text-gray-900 group-hover:text-amber-700 text-sm mb-1">

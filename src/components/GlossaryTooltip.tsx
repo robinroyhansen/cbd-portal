@@ -2,15 +2,17 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import { getLocalizedSlug } from '@/lib/utils/locale-href';
 
 interface GlossaryTooltipProps {
   term: string;
   slug: string;
+  translatedSlug?: string | null;
   definition: string;
   children: React.ReactNode;
 }
 
-export function GlossaryTooltip({ term, slug, definition, children }: GlossaryTooltipProps) {
+export function GlossaryTooltip({ term, slug, translatedSlug, definition, children }: GlossaryTooltipProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [position, setPosition] = useState<'top' | 'bottom'>('top');
   const triggerRef = useRef<HTMLSpanElement>(null);
@@ -91,7 +93,7 @@ export function GlossaryTooltip({ term, slug, definition, children }: GlossaryTo
               {definition}
             </p>
             <Link
-              href={`/glossary/${slug}`}
+              href={`/glossary/${getLocalizedSlug({ slug, translated_slug: translatedSlug })}`}
               className="text-xs text-green-600 hover:text-green-700 font-medium inline-flex items-center gap-1"
               onClick={(e) => e.stopPropagation()}
             >

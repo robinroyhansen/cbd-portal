@@ -11,7 +11,7 @@ import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { getHreflangAlternates } from '@/components/HreflangTags';
 import { generateMedicalWebPageSchema } from '@/lib/seo/page-templates';
-import { createLocalizedHref } from '@/lib/utils/locale-href';
+import { createLocalizedHref, getLocalizedSlug } from '@/lib/utils/locale-href';
 
 export const revalidate = 86400; // Revalidate every 24 hours
 
@@ -613,7 +613,7 @@ export default async function ConditionPage({ params, searchParams }: Props) {
                   return (
                     <Link
                       key={related.slug}
-                      href={localizedHref(`/conditions/${related.slug}`)}
+                      href={localizedHref(`/conditions/${getLocalizedSlug(related)}`)}
                       className="group flex items-start gap-4 p-5 bg-white rounded-xl border border-slate-200 hover:border-emerald-300 hover:shadow-md transition-all"
                     >
                       <span className="text-2xl mt-0.5">{relatedIcon}</span>

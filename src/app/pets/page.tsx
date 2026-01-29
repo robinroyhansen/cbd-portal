@@ -7,6 +7,7 @@ import { getHreflangAlternates } from '@/components/HreflangTags';
 import { getLanguage } from '@/lib/get-language';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
+import { getLocalizedSlug } from '@/lib/utils/locale-href';
 
 interface Props {
   searchParams: Promise<{ lang?: string }>;
@@ -26,6 +27,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 }
 
 interface Condition {
+  id: string;
   slug: string;
   name: string;
   display_name: string;
@@ -57,13 +59,27 @@ export default async function PetsHubPage({ searchParams }: Props) {
       .order('title'),
     supabase
       .from('kb_conditions')
-      .select('slug, name, display_name, short_description')
+      .select('id, slug, name, display_name, short_description')
       .eq('category', 'pets')
       .order('name'),
   ]);
 
   const articles = articlesResult.data || [];
   const conditions = conditionsResult.data || [];
+
+  // Fetch translated slugs for conditions
+  let conditionSlugMap = new Map<string, string>();
+  if (lang !== 'en' && conditionsResult.data?.length) {
+    const conditionIds = conditionsResult.data.map((c: { id: string }) => c.id);
+    const { data: slugTranslations } = await supabase
+      .from('condition_translations')
+      .select('condition_id, slug')
+      .eq('language', lang)
+      .in('condition_id', conditionIds);
+    conditionSlugMap = new Map(
+      (slugTranslations || []).map((t: { condition_id: string; slug: string }) => [t.condition_id, t.slug])
+    );
+  }
   const categorizedArticles = categorizePetArticles(articles);
   const stats = getPetCategoryStats(categorizedArticles);
 
@@ -215,7 +231,7 @@ export default async function PetsHubPage({ searchParams }: Props) {
             {conditions.slice(0, 15).map((condition) => (
               <Link
                 key={condition.slug}
-                href={`/conditions/${condition.slug}`}
+                href={`/conditions/${getLocalizedSlug({ slug: condition.slug, translated_slug: conditionSlugMap.get(condition.id) })}`}
                 className="p-3 bg-white rounded-lg border border-gray-200 hover:border-orange-300 hover:shadow-sm transition-all text-center group"
               >
                 <span className="text-sm font-medium text-gray-700 group-hover:text-orange-700">

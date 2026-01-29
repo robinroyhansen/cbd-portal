@@ -4,6 +4,9 @@ import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { PET_CATEGORY_META, categorizePetArticles } from '@/lib/pets';
 import { getHreflangAlternates } from '@/components/HreflangTags';
+import { getLanguage } from '@/lib/get-language';
+import type { LanguageCode } from '@/lib/translation-service';
+import { getLocalizedSlug } from '@/lib/utils/locale-href';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -13,7 +16,14 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function SmallPetsPage() {
+interface Props {
+  searchParams: Promise<{ lang?: string }>;
+}
+
+export default async function SmallPetsPage({ searchParams }: Props) {
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
+
   const supabase = await createClient();
   const category = PET_CATEGORY_META['small-pets'];
 
@@ -34,7 +44,7 @@ export default async function SmallPetsPage() {
       .order('title'),
     supabase
       .from('kb_conditions')
-      .select('slug, name, display_name, short_description')
+      .select('id, slug, name, display_name, short_description')
       .eq('category', 'pets')
       .in('slug', ['ferrets', 'hamsters', 'rabbits', 'guinea-pigs', 'reptiles', 'small-pets'])
       .order('name'),
@@ -42,6 +52,20 @@ export default async function SmallPetsPage() {
 
   const allArticles = articlesResult.data || [];
   const conditions = conditionsResult.data || [];
+
+  // Fetch translated slugs for conditions
+  let conditionSlugMap = new Map<string, string>();
+  if (lang !== 'en' && conditionsResult.data?.length) {
+    const conditionIds = conditionsResult.data.map((c: { id: string }) => c.id);
+    const { data: slugTranslations } = await supabase
+      .from('condition_translations')
+      .select('condition_id, slug')
+      .eq('language', lang)
+      .in('condition_id', conditionIds);
+    conditionSlugMap = new Map(
+      (slugTranslations || []).map((t: { condition_id: string; slug: string }) => [t.condition_id, t.slug])
+    );
+  }
   const categorized = categorizePetArticles(allArticles);
   const articles = categorized['small-pets'];
 
@@ -126,7 +150,7 @@ export default async function SmallPetsPage() {
             {conditions.map((condition) => (
               <Link
                 key={condition.slug}
-                href={`/conditions/${condition.slug}`}
+                href={`/conditions/${getLocalizedSlug({ slug: condition.slug, translated_slug: conditionSlugMap.get(condition.id) })}`}
                 className="p-4 bg-white rounded-lg border border-gray-200 hover:border-pink-300 hover:shadow-md transition-all group"
               >
                 <h3 className="font-medium text-gray-900 group-hover:text-pink-700 text-sm mb-1">

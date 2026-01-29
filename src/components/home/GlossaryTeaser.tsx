@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
-import { createLocalizedHref } from '@/lib/utils/locale-href';
+import { createLocalizedHref, getLocalizedSlug } from '@/lib/utils/locale-href';
 import { getRecentGlossaryTermsWithTranslations } from '@/lib/translations';
 
 interface GlossaryTeaserProps {
@@ -126,7 +126,7 @@ export async function GlossaryTeaser({ lang = 'en' }: GlossaryTeaserProps) {
               {recentTerms.slice(0, 6).map((term) => (
                 <Link
                   key={term.slug}
-                  href={localizedHref(`/glossary/${term.slug}`)}
+                  href={localizedHref(`/glossary/${getLocalizedSlug(term)}`)}
                   className="group bg-white p-3 md:p-4 rounded-lg border border-gray-100 hover:border-green-200 hover:shadow-md transition-all"
                 >
                   <div className="flex items-start justify-between gap-1 mb-1 md:mb-2">

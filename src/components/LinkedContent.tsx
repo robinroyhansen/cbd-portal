@@ -13,6 +13,8 @@ interface LinkedContentProps {
   content: string;
   /** Array of glossary terms to link */
   glossaryTerms: GlossaryTerm[];
+  /** Optional map of English slug → translated slug for localized URLs */
+  translatedSlugs?: Record<string, string>;
   /** Optional className for the wrapper */
   className?: string;
   /** Render as a specific element (default: span) */
@@ -29,6 +31,7 @@ interface LinkedContentProps {
 export function LinkedContent({
   content,
   glossaryTerms,
+  translatedSlugs,
   className,
   as: Component = 'span',
 }: LinkedContentProps) {
@@ -44,10 +47,11 @@ export function LinkedContent({
     <Component className={className}>
       {segments.map((segment, index) => {
         if (segment.type === 'link' && segment.slug) {
+          const localizedSlug = translatedSlugs?.[segment.slug] || segment.slug;
           return (
             <Link
               key={index}
-              href={`/glossary/${segment.slug}`}
+              href={`/glossary/${localizedSlug}`}
               className="text-green-700 hover:text-green-800 underline decoration-dotted underline-offset-2 transition-colors"
               title={`View definition: ${segment.content}`}
             >

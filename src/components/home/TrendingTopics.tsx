@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
+import { createLocalizedHref, getLocalizedSlug } from '@/lib/utils/locale-href';
 
 interface TrendingTopicsProps {
   lang?: LanguageCode;
@@ -11,6 +12,7 @@ export async function TrendingTopics({ lang = 'en' }: TrendingTopicsProps) {
   const locale = getLocaleSync(lang);
   const t = createTranslator(locale);
 
+  const localizedHref = createLocalizedHref(lang);
   const supabase = await createClient();
 
   const { data: trendingConditions } = await supabase
@@ -22,12 +24,12 @@ export async function TrendingTopics({ lang = 'en' }: TrendingTopicsProps) {
     .limit(8);
 
   // Fetch translations for non-English
-  let translationMap = new Map<string, { name?: string; display_name?: string }>();
+  let translationMap = new Map<string, { name?: string; display_name?: string; slug?: string }>();
   if (lang !== 'en' && trendingConditions?.length) {
     const conditionIds = trendingConditions.map(c => c.id);
     const { data: translations } = await supabase
       .from('condition_translations')
-      .select('condition_id, name, display_name')
+      .select('condition_id, slug, name, display_name')
       .eq('language', lang)
       .in('condition_id', conditionIds);
 
@@ -61,10 +63,11 @@ export async function TrendingTopics({ lang = 'en' }: TrendingTopicsProps) {
                 {trendingConditions?.slice(0, 5).map((condition) => {
                   const trans = translationMap.get(condition.id);
                   const displayName = trans?.display_name || trans?.name || condition.display_name || condition.name;
+                  const conditionSlug = getLocalizedSlug({ slug: condition.slug, translated_slug: trans?.slug });
                   return (
                   <Link
                     key={condition.slug}
-                    href={`/conditions/${condition.slug}`}
+                    href={localizedHref(`/conditions/${conditionSlug}`)}
                     className="group inline-flex items-center gap-2 px-4 py-2 min-h-[44px] bg-slate-50 hover:bg-emerald-50 rounded-lg transition-all flex-shrink-0"
                   >
                     <span className="text-sm font-medium text-slate-700 group-hover:text-emerald-700 whitespace-nowrap">

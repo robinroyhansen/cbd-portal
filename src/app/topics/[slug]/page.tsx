@@ -13,11 +13,16 @@ import {
   type RelatedGlossaryTerm,
   type RelatedArticle,
 } from '@/lib/topics';
+import { getLocalizedSlug } from '@/lib/utils/locale-href';
+import { getLanguage } from '@/lib/get-language';
+import { createClient } from '@/lib/supabase/server';
+import type { LanguageCode } from '@/lib/translation-service';
 
 export const revalidate = 3600; // Revalidate every 1 hour
 
 interface Props {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ lang?: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -156,10 +161,10 @@ function StudyCard({ study }: { study: RelatedStudy }) {
   );
 }
 
-function ConditionCard({ condition }: { condition: RelatedCondition }) {
+function ConditionCard({ condition, translatedSlug }: { condition: RelatedCondition; translatedSlug?: string }) {
   return (
     <Link
-      href={`/conditions/${condition.slug}`}
+      href={`/conditions/${getLocalizedSlug({ slug: condition.slug, translated_slug: translatedSlug })}`}
       className="block border rounded-lg p-4 bg-white hover:shadow-md hover:border-green-300 transition-all"
     >
       <h4 className="font-semibold text-gray-900">{condition.display_name || condition.name}</h4>
@@ -173,10 +178,10 @@ function ConditionCard({ condition }: { condition: RelatedCondition }) {
   );
 }
 
-function GlossaryTermCard({ term }: { term: RelatedGlossaryTerm }) {
+function GlossaryTermCard({ term, translatedSlug }: { term: RelatedGlossaryTerm; translatedSlug?: string }) {
   return (
     <Link
-      href={`/glossary/${term.slug}`}
+      href={`/glossary/${getLocalizedSlug({ slug: term.slug, translated_slug: translatedSlug })}`}
       className="block border rounded-lg p-3 bg-white hover:shadow-md hover:border-green-300 transition-all"
     >
       <h4 className="font-medium text-gray-900">{term.term}</h4>
@@ -209,8 +214,10 @@ function ArticleCard({ article }: { article: RelatedArticle }) {
   );
 }
 
-export default async function TopicPage({ params }: Props) {
+export default async function TopicPage({ params, searchParams }: Props) {
   const { slug } = await params;
+  const { lang: langParam } = await searchParams;
+  const lang = (langParam || await getLanguage()) as LanguageCode;
   const topic = await getTopicBySlug(slug);
 
   if (!topic) {
@@ -218,6 +225,39 @@ export default async function TopicPage({ params }: Props) {
   }
 
   const colors = colorClasses[topic.color] || colorClasses.gray;
+
+  // Fetch translated slugs for conditions and glossary terms (non-English)
+  let conditionSlugMap = new Map<string, string>();
+  let glossarySlugMap = new Map<string, string>();
+  if (lang !== 'en') {
+    const supabase = await createClient();
+
+    // Fetch condition translated slugs
+    if (topic.relatedConditions.length > 0) {
+      const conditionIds = topic.relatedConditions.map((c) => c.id);
+      const { data: condSlugTranslations } = await supabase
+        .from('condition_translations')
+        .select('condition_id, slug')
+        .eq('language', lang)
+        .in('condition_id', conditionIds);
+      conditionSlugMap = new Map(
+        (condSlugTranslations || []).map((t: { condition_id: string; slug: string }) => [t.condition_id, t.slug])
+      );
+    }
+
+    // Fetch glossary translated slugs
+    if (topic.glossaryTerms.length > 0) {
+      const glossaryIds = topic.glossaryTerms.map((g) => g.id);
+      const { data: glossSlugTranslations } = await supabase
+        .from('glossary_translations')
+        .select('term_id, slug')
+        .eq('language', lang)
+        .in('term_id', glossaryIds);
+      glossarySlugMap = new Map(
+        (glossSlugTranslations || []).map((t: { term_id: string; slug: string }) => [t.term_id, t.slug])
+      );
+    }
+  }
 
   const breadcrumbs = [
     { name: 'Home', url: 'https://cbd-portal.vercel.app' },
@@ -346,7 +386,7 @@ export default async function TopicPage({ params }: Props) {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {topic.relatedConditions.slice(0, 6).map((condition) => (
-              <ConditionCard key={condition.id} condition={condition} />
+              <ConditionCard key={condition.id} condition={condition} translatedSlug={conditionSlugMap.get(condition.id)} />
             ))}
           </div>
         </section>
@@ -393,7 +433,7 @@ export default async function TopicPage({ params }: Props) {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
             {topic.glossaryTerms.slice(0, 9).map((term) => (
-              <GlossaryTermCard key={term.id} term={term} />
+              <GlossaryTermCard key={term.id} term={term} translatedSlug={glossarySlugMap.get(term.id)} />
             ))}
           </div>
         </section>

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
-import { createLocalizedHref } from '@/lib/utils/locale-href';
+import { createLocalizedHref, getLocalizedSlug } from '@/lib/utils/locale-href';
 import { getFeaturedConditionsWithTranslations } from '@/lib/translations';
 
 const categoryConfig: Record<string, { icon: string; color: string; bgColor: string }> = {
@@ -70,7 +70,7 @@ export async function BrowseByCondition({ lang = 'en' }: BrowseByConditionProps)
             return (
               <Link
                 key={condition.slug}
-                href={localizedHref(`/conditions/${condition.slug}`)}
+                href={localizedHref(`/conditions/${getLocalizedSlug(condition)}`)}
                 className={`group relative bg-white rounded-2xl p-6 lg:p-8 border border-slate-200/80 hover:border-emerald-300 hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-500 ${isLarge ? 'md:col-span-2 lg:col-span-1' : ''}`}
               >
                 {/* Hover gradient overlay */}

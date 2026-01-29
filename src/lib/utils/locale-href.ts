@@ -4,6 +4,14 @@
  */
 
 /**
+ * Get the localized slug for a condition or glossary term.
+ * Returns the translated_slug if available, otherwise falls back to the English slug.
+ */
+export function getLocalizedSlug(item: { slug: string; translated_slug?: string | null }): string {
+  return item.translated_slug || item.slug;
+}
+
+/**
  * Build a localized href by adding ?lang= parameter if not English
  * @param href - The base href (e.g., '/conditions')
  * @param lang - The language code (e.g., 'da', 'en')
