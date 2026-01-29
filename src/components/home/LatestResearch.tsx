@@ -75,7 +75,28 @@ export async function LatestResearch({ lang = 'en' }: LatestResearchProps) {
     .order('quality_score', { ascending: false })
     .limit(4);
 
-  const research = latestResearch || [];
+  // Fetch translations for non-English
+  let researchTranslationMap = new Map<string, { plain_summary?: string }>();
+  if (lang !== 'en' && latestResearch?.length) {
+    const researchIds = latestResearch.map(r => r.id);
+    const { data: translations } = await supabase
+      .from('research_translations')
+      .select('research_id, plain_summary')
+      .eq('language', lang)
+      .in('research_id', researchIds);
+
+    researchTranslationMap = new Map(
+      (translations || []).map(t => [t.research_id, t])
+    );
+  }
+
+  const research = (latestResearch || []).map(r => {
+    const trans = researchTranslationMap.get(r.id);
+    return {
+      ...r,
+      plain_summary: trans?.plain_summary || r.plain_summary,
+    };
+  });
 
   return (
     <section className="py-24 bg-[#0a1f1a]">

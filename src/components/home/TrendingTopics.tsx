@@ -15,11 +15,26 @@ export async function TrendingTopics({ lang = 'en' }: TrendingTopicsProps) {
 
   const { data: trendingConditions } = await supabase
     .from('kb_conditions')
-    .select('slug, name, display_name, research_count')
+    .select('id, slug, name, display_name, research_count')
     .eq('is_published', true)
     .gt('research_count', 0)
     .order('research_count', { ascending: false })
     .limit(8);
+
+  // Fetch translations for non-English
+  let translationMap = new Map<string, { name?: string; display_name?: string }>();
+  if (lang !== 'en' && trendingConditions?.length) {
+    const conditionIds = trendingConditions.map(c => c.id);
+    const { data: translations } = await supabase
+      .from('condition_translations')
+      .select('condition_id, name, display_name')
+      .eq('language', lang)
+      .in('condition_id', conditionIds);
+
+    translationMap = new Map(
+      (translations || []).map(t => [t.condition_id, t])
+    );
+  }
 
   const popularSearches = [
     { label: t('quickLinks.dosageGuide'), href: '/tools/dosage-calculator', icon: '💊' },
@@ -43,20 +58,24 @@ export async function TrendingTopics({ lang = 'en' }: TrendingTopicsProps) {
             {/* Trending conditions - horizontal scroll on mobile */}
             <div className="relative flex-1">
               <div className="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 scrollbar-hide">
-                {trendingConditions?.slice(0, 5).map((condition) => (
+                {trendingConditions?.slice(0, 5).map((condition) => {
+                  const trans = translationMap.get(condition.id);
+                  const displayName = trans?.display_name || trans?.name || condition.display_name || condition.name;
+                  return (
                   <Link
                     key={condition.slug}
                     href={`/conditions/${condition.slug}`}
                     className="group inline-flex items-center gap-2 px-4 py-2 min-h-[44px] bg-slate-50 hover:bg-emerald-50 rounded-lg transition-all flex-shrink-0"
                   >
                     <span className="text-sm font-medium text-slate-700 group-hover:text-emerald-700 whitespace-nowrap">
-                      {condition.display_name || condition.name}
+                      {displayName}
                     </span>
                     <span className="text-xs text-slate-400 group-hover:text-emerald-500 bg-white px-1.5 py-0.5 rounded">
                       {condition.research_count}
                     </span>
                   </Link>
-                ))}
+                  );
+                })}
               </div>
               {/* Gradient fade indicator for scroll */}
               <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white to-transparent pointer-events-none lg:hidden" />

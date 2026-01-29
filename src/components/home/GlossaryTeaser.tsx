@@ -81,15 +81,19 @@ export async function GlossaryTeaser({ lang = 'en' }: GlossaryTeaserProps) {
 
               {topCategories.length > 0 && (
                 <div className="flex flex-wrap gap-2">
-                  {topCategories.map(([category, count]) => (
+                  {topCategories.map(([category, count]) => {
+                    const categoryKey = category.toLowerCase().replace(/\s+/g, '-');
+                    const translatedCategory = t(`glossaryCategories.${categoryKey}`) || category;
+                    return (
                     <Link
                       key={category}
-                      href={localizedHref(`/glossary/category/${category.toLowerCase().replace(/\s+/g, '-')}`)}
+                      href={localizedHref(`/glossary/category/${categoryKey}`)}
                       className="text-xs px-2 py-1 bg-gray-100 hover:bg-green-100 text-gray-600 hover:text-green-700 rounded-full transition-colors"
                     >
-                      {category} ({count})
+                      {translatedCategory} ({count})
                     </Link>
-                  ))}
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -131,7 +135,7 @@ export async function GlossaryTeaser({ lang = 'en' }: GlossaryTeaserProps) {
                     </h4>
                     {term.category && (
                       <span className="hidden sm:inline text-[10px] px-2 py-0.5 bg-gray-100 text-gray-500 rounded-full whitespace-nowrap">
-                        {term.category}
+                        {t(`glossaryCategories.${term.category.toLowerCase().replace(/\s+/g, '-')}`) || term.category}
                       </span>
                     )}
                   </div>
