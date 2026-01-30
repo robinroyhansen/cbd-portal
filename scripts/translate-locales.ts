@@ -8,6 +8,9 @@
  *   npx tsx scripts/translate-locales.ts --lang=da,sv,no
  */
 
+import { config } from 'dotenv';
+config({ path: '.env.local' });
+
 import fs from 'fs';
 import path from 'path';
 import Anthropic from '@anthropic-ai/sdk';
@@ -62,7 +65,7 @@ async function translateLocale(
     console.log(`   - Translating section: ${section}...`);
 
     const response = await client.messages.create({
-      model: 'claude-3-haiku-20240307',
+      model: 'claude-sonnet-4-20250514',
       max_tokens: 4096,
       messages: [
         {

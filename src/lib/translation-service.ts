@@ -69,7 +69,7 @@ Guidelines:
 
 class TranslationService {
   private client: Anthropic;
-  private model = 'claude-3-haiku-20240307'; // Fast and cost-effective for translations
+  private model = 'claude-sonnet-4-20250514'; // Better natural phrasing for European languages
 
   constructor() {
     this.client = new Anthropic({

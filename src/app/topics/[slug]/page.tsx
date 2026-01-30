@@ -13,9 +13,8 @@ import {
   type RelatedGlossaryTerm,
   type RelatedArticle,
 } from '@/lib/topics';
-import { getLocalizedSlug } from '@/lib/utils/locale-href';
+import { createLocalizedHref } from '@/lib/utils/locale-href';
 import { getLanguage } from '@/lib/get-language';
-import { createClient } from '@/lib/supabase/server';
 import type { LanguageCode } from '@/lib/translation-service';
 
 export const revalidate = 3600; // Revalidate every 1 hour
@@ -97,7 +96,7 @@ function StatsOverview({ stats, colors }: { stats: TopicStats; colors: typeof co
   );
 }
 
-function StudyCard({ study }: { study: RelatedStudy }) {
+function StudyCard({ study, localizedHref }: { study: RelatedStudy; localizedHref: (href: string) => string }) {
   const getSubjectBadge = (subject: string | null) => {
     switch (subject) {
       case 'human': return { bg: 'bg-green-100', text: 'text-green-700', label: 'Human' };
@@ -118,7 +117,7 @@ function StudyCard({ study }: { study: RelatedStudy }) {
         </span>
         <div className="flex-1 min-w-0">
           {study.slug ? (
-            <Link href={`/research/study/${study.slug}`} className="font-medium text-gray-900 hover:text-green-600 line-clamp-2">
+            <Link href={localizedHref(`/research/study/${study.slug}`)} className="font-medium text-gray-900 hover:text-green-600 line-clamp-2">
               {study.title}
             </Link>
           ) : (
@@ -161,10 +160,10 @@ function StudyCard({ study }: { study: RelatedStudy }) {
   );
 }
 
-function ConditionCard({ condition, translatedSlug }: { condition: RelatedCondition; translatedSlug?: string }) {
+function ConditionCard({ condition, localizedHref }: { condition: RelatedCondition; localizedHref: (href: string) => string }) {
   return (
     <Link
-      href={`/conditions/${getLocalizedSlug({ slug: condition.slug, translated_slug: translatedSlug })}`}
+      href={localizedHref(`/conditions/${condition.slug}`)}
       className="block border rounded-lg p-4 bg-white hover:shadow-md hover:border-green-300 transition-all"
     >
       <h4 className="font-semibold text-gray-900">{condition.display_name || condition.name}</h4>
@@ -178,10 +177,10 @@ function ConditionCard({ condition, translatedSlug }: { condition: RelatedCondit
   );
 }
 
-function GlossaryTermCard({ term, translatedSlug }: { term: RelatedGlossaryTerm; translatedSlug?: string }) {
+function GlossaryTermCard({ term, localizedHref }: { term: RelatedGlossaryTerm; localizedHref: (href: string) => string }) {
   return (
     <Link
-      href={`/glossary/${getLocalizedSlug({ slug: term.slug, translated_slug: translatedSlug })}`}
+      href={localizedHref(`/glossary/${term.slug}`)}
       className="block border rounded-lg p-3 bg-white hover:shadow-md hover:border-green-300 transition-all"
     >
       <h4 className="font-medium text-gray-900">{term.term}</h4>
@@ -192,10 +191,10 @@ function GlossaryTermCard({ term, translatedSlug }: { term: RelatedGlossaryTerm;
   );
 }
 
-function ArticleCard({ article }: { article: RelatedArticle }) {
+function ArticleCard({ article, localizedHref }: { article: RelatedArticle; localizedHref: (href: string) => string }) {
   return (
     <Link
-      href={`/articles/${article.slug}`}
+      href={localizedHref(`/articles/${article.slug}`)}
       className="block border rounded-lg p-4 bg-white hover:shadow-md hover:border-green-300 transition-all"
     >
       <h4 className="font-semibold text-gray-900 line-clamp-2">{article.title}</h4>
@@ -225,39 +224,7 @@ export default async function TopicPage({ params, searchParams }: Props) {
   }
 
   const colors = colorClasses[topic.color] || colorClasses.gray;
-
-  // Fetch translated slugs for conditions and glossary terms (non-English)
-  let conditionSlugMap = new Map<string, string>();
-  let glossarySlugMap = new Map<string, string>();
-  if (lang !== 'en') {
-    const supabase = await createClient();
-
-    // Fetch condition translated slugs
-    if (topic.relatedConditions.length > 0) {
-      const conditionIds = topic.relatedConditions.map((c) => c.id);
-      const { data: condSlugTranslations } = await supabase
-        .from('condition_translations')
-        .select('condition_id, slug')
-        .eq('language', lang)
-        .in('condition_id', conditionIds);
-      conditionSlugMap = new Map(
-        (condSlugTranslations || []).map((t: { condition_id: string; slug: string }) => [t.condition_id, t.slug])
-      );
-    }
-
-    // Fetch glossary translated slugs
-    if (topic.glossaryTerms.length > 0) {
-      const glossaryIds = topic.glossaryTerms.map((g) => g.id);
-      const { data: glossSlugTranslations } = await supabase
-        .from('glossary_translations')
-        .select('term_id, slug')
-        .eq('language', lang)
-        .in('term_id', glossaryIds);
-      glossarySlugMap = new Map(
-        (glossSlugTranslations || []).map((t: { term_id: string; slug: string }) => [t.term_id, t.slug])
-      );
-    }
-  }
+  const localizedHref = createLocalizedHref(lang);
 
   const breadcrumbs = [
     { name: 'Home', url: 'https://cbd-portal.vercel.app' },
@@ -380,13 +347,13 @@ export default async function TopicPage({ params, searchParams }: Props) {
         <section className="mb-12">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold">Related Conditions</h2>
-            <Link href="/conditions" className="text-green-600 hover:text-green-700 text-sm font-medium">
+            <Link href={localizedHref('/conditions')} className="text-green-600 hover:text-green-700 text-sm font-medium">
               View all conditions
             </Link>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {topic.relatedConditions.slice(0, 6).map((condition) => (
-              <ConditionCard key={condition.id} condition={condition} translatedSlug={conditionSlugMap.get(condition.id)} />
+              <ConditionCard key={condition.id} condition={condition} localizedHref={localizedHref} />
             ))}
           </div>
         </section>
@@ -397,19 +364,19 @@ export default async function TopicPage({ params, searchParams }: Props) {
         <section className="mb-12">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold">Research Studies</h2>
-            <Link href="/research" className="text-green-600 hover:text-green-700 text-sm font-medium">
+            <Link href={localizedHref('/research')} className="text-green-600 hover:text-green-700 text-sm font-medium">
               Browse all research
             </Link>
           </div>
           <div className="space-y-3">
             {topic.studies.slice(0, 10).map((study) => (
-              <StudyCard key={study.id} study={study} />
+              <StudyCard key={study.id} study={study} localizedHref={localizedHref} />
             ))}
           </div>
           {topic.studies.length > 10 && (
             <div className="mt-4 text-center">
               <Link
-                href={`/research?topic=${slug}`}
+                href={localizedHref(`/research?topic=${slug}`)}
                 className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-medium"
               >
                 View all {topic.studyCount} studies
@@ -427,13 +394,13 @@ export default async function TopicPage({ params, searchParams }: Props) {
         <section className="mb-12">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold">Related Terms</h2>
-            <Link href="/glossary" className="text-green-600 hover:text-green-700 text-sm font-medium">
+            <Link href={localizedHref('/glossary')} className="text-green-600 hover:text-green-700 text-sm font-medium">
               View glossary
             </Link>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
             {topic.glossaryTerms.slice(0, 9).map((term) => (
-              <GlossaryTermCard key={term.id} term={term} translatedSlug={glossarySlugMap.get(term.id)} />
+              <GlossaryTermCard key={term.id} term={term} localizedHref={localizedHref} />
             ))}
           </div>
         </section>
@@ -444,13 +411,13 @@ export default async function TopicPage({ params, searchParams }: Props) {
         <section className="mb-12">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold">Articles</h2>
-            <Link href="/articles" className="text-green-600 hover:text-green-700 text-sm font-medium">
+            <Link href={localizedHref('/articles')} className="text-green-600 hover:text-green-700 text-sm font-medium">
               View all articles
             </Link>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {topic.articles.slice(0, 6).map((article) => (
-              <ArticleCard key={article.id} article={article} />
+              <ArticleCard key={article.id} article={article} localizedHref={localizedHref} />
             ))}
           </div>
         </section>
@@ -476,7 +443,7 @@ export default async function TopicPage({ params, searchParams }: Props) {
 
       {/* Back to Topics */}
       <div className="border-t pt-8">
-        <Link href="/topics" className="text-green-600 hover:text-green-800 font-medium inline-flex items-center gap-2">
+        <Link href={localizedHref('/topics')} className="text-green-600 hover:text-green-800 font-medium inline-flex items-center gap-2">
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>

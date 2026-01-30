@@ -4,7 +4,7 @@ import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useLocale } from '@/hooks/useLocale';
-import { getLocalizedSlug } from '@/lib/utils/locale-href';
+import { buildLocalizedHref } from '@/lib/utils/locale-href';
 
 interface GlossaryTerm {
   id: string;
@@ -184,8 +184,7 @@ export function GlossaryClient({
         e.preventDefault();
         if (selectedSuggestionIndex >= 0) {
           const currentLang = searchParams.get('lang');
-          const langParam = currentLang ? `?lang=${currentLang}` : '';
-          router.push(`/glossary/${getLocalizedSlug(suggestions[selectedSuggestionIndex].term)}${langParam}`);
+          router.push(buildLocalizedHref(`/glossary/${suggestions[selectedSuggestionIndex].term.slug}`, currentLang || undefined));
         }
         break;
       case 'Escape':
@@ -310,7 +309,7 @@ export function GlossaryClient({
                   return (
                     <Link
                       key={suggestion.term.slug}
-                      href={`/glossary/${getLocalizedSlug(suggestion.term)}`}
+                      href={buildLocalizedHref(`/glossary/${suggestion.term.slug}`, searchParams.get('lang') || undefined)}
                       role="option"
                       aria-selected={isSelected}
                       className={`flex items-center justify-between px-4 py-3 hover:bg-green-50 transition-colors border-b border-gray-100 last:border-b-0 ${
@@ -352,7 +351,7 @@ export function GlossaryClient({
                 {popularTerms.map(term => (
                   <Link
                     key={term.slug}
-                    href={`/glossary/${getLocalizedSlug(term)}`}
+                    href={buildLocalizedHref(`/glossary/${term.slug}`, searchParams.get('lang') || undefined)}
                     className="group bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/10 hover:border-white/30 rounded-lg md:rounded-xl p-3 md:p-4 transition-all duration-300"
                   >
                     <div className="font-semibold text-white text-sm md:text-base group-hover:text-green-100 transition-colors line-clamp-1">
@@ -562,7 +561,7 @@ export function GlossaryClient({
             )}
           </div>
         ) : viewMode === 'table' ? (
-          <TableView terms={filteredTerms} categories={categories} t={t} />
+          <TableView terms={filteredTerms} categories={categories} t={t} lang={searchParams.get('lang') || undefined} />
         ) : (
           <CardView
             terms={filteredTerms}
@@ -570,6 +569,7 @@ export function GlossaryClient({
             categories={categories}
             isFiltered={!!(selectedLetter || searchQuery)}
             t={t}
+            lang={searchParams.get('lang') || undefined}
           />
         )}
       </main>
@@ -577,7 +577,7 @@ export function GlossaryClient({
   );
 }
 
-function TableView({ terms, categories, t }: { terms: GlossaryTerm[]; categories: Category[]; t: (key: string) => string }) {
+function TableView({ terms, categories, t, lang }: { terms: GlossaryTerm[]; categories: Category[]; t: (key: string) => string; lang?: string }) {
   return (
     <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
       <table className="w-full">
@@ -596,7 +596,7 @@ function TableView({ terms, categories, t }: { terms: GlossaryTerm[]; categories
             return (
               <tr key={term.id} className="hover:bg-gray-50">
                 <td className="px-4 py-3">
-                  <Link href={`/glossary/${getLocalizedSlug(term)}`} className="block group">
+                  <Link href={buildLocalizedHref(`/glossary/${term.slug}`, lang)} className="block group">
                     <div className="font-medium text-gray-900 group-hover:text-green-600 transition-colors">
                       {term.display_name || term.term}
                     </div>
@@ -639,18 +639,20 @@ function CardView({
   categories,
   isFiltered,
   t,
+  lang,
 }: {
   terms: GlossaryTerm[];
   termsByLetter: Record<string, GlossaryTerm[]>;
   categories: Category[];
   isFiltered: boolean;
   t: (key: string) => string;
+  lang?: string;
 }) {
   if (isFiltered) {
     return (
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {terms.map(term => (
-          <TermCard key={term.id} term={term} categories={categories} t={t} />
+          <TermCard key={term.id} term={term} categories={categories} t={t} lang={lang} />
         ))}
       </div>
     );
@@ -673,7 +675,7 @@ function CardView({
             </h2>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {letterTerms.map(term => (
-                <TermCard key={term.id} term={term} categories={categories} t={t} />
+                <TermCard key={term.id} term={term} categories={categories} t={t} lang={lang} />
               ))}
             </div>
           </section>
@@ -682,13 +684,13 @@ function CardView({
   );
 }
 
-function TermCard({ term, categories, t }: { term: GlossaryTerm; categories: Category[]; t: (key: string) => string }) {
+function TermCard({ term, categories, t, lang }: { term: GlossaryTerm; categories: Category[]; t: (key: string) => string; lang?: string }) {
   const categoryColors = CATEGORY_COLORS[term.category] || CATEGORY_COLORS.cannabinoids;
   const categoryInfo = categories.find(c => c.key === term.category);
 
   return (
     <Link
-      href={`/glossary/${getLocalizedSlug(term)}`}
+      href={buildLocalizedHref(`/glossary/${term.slug}`, lang)}
       className="group block bg-white rounded-xl md:rounded-2xl border border-gray-200 hover:shadow-lg hover:border-green-300 transition-all duration-300 overflow-hidden"
     >
       {/* Gradient accent line */}

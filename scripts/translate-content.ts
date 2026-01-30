@@ -41,12 +41,26 @@ Guidelines:
 - Use native medical terminology where appropriate
 - Preserve any HTML tags exactly as they appear`;
 
+function generateSlug(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/æ/g, 'ae')
+    .replace(/ø/g, 'oe')
+    .replace(/å/g, 'aa')
+    .replace(/ä/g, 'ae')
+    .replace(/ö/g, 'oe')
+    .replace(/ü/g, 'ue')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
 async function translateConditions(
   supabase: ReturnType<typeof createClient>,
   client: Anthropic,
   langs: LangCode[],
   limit?: number,
-  offset?: number
+  offset?: number,
+  force?: boolean
 ) {
   console.log('\n📋 Fetching conditions...');
 
@@ -81,15 +95,20 @@ async function translateConditions(
         .single();
 
       if (existing) {
-        console.log(`⏭️ Skipping ${condition.name} (${lang}) - already translated`);
-        continue;
+        if (force) {
+          await supabase.from('condition_translations').delete().eq('id', existing.id);
+          console.log(`🗑️ Deleted existing translation for ${condition.name} (${lang})`);
+        } else {
+          console.log(`⏭️ Skipping ${condition.name} (${lang}) - already translated`);
+          continue;
+        }
       }
 
       console.log(`🔄 Translating condition: ${condition.name} → ${TARGET_LANGUAGES[lang].name}`);
 
       try {
         const response = await client.messages.create({
-          model: 'claude-3-haiku-20240307',
+          model: 'claude-sonnet-4-20250514',
           max_tokens: 2048,
           messages: [
             {
@@ -152,6 +171,7 @@ Respond in this exact JSON format:
         const { error: insertError } = await supabase.from('condition_translations').insert({
           condition_id: condition.id,
           language: lang,
+          slug: generateSlug(translated.name),
           name: translated.name,
           display_name: translated.display_name,
           short_description: translated.short_description,
@@ -183,7 +203,8 @@ async function translateArticles(
   client: Anthropic,
   langs: LangCode[],
   limit?: number,
-  offset?: number
+  offset?: number,
+  force?: boolean
 ) {
   console.log('\n📄 Fetching articles...');
 
@@ -219,8 +240,13 @@ async function translateArticles(
         .single();
 
       if (existing) {
-        console.log(`⏭️ Skipping ${article.slug} (${lang}) - already translated`);
-        continue;
+        if (force) {
+          await supabase.from('article_translations').delete().eq('id', existing.id);
+          console.log(`🗑️ Deleted existing translation for ${article.slug} (${lang})`);
+        } else {
+          console.log(`⏭️ Skipping ${article.slug} (${lang}) - already translated`);
+          continue;
+        }
       }
 
       console.log(`🔄 Translating article: ${article.slug} → ${TARGET_LANGUAGES[lang].name}`);
@@ -228,7 +254,7 @@ async function translateArticles(
       try {
         // Translate title
         const titleResponse = await client.messages.create({
-          model: 'claude-3-haiku-20240307',
+          model: 'claude-sonnet-4-20250514',
           max_tokens: 256,
           messages: [
             {
@@ -250,7 +276,7 @@ Provide ONLY the translated title:`,
 
         // Translate content
         const contentResponse = await client.messages.create({
-          model: 'claude-3-haiku-20240307',
+          model: 'claude-sonnet-4-20250514',
           max_tokens: 4096,
           messages: [
             {
@@ -274,7 +300,7 @@ Provide ONLY the translated markdown content:`,
         let translatedMeta = article.meta_description;
         if (article.meta_description) {
           const metaResponse = await client.messages.create({
-            model: 'claude-3-haiku-20240307',
+            model: 'claude-sonnet-4-20250514',
             max_tokens: 256,
             messages: [
               {
@@ -299,7 +325,7 @@ Provide ONLY the translated meta description:`,
         const { error: insertError } = await supabase.from('article_translations').insert({
           article_id: article.id,
           language: lang,
-          slug: article.slug, // Keep original slug
+          slug: generateSlug(translatedTitle),
           title: translatedTitle,
           content: translatedContent,
           excerpt: translatedMeta,
@@ -327,7 +353,8 @@ async function translateGlossary(
   client: Anthropic,
   langs: LangCode[],
   limit?: number,
-  offset?: number
+  offset?: number,
+  force?: boolean
 ) {
   console.log('\n📖 Fetching glossary terms...');
 
@@ -362,15 +389,20 @@ async function translateGlossary(
         .single();
 
       if (existing) {
-        console.log(`⏭️ Skipping ${term.term} (${lang}) - already translated`);
-        continue;
+        if (force) {
+          await supabase.from('glossary_translations').delete().eq('id', existing.id);
+          console.log(`🗑️ Deleted existing translation for ${term.term} (${lang})`);
+        } else {
+          console.log(`⏭️ Skipping ${term.term} (${lang}) - already translated`);
+          continue;
+        }
       }
 
       console.log(`🔄 Translating term: ${term.term} → ${TARGET_LANGUAGES[lang].name}`);
 
       try {
         const response = await client.messages.create({
-          model: 'claude-3-haiku-20240307',
+          model: 'claude-sonnet-4-20250514',
           max_tokens: 1024,
           messages: [
             {
@@ -427,6 +459,7 @@ Respond in this exact JSON format:
         const { error: insertError } = await supabase.from('glossary_translations').insert({
           term_id: term.id,
           language: lang,
+          slug: generateSlug(translated.term),
           term: translated.term,
           definition: translated.definition,
           simple_definition: translated.simple_definition || null,
@@ -456,7 +489,8 @@ async function translateResearch(
   client: Anthropic,
   langs: LangCode[],
   limit?: number,
-  offset?: number
+  offset?: number,
+  force?: boolean
 ) {
   console.log('\n🔬 Fetching research studies...');
 
@@ -493,15 +527,20 @@ async function translateResearch(
         .single();
 
       if (existing) {
-        console.log(`⏭️ Skipping research ${study.id} (${lang}) - already translated`);
-        continue;
+        if (force) {
+          await supabase.from('research_translations').delete().eq('id', existing.id);
+          console.log(`🗑️ Deleted existing translation for research ${study.id} (${lang})`);
+        } else {
+          console.log(`⏭️ Skipping research ${study.id} (${lang}) - already translated`);
+          continue;
+        }
       }
 
       console.log(`🔄 Translating research: ${study.title?.substring(0, 50)}... → ${TARGET_LANGUAGES[lang].name}`);
 
       try {
         const response = await client.messages.create({
-          model: 'claude-3-haiku-20240307',
+          model: 'claude-sonnet-4-20250514',
           max_tokens: 1024,
           messages: [
             {
@@ -551,10 +590,11 @@ async function main() {
   const langArg = args.find((a) => a.startsWith('--lang='));
   const limitArg = args.find((a) => a.startsWith('--limit='));
   const offsetArg = args.find((a) => a.startsWith('--offset='));
+  const force = args.includes('--force');
 
   if (!typeArg || !langArg) {
     console.log(`
-Usage: npx tsx scripts/translate-content.ts --type=TYPE --lang=LANG [--limit=N]
+Usage: npx tsx scripts/translate-content.ts --type=TYPE --lang=LANG [--limit=N] [--force]
 
 Types:
   articles    - Translate kb_articles content
@@ -570,10 +610,12 @@ Languages:
 Options:
   --limit=N   - Only translate N items (useful for testing or batching)
   --offset=N  - Skip first N items (for parallel batching)
+  --force     - Delete and re-translate existing translations
 
 Examples:
   npx tsx scripts/translate-content.ts --type=conditions --lang=da
   npx tsx scripts/translate-content.ts --type=articles --lang=all --limit=10
+  npx tsx scripts/translate-content.ts --type=conditions --lang=no --force
     `);
     process.exit(1);
   }
@@ -625,22 +667,25 @@ Examples:
   if (offset) {
     console.log(`⏭️ Starting from offset ${offset}`);
   }
+  if (force) {
+    console.log(`⚠️ Force mode: existing translations will be deleted and re-translated`);
+  }
 
   // Run translations based on type
   if (contentType === 'all' || contentType === 'conditions') {
-    await translateConditions(supabase, anthropic, targetLangs, limit, offset);
+    await translateConditions(supabase, anthropic, targetLangs, limit, offset, force);
   }
 
   if (contentType === 'all' || contentType === 'articles') {
-    await translateArticles(supabase, anthropic, targetLangs, limit, offset);
+    await translateArticles(supabase, anthropic, targetLangs, limit, offset, force);
   }
 
   if (contentType === 'all' || contentType === 'glossary') {
-    await translateGlossary(supabase, anthropic, targetLangs, limit, offset);
+    await translateGlossary(supabase, anthropic, targetLangs, limit, offset, force);
   }
 
   if (contentType === 'all' || contentType === 'research') {
-    await translateResearch(supabase, anthropic, targetLangs, limit, offset);
+    await translateResearch(supabase, anthropic, targetLangs, limit, offset, force);
   }
 
   console.log('\n🎉 Translation complete!');
