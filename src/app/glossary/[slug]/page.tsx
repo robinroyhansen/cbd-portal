@@ -12,7 +12,7 @@ import { getGlossaryTermWithTranslation, getRelatedGlossaryTermsWithTranslations
 import { getLocaleSync } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { getHreflangAlternates } from '@/components/HreflangTags';
-import { createLocalizedHref } from '@/lib/utils/locale-href';
+import { createLocalizedHref, getLocalizedSlug } from '@/lib/utils/locale-href';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -489,7 +489,7 @@ export default async function GlossaryTermPage({ params, searchParams }: Props) 
                   return (
                     <Link
                       key={related.slug}
-                      href={localizedHref(`/glossary/${related.slug}`)}
+                      href={localizedHref(`/glossary/${getLocalizedSlug(related)}`)}
                       className="p-4 bg-white border border-gray-200 rounded-xl hover:border-green-400 hover:shadow-md transition-all group"
                     >
                       <div className="flex items-start justify-between gap-2 mb-2">

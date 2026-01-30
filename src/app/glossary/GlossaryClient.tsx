@@ -4,7 +4,7 @@ import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useLocale } from '@/hooks/useLocale';
-import { buildLocalizedHref } from '@/lib/utils/locale-href';
+import { buildLocalizedHref, getLocalizedSlug } from '@/lib/utils/locale-href';
 
 interface GlossaryTerm {
   id: string;
@@ -184,7 +184,7 @@ export function GlossaryClient({
         e.preventDefault();
         if (selectedSuggestionIndex >= 0) {
           const currentLang = searchParams.get('lang');
-          router.push(buildLocalizedHref(`/glossary/${suggestions[selectedSuggestionIndex].term.slug}`, currentLang || undefined));
+          router.push(buildLocalizedHref(`/glossary/${getLocalizedSlug(suggestions[selectedSuggestionIndex].term)}`, currentLang || undefined));
         }
         break;
       case 'Escape':
@@ -309,7 +309,7 @@ export function GlossaryClient({
                   return (
                     <Link
                       key={suggestion.term.slug}
-                      href={buildLocalizedHref(`/glossary/${suggestion.term.slug}`, searchParams.get('lang') || undefined)}
+                      href={buildLocalizedHref(`/glossary/${getLocalizedSlug(suggestion.term)}`, searchParams.get('lang') || undefined)}
                       role="option"
                       aria-selected={isSelected}
                       className={`flex items-center justify-between px-4 py-3 hover:bg-green-50 transition-colors border-b border-gray-100 last:border-b-0 ${
@@ -351,7 +351,7 @@ export function GlossaryClient({
                 {popularTerms.map(term => (
                   <Link
                     key={term.slug}
-                    href={buildLocalizedHref(`/glossary/${term.slug}`, searchParams.get('lang') || undefined)}
+                    href={buildLocalizedHref(`/glossary/${getLocalizedSlug(term)}`, searchParams.get('lang') || undefined)}
                     className="group bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/10 hover:border-white/30 rounded-lg md:rounded-xl p-3 md:p-4 transition-all duration-300"
                   >
                     <div className="font-semibold text-white text-sm md:text-base group-hover:text-green-100 transition-colors line-clamp-1">
@@ -596,7 +596,7 @@ function TableView({ terms, categories, t, lang }: { terms: GlossaryTerm[]; cate
             return (
               <tr key={term.id} className="hover:bg-gray-50">
                 <td className="px-4 py-3">
-                  <Link href={buildLocalizedHref(`/glossary/${term.slug}`, lang)} className="block group">
+                  <Link href={buildLocalizedHref(`/glossary/${getLocalizedSlug(term)}`, lang)} className="block group">
                     <div className="font-medium text-gray-900 group-hover:text-green-600 transition-colors">
                       {term.display_name || term.term}
                     </div>
@@ -690,7 +690,7 @@ function TermCard({ term, categories, t, lang }: { term: GlossaryTerm; categorie
 
   return (
     <Link
-      href={buildLocalizedHref(`/glossary/${term.slug}`, lang)}
+      href={buildLocalizedHref(`/glossary/${getLocalizedSlug(term)}`, lang)}
       className="group block bg-white rounded-xl md:rounded-2xl border border-gray-200 hover:shadow-lg hover:border-green-300 transition-all duration-300 overflow-hidden"
     >
       {/* Gradient accent line */}
