@@ -12,7 +12,7 @@ import { getGlossaryTermWithTranslation, getRelatedGlossaryTermsWithTranslations
 import { getLocaleSync } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { getHreflangAlternates } from '@/components/HreflangTags';
-import { createLocalizedHref, getLocalizedSlug } from '@/lib/utils/locale-href';
+import { createLocalizedHref } from '@/lib/utils/locale-href';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -357,7 +357,7 @@ export default async function GlossaryTermPage({ params, searchParams }: Props) 
                 <span>
                   Reviewed by{' '}
                   <Link
-                    href={`/authors/${author.slug}`}
+                    href={localizedHref(`/authors/${author.slug}`)}
                     className="text-green-600 hover:text-green-700 hover:underline"
                   >
                     {author.name}
@@ -407,7 +407,7 @@ export default async function GlossaryTermPage({ params, searchParams }: Props) 
                   <p className="text-sm text-gray-600">Get personalized dosage recommendations based on your needs.</p>
                 </div>
                 <Link
-                  href="/tools/dosage-calculator"
+                  href={localizedHref('/tools/dosage-calculator')}
                   className="flex-shrink-0 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition-colors font-medium text-sm"
                 >
                   Try Calculator →
@@ -420,7 +420,7 @@ export default async function GlossaryTermPage({ params, searchParams }: Props) 
           {researchLink && researchCount > 0 && (
             <div className="mb-8">
               <Link
-                href={researchLink}
+                href={localizedHref(researchLink)}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors font-medium"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -489,7 +489,7 @@ export default async function GlossaryTermPage({ params, searchParams }: Props) 
                   return (
                     <Link
                       key={related.slug}
-                      href={localizedHref(`/glossary/${getLocalizedSlug(related)}`)}
+                      href={localizedHref(`/glossary/${related.slug}`)}
                       className="p-4 bg-white border border-gray-200 rounded-xl hover:border-green-400 hover:shadow-md transition-all group"
                     >
                       <div className="flex items-start justify-between gap-2 mb-2">
@@ -516,7 +516,7 @@ export default async function GlossaryTermPage({ params, searchParams }: Props) 
                 {relatedArticles.map(article => (
                   <Link
                     key={article.slug}
-                    href={`/articles/${article.slug}`}
+                    href={localizedHref(`/articles/${article.slug}`)}
                     className="flex items-center p-4 hover:bg-gray-50 transition-colors group"
                   >
                     <span className="text-green-600 mr-3">→</span>
