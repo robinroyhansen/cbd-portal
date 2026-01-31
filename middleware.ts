@@ -202,7 +202,12 @@ export function middleware(request: NextRequest) {
   }
 
   // --- Localized Route Handling ---
-  const domainLang = localizedRouteDomains[hostname];
+  // Support testing localized routes via ?testdomain=cbd.dk (only on preview URLs)
+  const testDomain = request.nextUrl.searchParams.get('testdomain');
+  const effectiveHostname = (testDomain && (hostname.includes('vercel.app') || hostname === 'localhost')) 
+    ? testDomain 
+    : hostname;
+  const domainLang = localizedRouteDomains[effectiveHostname];
   let rewriteUrl: URL | null = null;
   let shouldRedirect = false;
   let redirectUrl: URL | null = null;
