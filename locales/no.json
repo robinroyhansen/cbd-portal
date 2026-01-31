@@ -32,7 +32,7 @@
     "home": "Hjem",
     "share": "Del",
     "print": "Skriv ut",
-    "scrollToExplore": "Rull for å utforske",
+    "scrollToExplore": "Scroll ned for å utforske",
     "joinNewsletter": "Bli med",
     "subscribing": "...",
     "subscribeSuccess": "Takk for at du abonnerer!",
@@ -51,13 +51,14 @@
     "contact": "Kontakt",
     "authors": "Våre forfattere",
     "ourExperts": "Våre eksperter",
-    "editorialPolicy": "Redaksjonell policy",
+    "editorialPolicy": "Redaksjonelle retningslinjer",
     "glossary": "Ordliste",
     "allArticles": "Alle artikler",
     "toggleMenu": "Vis/skjul meny",
+    "closeMenu": "Lukk meny",
     "popularConditions": "Populære tilstander",
     "categories": "Kategorier",
-    "browseByBodySystem": "Bla gjennom etter kroppssystem",
+    "browseByBodySystem": "Utforsk etter kroppssystem",
     "quickAccess": "Hurtigtilgang",
     "comingSoon": "Kommer snart",
     "petTools": "Kjæledyrverktøy",
@@ -65,7 +66,7 @@
     "viewAllConditions": "Se alle 300+ tilstander",
     "viewAllArticles": "Bla gjennom alle artikler",
     "viewAllTools": "Se alle verktøy",
-    "viewAllPetGuides": "Se alle kjæledyrguider"
+    "viewAllPetGuides": "Se alle guider for kjæledyr"
   },
   "navCategories": {
     "mentalHealth": "Mental helse",
@@ -126,11 +127,11 @@
   },
   "hero": {
     "badge": "Uavhengig forskningsplattform",
-    "title": "Pålitelig",
+    "title": "Vitenskapsbasert",
     "titleHighlight": "CBD-forskning",
     "subtitle": "Verdens største uavhengige CBD-forskningsdatabase. Vi analyserer fagfellevurderte studier og presenterer objektiv, kvalitetsvurdert informasjon du kan stole på.",
     "exploreConditions": "Utforsk tilstander",
-    "browseStudies": "Bla gjennom studier"
+    "browseStudies": "Utforsk studier"
   },
   "stats": {
     "researchDatabase": "Forskningsdatabase",
@@ -356,7 +357,7 @@
   },
   "footer": {
     "brandDescription": "Forskningsbasert CBD-informasjon støttet av fagfellevurdert forskning.",
-    "brandTagline": "Uavhengig. Forskningsdrevet. Transparent.",
+    "brandTagline": "Uavhengig. Forskningsdrevet. Åpen.",
     "explore": "Utforsk",
     "healthConditions": "Helsetilstander",
     "researchDatabase": "Forskningsdatabase",
@@ -365,13 +366,13 @@
     "ourAuthors": "Våre forfattere",
     "tools": "Verktøy",
     "dosageCalculator": "Doseringskalkulator",
-    "drugInteractions": "Legemiddelinteraksjoner",
+    "drugInteractions": "Medikamentinteraksjoner",
     "costCalculator": "Kostnadskalkulator",
     "strengthCalculator": "Styrkekalkulator",
     "petDosage": "Kjæledyrdosering",
     "legal": "Juridisk",
     "medicalDisclaimer": "Medisinsk ansvarsfraskrivelse",
-    "editorialPolicy": "Redaksjonell policy",
+    "editorialPolicy": "Redaksjonelle retningslinjer",
     "privacyPolicy": "Personvernpolicy",
     "termsOfService": "Tjenestevilkår",
     "aboutUs": "Om oss",
@@ -534,7 +535,9 @@
   },
   "toolsPage": {
     "pageTitle": "CBD Verktøy og Kalkulatorer | Dosering, Interaksjoner, Kostnad",
+    "metaTitle": "CBD Verktøy og Kalkulatorer | Dosering, Interaksjoner, Kostnad",
     "pageDescription": "Forskningsbaserte CBD verktøy inkludert doseringsberegner, medikamentinteraksjonssjekker, kostnadsberegner og styrkekonverter.",
+    "metaDescription": "Forskningsbaserte CBD verktøy inkludert doseringsberegner, medikamentinteraksjonssjekker, kostnadsberegner og styrkekonverter.",
     "title": "CBD Verktøy og Kalkulatorer",
     "subtitle": "Forskningsbaserte verktøy som hjelper deg med å ta informerte beslutninger om CBD bruk. Få personlige anbefalinger, sjekk sikkerhetsinformasjon og følg din fremgang.",
     "features": "Funksjoner",
