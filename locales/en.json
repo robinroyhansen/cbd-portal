@@ -55,6 +55,7 @@
     "glossary": "Glossary",
     "allArticles": "All Articles",
     "toggleMenu": "Toggle menu",
+    "closeMenu": "Close menu",
     "popularConditions": "Popular Conditions",
     "categories": "Categories",
     "browseByBodySystem": "Browse by Body System",
@@ -534,7 +535,9 @@
   },
   "toolsPage": {
     "pageTitle": "CBD Tools & Calculators | Dosage, Interactions, Cost",
+    "metaTitle": "CBD Tools & Calculators | Dosage, Interactions, Cost",
     "pageDescription": "Evidence-based CBD tools including dosage calculator, drug interaction checker, cost calculator, and strength converter.",
+    "metaDescription": "Evidence-based CBD tools including dosage calculator, drug interaction checker, cost calculator, and strength converter.",
     "title": "CBD Tools & Calculators",
     "subtitle": "Evidence-based tools to help you make informed decisions about CBD use. Get personalized recommendations, check safety information, and track your progress.",
     "features": "Features",

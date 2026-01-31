@@ -5,6 +5,8 @@
  * of each page, which is critical for Google to understand language relationships.
  */
 
+import { getLocalizedPath, usesLocalizedRoutes } from '@/lib/route-translations';
+
 export interface HreflangLink {
   hrefLang: string;
   href: string;
@@ -35,8 +37,9 @@ const SWISS_LANGUAGES = ['de-CH', 'fr-CH', 'it-CH'];
 
 /**
  * Generate hreflang links for a given page path
+ * Uses localized paths for DA/NO domains
  *
- * @param pathname - The page path (e.g., '/conditions/anxiety')
+ * @param pathname - The page path in English (e.g., '/tools/dosage-calculator')
  * @param includedLanguages - Optional array of language codes to include (defaults to all)
  * @returns Array of hreflang link objects
  */
@@ -54,10 +57,17 @@ export function generateHreflangLinks(
     const domain = LANGUAGE_DOMAINS[lang];
     if (!domain) continue;
 
-    // For Swiss languages, we might need special handling
-    // For now, all Swiss languages point to cbdportal.ch
-    // The site will detect browser language or use cookies
-    let href = `https://${domain}${cleanPath}`;
+    // Get the appropriate path for this language
+    let localizedPath = cleanPath;
+
+    // For DA and NO, translate route segments
+    if (usesLocalizedRoutes(lang)) {
+      localizedPath = getLocalizedPath(cleanPath, lang);
+      // Remove the leading slash duplication if path is empty
+      if (localizedPath === '/') localizedPath = '';
+    }
+
+    let href = `https://${domain}${localizedPath}`;
 
     // For Swiss variants, add language hint for clarity
     // (in production, this could be a path prefix or subdomain)
@@ -125,10 +135,18 @@ export function getDomainForLanguage(langCode: string): string {
 
 /**
  * Build a full URL for a specific language version of a page
+ * Uses localized paths for DA/NO
  */
 export function buildLanguageUrl(pathname: string, langCode: string): string {
   const domain = getDomainForLanguage(langCode);
   const cleanPath = pathname === '/' ? '' : pathname;
+
+  // For DA and NO, translate route segments
+  if (usesLocalizedRoutes(langCode)) {
+    const localizedPath = getLocalizedPath(cleanPath, langCode);
+    return `https://${domain}${localizedPath}`;
+  }
+
   return `https://${domain}${cleanPath}`;
 }
 

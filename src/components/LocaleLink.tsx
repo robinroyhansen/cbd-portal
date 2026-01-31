@@ -2,14 +2,19 @@
 
 import Link from 'next/link';
 import { useLocale } from '@/hooks/useLocale';
-import { ComponentProps } from 'react';
+import { ComponentProps, useMemo } from 'react';
+import {
+  getLocalizedPath,
+  usesLocalizedRoutes,
+  localizedRouteDomains,
+} from '@/lib/route-translations';
 
 type LocaleLinkProps = ComponentProps<typeof Link>;
 
 /**
- * A wrapper around Next.js Link that automatically preserves the ?lang= parameter
- * for internal navigation. This ensures users stay in their selected language
- * when navigating between pages.
+ * A wrapper around Next.js Link that automatically handles localization:
+ * - For DA/NO: Translates route segments (e.g., /tools → /vaerktoejer)
+ * - For other languages: Preserves the ?lang= parameter
  *
  * @example
  * // Instead of:
@@ -18,18 +23,19 @@ type LocaleLinkProps = ComponentProps<typeof Link>;
  * // Use:
  * <LocaleLink href="/conditions">Conditions</LocaleLink>
  *
- * // On /page?lang=da, this will navigate to /conditions?lang=da
+ * // On cbd.dk (Danish domain):
+ * //   This renders as <a href="/tilstande">Conditions</a>
+ *
+ * // On any domain with ?lang=da:
+ * //   This renders as <a href="/tilstande">Conditions</a>
+ *
+ * // On English domain:
+ * //   This renders as <a href="/conditions">Conditions</a>
  */
 export function LocaleLink({ href, children, ...props }: LocaleLinkProps) {
   const { lang: currentLang } = useLocale();
-  // Only add lang param if not English (default)
-  const lang = currentLang !== 'en' ? currentLang : null;
 
-  // Only modify internal links (starting with /)
-  // Don't modify external links, hash links, or links that already have lang param
-  const modifiedHref = (() => {
-    if (!lang) return href;
-
+  const modifiedHref = useMemo(() => {
     // Handle string hrefs
     if (typeof href === 'string') {
       // Skip external links
@@ -40,30 +46,52 @@ export function LocaleLink({ href, children, ...props }: LocaleLinkProps) {
       if (href.startsWith('#')) {
         return href;
       }
-      // Skip if lang param already exists
-      if (href.includes('lang=')) {
-        return href;
+
+      // For DA and NO, translate route segments
+      if (usesLocalizedRoutes(currentLang)) {
+        // Skip if this already has a lang param (user forcing a specific language)
+        if (href.includes('lang=')) {
+          return href;
+        }
+        return getLocalizedPath(href, currentLang);
       }
-      // Add lang parameter
-      const separator = href.includes('?') ? '&' : '?';
-      return `${href}${separator}lang=${lang}`;
+
+      // For other non-English languages, add ?lang= parameter
+      if (currentLang !== 'en') {
+        // Skip if lang param already exists
+        if (href.includes('lang=')) {
+          return href;
+        }
+        const separator = href.includes('?') ? '&' : '?';
+        return `${href}${separator}lang=${currentLang}`;
+      }
+
+      // English - return as-is
+      return href;
     }
 
     // Handle URL objects
     if (typeof href === 'object' && href !== null) {
       const url = { ...href };
+
       if (url.pathname && !url.pathname.startsWith('http')) {
-        // Merge lang into query
-        url.query = {
-          ...(typeof url.query === 'object' ? url.query : {}),
-          lang,
-        };
+        // For DA/NO, translate the pathname
+        if (usesLocalizedRoutes(currentLang)) {
+          url.pathname = getLocalizedPath(url.pathname, currentLang);
+        } else if (currentLang !== 'en') {
+          // For other languages, add lang to query
+          url.query = {
+            ...(typeof url.query === 'object' ? url.query : {}),
+            lang: currentLang,
+          };
+        }
       }
+
       return url;
     }
 
     return href;
-  })();
+  }, [href, currentLang]);
 
   return (
     <Link href={modifiedHref} {...props}>
@@ -79,22 +107,45 @@ export function LocaleLink({ href, children, ...props }: LocaleLinkProps) {
  * @example
  * const getLocalizedHref = useLocalizedHref();
  * const conditionsUrl = getLocalizedHref('/conditions');
+ * // On cbd.dk: '/tilstande'
+ * // On cbd.no: '/tilstander'
+ * // On English domain with ?lang=sv: '/conditions?lang=sv'
  */
 export function useLocalizedHref() {
   const { lang: currentLang } = useLocale();
-  const lang = currentLang !== 'en' ? currentLang : null;
 
   return (href: string): string => {
-    if (!lang) return href;
     if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('mailto:')) {
       return href;
     }
     if (href.startsWith('#')) return href;
-    if (href.includes('lang=')) return href;
 
-    const separator = href.includes('?') ? '&' : '?';
-    return `${href}${separator}lang=${lang}`;
+    // For DA/NO, translate route segments
+    if (usesLocalizedRoutes(currentLang)) {
+      if (href.includes('lang=')) return href;
+      return getLocalizedPath(href, currentLang);
+    }
+
+    // For other non-English languages, add ?lang= parameter
+    if (currentLang !== 'en') {
+      if (href.includes('lang=')) return href;
+      const separator = href.includes('?') ? '&' : '?';
+      return `${href}${separator}lang=${currentLang}`;
+    }
+
+    return href;
   };
+}
+
+/**
+ * Get the current domain language for route translation
+ * Returns the language if on a localized domain, undefined otherwise
+ */
+export function useLocalizedDomain(): string | undefined {
+  // This would need to be passed from the server in a real implementation
+  // For now, we rely on the LocaleProvider's lang value
+  const { lang } = useLocale();
+  return usesLocalizedRoutes(lang) ? lang : undefined;
 }
 
 export default LocaleLink;
