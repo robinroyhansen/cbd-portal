@@ -1,5 +1,5 @@
 'use client';
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 
 interface AdminAuthContextType {
   isAuthenticated: boolean;
@@ -52,12 +52,12 @@ export function AdminAuthProvider({ children }: { children: ReactNode }) {
     sessionStorage.removeItem(AUTH_KEY);
   };
 
-  const getAuthHeaders = (): HeadersInit => {
+  const getAuthHeaders = useCallback((): HeadersInit => {
     if (!password) return {};
     return {
       'Authorization': `Bearer ${password}`
     };
-  };
+  }, [password]);
 
   return (
     <AdminAuthContext.Provider value={{ isAuthenticated, login, logout, getAuthHeaders }}>
@@ -76,11 +76,12 @@ export function useAdminAuth() {
 
 /**
  * Helper to create fetch with admin auth headers
+ * Memoized to prevent infinite re-render loops
  */
 export function useAdminFetch() {
   const { getAuthHeaders } = useAdminAuth();
 
-  return async (url: string, options: RequestInit = {}) => {
+  return useCallback(async (url: string, options: RequestInit = {}) => {
     return fetch(url, {
       ...options,
       headers: {
@@ -88,5 +89,5 @@ export function useAdminFetch() {
         ...getAuthHeaders()
       }
     });
-  };
+  }, [getAuthHeaders]);
 }
