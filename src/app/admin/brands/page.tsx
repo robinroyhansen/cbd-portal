@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { COUNTRIES, getCountryName, getCountryWithFlag, getDomainFromUrl } from '@/lib/utils/brand-helpers';
 import { UnpublishBrandWarningModal } from '@/components/admin/BrandPublishWarningModal';
+import { useAdminFetch } from '@/lib/admin-auth';
 
 interface Brand {
   id: string;
@@ -38,6 +39,7 @@ export default function AdminBrandsPage() {
   const [researchComplete, setResearchComplete] = useState(false);
   const [showUnpublishModal, setShowUnpublishModal] = useState(false);
   const [unpublishingBrand, setUnpublishingBrand] = useState<Brand | null>(null);
+  const adminFetch = useAdminFetch();
 
   const fetchBrands = useCallback(async () => {
     setLoading(true);
@@ -46,7 +48,7 @@ export default function AdminBrandsPage() {
       if (publishedFilter) params.set('published', publishedFilter);
       if (searchQuery) params.set('q', searchQuery);
 
-      const res = await fetch(`/api/admin/brands?${params.toString()}`);
+      const res = await adminFetch(`/api/admin/brands?${params.toString()}`);
       const data = await res.json();
 
       setBrands(data.brands || []);
@@ -60,7 +62,7 @@ export default function AdminBrandsPage() {
     } finally {
       setLoading(false);
     }
-  }, [publishedFilter, searchQuery]);
+  }, [publishedFilter, searchQuery, adminFetch]);
 
   useEffect(() => {
     fetchBrands();
@@ -92,7 +94,7 @@ export default function AdminBrandsPage() {
     setError(null);
 
     try {
-      const res = await fetch('/api/admin/brands/research', {
+      const res = await adminFetch('/api/admin/brands/research', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -133,7 +135,7 @@ export default function AdminBrandsPage() {
     setError(null);
 
     try {
-      const res = await fetch('/api/admin/brands/research', {
+      const res = await adminFetch('/api/admin/brands/research', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -199,7 +201,7 @@ export default function AdminBrandsPage() {
       const method = isCreating ? 'POST' : 'PATCH';
       const body = isCreating ? formData : { id: isEditing, ...formData };
 
-      const res = await fetch('/api/admin/brands', {
+      const res = await adminFetch('/api/admin/brands', {
         method,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)
@@ -231,7 +233,7 @@ export default function AdminBrandsPage() {
     if (!confirm('Delete this brand? This will also delete its review. This cannot be undone.')) return;
 
     try {
-      const res = await fetch('/api/admin/brands', {
+      const res = await adminFetch('/api/admin/brands', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ids: [id] })

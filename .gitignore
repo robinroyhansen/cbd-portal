@@ -39,3 +39,4 @@ supabase/.branches
 supabase/.temp
 .env*.local
 .npm-cache/
+.env.production
