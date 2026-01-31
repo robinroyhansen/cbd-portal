@@ -174,7 +174,13 @@ export function middleware(request: NextRequest) {
 
   // Detect language from domain
   const hostname = request.headers.get('host')?.split(':')[0] || 'localhost';
-  const detectedLanguage = domainToLanguage[hostname] || 'en';
+  
+  // Support testdomain param early for language detection too
+  const testDomainEarly = request.nextUrl.searchParams.get('testdomain');
+  const effectiveHostnameForLang = (testDomainEarly && (hostname.includes('vercel.app') || hostname === 'localhost')) 
+    ? testDomainEarly 
+    : hostname;
+  const detectedLanguage = domainToLanguage[effectiveHostnameForLang] || 'en';
 
   // Handle Swiss domain language detection from Accept-Language header
   let language = detectedLanguage;
