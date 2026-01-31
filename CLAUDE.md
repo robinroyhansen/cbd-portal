@@ -207,6 +207,20 @@ const CATEGORY_CONFIG = {
 - Section headers and labels
 - Button text and CTAs
 
+### Adding a New Language
+
+**Full guide:** See `/docs/ADDING-LANGUAGES.md`
+
+**Quick checklist:**
+1. Add locale to `src/i18n/config.ts`
+2. Create `messages/XX.json` translation file
+3. Add route mappings in `src/i18n/routeMappings.ts`
+4. Add domain mapping in `middleware.ts`
+5. Add to footer language selector in `src/components/Footer.tsx`
+6. (Optional) Add glossary/condition slug mappings
+
+**Testing:** Use `?testdomain=cbd.XX` to test before DNS changes
+
 ### Translation Scripts
 
 ```bash
