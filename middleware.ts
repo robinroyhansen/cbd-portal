@@ -5,7 +5,7 @@ import type { NextRequest } from 'next/server';
 // INLINED ROUTE TRANSLATIONS (to avoid import issues in middleware)
 // ============================================================================
 
-type SupportedRouteLanguage = 'da' | 'no';
+type SupportedRouteLanguage = 'da' | 'no' | 'de';
 
 const routeTranslations: Record<SupportedRouteLanguage, Record<string, string>> = {
   da: {
@@ -65,6 +65,37 @@ const routeTranslations: Record<SupportedRouteLanguage, Record<string, string>> 
     'privacy-policy': 'personvernpolitikk',
     'terms-of-service': 'tjenestevilkaar',
     'cookie-policy': 'informasjonskapsler',
+  },
+  de: {
+    'tools': 'werkzeuge',
+    'conditions': 'erkrankungen',
+    'articles': 'artikel',
+    'glossary': 'glossar',
+    'research': 'forschung',
+    'about': 'ueber-uns',
+    'contact': 'kontakt',
+    'pets': 'haustiere',
+    'reviews': 'bewertungen',
+    'categories': 'kategorien',
+    'authors': 'autoren',
+    'search': 'suche',
+    'dosage-calculator': 'dosierungsrechner',
+    'animal-dosage-calculator': 'tier-dosierungsrechner',
+    'cost-calculator': 'kostenrechner',
+    'strength-calculator': 'staerkerechner',
+    'interactions': 'wechselwirkungen',
+    'dogs': 'hunde',
+    'cats': 'katzen',
+    'horses': 'pferde',
+    'small-pets': 'kleintiere',
+    'birds': 'voegel',
+    'medical-disclaimer': 'medizinischer-haftungsausschluss',
+    'editorial-policy': 'redaktionelle-richtlinien',
+    'privacy-policy': 'datenschutzrichtlinie',
+    'terms-of-service': 'nutzungsbedingungen',
+    'cookie-policy': 'cookie-richtlinie',
+    'topics': 'themen',
+    'methodology': 'methodik',
   },
 };
 
