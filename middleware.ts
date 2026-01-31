@@ -111,10 +111,11 @@ for (const lang of Object.keys(routeTranslations) as SupportedRouteLanguage[]) {
 const localizedRouteDomains: Record<string, SupportedRouteLanguage> = {
   'cbd.dk': 'da',
   'cbd.no': 'no',
+  'cbd.de': 'de',
 };
 
 function usesLocalizedRoutes(lang: string): lang is SupportedRouteLanguage {
-  return lang === 'da' || lang === 'no';
+  return lang === 'da' || lang === 'no' || lang === 'de';
 }
 
 function getEnglishPath(localizedPath: string, lang: SupportedRouteLanguage): string {
