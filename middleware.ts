@@ -100,7 +100,7 @@ const routeTranslations: Record<SupportedRouteLanguage, Record<string, string>> 
 };
 
 // Create reverse mappings
-const reverseRouteTranslations: Record<SupportedRouteLanguage, Record<string, string>> = { da: {}, no: {} };
+const reverseRouteTranslations: Record<SupportedRouteLanguage, Record<string, string>> = { da: {}, no: {}, de: {} };
 for (const lang of Object.keys(routeTranslations) as SupportedRouteLanguage[]) {
   const translations = routeTranslations[lang];
   for (const [english, localized] of Object.entries(translations)) {
