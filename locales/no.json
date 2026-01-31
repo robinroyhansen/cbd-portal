@@ -287,7 +287,7 @@
     "noResultsFor": "Ingen resultater for \"{{query}}\"",
     "noTermsMatchFilters": "Ingen ordliste-termer matcher dine filtre",
     "clearFilters": "Fjern filtre",
-    "term": "Term",
+    "term": "Begrep",
     "category": "Kategori",
     "definition": "Definisjon",
     "also": "Også",
@@ -333,7 +333,7 @@
     "plant_desc": "Cannabisplante, stammer og dyrking"
   },
   "trending": {
-    "label": "Trending"
+    "label": "Populært"
   },
   "quickLinks": {
     "dosageGuide": "Doserings guide",
