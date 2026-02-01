@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { getHreflangAlternates } from '@/components/HreflangTags';
 import { getLanguage } from '@/lib/get-language';
 import { getLocaleSync, createTranslator } from '@/../locales';

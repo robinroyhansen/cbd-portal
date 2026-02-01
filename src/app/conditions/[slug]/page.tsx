@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';

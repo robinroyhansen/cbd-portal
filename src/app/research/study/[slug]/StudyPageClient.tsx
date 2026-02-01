@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { useState } from 'react';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { getSubjectIcon, SampleInfo } from '@/lib/study-analysis';

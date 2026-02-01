@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import Image from 'next/image';
 import { getArticleBySlug, getRelatedArticles } from '@/lib/articles';
 import { getLanguage } from '@/lib/get-language';

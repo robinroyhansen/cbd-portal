@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import {
   getTopics,

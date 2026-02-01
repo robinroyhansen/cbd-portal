@@ -1,7 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { getRelatedComparisons, getRelatedConditionsForComparison, isComparisonArticle } from '@/lib/related-topics';
 import { RelatedComparisons } from './RelatedComparisons';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 
 interface Article {
   slug: string;

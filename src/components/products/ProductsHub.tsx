@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import {
   PRODUCT_CATEGORIES,
   PRODUCT_CATEGORY_META,

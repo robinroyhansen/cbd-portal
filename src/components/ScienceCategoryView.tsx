@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { TOPIC_CLUSTERS, groupArticlesByTopic, getClusterById, getStartHereArticles, TopicCluster } from '@/lib/utils/topic-clusters';
 import { ScienceArticleCard } from './ScienceArticleCard';
 

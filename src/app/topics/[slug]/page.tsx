@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { notFound } from 'next/navigation';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
 import { MedicalDisclaimerSchema } from '@/components/MedicalDisclaimerSchema';

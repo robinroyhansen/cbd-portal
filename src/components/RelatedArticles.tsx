@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { getRelatedSlugs, getRelatedTopics, CATEGORY_GROUPS } from '@/lib/related-topics';
 import { getLanguage } from '@/lib/get-language';

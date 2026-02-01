@@ -5,7 +5,7 @@
  * Individual message bubble with links and citations
  */
 
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import type { ChatMessage as ChatMessageType, ChatLink, ChatCitation, FeedbackRating, MessageFeedback } from '@/lib/chat/types';
 import { QuickReplies } from './QuickReplies';
 import { MessageFeedback as MessageFeedbackComponent } from './MessageFeedback';

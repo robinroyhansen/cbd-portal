@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { useLocale } from '@/hooks/useLocale';
 import { formatDateLong } from '@/lib/utils/format-date';
 

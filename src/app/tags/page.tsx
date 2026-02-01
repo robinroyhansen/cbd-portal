@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

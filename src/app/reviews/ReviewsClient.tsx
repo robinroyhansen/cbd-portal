@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { getDomainFromUrl, getCountryFlag } from '@/lib/utils/brand-helpers';
 import { formatDate } from '@/lib/locale';
 import { useLocale } from '@/hooks/useLocale';

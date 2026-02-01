@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 
 const logoMap: Record<string, string> = {
   'swissorganic.co.uk': 'CBD.uk',

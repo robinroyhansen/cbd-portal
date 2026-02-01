@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { getCountryWithFlag } from '@/lib/utils/brand-helpers';
 import { formatDate } from '@/lib/locale';
 

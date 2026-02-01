@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import {
   CBD_BASICS_TOPICS,
   CBD_BASICS_TOPIC_META,

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { createClient } from '../../lib/supabase/server';
 import { ResearchPageClient, CONDITIONS, ConditionKey } from '../../components/ResearchPageClient';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { getHreflangAlternates } from '@/components/HreflangTags';
 import { getLanguage } from '@/lib/get-language';
 import { getLocaleSync, createTranslator } from '@/../locales';

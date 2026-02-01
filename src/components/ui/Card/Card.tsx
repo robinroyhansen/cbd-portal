@@ -1,7 +1,7 @@
 'use client';
 
 import { forwardRef, type ElementType, type ComponentPropsWithoutRef } from 'react';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 
 // Variant styles
 const variantStyles = {
