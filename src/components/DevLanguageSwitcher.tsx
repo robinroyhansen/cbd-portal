@@ -1,10 +1,11 @@
 'use client';
 
-import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import { useLocale } from './LocaleProvider';
+import type { LanguageCode } from '@/lib/translation-service';
 
 interface Language {
-  code: string;
+  code: LanguageCode;
   name: string;
   flag: string;
 }
@@ -23,41 +24,32 @@ const LANGUAGES: Language[] = [
   { code: 'ro', name: 'Română', flag: '🇷🇴' },
   { code: 'es', name: 'Español', flag: '🇪🇸' },
   // Swiss variants (cbdportal.ch)
-  { code: 'de-CH', name: 'Schweizerdeutsch', flag: '🇨🇭' },
-  { code: 'fr-CH', name: 'Français (CH)', flag: '🇨🇭' },
-  { code: 'it-CH', name: 'Italiano (CH)', flag: '🇨🇭' },
+  { code: 'de-CH' as LanguageCode, name: 'Schweizerdeutsch', flag: '🇨🇭' },
+  { code: 'fr-CH' as LanguageCode, name: 'Français (CH)', flag: '🇨🇭' },
+  { code: 'it-CH' as LanguageCode, name: 'Italiano (CH)', flag: '🇨🇭' },
 ];
 
 /**
- * Development language switcher that uses ?lang= parameter
- * Only show in development mode for testing translations
+ * Development language switcher that uses the LocaleProvider's setLanguage
+ * This properly sets both state and cookie for persistence
+ * Only shows on localhost and Vercel preview URLs
  */
 export function DevLanguageSwitcher() {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const { lang: currentLang, setLanguage } = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   const [isDev, setIsDev] = useState(false);
 
   useEffect(() => {
-    // Only show in development or when explicitly enabled
+    // Only show in development or on preview/staging
     const isDevMode = process.env.NODE_ENV === 'development' ||
       window.location.hostname === 'localhost' ||
       window.location.hostname.includes('vercel.app');
     setIsDev(isDevMode);
   }, []);
 
-  const currentLang = searchParams.get('lang') || 'en';
-
-  const handleLanguageChange = (langCode: string) => {
-    const params = new URLSearchParams(searchParams.toString());
-    if (langCode === 'en') {
-      params.delete('lang');
-    } else {
-      params.set('lang', langCode);
-    }
-    const newUrl = params.toString() ? `${pathname}?${params.toString()}` : pathname;
-    router.push(newUrl);
+  const handleLanguageChange = (langCode: LanguageCode) => {
+    // Use the context's setLanguage which handles state, cookie, and URL
+    setLanguage(langCode);
     setIsOpen(false);
   };
 
@@ -71,6 +63,7 @@ export function DevLanguageSwitcher() {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="flex items-center gap-2 px-4 py-2 bg-slate-800 text-white rounded-lg shadow-lg hover:bg-slate-700 transition-colors text-sm font-medium"
+          aria-label="Switch language"
         >
           <span>{currentLanguage.flag}</span>
           <span>{currentLanguage.name}</span>
@@ -87,10 +80,10 @@ export function DevLanguageSwitcher() {
         {isOpen && (
           <div className="absolute bottom-full right-0 mb-2 w-48 bg-white rounded-lg shadow-xl border border-slate-200 overflow-hidden">
             <div className="px-3 py-2 bg-slate-50 border-b border-slate-200">
-              <p className="text-xs text-slate-500 font-medium">Dev Language Switcher</p>
+              <p className="text-xs text-slate-500 font-medium">Language Switcher</p>
             </div>
             <div className="max-h-64 overflow-y-auto">
-              {LANGUAGES.map((lang, index) => (
+              {LANGUAGES.map((lang) => (
                 <div key={lang.code}>
                   {/* Add separator before Swiss variants */}
                   {lang.code === 'de-CH' && (

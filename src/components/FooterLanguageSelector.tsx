@@ -2,10 +2,11 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useLocale } from '@/hooks/useLocale';
+import { useLocale } from './LocaleProvider';
+import type { LanguageCode } from '@/lib/translation-service';
 
 interface LanguageSite {
-  code: string;
+  code: LanguageCode;
   domain: string;
   displayName: string; // The branded domain name to show
   flag: string;
@@ -32,27 +33,30 @@ const LANGUAGE_SITES: LanguageSite[] = [
   { code: 'ro', domain: 'cbdportal.ro', displayName: 'CBDportal.ro', flag: '🇷🇴', region: 'southern-europe' },
 
   // Switzerland (single domain, multiple languages)
-  { code: 'de-CH', domain: 'cbdportal.ch', displayName: 'CBDportal.ch', flag: '🇨🇭', region: 'switzerland' },
+  { code: 'de-CH' as LanguageCode, domain: 'cbdportal.ch', displayName: 'CBDportal.ch', flag: '🇨🇭', region: 'switzerland' },
 
   // English (default)
   { code: 'en', domain: 'cbdportal.com', displayName: 'CBDportal.com', flag: '🇬🇧', region: 'other' },
 ];
 
 // Swiss language options for the Swiss domain
-const SWISS_LANGUAGES = [
-  { code: 'de-CH', label: 'DE' },
-  { code: 'fr-CH', label: 'FR' },
-  { code: 'it-CH', label: 'IT' },
+const SWISS_LANGUAGES: { code: LanguageCode; label: string }[] = [
+  { code: 'de-CH' as LanguageCode, label: 'DE' },
+  { code: 'fr-CH' as LanguageCode, label: 'FR' },
+  { code: 'it-CH' as LanguageCode, label: 'IT' },
 ];
 
 interface FooterLanguageSelectorProps {
   currentLang?: string;
 }
 
-export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSelectorProps) {
+export function FooterLanguageSelector({ currentLang: propLang = 'en' }: FooterLanguageSelectorProps) {
   const pathname = usePathname();
   const [currentDomain, setCurrentDomain] = useState<string>('');
-  const { t } = useLocale();
+  const { t, lang: contextLang, setLanguage } = useLocale();
+  
+  // Use context lang if available, fall back to prop
+  const currentLang = contextLang || propLang;
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -60,12 +64,32 @@ export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSel
     }
   }, []);
 
+  // Check if we're on development/staging (localhost or Vercel)
+  const isDevOrStaging = currentDomain.includes('localhost') || currentDomain.includes('vercel.app');
+
+  // Handle language click - either switch language (dev/staging) or navigate to domain (production)
+  const handleLanguageClick = (site: LanguageSite, e: React.MouseEvent) => {
+    if (isDevOrStaging) {
+      e.preventDefault();
+      setLanguage(site.code);
+    }
+    // On production, the regular href navigation happens
+  };
+
+  // Handle Swiss language click
+  const handleSwissLanguageClick = (langCode: LanguageCode, e: React.MouseEvent) => {
+    if (isDevOrStaging) {
+      e.preventDefault();
+      setLanguage(langCode);
+    }
+  };
+
   // Build URL for a specific domain
-  const buildUrl = (domain: string, langCode?: string) => {
+  const buildUrl = (domain: string, langCode: LanguageCode) => {
     // For development/staging, use query param
-    if (currentDomain.includes('localhost') || currentDomain.includes('vercel.app')) {
+    if (isDevOrStaging) {
       const baseUrl = pathname || '/';
-      if (langCode && langCode !== 'en') {
+      if (langCode !== 'en') {
         return `${baseUrl}?lang=${langCode}`;
       }
       return baseUrl;
@@ -77,7 +101,7 @@ export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSel
 
   // Check if this is the current site
   const isCurrentSite = (site: LanguageSite) => {
-    if (currentDomain.includes('localhost') || currentDomain.includes('vercel.app')) {
+    if (isDevOrStaging) {
       return site.code === currentLang;
     }
     return currentDomain === site.domain;
@@ -90,7 +114,7 @@ export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSel
   const swissSite = LANGUAGE_SITES.find(s => s.region === 'switzerland');
   const englishSite = LANGUAGE_SITES.find(s => s.region === 'other');
 
-  // Check if we're on Swiss domain
+  // Check if we're on Swiss domain or have Swiss language selected
   const isSwissDomain = currentDomain === 'cbdportal.ch' ||
     ['de-CH', 'fr-CH', 'it-CH'].includes(currentLang);
 
@@ -108,7 +132,8 @@ export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSel
                 <a
                   href={buildUrl(site.domain, site.code)}
                   hrefLang={site.code}
-                  className={`inline-flex items-center gap-2 text-sm transition-colors ${
+                  onClick={(e) => handleLanguageClick(site, e)}
+                  className={`inline-flex items-center gap-2 text-sm transition-colors cursor-pointer ${
                     isCurrentSite(site)
                       ? 'text-emerald-400 font-medium'
                       : 'text-gray-400 hover:text-white'
@@ -132,7 +157,8 @@ export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSel
                 <a
                   href={buildUrl(site.domain, site.code)}
                   hrefLang={site.code}
-                  className={`inline-flex items-center gap-2 text-sm transition-colors ${
+                  onClick={(e) => handleLanguageClick(site, e)}
+                  className={`inline-flex items-center gap-2 text-sm transition-colors cursor-pointer ${
                     isCurrentSite(site)
                       ? 'text-emerald-400 font-medium'
                       : 'text-gray-400 hover:text-white'
@@ -156,7 +182,8 @@ export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSel
                 <a
                   href={buildUrl(site.domain, site.code)}
                   hrefLang={site.code}
-                  className={`inline-flex items-center gap-2 text-sm transition-colors ${
+                  onClick={(e) => handleLanguageClick(site, e)}
+                  className={`inline-flex items-center gap-2 text-sm transition-colors cursor-pointer ${
                     isCurrentSite(site)
                       ? 'text-emerald-400 font-medium'
                       : 'text-gray-400 hover:text-white'
@@ -177,9 +204,10 @@ export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSel
           {swissSite && (
             <div className="space-y-2">
               <a
-                href={buildUrl(swissSite.domain, 'de-CH')}
+                href={buildUrl(swissSite.domain, 'de-CH' as LanguageCode)}
                 hrefLang="de-CH"
-                className={`inline-flex items-center gap-2 text-sm transition-colors ${
+                onClick={(e) => handleLanguageClick({ ...swissSite, code: 'de-CH' as LanguageCode }, e)}
+                className={`inline-flex items-center gap-2 text-sm transition-colors cursor-pointer ${
                   isSwissDomain
                     ? 'text-emerald-400 font-medium'
                     : 'text-gray-400 hover:text-white'
@@ -198,7 +226,8 @@ export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSel
                     <a
                       href={buildUrl('cbdportal.ch', lang.code)}
                       hrefLang={lang.code}
-                      className={`transition-colors ${
+                      onClick={(e) => handleSwissLanguageClick(lang.code, e)}
+                      className={`transition-colors cursor-pointer ${
                         currentLang === lang.code
                           ? 'text-emerald-400 font-medium'
                           : 'text-gray-500 hover:text-white'
@@ -220,7 +249,8 @@ export function FooterLanguageSelector({ currentLang = 'en' }: FooterLanguageSel
             <a
               href={buildUrl(englishSite.domain, 'en')}
               hrefLang="en"
-              className={`inline-flex items-center gap-2 text-sm transition-colors ${
+              onClick={(e) => handleLanguageClick(englishSite, e)}
+              className={`inline-flex items-center gap-2 text-sm transition-colors cursor-pointer ${
                 isCurrentSite(englishSite)
                   ? 'text-emerald-400 font-medium'
                   : 'text-gray-400 hover:text-white'

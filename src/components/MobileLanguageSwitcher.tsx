@@ -1,10 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import { useLocale } from './LocaleProvider';
+import type { LanguageCode } from '@/lib/translation-service';
 
 interface LanguageOption {
-  code: string;
+  code: LanguageCode;
   domain: string;
   flag: string;
   name: string;
@@ -33,9 +35,9 @@ const LANGUAGES: LanguageOption[] = [
   { code: 'ro', domain: 'cbdportal.ro', flag: '🇷🇴', name: 'Romanian', nativeName: 'Română' },
 
   // Switzerland
-  { code: 'de-CH', domain: 'cbdportal.ch', flag: '🇨🇭', name: 'Swiss German', nativeName: 'Schweizerdeutsch' },
-  { code: 'fr-CH', domain: 'cbdportal.ch', flag: '🇨🇭', name: 'Swiss French', nativeName: 'Français (Suisse)' },
-  { code: 'it-CH', domain: 'cbdportal.ch', flag: '🇨🇭', name: 'Swiss Italian', nativeName: 'Italiano (Svizzera)' },
+  { code: 'de-CH' as LanguageCode, domain: 'cbdportal.ch', flag: '🇨🇭', name: 'Swiss German', nativeName: 'Schweizerdeutsch' },
+  { code: 'fr-CH' as LanguageCode, domain: 'cbdportal.ch', flag: '🇨🇭', name: 'Swiss French', nativeName: 'Français (Suisse)' },
+  { code: 'it-CH' as LanguageCode, domain: 'cbdportal.ch', flag: '🇨🇭', name: 'Swiss Italian', nativeName: 'Italiano (Svizzera)' },
 ];
 
 interface MobileLanguageSwitcherProps {
@@ -43,27 +45,46 @@ interface MobileLanguageSwitcherProps {
   onClose?: () => void;
 }
 
-export function MobileLanguageSwitcher({ currentLang = 'en', onClose }: MobileLanguageSwitcherProps) {
+export function MobileLanguageSwitcher({ currentLang: propLang = 'en', onClose }: MobileLanguageSwitcherProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [currentDomain, setCurrentDomain] = useState('');
   const pathname = usePathname();
+  const { lang: contextLang, setLanguage } = useLocale();
+  
+  // Use context lang if available, fall back to prop
+  const currentLang = contextLang || propLang;
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setCurrentDomain(window.location.hostname);
+    }
+  }, []);
+
+  const isDevOrStaging = currentDomain.includes('localhost') || currentDomain.includes('vercel.app');
 
   const currentLanguage = LANGUAGES.find(l => l.code === currentLang) || LANGUAGES[0];
 
   const buildUrl = (lang: LanguageOption) => {
     // For development/staging, use query param
-    if (typeof window !== 'undefined') {
-      const hostname = window.location.hostname;
-      if (hostname.includes('localhost') || hostname.includes('vercel.app')) {
-        const baseUrl = pathname || '/';
-        if (lang.code !== 'en') {
-          return `${baseUrl}?lang=${lang.code}`;
-        }
-        return baseUrl;
+    if (isDevOrStaging) {
+      const baseUrl = pathname || '/';
+      if (lang.code !== 'en') {
+        return `${baseUrl}?lang=${lang.code}`;
       }
+      return baseUrl;
     }
 
     // For production, link to actual domain
     return `https://${lang.domain}${pathname || '/'}`;
+  };
+
+  const handleLanguageClick = (lang: LanguageOption, e: React.MouseEvent) => {
+    if (isDevOrStaging) {
+      e.preventDefault();
+      setLanguage(lang.code);
+      onClose?.();
+    }
+    // On production, the regular href navigation happens
   };
 
   return (
@@ -100,8 +121,8 @@ export function MobileLanguageSwitcher({ currentLang = 'en', onClose }: MobileLa
                   key={lang.code}
                   href={buildUrl(lang)}
                   hrefLang={lang.code}
-                  onClick={onClose}
-                  className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
+                  onClick={(e) => handleLanguageClick(lang, e)}
+                  className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors cursor-pointer ${
                     isActive
                       ? 'bg-green-100 text-green-800'
                       : 'hover:bg-white text-gray-700'
