@@ -11,7 +11,7 @@
  * }
  */
 
-import { LANGUAGE_DOMAINS } from '@/lib/hreflang';
+import { LANGUAGE_DOMAINS, generateHreflangLinks } from '@/lib/hreflang';
 
 export interface HreflangAlternates {
   canonical: string;
@@ -22,7 +22,9 @@ export interface HreflangAlternates {
  * Generate alternates object for Next.js Metadata
  * This is the recommended way to add hreflang in Next.js 14
  *
- * @param pathname - The page path (e.g., '/conditions/anxiety')
+ * Uses localized paths for DA/NO/DE domains (e.g., /kaeledyr instead of /pets)
+ *
+ * @param pathname - The page path in English (e.g., '/pets/dogs')
  * @param canonicalDomain - Optional canonical domain (defaults to English)
  * @returns Alternates object for Next.js metadata
  */
@@ -33,13 +35,12 @@ export function getHreflangAlternates(
   const cleanPath = pathname === '/' ? '' : pathname;
   const languages: Record<string, string> = {};
 
-  // Add all language versions
-  for (const [lang, domain] of Object.entries(LANGUAGE_DOMAINS)) {
-    languages[lang] = `https://${domain}${cleanPath}`;
+  // Use the proper hreflang generator that handles localized paths
+  const links = generateHreflangLinks(pathname);
+  
+  for (const link of links) {
+    languages[link.hrefLang] = link.href;
   }
-
-  // Add x-default pointing to English
-  languages['x-default'] = `https://${LANGUAGE_DOMAINS.en}${cleanPath}`;
 
   return {
     canonical: canonicalDomain
@@ -52,30 +53,19 @@ export function getHreflangAlternates(
 /**
  * Generate raw link elements as an array
  * Useful if you need to manually inject into head
+ * Uses localized paths for DA/NO/DE domains
  */
 export function getHreflangLinks(pathname: string): Array<{
   rel: string;
   hrefLang: string;
   href: string;
 }> {
-  const cleanPath = pathname === '/' ? '' : pathname;
-  const links: Array<{ rel: string; hrefLang: string; href: string }> = [];
-
-  // Add all language versions
-  for (const [lang, domain] of Object.entries(LANGUAGE_DOMAINS)) {
-    links.push({
-      rel: 'alternate',
-      hrefLang: lang,
-      href: `https://${domain}${cleanPath}`,
-    });
-  }
-
-  // Add x-default
-  links.push({
+  // Use the proper generator that handles localized paths
+  const hreflangLinks = generateHreflangLinks(pathname);
+  
+  return hreflangLinks.map(link => ({
     rel: 'alternate',
-    hrefLang: 'x-default',
-    href: `https://${LANGUAGE_DOMAINS.en}${cleanPath}`,
-  });
-
-  return links;
+    hrefLang: link.hrefLang,
+    href: link.href,
+  }));
 }

@@ -3,7 +3,7 @@
  * Maps English route segments to their localized equivalents
  */
 
-export type SupportedRouteLanguage = 'da' | 'no';
+export type SupportedRouteLanguage = 'da' | 'no' | 'de';
 
 // Route segment translations (English → Localized)
 export const routeTranslations: Record<SupportedRouteLanguage, Record<string, string>> = {
@@ -95,13 +95,57 @@ export const routeTranslations: Record<SupportedRouteLanguage, Record<string, st
     'study': 'studie',
     'category': 'kategori',
   },
+  de: {
+    // Main sections
+    'tools': 'werkzeuge',
+    'conditions': 'erkrankungen',
+    'articles': 'artikel',
+    'glossary': 'glossar',
+    'research': 'forschung',
+    'about': 'ueber-uns',
+    'contact': 'kontakt',
+    'pets': 'haustiere',
+    'reviews': 'bewertungen',
+    'categories': 'kategorien',
+    'authors': 'autoren',
+    'search': 'suche',
+    'tags': 'tags',
+    'topics': 'themen',
+    
+    // Tool slugs
+    'dosage-calculator': 'dosierungsrechner',
+    'animal-dosage-calculator': 'tier-dosierungsrechner',
+    'cost-calculator': 'kostenrechner',
+    'strength-calculator': 'staerkerechner',
+    'interactions': 'wechselwirkungen',
+    'product-finder': 'produkt-finder',
+    
+    // Pet categories
+    'dogs': 'hunde',
+    'cats': 'katzen',
+    'horses': 'pferde',
+    'small-pets': 'kleintiere',
+    'birds': 'voegel',
+    
+    // Legal pages
+    'medical-disclaimer': 'medizinischer-haftungsausschluss',
+    'editorial-policy': 'redaktionelle-richtlinien',
+    'privacy-policy': 'datenschutzrichtlinie',
+    'terms-of-service': 'nutzungsbedingungen',
+    'cookie-policy': 'cookie-richtlinie',
+    
+    // Sub-routes
+    'methodology': 'methodik',
+    'study': 'studie',
+    'category': 'kategorie',
+  },
 };
 
 // Create reverse mappings (Localized → English) for URL parsing
 type ReverseMap = Record<string, string>;
 
 function createReverseMappings(): Record<SupportedRouteLanguage, ReverseMap> {
-  const result: Record<SupportedRouteLanguage, ReverseMap> = { da: {}, no: {} };
+  const result: Record<SupportedRouteLanguage, ReverseMap> = { da: {}, no: {}, de: {} };
   
   for (const lang of Object.keys(routeTranslations) as SupportedRouteLanguage[]) {
     const translations = routeTranslations[lang];
@@ -119,13 +163,14 @@ export const reverseRouteTranslations = createReverseMappings();
 export const localizedRouteDomains: Record<string, SupportedRouteLanguage> = {
   'cbd.dk': 'da',
   'cbd.no': 'no',
+  'cbd.de': 'de',
 };
 
 /**
  * Check if a language uses localized routes
  */
 export function usesLocalizedRoutes(lang: string): lang is SupportedRouteLanguage {
-  return lang === 'da' || lang === 'no';
+  return lang === 'da' || lang === 'no' || lang === 'de';
 }
 
 /**
