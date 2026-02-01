@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { createClient as createServiceClient } from '@supabase/supabase-js';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';

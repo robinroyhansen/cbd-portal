@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { getLocalizedSlug } from '@/lib/utils/locale-href';
 
 interface GlossaryTooltipProps {

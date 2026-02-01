@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useLocale } from '@/hooks/useLocale';
 import { buildLocalizedHref, getLocalizedSlug } from '@/lib/utils/locale-href';

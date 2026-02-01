@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useMemo, useRef } from 'react';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { usePathname } from 'next/navigation';
 import { useNavigationContext } from '@/components/NavigationWrapper';
 import { useLocale } from '@/hooks/useLocale';

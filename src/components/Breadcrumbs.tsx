@@ -1,7 +1,9 @@
 'use client';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
+import { useLocale } from '@/hooks/useLocale';
+import { getEnglishPath, usesLocalizedRoutes } from '@/lib/route-translations';
 
 interface BreadcrumbItem {
   label: string;
@@ -59,12 +61,15 @@ function formatSegment(segment: string): string {
 
 export function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
   const pathname = usePathname();
+  const { lang } = useLocale();
 
   // Generate breadcrumbs from pathname if items not provided
   const breadcrumbs = useMemo(() => {
     if (items) return items;
 
-    const segments = pathname.split('/').filter(Boolean);
+    // Convert localized path back to English for consistent breadcrumb generation
+    const englishPath = usesLocalizedRoutes(lang) ? getEnglishPath(pathname, lang) : pathname;
+    const segments = englishPath.split('/').filter(Boolean);
     const crumbs: BreadcrumbItem[] = [{ label: 'Home', href: '/' }];
 
     let currentPath = '';
@@ -72,12 +77,13 @@ export function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
       currentPath += `/${segment}`;
       crumbs.push({
         label: formatSegment(segment),
+        // Always use English paths - LocaleLink will translate them
         href: currentPath,
       });
     });
 
     return crumbs;
-  }, [pathname, items]);
+  }, [pathname, items, lang]);
 
   // Don't show breadcrumbs on home page
   if (pathname === '/') return null;

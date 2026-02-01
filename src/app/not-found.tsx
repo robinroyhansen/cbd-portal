@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { getLanguage } from '@/lib/get-language';
 import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';

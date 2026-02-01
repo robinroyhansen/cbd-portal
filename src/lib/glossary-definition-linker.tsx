@@ -1,4 +1,6 @@
-import Link from 'next/link';
+'use client';
+
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { ReactNode } from 'react';
 
 interface GlossaryTerm {
