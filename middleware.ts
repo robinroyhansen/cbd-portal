@@ -241,27 +241,36 @@ export function middleware(request: NextRequest) {
 
   // --- Localized Route Handling ---
   // Support testing localized routes via ?testdomain=cbd.dk (only on preview URLs)
+  // Also support localized routes when ?lang= parameter is set to a localized language
   const testDomain = request.nextUrl.searchParams.get('testdomain');
   const effectiveHostname = (testDomain && (hostname.includes('vercel.app') || hostname === 'localhost')) 
     ? testDomain 
     : hostname;
   const domainLang = localizedRouteDomains[effectiveHostname];
+  
+  // Also check if lang parameter indicates a language with localized routes
+  const langParam = searchParams.get('lang');
+  const langParamLang = langParam && usesLocalizedRoutes(langParam as SupportedRouteLanguage) ? langParam as SupportedRouteLanguage : null;
+  
+  // Use domain-based lang, or fall back to lang parameter
+  const routeLang = domainLang || langParamLang;
+  
   let rewriteUrl: URL | null = null;
   let shouldRedirect = false;
   let redirectUrl: URL | null = null;
 
-  if (domainLang && usesLocalizedRoutes(domainLang)) {
+  if (routeLang && usesLocalizedRoutes(routeLang)) {
     // Check if path is in localized format (e.g., /vaerktoejer/dosis-beregner)
-    if (isLocalizedPath(pathname, domainLang)) {
-      const englishPath = getEnglishPath(pathname, domainLang);
+    if (isLocalizedPath(pathname, routeLang)) {
+      const englishPath = getEnglishPath(pathname, routeLang);
       
       if (englishPath !== pathname) {
         rewriteUrl = new URL(englishPath, request.url);
         rewriteUrl.search = request.nextUrl.search;
       }
-    } else if (hasTranslatableSegments(pathname, domainLang)) {
-      // English path on localized domain - redirect to localized version
-      const localizedPath = getLocalizedPath(pathname, domainLang);
+    } else if (domainLang && hasTranslatableSegments(pathname, routeLang)) {
+      // English path on localized domain - redirect to localized version (only for actual domains, not ?lang=)
+      const localizedPath = getLocalizedPath(pathname, routeLang);
       
       if (localizedPath !== pathname) {
         redirectUrl = new URL(localizedPath, request.url);
