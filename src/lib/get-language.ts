@@ -17,22 +17,29 @@ const domainToLanguage: Record<string, LanguageCode> = {
 };
 
 /**
- * Get the current language from cookies or hostname
+ * Get the current language from headers, cookies, or hostname
  * For use in Server Components
+ * 
+ * Priority order:
+ * 1. x-language header (set by middleware from URL path/domain detection)
+ * 2. NEXT_LOCALE cookie (persisted user preference, used as fallback)
+ * 3. Hostname-based detection (final fallback)
  */
 export async function getLanguage(): Promise<LanguageCode> {
-  // First check for language cookie (set by middleware when ?lang= is used)
+  const headersList = await headers();
+  
+  // First check x-language header (set by middleware based on URL path/domain)
+  // This is the authoritative source for the current request's language
+  const langHeader = headersList.get('x-language');
+  if (langHeader) {
+    return langHeader as LanguageCode;
+  }
+
+  // Check language cookie as secondary fallback (persisted preference)
   const cookieStore = await cookies();
   const localeCookie = cookieStore.get('NEXT_LOCALE')?.value;
   if (localeCookie) {
     return localeCookie as LanguageCode;
-  }
-
-  // Check x-language header as fallback
-  const headersList = await headers();
-  const langHeader = headersList.get('x-language');
-  if (langHeader) {
-    return langHeader as LanguageCode;
   }
 
   // Fall back to hostname-based detection

@@ -179,6 +179,24 @@ function detectLanguageFromPath(path: string): SupportedRouteLanguage | null {
   return null;
 }
 
+// Known English route segments (the keys in routeTranslations)
+const englishRouteSegments = new Set([
+  'tools', 'conditions', 'articles', 'glossary', 'research', 'about', 'contact',
+  'pets', 'reviews', 'categories', 'authors', 'search', 'tags', 'topics',
+  'dosage-calculator', 'animal-dosage-calculator', 'cost-calculator', 'strength-calculator',
+  'interactions', 'product-finder', 'dogs', 'cats', 'horses', 'small-pets', 'birds',
+  'medical-disclaimer', 'editorial-policy', 'privacy-policy', 'terms-of-service',
+  'cookie-policy', 'methodology', 'study', 'category',
+]);
+
+// Detect if a path explicitly uses English route segments
+function isEnglishPath(path: string): boolean {
+  const [pathPart] = path.split('?');
+  const segments = pathPart.split('/').filter(Boolean);
+  // Check if the first segment is a known English route
+  return segments.length > 0 && englishRouteSegments.has(segments[0]);
+}
+
 // ============================================================================
 // END ROUTE TRANSLATIONS
 // ============================================================================
@@ -260,12 +278,6 @@ export function middleware(request: NextRequest) {
     language = urlLang;
   }
 
-  // Check for language override in cookie (persisted preference) - but URL param takes precedence
-  const cookieLang = request.cookies.get('NEXT_LOCALE')?.value;
-  if (cookieLang && !urlLang) {
-    language = cookieLang;
-  }
-
   // --- Localized Route Handling ---
   // Support testing localized routes via ?testdomain=cbd.dk (only on preview URLs)
   // Also support localized routes when ?lang= parameter is set to a localized language
@@ -283,11 +295,31 @@ export function middleware(request: NextRequest) {
   // Auto-detect language from localized path segments (e.g., /tilstande/ → Danish)
   const pathDetectedLang = detectLanguageFromPath(pathname);
   
+  // Check if path explicitly uses English route segments (e.g., /conditions, /glossary)
+  const pathIsEnglish = isEnglishPath(pathname);
+  
   // Use domain-based lang, lang parameter, or fall back to auto-detected from path
   const routeLang = domainLang || langParamLang || pathDetectedLang;
   
-  // If language was auto-detected from path, update the language variable
-  if (pathDetectedLang && !domainLang && !langParamLang && !urlLang && !cookieLang) {
+  // Check for language override in cookie (persisted preference)
+  // BUT: Don't let cookie override when URL path explicitly indicates a language
+  // - If path is localized (e.g., /tilstande) → use that language
+  // - If path is English (e.g., /conditions) → use English
+  // - Only use cookie when path is ambiguous (e.g., /, /some-slug)
+  const cookieLang = request.cookies.get('NEXT_LOCALE')?.value;
+  if (!urlLang && !domainLang) {
+    if (pathDetectedLang) {
+      // Path is in a localized format - use that language
+      language = pathDetectedLang;
+    } else if (pathIsEnglish) {
+      // Path explicitly uses English route segments - use English
+      language = 'en';
+    } else if (cookieLang) {
+      // Path is ambiguous (homepage, slug-only paths) - use cookie preference
+      language = cookieLang;
+    }
+  } else if (pathDetectedLang && !domainLang && !langParamLang && !urlLang) {
+    // Legacy fallback: If language was auto-detected from path
     language = pathDetectedLang;
   }
   
