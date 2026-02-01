@@ -694,7 +694,14 @@ export default function AdminBrandsPage() {
                   </td>
                   <td className="px-4 py-3">
                     {brand.website_url && (
-                      <span className="text-sm text-gray-600">{getDomainFromUrl(brand.website_url)}</span>
+                      <a 
+                        href={brand.website_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+                      >
+                        {getDomainFromUrl(brand.website_url)}
+                      </a>
                     )}
                   </td>
                   <td className="px-4 py-3 text-center">
