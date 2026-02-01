@@ -258,13 +258,41 @@ async function fetchArticleBySlugBase(slug: string, language: LanguageCode = 'en
     return null;
   }
 
-  // TODO: Add translation support for articles when article_translations table is added
+  // If English, return as-is
+  if (language === 'en') {
+    return {
+      id: data.id,
+      slug: data.slug,
+      title: data.title,
+      content: data.content,
+      meta_description: data.meta_description,
+      meta_title: data.meta_title,
+      status: data.status,
+      published_at: data.published_at,
+      updated_at: data.updated_at,
+      author_name: data.author_name,
+      reading_time_minutes: data.reading_time_minutes,
+      condition_slug: data.condition_slug,
+      category_id: data.category_id,
+      category: data.category as CachedArticle['category'],
+      citations: data.citations as CachedArticle['citations'],
+    };
+  }
+
+  // Fetch translation for non-English languages
+  const { data: translation } = await supabase
+    .from('article_translations')
+    .select('title, meta_description, excerpt')
+    .eq('article_id', data.id)
+    .eq('language', language)
+    .single();
+
   return {
     id: data.id,
     slug: data.slug,
-    title: data.title,
-    content: data.content,
-    meta_description: data.meta_description,
+    title: translation?.title || data.title,
+    content: data.content, // Content stays in English for now
+    meta_description: translation?.meta_description || data.meta_description,
     meta_title: data.meta_title,
     status: data.status,
     published_at: data.published_at,
