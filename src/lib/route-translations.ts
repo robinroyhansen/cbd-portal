@@ -45,6 +45,11 @@ export const routeTranslations: Record<SupportedRouteLanguage, Record<string, st
     'privacy-policy': 'privatlivspolitik',
     'terms-of-service': 'servicevilkaar',
     'cookie-policy': 'cookiepolitik',
+    
+    // Sub-routes
+    'methodology': 'metodik',
+    'study': 'studie',
+    'category': 'kategori',
   },
   no: {
     // Main sections
@@ -84,6 +89,11 @@ export const routeTranslations: Record<SupportedRouteLanguage, Record<string, st
     'privacy-policy': 'personvernpolitikk',
     'terms-of-service': 'tjenestevilkaar',
     'cookie-policy': 'informasjonskapsler',
+    
+    // Sub-routes
+    'methodology': 'metodikk',
+    'study': 'studie',
+    'category': 'kategori',
   },
 };
 

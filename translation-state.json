@@ -1,0 +1,10 @@
+{
+  "status": "in_progress",
+  "totalArticles": 1259,
+  "totalTranslated": 401,
+  "pendingBatch": 9,
+  "batchSize": 50,
+  "lastUpdated": "2025-07-01T15:30:00Z",
+  "completedBatches": [1, 2, 3, 4, 5, 6, 7, 8],
+  "notes": "Batch 8 completed: 50 articles translated (animals: dogs, cats, horses, birds, rabbits, guinea pigs + CBD comparison articles)"
+}

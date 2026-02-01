@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { createClient } from '@/lib/supabase/server';
 
 interface Comparison {

@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/LocaleLink';
 import { StudyType } from '@/lib/quality-tiers';
 import { CONDITION_COLORS, ConditionKey, SampleInfo } from './types';
 import { useLocale } from '@/hooks/useLocale';

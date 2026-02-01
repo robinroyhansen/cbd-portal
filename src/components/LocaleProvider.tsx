@@ -90,9 +90,13 @@ export function LocaleProvider({
    * Change the current language
    * This updates both the React state AND sets a cookie for persistence
    * It also updates the URL to include ?lang= for consistency
+   * 
+   * IMPORTANT: We call router.refresh() to re-fetch server components
+   * with the new language. This ensures ALL content updates, not just
+   * client components using the useLocale() hook.
    */
   const setLanguage = useCallback((newLang: LanguageCode) => {
-    // Update state immediately
+    // Update state immediately for client components
     setActiveLang(newLang);
     setActiveLocale(getLocaleSync(newLang));
 
@@ -110,6 +114,11 @@ export function LocaleProvider({
     
     // Use router.replace to update URL without adding to history
     router.replace(newUrl, { scroll: false });
+    
+    // CRITICAL: Refresh server components to re-render with new language
+    // This triggers Next.js to re-fetch all server components with the
+    // new ?lang= parameter, ensuring body content updates properly
+    router.refresh();
   }, [pathname, searchParams, router]);
 
   const value = useMemo(() => ({
