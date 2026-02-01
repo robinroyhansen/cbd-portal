@@ -24,6 +24,9 @@ interface Brand {
   review_id: string | null;
 }
 
+type SortColumn = 'name' | 'website' | 'score' | 'status';
+type SortDirection = 'asc' | 'desc';
+
 export default function AdminBrandsPage() {
   const [brands, setBrands] = useState<Brand[]>([]);
   const [loading, setLoading] = useState(true);
@@ -39,6 +42,8 @@ export default function AdminBrandsPage() {
   const [researchComplete, setResearchComplete] = useState(false);
   const [showUnpublishModal, setShowUnpublishModal] = useState(false);
   const [unpublishingBrand, setUnpublishingBrand] = useState<Brand | null>(null);
+  const [sortColumn, setSortColumn] = useState<SortColumn>('name');
+  const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
   const adminFetch = useAdminFetch();
 
   const fetchBrands = useCallback(async () => {
@@ -257,6 +262,48 @@ export default function AdminBrandsPage() {
     if (score >= 40) return 'bg-orange-100 text-orange-800';
     return 'bg-red-100 text-red-800';
   };
+
+  const handleSort = (column: SortColumn) => {
+    if (sortColumn === column) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortColumn(column);
+      setSortDirection('asc');
+    }
+  };
+
+  const sortedBrands = [...brands].sort((a, b) => {
+    const dir = sortDirection === 'asc' ? 1 : -1;
+    
+    switch (sortColumn) {
+      case 'name':
+        return dir * a.name.localeCompare(b.name);
+      case 'website':
+        const domainA = getDomainFromUrl(a.website_url || '') || '';
+        const domainB = getDomainFromUrl(b.website_url || '') || '';
+        return dir * domainA.localeCompare(domainB);
+      case 'score':
+        const scoreA = a.review_score ?? -1;
+        const scoreB = b.review_score ?? -1;
+        return dir * (scoreA - scoreB);
+      case 'status':
+        const statusA = a.is_published ? 1 : 0;
+        const statusB = b.is_published ? 1 : 0;
+        return dir * (statusA - statusB);
+      default:
+        return 0;
+    }
+  });
+
+  const SortIcon = ({ column }: { column: SortColumn }) => (
+    <span className="ml-1 inline-block">
+      {sortColumn === column ? (
+        sortDirection === 'asc' ? '↑' : '↓'
+      ) : (
+        <span className="text-gray-300">↕</span>
+      )}
+    </span>
+  );
 
   return (
     <div className="p-8">
@@ -594,15 +641,35 @@ export default function AdminBrandsPage() {
           <table className="w-full">
             <thead className="bg-gray-50 border-b border-gray-200">
               <tr>
-                <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">Brand</th>
-                <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">Website</th>
-                <th className="text-center px-4 py-3 text-sm font-medium text-gray-600">Score</th>
-                <th className="text-center px-4 py-3 text-sm font-medium text-gray-600">Status</th>
+                <th 
+                  className="text-left px-4 py-3 text-sm font-medium text-gray-600 cursor-pointer hover:bg-gray-100 select-none"
+                  onClick={() => handleSort('name')}
+                >
+                  Brand<SortIcon column="name" />
+                </th>
+                <th 
+                  className="text-left px-4 py-3 text-sm font-medium text-gray-600 cursor-pointer hover:bg-gray-100 select-none"
+                  onClick={() => handleSort('website')}
+                >
+                  Website<SortIcon column="website" />
+                </th>
+                <th 
+                  className="text-center px-4 py-3 text-sm font-medium text-gray-600 cursor-pointer hover:bg-gray-100 select-none"
+                  onClick={() => handleSort('score')}
+                >
+                  Score<SortIcon column="score" />
+                </th>
+                <th 
+                  className="text-center px-4 py-3 text-sm font-medium text-gray-600 cursor-pointer hover:bg-gray-100 select-none"
+                  onClick={() => handleSort('status')}
+                >
+                  Status<SortIcon column="status" />
+                </th>
                 <th className="text-right px-4 py-3 text-sm font-medium text-gray-600">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              {brands.map(brand => (
+              {sortedBrands.map(brand => (
                 <tr key={brand.id} className="hover:bg-gray-50">
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-3">
