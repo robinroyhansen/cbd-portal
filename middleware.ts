@@ -164,6 +164,21 @@ function hasTranslatableSegments(path: string, lang: SupportedRouteLanguage): bo
   return segments.some(segment => translations[segment] !== undefined);
 }
 
+// Detect language from a localized path by checking which language's translations match
+function detectLanguageFromPath(path: string): SupportedRouteLanguage | null {
+  const [pathPart] = path.split('?');
+  const segments = pathPart.split('/').filter(Boolean);
+  
+  for (const lang of Object.keys(reverseRouteTranslations) as SupportedRouteLanguage[]) {
+    const reverseMappings = reverseRouteTranslations[lang];
+    // Check if any segment matches this language's localized routes
+    if (segments.some(segment => reverseMappings[segment] !== undefined)) {
+      return lang;
+    }
+  }
+  return null;
+}
+
 // ============================================================================
 // END ROUTE TRANSLATIONS
 // ============================================================================
@@ -254,6 +269,7 @@ export function middleware(request: NextRequest) {
   // --- Localized Route Handling ---
   // Support testing localized routes via ?testdomain=cbd.dk (only on preview URLs)
   // Also support localized routes when ?lang= parameter is set to a localized language
+  // AND detect language automatically from localized paths (e.g., /tilstande/epilepsi → Danish)
   const testDomain = request.nextUrl.searchParams.get('testdomain');
   const effectiveHostname = (testDomain && (hostname.includes('vercel.app') || hostname === 'localhost')) 
     ? testDomain 
@@ -264,8 +280,16 @@ export function middleware(request: NextRequest) {
   const langParam = searchParams.get('lang');
   const langParamLang = langParam && usesLocalizedRoutes(langParam as SupportedRouteLanguage) ? langParam as SupportedRouteLanguage : null;
   
-  // Use domain-based lang, or fall back to lang parameter
-  const routeLang = domainLang || langParamLang;
+  // Auto-detect language from localized path segments (e.g., /tilstande/ → Danish)
+  const pathDetectedLang = detectLanguageFromPath(pathname);
+  
+  // Use domain-based lang, lang parameter, or fall back to auto-detected from path
+  const routeLang = domainLang || langParamLang || pathDetectedLang;
+  
+  // If language was auto-detected from path, update the language variable
+  if (pathDetectedLang && !domainLang && !langParamLang && !urlLang && !cookieLang) {
+    language = pathDetectedLang;
+  }
   
   let rewriteUrl: URL | null = null;
   let shouldRedirect = false;
@@ -321,8 +345,8 @@ export function middleware(request: NextRequest) {
     });
   }
 
-  // Set cookie for persistence when ?lang= is used
-  if (urlLang) {
+  // Set cookie for persistence when ?lang= is used or when language is auto-detected from path
+  if (urlLang || (pathDetectedLang && !cookieLang)) {
     response.cookies.set('NEXT_LOCALE', language, {
       path: '/',
       maxAge: 60 * 60 * 24 * 365,
