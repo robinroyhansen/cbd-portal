@@ -177,9 +177,9 @@
     "studiesCount": "{{count}} Studien",
     "pageTitle": "Gesundheitszustände | CBD-Portal",
     "pageDescription": "Entdecken Sie forschungsgestützte Informationen darüber, wie CBD bei Angst, Schmerzen, Schlaf, Entzündungen und 300+ anderen Gesundheitszuständen helfen kann.",
-    "researchBacked": "Research-Backed Information",
+    "researchBacked": "Forschungsbasierte Informationen",
     "heroTitle": "CBD & Health Conditions",
-    "heroDescription": "Explore evidence-based research on how CBD may help with {{count}} health conditions. Each topic includes scientific studies, dosage guidance, and expert insights.",
+    "heroDescription": "Erkunden Sie evidenzbasierte Forschung darüber, wie CBD bei {{count}} Gesundheitszuständen helfen kann. Jedes Thema enthält wissenschaftliche Studien, Dosierungshinweise und Experteneinblicke.",
     "searchPlaceholder": "Search conditions (e.g., anxiety, pain, sleep)...",
     "grid": "Grid",
     "listAZ": "A-Z",
@@ -575,13 +575,13 @@
     "potencyValidation": "Potenzvalidierung",
     "contaminantChecking": "Schadstoffprüfung",
     "metaTitle": "CBD Tools & Calculators | Dosage, Interactions, Cost",
-    "metaDescription": "Evidence-based CBD tools including dosage calculator, drug interaction checker, cost calculator, and strength converter.",
+    "metaDescription": "Evidenzbasierte CBD-Tools einschließlich Dosierungsrechner, Wechselwirkungsprüfer, Kostenrechner und Stärkeumrechner.",
     "featuresLabel": "Features"
   },
   "researchPage": {
     "pageTitle": "CBD-Forschungsdatenbank | Evidenzbasierte Studien",
     "pageDescription": "Durchsuchen Sie von Experten begutachtete CBD- und Cannabis-Forschungsstudien. Filtern Sie nach Erkrankung, Studientyp und Qualitätsbewertung.",
-    "title": "CBD-Forschungs",
+    "title": "CBD-Forschung",
     "titleHighlight": "datenbank",
     "subtitle": "Evidenzbasierte Forschung mit fortschrittlicher Qualitätsbewertung und Klassifizierung.",
     "peerReviewedStudies": "von Experten begutachtete Studien aus vertrauenswürdigen Quellen",
@@ -638,22 +638,22 @@
     "featuredArticles": "Featured Articles",
     "featuredSubtitle": "Our most popular guides",
     "allArticlesTitle": "All Articles",
-    "allArticlesSubtitle": "Browse our complete knowledge base",
+    "allArticlesSubtitle": "Durchstöbern Sie unsere komplette Wissensdatenbank",
     "exploreConditions": "Explore Health Conditions",
-    "exploreConditionsDesc": "Browse our comprehensive database of peer-reviewed CBD studies.",
-    "browseConditions": "Browse Conditions",
-    "viewResearch": "View Research",
+    "exploreConditionsDesc": "Durchsuchen Sie unsere umfassende Datenbank mit begutachteten CBD-Studien.",
+    "browseConditions": "Erkrankungen durchsuchen",
+    "viewResearch": "Forschung ansehen",
     "categories": {
-      "basics": "CBD Basics",
-      "dosage": "Dosage",
-      "conditions": "Conditions",
-      "research": "Research",
-      "products": "Products",
-      "legal": "Legal",
-      "pets": "Pets",
-      "wellness": "Wellness",
-      "safety": "Safety",
-      "news": "News"
+      "basics": "CBD-Grundlagen",
+      "dosage": "Dosierung",
+      "conditions": "Erkrankungen",
+      "research": "Forschung",
+      "products": "Produkte",
+      "legal": "Rechtliches",
+      "pets": "Haustiere",
+      "wellness": "Wohlbefinden",
+      "safety": "Sicherheit",
+      "news": "Neuigkeiten"
     }
   },
   "petsPage": {
@@ -1376,7 +1376,7 @@
   },
   "toolsShowcase": {
     "title": "Free CBD Tools & Calculators",
-    "subtitle": "Evidence-based calculators to help you use CBD safely and effectively",
+    "subtitle": "Evidenzbasierte Rechner für eine sichere und effektive CBD-Anwendung",
     "interactionChecker": "Drug Interaction Checker",
     "essentialSafetyTool": "Essential Safety Tool",
     "interactionCheckerDesc": "Check potential interactions between CBD and your medications. Covers 141 common drugs including blood thinners, antidepressants, seizure medications, and more.",
@@ -1399,12 +1399,12 @@
     "rareResearchDesc": "Obscure cannabinoids with minimal research. Included for completeness."
   },
   "conditionArticlesHub": {
-    "lookingForOverview": "Looking for Condition Overview Pages?",
-    "overviewDescription": "Each condition has a dedicated overview page with research summaries and related studies. Browse all {{count}} conditions we cover, including those still awaiting detailed articles.",
-    "browseAllConditions": "Browse All Conditions"
+    "lookingForOverview": "Suchen Sie Übersichtsseiten zu Erkrankungen?",
+    "overviewDescription": "Jede Erkrankung hat eine eigene Übersichtsseite mit Forschungszusammenfassungen und verwandten Studien. Durchstöbern Sie alle {{count}} Erkrankungen, die wir abdecken, einschließlich derer, die noch auf ausführliche Artikel warten.",
+    "browseAllConditions": "Alle Erkrankungen durchsuchen"
   },
   "authorBio": {
-    "aboutAuthor": "About the Author",
+    "aboutAuthor": "Über den Autor",
     "authorTitle": "CBD Products Expert, Industry Pioneer & Co-founder of Formula Swiss AG",
     "authorBio": "Swiss entrepreneur, CBD products expert, and CBD industry pioneer who co-founded Formula Swiss AG in 2013. With over 12 years of hands-on experience and extensive academic background (studied at university 4 times), he has served 100,000+ customers across 60+ countries and developed 300+ CBD product formulations under GMP certification standards. Robin is also recognized as an expert on European cannabis laws and is well-known for his legal advocacy work, including ongoing cases against regulatory authorities.",
     "since": "Since 2013",
@@ -1549,7 +1549,7 @@
   },
   "conditionPage": {
     "readArticles": "Read Articles",
-    "browseStudies": "Browse {{count}} Studies",
+    "browseStudies": "{{count}} Studien durchsuchen",
     "researchOverview": "Research Overview",
     "studies": "studies",
     "peerReviewedPapers": "peer-reviewed research papers",
@@ -1563,13 +1563,13 @@
     "articlesAbout": "{{count}} articles about CBD and {{condition}}",
     "viewAll": "View all {{count}}",
     "scientificResearch": "Scientific Research",
-    "peerReviewedStudiesOn": "Peer-reviewed studies on CBD and {{condition}}",
-    "browseAllStudies": "Browse all {{count}} studies",
-    "relatedConditions": "Related Conditions",
-    "browseAllConditions": "Browse All Conditions",
-    "researchDatabase": "Research Database",
-    "medicalDisclaimer": "Medical Disclaimer",
-    "medicalDisclaimerText": "This information is for educational purposes only and is not intended as medical advice. Always consult with a healthcare professional before using CBD, especially if you have a medical condition or are taking medications."
+    "peerReviewedStudiesOn": "Begutachtete Studien zu CBD und {{condition}}",
+    "browseAllStudies": "Alle {{count}} Studien durchsuchen",
+    "relatedConditions": "Verwandte Erkrankungen",
+    "browseAllConditions": "Alle Erkrankungen durchsuchen",
+    "researchDatabase": "Forschungsdatenbank",
+    "medicalDisclaimer": "Medizinischer Haftungsausschluss",
+    "medicalDisclaimerText": "Diese Informationen dienen nur zu Bildungszwecken und sind nicht als medizinische Beratung gedacht. Konsultieren Sie immer einen Arzt, bevor Sie CBD verwenden, insbesondere wenn Sie eine Erkrankung haben oder Medikamente einnehmen."
   },
   "reviewsPage": {
     "title": "CBD-Marken Bewertungen",
