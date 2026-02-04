@@ -1544,7 +1544,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
                 {/* Results count and active filters */}
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="font-semibold text-gray-900">
-                    {filteredStudies.length} studies
+                    {filteredStudies.length} {t('researchFilters.studies') || 'studies'}
                   </span>
                   {activeFilterLabels.length > 0 && (
                     <>
@@ -1557,7 +1557,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
                         ))}
                         {activeFilterLabels.length > 3 && (
                           <span className="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded-full">
-                            +{activeFilterLabels.length - 3} more
+                            +{activeFilterLabels.length - 3} {t('researchFilters.more') || 'more'}
                           </span>
                         )}
                       </div>
@@ -1565,7 +1565,7 @@ export function ResearchPageClient({ initialResearch, condition }: ResearchPageC
                         onClick={clearAllFilters}
                         className="text-xs text-gray-500 hover:text-red-600"
                       >
-                        Clear
+                        {t('researchFilters.clear') || 'Clear'}
                       </button>
                     </>
                   )}

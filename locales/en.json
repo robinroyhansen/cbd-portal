@@ -800,12 +800,13 @@
     "tableAction": "Action",
     "preclinical": "Preclinical",
     "preclinicalStudy": "Preclinical Study",
-    "qualityScore": "Quality Score",
     "completed": "Completed",
     "ongoing": "Ongoing",
     "recruiting": "Recruiting",
     "ranksForQuality": "Ranks #{{rank}} for quality",
-    "topQuality": "TOP 15%"
+    "topQuality": "TOP 15%",
+    "more": "more",
+    "studies": "studies"
   },
   "researchConditions": {
     "anxiety": "Anxiety",
@@ -1356,16 +1357,6 @@
     "contactTitle": "Contact Us",
     "contactText": "If you have questions about this Medical Disclaimer, please contact us at:",
     "contactEmail": "Email: info@cbdportal.com"
-  },
-  "searchBar": {
-    "placeholder": "Search articles...",
-    "searching": "Searching...",
-    "category": "Category",
-    "study": "Study",
-    "term": "Term",
-    "article": "Article",
-    "viewAllResults": "View all results for \"{{query}}\"",
-    "noResults": "No results found for \"{{query}}\""
   },
   "toolsShowcase": {
     "title": "Free CBD Tools & Calculators",
