@@ -39,15 +39,46 @@ The portal supports 8 European languages with domain-based routing. Each languag
 - fr-CH (Swiss French)
 - it-CH (Swiss Italian)
 
-### Translation Status (Danish)
+### Translation Status (All Languages) — Updated 2026-02-04
 
+**Base Content Totals:** 1,317 Articles | 312 Conditions | 263 Glossary | 4,879 Research
+
+#### Danish (da) — cbd.dk
 | Content Type | Total | Translated | Status |
 |--------------|-------|------------|--------|
 | Conditions | 312 | 312 | ✅ 100% |
 | Glossary Terms | 263 | 263 | ✅ 100% |
-| Articles | 1,259 | 1,259 | ✅ 100% |
+| Articles | 1,317 | 1,259 | ⚠️ 95.6% (58 missing) |
 | Research | 4,879 | 4,488 | 92% (391 remaining) |
 | UI Strings | 1 file | da.json | ✅ 100% |
+
+#### Norwegian (no) — cbd.no
+| Content Type | Total | Translated | Status |
+|--------------|-------|------------|--------|
+| Conditions | 312 | 312 | ✅ 100% |
+| Glossary Terms | 263 | 263 | ✅ 100% |
+| Articles | 1,317 | 1,259 | ⚠️ 95.6% (58 missing) |
+| Research | 4,879 | 4,488 | 92% (391 remaining) |
+| UI Strings | 1 file | no.json | ✅ 100% |
+
+#### German (de) — cbd.de
+| Content Type | Total | Translated | Status |
+|--------------|-------|------------|--------|
+| Conditions | 312 | 312 | ✅ 100% |
+| Glossary Terms | 263 | 263 | ✅ 100% |
+| Articles | 1,317 | 1,317 | ✅ 100% (completed Feb 4, 2026) |
+| Research | 4,879 | 400 | 🔴 8.2% (4,479 remaining) |
+| UI Strings | 1 file | de.json | ✅ 100% |
+
+#### Other Languages (sv, nl, fi, fr, it)
+| Content Type | Total | sv | nl | fi | fr | it |
+|--------------|-------|-----|-----|-----|-----|-----|
+| Conditions | 312 | ✅ 312 | ✅ 312 | ✅ 312 | ✅ 312 | ✅ 312 |
+| Glossary | 263 | ✅ 263 | ✅ 263 | ✅ 263 | ✅ 263 | ✅ 263 |
+| Articles | 1,317 | 🔴 0 | 🔴 0 | 🔴 0 | 🔴 0 | 🔴 0 |
+| Research | 4,879 | 🔴 0 | 🔴 0 | 🔴 0 | 🔴 0 | 🔴 0 |
+
+**Note:** 58 new articles were added since the last translation batch (total went from 1,259 → 1,317). Danish and Norwegian are missing the same 58 articles. German is missing 37.
 
 ### Translation Tables
 
@@ -279,13 +310,13 @@ npx tsx scripts/find-missing.ts
 
 ---
 
-## CURRENT STATE (January 27, 2026)
+## CURRENT STATE (February 4, 2026)
 
-### Content Database - Complete
+### Content Database
 
 | Content Type | Count | Status |
 |--------------|-------|--------|
-| **Articles** | 1,259 | ✅ All published |
+| **Articles** | 1,317 | ✅ All published (+58 since Jan 27) |
 | **Conditions** | 312 | ✅ 100% have articles |
 | **Approved Studies** | 4,879 | ✅ Complete |
 | **Glossary Terms** | 263 | ✅ Complete |
@@ -324,17 +355,20 @@ npx tsx scripts/find-missing.ts
 - **6 data sources** integrated (PubMed, PMC, OpenAlex, Europe PMC, Semantic Scholar, citation imports)
 - **48 search keywords** matched across therapeutic areas
 
-### Translation Status (Danish)
+### Translation Status Summary (February 4, 2026)
 
-| Content Type | Total | Translated | Gap | Status |
-|--------------|-------|------------|-----|--------|
-| Conditions | 312 | 312 | 0 | ✅ Complete |
-| Glossary | 263 | 263 | 0 | ✅ Complete |
-| Articles | 1,259 | 1,259 | 0 | ✅ Complete |
-| Research | 4,879 | 4,488 | 391 | 92% |
-| UI Strings | da.json | ✅ | - | ✅ Complete |
+| Language | Articles | Conditions | Glossary | Research |
+|----------|----------|------------|----------|----------|
+| **Danish (da)** | 1,259/1,317 (95.6%) | ✅ 312/312 | ✅ 263/263 | 4,488/4,879 (92%) |
+| **Norwegian (no)** | 1,259/1,317 (95.6%) | ✅ 312/312 | ✅ 263/263 | 4,488/4,879 (92%) |
+| **German (de)** | 1,280/1,317 (97.2%) | ✅ 312/312 | ✅ 263/263 | 400/4,879 (8.2%) |
+| **Swedish (sv)** | 🔴 0/1,317 | ✅ 312/312 | ✅ 263/263 | 🔴 0/4,879 |
+| **Dutch (nl)** | 🔴 0/1,317 | ✅ 312/312 | ✅ 263/263 | 🔴 0/4,879 |
+| **Finnish (fi)** | 🔴 0/1,317 | ✅ 312/312 | ✅ 263/263 | 🔴 0/4,879 |
+| **French (fr)** | 🔴 0/1,317 | ✅ 312/312 | ✅ 263/263 | 🔴 0/4,879 |
+| **Italian (it)** | 🔴 0/1,317 | ✅ 312/312 | ✅ 263/263 | 🔴 0/4,879 |
 
-**Gap Analysis:** Only 391 research translations remaining for Danish (8% gap).
+**Gaps:** 58 new articles added since last translation batch. Danish & Norwegian need same 58 articles. German needs 37 articles + most research.
 
 ### AI Chat System - Complete
 
@@ -363,13 +397,22 @@ npx tsx scripts/find-missing.ts
 - **chat_messages**: Individual chat messages with intent classification
 - **chat_feedback**: User feedback on chat responses
 
-### What's Remaining (Danish)
+### What's Remaining
 
-1. **Condition Translations** - ✅ Complete (312/312)
-2. **Glossary Translations** - ✅ Complete (263/263)
-3. **Article Translations** - ✅ Complete (1,259/1,259)
-4. **Research Translations** - 391 remaining (4,488/4,879 = 92%)
-5. **Domain Setup** - Configure cbd.dk DNS and Vercel domain
+**Danish (da) — cbd.dk:**
+1. **Article Translations** - 58 new articles need translating (1,259/1,317)
+2. **Research Translations** - 391 remaining (4,488/4,879 = 92%)
+3. **Domain Setup** - Configure cbd.dk DNS and Vercel domain
+
+**Norwegian (no) — cbd.no:**
+1. **Article Translations** - 58 new articles need translating (1,259/1,317)
+2. **Research Translations** - 391 remaining (4,488/4,879 = 92%)
+3. **Domain Setup** - Configure cbd.no DNS and Vercel domain
+
+**German (de) — cbd.de:**
+1. **Article Translations** - 37 articles need translating (1,280/1,317)
+2. **Research Translations** - 4,479 remaining (400/4,879 = 8.2%)
+3. **Domain Setup** - Configure cbd.de DNS and Vercel domain
 
 ### Chat System Usage
 

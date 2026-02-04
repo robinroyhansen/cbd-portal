@@ -71,20 +71,21 @@ export async function getArticleBySlug(slug: string, language: string = 'en') {
     return { data, error: null };
   }
 
-  // Fetch translation for non-English languages
+  // Fetch translation for non-English languages (including content)
   const { data: translation } = await supabase
     .from('article_translations')
-    .select('title, meta_description, excerpt')
+    .select('title, meta_description, excerpt, content')
     .eq('article_id', data.id)
     .eq('language', language)
     .single();
 
-  // Merge translation with article
+  // Merge translation with article (including content)
   const translatedArticle = {
     ...data,
     title: translation?.title || data.title,
     meta_description: translation?.meta_description || data.meta_description,
     excerpt: translation?.excerpt || data.excerpt,
+    content: translation?.content || data.content,
   };
 
   return { data: translatedArticle, error: null };
