@@ -72,6 +72,12 @@ async function mergeArticleTranslations(
 export async function RelatedArticles({ currentSlug }: { currentSlug: string }) {
   const supabase = await createClient();
   const language = await getLanguage();
+  
+  const text = {
+    relatedArticles: language === 'de' ? 'Verwandte Artikel' : 'Related Articles',
+    relatedConditions: language === 'de' ? 'Verwandte Erkrankungen' : 'Related Conditions', 
+    minRead: language === 'de' ? 'min Lesezeit' : 'min read'
+  };
 
   // Get related slugs from expanded topic mapping
   const relatedSlugs = getRelatedSlugs(currentSlug);
@@ -94,15 +100,6 @@ export async function RelatedArticles({ currentSlug }: { currentSlug: string }) 
   // Remove duplicates and current slug
   potentialSlugs = [...new Set(potentialSlugs)].filter(s => s !== currentSlug);
 
-  // Section title based on language
-  const sectionTitles: Record<string, { related: string; conditions: string; minRead: string }> = {
-    en: { related: 'Related Articles', conditions: 'Related Conditions', minRead: 'min read' },
-    da: { related: 'Relaterede artikler', conditions: 'Relaterede tilstande', minRead: 'min læsning' },
-    de: { related: 'Verwandte Artikel', conditions: 'Verwandte Erkrankungen', minRead: 'Min. Lesezeit' },
-    no: { related: 'Relaterte artikler', conditions: 'Relaterte tilstander', minRead: 'min å lese' },
-  };
-  const titles = sectionTitles[language] || sectionTitles.en;
-
   if (potentialSlugs.length === 0) {
     // Fallback: get recent articles from same category based on title similarity
     const { data: fallbackArticles } = await supabase
@@ -120,7 +117,7 @@ export async function RelatedArticles({ currentSlug }: { currentSlug: string }) 
 
     return (
       <section className="mt-12 pt-8 border-t border-gray-200">
-        <h2 className="text-2xl font-bold mb-6">{titles.related}</h2>
+        <h2 className="text-2xl font-bold mb-6">{text.relatedArticles}</h2>
         <div className="grid md:grid-cols-2 gap-4">
           {translatedArticles.map((article) => (
             <LocaleLink
@@ -131,7 +128,7 @@ export async function RelatedArticles({ currentSlug }: { currentSlug: string }) 
               <h3 className="font-semibold text-lg mb-2 text-green-700">{article.title}</h3>
               <p className="text-sm text-gray-600 line-clamp-2">{article.excerpt}</p>
               {article.reading_time && (
-                <p className="text-xs text-gray-400 mt-2">{article.reading_time} {titles.minRead}</p>
+                <p className="text-xs text-gray-400 mt-2">{article.reading_time} {text.minRead}</p>
               )}
             </LocaleLink>
           ))}
@@ -155,7 +152,7 @@ export async function RelatedArticles({ currentSlug }: { currentSlug: string }) 
 
   return (
     <section className="mt-12 pt-8 border-t border-gray-200">
-      <h2 className="text-2xl font-bold mb-6">{titles.conditions}</h2>
+      <h2 className="text-2xl font-bold mb-6">{text.relatedConditions}</h2>
       <div className="grid md:grid-cols-2 gap-4">
         {translatedArticles.map((article) => (
           <LocaleLink
@@ -166,7 +163,7 @@ export async function RelatedArticles({ currentSlug }: { currentSlug: string }) 
             <h3 className="font-semibold text-lg mb-2 text-green-700">{article.title}</h3>
             <p className="text-sm text-gray-600 line-clamp-2">{article.excerpt}</p>
             {article.reading_time && (
-              <p className="text-xs text-gray-400 mt-2">{article.reading_time} {titles.minRead}</p>
+              <p className="text-xs text-gray-400 mt-2">{article.reading_time} {text.minRead}</p>
             )}
           </LocaleLink>
         ))}
