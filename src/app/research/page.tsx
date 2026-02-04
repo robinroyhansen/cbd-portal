@@ -89,7 +89,44 @@ export default async function ResearchPage({ searchParams }: PageProps) {
       throw researchError;
     }
 
-    // Map database results to ResearchItem format
+    // Fetch translations for non-English languages
+    let translationsMap: Record<string, string> = {};
+    if (lang !== 'en' && researchData && researchData.length > 0) {
+      try {
+        // Fetch all translations for this language (paginated)
+        let allTranslations: Array<{ research_id: string; plain_summary: string }> = [];
+        let offset = 0;
+        const pageSize = 1000;
+
+        while (true) {
+          const { data: translationData, error: translationError } = await supabase
+            .from('research_translations')
+            .select('research_id, plain_summary')
+            .eq('language', lang)
+            .range(offset, offset + pageSize - 1);
+
+          if (translationError || !translationData || translationData.length === 0) break;
+          allTranslations = [...allTranslations, ...translationData];
+          if (translationData.length < pageSize) break;
+          offset += pageSize;
+        }
+
+        // Build map for quick lookup
+        translationsMap = allTranslations.reduce((acc, t) => {
+          if (t.research_id && t.plain_summary) {
+            acc[t.research_id] = t.plain_summary;
+          }
+          return acc;
+        }, {} as Record<string, string>);
+
+        console.log(`[Research Page] Loaded ${Object.keys(translationsMap).length} ${lang} translations`);
+      } catch (translationError) {
+        console.error('Error fetching translations:', translationError);
+        // Continue without translations
+      }
+    }
+
+    // Map database results to ResearchItem format, applying translations
     allResearch = (researchData || []).map((item: any) => ({
       id: item.id,
       title: item.title || 'Untitled Study',
@@ -97,7 +134,7 @@ export default async function ResearchPage({ searchParams }: PageProps) {
       publication: item.publication || 'Unknown Publication',
       year: item.year || new Date().getFullYear(),
       abstract: item.abstract,
-      plain_summary: item.plain_summary,
+      plain_summary: translationsMap[item.id] || item.plain_summary,
       url: item.url,
       doi: item.doi,
       source_site: item.source_site || 'Research Database',

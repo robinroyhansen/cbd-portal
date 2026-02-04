@@ -52,10 +52,10 @@ export function AuthorBio({ className = '' }: AuthorBioProps) {
           {/* Key credentials */}
           <div className="flex flex-wrap gap-1 mb-4">
             {[
-              'EIHA Member',
-              'Novel Food Consortium',
-              'University Research Partner',
-              'Zero Failed Lab Tests'
+              t('authorBio.credentials.eiha'),
+              t('authorBio.credentials.novelFood'),
+              t('authorBio.credentials.university'),
+              t('authorBio.credentials.zeroFailed')
             ].map((credential, index) => (
               <span key={index} className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded font-medium">
                 {credential}
@@ -64,11 +64,11 @@ export function AuthorBio({ className = '' }: AuthorBioProps) {
           </div>
 
           <div className="flex items-center gap-3 text-xs text-gray-500 mb-4">
-            <span>🇨🇭 Zug, Switzerland</span>
+            <span>{t('authorBio.location')}</span>
             <span>•</span>
             <span>{t('authorBio.experience')}</span>
             <span>•</span>
-            <span>100% renewable energy operations</span>
+            <span>{t('authorBio.renewableEnergy')}</span>
           </div>
 
           <p className="text-xs text-gray-500 italic border-t border-gray-200 pt-3">

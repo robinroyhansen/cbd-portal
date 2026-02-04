@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { LocaleLink as Link } from '@/components/LocaleLink';
+import { useLocale } from '@/hooks/useLocale';
 
 interface Citation {
   id: string;
@@ -43,6 +44,8 @@ function formatAuthors(authors: string): string {
 }
 
 export function Citations({ citations, className = '', topic, studyCount }: CitationsProps) {
+  const { t } = useLocale();
+  
   if (!citations || citations.length === 0) {
     return null;
   }
@@ -51,10 +54,10 @@ export function Citations({ citations, className = '', topic, studyCount }: Cita
 
   return (
     <div className={`mt-12 pt-8 border-t border-gray-200 ${className}`}>
-      <h2 className="text-2xl font-bold mb-4 text-gray-900">References</h2>
+      <h2 className="text-2xl font-bold mb-4 text-gray-900">{t('citations.title')}</h2>
 
       <p className="text-sm text-gray-600 mb-6">
-        I reviewed {displayCount} {displayCount === 1 ? 'study' : 'studies'} for this article. Key sources:
+        {t('citations.reviewedStudies', { count: displayCount })}
       </p>
 
       <ol className="space-y-5 list-decimal list-outside ml-5">
@@ -81,7 +84,7 @@ export function Citations({ citations, className = '', topic, studyCount }: Cita
                         href={`/research/study/${cite.slug}`}
                         className="text-green-600 hover:text-green-700 hover:underline"
                       >
-                        [Summary]
+                        [{t('citations.summary')}]
                       </Link>
                       {(cite.pmid || cite.doi) && <span> • </span>}
                     </>
@@ -94,14 +97,14 @@ export function Citations({ citations, className = '', topic, studyCount }: Cita
                         rel="noopener noreferrer"
                         className="text-green-600 hover:text-green-700 hover:underline"
                       >
-                        [PubMed]
+                        [{t('citations.pubmed')}]
                       </a>
                       {cite.doi && <span> • </span>}
                     </>
                   )}
                   {cite.doi && (
                     <span>
-                      DOI: {cite.doi}
+                      {t('citations.doi')}{cite.doi}
                     </span>
                   )}
                 </p>
@@ -117,7 +120,7 @@ export function Citations({ citations, className = '', topic, studyCount }: Cita
             href={`/research?topic=${topic}`}
             className="text-sm font-medium text-green-600 hover:text-green-700 hover:underline"
           >
-            [View all {displayCount} studies on CBD and {topic.replace(/_/g, ' ')} →]
+            [{t('citations.viewAllStudies', { count: displayCount, topic: topic.replace(/_/g, ' ') })}]
           </Link>
         </div>
       )}
@@ -127,6 +130,8 @@ export function Citations({ citations, className = '', topic, studyCount }: Cita
 
 // Simple citation count display for article headers
 export function CitationCount({ count, className = '' }: { count: number; className?: string }) {
+  const { t } = useLocale();
+  
   if (count === 0) return null;
 
   return (
@@ -134,7 +139,7 @@ export function CitationCount({ count, className = '' }: { count: number; classN
       <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
         <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
-      {count} scientific reference{count !== 1 ? 's' : ''}
+      {count} {t('citations.scientificReferences', { count })}
     </span>
   );
 }

@@ -1,0 +1,113 @@
+{
+  "evidence": {
+    "insufficient": "Unzureichende Evidenz",
+    "clinicallyProven": "Klinisch bewährt"
+  },
+  "glossaryCategories": {
+    "cannabinoids_desc": "CBD, THC, CBG und andere Cannabis-Verbindungen",
+    "terpenes_desc": "Aromatische Verbindungen, die Duft und Wirkung beeinflussen",
+    "products_desc": "Öle, Kapseln, Topika und andere CBD-Produkte",
+    "extraction": "Extraktion",
+    "extraction_desc": "Methoden zur CBD-Extraktion aus der Pflanze",
+    "science_desc": "Das Endocannabinoid-System und wie CBD wirkt",
+    "research": "Forschung",
+    "research_desc": "Wissenschaftliche Studien und klinische Forschung",
+    "side-effects": "Nebenwirkungen",
+    "side-effects_desc": "Mögliche unerwünschte Wirkungen von CBD",
+    "conditions_desc": "Gesundheitszustände, bei denen CBD untersucht wird",
+    "testing": "Prüfung",
+    "testing_desc": "Laboranalysen und Qualitätskontrolle",
+    "legal_desc": "Rechtsstatus und Vorschriften zu CBD",
+    "dosing_desc": "Wie man CBD richtig dosiert",
+    "plant": "Pflanze",
+    "plant_desc": "Cannabis-Sorten, Anbau und Botanik"
+  },
+  "cookiePolicy": {
+    "pageTitle": "Cookie-Richtlinie | CBD Portal",
+    "metaTitle": "Cookie-Richtlinie | CBD Portal",
+    "pageDescription": "Erfahren Sie, wie wir Cookies verwenden und wie Sie Ihre Einstellungen verwalten können.",
+    "metaDescription": "Erfahren Sie, wie wir Cookies verwenden und wie Sie Ihre Einstellungen verwalten können.",
+    "title": "Cookie-Richtlinie",
+    "lastUpdated": "Zuletzt aktualisiert: 15. Januar 2025",
+    "intro": "Diese Cookie-Richtlinie erklärt, was Cookies sind und wie wir sie verwenden, welche Arten von Cookies wir verwenden, d.h. welche Informationen wir mit Hilfe von Cookies sammeln und wie diese Informationen verwendet werden, und wie Sie die Cookie-Einstellungen steuern können.",
+    "whatAreCookies": "Was sind Cookies?",
+    "cookiesExplanation": "Cookies sind kleine Textdateien, die verwendet werden, um kleine Informationen zu speichern. Sie werden auf Ihrem Gerät gespeichert, wenn die Website in Ihrem Browser geladen wird. Diese Cookies helfen uns dabei, die Website ordnungsgemäß funktionsfähig zu machen, sie sicherer zu machen, eine bessere Benutzererfahrung zu bieten und zu verstehen, wie die Website funktioniert und zu analysieren, was funktioniert und wo sie verbessert werden muss.",
+    "howWeUseCookies": "Wie verwenden wir Cookies?",
+    "cookieUsageExplanation": "Wie die meisten Online-Dienste verwendet unsere Website Erstanbieter- und Drittanbieter-Cookies für verschiedene Zwecke. Erstanbieter-Cookies sind meist notwendig für das ordnungsgemäße Funktionieren der Website und sammeln keine Ihrer persönlich identifizierbaren Daten.",
+    "thirdPartyCookies": "Drittanbieter-Cookies, die auf unserer Website verwendet werden, dienen hauptsächlich dazu zu verstehen, wie die Website funktioniert, wie Sie mit unserer Website interagieren, unsere Dienste sicher zu halten, Ihnen relevante Werbung anzubieten und insgesamt eine bessere und verbesserte Benutzererfahrung zu bieten und dabei zu helfen, Ihre zukünftigen Interaktionen mit unserer Website zu beschleunigen.",
+    "typesOfCookies": "Welche Arten von Cookies verwenden wir?",
+    "essential": "Wesentlich",
+    "essentialDesc": "Diese Cookies sind unbedingt erforderlich, um Ihnen über unsere Website verfügbare Dienste bereitzustellen und einige ihrer Funktionen zu nutzen. Sie helfen bei der Authentifizierung von Benutzern und verhindern betrügerische Nutzung von Benutzerkonten. Ohne diese Cookies können die von Ihnen angeforderten Dienste nicht bereitgestellt werden, und wir verwenden diese Cookies nur, um Ihnen diese Dienste bereitzustellen.",
+    "analytics": "Analytik",
+    "analyticsDesc": "Diese Cookies speichern Informationen wie die Anzahl der Besucher der Website, die Anzahl der eindeutigen Besucher, welche Seiten der Website besucht wurden, die Quelle des Besuchs usw. Diese Daten helfen uns zu verstehen und zu analysieren, wie gut die Website funktioniert und wo sie verbessert werden muss.",
+    "functional": "Funktional",
+    "functionalDesc": "Dies sind die Cookies, die bestimmte nicht-wesentliche Funktionalitäten auf unserer Website unterstützen. Diese Funktionalitäten umfassen das Einbetten von Inhalten wie Videos oder das Teilen von Inhalten der Website auf Social Media-Plattformen.",
+    "advertising": "Werbung",
+    "advertisingDesc": "Diese Cookies werden verwendet, um Ihnen Werbeanzeigen zu personalisieren, die für Sie und Ihre Interessen relevant sind. Sie werden auch verwendet, um die Anzahl der Werbeanzeigen zu begrenzen, die Sie sehen, sowie dabei zu helfen, die Wirksamkeit der Werbekampagne zu messen.",
+    "preferences": "Präferenzen",
+    "preferencesDesc": "Diese Cookies helfen uns dabei, Ihre Einstellungen und Browsing-Präferenzen wie Sprachpräferenzen zu speichern, damit Sie eine bessere und effizientere Erfahrung bei zukünftigen Besuchen der Website haben.",
+    "controlCookies": "Wie kann ich die Cookie-Einstellungen steuern?",
+    "controlCookiesExplanation": "Wenn Sie Ihre Einstellungen später ändern möchten, können Sie auf Ihrem Bildschirm auf die Registerkarte \"Datenschutz & Cookie-Richtlinie\" klicken. Dadurch wird die Zustimmungsnotiz erneut angezeigt, so dass Sie Ihre Einstellungen ändern oder Ihre Zustimmung vollständig widerrufen können.",
+    "browserSettings": "Darüber hinaus bieten verschiedene Browser verschiedene Methoden zum Blockieren und Löschen von Cookies, die von Websites verwendet werden. Sie können die Einstellungen Ihres Browsers ändern, um die Cookies zu blockieren/löschen. Nachfolgend finden Sie die Links zu den Support-Dokumenten zum Verwalten und Löschen von Cookies aus den wichtigsten Webbrowsern.",
+    "chromeHelp": "Chrome: https://support.google.com/accounts/answer/32050",
+    "safariHelp": "Safari: https://support.apple.com/de-de/guide/safari/sfri11471/mac",
+    "firefoxHelp": "Firefox: https://support.mozilla.org/de/kb/cookies-und-website-daten-in-firefox-loschen",
+    "internetExplorerHelp": "Internet Explorer: https://support.microsoft.com/de-de/help/278835/how-to-delete-cookie-files-in-internet-explorer",
+    "contact": "Wenn Sie Fragen zu dieser Cookie-Richtlinie haben, können Sie sich unter den folgenden Kontaktdaten an uns wenden:"
+  },
+  "citations": {
+    "title": "Referenzen",
+    "reviewedStudies": "Ich habe {count} {count, plural, one {Studie} other {Studien}} für diesen Artikel überprüft. Wichtigste Quellen:",
+    "summary": "Zusammenfassung",
+    "pubmed": "PubMed",
+    "doi": "DOI: ",
+    "viewAllStudies": "Alle {count} Studien zu CBD und {topic} anzeigen →",
+    "scientificReferences": "wissenschaftliche Referenz{count, plural, one {} other {en}}",
+    "study": "Studie",
+    "studies": "Studien"
+  },
+  "comments": {
+    "title": "Kommentare",
+    "count": "({count})",
+    "noComments": "Noch keine Kommentare. Seien Sie der Erste, der seine Gedanken teilt!",
+    "leaveComment": "Kommentar hinterlassen",
+    "thankYou": "Vielen Dank für Ihren Kommentar!",
+    "submitted": "Ihr Kommentar wurde eingereicht und wird nach der Moderation angezeigt.",
+    "submitAnother": "Weiteren Kommentar abschicken",
+    "name": "Name",
+    "email": "E-Mail",
+    "emailNotDisplayed": "(wird nicht angezeigt)",
+    "comment": "Kommentar",
+    "required": "*",
+    "namePlaceholder": "Ihr Name",
+    "emailPlaceholder": "ihre@email.com",
+    "commentPlaceholder": "Teilen Sie Ihre Gedanken mit...",
+    "characters": "Zeichen",
+    "moderated": "Kommentare werden vor der Veröffentlichung moderiert.",
+    "postComment": "Kommentar veröffentlichen",
+    "submitting": "Wird gesendet...",
+    "timeAgo": {
+      "justNow": "Gerade eben",
+      "minuteAgo": "vor {count} Minute{count, plural, one {} other {n}}",
+      "hourAgo": "vor {count} Stunde{count, plural, one {} other {n}}",
+      "dayAgo": "vor {count} Tag{count, plural, one {} other {en}}",
+      "weekAgo": "vor {count} Woche{count, plural, one {} other {n}}",
+      "monthAgo": "vor {count} Monat{count, plural, one {} other {en}}"
+    }
+  },
+  "relatedArticles": {
+    "relatedArticles": "Verwandte Artikel",
+    "relatedConditions": "Verwandte Erkrankungen",
+    "minRead": "Min. Lesezeit"
+  },
+  "authorBio": {
+    "credentials": {
+      "eiha": "EIHA-Mitglied",
+      "novelFood": "Novel Food Konsortium",
+      "university": "Universitäts-Forschungspartner",
+      "zeroFailed": "Null fehlgeschlagene Labortests"
+    },
+    "location": "🇨🇭 Zug, Schweiz",
+    "renewableEnergy": "100% Betrieb mit erneuerbarer Energie"
+  }
+}

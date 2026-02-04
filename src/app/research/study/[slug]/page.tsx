@@ -3,6 +3,8 @@ import { LocaleLink as Link } from '@/components/LocaleLink';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/BreadcrumbSchema';
+import { getLanguage } from '@/lib/get-language';
+import type { LanguageCode } from '@/lib/translation-service';
 import {
   assessStudyQuality,
   calculateQualityScoreWithBreakdown,
@@ -24,6 +26,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cbd-portal.vercel.
 
 interface Props {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ lang?: string }>;
 }
 
 interface KeyFinding {
@@ -312,8 +315,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function ResearchStudyPage({ params }: Props) {
+export default async function ResearchStudyPage({ params, searchParams }: Props) {
   const { slug } = await params;
+  const sp = await searchParams;
+  const lang = (sp.lang || await getLanguage()) as LanguageCode;
   const supabase = await createClient();
 
   const { data: study, error } = await supabase
@@ -325,6 +330,20 @@ export default async function ResearchStudyPage({ params }: Props) {
 
   if (error || !study) {
     notFound();
+  }
+
+  // Fetch translation for non-English languages
+  if (lang !== 'en' && study.id) {
+    const { data: translation } = await supabase
+      .from('research_translations')
+      .select('plain_summary')
+      .eq('research_id', study.id)
+      .eq('language', lang)
+      .single();
+
+    if (translation?.plain_summary) {
+      study.plain_summary = translation.plain_summary;
+    }
   }
 
   // Analyze study using shared utilities

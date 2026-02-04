@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useLocale } from '@/hooks/useLocale';
 
 interface Comment {
   id: string;
@@ -11,6 +12,7 @@ interface Comment {
 }
 
 export function Comments({ articleId }: { articleId: string }) {
+  const { t } = useLocale();
   const [comments, setComments] = useState<Comment[]>([]);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
@@ -78,18 +80,18 @@ export function Comments({ articleId }: { articleId: string }) {
     const weeks = Math.floor(days / 7);
     const months = Math.floor(days / 30);
 
-    if (months > 0) return `${months} month${months > 1 ? 's' : ''} ago`;
-    if (weeks > 0) return `${weeks} week${weeks > 1 ? 's' : ''} ago`;
-    if (days > 0) return `${days} day${days > 1 ? 's' : ''} ago`;
-    if (hours > 0) return `${hours} hour${hours > 1 ? 's' : ''} ago`;
-    if (minutes > 0) return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
-    return 'Just now';
+    if (months > 0) return t('comments.timeAgo.monthAgo', { count: months });
+    if (weeks > 0) return t('comments.timeAgo.weekAgo', { count: weeks });
+    if (days > 0) return t('comments.timeAgo.dayAgo', { count: days });
+    if (hours > 0) return t('comments.timeAgo.hourAgo', { count: hours });
+    if (minutes > 0) return t('comments.timeAgo.minuteAgo', { count: minutes });
+    return t('comments.timeAgo.justNow');
   };
 
   return (
     <section className="mt-12 pt-8 border-t border-gray-200 print:hidden">
       <h2 className="text-2xl font-bold text-gray-900 mb-6">
-        Comments {comments.length > 0 && <span className="text-gray-500 font-normal">({comments.length})</span>}
+        {t('comments.title')} {comments.length > 0 && <span className="text-gray-500 font-normal">{t('comments.count', { count: comments.length })}</span>}
       </h2>
 
       {/* Existing comments - sorted oldest first for conversation flow */}
@@ -103,7 +105,7 @@ export function Comments({ articleId }: { articleId: string }) {
           ))}
         </div>
       ) : comments.length === 0 ? (
-        <p className="text-gray-500 mb-8">No comments yet. Be the first to share your thoughts!</p>
+        <p className="text-gray-500 mb-8">{t('comments.noComments')}</p>
       ) : (
         <div className="space-y-6 mb-8">
           {comments.map((comment) => (
@@ -129,21 +131,21 @@ export function Comments({ articleId }: { articleId: string }) {
         <div className="bg-green-50 border border-green-200 rounded-lg p-6">
           <div className="flex items-center gap-3 mb-2">
             <span className="text-green-600 text-xl">✓</span>
-            <p className="text-green-800 font-medium">Thank you for your comment!</p>
+            <p className="text-green-800 font-medium">{t('comments.thankYou')}</p>
           </div>
           <p className="text-green-700 text-sm">
-            Your comment has been submitted and will appear after moderation.
+            {t('comments.submitted')}
           </p>
           <button
             onClick={() => setSubmitted(false)}
             className="mt-4 text-sm text-green-700 hover:text-green-900 underline"
           >
-            Submit another comment
+            {t('comments.submitAnother')}
           </button>
         </div>
       ) : (
         <div className="bg-gray-50 rounded-xl p-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Leave a Comment</h3>
+          <h3 className="text-lg font-semibold text-gray-800 mb-4">{t('comments.leaveComment')}</h3>
 
           {error && (
             <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800 text-sm">
@@ -155,7 +157,7 @@ export function Comments({ articleId }: { articleId: string }) {
             <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="comment-name" className="block text-sm font-medium text-gray-700 mb-1">
-                  Name <span className="text-red-500">*</span>
+                  {t('comments.name')} <span className="text-red-500">{t('comments.required')}</span>
                 </label>
                 <input
                   type="text"
@@ -166,13 +168,13 @@ export function Comments({ articleId }: { articleId: string }) {
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                  placeholder="Your name"
+                  placeholder={t('comments.namePlaceholder')}
                 />
               </div>
               <div>
                 <label htmlFor="comment-email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Email <span className="text-red-500">*</span>
-                  <span className="text-gray-500 font-normal ml-1">(not displayed)</span>
+                  {t('comments.email')} <span className="text-red-500">{t('comments.required')}</span>
+                  <span className="text-gray-500 font-normal ml-1">{t('comments.emailNotDisplayed')}</span>
                 </label>
                 <input
                   type="email"
@@ -181,14 +183,14 @@ export function Comments({ articleId }: { articleId: string }) {
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                  placeholder="your@email.com"
+                  placeholder={t('comments.emailPlaceholder')}
                 />
               </div>
             </div>
 
             <div>
               <label htmlFor="comment-text" className="block text-sm font-medium text-gray-700 mb-1">
-                Comment <span className="text-red-500">*</span>
+                {t('comments.comment')} <span className="text-red-500">{t('comments.required')}</span>
               </label>
               <textarea
                 id="comment-text"
@@ -199,9 +201,9 @@ export function Comments({ articleId }: { articleId: string }) {
                 value={form.comment}
                 onChange={(e) => setForm({ ...form, comment: e.target.value })}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 resize-y"
-                placeholder="Share your thoughts..."
+                placeholder={t('comments.commentPlaceholder')}
               />
-              <p className="text-xs text-gray-500 mt-1">{form.comment.length}/5000 characters</p>
+              <p className="text-xs text-gray-500 mt-1">{form.comment.length}/5000 {t('comments.characters')}</p>
             </div>
 
             {/* Honeypot field - hidden from real users */}
@@ -220,7 +222,7 @@ export function Comments({ articleId }: { articleId: string }) {
 
             <div className="flex items-center justify-between pt-2">
               <p className="text-xs text-gray-500">
-                Comments are moderated before appearing.
+                {t('comments.moderated')}
               </p>
               <button
                 type="submit"
@@ -230,10 +232,10 @@ export function Comments({ articleId }: { articleId: string }) {
                 {submitting ? (
                   <>
                     <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
-                    Submitting...
+                    {t('comments.submitting')}
                   </>
                 ) : (
-                  'Post Comment'
+                  t('comments.postComment')
                 )}
               </button>
             </div>

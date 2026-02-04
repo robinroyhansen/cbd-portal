@@ -355,7 +355,11 @@ npx tsx scripts/find-missing.ts
 - **6 data sources** integrated (PubMed, PMC, OpenAlex, Europe PMC, Semantic Scholar, citation imports)
 - **48 search keywords** matched across therapeutic areas
 
-### Translation Status Summary (February 4, 2026)
+### Translation Status Summary (February 4, 2026 — 02:58 CET)
+
+**Key fixes deployed:**
+- ✅ Article content now fetches translated content from `article_translations.content`
+- ✅ Condition page locale strings translated (Research Overview, Evidence Strength, etc.)
 
 | Language | Articles | Conditions | Glossary | Research |
 |----------|----------|------------|----------|----------|
