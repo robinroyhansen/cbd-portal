@@ -35,7 +35,10 @@
     "joinNewsletter": "Gå med",
     "subscribing": "...",
     "subscribeSuccess": "Tack för att du prenumererar!",
-    "subscribeError": "Något gick fel. Försök igen."
+    "subscribeError": "Något gick fel. Försök igen.",
+    "healthCondition": "Hälsotillstånd",
+    "lastReviewedAndUpdated": "Senast granskad och uppdaterad:",
+    "updated": "Uppdaterad"
   },
   "nav": {
     "healthTopics": "Hälsoteman",
@@ -62,7 +65,8 @@
     "viewAllConditions": "Visa alla 300+ tillstånd",
     "viewAllArticles": "Bläddra bland alla artiklar",
     "viewAllTools": "Visa alla verktyg",
-    "viewAllPetGuides": "Visa alla djurguider"
+    "viewAllPetGuides": "Visa alla djurguider",
+    "closeMenu": "Stäng meny"
   },
   "navCategories": {
     "mentalHealth": "Psykisk hälsa",

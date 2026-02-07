@@ -692,7 +692,9 @@
     "ongoing": "Igangværende",
     "recruiting": "Rekruttering",
     "ranksForQuality": "Rangerer #{{rank}} for kvalitet",
-    "topQuality": "TOP 15%"
+    "topQuality": "TOP 15%",
+    "more": "mere",
+    "studies": "studier"
   },
   "researchConditions": {
     "anxiety": "Angst",

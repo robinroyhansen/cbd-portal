@@ -159,10 +159,11 @@ const localizedRouteDomains: Record<string, SupportedRouteLanguage> = {
   'cbd.dk': 'da',
   'cbd.no': 'no',
   'cbd.de': 'de',
+  'cbd.se': 'sv',
 };
 
 function usesLocalizedRoutes(lang: string): lang is SupportedRouteLanguage {
-  return lang === 'da' || lang === 'no' || lang === 'de';
+  return lang === 'da' || lang === 'no' || lang === 'de' || lang === 'sv';
 }
 
 function getEnglishPath(localizedPath: string, lang: SupportedRouteLanguage): string {
