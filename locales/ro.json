@@ -311,7 +311,13 @@
     "aboutUs": "Despre Noi",
     "contact": "Contact",
     "copyright": "CBDportal.ro. Toate drepturile rezervate.",
-    "disclaimer": "Acest site este doar în scop informativ și nu oferă sfaturi medicale. Consultă întotdeauna un profesionist în sănătate înainte de a utiliza produse CBD."
+    "disclaimer": "Acest site este doar în scop informativ și nu oferă sfaturi medicale. Consultă întotdeauna un profesionist în sănătate înainte de a utiliza produse CBD.",
+    "availableIn": "Disponibil în",
+    "scandinavia": "Scandinavia",
+    "centralEurope": "Europa Centrală",
+    "southernEurope": "Europa de Sud",
+    "switzerland": "Elveția",
+    "international": "Internațional"
   },
   "mobile": {
     "search": "Căutare",
@@ -323,6 +329,7 @@
   "cookie": {
     "message": "Folosim cookie-uri pentru a îmbunătăți experiența ta.",
     "accept": "Accept",
+    "essentialOnly": "Doar Esențiale",
     "decline": "Refuz",
     "learnMore": "Află mai multe"
   },
@@ -339,7 +346,9 @@
     "previousSlide": "Slide anterior",
     "nextSlide": "Slide următor",
     "expandSection": "Extinde secțiunea",
-    "collapseSection": "Restrânge secțiunea"
+    "collapseSection": "Restrânge secțiunea",
+    "searchMedication": "Caută un medicament",
+    "clearSearch": "Șterge căutarea"
   },
   "seo": {
     "conditionTitle": "CBD pentru {{condition}} | Cercetare și Dovezi",
@@ -1152,6 +1161,14 @@
     "science_desc": "Sistemul endocannabinoid și cum funcționează CBD-ul",
     "research": "Cercetare",
     "research_desc": "Tipuri de studii și cercetare științifică",
+    "side-effects": "Efecte Secundare",
+    "side-effects_desc": "Potențiale efecte secundare și interacțiuni",
+    "conditions": "Afecțiuni",
+    "conditions_desc": "Afecțiuni de sănătate la care CBD-ul poate ajuta",
+    "dosing": "Dozaj",
+    "dosing_desc": "Linii directoare pentru dozaj și administrare",
+    "plant": "Plantă",
+    "plant_desc": "Planta de cannabis, soiuri și cultivare",
     "legal": "Legal",
     "legal_desc": "Legislație, reglementări și statutul legal al CBD-ului",
     "cultivation": "Cultivare",
