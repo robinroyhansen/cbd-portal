@@ -301,7 +301,13 @@
     "aboutUs": "Om oss",
     "contact": "Kontakt",
     "copyright": "CBD Portal. Alla rättigheter förbehållna.",
-    "disclaimer": "Denna webbplats är endast för informationsändamål och ger inte medicinsk rådgivning. Konsultera alltid en vårdprofessional innan du använder CBD-produkter."
+    "disclaimer": "Denna webbplats är endast för informationsändamål och ger inte medicinsk rådgivning. Konsultera alltid en vårdprofessional innan du använder CBD-produkter.",
+    "availableIn": "Tillgänglig i",
+    "scandinavia": "Skandinavien",
+    "centralEurope": "Centraleuropa",
+    "southernEurope": "Sydeuropa",
+    "switzerland": "Schweiz",
+    "international": "Internationell"
   },
   "mobile": {
     "search": "Sök",
@@ -324,6 +330,15 @@
     "welcomeNote2": "Jag är inte läkare och kan inte ge medicinska råd",
     "welcomeNote3": "Konsultera alltid en vårdgivare innan du använder CBD",
     "welcomeQuestion": "Vad vill du veta om CBD?",
+    "thingsToKeepInMind": "Några saker att komma ihåg:",
+    "tryAsking": "Försök fråga:",
+    "inputPlaceholder": "Fråga om CBD...",
+    "waitingForResponse": "Väntar på svar...",
+    "sendMessage": "Skicka meddelande",
+    "openChat": "Öppna chat-assistent",
+    "resetConversation": "Återställ konversation",
+    "closeChat": "Stäng chat",
+    "assistant": "CBD Portal Assistent",
     "suggestedQuestions": {
       "anxiety": "Hjälper CBD mot ångest?",
       "sleep": "Vad säger forskningen om CBD för sömn?",
@@ -346,7 +361,9 @@
     "previousSlide": "Föregående bild",
     "nextSlide": "Nästa bild",
     "expandSection": "Expandera avsnitt",
-    "collapseSection": "Komprimera avsnitt"
+    "collapseSection": "Komprimera avsnitt",
+    "searchMedication": "Sök efter medicin",
+    "clearSearch": "Rensa sökning"
   },
   "seo": {
     "conditionTitle": "CBD för {{condition}} | Forskning & Bevis",
@@ -518,7 +535,9 @@
   },
   "toolsPage": {
     "pageTitle": "CBD-verktyg och kalkylatorer | Dosering, interaktioner, kostnad",
+    "metaTitle": "CBD-verktyg och kalkylatorer | Dosering, interaktioner, kostnad",
     "pageDescription": "Evidensbaserade CBD-verktyg inklusive doseringsräknare, läkemedelsinteraktionskontroll, kostnadsräknare och styrkekonverterare.",
+    "metaDescription": "Evidensbaserade CBD-verktyg inklusive doseringsräknare, läkemedelsinteraktionskontroll, kostnadsräknare och styrkekonverterare.",
     "title": "CBD-verktyg och kalkylatorer",
     "subtitle": "Evidensbaserade verktyg för att hjälpa dig fatta välgrundade beslut om CBD-användning. Få personliga rekommendationer, kontrollera säkerhetsinformation och följ dina framsteg.",
     "features": "Funktioner",
@@ -550,6 +569,7 @@
     "labAnalyzerDesc": "Ladda upp och analysera Certificate of Analysis (COA)-dokument. Förstå produktkvalitet, styrka och säkerhetstestresultat.",
     "personalizedRecommendations": "Personliga rekommendationer",
     "multipleProductTypes": "Flera produkttyper",
+    "featuresLabel": "Funktioner",
     "safetyWarnings": "Säkerhetsvarningar",
     "titrationSchedule": "Titreringsschema",
     "convertUnits": "Konvertera %, mg/ml, total mg",
@@ -623,9 +643,40 @@
     "allCategories": "Alla kategorier",
     "sortBy": "Sortera efter",
     "newest": "Nyaste",
+    "oldest": "Äldsta först",
     "popular": "Populära",
     "noArticlesFound": "Inga artiklar hittades",
-    "noArticlesDesc": "Prova att justera dina filter eller kom tillbaka senare för nytt innehåll."
+    "noArticlesDesc": "Prova att justera dina filter eller kom tillbaka senare för nytt innehåll.",
+    "knowledgeBase": "Kunskapsbas",
+    "articles": "Artiklar",
+    "topics": "Ämnen",
+    "searchPlaceholder": "Sök artiklar...",
+    "allArticles": "Alla artiklar",
+    "clearFilters": "Rensa filter",
+    "resetFilters": "Återställ filter",
+    "showingOf": "Visar",
+    "of": "av",
+    "articlesIn": "artiklar i",
+    "featuredArticles": "Utvalda artiklar",
+    "featuredSubtitle": "Våra mest populära guider",
+    "allArticlesTitle": "Alla artiklar",
+    "allArticlesSubtitle": "Bläddra i vår kompletta kunskapsbas",
+    "exploreConditions": "Utforska hälsotillstånd",
+    "exploreConditionsDesc": "Bläddra i vår omfattande databas av peer-reviewade CBD-studier.",
+    "browseConditions": "Bläddra bland tillstånd",
+    "viewResearch": "Visa forskning",
+    "categories": {
+      "basics": "CBD-grunder",
+      "dosage": "Dosering",
+      "conditions": "Tillstånd",
+      "research": "Forskning",
+      "products": "Produkter",
+      "legal": "Juridiskt",
+      "pets": "Husdjur",
+      "wellness": "Välbefinnande",
+      "safety": "Säkerhet",
+      "news": "Nyheter"
+    }
   },
   "petsPage": {
     "pageTitle": "CBD för husdjur | Komplett guide för hundar, katter, hästar och mer",
@@ -650,7 +701,19 @@
     "safetyLowDose": "Börja med låga doser och övervaka ditt husdjurs reaktion noggrant",
     "safetyHorses": "Kontrollera tävlingsregler innan du använder CBD med sporthästar",
     "notSureTitle": "Osäker på var du ska börja?",
-    "notSureDesc": "Beräkna rätt CBD-dos för ditt husdjur baserat på art, vikt och tillstånd"
+    "notSureDesc": "Beräkna rätt CBD-dos för ditt husdjur baserat på art, vikt och tillstånd",
+    "petTypes": {
+      "dogs": "Hundar",
+      "dogs_desc": "CBD-guider för hundkamrater - från valpar till äldre hundar",
+      "cats": "Katter",
+      "cats_desc": "CBD-information för kattkompisar - särskilda hänsyn för katter",
+      "horses": "Hästar",
+      "horses_desc": "CBD för hästhälsa - stöder prestanda och återhämtning",
+      "birds": "Fåglar",
+      "birds_desc": "CBD-vägledning för fågelhusdjur - papegojor, finkar och mer",
+      "small-pets": "Smådjur",
+      "small-pets_desc": "CBD för kaniner, marsvin, iller, hamstrar och andra smådjur"
+    }
   },
   "searchPage": {
     "pageTitle": "Sök | CBD Portal",
