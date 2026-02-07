@@ -5,7 +5,7 @@ import type { NextRequest } from 'next/server';
 // INLINED ROUTE TRANSLATIONS (to avoid import issues in middleware)
 // ============================================================================
 
-type SupportedRouteLanguage = 'da' | 'no' | 'de';
+type SupportedRouteLanguage = 'da' | 'no' | 'de' | 'sv';
 
 const routeTranslations: Record<SupportedRouteLanguage, Record<string, string>> = {
   da: {
@@ -109,10 +109,45 @@ const routeTranslations: Record<SupportedRouteLanguage, Record<string, string>> 
     'topics': 'themen',
     'methodology': 'methodik',
   },
+  sv: {
+    'tools': 'verktyg',
+    'conditions': 'tillstand',
+    'articles': 'artiklar',
+    'glossary': 'ordlista',
+    'research': 'forskning',
+    'about': 'om-oss',
+    'contact': 'kontakt',
+    'pets': 'husdjur',
+    'reviews': 'recensioner',
+    'categories': 'kategorier',
+    'authors': 'forfattare',
+    'search': 'sok',
+    'tags': 'taggar',
+    'topics': 'amnen',
+    'dosage-calculator': 'doserings-kalkylator',
+    'animal-dosage-calculator': 'djur-doserings-kalkylator',
+    'cost-calculator': 'kostnads-kalkylator',
+    'strength-calculator': 'styrke-kalkylator',
+    'interactions': 'interaktioner',
+    'product-finder': 'produkt-sokning',
+    'dogs': 'hundar',
+    'cats': 'katter',
+    'horses': 'hastar',
+    'small-pets': 'smadjur',
+    'birds': 'faglar',
+    'medical-disclaimer': 'medicinskt-ansvarsfriskrivning',
+    'editorial-policy': 'redaktionell-policy',
+    'privacy-policy': 'integritetspolicy',
+    'terms-of-service': 'anvandningsvillkor',
+    'cookie-policy': 'cookie-policy',
+    'methodology': 'metodik',
+    'study': 'studie',
+    'category': 'kategori',
+  },
 };
 
 // Create reverse mappings
-const reverseRouteTranslations: Record<SupportedRouteLanguage, Record<string, string>> = { da: {}, no: {}, de: {} };
+const reverseRouteTranslations: Record<SupportedRouteLanguage, Record<string, string>> = { da: {}, no: {}, de: {}, sv: {} };
 for (const lang of Object.keys(routeTranslations) as SupportedRouteLanguage[]) {
   const translations = routeTranslations[lang];
   for (const [english, localized] of Object.entries(translations)) {
