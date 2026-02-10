@@ -66,7 +66,7 @@ const nextConfig = {
       // Finnish localized routes (as fallback to middleware)
       {
         source: '/tutkimus',
-        destination: '/research?lang=fi',
+        destination: '/research',
       },
       {
         source: '/tyokalut',
