@@ -650,16 +650,21 @@
     "browseConditions": "Browse Conditions",
     "viewResearch": "bekijken onderzoek",
     "categories": {
-      "basics": "CBD Basics",
-      "dosage": "dosering",
-      "conditions": "Conditions",
-      "research": "onderzoek",
-      "products": "Products",
-      "legal": "Legal",
-      "pets": "Pets",
-      "wellness": "welzijn",
-      "safety": "veiligheid",
-      "news": "News"
+      "cannabinoids": "Cannabinoïden",
+      "cbd-basics": "CBD Basiskennis",
+      "science": "Wetenschap",
+      "comparisons": "Vergelijkingen",
+      "demographics": "Doelgroepen",
+      "faq": "Veelgestelde vragen",
+      "guides": "Gidsen",
+      "hemp-cultivation": "Hennepteelt",
+      "research-studies": "Onderzoeksstudies",
+      "safety-quality": "Veiligheid & Kwaliteit",
+      "terpenes": "Terpenen",
+      "conditions": "Aandoeningen",
+      "products": "Producten",
+      "legal": "Juridisch",
+      "pets": "Huisdieren"
     }
   },
   "petsPage": {

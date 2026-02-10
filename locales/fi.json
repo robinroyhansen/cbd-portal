@@ -641,19 +641,20 @@
     "viewResearch": "Näytä tutkimus",
     "categories": {
       "cannabinoids": "Kannabinodit",
-      "cbd-basics": "CBD-perusteet", 
+      "cbd-basics": "CBD-perusteet",
       "science": "Tiede",
       "comparisons": "Vertailut",
-      "basics": "CBD-perusteet",
-      "dosage": "Annostus",
+      "demographics": "Väestötiedot",
+      "faq": "Usein kysytyt kysymykset",
+      "guides": "Oppaat ja ohjeet",
+      "hemp-cultivation": "Hampun viljely",
+      "research-studies": "Tutkimukset",
+      "safety-quality": "Turvallisuus ja laatu",
+      "terpenes": "Terpeenit",
       "conditions": "Tilat",
-      "research": "Tutkimus",
       "products": "Tuotteet",
       "legal": "Laillinen",
-      "pets": "Lemmikit",
-      "wellness": "Hyvinvointi",
-      "safety": "Turvallisuus",
-      "news": "Uutiset"
+      "pets": "Lemmikit"
     }
   },
   "petsPage": {

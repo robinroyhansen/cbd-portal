@@ -1303,16 +1303,21 @@
     "browseConditions": "Răsfoiește Afecțiunile",
     "viewResearch": "Vezi Cercetarea",
     "categories": {
-      "basics": "Bazele CBD",
-      "dosage": "Dozaj",
+      "cannabinoids": "Canabinoizi",
+      "cbd-basics": "Bazele CBD",
+      "science": "Știință",
+      "comparisons": "Comparații",
+      "demographics": "Demografie",
+      "faq": "Întrebări frecvente",
+      "guides": "Ghiduri",
+      "hemp-cultivation": "Cultivarea cânepii",
+      "research-studies": "Studii de cercetare",
+      "safety-quality": "Siguranță și calitate",
+      "terpenes": "Terpene",
       "conditions": "Afecțiuni",
-      "research": "Cercetare",
       "products": "Produse",
       "legal": "Legal",
-      "pets": "Animale de Companie",
-      "wellness": "Bunăstare",
-      "safety": "Siguranță",
-      "news": "Știri"
+      "pets": "Animale de companie"
     }
   },
   "petsPage": {

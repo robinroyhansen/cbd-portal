@@ -666,16 +666,21 @@
     "browseConditions": "Bla gjennom tilstander",
     "viewResearch": "Se forskning",
     "categories": {
-      "basics": "CBD Grunnleggende",
-      "dosage": "Dosering",
+      "cannabinoids": "Cannabinoider",
+      "cbd-basics": "CBD-grunnleggende",
+      "science": "Vitenskap",
+      "comparisons": "Sammenligninger",
+      "demographics": "Målgrupper",
+      "faq": "Ofte stilte spørsmål",
+      "guides": "Guider",
+      "hemp-cultivation": "Hampdyrking",
+      "research-studies": "Forskningsstudier",
+      "safety-quality": "Sikkerhet & Kvalitet",
+      "terpenes": "Terpener",
       "conditions": "Tilstander",
-      "research": "Forskning",
       "products": "Produkter",
       "legal": "Juridisk",
-      "pets": "Kjæledyr",
-      "wellness": "Velvære",
-      "safety": "Sikkerhet",
-      "news": "Nyheter"
+      "pets": "Kjæledyr"
     }
   },
   "petsPage": {

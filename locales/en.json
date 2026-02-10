@@ -666,16 +666,21 @@
     "browseConditions": "Browse Conditions",
     "viewResearch": "View Research",
     "categories": {
-      "basics": "CBD Basics",
-      "dosage": "Dosage",
+      "cannabinoids": "Cannabinoids",
+      "cbd-basics": "CBD Basics",
+      "science": "Science",
+      "comparisons": "Comparisons",
+      "demographics": "Demographics",
+      "faq": "FAQ & Quick Answers",
+      "guides": "Guides & How-To",
+      "hemp-cultivation": "Hemp & Cultivation",
+      "research-studies": "Research & Studies",
+      "safety-quality": "Safety & Quality",
+      "terpenes": "Terpenes",
       "conditions": "Conditions",
-      "research": "Research",
       "products": "Products",
       "legal": "Legal",
-      "pets": "Pets",
-      "wellness": "Wellness",
-      "safety": "Safety",
-      "news": "News"
+      "pets": "Pets"
     }
   },
   "petsPage": {

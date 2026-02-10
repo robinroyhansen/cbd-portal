@@ -646,16 +646,21 @@
     "browseConditions": "Erkrankungen durchsuchen",
     "viewResearch": "Forschung ansehen",
     "categories": {
-      "basics": "CBD-Grundlagen",
-      "dosage": "Dosierung",
+      "cannabinoids": "Cannabinoide",
+      "cbd-basics": "CBD-Grundlagen",
+      "science": "Wissenschaft",
+      "comparisons": "Vergleiche",
+      "demographics": "Zielgruppen",
+      "faq": "Häufige Fragen",
+      "guides": "Ratgeber",
+      "hemp-cultivation": "Hanfanbau",
+      "research-studies": "Forschungsstudien",
+      "safety-quality": "Sicherheit & Qualität",
+      "terpenes": "Terpene",
       "conditions": "Erkrankungen",
-      "research": "Forschung",
       "products": "Produkte",
       "legal": "Rechtliches",
-      "pets": "Haustiere",
-      "wellness": "Wohlbefinden",
-      "safety": "Sicherheit",
-      "news": "Neuigkeiten"
+      "pets": "Haustiere"
     }
   },
   "petsPage": {

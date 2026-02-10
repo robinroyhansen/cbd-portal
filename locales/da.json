@@ -779,16 +779,21 @@
     "browseConditions": "Gennemse sygdomme",
     "viewResearch": "Se forskning",
     "categories": {
-      "basics": "CBD-grundlæggende",
-      "dosage": "Dosering",
+      "cannabinoids": "Cannabinoider",
+      "cbd-basics": "CBD-grundlæggende",
+      "science": "Videnskab",
+      "comparisons": "Sammenligninger",
+      "demographics": "Målgrupper",
+      "faq": "Ofte stillede spørgsmål",
+      "guides": "Guider",
+      "hemp-cultivation": "Hampdyrkning",
+      "research-studies": "Forskningsstudier",
+      "safety-quality": "Sikkerhed & Kvalitet",
+      "terpenes": "Terpener",
       "conditions": "Sygdomme",
-      "research": "Forskning",
       "products": "Produkter",
       "legal": "Juridisk",
-      "pets": "Kæledyr",
-      "wellness": "Velvære",
-      "safety": "Sikkerhed",
-      "news": "Nyheder"
+      "pets": "Kæledyr"
     }
   },
   "petsPage": {

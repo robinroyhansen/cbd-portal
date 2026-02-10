@@ -592,7 +592,24 @@
     "newest": "Neueste",
     "popular": "Beliebt",
     "noArticlesFound": "Keine Artikel gefunden",
-    "noArticlesDesc": "Versuchen Sie, Ihre Filter anzupassen, oder schauen Sie später für neue Inhalte vorbei."
+    "noArticlesDesc": "Versuchen Sie, Ihre Filter anzupassen, oder schauen Sie später für neue Inhalte vorbei.",
+    "categories": {
+      "cannabinoids": "Cannabinoide",
+      "cbd-basics": "CBD-Grundlagen",
+      "science": "Wissenschaft",
+      "comparisons": "Vergleiche",
+      "demographics": "Zielgruppen",
+      "faq": "Häufige Fragen",
+      "guides": "Ratgeber",
+      "hemp-cultivation": "Hanfanbau",
+      "research-studies": "Forschungsstudien",
+      "safety-quality": "Sicherheit & Qualität",
+      "terpenes": "Terpene",
+      "conditions": "Erkrankungen",
+      "products": "Produkte",
+      "legal": "Rechtliches",
+      "pets": "Haustiere"
+    }
   },
   "petsPage": {
     "pageTitle": "CBD für Haustiere | Vollständiger Ratgeber für Hunde, Katzen, Pferde & mehr",
