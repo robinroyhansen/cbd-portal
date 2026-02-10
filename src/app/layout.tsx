@@ -111,7 +111,7 @@ export default async function RootLayout({
       <body className="min-h-screen bg-white font-sans text-gray-900 flex flex-col">
         {/* Skip to content link for keyboard accessibility */}
         <a href="#main-content" className="skip-to-content">
-          Skip to main content
+          {locale.accessibility?.skipToContent || 'Skip to main content'}
         </a>
         <Suspense fallback={null}>
           <LocaleProvider locale={locale} lang={lang as LanguageCode}>

@@ -354,7 +354,9 @@
     "expandSection": "Expandir secção",
     "collapseSection": "Recolher secção",
     "searchMedication": "Pesquisar um medicamento",
-    "clearSearch": "Limpar pesquisa"
+    "clearSearch": "Limpar pesquisa",
+    "switchLanguage": "Mudar idioma",
+    "goToHomepage": "Ir para a página inicial"
   },
   "seo": {
     "conditionTitle": "CBD para {{condition}} | Investigação e Evidências",

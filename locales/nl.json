@@ -379,7 +379,9 @@
     "expandSection": "Sectie uitvouwen",
     "collapseSection": "Sectie inklappen",
     "searchMedication": "Zoek naar een medicijn",
-    "clearSearch": "Zoekopdracht wissen"
+    "clearSearch": "Zoekopdracht wissen",
+    "switchLanguage": "Taal wisselen",
+    "goToHomepage": "Naar de startpagina"
   },
   "seo": {
     "conditionTitle": "CBD voor {{condition}} | Onderzoek & Bewijs",

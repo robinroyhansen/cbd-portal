@@ -345,7 +345,9 @@
     "previousSlide": "Vorheriger Dia",
     "nextSlide": "Nächster Dia",
     "expandSection": "Abschnitt erweitern",
-    "collapseSection": "Abschnitt einklappen"
+    "collapseSection": "Abschnitt einklappen",
+    "switchLanguage": "Sprache wechseln",
+    "goToHomepage": "Zur Startseite"
   },
   "seo": {
     "conditionTitle": "CBD für {{condition}} | Forschung & Nachweis",

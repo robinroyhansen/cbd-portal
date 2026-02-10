@@ -446,7 +446,9 @@
     "expandSection": "Utvid seksjon",
     "collapseSection": "Skjul seksjon",
     "searchMedication": "Søk etter et legemiddel",
-    "clearSearch": "Tøm søk"
+    "clearSearch": "Tøm søk",
+    "switchLanguage": "Bytt språk",
+    "goToHomepage": "Til forsiden"
   },
   "seo": {
     "conditionTitle": "CBD for {{condition}} | Forskning og dokumentasjon",

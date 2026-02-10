@@ -369,7 +369,9 @@
     "expandSection": "Développer la section",
     "collapseSection": "Réduire la section",
     "searchMedication": "Search for a medication",
-    "clearSearch": "Clear search"
+    "clearSearch": "Clear search",
+    "switchLanguage": "Changer de langue",
+    "goToHomepage": "Aller à la page d'accueil"
   },
   "seo": {
     "conditionTitle": "CBD pour {{condition}} | Recherche et données probantes",

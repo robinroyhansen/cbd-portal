@@ -354,7 +354,9 @@
     "expandSection": "Extinde secțiunea",
     "collapseSection": "Restrânge secțiunea",
     "searchMedication": "Caută un medicament",
-    "clearSearch": "Șterge căutarea"
+    "clearSearch": "Șterge căutarea",
+    "switchLanguage": "Schimbă limba",
+    "goToHomepage": "Mergi la pagina principală"
   },
   "seo": {
     "conditionTitle": "CBD pentru {{condition}} | Cercetare și Dovezi",

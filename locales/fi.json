@@ -369,7 +369,9 @@
     "expandSection": "Laajenna osio",
     "collapseSection": "Tiivistä osio",
     "searchMedication": "Search for a medication",
-    "clearSearch": "Clear search"
+    "clearSearch": "Clear search",
+    "switchLanguage": "Vaihda kieltä",
+    "goToHomepage": "Etusivulle"
   },
   "seo": {
     "conditionTitle": "CBD {{condition}}-oireisiin | Tutkimukset ja todisteet",

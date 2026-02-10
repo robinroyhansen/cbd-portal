@@ -369,7 +369,9 @@
     "expandSection": "Espandi sezione",
     "collapseSection": "Riduci sezione",
     "searchMedication": "Search for a medication",
-    "clearSearch": "Clear search"
+    "clearSearch": "Clear search",
+    "switchLanguage": "Cambia lingua",
+    "goToHomepage": "Vai alla homepage"
   },
   "seo": {
     "conditionTitle": "CBD per {{condition}} | Ricerca ed Evidenze",

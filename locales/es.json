@@ -306,7 +306,7 @@
     "termsOfService": "Términos de Servicio",
     "aboutUs": "Sobre Nosotros",
     "contact": "Contacto",
-    "copyright": "© {{year}} CBDportal.com. Todos los derechos reservados.",
+    "copyright": "CBDportal.com. Todos los derechos reservados.",
     "disclaimer": "Este sitio web es solo para fines informativos y no proporciona asesoramiento médico. Siempre consulta a un profesional de la salud antes de usar productos de CBD.",
     "sections": {
       "company": "Empresa",
@@ -394,7 +394,9 @@
     "collapseSection": "Contraer sección",
     "mainNavigation": "Navegación principal",
     "searchMedication": "Buscar un medicamento",
-    "clearSearch": "Limpiar búsqueda"
+    "clearSearch": "Limpiar búsqueda",
+    "switchLanguage": "Cambiar idioma",
+    "goToHomepage": "Ir a la página de inicio"
   },
   "seo": {
     "conditionTitle": "CBD para {{condition}} | Investigación y Evidencia",
@@ -1287,7 +1289,7 @@
     "send": "Enviar",
     "typing": "Escribiendo...",
     "error": "Error al cargar respuesta",
-    "disclaimer": "Este asistente proporciona información educativa general y no debe utilizarse como sustituto del consejo médico profesional.",
+    "disclaimer": "Aviso legal",
     "examples": {
       "title": "Preguntas de ejemplo:",
       "dosage": "¿Cuánto CBD debo tomar?",

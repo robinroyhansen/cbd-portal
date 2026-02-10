@@ -15,8 +15,29 @@ interface BreadcrumbsProps {
   className?: string;
 }
 
-// Map of path segments to display labels
-const SEGMENT_LABELS: Record<string, string> = {
+// Map segment → locale key for breadcrumb translation
+const SEGMENT_LOCALE_KEYS: Record<string, string> = {
+  conditions: 'nav.conditions',
+  research: 'nav.research',
+  articles: 'footer.allArticles',
+  glossary: 'nav.glossary',
+  tools: 'footer.tools',
+  reviews: 'nav.reviews',
+  categories: 'nav.categories',
+  authors: 'footer.ourAuthors',
+  about: 'footer.aboutUs',
+  contact: 'footer.contact',
+  'dosage-calculator': 'footer.dosageCalculator',
+  'cost-calculator': 'footer.costCalculator',
+  'strength-calculator': 'footer.strengthCalculator',
+  'animal-dosage-calculator': 'footer.petDosageCalculator',
+  interactions: 'footer.drugInteractions',
+  search: 'search.title',
+  kb: 'glossary.knowledgeBase',
+};
+
+// Fallback English labels for segments without locale keys
+const SEGMENT_FALLBACKS: Record<string, string> = {
   conditions: 'Health Topics',
   research: 'Research',
   articles: 'Articles',
@@ -46,10 +67,19 @@ const SEGMENT_LABELS: Record<string, string> = {
   kb: 'Knowledge Base',
 };
 
-// Format a slug into a readable label
-function formatSegment(segment: string): string {
-  if (SEGMENT_LABELS[segment]) {
-    return SEGMENT_LABELS[segment];
+// Format a slug into a readable label (with translation support)
+function formatSegment(segment: string, t?: (key: string) => string): string {
+  // Try translated label first
+  if (t && SEGMENT_LOCALE_KEYS[segment]) {
+    const translated = t(SEGMENT_LOCALE_KEYS[segment]);
+    if (translated && translated !== SEGMENT_LOCALE_KEYS[segment]) {
+      return translated;
+    }
+  }
+
+  // Fall back to English
+  if (SEGMENT_FALLBACKS[segment]) {
+    return SEGMENT_FALLBACKS[segment];
   }
 
   // Convert slug to title case
@@ -61,7 +91,7 @@ function formatSegment(segment: string): string {
 
 export function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
   const pathname = usePathname();
-  const { lang } = useLocale();
+  const { lang, t } = useLocale();
 
   // Generate breadcrumbs from pathname if items not provided
   const breadcrumbs = useMemo(() => {
@@ -70,20 +100,20 @@ export function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
     // Convert localized path back to English for consistent breadcrumb generation
     const englishPath = usesLocalizedRoutes(lang) ? getEnglishPath(pathname, lang) : pathname;
     const segments = englishPath.split('/').filter(Boolean);
-    const crumbs: BreadcrumbItem[] = [{ label: 'Home', href: '/' }];
+    const crumbs: BreadcrumbItem[] = [{ label: t('nav.home') || 'Home', href: '/' }];
 
     let currentPath = '';
     segments.forEach((segment) => {
       currentPath += `/${segment}`;
       crumbs.push({
-        label: formatSegment(segment),
+        label: formatSegment(segment, t),
         // Always use English paths - LocaleLink will translate them
         href: currentPath,
       });
     });
 
     return crumbs;
-  }, [pathname, items, lang]);
+  }, [pathname, items, lang, t]);
 
   // Don't show breadcrumbs on home page
   if (pathname === '/') return null;

@@ -369,7 +369,9 @@
     "expandSection": "Udvid sektion",
     "collapseSection": "Skjul sektion",
     "searchMedication": "Søg efter medicin",
-    "clearSearch": "Ryd søgning"
+    "clearSearch": "Ryd søgning",
+    "switchLanguage": "Skift sprog",
+    "goToHomepage": "Til forsiden"
   },
   "seo": {
     "conditionTitle": "CBD for {{condition}} | Forskning og Beviser",

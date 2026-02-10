@@ -2,6 +2,9 @@ import { createClient } from '@/lib/supabase/server';
 import { LocaleLink as Link } from '@/components/LocaleLink';
 import { Metadata } from 'next';
 import { getHreflangAlternates } from '@/components/HreflangTags';
+import { getLanguage } from '@/lib/get-language';
+import { getLocaleSync, createTranslator } from '@/../locales';
+import type { LanguageCode } from '@/lib/translation-service';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -210,6 +213,9 @@ const DEFAULT_STYLE = {
 };
 
 export default async function CategoriesPage() {
+  const lang = await getLanguage();
+  const locale = getLocaleSync(lang as LanguageCode);
+  const t = createTranslator(locale);
   const supabase = await createClient();
 
   // Get all categories
@@ -275,7 +281,7 @@ export default async function CategoriesPage() {
         <div className="relative z-10 py-8">
           <span className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-700 border border-emerald-200 rounded-full text-sm font-medium mb-6">
             <span>🌿</span>
-            Knowledge Base
+            {t('glossary.knowledgeBase')}
           </span>
 
           <h1 className="hub-display-heading text-4xl sm:text-5xl lg:text-6xl text-gray-900 mb-4">
