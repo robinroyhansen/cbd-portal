@@ -401,7 +401,8 @@ export function middleware(request: NextRequest) {
 
   if (routeLang && usesLocalizedRoutes(routeLang)) {
     // Check if path is in localized format (e.g., /vaerktoejer/dosis-beregner)
-    if (isLocalizedPath(pathname, routeLang)) {
+    // Special case: skip /tutkimus to let next.config.js rewrites handle it
+    if (isLocalizedPath(pathname, routeLang) && pathname !== '/tutkimus') {
       const englishPath = getEnglishPath(pathname, routeLang);
       
       if (englishPath !== pathname) {
