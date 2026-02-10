@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useMemo } from 'react';
 import { useDebounce } from '@/hooks/useDebounce';
+import { useLocale } from '@/hooks/useLocale';
 
 interface CategorySearchProps {
   placeholder?: string;
@@ -11,11 +12,13 @@ interface CategorySearchProps {
 }
 
 export function CategorySearch({
-  placeholder = 'Search articles...',
+  placeholder,
   onSearch,
   accentColor = 'focus:ring-emerald-500 focus:border-emerald-500',
   className = '',
 }: CategorySearchProps) {
+  const { t } = useLocale();
+  const defaultPlaceholder = placeholder || t('searchBar.placeholder');
   const [query, setQuery] = useState('');
   const debouncedQuery = useDebounce(query, 200);
 
@@ -52,7 +55,7 @@ export function CategorySearch({
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder={placeholder}
+        placeholder={defaultPlaceholder}
         className={`w-full pl-11 pr-10 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 shadow-sm transition-all duration-200 ${accentColor} focus:ring-2 focus:ring-offset-0 focus:outline-none hub-body-text`}
       />
 

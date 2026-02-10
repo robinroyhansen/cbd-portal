@@ -2,11 +2,13 @@
 
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { useLocale } from '@/hooks/useLocale';
 
 export function SearchForm() {
   const [query, setQuery] = useState('');
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { t } = useLocale();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,7 +28,7 @@ export function SearchForm() {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search articles, topics, and research..."
+            placeholder={t('common.searchConditions')}
             className="w-full px-4 py-4 pr-12 text-lg border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent shadow-sm"
             autoFocus
           />

@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useLocale } from '@/hooks/useLocale';
 
 export default function Search() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,6 +10,7 @@ export default function Search() {
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
+  const { t } = useLocale();
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -75,7 +77,7 @@ export default function Search() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Search articles, topics..."
+              placeholder={t('common.searchConditions')}
               className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 pr-10 text-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
             />
             <button
@@ -101,7 +103,7 @@ export default function Search() {
 
           {/* Quick links */}
           <div className="mt-2 rounded-lg border border-gray-100 bg-white p-3 shadow-lg">
-            <p className="mb-2 text-xs font-semibold text-gray-500">Popular searches</p>
+            <p className="mb-2 text-xs font-semibold text-gray-500">{t('mobile.popularSearches')}</p>
             <div className="flex flex-wrap gap-2">
               {['CBD Oil', 'Anxiety', 'Pain Relief', 'Sleep', 'Dosage'].map((term) => (
                 <button
