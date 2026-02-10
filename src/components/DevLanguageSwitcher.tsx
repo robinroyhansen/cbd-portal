@@ -35,7 +35,7 @@ const LANGUAGES: Language[] = [
  * Only shows on localhost and Vercel preview URLs
  */
 export function DevLanguageSwitcher() {
-  const { lang: currentLang, setLanguage } = useLocale();
+  const { lang: currentLang, setLanguage, t } = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   const [isDev, setIsDev] = useState(false);
 
@@ -63,7 +63,7 @@ export function DevLanguageSwitcher() {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="flex items-center gap-2 px-4 py-2 bg-slate-800 text-white rounded-lg shadow-lg hover:bg-slate-700 transition-colors text-sm font-medium"
-          aria-label="Switch language"
+          aria-label={t('accessibility.switchLanguage')}
         >
           <span>{currentLanguage.flag}</span>
           <span>{currentLanguage.name}</span>

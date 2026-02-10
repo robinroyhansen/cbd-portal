@@ -92,7 +92,7 @@ export function Navigation({ currentLang = 'en' }: NavigationProps) {
           <Link
             href="/"
             className="flex items-center gap-2 flex-shrink-0"
-            aria-label={`${t('meta.siteName')} - Go to homepage`}
+            aria-label={`${t('meta.siteName')} - ${t('accessibility.goToHomepage')}`}
           >
             <span className="font-bold text-xl text-gray-900">{t('meta.siteName')}</span>
           </Link>

@@ -299,7 +299,7 @@
     "glossary": "Glossar",
     "allArticles": "Alle Artikel",
     "ourAuthors": "Unsere Autoren",
-    "tools": "Tools",
+    "tools": "Werkzeuge",
     "dosageCalculator": "Dosierungsrechner",
     "drugInteractions": "Wechselwirkungen mit Medikamenten",
     "costCalculator": "Kostenrechner",
@@ -312,7 +312,7 @@
     "termsOfService": "Nutzungsbedingungen",
     "aboutUs": "Über uns",
     "contact": "Kontakt",
-    "copyright": "© 2026 CBD-Portal. Alle Rechte vorbehalten.",
+    "copyright": "CBD-Portal. Alle Rechte vorbehalten.",
     "disclaimer": "Diese Website dient nur zu Informationszwecken und ersetzt keinen ärztlichen Rat. Konsultieren Sie immer einen Gesundheitsexperten, bevor Sie CBD-Produkte verwenden.",
     "availableIn": "Verfügbar in",
     "scandinavia": "Skandinavien",
@@ -367,7 +367,7 @@
     "goHome": "Zur Startseite gehen"
   },
   "accessibility": {
-    "skipToContent": "Zum Inhalt springen",
+    "skipToContent": "Zum Hauptinhalt springen",
     "openMenu": "Menü öffnen",
     "closeMenu": "Menü schließen",
     "previousSlide": "Vorheriger Dia",
@@ -375,7 +375,9 @@
     "expandSection": "Abschnitt erweitern",
     "collapseSection": "Abschnitt einklappen",
     "searchMedication": "Nach einem Medikament suchen",
-    "clearSearch": "Suche löschen"
+    "clearSearch": "Suche löschen",
+    "switchLanguage": "Sprache wechseln",
+    "goToHomepage": "Zur Startseite"
   },
   "seo": {
     "conditionTitle": "CBD für {{condition}} | Forschung & Nachweis",
@@ -398,7 +400,7 @@
     "seeAlso": "Siehe auch",
     "browseAll": "Vollständiges Glossar durchsuchen",
     "browseAllCount": "Alle {{count}} Begriffe durchsuchen",
-    "knowledgeBase": "Knowledge Base",
+    "knowledgeBase": "Wissensdatenbank",
     "cbdCannabis": "CBD & Cannabis",
     "termsExplained": "{{count}} Begriffe erklärt – von Cannabinoiden und Terpenen bis zu rechtlicher Terminologie und Produkttypen.",
     "searchLabel": "Glossarbegriffe durchsuchen",
