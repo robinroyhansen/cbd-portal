@@ -74,8 +74,8 @@ export default async function ConditionsPage({ searchParams }: PageProps) {
   }));
 
   const breadcrumbs = [
-    { name: 'Home', url: 'https://cbd-portal.vercel.app' },
-    { name: 'Health Conditions', url: 'https://cbd-portal.vercel.app/conditions' }
+    { name: t('nav.home') || 'Home', url: 'https://cbd-portal.vercel.app' },
+    { name: t('conditions.heroTitle') || 'Health Conditions', url: 'https://cbd-portal.vercel.app/conditions' }
   ];
 
   return (
