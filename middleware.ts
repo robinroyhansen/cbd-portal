@@ -5,7 +5,7 @@ import type { NextRequest } from 'next/server';
 // INLINED ROUTE TRANSLATIONS (to avoid import issues in middleware)
 // ============================================================================
 
-type SupportedRouteLanguage = 'da' | 'no' | 'de' | 'sv';
+type SupportedRouteLanguage = 'da' | 'no' | 'de' | 'sv' | 'fi';
 
 const routeTranslations: Record<SupportedRouteLanguage, Record<string, string>> = {
   da: {
@@ -144,10 +144,45 @@ const routeTranslations: Record<SupportedRouteLanguage, Record<string, string>> 
     'study': 'studie',
     'category': 'kategori',
   },
+  fi: {
+    'tools': 'tyokalut',
+    'conditions': 'sairaudet',
+    'articles': 'artikkelit',
+    'glossary': 'sanasto',
+    'research': 'tutkimus',
+    'about': 'tietoja',
+    'contact': 'yhteystiedot',
+    'pets': 'lemmikit',
+    'reviews': 'arvostelut',
+    'categories': 'kategoriat',
+    'authors': 'kirjoittajat',
+    'search': 'haku',
+    'tags': 'tunnisteet',
+    'topics': 'aiheet',
+    'dosage-calculator': 'annostus-laskuri',
+    'animal-dosage-calculator': 'elain-annostus-laskuri',
+    'cost-calculator': 'hinta-laskuri',
+    'strength-calculator': 'vahvuus-laskuri',
+    'interactions': 'yhteisvaikutukset',
+    'product-finder': 'tuotehaku',
+    'dogs': 'koirat',
+    'cats': 'kissat',
+    'horses': 'hevoset',
+    'small-pets': 'pikkulemmikit',
+    'birds': 'linnut',
+    'medical-disclaimer': 'laaketieteen-vastuuvapautuslauseke',
+    'editorial-policy': 'toimituskasitanto',
+    'privacy-policy': 'tietosuojakasitanto',
+    'terms-of-service': 'kayttoehdot',
+    'cookie-policy': 'evastekasitanto',
+    'methodology': 'menetelmat',
+    'study': 'tutkimus',
+    'category': 'kategoria',
+  },
 };
 
 // Create reverse mappings
-const reverseRouteTranslations: Record<SupportedRouteLanguage, Record<string, string>> = { da: {}, no: {}, de: {}, sv: {} };
+const reverseRouteTranslations: Record<SupportedRouteLanguage, Record<string, string>> = { da: {}, no: {}, de: {}, sv: {}, fi: {} };
 for (const lang of Object.keys(routeTranslations) as SupportedRouteLanguage[]) {
   const translations = routeTranslations[lang];
   for (const [english, localized] of Object.entries(translations)) {
@@ -160,10 +195,11 @@ const localizedRouteDomains: Record<string, SupportedRouteLanguage> = {
   'cbd.no': 'no',
   'cbd.de': 'de',
   'cbd.se': 'sv',
+  'cbd.fi': 'fi',
 };
 
 function usesLocalizedRoutes(lang: string): lang is SupportedRouteLanguage {
-  return lang === 'da' || lang === 'no' || lang === 'de' || lang === 'sv';
+  return lang === 'da' || lang === 'no' || lang === 'de' || lang === 'sv' || lang === 'fi';
 }
 
 function getEnglishPath(localizedPath: string, lang: SupportedRouteLanguage): string {
