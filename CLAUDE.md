@@ -104,6 +104,45 @@ The portal supports 8 European languages with domain-based routing. Each languag
 
 **IMPORTANT:** Before translating to a new language, read `/docs/translation-guide.md` for the complete process, common pitfalls, and verification steps.
 
+### Parallel Translation Strategy (Feb 10, 2026)
+
+**Method: 20-Agent Parallel Execution**
+
+For large-scale translation work, use parallel sub-agent execution to maximize throughput and minimize API account rate limits:
+
+**Account Distribution:**
+- **coder-fs** (robin@formulaswiss.com): 10 agents
+- **coder-sw** (robin@simon-willer.dk): 10 agents
+
+**Work Distribution Pattern:**
+1. **High-Priority/Short Tasks** (articles): 4-8 agents, 15-30 min timeouts
+2. **Low-Priority/Long Tasks** (research): 8-12 agents, 60 min timeouts
+3. **Verification Tasks**: 1-2 agents, 15 min timeouts
+
+**Batching Strategy:**
+- Articles: 4-17 per agent (based on remaining count)
+- Research: 900-1,100 per agent (for ~4,500 total)
+- Use `offset` or `sort_dir` to avoid collisions
+
+**Example Distribution:**
+```javascript
+// High priority (complete first)
+coder-fs: 5 agents × Swedish articles (4 each = 20 total)
+coder-fs: 1 agent × Finnish UI verification
+coder-sw: 2 agents × Danish articles (17 each = 34 total)
+coder-sw: 2 agents × Norwegian articles (29 each = 58 total)
+
+// Lower priority (larger volume)
+coder-fs: 4 agents × Finnish research (900 each)
+coder-sw: 5 agents × Swedish research (900 each)
+```
+
+**Benefits:**
+- Completes ~10,000 translations in 60-90 minutes
+- Distributes load across multiple API accounts
+- Prevents rate limit exhaustion on single account
+- Allows monitoring and course-correction mid-flight
+
 ### Translation Implementation Guidelines
 
 **CRITICAL LESSONS LEARNED from Danish translation:**
@@ -358,24 +397,68 @@ npx tsx scripts/find-missing.ts
 - **6 data sources** integrated (PubMed, PMC, OpenAlex, Europe PMC, Semantic Scholar, citation imports)
 - **48 search keywords** matched across therapeutic areas
 
-### Translation Status Summary (February 4, 2026 — 02:58 CET)
+### Translation Status Summary (February 10, 2026 — 21:30 CET)
 
-**Key fixes deployed:**
-- ✅ Article content now fetches translated content from `article_translations.content`
-- ✅ Condition page locale strings translated (Research Overview, Evidence Strength, etc.)
+**🚀 ACTIVE: Parallel Translation Campaign (20 Sub-Agents)**
 
-| Language | Articles | Conditions | Glossary | Research |
-|----------|----------|------------|----------|----------|
-| **Danish (da)** | 1,259/1,317 (95.6%) | ✅ 312/312 | ✅ 263/263 | 4,488/4,879 (92%) |
-| **Norwegian (no)** | 1,259/1,317 (95.6%) | ✅ 312/312 | ✅ 263/263 | 4,488/4,879 (92%) |
-| **German (de)** | 1,280/1,317 (97.2%) | ✅ 312/312 | ✅ 263/263 | 400/4,879 (8.2%) |
-| **Swedish (sv)** | 🔴 0/1,317 | ✅ 312/312 | ✅ 263/263 | 🔴 0/4,879 |
-| **Dutch (nl)** | 🔴 0/1,317 | ✅ 312/312 | ✅ 263/263 | 🔴 0/4,879 |
-| **Finnish (fi)** | 🔴 0/1,317 | ✅ 312/312 | ✅ 263/263 | 🔴 0/4,879 |
-| **French (fr)** | 🔴 0/1,317 | ✅ 312/312 | ✅ 263/263 | 🔴 0/4,879 |
-| **Italian (it)** | 🔴 0/1,317 | ✅ 312/312 | ✅ 263/263 | 🔴 0/4,879 |
+Launched Feb 10, 2026 at 21:30 CET - 20 parallel sub-agents across coder-fs and coder-sw accounts translating all remaining content.
 
-**Gaps:** 58 new articles added since last translation batch. Danish & Norwegian need same 58 articles. German needs 37 articles + most research.
+**Current Status:**
+
+| Language | Articles | Conditions | Glossary | Research | UI Strings |
+|----------|----------|------------|----------|----------|------------|
+| **German (de)** | ✅ 1,317/1,317 (100%) | ✅ 312/312 | ✅ 263/263 | 400/4,879 (8.2%) | ✅ 100% |
+| **Finnish (fi)** | ✅ 1,317/1,317 (100%) | ✅ 312/312 | ✅ 263/263 | 🔄 0→4,500 (in progress) | ✅ 100% |
+| **Swedish (sv)** | 🔄 ~20 articles re-translating | ✅ 312/312 | ✅ 263/263 | 🔄 0→4,500 (in progress) | ✅ 100% |
+| **Danish (da)** | 🔄 1,283→1,317 (in progress) | ✅ 312/312 | ✅ 263/263 | 4,488/4,879 (92%) | ✅ 100% |
+| **Norwegian (no)** | 🔄 1,259→1,317 (in progress) | ✅ 312/312 | ✅ 263/263 | 4,488/4,879 (92%) | ✅ 100% |
+| **Dutch (nl)** | 🔴 0/1,317 | ✅ 312/312 | ✅ 263/263 | 🔴 0/4,879 | ✅ 100% |
+| **French (fr)** | 🔴 0/1,317 | ✅ 312/312 | ✅ 263/263 | 🔴 0/4,879 | ✅ 100% |
+| **Italian (it)** | 🔴 0/1,317 | ✅ 312/312 | ✅ 263/263 | 🔴 0/4,879 | ✅ 100% |
+
+**Active Translation Work (20 Agents):**
+
+**coder-fs Account (10 agents):**
+1. `cbd-finnish-ui-verify` - Verify Finnish UI translations post-deployment
+2. `cbd-swedish-articles-1` - Swedish articles 1-4 re-translation
+3. `cbd-swedish-articles-2` - Swedish articles 5-8 re-translation
+4. `cbd-swedish-articles-3` - Swedish articles 9-12 re-translation
+5. `cbd-swedish-articles-4` - Swedish articles 13-16 re-translation
+6. `cbd-swedish-articles-5` - Swedish articles 17-20 re-translation
+7. `cbd-finnish-research-1` - Finnish research 1-900
+8. `cbd-finnish-research-2` - Finnish research 901-1800
+9. `cbd-finnish-research-3` - Finnish research 1801-2700
+10. `cbd-finnish-research-4` - Finnish research 2701-3600
+
+**coder-sw Account (10 agents):**
+1. `cbd-danish-articles-1` - Danish articles 1-17 (of 34 remaining)
+2. `cbd-danish-articles-2` - Danish articles 18-34
+3. `cbd-norwegian-articles-1` - Norwegian articles 1-29 (of 58 remaining)
+4. `cbd-norwegian-articles-2` - Norwegian articles 30-58
+5. `cbd-finnish-research-5` - Finnish research 3601-4500
+6. `cbd-swedish-research-1` - Swedish research 1-900
+7. `cbd-swedish-research-2` - Swedish research 901-1800
+8. `cbd-swedish-research-3` - Swedish research 1801-2700
+9. `cbd-swedish-research-4` - Swedish research 2701-3600
+10. `cbd-swedish-research-5` - Swedish research 3601-4500
+
+**Expected Completion:**
+- Articles (high priority): 15-30 minutes
+- Research translations: 60-90 minutes per batch
+
+**Translation Rules:**
+- ✅ Use Claude Sonnet for all translations (NOT Gemini per Robin's rule)
+- ✅ Maintain markdown formatting
+- ✅ Keep technical terms consistent
+- ✅ Don't translate product/brand names
+- ✅ Ensure proper special characters (å, ä, ö, æ, ø, etc.)
+
+**Key Fixes Completed (Feb 10, 2026):**
+- ✅ German translation fixes (8 issues: UI strings, encoding, accessibility labels)
+- ✅ Finnish UI translations added (25+ keys: categories, chat, footer regions)
+- ✅ All locale files updated with missing translations (accessibility, footer, chat)
+- ✅ Breadcrumbs translation system implemented
+- ✅ Hardcoded English strings in components replaced with locale keys
 
 ### AI Chat System - Complete
 
@@ -702,6 +785,78 @@ addiction, adhd, aging, alzheimers, anxiety, arthritis, athletic, autism, blood_
 ---
 
 ## SESSION LOG
+
+### February 10, 2026 - German & Finnish Translation Fixes + 20-Agent Parallel Campaign
+
+**German Translation Issues Fixed (8 items):**
+
+1. ✅ **2 garbled article descriptions** - cbd-morning-routine, cbd-buying-mistakes had mixed English/German content → Fixed in database
+2. ✅ **UTF-8 encoding bug** - "ZwangsstÃ¶rung" → "Zwangsstörung" in glossary
+3. ✅ **"Knowledge Base" English** - Changed to "Wissensdatenbank" in locale
+4. ✅ **Footer "Tools" English** - Changed to "Werkzeuge"
+5. ✅ **Duplicate copyright** - "© 2026 © 2026" → "© 2026" (removed duplicate from locale)
+6. ✅ **"Switch language" button** - Added "Sprache wechseln" translation + component update
+7. ✅ **"Go to homepage" accessibility** - Added "Zur Startseite" translation
+8. ✅ **"Skip to main content"** - Changed to "Zum Hauptinhalt springen"
+
+**Finnish UI Translations Added (25+ keys):**
+- 10 category labels (basics, products, guides, science, cannabinoids, terpenes, pets, medical, howTo, comparisons)
+- 9 chat widget strings (title, welcomeMessage, inputPlaceholder, sendMessage, resetConversation, closeChat, openChat, trySuggestions, + 4 suggestions)
+- 6 footer region names (scandinavia, centralEurope, southernEurope, switzerland, international, availableIn)
+
+**Cross-Language UI Fixes:**
+- Added `accessibility.switchLanguage` and `accessibility.goToHomepage` to 13 locale files (fi, sv, da, no, es, it, it-CH, pt, nl, fr, fr-CH, ro, de-CH)
+- Fixed Spanish and German `chat.disclaimer` (was full sentence, should be just label)
+- Fixed Spanish copyright duplication (removed `© {{year}}` from locale)
+- Added footer region translations for Swedish, Danish, Norwegian, Spanish, German
+
+**Component Updates:**
+- `src/app/layout.tsx` - Skip to content now uses `locale.accessibility?.skipToContent`
+- `src/app/categories/page.tsx` - Knowledge Base uses `t('glossary.knowledgeBase')`
+- `src/components/Breadcrumbs.tsx` - All segment labels now translated via locale keys
+
+**Files Modified:**
+- 14 locale files (da, de, de-CH, es, fi, fr, fr-CH, it, it-CH, nl, no, pt, ro, sv)
+- 3 React components (layout.tsx, categories/page.tsx, Breadcrumbs.tsx)
+- Committed: `8f6f900` - "fix: translate hardcoded UI strings across all languages"
+
+**Key Learning: Translation QA Process**
+
+❌ **"100% complete" database counts are unreliable without browser verification.**
+
+Robin kept finding mistakes. The pattern:
+- Database showed 1,317/1,317 articles (100%)
+- Locale file was 101KB
+- But browser showed 7+ UI issues
+
+**The gap:** Article *content* was translated in DB, but *UI strings* (components, labels, accessibility) were missing from locale files.
+
+**Correct QA Process:**
+1. Use browser automation to test actual front-end
+2. Check 20-30 different page types
+3. Verify UI elements (buttons, placeholders, dropdowns, breadcrumbs, footer, a11y labels)
+4. Test both content AND interface strings
+5. Don't rely on database counts alone
+
+**Coder Agents are Unreliable for Front-End Translation QA:**
+- German agent tested cbdoel.de (wrong site)
+- Finnish agent claimed "0% functional" (massively overstated)
+- Swedish agent couldn't use browser
+- **Always do browser-based QA manually**
+
+**20-Agent Parallel Translation Campaign Launched:**
+
+At 21:30 CET, launched 20 sub-agents across coder-fs and coder-sw to complete:
+- Swedish article re-translations (~20 articles)
+- Danish article completions (34 remaining)
+- Norwegian article completions (58 remaining)
+- Finnish research translations (~4,500 studies)
+- Swedish research translations (~4,500 studies)
+- Finnish UI verification
+
+Expected completion: Articles 15-30 min, Research 60-90 min per batch.
+
+---
 
 ### January 28, 2026 - Danish Translation Verification & Fixes
 
