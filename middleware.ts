@@ -405,8 +405,15 @@ export function middleware(request: NextRequest) {
       const englishPath = getEnglishPath(pathname, routeLang);
       
       if (englishPath !== pathname) {
-        rewriteUrl = new URL(englishPath, request.url);
+        // Create a proper rewrite URL with lang parameter
+        const rewritePathname = englishPath;
+        rewriteUrl = new URL(rewritePathname, request.url);
+        
+        // Preserve existing search params and add lang parameter
         rewriteUrl.search = request.nextUrl.search;
+        if (!rewriteUrl.searchParams.has('lang')) {
+          rewriteUrl.searchParams.set('lang', routeLang);
+        }
       }
     } else if (domainLang && hasTranslatableSegments(pathname, routeLang)) {
       // English path on localized domain - redirect to localized version (only for actual domains, not ?lang=)
