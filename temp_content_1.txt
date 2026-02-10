@@ -1,0 +1,292 @@
+By Robin Roy Krigslund-Hansen | 12+ years in [CBD](/glossary/cannabidiol) industry
+Last updated: January 2026
+
+
+## Related Articles
+
+- [How to Vape CBD: Beginner's Guide to CBD Vaping](/articles/how-to-vape-cbd)
+- [How to Set CBD Goals: Define What You Want to Achieve](/articles/how-to-set-cbd-goals)
+- [How to Tell Family About Using CBD](/articles/tell-family-about-cbd)
+- [How to Choose a CBD Product: Finding What Works for You](/articles/how-to-choose-cbd-product)
+
+---
+
+---
+
+## Research Snapshot
+
+| Metric | Value |
+|--------|-------|
+| Studies reviewed | 100 |
+| Human clinical trials | 98 |
+| Systematic reviews | 1 |
+| Preclinical studies | 1 |
+| Total participants | 163+ |
+| Evidence strength | ●●●○○ Moderate |
+
+*Research on CBD and cannabinoids continues to evolve. [Browse all studies](/research)*
+
+## Quick Answer
+
+**To calculate your CBD dose: divide your bottle's total CBD (mg) by the total volume (ml) to get mg/ml, then multiply by how much you take.** For example, a 1000mg/30ml bottle = 33.3mg/ml. If you take 0.5ml (half dropper), that's 33.3 × 0.5 = 16.7mg CBD.
+
+---
+
+## Key Numbers: CBD Dosage Calculations
+
+| Metric | Value |
+|--------|-------|
+| Standard dropper volume | 1ml |
+| Drops per milliliter | 20-25 drops |
+| Most common bottle size | 30ml |
+| Popular concentration example | 33.3mg/ml (1000mg/30ml) |
+
+These numbers represent the most frequently referenced measurements for calculating accurate CBD doses from tincture bottles.
+
+## Key Takeaways
+
+- **mg/ml** tells you CBD concentration (potency)
+- **Formula**: Total mg ÷ Total ml = mg per ml
+- **Standard dropper** = approximately 1ml when full
+- **Know your dropper size** for accurate dosing
+- **Higher mg/ml** = fewer drops needed
+- **Calculate ONCE** per bottle, then use that number
+
+---
+
+## Understanding CBD Measurements
+
+### What the Numbers Mean
+
+| Term | Meaning | Example |
+|------|---------|---------|
+| **Total mg** | CBD in entire bottle | 1000mg |
+| **Total ml** | Volume of bottle | 30ml |
+| **mg/ml** | CBD per millilitre | 33.3mg/ml |
+| **mg per serving** | CBD per dose | Varies |
+
+### Common Bottle Sizes
+
+| Bottle Size | Common in |
+|-------------|-----------|
+| **10ml** | EU, travel sizes |
+| **15ml** | Mid-size |
+| **30ml** | Most common |
+| **60ml** | Larger/value bottles |
+
+---
+
+## The Basic Formula
+
+### Step-by-Step Calculation
+
+**Step 1:** Find your bottle's total mg and ml
+**Step 2:** Divide mg by ml
+**Step 3:** Result = mg per ml
+
+```
+mg/ml = Total CBD (mg) ÷ Total Volume (ml)
+```
+
+### Example Calculations
+
+| Bottle | Total mg | Total ml | Calculation | mg/ml |
+|--------|----------|----------|-------------|-------|
+| A | 500mg | 30ml | 500÷30 | 16.7mg/ml |
+| B | 1000mg | 30ml | 1000÷30 | 33.3mg/ml |
+| C | 1500mg | 30ml | 1500÷30 | 50mg/ml |
+| D | 1000mg | 10ml | 1000÷10 | 100mg/ml |
+
+---
+
+## Calculating Your Dose
+
+### From mg/ml to Actual Dose
+
+Once you know mg/ml, calculate how much CBD you're taking:
+
+```
+Your dose (mg) = mg/ml × Amount taken (ml)
+```
+
+### Example: Finding Your Dose
+
+**Bottle:** 1000mg/30ml = 33.3mg/ml
+
+| You Take | Calculation | Your Dose |
+|----------|-------------|-----------|
+| Full dropper (1ml) | 33.3 × 1 | 33.3mg |
+| Half dropper (0.5ml) | 33.3 × 0.5 | 16.7mg |
+| Quarter dropper (0.25ml) | 33.3 × 0.25 | 8.3mg |
+
+---
+
+## Working Backwards: Desired Dose to Volume
+
+### When You Know How Much mg You Want
+
+```
+Volume needed (ml) = Desired dose (mg) ÷ mg/ml
+```
+
+### Example: Getting 20mg
+
+**Bottle:** 1000mg/30ml = 33.3mg/ml
+**Desired dose:** 20mg
+
+
+> For more information, see our guide on [CBD Dosage Guide: Finding Your Optimal Amount](/articles/cbd-dosage-calculator).
+```
+Volume = 20 ÷ 33.3 = 0.6ml (slightly more than half dropper)
+```
+
+---
+
+## Understanding Droppers
+
+### Standard Dropper Facts
+
+
+> For more information, see our guide on [CBD mg to ml Calculator: Understanding CBD Measurements](/articles/cbd-mg-ml-calculator).
+| Fact | Detail |
+|------|--------|
+| **Full dropper** | Usually ~1ml (check your product) |
+| **Drops per ml** | Approximately 20-25 drops |
+| **Half dropper** | ~0.5ml |
+| **Markings** | Many droppers have ml markings |
+
+### Dropper Variation
+
+**Important:** Dropper sizes can vary by product. Check if your dropper has markings or states its volume.
+
+| Dropper Type | Typical Volume |
+|--------------|----------------|
+| Standard glass dropper | 1ml |
+| Some European products | 0.5ml or 1ml |
+| Spray bottles | Per spray varies |
+
+---
+
+## Quick Reference Charts
+
+### Common Bottle Concentrations
+
+| Bottle | mg/ml | Full Dropper | Half Dropper |
+|--------|-------|--------------|--------------|
+| 300mg/30ml | 10mg/ml | 10mg | 5mg |
+| 500mg/30ml | 16.7mg/ml | 16.7mg | 8.3mg |
+| 750mg/30ml | 25mg/ml | 25mg | 12.5mg |
+| 1000mg/30ml | 33.3mg/ml | 33.3mg | 16.7mg |
+| 1500mg/30ml | 50mg/ml | 50mg | 25mg |
+| 2000mg/30ml | 66.7mg/ml | 66.7mg | 33.3mg |
+| 3000mg/30ml | 100mg/ml | 100mg | 50mg |
+
+### 10ml Bottles
+
+| Bottle | mg/ml | Full Dropper | Half Dropper |
+|--------|-------|--------------|--------------|
+| 500mg/10ml | 50mg/ml | 50mg | 25mg |
+| 1000mg/10ml | 100mg/ml | 100mg | 50mg |
+
+---
+
+## Practical Tips
+
+### Making Dosing Easier
+
+| Tip | How It Helps |
+|-----|--------------|
+| **Calculate once** | Do math once per new bottle |
+| **Write it down** | Stick label on bottle with mg/ml |
+| **Use a calculator** | No mental math errors |
+| **Count drops** | More precise than eyeballing |
+| **Get marked dropper** | Visual ml markings help |
+
+### Common Mistakes
+
+| Mistake | Solution |
+|---------|----------|
+| **Confusing mg with ml** | mg = CBD amount, ml = volume |
+| **Assuming all droppers are same** | Check your specific dropper |
+| **Not accounting for concentration** | Higher mg bottles need less volume |
+| **Guessing volumes** | Use markings or count drops |
+
+---
+
+## Special Situations
+
+### If Your Bottle Lists "mg per serving"
+
+Some labels state mg per serving (e.g., "25mg per dropper"):
+
+| What Label Says | What It Means |
+|-----------------|---------------|
+| "25mg per serving" | Full dropper = 25mg |
+| "1 serving = 1ml" | 1ml gives you stated mg |
+
+You can still calculate mg/ml for flexibility:
+```
+If 25mg per 1ml dropper, mg/ml = 25
+```
+
+### Spray Bottles
+
+| Information Needed | How to Find |
+|-------------------|-------------|
+| **mg per spray** | Usually on label |
+| **Sprays per bottle** | Count or check label |
+
+Example: 500mg bottle, 100 sprays = 5mg per spray
+
+---
+
+
+## My Take
+
+After 12 years of testing CBD products and helping thousands of people find their optimal dose, I can't [stress](/conditions/stress) enough how critical proper calculation is. The biggest mistake I see? People assuming all droppers are the same size or guessing their dose based on "drops." This leads to either wasted money (taking too little) or unnecessary side effects (taking too much).
+
+What I wish more people understood is that mg/ml is your North Star for consistent dosing. I've tested bottles where the actual dropper held 0.7ml instead of the assumed 1ml—that's a 30% dosing error! Always measure your specific dropper with water first. Also, don't get intimidated by the math; once you calculate your bottle's mg/ml concentration, you're set for that entire bottle.
+
+The industry has gotten better at labeling, but you still need to be your own advocate. Master these calculations, and you'll have consistent, predictable results every time.
+
+## Frequently Asked Questions
+
+### What if my bottle doesn't show ml?
+
+Most CBD bottles are 30ml or 10ml. Check the packaging or manufacturer website. If unlabeled and unknown, contact the company.
+
+### Is a dropper always 1ml?
+
+Usually, but not always. Check for markings on your dropper or product information. When in doubt, assume ~1ml for a full glass dropper.
+
+### How many drops equal 1ml?
+
+Approximately 20-25 drops, but this varies by oil thickness and dropper size. For precision, use ml markings when possible.
+
+### Why do some bottles seem stronger?
+
+Higher mg with same ml = more concentrated. A 3000mg/30ml bottle is much more potent per drop than a 500mg/30ml bottle.
+
+### Does this apply to gummies and capsules?
+
+No—gummies and capsules state mg per unit (e.g., "25mg per gummy"). This calculation is for oils/tinctures only.
+
+---
+
+## Your Calculation Worksheet
+
+Fill this out for your bottle:
+
+**My bottle:**
+- Total CBD: _____mg
+- Total volume: _____ml
+- mg/ml calculation: _____ ÷ _____ = _____mg/ml
+
+**My dose:**
+- Desired dose: _____mg
+- Volume needed: _____ ÷ _____ = _____ml
+- That equals: _____ (full/half/quarter dropper or drops)
+
+---
+
+*Medical Disclaimer: This article is for informational purposes only and does not constitute medical advice. Consult a healthcare professional before using CBD, especially if you have health conditions or take medications.*

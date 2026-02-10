@@ -1,0 +1,177 @@
+# CBD and Schizophrenia & Psychosis: What the Research Shows
+
+Does CBD help with schizophrenia & psychosis? Based on the 52 studies I've reviewed, the research shows promise, though we need more large-scale trials. The existing studies suggest potential benefits, but I want to see additional data before drawing firm conclusions. If you're considering CBD for schizophrenia & psychosis, the research offers reasons for cautious optimism.
+
+
+## Related Articles
+
+- [CBD and Cancer & Oncology: What the Research Shows](/articles/cbd-and-cancer)
+- [CBD and Alzheimer's Disease & Dementia: What the Research Shows](/articles/cbd-and-alzheimers)
+- [CBD and Eczema & Dermatitis: What the Research Shows](/articles/cbd-and-eczema)
+- [CBD and Arthritis & Joint Pain: What the Research Shows](/articles/cbd-and-arthritis)
+
+---
+
+## Research Snapshot
+
+| Metric | Value |
+|--------|-------|
+| **Studies Reviewed** | 52 |
+| **Human Clinical Studies** | 50 |
+| **Systematic Reviews** | 1 |
+| **Total Participants** | 0 |
+| **Research Period** | 2004-2026 |
+| **Evidence Strength** | ●●●○○ Moderate |
+
+## Key Numbers
+
+| Stat | Description |
+|------|-------------|
+| **52** | Total peer-reviewed studies analyzed |
+| **13%** | Studies showing positive or promising results |
+| **51** | Human studies and systematic reviews |
+
+## What the Research Shows
+
+### The Best Evidence (Clinical Trials)
+
+The strongest evidence comes from 50 human studies, including 0 randomized controlled trials. 
+
+A [2024 study](/research/study/protocol-for-cancloz-multicentre-randomised-placebo-controll-2024-b6467b) found that researchers are testing if cbd oil can help people with schizophrenia who aren't getting better from the usual medication. they're doing a carefully designed study where neither patients nor doctors k...
+
+A [2023 study](/research/study/cbd-[anxiety](/conditions/anxiety)-dale-2023) found that this study tests whether cbd can protect schizophrenia patients from the negative effects of thc. participants with schizophrenia who use cannabis recreationally take either cbd or placebo before inha...
+
+A [2021 study](/research/study/cannabidiol-and-amisulpride-improve-cognition-in-acute-schiz-2021-e0afe0) found that here is a plain-language summary of the research study (100 words):
+
+researchers tested if cbd (up to 800 mg/day) or a common antipsychotic drug (amisulpride, up to 800 mg/day) could improve thinking ...
+
+### What Reviews Conclude
+
+1 systematic reviews have examined the evidence on CBD and schizophrenia & psychosis. 
+
+A [2025 review](/research/study/cbd-[arthritis](/conditions/arthritis)-rajput-2025) This research provides an overview of CBD's therapeutic potential. It examines current evidence for cannabidiol's use in various health conditions.
+
+### Supporting Evidence
+
+Beyond clinical studies, 1 animal studies and 0 in-vitro (lab) studies provide supporting evidence. While these can't tell us how CBD works in humans, they help establish biological plausibility and guide future research directions.
+
+**Important context:** Animal and lab studies are early-stage research. Promising results in mice or cell cultures don't always translate to humans. I include them here for completeness, not as evidence of effectiveness.
+
+## Studies Worth Knowing
+
+### Protocol for Cancloz: multicentre randomised, placebo-controlled, double-blind, ... (2024)
+
+Researchers are testing if CBD oil can help people with schizophrenia who aren't getting better from the usual medication. They're doing a carefully designed study where neither patients nor doctors know who is getting the CBD or a placebo (fake treatment). The study will involve a large number of people with treatment-resistant schizophrenia from multiple hospitals. Results are still pending - the researchers are still recruiting participants and collecting data. This study could provide important insights into whether CBD might be a useful additional treatment for some people with schizophrenia.
+
+**Sample:** Not specified participants | **Type:** human | **Quality Score:** 70/100
+
+[View study summary](/research/study/protocol-for-cancloz-multicentre-randomised-placebo-controll-2024-b6467b)
+
+### Does Cannabidiol Attenuate the Acute Effects of ∆9-tetrahydrocannabinol Intoxica... (2023)
+
+This study tests whether CBD can protect schizophrenia patients from the negative effects of THC. Participants with schizophrenia who use cannabis recreationally take either CBD or placebo before inhaling THC, then complete tests measuring thinking, anxiety, and psychosis symptoms.
+
+**Sample:** Not specified participants | **Type:** human | **Quality Score:** 68/100
+
+[View study summary](/research/study/cbd-anxiety-dale-2023)
+
+### Cannabidiol and Amisulpride Improve Cognition in Acute Schizophrenia in an Explo... (2021)
+
+Here is a plain-language summary of the research study (100 words):
+
+
+> For more information, see our guide on [CBD for Schizophrenia: What Research Shows](/articles/cbd-for-schizophrenia).
+Researchers tested if CBD (up to 800 mg/day) or a common antipsychotic drug (amisulpride, up to 800 mg/day) could improve thinking and memory in 42 people with schizophrenia. Both CBD and the drug improved some aspects of thinking, like visual memory and processing speed, compared to before treatment. The drug also boosted working memory more than CBD. There were no differences between the two treatments. This suggests both CBD and the antipsychotic drug can improve certain thinking abilities in people with acute schizophrenia, though the mechanisms may differ. The results could help develop better treatments for cognitive problems in schizophrenia.
+
+**Sample:** Not specified participants | **Type:** human | **Quality Score:** 58/100
+
+[View study summary](/research/study/cannabidiol-and-amisulpride-improve-cognition-in-acute-schiz-2021-e0afe0)
+
+## How CBD Might Help with Schizophrenia & Psychosis
+
+CBD interacts with the body's [endocannabinoid system](/glossary/endocannabinoid-system) (ECS), which plays a role in regulating various physiological processes. While the exact mechanisms for schizophrenia & psychosis are still being studied, researchers believe CBD may work through several pathways:
+
+- **CB1 and CB2 receptors:** CBD has low affinity for these receptors but can modulate their activity
+- **[Serotonin](/conditions/serotonin) receptors (5-HT1A):** May influence [mood](/conditions/mood) and perception
+- **TRPV1 receptors:** Involved in [pain](/conditions/pain) perception and [inflammation](/conditions/inflammation)
+
+These mechanisms are still being investigated, and we don't fully understand how they relate to schizophrenia & psychosis specifically.
+
+## What Dosages Have Been Studied
+
+**Important:** This is NOT medical advice. I'm sharing what researchers used in studies, not recommending doses.
+
+Across the studies I reviewed, dosages varied widely — typically ranging from 25mg to 600mg daily, depending on the study design and specific outcomes measured. Some key patterns:
+
+- Lower doses (25-50mg) were used in initial tolerability studies
+- Moderate doses (100-300mg) appeared in many clinical trials
+- Higher doses (400-600mg+) were used in some specific contexts
+
+If you're considering CBD, use our [dosage calculator](/tools/dosage-calculator) as a starting point, but always consult with a healthcare provider.
+
+## My Take
+
+Having reviewed 52 studies on CBD and schizophrenia & psychosis — and worked in the CBD industry for over 12 years — here's my honest assessment:
+
+The research is promising but not conclusive. I've seen enough positive findings to think CBD is worth considering for schizophrenia & psychosis, but I want to see larger studies before being fully confident. If you try it, keep your expectations realistic and track your results.
+
+What I'm watching for: More randomized controlled trials with larger sample sizes.
+
+## Frequently Asked Questions
+
+### Can CBD cure schizophrenia & psychosis?
+
+No. CBD is not a cure for schizophrenia & psychosis. Research suggests it may help manage symptoms in some cases, but it should complement — not replace — conventional treatment. Always consult your doctor before making changes to your healthcare routine.
+
+### How much CBD should I take for schizophrenia & psychosis?
+
+Clinical studies have used doses ranging widely, from 25mg to 600mg daily. There's no "standard" dose, and individual responses vary. Start low (10-25mg) and increase gradually while monitoring effects. Use our [dosage calculator](/tools/dosage-calculator) as a starting point.
+
+### How long does CBD take to work for schizophrenia & psychosis?
+
+This depends on the delivery method and individual factors. Sublingual oils may take 15-45 minutes, while capsules can take 1-2 hours. Some studies suggest benefits build over several weeks of consistent use.
+
+### Can I take CBD with my current medications?
+
+CBD can interact with certain medications by affecting liver enzymes (particularly CYP450). If you're taking any medications, especially [blood thinners](/conditions/blood-thinners), anti-seizure drugs, or [antidepressants](/conditions/antidepressants), consult your doctor before using CBD.
+
+### What type of CBD is best for schizophrenia & psychosis?
+
+Most studies use CBD isolate or full-spectrum extracts. Some researchers suggest full-spectrum products may have enhanced effects due to the "entourage effect," but this is still debated. Choose quality products from reputable sources with third-party testing.
+
+## References
+
+I reviewed 52 studies for this article. Key sources:
+
+1. **Siskind D, Bull C, Suetani S, Warren N, Suraev A, McGregor I, Kisely S, De Monte V, Trott M, Shine M, Moudgil V, Robinson G, Parker S, Krishnaiah R, Stedman T, Drummond A, Medland S, Iyer R, Baker A** (2024). Protocol for Cancloz: multicentre randomised, placebo-controlled, double-blind, parallel-group adaptive trial of cannabidiol for clozapine-resistant schizophrenia.. *BJPsych Open*.
+   [Summary](/research/study/protocol-for-cancloz-multicentre-randomised-placebo-controll-2024-b6467b) • [PubMed](https://pubmed.ncbi.nlm.nih.gov/39359160/) • DOI: 10.1192/bjo.2024.748
+
+2. **Gill Dale** (2023). Does Cannabidiol Attenuate the Acute Effects of ∆9-tetrahydrocannabinol Intoxication in Individuals Diagnosed With Schizophrenia? A Double-blind, Randomised, Placebo-controlled Experimental Study. *ClinicalTrials.gov*.
+   [Summary](/research/study/cbd-anxiety-dale-2023)
+
+3. **F. Markus Leweke, Cathrin Rohleder, C.W. Gerth, Martin Hellmich, Ralf Pukrop** (2021). Cannabidiol and Amisulpride Improve Cognition in Acute Schizophrenia in an Explorative, Double-Blind, Active-Controlled, Randomized Clinical Trial. *Frontiers in Pharmacology*.
+   [Summary](/research/study/cannabidiol-and-amisulpride-improve-cognition-in-acute-schiz-2021-e0afe0) • [PubMed](https://pubmed.ncbi.nlm.nih.gov/33995015/) • DOI: 10.3389/fphar.2021.614811
+
+4. **Chesney E, Oliver D, Sarma A, Lamper AD, Slimani I, Lloyd M, Dickens AM, Welds M, Kråkström M, Gasparini-Andre I, Orešič M, Lawn W, Babayeva N, Freeman TP, Englund A, Strang J, McGuire P** (2025). Does cannabidiol reduce the adverse effects of cannabis in schizophrenia? A randomised, double-blind, cross-over trial.. *Neuropsychopharmacology*.
+   [Summary](/research/study/does-cannabidiol-reduce-the-adverse-effects-of-cannabis-in-s-2025-5d6faa) • [PubMed](https://pubmed.ncbi.nlm.nih.gov/40702165/) • DOI: 10.1038/s41386-025-02175-3
+
+[View all 52 studies on CBD and schizophrenia & psychosis →](/research?topic=schizophrenia)
+
+## Cite This Research
+
+**For journalists and researchers:**
+
+CBD Portal. (2026). "CBD and Schizophrenia & Psychosis: What the Research Shows." Retrieved from https://cbd-portal.vercel.app/conditions/schizophrenia
+
+**Quick stats:**
+- Studies reviewed: 52
+- Human studies: 50
+- Total participants: 0
+- Evidence strength: Moderate
+
+Last updated: January 24, 2026
+Author: Robin Roy Krigslund-Hansen
+
+---
+
+*This article is for informational purposes only. It is not medical advice. Consult a healthcare professional before using CBD, especially if you have a medical condition or take medications.*

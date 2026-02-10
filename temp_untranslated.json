@@ -1,0 +1,1 @@
+{"code":"PGRST202","details":"Searched for the function public.get_untranslated_articles with parameters limit_count, target_language or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.","hint":null,"message":"Could not find the function public.get_untranslated_articles(limit_count, target_language) in the schema cache"}

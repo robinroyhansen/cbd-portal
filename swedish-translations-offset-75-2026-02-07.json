@@ -1,0 +1,84 @@
+{
+  "timestamp": "2026-02-07T10:45:53.953Z",
+  "batch": "offset-75-limit-75",
+  "language": "sv",
+  "stats": {
+    "total": 75,
+    "success": 64,
+    "failed": 11,
+    "failedArticles": [
+      {
+        "id": "41f3ad60-8dff-4c89-8af1-dddb15eca63b",
+        "title": "CBD for Generalized Anxiety Disorder (GAD)",
+        "error": "Failed to parse JSON from response"
+      },
+      {
+        "id": "467de2ab-bf3c-4b4d-bb63-12fdc6c21144",
+        "title": "Solventless CBD Extraction: Natural Methods",
+        "error": "Failed to parse JSON from response"
+      },
+      {
+        "id": "47e2a6ef-294d-4391-91e3-26bf58ec4f96",
+        "title": "CBD vs SSRIs: Understanding Depression and Anxiety Treatment Options",
+        "error": "Failed to parse JSON from response"
+      },
+      {
+        "id": "49a203c9-468b-4648-85c7-d344dc0bcaa2",
+        "title": "CBD and CBD for Caregivers: What the Research Shows",
+        "error": "Failed to parse JSON from response"
+      },
+      {
+        "id": "4a31fe7e-107f-4bab-8acc-a7f97381d0bc",
+        "title": "CBD and Gum Disease (Periodontal Disease): What the Research Shows",
+        "error": "Failed to parse JSON from response"
+      },
+      {
+        "id": "4b258b13-1619-4388-9434-555db7eeffa6",
+        "title": "CBD vs CBG: Comparing Two Non-Intoxicating Cannabinoids",
+        "error": "Failed to parse JSON from response"
+      },
+      {
+        "id": "4c2704fb-9926-422d-8f88-78956851868a",
+        "title": "CBD and Psoriasis & Autoimmune Skin Conditions: What the Research Shows",
+        "error": "Failed to parse JSON from response"
+      }
+    ]
+  },
+  "failedArticles": [
+    {
+      "id": "41f3ad60-8dff-4c89-8af1-dddb15eca63b",
+      "title": "CBD for Generalized Anxiety Disorder (GAD)",
+      "error": "Failed to parse JSON from response"
+    },
+    {
+      "id": "467de2ab-bf3c-4b4d-bb63-12fdc6c21144",
+      "title": "Solventless CBD Extraction: Natural Methods",
+      "error": "Failed to parse JSON from response"
+    },
+    {
+      "id": "47e2a6ef-294d-4391-91e3-26bf58ec4f96",
+      "title": "CBD vs SSRIs: Understanding Depression and Anxiety Treatment Options",
+      "error": "Failed to parse JSON from response"
+    },
+    {
+      "id": "49a203c9-468b-4648-85c7-d344dc0bcaa2",
+      "title": "CBD and CBD for Caregivers: What the Research Shows",
+      "error": "Failed to parse JSON from response"
+    },
+    {
+      "id": "4a31fe7e-107f-4bab-8acc-a7f97381d0bc",
+      "title": "CBD and Gum Disease (Periodontal Disease): What the Research Shows",
+      "error": "Failed to parse JSON from response"
+    },
+    {
+      "id": "4b258b13-1619-4388-9434-555db7eeffa6",
+      "title": "CBD vs CBG: Comparing Two Non-Intoxicating Cannabinoids",
+      "error": "Failed to parse JSON from response"
+    },
+    {
+      "id": "4c2704fb-9926-422d-8f88-78956851868a",
+      "title": "CBD and Psoriasis & Autoimmune Skin Conditions: What the Research Shows",
+      "error": "Failed to parse JSON from response"
+    }
+  ]
+}

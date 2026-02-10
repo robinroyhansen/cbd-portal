@@ -1,0 +1,227 @@
+# CBD Potency Testing: Understanding Cannabinoid Analysis
+
+By Robin Roy Krigslund-Hansen | 12+ years in [CBD](/glossary/cbd) industry
+Last updated: January 21, 2026
+
+---
+
+---
+
+## Research Snapshot
+
+| Metric | Value |
+|--------|-------|
+| Studies reviewed | 100 |
+| Human clinical trials | 98 |
+| Systematic reviews | 1 |
+| Preclinical studies | 1 |
+| Total participants | 163+ |
+| Evidence strength | ●●●○○ Moderate |
+
+*Research on CBD and cannabinoids continues to evolve. [Browse all studies](/research)*
+
+## Quick Summary
+
+Potency testing measures the [cannabinoid](/glossary/cannabinoid) content in CBD products, verifying that labels are accurate and [THC](/glossary/thc) remains within legal limits. Third-party laboratory testing using methods like HPLC ensures products contain what they claim and helps consumers identify quality products.
+
+---
+
+## Key Takeaways
+
+- Potency testing verifies CBD and THC content
+- Third-party labs provide independent verification
+- HPLC is the gold standard method
+- Results should be within 10% of label claims
+- Always request batch-specific COAs
+
+---
+
+## What Potency Testing Measures
+
+### Primary Cannabinoids
+
+- **CBD (Cannabidiol)** — The main compound of interest
+- **THC (Delta-9-THC)** — Must be below legal limits
+- **[CBDa](/glossary/cbda)** — Acidic precursor to CBD
+- **[THCa](/glossary/thca)** — Acidic precursor to THC
+
+### Secondary Cannabinoids
+
+- **[CBG](/glossary/cbg) (Cannabigerol)**
+- **[CBN](/glossary/cbn) (Cannabinol)**
+- **[CBC](/glossary/cbc) (Cannabichromene)**
+- **THCV, CBDv** — Minor variants
+
+### Why It Matters
+
+- Verifies label accuracy
+- Ensures legal compliance
+- Confirms product type (full-spectrum vs isolate)
+- Indicates product quality
+
+---
+
+## Testing Methods
+
+### HPLC (High-Performance Liquid Chromatography)
+
+- Industry gold standard
+- Measures cannabinoids directly
+- Doesn't require heat
+- Most accurate for CBD products
+
+### GC (Gas Chromatography)
+
+- Requires heat application
+- Can convert CBDa/THCa
+- May overestimate THC
+- Less preferred for CBD testing
+
+### Method Comparison
+
+| Factor | HPLC | GC |
+|--------|------|-----|
+| Accuracy | Higher | Good |
+| Heat required | No | Yes |
+| Acid forms | Preserved | Converted |
+| Industry preference | Standard | Less common |
+
+---
+
+## Reading Potency Results
+
+### Key Numbers to Check
+
+**CBD Content**
+- Total CBD (CBD + CBDa × 0.877)
+- Percentage and/or mg per unit
+- Compare to label claim
+
+**THC Content**
+- Total THC (THC + THCa × 0.877)
+- Must be below legal limit
+- "ND" (not detected) ideal for [isolate](/glossary/cbd-isolate)
+
+### Acceptable Variance
+
+- Within 10% of label claim is standard
+- 20%+ variance indicates poor quality control
+- Consistent batch results preferred
+
+---
+
+## Third-Party vs In-House Testing
+
+### Third-Party Labs
+
+**Advantages:**
+- Independent verification
+- No conflict of interest
+- Standardised methods
+- Accreditation requirements
+
+**What to Look For:**
+- ISO 17025 accreditation
+- State licensing (where applicable)
+- Transparent methods
+- Batch-specific results
+
+### In-House Testing
+
+**Limitations:**
+- Potential bias
+- Less accountability
+- May lack accreditation
+- Not independently verified
+
+---
+
+## Red Flags in Potency Testing
+
+### Warning Signs
+
+- No [COA](/glossary/certificate-of-analysis) available
+- In-house testing only
+- Old test dates (>12 months)
+- Doesn't match batch number
+- CBD significantly differs from label
+- Missing THC results
+- Unaccredited laboratory
+
+---
+
+## How to Verify Products
+
+### Steps to Take
+
+1. Request COA from company
+2. Check lab accreditation
+3. Match batch numbers
+4. Compare CBD to label claim
+5. Verify THC is legal
+6. Check test date is recent
+
+### Questions to Ask
+
+- Which lab performed testing?
+- Is the COA batch-specific?
+- Can I verify with the lab directly?
+- How often do you test?
+
+---
+
+## My Take
+
+Potency testing is your assurance that you're getting what you paid for. Reputable companies make COAs easily accessible and test every batch. If a company can't provide potency testing, consider it a major red flag. The few minutes spent checking a COA is time well invested.
+
+---
+
+## Related Articles
+
+- [Understanding COAs](/knowledge/understanding-coas)
+- [CBD Quality Standards](/knowledge/cbd-quality-standards)
+- [CBD Contaminant Testing](/knowledge/cbd-contaminant-testing)
+
+---
+
+*This article is for educational purposes only.*
+---
+
+
+## Frequently Asked Questions
+
+### How much does CBD potency testing cost and who pays for it?
+
+Third-party potency testing typically costs $50-150 per batch, depending on the number of cannabinoids analyzed. Reputable manufacturers absorb this cost and should provide certificates of analysis (COAs) for free upon request. If a company charges customers for COAs or lab results, consider it a red flag about their commitment to transparency.
+
+### Can CBD potency change over time after testing?
+
+CBD potency can decrease by 10-20% over 12-24 months due to exposure to light, heat, and air. Products stored in cool, dark places maintain potency longer. This is why COAs should be from recent batches (within 6 months) rather than old test results, and why expiration dates matter for maintaining labeled potency.
+
+### What should I do if a product's potency doesn't match the COA?
+
+Contact the manufacturer immediately with your batch number and purchase details. Legitimate companies will investigate discrepancies and may offer replacements or refunds. Document everything and consider reporting significant violations to your state's [cannabis](/glossary/cannabis) regulatory agency, as mislabeled potency can indicate broader quality control issues.
+
+### How do I verify that a COA is legitimate and not fake?
+
+Look for the testing laboratory's contact information, license numbers, and unique sample IDs that you can verify directly with the lab. Legitimate COAs include detailed methodology, instrument calibration dates, and analyst signatures. Call the lab directly using contact information from their official website to confirm they performed the testing.
+
+### Why do some CBD products show higher CBDa than CBD on test results?
+
+Raw [hemp](/glossary/hemp) extracts contain primarily CBDa (cannabidiolic acid), which converts to CBD when heated through a process called [decarboxylation](/glossary/decarboxylation). Products with higher CBDa levels haven't been fully decarboxylated, which may affect [bioavailability](/glossary/bioavailability) since CBDa has different absorption characteristics than CBD in the body.
+
+## Related Studies
+
+Research related to this topic:
+
+- [Cannabinoid series: developing a synthetic CBD tablet (2020)](/research/study/cannabinoid-series-developing-a-synthetic-cbd-tablet-2020-c2eff1) - Human Trial
+- [Structural Requirements for Binding of Anandamide-Type Compounds to the Brain Ca... (1997)](/research/study/structural-requirements-for-binding-of-anandamide-type-compo-1997-45a15c) - Human Trial
+- [Biomarkers for the effects of cannabis and THC in healthy volunteers (2008)](/research/study/biomarkers-for-the-effects-of-cannabis-and-thc-in-healthy-vo-2008-905b97) - Human Trial
+- [Towards Understanding the Phenytoin-like Antiepileptic Effect of Cannabidiol and... (2018)](/research/study/towards-understanding-the-phenytoin-like-antiepileptic-effec-2018-d2a26f) - Human Trial
+- [Cannabinoid receptor-specific mechanisms to alleviate [pain](/conditions/pain) in sickle cell anemia... (2015)](/research/study/cannabinoid-receptor-specific-mechanisms-to-alleviate-pain-i-2015-bf1002) - Human Trial
+
+[Browse all CBD research →](/research)
+
+---
+
+**Medical Disclaimer:** This article is for informational purposes only and does not constitute medical advice. Consult a healthcare professional before using CBD, especially if you have a medical condition or take medications.

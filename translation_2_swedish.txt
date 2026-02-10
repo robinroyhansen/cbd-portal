@@ -1,0 +1,170 @@
+# CBD och schizofreni & psykos: Vad forskningen visar
+
+Hjälper CBD med schizofreni & psykos? Baserat på de 52 studier jag har granskat visar forskningen löfte, även om vi behöver fler storskaliga prövningar. De befintliga studierna tyder på potentiella fördelar, men jag vill se ytterligare data innan jag drar definitiva slutsatser. Om du överväger CBD för schizofreni & psykos erbjuder forskningen skäl för försiktig optimism.
+
+## Relaterade artiklar
+
+- [CBD och cancer & onkologi: Vad forskningen visar](/articles/cbd-and-cancer)
+- [CBD och Alzheimers sjukdom & demens: Vad forskningen visar](/articles/cbd-and-alzheimers)
+- [CBD och eksem & dermatit: Vad forskningen visar](/articles/cbd-and-eczema)
+- [CBD och artrit & ledsmärta: Vad forskningen visar](/articles/cbd-and-arthritis)
+
+---
+
+## Forskningsöversikt
+
+| Mått | Värde |
+|--------|-------|
+| **Studier granskade** | 52 |
+| **Kliniska studier på människor** | 50 |
+| **Systematiska översikter** | 1 |
+| **Totalt antal deltagare** | 0 |
+| **Forskningsperiod** | 2004-2026 |
+| **Bevisstyrka** | ●●●○○ Måttlig |
+
+## Nyckeltal
+
+| Statistik | Beskrivning |
+|------|-------------|
+| **52** | Totalt antal peer-reviewade studier analyserade |
+| **13%** | Studier som visar positiva eller lovande resultat |
+| **51** | Studier på människor och systematiska översikter |
+
+## Vad forskningen visar
+
+### De bästa bevisen (kliniska prövningar)
+
+De starkaste bevisen kommer från 50 studier på människor, inklusive 0 randomiserade kontrollerade prövningar.
+
+En [2024 studie](/research/study/protocol-for-cancloz-multicentre-randomised-placebo-controll-2024-b6467b) fann att forskare testar om CBD-olja kan hjälpa personer med schizofreni som inte förbättras av vanlig medicinering. De genomför en noggrant utformad studie där varken patienter eller läkare vet vem som får CBD eller placebo.
+
+En [2023 studie](/research/study/cbd-anxiety-dale-2023) fann att denna studie testar om CBD kan skydda schizofrenipatienter från de negativa effekterna av THC. Deltagare med schizofreni som använder cannabis rekreationellt tar antingen CBD eller placebo innan de inhalerar THC.
+
+En [2021 studie](/research/study/cannabidiol-and-amisulpride-improve-cognition-in-acute-schiz-2021-e0afe0) fann att här är en sammanfattning av forskningsstudien i enkla termer (100 ord):
+
+Forskare testade om CBD (upp till 800 mg/dag) eller ett vanligt antipsykotiskt läkemedel (amisulprid, upp till 800 mg/dag) kunde förbättra tänkande och minne hos 42 personer med schizofreni.
+
+### Vad översikter drar för slutsatser
+
+1 systematisk översikt har undersökt bevisen för CBD och schizofreni & psykos.
+
+En [2025 översikt](/research/study/cbd-arthritis-rajput-2025) ger en överblick över CBDs terapeutiska potential. Den undersöker nuvarande bevis för cannabidiols användning vid olika hälsotillstånd.
+
+### Stödjande bevis
+
+Förutom kliniska studier tillhandahåller 1 djurstudie och 0 in vitro (lab)studier stödjande bevis. Även om dessa inte kan berätta för oss hur CBD fungerar hos människor hjälper de till att etablera biologisk trovärdighet och vägleda framtida forskningsriktningar.
+
+**Viktigt sammanhang:** Djur- och laboratoristudier är forskning i tidigt stadium. Lovande resultat hos möss eller cellkulturer översätts inte alltid till människor. Jag inkluderar dem här för fullständighet, inte som bevis för effektivitet.
+
+## Studier värda att känna till
+
+### Protokoll för Cancloz: multicentrerad randomiserad, placebo-kontrollerad, dubbelblind studie (2024)
+
+Forskare testar om CBD-olja kan hjälpa personer med schizofreni som inte blir bättre av vanlig medicinering. De genomför en noggrant utformad studie där varken patienter eller läkare vet vem som får CBD eller placebo. Studien involverar ett stort antal personer med behandlingsresistent schizofreni från flera sjukhus. Resultaten väntar fortfarande - forskarna rekryterar fortfarande deltagare och samlar in data. Denna studie kan ge viktiga insikter om huruvida CBD kan vara en användbar tilläggsbehandling för vissa personer med schizofreni.
+
+**Urval:** Ej specificerat antal deltagare | **Typ:** människa | **Kvalitetspoäng:** 70/100
+
+[Visa studiesammanfattning](/research/study/protocol-for-cancloz-multicentre-randomised-placebo-controll-2024-b6467b)
+
+### Mildrar cannabidiol de akuta effekterna av ∆9-tetrahydrocannabinol-intoxikation (2023)
+
+Denna studie testar om CBD kan skydda schizofrenipatienter från de negativa effekterna av THC. Deltagare med schizofreni som använder cannabis rekreationellt tar antingen CBD eller placebo innan de inhalerar THC, sedan genomför de tester som mäter tänkande, [ångest](/conditions/anxiety) och psykossymptom.
+
+**Urval:** Ej specificerat antal deltagare | **Typ:** människa | **Kvalitetspoäng:** 68/100
+
+[Visa studiesammanfattning](/research/study/cbd-anxiety-dale-2023)
+
+### Cannabidiol och amisulprid förbättrar kognition vid akut schizofreni (2021)
+
+Här är en sammanfattning av forskningsstudien i enkla termer (100 ord):
+
+> För mer information, se vår guide om [CBD för schizofreni: Vad forskningen visar](/articles/cbd-for-schizophrenia).
+
+Forskare testade om CBD (upp till 800 mg/dag) eller ett vanligt antipsykotiskt läkemedel (amisulprid, upp till 800 mg/dag) kunde förbättra tänkande och minne hos 42 personer med schizofreni. Både CBD och läkemedlet förbättrade vissa aspekter av tänkandet, som visuellt minne och bearbetningshastighet, jämfört med före behandlingen. Läkemedlet förbättrade också arbetsminnet mer än CBD. Det fanns inga skillnader mellan de två behandlingarna. Detta tyder på att både CBD och det antipsykotiska läkemedlet kan förbättra vissa tänkande förmågor hos personer med akut schizofreni, även om mekanismerna kan skilja sig åt.
+
+**Urval:** Ej specificerat antal deltagare | **Typ:** människa | **Kvalitetspoäng:** 58/100
+
+[Visa studiesammanfattning](/research/study/cannabidiol-and-amisulpride-improve-cognition-in-acute-schiz-2021-e0afe0)
+
+## Hur CBD kan hjälpa vid schizofreni & psykos
+
+CBD interagerar med kroppens [endocannabinoidsystem](/glossary/endocannabinoid-system) (ECS), som spelar en roll i regleringen av olika fysiologiska processer. Även om de exakta mekanismerna för schizofreni & psykos fortfarande studeras tror forskare att CBD kan fungera genom flera vägar:
+
+- **CB1- och CB2-receptorer:** CBD har låg affinitet för dessa receptorer men kan modulera deras aktivitet
+- **[Serotonin](/conditions/serotonin)receptorer (5-HT1A):** Kan påverka [humör](/conditions/mood) och perception
+- **TRPV1-receptorer:** Involverade i [smärt](/conditions/pain)perception och [inflammation](/conditions/inflammation)
+
+Dessa mekanismer undersöks fortfarande, och vi förstår inte helt hur de relaterar till schizofreni & psykos specifikt.
+
+## Vilka doser har studerats
+
+**Viktigt:** Detta är INTE medicinsk rådgivning. Jag delar vad forskare använde i studier, inte rekommenderar doser.
+
+Över de studier jag granskade varierade doseringarna mycket — vanligtvis från 25mg till 600mg dagligen, beroende på studiedesign och specifika utfall som mättes. Några viktiga mönster:
+
+- Lägre doser (25-50mg) användes i inledande tolerabilitetsstudier
+- Måttliga doser (100-300mg) förekom i många kliniska prövningar
+- Högre doser (400-600mg+) användes i vissa specifika sammanhang
+
+Om du överväger CBD, använd vår [doseringskalkylatorn](/tools/dosage-calculator) som utgångspunkt, men rådgör alltid med en vårdgivare.
+
+## Min åsikt
+
+Efter att ha granskat 52 studier om CBD och schizofreni & psykos — och arbetat inom CBD-industrin i över 12 år — här är min ärliga bedömning:
+
+Forskningen är lovande men inte avgörande. Jag har sett tillräckligt med positiva fynd för att tycka att CBD är värt att överväga för schizofreni & psykos, men jag vill se större studier innan jag är helt säker. Om du provar det, håll dina förväntningar realistiska och spåra dina resultat.
+
+Vad jag håller utkik efter: Fler randomiserade kontrollerade prövningar med större urvalsgrupper.
+
+## Vanliga frågor
+
+### Kan CBD bota schizofreni & psykos?
+
+Nej. CBD är inget botemedel för schizofreni & psykos. Forskning tyder på att det kan hjälpa till att hantera symtom i vissa fall, men det bör komplettera — inte ersätta — konventionell behandling. Rådgör alltid med din läkare innan du gör förändringar i din hälsorutin.
+
+### Hur mycket CBD ska jag ta för schizofreni & psykos?
+
+Kliniska studier har använt doser som varierar mycket, från 25mg till 600mg dagligen. Det finns ingen "standard"dos och individuella svar varierar. Börja lågt (10-25mg) och öka gradvis medan du övervakar effekterna. Använd vår [doseringskalkylatorn](/tools/dosage-calculator) som utgångspunkt.
+
+### Hur lång tid tar det för CBD att verka för schizofreni & psykos?
+
+Detta beror på leveransmetod och individuella faktorer. Sublinguala oljor kan ta 15-45 minuter, medan kapslar kan ta 1-2 timmar. Vissa studier tyder på att fördelarna byggs upp över flera veckors konsekvent användning.
+
+### Kan jag ta CBD med mina nuvarande mediciner?
+
+CBD kan interagera med vissa mediciner genom att påverka leverenzymer (särskilt CYP450). Om du tar några mediciner, särskilt [blodförtunnande medel](/conditions/blood-thinners), antiepileptiska läkemedel eller [antidepressiva medel](/conditions/antidepressants), konsultera din läkare innan du använder CBD.
+
+### Vilken typ av CBD är bäst för schizofreni & psykos?
+
+De flesta studier använder CBD-isolat eller fullspektrumextrakt. Vissa forskare föreslår att fullspektrumprodukter kan ha förstärkta effekter på grund av "entourage-effekten", men detta diskuteras fortfarande. Välj kvalitetsprodukter från välrenommerade källor med tredjepartstestning.
+
+## Referenser
+
+Jag granskade 52 studier för denna artikel. Viktiga källor:
+
+1. **Siskind D, Bull C, Suetani S, Warren N, Suraev A, McGregor I, Kisely S, De Monte V, Trott M, Shine M, Moudgil V, Robinson G, Parker S, Krishnaiah R, Stedman T, Drummond A, Medland S, Iyer R, Baker A** (2024). Protokoll för Cancloz: multicentrerad randomiserad, placebo-kontrollerad, dubbelblind, parallellgrupp adaptiv prövning av cannabidiol för klozapin-resistent schizofreni. *BJPsych Open*.
+   [Sammanfattning](/research/study/protocol-for-cancloz-multicentre-randomised-placebo-controll-2024-b6467b) • [PubMed](https://pubmed.ncbi.nlm.nih.gov/39359160/) • DOI: 10.1192/bjo.2024.748
+
+2. **Gill Dale** (2023). Mildrar cannabidiol de akuta effekterna av ∆9-tetrahydrocannabinol-intoxikation hos individer diagnostiserade med schizofreni? En dubbelblind, randomiserad, placebo-kontrollerad experimentell studie. *ClinicalTrials.gov*.
+   [Sammanfattning](/research/study/cbd-anxiety-dale-2023)
+
+[Visa alla 52 studier om CBD och schizofreni & psykos →](/research?topic=schizophrenia)
+
+## Citera denna forskning
+
+**För journalister och forskare:**
+
+CBD Portal. (2026). "CBD och schizofreni & psykos: Vad forskningen visar." Hämtad från https://cbd-portal.vercel.app/conditions/schizophrenia
+
+**Snabbstatistik:**
+- Studier granskade: 52
+- Studier på människor: 50
+- Totalt antal deltagare: 0
+- Bevisstyrka: Måttlig
+
+Senast uppdaterad: 24 januari 2026
+Författare: Robin Roy Krigslund-Hansen
+
+---
+
+*Denna artikel är endast i informationssyfte. Det är inte medicinsk rådgivning. Konsultera en vårdprofessionell innan du använder CBD, särskilt om du har ett medicinskt tillstånd eller tar mediciner. För psykiska hälsotillstånd som schizofreni och psykos är professionell medicinsk vägledning absolut nödvändig.*

@@ -84,7 +84,7 @@ async function translateArticle(
 ): Promise<{ title: string; content: string; meta_description: string }> {
   // Combine all translations into a single API call to reduce rate limit impact
   const response = await callWithRetry(client, {
-    model: 'claude-3-haiku-20240307',
+    model: 'claude-sonnet-4-20250514',
     max_tokens: 4096,
     messages: [
       {

@@ -1,0 +1,783 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+
+// Supabase setup
+const { createClient } = require('@supabase/supabase-js');
+
+const supabaseUrl = 'https://bvrdryvgqarffgdujmjz.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ2cmRyeXZncWFyZmZnZHVqbWp6Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NzkwMTc5NywiZXhwIjoyMDgzNDc3Nzk3fQ.SmqoTgGp3J6JEOuOiEl7IMd8whWz4qAvQABM7AUc7kY';
+
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+// Load English conditions
+const conditionsPath = path.join(__dirname, 'data', 'conditions_en.json');
+const conditions = JSON.parse(fs.readFileSync(conditionsPath, 'utf8'));
+
+console.log(`Loaded ${conditions.length} conditions to translate`);
+
+// Spanish translation mappings for medical terms and common phrases
+const spanishTranslations = {
+  // Medical conditions - alphabetical
+  'Acid Reflux': 'Reflujo Ácido',
+  'Acne': 'Acné',
+  'Actors': 'Actores',
+  'Acupuncture': 'Acupuntura',
+  'Addiction': 'Adicción',
+  'Adenosine': 'Adenosina',
+  'ADHD': 'TDAH',
+  'Aggressive Dogs': 'Perros Agresivos',
+  'Aging': 'Envejecimiento',
+  'Aging Skin': 'Envejecimiento de la Piel',
+  'Alcohol': 'Alcohol',
+  'Alcohol Withdrawal': 'Síndrome de Abstinencia Alcohólica',
+  'Allergies': 'Alergias',
+  "Alzheimer's": 'Alzheimer',
+  'Ankle Pain': 'Dolor de Tobillo',
+  'Antibiotics': 'Antibióticos',
+  'Antidepressants': 'Antidepresivos',
+  'Anxiety': 'Ansiedad',
+  'Appetite': 'Apetito',
+  'Architects': 'Arquitectos',
+  'Arthritis': 'Artritis',
+  'Artists': 'Artistas',
+  'Asthma': 'Asma',
+  'Athletic Recovery': 'Recuperación Deportiva',
+  'Autism': 'Autismo',
+  'Autoimmune Conditions': 'Trastornos Autoinmunes',
+  'Back Pain': 'Dolor de Espalda',
+  'Beginners': 'Principiantes',
+  'Better Rest': 'Mejor Descanso',
+  'Bipolar Disorder': 'Trastorno Bipolar',
+  'Bird Anxiety': 'Ansiedad en Aves',
+  'Birds': 'Aves',
+  'Bloating': 'Hinchazón',
+  'Blood Pressure': 'Presión Arterial',
+  'Blood Pressure Medications': 'Medicamentos para la Presión Arterial',
+  'Blood Thinners': 'Anticoagulantes',
+  'Breastfeeding': 'Lactancia Materna',
+  'Bronchitis': 'Bronquitis',
+  'Bruising': 'Hematomas',
+  'Bruxism': 'Bruxismo',
+  'Bug Bites': 'Picaduras de Insectos',
+  'Burnout': 'Síndrome de Burnout',
+  'Bursitis': 'Bursitis',
+  'Cancer': 'Cáncer',
+  'Caregivers': 'Cuidadores',
+  'Carpal Tunnel': 'Síndrome del Túnel Carpiano',
+  'Cat Aggression': 'Agresión en Gatos',
+  'Cat Anxiety': 'Ansiedad en Gatos',
+  'Cat Appetite': 'Apetito de Gatos',
+  'Cat Arthritis': 'Artritis en Gatos',
+  'Cat Cancer': 'Cáncer en Gatos',
+  'Cat Hyperthyroidism': 'Hipertiroidismo Felino',
+  'Cat Kidney Disease': 'Enfermedad Renal Felina',
+  'Cat Pain': 'Dolor en Gatos',
+  'Cat Seizures': 'Convulsiones en Gatos',
+  'Cat Stomatitis': 'Estomatitis Felina',
+  'Chefs': 'Chefs',
+  'Chemotherapy Side Effects': 'Efectos Secundarios de la Quimioterapia',
+  'Chest Pain': 'Dolor de Pecho',
+  'Children': 'Niños',
+  'Chiropractic': 'Quiropráctica',
+  'Cholesterol': 'Colesterol',
+  'Chronic Fatigue': 'Fatiga Crónica',
+  'Chronic Pain': 'Dolor Crónico',
+  'Circulation': 'Circulación',
+  'Cluster Headaches': 'Cefaleas en Racimos',
+  'Coffee': 'Café',
+  'Cold Hands & Feet': 'Manos y Pies Fríos',
+  'Cold Plunge': 'Inmersión en Frío',
+  'Colds & Flu': 'Resfriados y Gripe',
+  'Constipation': 'Estreñimiento',
+  'Construction Workers': 'Trabajadores de la Construcción',
+  'COPD': 'EPOC',
+  'COVID-19': 'COVID-19',
+  'Creativity': 'Creatividad',
+  "Crohn's Disease": 'Enfermedad de Crohn',
+  'CrossFit': 'CrossFit',
+  'Cyclists': 'Ciclistas',
+  'Dandruff': 'Caspa',
+  'Dating Anxiety': 'Ansiedad en Citas',
+  'Dental Anxiety': 'Ansiedad Dental',
+  'Depression': 'Depresión',
+  'Desk Workers': 'Trabajadores de Oficina',
+  'Diabetes': 'Diabetes',
+  'Diabetes Medications': 'Medicamentos para la Diabetes',
+  'Diabetic Neuropathy': 'Neuropatía Diabética',
+  'Diarrhea': 'Diarrea',
+  'Digestive Health': 'Salud Digestiva',
+  'Dog Allergies': 'Alergias en Perros',
+  'Dog Anxiety': 'Ansiedad en Perros',
+  'Dog Appetite': 'Apetito de Perros',
+  'Dog Arthritis': 'Artritis en Perros',
+  'Dog Hip Dysplasia': 'Displasia de Cadera en Perros',
+  'Dog Nausea': 'Náuseas en Perros',
+  'Dog Pain': 'Dolor en Perros',
+  'Dog Seizures': 'Convulsiones en Perros',
+  'Dog Separation Anxiety': 'Ansiedad por Separación en Perros',
+  'Dog Thunderstorm Anxiety': 'Ansiedad por Tormentas en Perros',
+  'Dopamine': 'Dopamina',
+  'Driving': 'Conducción',
+  'Drug Testing': 'Pruebas de Drogas',
+  'Dry Mouth': 'Sequedad de Boca',
+  'Dry Skin': 'Piel Seca',
+  'Eczema': 'Eczema',
+  'Elbow Pain': 'Dolor de Codo',
+  'Endometriosis': 'Endometriosis',
+  'Energy': 'Energía',
+  'Entrepreneurs': 'Empresarios',
+  'Epilepsy': 'Epilepsia',
+  'Exam Anxiety': 'Ansiedad ante Exámenes',
+  'Eye Health': 'Salud Ocular',
+  'Family Gatherings': 'Reuniones Familiares',
+  'Feather Plucking': 'Arrancado de Plumas',
+  'Ferrets': 'Hurones',
+  'Fibromyalgia': 'Fibromialgia',
+  'Financial Advisors': 'Asesores Financieros',
+  'First Responders': 'Primeros Auxilios',
+  'Focus': 'Concentración',
+  'Food Intolerances': 'Intolerancias Alimentarias',
+  'Foot Pain': 'Dolor de Pie',
+  'Frozen Shoulder': 'Hombro Congelado',
+  'GABA': 'GABA',
+  'Gamers': 'Jugadores',
+  'Gastroparesis': 'Gastroparesia',
+  'Generalized Anxiety Disorder': 'Trastorno de Ansiedad Generalizada',
+  'Glaucoma': 'Glaucoma',
+  'Golf': 'Golf',
+  'Grief': 'Duelo',
+  'Guinea Pigs': 'Cobayas',
+  'Gum Disease': 'Enfermedad de las Encías',
+  'Gut Health': 'Salud Intestinal',
+  'Hair Loss': 'Caída del Cabello',
+  'Hairdressers': 'Peluqueros',
+  'Hamsters': 'Hámsteres',
+  'Hand Pain': 'Dolor de Mano',
+  'Hangover': 'Resaca',
+  'Headaches': 'Dolores de Cabeza',
+  'Healthcare Anxiety': 'Ansiedad Sanitaria',
+  'Healthcare Workers': 'Profesionales Sanitarios',
+  'Hearing Loss': 'Pérdida Auditiva',
+  'Heart Health': 'Salud Cardíaca',
+  'Highly Sensitive People': 'Personas Altamente Sensibles',
+  'Hiking': 'Senderismo',
+  'Hip Pain': 'Dolor de Cadera',
+  'Hives': 'Urticaria',
+  'Holiday Stress': 'Estrés Navideño',
+  'Homeostasis': 'Homeostasis',
+  'Horse Anxiety': 'Ansiedad en Caballos',
+  'Horse Cushings': 'Síndrome de Cushing Equino',
+  'Horse Laminitis': 'Laminitis Equina',
+  'Horse Navicular': 'Síndrome Navicular Equino',
+  'Horse Performance': 'Rendimiento Equino',
+  'Horse Ulcers': 'Úlceras Gástricas Equinas',
+  'Hot Flashes': 'Sofocos',
+  'Hot Tub': 'Hidromasaje',
+  'IBS': 'SII',
+  'Immune Health': 'Salud Inmunitaria',
+  'Inflammation': 'Inflamación',
+  'Insulin Resistance': 'Resistencia a la Insulina',
+  'Intermittent Fasting': 'Ayuno Intermitente',
+  'Interview Anxiety': 'Ansiedad en Entrevistas',
+  'Introverts': 'Introvertidos',
+  'Jaw Pain': 'Dolor de Mandíbula',
+  'Joint Health': 'Salud Articular',
+  'Keto Diet': 'Dieta Keto',
+  'Knee Pain': 'Dolor de Rodilla',
+  'Lawyers': 'Abogados',
+  'Leaky Gut': 'Intestino Permeable',
+  'Liver Health': 'Salud Hepática',
+  'Long COVID': 'COVID Persistente',
+  'Lupus': 'Lupus',
+  'Martial Arts': 'Artes Marciales',
+  'Meditation': 'Meditación',
+  'Men': 'Hombres',
+  'Menopause': 'Menopausia',
+  'Menstrual Cramps': 'Cólicos Menstruales',
+  'Menstrual Pain': 'Dolor Menstrual',
+  'Metabolic Syndrome': 'Síndrome Metabólico',
+  'Migraines': 'Migrañas',
+  'MMA': 'MMA',
+  'Mood': 'Estado de Ánimo',
+  'Mouth Ulcers': 'Úlceras Bucales',
+  'Moving Stress': 'Estrés por Mudanza',
+  'Multiple Sclerosis': 'Esclerosis Múltiple',
+  'Muscle Recovery': 'Recuperación Muscular',
+  'Muscle Tension': 'Tensión Muscular',
+  'Musicians': 'Músicos',
+  'Nail Health': 'Salud de las Uñas',
+  'Nausea': 'Náuseas',
+  'Neck Pain': 'Dolor de Cuello',
+  'Nerve Pain': 'Dolor Neuropático',
+  'Nervous System': 'Sistema Nervioso',
+  'Neurological': 'Neurológico',
+  'Neuropathic Pain': 'Dolor Neuropático',
+  'New Mothers': 'Madres Primerizas',
+  'Night Owls': 'Noctámbulos',
+  'Obesity': 'Obesidad',
+  'Occipital Neuralgia': 'Neuralgia Occipital',
+  'OCD': 'TOC',
+  'Oily Skin': 'Piel Grasa',
+  'Opioid Tapering': 'Reducción de Opioides',
+  'Over 60': 'Mayores de 60',
+  'Overuse Injuries': 'Lesiones por Sobrecarga',
+  'Pain': 'Dolor',
+  'Panic Attacks': 'Ataques de Pánico',
+  'Parents': 'Padres',
+  "Parkinson's": 'Parkinson',
+  'Parrots': 'Loros',
+  'Pelvic Pain': 'Dolor Pélvico',
+  'Perfectionists': 'Perfeccionistas',
+  'Performance Anxiety': 'Ansiedad de Rendimiento',
+  'Peripheral Neuropathy': 'Neuropatía Periférica',
+  'Pet Fireworks Anxiety': 'Ansiedad por Fuegos Artificiales en Mascotas',
+  'Pet Travel Anxiety': 'Ansiedad de Viaje en Mascotas',
+  'Pets': 'Mascotas',
+  'Phantom Pain': 'Dolor Fantasma',
+  'Phone Anxiety': 'Ansiedad Telefónica',
+  'Photographers': 'Fotógrafos',
+  'Physical Therapy': 'Fisioterapia',
+  'Plantar Fasciitis': 'Fascitis Plantar',
+  'PMS': 'SPM',
+  'Podcasters': 'Podcasters',
+  'Poison Ivy': 'Hiedra Venenosa',
+  'Post-Surgical Pain': 'Dolor Postoperatorio',
+  'Pregnancy': 'Embarazo',
+  'Prescription Medications': 'Medicamentos Recetados',
+  'Programmers': 'Programadores',
+  'Psoriasis': 'Psoriasis',
+  'PTSD': 'TEPT',
+  'Public Speakers': 'Oradores Públicos',
+  'Public Speaking Anxiety': 'Ansiedad al Hablar en Público',
+  'Puppies': 'Cachorros',
+  'Rabbits': 'Conejos',
+  'Radiation Therapy': 'Radioterapia',
+  'Raynauds': 'Fenómeno de Raynaud',
+  'Real Estate Agents': 'Agentes Inmobiliarios',
+  'Remote Workers': 'Trabajadores Remotos',
+  'Reptiles': 'Reptiles',
+  'Restless Leg Syndrome': 'Síndrome de Piernas Inquietas',
+  'Retail Workers': 'Trabajadores del Comercio',
+  'Rib Pain': 'Dolor de Costillas',
+  'Rock Climbing': 'Escalada',
+  'Rosacea': 'Rosácea',
+  'Runners': 'Corredores',
+  'Sales Professionals': 'Profesionales de Ventas',
+  'Sauna': 'Sauna',
+  'Scalp Health': 'Salud del Cuero Cabelludo',
+  'Scar Tissue Pain': 'Dolor por Tejido Cicatricial',
+  'Schizophrenia': 'Esquizofrenia',
+  'Sciatica': 'Ciática',
+  'Seasonal Allergies': 'Alergias Estacionales',
+  'Seasonal Depression': 'Depresión Estacional',
+  'Senior Cats': 'Gatos Mayores',
+  'Senior Dogs': 'Perros Mayores',
+  'Senior Pets': 'Mascotas Mayores',
+  'Seniors': 'Personas Mayores',
+  'Sensitive Skin': 'Piel Sensible',
+  'Serotonin': 'Serotonina',
+  'Shift Workers': 'Trabajadores por Turnos',
+  'Shingles': 'Herpes Zóster',
+  'Shoulder Pain': 'Dolor de Hombro',
+  'Sinusitis': 'Sinusitis',
+  'Skeptics': 'Escépticos',
+  'Skiing': 'Esquí',
+  'Skin Health': 'Salud de la Piel',
+  'Sleep': 'Sueño',
+  'Sleep Apnea': 'Apnea del Sueño',
+  'Small Pets': 'Mascotas Pequeñas',
+  'Smoking Cessation': 'Dejar de Fumar',
+  'Snoring': 'Ronquidos',
+  'Social Anxiety': 'Ansiedad Social',
+  'Social Events': 'Eventos Sociales',
+  'Sports Injuries': 'Lesiones Deportivas',
+  'Streamers': 'Streamers',
+  'Stress': 'Estrés',
+  'Students': 'Estudiantes',
+  'Sunburn': 'Quemaduras Solares',
+  'Surfing': 'Surf',
+  'Surgery Recovery': 'Recuperación Quirúrgica',
+  'Swimmers': 'Nadadores',
+  'Teachers': 'Profesores',
+  'Teenagers': 'Adolescentes',
+  'Tendonitis': 'Tendinitis',
+  'Tennis': 'Tenis',
+  'Tension Headaches': 'Cefaleas Tensionales',
+  'THC Sensitive': 'Sensibilidad al THC',
+  'Therapists': 'Terapeutas',
+  'Thyroid': 'Tiroides',
+  'Tinnitus': 'Acúfenos',
+  'TMJ': 'ATM',
+  'Tooth Pain': 'Dolor Dental',
+  "Tourette's": 'Síndrome de Tourette',
+  'Travel Anxiety': 'Ansiedad de Viaje',
+  'Travelers': 'Viajeros',
+  'Trigeminal Neuralgia': 'Neuralgia del Trigémino',
+  'Truck Drivers': 'Camioneros',
+  'Type A Personalities': 'Personalidades Tipo A',
+  'Ulcerative Colitis': 'Colitis Ulcerosa',
+  'Varicose Veins': 'Varices',
+  'Vegans': 'Veganos',
+  'Vertigo': 'Vértigo',
+  'Veterans': 'Veteranos',
+  'Wedding Anxiety': 'Ansiedad Nupcial',
+  'Weight Management': 'Control de Peso',
+  'Weightlifters': 'Levantadores de Pesas',
+  "Women's Health": 'Salud de la Mujer',
+  'Workout Recovery': 'Recuperación Deportiva',
+  'Wound Healing': 'Cicatrización de Heridas',
+  'Wrist Pain': 'Dolor de Muñeca',
+  'Writers': 'Escritores',
+  'Yoga': 'Yoga'
+};
+
+// Spanish display name mappings
+const spanishDisplayNames = {
+  'Acid Reflux & GERD': 'Reflujo Ácido y ERGE',
+  'Acne & Skin Health': 'Acné y Salud de la Piel',
+  'CBD for Actors': 'CBD para Actores',
+  'CBD & Acupuncture': 'CBD y Acupuntura',
+  'Addiction & Substance Use Disorders': 'Adicción y Trastornos por Uso de Sustancias',
+  'CBD & Adenosine System': 'CBD y Sistema de Adenosina',
+  'Attention-Deficit/Hyperactivity Disorder': 'Trastorno por Déficit de Atención e Hiperactividad',
+  'Dog Aggression & Behavior': 'Agresión y Comportamiento Canino',
+  'Aging & Longevity': 'Envejecimiento y Longevidad',
+  'Anti-Aging Skincare': 'Cuidado Antienvejecimiento de la Piel',
+  'CBD & Alcohol': 'CBD y Alcohol',
+  'Alcohol Withdrawal': 'Síndrome de Abstinencia Alcohólica',
+  'Allergies': 'Alergias',
+  "Alzheimer's Disease & Dementia": 'Alzheimer y Demencia',
+  'Ankle Pain & Sprains': 'Dolor de Tobillo y Esguinces',
+  'CBD & Antibiotics': 'CBD y Antibióticos',
+  'CBD & Antidepressants': 'CBD y Antidepresivos',
+  'Anxiety Disorders': 'Trastornos de Ansiedad',
+  'Appetite Regulation': 'Regulación del Apetito',
+  'CBD for Architects': 'CBD para Arquitectos',
+  'Arthritis & Joint Pain': 'Artritis y Dolor Articular',
+  'CBD for Artists': 'CBD para Artistas',
+  'Asthma': 'Asma',
+  'Athletic Recovery': 'Recuperación Deportiva',
+  'Sports & Athletic Performance': 'Deporte y Rendimiento Atlético',
+  'Autism Spectrum Disorder': 'Trastorno del Espectro Autista',
+  'Autoimmune Conditions': 'Trastornos Autoinmunes',
+  'Back Pain': 'Dolor de Espalda',
+  'CBD for First-Timers': 'CBD para Principiantes',
+  'Rest & Relaxation': 'Descanso y Relajación',
+  'Bipolar Disorder': 'Trastorno Bipolar',
+  'Bird Anxiety & Stress': 'Ansiedad y Estrés en Aves',
+  'Bird Care & CBD': 'Cuidado de Aves y CBD',
+  'Bloating & Gas': 'Hinchazón y Gases',
+  'Blood Pressure & Hypertension': 'Presión Arterial e Hipertensión',
+  'CBD & Blood Pressure Meds': 'CBD y Medicamentos para la Presión Arterial',
+  'CBD & Blood Thinners': 'CBD y Anticoagulantes',
+  'Breastfeeding & CBD Safety': 'Lactancia Materna y Seguridad del CBD',
+  'Bronchitis': 'Bronquitis',
+  'Bruising': 'Hematomas',
+  'Bruxism (Teeth Grinding)': 'Bruxismo (Rechinar de Dientes)',
+  'Bug Bites & Stings': 'Picaduras y Mordeduras de Insectos',
+  'Burnout & Chronic Stress': 'Síndrome de Burnout y Estrés Crónico',
+  'Bursitis': 'Bursitis',
+  'Cancer & Oncology': 'Cáncer y Oncología',
+  'CBD for Caregivers': 'CBD para Cuidadores',
+  'Carpal Tunnel Syndrome': 'Síndrome del Túnel Carpiano',
+  'Cat Aggression & Behavior': 'Agresión y Comportamiento Felino',
+  'Cat Anxiety': 'Ansiedad Felina',
+  'Cat Appetite Issues': 'Problemas de Apetito Felino',
+  'Cat Arthritis': 'Artritis Felina',
+  'Cats with Cancer': 'Gatos con Cáncer',
+  'Cats with Hyperthyroidism': 'Gatos con Hipertiroidismo',
+  'Cats with Kidney Disease': 'Gatos con Enfermedad Renal',
+  'Cat Pain Management': 'Control del Dolor Felino',
+  'Cat Seizures': 'Convulsiones Felinas',
+  'Feline Stomatitis': 'Estomatitis Felina',
+  'CBD for Culinary Professionals': 'CBD para Profesionales Culinarios',
+  'Chemotherapy Side Effects': 'Efectos Secundarios de la Quimioterapia',
+  'Non-Cardiac Chest Pain': 'Dolor Torácico no Cardíaco',
+  'CBD for Children': 'CBD para Niños',
+  'CBD & Chiropractic Care': 'CBD y Cuidados Quiroprácticos',
+  'Cholesterol Management': 'Control del Colesterol',
+  'Chronic Fatigue Syndrome': 'Síndrome de Fatiga Crónica',
+  'Chronic Pain Management': 'Control del Dolor Crónico',
+  'Blood Circulation': 'Circulación Sanguínea',
+  'Cluster Headaches': 'Cefaleas en Racimos',
+  'CBD & Coffee': 'CBD y Café',
+  'Poor Extremity Circulation': 'Mala Circulación de Extremidades',
+  'CBD & Cold Therapy': 'CBD y Terapia de Frío',
+  'Cold & Flu Symptoms': 'Síntomas de Resfriado y Gripe',
+  'Constipation': 'Estreñimiento',
+  'CBD for Construction Workers': 'CBD para Trabajadores de la Construcción',
+  'COPD': 'EPOC',
+  'COVID-19 Research': 'Investigación sobre COVID-19',
+  'Creativity & Creative Flow': 'Creatividad y Flujo Creativo',
+  "Crohn's Disease & IBD": 'Enfermedad de Crohn y EII',
+  'CBD for CrossFit': 'CBD para CrossFit',
+  'CBD for Cyclists': 'CBD para Ciclistas',
+  'Dandruff': 'Caspa',
+  'Dating & Relationship Anxiety': 'Ansiedad en Citas y Relaciones',
+  'Dental Anxiety': 'Ansiedad Dental',
+  'Depression & Mood Disorders': 'Depresión y Trastornos del Estado de Ánimo',
+  'CBD for Office Workers': 'CBD para Trabajadores de Oficina',
+  'Diabetes & Blood Sugar': 'Diabetes y Azúcar en Sangre',
+  'CBD & Diabetes Medications': 'CBD y Medicamentos para la Diabetes',
+  'Diabetic Neuropathy': 'Neuropatía Diabética',
+  'Diarrhea': 'Diarrea',
+  'Digestive Health': 'Salud Digestiva',
+  'Dog Allergies & Skin Issues': 'Alergias y Problemas de Piel Canina',
+  'Dog Anxiety': 'Ansiedad Canina',
+  'Dog Appetite Issues': 'Problemas de Apetito Canino',
+  'Dog Arthritis': 'Artritis Canina',
+  'Dog Hip Dysplasia': 'Displasia de Cadera Canina',
+  'Dog Nausea & Motion Sickness': 'Náuseas y Mareo por Movimiento Canino',
+  'Dog Pain Management': 'Control del Dolor Canino',
+  'Dog Seizures & Epilepsy': 'Convulsiones y Epilepsia Canina',
+  'Dog Separation Anxiety': 'Ansiedad por Separación Canina',
+  'Dog Storm & Noise Anxiety': 'Ansiedad por Tormentas y Ruido Canino',
+  'CBD & Dopamine': 'CBD y Dopamina',
+  'CBD & Driving': 'CBD y Conducción',
+  'CBD & Drug Testing': 'CBD y Pruebas de Drogas',
+  'Dry Mouth': 'Sequedad Bucal',
+  'Dry Skin': 'Piel Seca',
+  'Eczema & Dermatitis': 'Eczema y Dermatitis',
+  'Elbow Pain & Tennis Elbow': 'Dolor de Codo y Codo de Tenista',
+  'Endometriosis': 'Endometriosis',
+  'Energy & Vitality': 'Energía y Vitalidad',
+  'CBD for Entrepreneurs': 'CBD para Empresarios',
+  'Epilepsy & Seizure Disorders': 'Epilepsia y Trastornos Convulsivos',
+  'Test & Exam Anxiety': 'Ansiedad ante Exámenes y Pruebas',
+  'Eye Health': 'Salud Ocular',
+  'Family Event Anxiety': 'Ansiedad en Eventos Familiares',
+  'Bird Feather Plucking': 'Arrancado de Plumas en Aves',
+  'Ferret Care & CBD': 'Cuidado de Hurones y CBD',
+  'Fibromyalgia Syndrome': 'Síndrome de Fibromialgia',
+  'CBD for Financial Professionals': 'CBD para Profesionales Financieros',
+  'CBD for First Responders': 'CBD para Primeros Auxilios',
+  'Focus & Concentration': 'Concentración y Enfoque',
+  'Food Intolerances': 'Intolerancias Alimentarias',
+  'Foot Pain': 'Dolor de Pie',
+  'Frozen Shoulder': 'Hombro Congelado',
+  'CBD & GABA': 'CBD y GABA',
+  'CBD for Gamers': 'CBD para Jugadores',
+  'Gastroparesis': 'Gastroparesia',
+  'Generalized Anxiety Disorder (GAD)': 'Trastorno de Ansiedad Generalizada (TAG)',
+  'Glaucoma & Eye Pressure': 'Glaucoma y Presión Ocular',
+  'CBD for Golfers': 'CBD para Golfistas',
+  'Grief & Bereavement': 'Duelo y Luto',
+  'Guinea Pig Care & CBD': 'Cuidado de Cobayas y CBD',
+  'Gum Disease & Gingivitis': 'Enfermedad de las Encías y Gingivitis',
+  'Gut Microbiome Health': 'Salud del Microbioma Intestinal',
+  'Hair Loss & Thinning': 'Caída y Adelgazamiento del Cabello',
+  'CBD for Hairdressers & Stylists': 'CBD para Peluqueros y Estilistas',
+  'Hamster Care & CBD': 'Cuidado de Hámsteres y CBD',
+  'Hand Pain & Grip Issues': 'Dolor de Mano y Problemas de Agarre',
+  'Hangover Recovery': 'Recuperación de la Resaca',
+  'Headaches': 'Dolores de Cabeza',
+  'Medical & Healthcare Anxiety': 'Ansiedad Médica y Sanitaria',
+  'CBD for Healthcare Workers': 'CBD para Profesionales Sanitarios',
+  'Hearing Loss & Auditory Health': 'Pérdida Auditiva y Salud Auditiva',
+  'Cardiovascular Health': 'Salud Cardiovascular',
+  'CBD for HSPs': 'CBD para Personas Altamente Sensibles',
+  'CBD for Hikers': 'CBD para Senderistas',
+  'Hip Pain & Hip Dysplasia': 'Dolor de Cadera y Displasia de Cadera',
+  'Hives & Urticaria': 'Urticaria y Ronchas',
+  'Holiday & Seasonal Stress': 'Estrés Navideño y Estacional',
+  'CBD & Homeostasis': 'CBD y Homeostasis',
+  'Horse Anxiety': 'Ansiedad Equina',
+  "Horse Cushing's Disease (PPID)": 'Enfermedad de Cushing Equina (PPID)',
+  'Horse Laminitis': 'Laminitis Equina',
+  'Horse Navicular Syndrome': 'Síndrome Navicular Equino',
+  'Horse Performance & Recovery': 'Rendimiento y Recuperación Equina',
+  'Horse Gastric Ulcers': 'Úlceras Gástricas Equinas',
+  'Hot Flashes': 'Sofocos',
+  'CBD & Hot Tub Recovery': 'CBD y Recuperación en Hidromasaje',
+  'Irritable Bowel Syndrome': 'Síndrome del Intestino Irritable',
+  'Immune System Support': 'Apoyo al Sistema Inmunitario',
+  'Inflammation & Inflammatory Conditions': 'Inflamación y Trastornos Inflamatorios',
+  'Insulin Resistance': 'Resistencia a la Insulina',
+  'CBD & Intermittent Fasting': 'CBD y Ayuno Intermitente',
+  'Job Interview Anxiety': 'Ansiedad en Entrevistas de Trabajo',
+  'CBD for Introverts': 'CBD para Introvertidos',
+  'Jaw Pain': 'Dolor de Mandíbula',
+  'Joint Health & Mobility': 'Salud Articular y Movilidad',
+  'CBD & Keto Diet': 'CBD y Dieta Keto',
+  'Knee Pain': 'Dolor de Rodilla',
+  'CBD for Lawyers': 'CBD para Abogados',
+  'Intestinal Permeability': 'Permeabilidad Intestinal',
+  'Liver Health': 'Salud Hepática',
+  'Long COVID Syndrome': 'Síndrome de COVID Persistente',
+  'Lupus': 'Lupus',
+  'CBD for Martial Arts': 'CBD para Artes Marciales',
+  'CBD & Meditation': 'CBD y Meditación',
+  "Men's Health & CBD": 'Salud Masculina y CBD',
+  'Menopause': 'Menopausia',
+  'Menstrual Cramps & Period Pain': 'Cólicos Menstruales y Dolor de Regla',
+  'Period Pain': 'Dolor Menstrual',
+  'Metabolic Syndrome': 'Síndrome Metabólico',
+  'Migraines & Headaches': 'Migrañas y Dolores de Cabeza',
+  'CBD for MMA & Combat Sports': 'CBD para MMA y Deportes de Combate',
+  'Mood Regulation': 'Regulación del Estado de Ánimo',
+  'Mouth Ulcers & Canker Sores': 'Úlceras Bucales y Aftas',
+  'CBD for Moving House Stress': 'CBD para Estrés de Mudanza',
+  'Multiple Sclerosis (MS)': 'Esclerosis Múltiple (EM)',
+  'Muscle Recovery': 'Recuperación Muscular',
+  'Muscle Tension & Spasms': 'Tensión Muscular y Espasmos',
+  'CBD for Musicians': 'CBD para Músicos',
+  'Nail Health': 'Salud de las Uñas',
+  'Nausea & Vomiting': 'Náuseas y Vómitos',
+  'Neck Pain & Stiffness': 'Dolor de Cuello y Rigidez',
+  'Nerve Pain & Neuralgia': 'Dolor Neuropático y Neuralgia',
+  'CBD & Nervous System': 'CBD y Sistema Nervioso',
+  'Other Neurological Conditions': 'Otras Afecciones Neurológicas',
+  'Neuropathic Pain & Nerve Damage': 'Dolor Neuropático y Daño Nervioso',
+  'CBD for New Mothers': 'CBD para Madres Primerizas',
+  'CBD for Night Owls': 'CBD para Noctámbulos',
+  'Obesity & Weight Management': 'Obesidad y Control de Peso',
+  'Occipital Neuralgia': 'Neuralgia Occipital',
+  'Obsessive-Compulsive Disorder (OCD)': 'Trastorno Obsesivo-Compulsivo (TOC)',
+  'Oily Skin': 'Piel Grasa',
+  'Opioid Tapering & Withdrawal': 'Reducción y Abstinencia de Opioides',
+  'CBD for Over 60': 'CBD para Mayores de 60',
+  'Repetitive Strain Injuries': 'Lesiones por Sobrecarga Repetitiva',
+  'Pain Management': 'Control del Dolor',
+  'Panic Attacks & Panic Disorder': 'Ataques de Pánico y Trastorno de Pánico',
+  'CBD for Parents': 'CBD para Padres',
+  "Parkinson's Disease": 'Enfermedad de Parkinson',
+  'Parrot Care & CBD': 'Cuidado de Loros y CBD',
+  'Pelvic Pain': 'Dolor Pélvico',
+  'CBD for Perfectionists': 'CBD para Perfeccionistas',
+  'Performance Anxiety': 'Ansiedad de Rendimiento',
+  'Peripheral Neuropathy': 'Neuropatía Periférica',
+  'Pet Fireworks & Noise Fear': 'Miedo a Fuegos Artificiales y Ruido en Mascotas',
+  'Pet Travel & Motion Sickness': 'Viaje y Mareo por Movimiento en Mascotas',
+  'CBD for Pets & Animals': 'CBD para Mascotas y Animales',
+  'Phantom Limb Pain': 'Dolor de Miembro Fantasma',
+  'Phone & Communication Anxiety': 'Ansiedad Telefónica y de Comunicación',
+  'CBD for Photographers': 'CBD para Fotógrafos',
+  'CBD & Physical Therapy': 'CBD y Fisioterapia',
+  'Plantar Fasciitis': 'Fascitis Plantar',
+  'Premenstrual Syndrome (PMS)': 'Síndrome Premenstrual (SPM)',
+  'CBD for Podcasters': 'CBD para Podcasters',
+  'Poison Ivy & Plant Rashes': 'Hiedra Venenosa y Erupciones Vegetales',
+  'Post-Operative Pain': 'Dolor Postoperatorio',
+  'Pregnancy & CBD Safety': 'Embarazo y Seguridad del CBD',
+  'CBD & Prescription Drugs': 'CBD y Medicamentos Recetados',
+  'CBD for Programmers': 'CBD para Programadores',
+  'Psoriasis & Autoimmune Skin Conditions': 'Psoriasis y Trastornos Cutáneos Autoinmunes',
+  'Post-Traumatic Stress Disorder': 'Trastorno de Estrés Postraumático',
+  'CBD for Public Speakers': 'CBD para Oradores Públicos',
+  'Public Speaking & Stage Fright': 'Hablar en Público y Miedo Escénico',
+  'Puppy Care & CBD': 'Cuidado de Cachorros y CBD',
+  'Rabbit Care & CBD': 'Cuidado de Conejos y CBD',
+  'Radiation Therapy Side Effects': 'Efectos Secundarios de la Radioterapia',
+  "Raynaud's Phenomenon": 'Fenómeno de Raynaud',
+  'CBD for Real Estate Agents': 'CBD para Agentes Inmobiliarios',
+  'CBD for Remote Workers': 'CBD para Trabajadores Remotos',
+  'Reptile Care & CBD': 'Cuidado de Reptiles y CBD',
+  'Restless Leg Syndrome': 'Síndrome de Piernas Inquietas',
+  'CBD for Retail Workers': 'CBD para Trabajadores del Comercio',
+  'Rib Pain & Costochondritis': 'Dolor de Costillas y Costocondritis',
+  'CBD for Rock Climbing': 'CBD para Escalada',
+  'Rosacea': 'Rosácea',
+  'CBD for Runners': 'CBD para Corredores',
+  'CBD for Sales Professionals': 'CBD para Profesionales de Ventas',
+  'CBD & Sauna': 'CBD y Sauna',
+  'Scalp Conditions': 'Trastornos del Cuero Cabelludo',
+  'Scar Tissue & Adhesion Pain': 'Dolor de Tejido Cicatricial y Adherencias',
+  'Schizophrenia & Psychosis': 'Esquizofrenia y Psicosis',
+  'Sciatica': 'Ciática',
+  'Seasonal Allergies & Hay Fever': 'Alergias Estacionales y Fiebre del Heno',
+  'Seasonal Affective Disorder (SAD)': 'Trastorno Afectivo Estacional (TAE)',
+  'Senior Cat Care': 'Cuidado de Gatos Mayores',
+  'Senior Dog Care': 'Cuidado de Perros Mayores',
+  'Senior Pet Care': 'Cuidado de Mascotas Mayores',
+  'CBD for Seniors (50+)': 'CBD para Personas Mayores (50+)',
+  'Sensitive Skin': 'Piel Sensible',
+  'CBD & Serotonin': 'CBD y Serotonina',
+  'CBD for Shift Workers': 'CBD para Trabajadores por Turnos',
+  'Shingles & Postherpetic Neuralgia': 'Herpes Zóster y Neuralgia Postherpética',
+  'Shoulder Pain': 'Dolor de Hombro',
+  'Sinus Issues': 'Problemas de Sinusitis',
+  'CBD for Skeptics': 'CBD para Escépticos',
+  'CBD for Skiing & Snowboarding': 'CBD para Esquí y Snowboard',
+  'Skin Health & Dermatology': 'Salud Cutánea y Dermatología',
+  'Sleep Disorders & Insomnia': 'Trastornos del Sueño e Insomnio',
+  'Sleep Apnea': 'Apnea del Sueño',
+  'Small Pet Care': 'Cuidado de Mascotas Pequeñas',
+  'Smoking Cessation': 'Dejar de Fumar',
+  'Snoring': 'Ronquidos',
+  'Social Anxiety Disorder': 'Trastorno de Ansiedad Social',
+  'Social Event Anxiety': 'Ansiedad en Eventos Sociales',
+  'Sports Injuries': 'Lesiones Deportivas',
+  'CBD for Content Creators': 'CBD para Creadores de Contenido',
+  'Chronic Stress': 'Estrés Crónico',
+  'CBD for Students': 'CBD para Estudiantes',
+  'Sunburn': 'Quemaduras Solares',
+  'CBD for Surfers': 'CBD para Surfistas',
+  'Surgery Recovery': 'Recuperación Quirúrgica',
+  'CBD for Swimmers': 'CBD para Nadadores',
+  'CBD for Teachers': 'CBD para Profesores',
+  'CBD for Teenagers': 'CBD para Adolescentes',
+  'Tendonitis': 'Tendinitis',
+  'CBD for Tennis': 'CBD para Tenis',
+  'Tension Headaches': 'Cefaleas Tensionales',
+  'CBD for THC-Sensitive People': 'CBD para Personas Sensibles al THC',
+  'CBD for Therapists': 'CBD para Terapeutas',
+  'Thyroid Health': 'Salud Tiroidea',
+  'Tinnitus': 'Acúfenos',
+  'TMJ Disorder': 'Trastorno de ATM',
+  'Tooth & Dental Pain': 'Dolor Dental y Bucal',
+  'Tourette Syndrome': 'Síndrome de Tourette',
+  'Travel & Flying Anxiety': 'Ansiedad de Viaje y Vuelo',
+  'CBD for Travelers': 'CBD para Viajeros',
+  'Trigeminal Neuralgia': 'Neuralgia del Trigémino',
+  'CBD for Truckers': 'CBD para Camioneros',
+  'CBD for Type A Personalities': 'CBD para Personalidades Tipo A',
+  'Ulcerative Colitis': 'Colitis Ulcerosa',
+  'Varicose Veins': 'Varices',
+  'CBD for Vegans': 'CBD para Veganos',
+  'Vertigo & Dizziness': 'Vértigo y Mareos',
+  'CBD for Veterans': 'CBD para Veteranos',
+  'Wedding Day Nerves': 'Nervios del Día de la Boda',
+  'CBD & Weight Management': 'CBD y Control de Peso',
+  'CBD for Weightlifters': 'CBD para Levantadores de Pesas',
+  'Women\'s Health & Hormones': 'Salud de la Mujer y Hormonas',
+  'Post-Workout Recovery': 'Recuperación Post-Entrenamiento',
+  'Wound Healing': 'Cicatrización de Heridas',
+  'Wrist Pain': 'Dolor de Muñeca',
+  'CBD for Writers': 'CBD para Escritores',
+  'CBD & Yoga': 'CBD y Yoga'
+};
+
+// Function to create Spanish slug from Spanish name
+function createSpanishSlug(spanishName) {
+  return spanishName
+    .toLowerCase()
+    // Replace Spanish characters with their non-accented equivalents
+    .replace(/á/g, 'a')
+    .replace(/é/g, 'e')
+    .replace(/í/g, 'i')
+    .replace(/ó/g, 'o')
+    .replace(/ú/g, 'u')
+    .replace(/ñ/g, 'n')
+    .replace(/ü/g, 'u')
+    // Remove any remaining special characters and replace spaces with hyphens
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+// Function to translate a condition
+function translateCondition(condition) {
+  const spanishName = spanishTranslations[condition.name] || condition.name;
+  const spanishDisplayName = spanishDisplayNames[condition.display_name] || spanishName;
+  const spanishSlug = createSpanishSlug(spanishName);
+  
+  // Create short description in Spanish
+  let shortDescription;
+  if (condition.short_description.includes('Learn about CBD research and ')) {
+    const topic = condition.short_description.replace('Learn about CBD research and ', '').toLowerCase();
+    shortDescription = `Descubre la investigación sobre CBD y ${topic}`;
+  } else if (condition.short_description.includes('Research on CBD for ')) {
+    const topic = condition.short_description.replace(/Research on CBD for (.+)\.?/, '$1').toLowerCase();
+    shortDescription = `Investigación sobre CBD para ${topic}`;
+  } else {
+    shortDescription = `Descubre la investigación sobre CBD y ${spanishName.toLowerCase()}`;
+  }
+
+  // Create meta title
+  const metaTitle = `CBD y ${spanishName} — Investigación y estudios | CBDportal.es`;
+
+  // Create meta description
+  const metaDescription = `Estudios sobre CBD y ${spanishName.toLowerCase()}. Investigación científica sobre el cannabidiol para ${spanishName.toLowerCase()}.`;
+
+  return {
+    condition_id: condition.id,
+    language: 'es',
+    name: spanishName,
+    slug: spanishSlug,
+    display_name: spanishDisplayName,
+    short_description: shortDescription,
+    meta_title: metaTitle,
+    meta_description: metaDescription
+  };
+}
+
+async function insertTranslations() {
+  console.log('Starting translation process...');
+  
+  const translations = [];
+  
+  // Process each condition
+  for (const condition of conditions) {
+    const translation = translateCondition(condition);
+    translations.push(translation);
+  }
+
+  console.log(`Created ${translations.length} translations. Inserting into database...`);
+
+  // Insert in batches of 50 to avoid database limits
+  const batchSize = 50;
+  let inserted = 0;
+
+  for (let i = 0; i < translations.length; i += batchSize) {
+    const batch = translations.slice(i, i + batchSize);
+    
+    const { data, error } = await supabase
+      .from('condition_translations')
+      .insert(batch);
+
+    if (error) {
+      console.error(`Error inserting batch ${Math.floor(i/batchSize) + 1}:`, error);
+      throw error;
+    }
+
+    inserted += batch.length;
+    console.log(`Inserted ${inserted}/${translations.length} translations`);
+  }
+
+  console.log('✅ All translations inserted successfully!');
+  return translations.length;
+}
+
+async function verifyCount() {
+  console.log('Verifying translation count...');
+  
+  const { count, error } = await supabase
+    .from('condition_translations')
+    .select('id', { count: 'exact', head: true })
+    .eq('language', 'es');
+
+  if (error) {
+    console.error('Error verifying count:', error);
+    return;
+  }
+
+  console.log(`✅ Database contains ${count} Spanish translations`);
+  return count;
+}
+
+// Main execution
+async function main() {
+  try {
+    const insertedCount = await insertTranslations();
+    const verifiedCount = await verifyCount();
+    
+    if (insertedCount === verifiedCount && verifiedCount === 312) {
+      console.log('🎉 Translation task completed successfully!');
+      console.log(`- Translated: ${insertedCount} conditions`);
+      console.log(`- Verified: ${verifiedCount} conditions in database`);
+      console.log('- Language: Spanish (es) - Castilian Spanish');
+      console.log('- All conditions inserted with proper translations');
+    } else {
+      console.warn(`⚠️  Count mismatch: inserted ${insertedCount}, verified ${verifiedCount}`);
+    }
+  } catch (error) {
+    console.error('❌ Translation failed:', error);
+    process.exit(1);
+  }
+}
+
+// Run the script
+main();

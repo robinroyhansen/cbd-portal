@@ -1,0 +1,3122 @@
+[
+  {
+    "id": "fecdd80f-b7e8-4d37-b84b-903170b02d4b",
+    "slug": "acid-reflux",
+    "name": "Acid Reflux",
+    "display_name": "Acid Reflux & GERD",
+    "short_description": "Learn about CBD research and acid reflux & gerd",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "gastrointestinal"
+  },
+  {
+    "id": "9a037077-a742-49fa-8fb5-433a102ba32b",
+    "slug": "acne",
+    "name": "Acne",
+    "display_name": "Acne & Skin Health",
+    "short_description": "Research on CBD for acne and sebum regulation.",
+    "meta_title_template": "CBD for Acne: Skin Research & Evidence ({year})",
+    "meta_description_template": "Can CBD help acne? Studies on cannabidiol for sebum regulation, skin inflammation, and acne treatment.",
+    "category": "skin"
+  },
+  {
+    "id": "ca6f2444-efe1-4b1e-9ea0-ad119facf2cb",
+    "slug": "actors",
+    "name": "Actors",
+    "display_name": "CBD for Actors",
+    "short_description": "Learn about CBD research and cbd for actors",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "2f05cd30-646d-40f5-adca-f2c8e5a2ad0b",
+    "slug": "acupuncture",
+    "name": "Acupuncture",
+    "display_name": "CBD & Acupuncture",
+    "short_description": "Learn about CBD research and cbd & acupuncture",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "a282ad80-9e7c-4592-8b65-691e6c103549",
+    "slug": "addiction",
+    "name": "Addiction",
+    "display_name": "Addiction & Substance Use Disorders",
+    "short_description": "Research on CBD for addiction and substance use disorders.",
+    "meta_title_template": "CBD for Addiction: Research on Substance Use Disorders",
+    "meta_description_template": "Studies on CBD for addiction treatment. Research on cannabidiol for opioid, alcohol, and substance use disorders.",
+    "category": "mental_health"
+  },
+  {
+    "id": "7aa785ce-364a-4e63-913a-b2713d264bd0",
+    "slug": "adenosine",
+    "name": "Adenosine",
+    "display_name": "CBD & Adenosine System",
+    "short_description": "Learn about CBD research and cbd & adenosine system",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "neurological"
+  },
+  {
+    "id": "cc7ceb32-5661-4d47-9dc7-04004e094d6e",
+    "slug": "adhd",
+    "name": "ADHD",
+    "display_name": "Attention-Deficit/Hyperactivity Disorder",
+    "short_description": "Research on CBD for ADHD and attention disorders.",
+    "meta_title_template": "CBD for ADHD: Research on Attention & Focus",
+    "meta_description_template": "What does research say about CBD for ADHD? Studies on cannabidiol for attention deficit hyperactivity disorder.",
+    "category": "neurological"
+  },
+  {
+    "id": "3a671ece-f678-43fa-8575-6e45f1388177",
+    "slug": "aggressive-dogs",
+    "name": "Aggressive Dogs",
+    "display_name": "Dog Aggression & Behavior",
+    "short_description": "Learn about CBD research and dog aggression & behavior",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "6bbcd4c7-c92e-4732-a6ff-9ca542f931b2",
+    "slug": "aging",
+    "name": "Aging",
+    "display_name": "Aging & Longevity",
+    "short_description": "Research on CBD for aging and elderly health.",
+    "meta_title_template": "CBD for Aging: Elderly Health Research",
+    "meta_description_template": "Studies on CBD for aging and elderly health. Research on cannabidiol for age-related conditions and longevity.",
+    "category": "other"
+  },
+  {
+    "id": "1c56b29d-9a29-4922-abda-8dfa145b2e1e",
+    "slug": "aging-skin",
+    "name": "Aging Skin",
+    "display_name": "Anti-Aging Skincare",
+    "short_description": "Learn about CBD research and anti-aging skincare",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "skin"
+  },
+  {
+    "id": "6e9e4d77-92d2-429d-8714-88399d88abfc",
+    "slug": "alcohol",
+    "name": "Alcohol",
+    "display_name": "CBD & Alcohol",
+    "short_description": "Learn about CBD research and cbd & alcohol",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "7d4a0b76-e153-4869-9a1c-ff61ea5bb956",
+    "slug": "alcohol-withdrawal",
+    "name": "Alcohol Withdrawal",
+    "display_name": "Alcohol Withdrawal",
+    "short_description": "Learn about CBD research and alcohol withdrawal",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "1849e67d-82d9-4214-b64d-03d6e43abc71",
+    "slug": "allergies",
+    "name": "Allergies",
+    "display_name": "Allergies",
+    "short_description": "Learn about CBD research and allergies",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "skin"
+  },
+  {
+    "id": "752f531f-0aec-498a-b17d-f3f98bd20c9b",
+    "slug": "alzheimers",
+    "name": "Alzheimer's",
+    "display_name": "Alzheimer's Disease & Dementia",
+    "short_description": "Research on CBD for Alzheimer's disease and dementia.",
+    "meta_title_template": "CBD for Alzheimer's: Dementia & Neuroprotection Research",
+    "meta_description_template": "Research on CBD for Alzheimer's disease. Studies on cannabidiol's neuroprotective effects and cognitive benefits.",
+    "category": "neurological"
+  },
+  {
+    "id": "6fab503a-af07-4831-b671-7ce4e64fad59",
+    "slug": "ankle-pain",
+    "name": "Ankle Pain",
+    "display_name": "Ankle Pain & Sprains",
+    "short_description": "Learn about CBD research and ankle pain & sprains",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "2f34114b-0e88-44e4-97bf-9e04894b1f5a",
+    "slug": "antibiotics",
+    "name": "Antibiotics",
+    "display_name": "CBD & Antibiotics",
+    "short_description": "Learn about CBD research and cbd & antibiotics",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "48ba287f-fa33-4592-bf2d-5f97ca64fbc3",
+    "slug": "antidepressants",
+    "name": "Antidepressants",
+    "display_name": "CBD & Antidepressants",
+    "short_description": "Learn about CBD research and cbd & antidepressants",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "1f1f0a70-6ce9-47ca-8ca8-0d6376be0cb4",
+    "slug": "anxiety",
+    "name": "Anxiety",
+    "display_name": "Anxiety Disorders",
+    "short_description": "Research on CBD for anxiety disorders including GAD, social anxiety, and panic disorder.",
+    "meta_title_template": "CBD for Anxiety: {research_count}+ Studies Reviewed ({year})",
+    "meta_description_template": "What does research say about CBD for anxiety? Review of {research_count} studies on cannabidiol for anxiety disorders, including dosage and effectiveness.",
+    "category": "mental_health"
+  },
+  {
+    "id": "1d5c673a-a3b4-44e0-afda-fa09492e2382",
+    "slug": "appetite",
+    "name": "Appetite",
+    "display_name": "Appetite Regulation",
+    "short_description": "Learn about CBD research and appetite regulation",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "gastrointestinal"
+  },
+  {
+    "id": "6fb6efd5-6e9b-4a92-9b37-4e9a1b08785c",
+    "slug": "architects",
+    "name": "Architects",
+    "display_name": "CBD for Architects",
+    "short_description": "Learn about CBD research and cbd for architects",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "a1c1a12c-7a6d-43e9-a9a3-b75e4768755d",
+    "slug": "arthritis",
+    "name": "Arthritis",
+    "display_name": "Arthritis & Joint Pain",
+    "short_description": "Research on CBD for arthritis and joint inflammation.",
+    "meta_title_template": "CBD for Arthritis: Joint Pain & Inflammation Research",
+    "meta_description_template": "Can CBD help arthritis? Studies on cannabidiol for rheumatoid arthritis, osteoarthritis, and joint pain.",
+    "category": "pain"
+  },
+  {
+    "id": "16327c6f-d9d5-419f-9397-5786c801b3cc",
+    "slug": "artists",
+    "name": "Artists",
+    "display_name": "CBD for Artists",
+    "short_description": "Learn about CBD research and cbd for artists",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "f0284707-7eff-4377-9e1a-df5fcb2c8684",
+    "slug": "asthma",
+    "name": "Asthma",
+    "display_name": "Asthma",
+    "short_description": "Learn about CBD research and asthma",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "4539f813-f518-4c62-9dfe-15ee4ce458c9",
+    "slug": "athletic-recovery",
+    "name": "Athletic Recovery",
+    "display_name": "Athletic Recovery",
+    "short_description": "Learn about CBD research and athletic recovery",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "f3f9f104-4f85-4e11-b1b3-385845f0f95d",
+    "slug": "athletic",
+    "name": "Athletic Recovery",
+    "display_name": "Sports & Athletic Performance",
+    "short_description": "Research on CBD for athletic recovery and sports.",
+    "meta_title_template": "CBD for Athletes: Sports Recovery Research ({year})",
+    "meta_description_template": "Studies on CBD for athletic recovery. Research on cannabidiol for exercise, inflammation, and sports performance.",
+    "category": "other"
+  },
+  {
+    "id": "c0815434-c4f7-4912-8a4c-3207cbbd5ee5",
+    "slug": "autism",
+    "name": "Autism",
+    "display_name": "Autism Spectrum Disorder",
+    "short_description": "Research on CBD for autism spectrum disorder.",
+    "meta_title_template": "CBD for Autism: Research on ASD Symptoms ({year})",
+    "meta_description_template": "Studies on CBD for autism spectrum disorder. Research on cannabidiol for behavioral symptoms and quality of life.",
+    "category": "neurological"
+  },
+  {
+    "id": "41cf2f00-ce65-4300-8f6a-8fb8f5afff9f",
+    "slug": "autoimmune",
+    "name": "Autoimmune Conditions",
+    "display_name": "Autoimmune Conditions",
+    "short_description": "Learn about CBD research and autoimmune conditions",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "85e55b13-7f76-4364-9a84-02a50f20f02c",
+    "slug": "back-pain",
+    "name": "Back Pain",
+    "display_name": "Back Pain",
+    "short_description": "Learn about CBD research and back pain",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "ca459eb5-8fe9-46e6-907a-8144614d946f",
+    "slug": "beginners",
+    "name": "Beginners",
+    "display_name": "CBD for First-Timers",
+    "short_description": "Learn about CBD research and cbd for first-timers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "bb4d37d3-c693-42cc-93a9-f313a93baed9",
+    "slug": "better-rest",
+    "name": "Better Rest",
+    "display_name": "Rest & Relaxation",
+    "short_description": "Learn about CBD research and rest & relaxation",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "a9dcc112-ede9-4113-8841-b198c3e57510",
+    "slug": "bipolar",
+    "name": "Bipolar Disorder",
+    "display_name": "Bipolar Disorder",
+    "short_description": "Learn about CBD research and bipolar disorder",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "ee05d819-096a-4011-b3a1-70822c120e0b",
+    "slug": "bird-anxiety",
+    "name": "Bird Anxiety",
+    "display_name": "Bird Anxiety & Stress",
+    "short_description": "Learn about CBD research and bird anxiety & stress",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "c11c046a-e06c-4332-b065-69931bd7c9fc",
+    "slug": "birds",
+    "name": "Birds",
+    "display_name": "Bird Care & CBD",
+    "short_description": "Learn about CBD research and bird care & cbd",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "bee2785d-58c2-4f06-8cbc-e297723a11f6",
+    "slug": "bloating",
+    "name": "Bloating",
+    "display_name": "Bloating & Gas",
+    "short_description": "Learn about CBD research and bloating & gas",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "gastrointestinal"
+  },
+  {
+    "id": "7121e82d-aa8d-4038-ab16-53d4610be116",
+    "slug": "blood_pressure",
+    "name": "Blood Pressure",
+    "display_name": "Blood Pressure & Hypertension",
+    "short_description": "Research on CBD for blood pressure and hypertension.",
+    "meta_title_template": "CBD for Blood Pressure: Hypertension Research",
+    "meta_description_template": "Can CBD lower blood pressure? Studies on cannabidiol for hypertension and vascular health.",
+    "category": "cardiovascular"
+  },
+  {
+    "id": "efc249e9-ade4-4f79-9be3-3550deab2600",
+    "slug": "blood-pressure-meds",
+    "name": "Blood Pressure Medications",
+    "display_name": "CBD & Blood Pressure Meds",
+    "short_description": "Learn about CBD research and cbd & blood pressure meds",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "55e77530-28b2-40c8-85df-5f213547fbdd",
+    "slug": "blood-thinners",
+    "name": "Blood Thinners",
+    "display_name": "CBD & Blood Thinners",
+    "short_description": "Learn about CBD research and cbd & blood thinners",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "0e837b42-25f8-42f6-9246-6bcbda65a641",
+    "slug": "breastfeeding",
+    "name": "Breastfeeding",
+    "display_name": "Breastfeeding & CBD Safety",
+    "short_description": "Learn about CBD research and breastfeeding & cbd safety",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "15480a62-872e-42fc-bf77-0faf4742d394",
+    "slug": "bronchitis",
+    "name": "Bronchitis",
+    "display_name": "Bronchitis",
+    "short_description": "Learn about CBD research and bronchitis",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "07f6f866-967c-43b3-a1e8-391fade96fcf",
+    "slug": "bruising",
+    "name": "Bruising",
+    "display_name": "Bruising",
+    "short_description": "Learn about CBD research and bruising",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "skin"
+  },
+  {
+    "id": "99310908-4380-4303-a3f7-3bb1509e66bf",
+    "slug": "bruxism",
+    "name": "Bruxism",
+    "display_name": "Bruxism (Teeth Grinding)",
+    "short_description": "Learn about CBD research and bruxism (teeth grinding)",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "7ec67ecf-8b65-433c-899c-4704fc69e7fb",
+    "slug": "bug-bites",
+    "name": "Bug Bites",
+    "display_name": "Bug Bites & Stings",
+    "short_description": "Learn about CBD research and bug bites & stings",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "skin"
+  },
+  {
+    "id": "a45fa86e-9f0a-467c-b451-b39d6047d03c",
+    "slug": "burnout",
+    "name": "Burnout",
+    "display_name": "Burnout & Chronic Stress",
+    "short_description": "Learn about CBD research and burnout & chronic stress",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "9c72a2ff-5b3c-4f35-a47d-f8a353c8aa18",
+    "slug": "bursitis",
+    "name": "Bursitis",
+    "display_name": "Bursitis",
+    "short_description": "Learn about CBD research and bursitis",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "96cbc222-c0e2-4177-b815-4134c5c29bbb",
+    "slug": "cancer",
+    "name": "Cancer",
+    "display_name": "Cancer & Oncology",
+    "short_description": "Research on CBD for cancer symptoms and support.",
+    "meta_title_template": "CBD and Cancer: Research on Symptoms & Support ({year})",
+    "meta_description_template": "What does research say about CBD and cancer? Studies on cannabidiol for cancer symptoms, pain, and quality of life.",
+    "category": "cancer"
+  },
+  {
+    "id": "cf47a7d7-e3da-472d-b27c-ea102100e390",
+    "slug": "caregivers",
+    "name": "Caregivers",
+    "display_name": "CBD for Caregivers",
+    "short_description": "Learn about CBD research and cbd for caregivers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "8c19b29b-abe9-4bce-b233-8bad67c679c9",
+    "slug": "carpal-tunnel",
+    "name": "Carpal Tunnel",
+    "display_name": "Carpal Tunnel Syndrome",
+    "short_description": "Learn about CBD research and carpal tunnel syndrome",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "78fc1c56-9e29-45af-8622-897f4a01126c",
+    "slug": "cat-aggression",
+    "name": "Cat Aggression",
+    "display_name": "Cat Aggression & Behavior",
+    "short_description": "Learn about CBD research and cat aggression & behavior",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "3de9b53e-940c-44c7-8b4d-f7cd72f4387b",
+    "slug": "cat-anxiety",
+    "name": "Cat Anxiety",
+    "display_name": "Cat Anxiety",
+    "short_description": "Learn about CBD research and cat anxiety",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "2a30e4f2-116a-4393-8e33-b985573ca852",
+    "slug": "cat-appetite",
+    "name": "Cat Appetite",
+    "display_name": "Cat Appetite Issues",
+    "short_description": "Learn about CBD research and cat appetite issues",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "01aa2cef-8705-475b-8b53-a0a65b8dd45b",
+    "slug": "cat-arthritis",
+    "name": "Cat Arthritis",
+    "display_name": "Cat Arthritis",
+    "short_description": "Learn about CBD research and cat arthritis",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "b92a8373-93ae-4990-9ed5-f829af8c6205",
+    "slug": "cat-cancer",
+    "name": "Cat Cancer",
+    "display_name": "Cats with Cancer",
+    "short_description": "Learn about CBD research and cats with cancer",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "eab39606-3d48-4200-a073-6315ee1cc89a",
+    "slug": "cat-hyperthyroid",
+    "name": "Cat Hyperthyroidism",
+    "display_name": "Cats with Hyperthyroidism",
+    "short_description": "Learn about CBD research and cats with hyperthyroidism",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "6223c6b2-ff33-4bea-a35d-8c81638a85fb",
+    "slug": "cat-kidney",
+    "name": "Cat Kidney Disease",
+    "display_name": "Cats with Kidney Disease",
+    "short_description": "Learn about CBD research and cats with kidney disease",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "804b56f9-7f95-4385-b764-7b1b09d1cb88",
+    "slug": "cat-pain",
+    "name": "Cat Pain",
+    "display_name": "Cat Pain Management",
+    "short_description": "Learn about CBD research and cat pain management",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "8dfc4029-aaad-4736-9088-a28af1dfaa91",
+    "slug": "cat-seizures",
+    "name": "Cat Seizures",
+    "display_name": "Cat Seizures",
+    "short_description": "Learn about CBD research and cat seizures",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "1c0fa483-d0cc-494c-b873-de3c2fa1c582",
+    "slug": "cat-stomatitis",
+    "name": "Cat Stomatitis",
+    "display_name": "Feline Stomatitis",
+    "short_description": "Learn about CBD research and feline stomatitis",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "75342b5e-6a1d-415d-bb6c-3018f63cb24e",
+    "slug": "chefs",
+    "name": "Chefs",
+    "display_name": "CBD for Culinary Professionals",
+    "short_description": "Learn about CBD research and cbd for culinary professionals",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "2cbcb6d5-6f43-48ad-bd04-552ff4ba2c41",
+    "slug": "chemo_side_effects",
+    "name": "Chemotherapy Side Effects",
+    "display_name": "Chemotherapy Side Effects",
+    "short_description": "Research on CBD for chemotherapy side effects.",
+    "meta_title_template": "CBD for Chemotherapy Side Effects: Symptom Management",
+    "meta_description_template": "Studies on CBD for chemotherapy side effects. Research on cannabidiol for chemo-induced nausea, pain, and appetite.",
+    "category": "cancer"
+  },
+  {
+    "id": "7f0695c5-acb5-4771-ae4a-9bba2e8c86a6",
+    "slug": "chest-pain",
+    "name": "Chest Pain",
+    "display_name": "Non-Cardiac Chest Pain",
+    "short_description": "Learn about CBD research and non-cardiac chest pain",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "48a8f87f-c2f2-489f-918e-90bbbbc40d44",
+    "slug": "children",
+    "name": "Children",
+    "display_name": "CBD for Children",
+    "short_description": "Learn about CBD research and cbd for children",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "c3cfb376-2ed1-47e4-b093-adc799a8f2b1",
+    "slug": "chiropractic",
+    "name": "Chiropractic",
+    "display_name": "CBD & Chiropractic Care",
+    "short_description": "Learn about CBD research and cbd & chiropractic care",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "8c8bc6e7-66ec-4aeb-b4ad-388f46757ddf",
+    "slug": "cholesterol",
+    "name": "Cholesterol",
+    "display_name": "Cholesterol Management",
+    "short_description": "Learn about CBD research and cholesterol management",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "metabolic"
+  },
+  {
+    "id": "9ffd409e-d451-4fe3-bdee-dcfa6f4294bf",
+    "slug": "chronic-fatigue",
+    "name": "Chronic Fatigue",
+    "display_name": "Chronic Fatigue Syndrome",
+    "short_description": "Learn about CBD research and chronic fatigue syndrome",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "bac1de04-af03-4bd8-add9-c2b17b93c3aa",
+    "slug": "chronic_pain",
+    "name": "Chronic Pain",
+    "display_name": "Chronic Pain Management",
+    "short_description": "Research on CBD for chronic pain management.",
+    "meta_title_template": "CBD for Chronic Pain: {research_count} Studies Reviewed ({year})",
+    "meta_description_template": "Can CBD help with chronic pain? Review of {research_count} studies on cannabidiol for pain management and relief.",
+    "category": "pain"
+  },
+  {
+    "id": "f803cc84-30da-45e6-93fa-4a6ea0fa52d4",
+    "slug": "circulation",
+    "name": "Circulation",
+    "display_name": "Blood Circulation",
+    "short_description": "Learn about CBD research and blood circulation",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "cardiovascular"
+  },
+  {
+    "id": "5293eb0a-bb07-46d9-8d46-8268ad157d47",
+    "slug": "cluster-headaches",
+    "name": "Cluster Headaches",
+    "display_name": "Cluster Headaches",
+    "short_description": "Learn about CBD research and cluster headaches",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "738eac3a-f4f8-4e8f-b4b9-51107ac64b16",
+    "slug": "coffee",
+    "name": "Coffee",
+    "display_name": "CBD & Coffee",
+    "short_description": "Learn about CBD research and cbd & coffee",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "ccfbe607-2a33-4049-9129-bc252a002c9f",
+    "slug": "cold-hands-feet",
+    "name": "Cold Hands & Feet",
+    "display_name": "Poor Extremity Circulation",
+    "short_description": "Learn about CBD research and poor extremity circulation",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "cardiovascular"
+  },
+  {
+    "id": "d7e8965c-a40d-46b6-8e25-17ca99030a6f",
+    "slug": "cold-plunge",
+    "name": "Cold Plunge",
+    "display_name": "CBD & Cold Therapy",
+    "short_description": "Learn about CBD research and cbd & cold therapy",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "c17df466-3267-4de3-8922-54b3e96c9342",
+    "slug": "colds-flu",
+    "name": "Colds & Flu",
+    "display_name": "Cold & Flu Symptoms",
+    "short_description": "Learn about CBD research and cold & flu symptoms",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "cbf9dc71-c51f-4ab5-b3fd-0ef052055339",
+    "slug": "constipation",
+    "name": "Constipation",
+    "display_name": "Constipation",
+    "short_description": "Learn about CBD research and constipation",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "gastrointestinal"
+  },
+  {
+    "id": "5b69540f-5354-44e3-875b-386398bccac1",
+    "slug": "construction",
+    "name": "Construction Workers",
+    "display_name": "CBD for Construction Workers",
+    "short_description": "Learn about CBD research and cbd for construction workers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "ed4f6aeb-0f07-445f-8353-c3af1dc6499c",
+    "slug": "copd",
+    "name": "COPD",
+    "display_name": "COPD",
+    "short_description": "Learn about CBD research and copd",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "26b3f10a-abcc-4d67-9bd0-6869dc5a6ac4",
+    "slug": "covid",
+    "name": "COVID-19",
+    "display_name": "COVID-19 Research",
+    "short_description": "Preliminary research on CBD and COVID-19.",
+    "meta_title_template": "CBD and COVID-19: Preliminary Research",
+    "meta_description_template": "Emerging research on CBD and COVID-19. Studies on cannabidiol's potential anti-inflammatory and antiviral effects.",
+    "category": "other"
+  },
+  {
+    "id": "05f6b4c3-6e1f-40f0-83a6-19de31a7e890",
+    "slug": "creativity",
+    "name": "Creativity",
+    "display_name": "Creativity & Creative Flow",
+    "short_description": "Learn about CBD research and creativity & creative flow",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "b204f48c-d83a-4ef0-a986-917366cf54cc",
+    "slug": "crohns",
+    "name": "Crohn's Disease",
+    "display_name": "Crohn's Disease & IBD",
+    "short_description": "Research on CBD for Crohn's disease and inflammatory bowel disease.",
+    "meta_title_template": "CBD for Crohn's Disease: IBD Research ({year})",
+    "meta_description_template": "Studies on CBD for Crohn's disease and IBD. Research on cannabidiol for inflammatory bowel disease and colitis.",
+    "category": "gastrointestinal"
+  },
+  {
+    "id": "5f3a1b81-6fb2-4fe9-afe6-284d89139179",
+    "slug": "crossfit",
+    "name": "CrossFit",
+    "display_name": "CBD for CrossFit",
+    "short_description": "Learn about CBD research and cbd for crossfit",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "30a585ff-5f7b-4d60-b051-9826b9a7bd51",
+    "slug": "cyclists",
+    "name": "Cyclists",
+    "display_name": "CBD for Cyclists",
+    "short_description": "Learn about CBD research and cbd for cyclists",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "4d51f6ed-fd4e-4d16-abe1-fad70588b0b5",
+    "slug": "dandruff",
+    "name": "Dandruff",
+    "display_name": "Dandruff",
+    "short_description": "Learn about CBD research and dandruff",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "skin"
+  },
+  {
+    "id": "e2b50a2d-1145-40b8-84c7-b5ed5c5d2e57",
+    "slug": "dating-anxiety",
+    "name": "Dating Anxiety",
+    "display_name": "Dating & Relationship Anxiety",
+    "short_description": "Learn about CBD research and dating & relationship anxiety",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "082067cf-2554-4772-b04c-4925dac67873",
+    "slug": "dental-anxiety",
+    "name": "Dental Anxiety",
+    "display_name": "Dental Anxiety",
+    "short_description": "Learn about CBD research and dental anxiety",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "6e684290-f25e-448d-8504-b18c3a3863dc",
+    "slug": "depression",
+    "name": "Depression",
+    "display_name": "Depression & Mood Disorders",
+    "short_description": "Research on CBD for depression and mood disorders.",
+    "meta_title_template": "CBD for Depression: Research & Evidence ({year})",
+    "meta_description_template": "Explore {research_count} studies on CBD for depression. Learn about cannabidiol's potential effects on mood disorders and current research findings.",
+    "category": "mental_health"
+  },
+  {
+    "id": "a4cbac91-a944-42ce-8d11-8178ba89076f",
+    "slug": "desk-workers",
+    "name": "Desk Workers",
+    "display_name": "CBD for Office Workers",
+    "short_description": "Learn about CBD research and cbd for office workers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "07c5699e-32bf-4e9f-961c-49b239ebdc31",
+    "slug": "diabetes",
+    "name": "Diabetes",
+    "display_name": "Diabetes & Blood Sugar",
+    "short_description": "Research on CBD for diabetes and metabolic health.",
+    "meta_title_template": "CBD for Diabetes: Blood Sugar & Metabolic Research",
+    "meta_description_template": "Studies on CBD for diabetes. Research on cannabidiol for blood sugar, insulin sensitivity, and metabolic health.",
+    "category": "metabolic"
+  },
+  {
+    "id": "09242741-67d7-402b-9d8a-c1c007eacee8",
+    "slug": "diabetes-medications",
+    "name": "Diabetes Medications",
+    "display_name": "CBD & Diabetes Medications",
+    "short_description": "Learn about CBD research and cbd & diabetes medications",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "1a128bf2-a027-41b1-862d-a39a0a8dd131",
+    "slug": "diabetic-neuropathy",
+    "name": "Diabetic Neuropathy",
+    "display_name": "Diabetic Neuropathy",
+    "short_description": "Learn about CBD research and diabetic neuropathy",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "neurological"
+  },
+  {
+    "id": "685dab97-5477-49f8-aee1-fc3025f774d8",
+    "slug": "diarrhea",
+    "name": "Diarrhea",
+    "display_name": "Diarrhea",
+    "short_description": "Learn about CBD research and diarrhea",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "gastrointestinal"
+  },
+  {
+    "id": "f4308eba-05b8-400d-be38-fa8fee3d2df7",
+    "slug": "digestive-health",
+    "name": "Digestive Health",
+    "display_name": "Digestive Health",
+    "short_description": "Learn about CBD research and digestive health",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "gastrointestinal"
+  },
+  {
+    "id": "ca7bf14c-9f09-43dc-93a8-f2a01ed911d5",
+    "slug": "dog-allergies",
+    "name": "Dog Allergies",
+    "display_name": "Dog Allergies & Skin Issues",
+    "short_description": "Learn about CBD research and dog allergies & skin issues",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "986b75ad-47af-40db-8cd1-cecfb3744678",
+    "slug": "dog-anxiety",
+    "name": "Dog Anxiety",
+    "display_name": "Dog Anxiety",
+    "short_description": "Learn about CBD research and dog anxiety",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "d01263b7-eb6c-4a63-be41-b40242237711",
+    "slug": "dog-appetite",
+    "name": "Dog Appetite",
+    "display_name": "Dog Appetite Issues",
+    "short_description": "Learn about CBD research and dog appetite issues",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "9cad2e65-6e86-4e70-8c3a-77f499cc9c4c",
+    "slug": "dog-arthritis",
+    "name": "Dog Arthritis",
+    "display_name": "Dog Arthritis",
+    "short_description": "Learn about CBD research and dog arthritis",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "9ef802db-2fdd-4094-b750-5c84204ff0ff",
+    "slug": "dog-hip-dysplasia",
+    "name": "Dog Hip Dysplasia",
+    "display_name": "Dog Hip Dysplasia",
+    "short_description": "Learn about CBD research and dog hip dysplasia",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "1a4aae66-7c7c-4b61-b299-966e872613ed",
+    "slug": "dog-nausea",
+    "name": "Dog Nausea",
+    "display_name": "Dog Nausea & Motion Sickness",
+    "short_description": "Learn about CBD research and dog nausea & motion sickness",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "058fad9a-493b-49a9-bb7c-166315633537",
+    "slug": "dog-pain",
+    "name": "Dog Pain",
+    "display_name": "Dog Pain Management",
+    "short_description": "Learn about CBD research and dog pain management",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "301628ed-5bbd-4d12-bcdf-5455e0b13799",
+    "slug": "dog-seizures",
+    "name": "Dog Seizures",
+    "display_name": "Dog Seizures & Epilepsy",
+    "short_description": "Learn about CBD research and dog seizures & epilepsy",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "daaa326e-06a9-486c-b3f0-1a1c537f4a75",
+    "slug": "dog-separation-anxiety",
+    "name": "Dog Separation Anxiety",
+    "display_name": "Dog Separation Anxiety",
+    "short_description": "Learn about CBD research and dog separation anxiety",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "9c8a1e34-50fc-4a3e-8230-8ba290be0046",
+    "slug": "dog-thunderstorm",
+    "name": "Dog Thunderstorm Anxiety",
+    "display_name": "Dog Storm & Noise Anxiety",
+    "short_description": "Learn about CBD research and dog storm & noise anxiety",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "86bf2572-e67c-411f-aa76-86618c2ea5a9",
+    "slug": "dopamine",
+    "name": "Dopamine",
+    "display_name": "CBD & Dopamine",
+    "short_description": "Learn about CBD research and cbd & dopamine",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "neurological"
+  },
+  {
+    "id": "2323009c-56d3-4214-99e7-bde4d58e8df3",
+    "slug": "driving",
+    "name": "Driving",
+    "display_name": "CBD & Driving",
+    "short_description": "Learn about CBD research and cbd & driving",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "340012d6-ade6-4724-8c4c-134fe3d0f04b",
+    "slug": "drug-testing",
+    "name": "Drug Testing",
+    "display_name": "CBD & Drug Testing",
+    "short_description": "Learn about CBD research and cbd & drug testing",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "7d7c7126-29f4-437e-98f4-4af7a33005c6",
+    "slug": "dry-mouth",
+    "name": "Dry Mouth",
+    "display_name": "Dry Mouth",
+    "short_description": "Learn about CBD research and dry mouth",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "5f0f9978-a6b0-4c9f-a979-5e46ced24c6e",
+    "slug": "dry-skin",
+    "name": "Dry Skin",
+    "display_name": "Dry Skin",
+    "short_description": "Learn about CBD research and dry skin",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "skin"
+  },
+  {
+    "id": "708a2682-fd2c-4f7d-b4e0-f27476ecaa59",
+    "slug": "eczema",
+    "name": "Eczema",
+    "display_name": "Eczema & Dermatitis",
+    "short_description": "Research on CBD for eczema and atopic dermatitis.",
+    "meta_title_template": "CBD for Eczema: Dermatitis & Itching Research",
+    "meta_description_template": "Can CBD help eczema? Studies on cannabidiol for atopic dermatitis, skin inflammation, and itching.",
+    "category": "skin"
+  },
+  {
+    "id": "4ce451f6-a5f1-4ecc-88f5-e559d0e5c6b3",
+    "slug": "elbow-pain",
+    "name": "Elbow Pain",
+    "display_name": "Elbow Pain & Tennis Elbow",
+    "short_description": "Learn about CBD research and elbow pain & tennis elbow",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "ed85c644-f54f-4178-b94a-2580d22dfd72",
+    "slug": "endometriosis",
+    "name": "Endometriosis",
+    "display_name": "Endometriosis",
+    "short_description": "Learn about CBD research and endometriosis",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "fc5af960-0c4e-4c5e-83d1-c2902cd89110",
+    "slug": "energy",
+    "name": "Energy",
+    "display_name": "Energy & Vitality",
+    "short_description": "Learn about CBD research and energy & vitality",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "9a14da53-68eb-45f7-bd60-ac0ebf6fe0f8",
+    "slug": "entrepreneurs",
+    "name": "Entrepreneurs",
+    "display_name": "CBD for Entrepreneurs",
+    "short_description": "Learn about CBD research and cbd for entrepreneurs",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "37abe28f-3558-47c3-a711-43ec255be423",
+    "slug": "epilepsy",
+    "name": "Epilepsy",
+    "display_name": "Epilepsy & Seizure Disorders",
+    "short_description": "Clinical studies on CBD for epilepsy and seizure disorders. Epidiolex is approved by EMA, FDA and MHRA.",
+    "meta_title_template": "CBD for Epilepsy: Epidiolex & Seizure Research ({year})",
+    "meta_description_template": "FDA-approved CBD (Epidiolex) for epilepsy. Review {research_count} studies on cannabidiol for Dravet syndrome, Lennox-Gastaut, and seizure disorders.",
+    "category": "neurological"
+  },
+  {
+    "id": "829e7a4b-9850-4634-bc32-f16ae4ba3d42",
+    "slug": "exam-anxiety",
+    "name": "Exam Anxiety",
+    "display_name": "Test & Exam Anxiety",
+    "short_description": "Learn about CBD research and test & exam anxiety",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "e4de186a-984c-4076-89c1-fc24057388aa",
+    "slug": "eye-health",
+    "name": "Eye Health",
+    "display_name": "Eye Health",
+    "short_description": "Learn about CBD research and eye health",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "da13d43d-fa1a-4e2f-bc8e-efbda77d766f",
+    "slug": "family-gatherings",
+    "name": "Family Gatherings",
+    "display_name": "Family Event Anxiety",
+    "short_description": "Learn about CBD research and family event anxiety",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "0f1519e2-47b3-4e5e-aef9-007a9613bb8c",
+    "slug": "feather-plucking",
+    "name": "Feather Plucking",
+    "display_name": "Bird Feather Plucking",
+    "short_description": "Learn about CBD research and bird feather plucking",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "12b2a266-dacb-4906-a513-db64464f0591",
+    "slug": "ferrets",
+    "name": "Ferrets",
+    "display_name": "Ferret Care & CBD",
+    "short_description": "Learn about CBD research and ferret care & cbd",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "bd88dffa-77ef-415d-bca5-7d151527e639",
+    "slug": "fibromyalgia",
+    "name": "Fibromyalgia",
+    "display_name": "Fibromyalgia Syndrome",
+    "short_description": "Research on CBD for fibromyalgia and widespread pain.",
+    "meta_title_template": "CBD for Fibromyalgia: Pain & Fatigue Research",
+    "meta_description_template": "Studies on CBD for fibromyalgia. Research on cannabidiol for widespread pain, fatigue, and fibro symptoms.",
+    "category": "pain"
+  },
+  {
+    "id": "424e77a3-a970-462f-ba9f-989506c89fdc",
+    "slug": "financial-advisors",
+    "name": "Financial Advisors",
+    "display_name": "CBD for Financial Professionals",
+    "short_description": "Learn about CBD research and cbd for financial professionals",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "0d9fdaa4-0588-4974-84a7-a86d9ccd5a9f",
+    "slug": "first-responders",
+    "name": "First Responders",
+    "display_name": "CBD for First Responders",
+    "short_description": "Learn about CBD research and cbd for first responders",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "bebaf183-8b2c-4433-896d-8967227ecbb1",
+    "slug": "focus",
+    "name": "Focus",
+    "display_name": "Focus & Concentration",
+    "short_description": "Learn about CBD research and focus & concentration",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "neurological"
+  },
+  {
+    "id": "09c78d0c-22ec-4dad-8705-90146df578a6",
+    "slug": "food-intolerances",
+    "name": "Food Intolerances",
+    "display_name": "Food Intolerances",
+    "short_description": "Learn about CBD research and food intolerances",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "gastrointestinal"
+  },
+  {
+    "id": "4f236606-6ea6-45e1-9e2c-dde5aeb94e56",
+    "slug": "foot-pain",
+    "name": "Foot Pain",
+    "display_name": "Foot Pain",
+    "short_description": "Learn about CBD research and foot pain",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "d306ced5-4ceb-4c16-b094-204544e023ce",
+    "slug": "frozen-shoulder",
+    "name": "Frozen Shoulder",
+    "display_name": "Frozen Shoulder",
+    "short_description": "Learn about CBD research and frozen shoulder",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "0f2fdeb4-125d-4b57-a534-1c399811d637",
+    "slug": "gaba",
+    "name": "GABA",
+    "display_name": "CBD & GABA",
+    "short_description": "Learn about CBD research and cbd & gaba",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "neurological"
+  },
+  {
+    "id": "9d21c682-5e1e-4454-9b31-0719fd5262d1",
+    "slug": "gamers",
+    "name": "Gamers",
+    "display_name": "CBD for Gamers",
+    "short_description": "Learn about CBD research and cbd for gamers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "1f3956ec-0c6d-481a-8840-e0a7d2af2ad0",
+    "slug": "gastroparesis",
+    "name": "Gastroparesis",
+    "display_name": "Gastroparesis",
+    "short_description": "Learn about CBD research and gastroparesis",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "gastrointestinal"
+  },
+  {
+    "id": "7247cb1a-fccd-4f14-9dc9-a69f9cdf9f18",
+    "slug": "generalized-anxiety",
+    "name": "Generalized Anxiety Disorder",
+    "display_name": "Generalized Anxiety Disorder (GAD)",
+    "short_description": "Learn about CBD research and generalized anxiety disorder (gad)",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "f2962f7c-4eb2-4690-9c19-c5efaa375439",
+    "slug": "glaucoma",
+    "name": "Glaucoma",
+    "display_name": "Glaucoma & Eye Pressure",
+    "short_description": "Research on CBD and cannabis for glaucoma.",
+    "meta_title_template": "CBD for Glaucoma: Eye Pressure Research",
+    "meta_description_template": "What does research say about CBD for glaucoma? Studies on cannabidiol and intraocular pressure.",
+    "category": "other"
+  },
+  {
+    "id": "4506d484-2475-475d-be35-8f6093a867e8",
+    "slug": "golf",
+    "name": "Golf",
+    "display_name": "CBD for Golfers",
+    "short_description": "Learn about CBD research and cbd for golfers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "1fdc9d92-a9fc-4595-acda-413718a8a40f",
+    "slug": "grief",
+    "name": "Grief",
+    "display_name": "Grief & Bereavement",
+    "short_description": "Learn about CBD research and grief & bereavement",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "1c8027c0-1958-4c89-8e8b-9cc37cfdab9e",
+    "slug": "guinea-pigs",
+    "name": "Guinea Pigs",
+    "display_name": "Guinea Pig Care & CBD",
+    "short_description": "Learn about CBD research and guinea pig care & cbd",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "f8872cea-5243-41d2-a05b-33c0da778b71",
+    "slug": "gum-disease",
+    "name": "Gum Disease",
+    "display_name": "Gum Disease & Gingivitis",
+    "short_description": "Learn about CBD research and gum disease & gingivitis",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "87616505-2feb-428f-bfe9-b62f4eab1a26",
+    "slug": "gut-health",
+    "name": "Gut Health",
+    "display_name": "Gut Microbiome Health",
+    "short_description": "Learn about CBD research and gut microbiome health",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "gastrointestinal"
+  },
+  {
+    "id": "dd5d43f1-6e21-4b6a-9647-0472c30944bf",
+    "slug": "hair-loss",
+    "name": "Hair Loss",
+    "display_name": "Hair Loss & Thinning",
+    "short_description": "Learn about CBD research and hair loss & thinning",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "skin"
+  },
+  {
+    "id": "dc400625-a237-4aba-ab2a-81c48c5bf138",
+    "slug": "hairdressers",
+    "name": "Hairdressers",
+    "display_name": "CBD for Hairdressers & Stylists",
+    "short_description": "Learn about CBD research and cbd for hairdressers & stylists",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "2ff1061b-f780-4928-ad67-2a29f53ea265",
+    "slug": "hamsters",
+    "name": "Hamsters",
+    "display_name": "Hamster Care & CBD",
+    "short_description": "Learn about CBD research and hamster care & cbd",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "c37cfd34-6011-472b-8969-16b0269970b6",
+    "slug": "hand-pain",
+    "name": "Hand Pain",
+    "display_name": "Hand Pain & Grip Issues",
+    "short_description": "Learn about CBD research and hand pain & grip issues",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "d8ec31c4-66d9-4f3d-b7ff-cde46887433e",
+    "slug": "hangover",
+    "name": "Hangover",
+    "display_name": "Hangover Recovery",
+    "short_description": "Learn about CBD research and hangover recovery",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "50ef4184-c4ff-497c-b764-41642eb5b5e5",
+    "slug": "headaches",
+    "name": "Headaches",
+    "display_name": "Headaches",
+    "short_description": "Learn about CBD research and headaches",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "ff5be55d-f519-4d40-8adb-0a605d9142c6",
+    "slug": "healthcare-anxiety",
+    "name": "Healthcare Anxiety",
+    "display_name": "Medical & Healthcare Anxiety",
+    "short_description": "Learn about CBD research and medical & healthcare anxiety",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "2f6a8551-7041-498b-832c-08e1c03301de",
+    "slug": "healthcare-workers",
+    "name": "Healthcare Workers",
+    "display_name": "CBD for Healthcare Workers",
+    "short_description": "Learn about CBD research and cbd for healthcare workers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "176c2808-8518-448b-bcd2-f694c2c4a930",
+    "slug": "hearing-loss",
+    "name": "Hearing Loss",
+    "display_name": "Hearing Loss & Auditory Health",
+    "short_description": "Learn about CBD research and hearing loss & auditory health",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "neurological"
+  },
+  {
+    "id": "7755cdbb-3010-4bb6-9e63-f4daddf447a7",
+    "slug": "heart",
+    "name": "Heart Health",
+    "display_name": "Cardiovascular Health",
+    "short_description": "Research on CBD for heart health and cardiovascular function.",
+    "meta_title_template": "CBD for Heart Health: Cardiovascular Research",
+    "meta_description_template": "Studies on CBD and heart health. Research on cannabidiol for cardiovascular function and cardioprotection.",
+    "category": "cardiovascular"
+  },
+  {
+    "id": "a9c29025-0e0b-480c-91fe-9d4576f283b5",
+    "slug": "highly-sensitive",
+    "name": "Highly Sensitive People",
+    "display_name": "CBD for HSPs",
+    "short_description": "Learn about CBD research and cbd for hsps",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "f0bbf4ab-9852-4515-ad89-de751dbd0f82",
+    "slug": "hiking",
+    "name": "Hiking",
+    "display_name": "CBD for Hikers",
+    "short_description": "Learn about CBD research and cbd for hikers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "7b12169c-4ba8-4dc2-a27b-5d0ae25f3902",
+    "slug": "hip-pain",
+    "name": "Hip Pain",
+    "display_name": "Hip Pain & Hip Dysplasia",
+    "short_description": "Learn about CBD research and hip pain & hip dysplasia",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "f78bf442-832c-4450-9560-2be2a496b69f",
+    "slug": "hives",
+    "name": "Hives",
+    "display_name": "Hives & Urticaria",
+    "short_description": "Learn about CBD research and hives & urticaria",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "skin"
+  },
+  {
+    "id": "eb28a5d9-0864-47de-9680-603209dfdee0",
+    "slug": "holiday-stress",
+    "name": "Holiday Stress",
+    "display_name": "Holiday & Seasonal Stress",
+    "short_description": "Learn about CBD research and holiday & seasonal stress",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "9e8bdd60-27d8-4718-9563-3dae668e7156",
+    "slug": "homeostasis",
+    "name": "Homeostasis",
+    "display_name": "CBD & Homeostasis",
+    "short_description": "Learn about CBD research and cbd & homeostasis",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "neurological"
+  },
+  {
+    "id": "0107fc77-e21c-4634-aa3a-8d1498aa74aa",
+    "slug": "horse-anxiety",
+    "name": "Horse Anxiety",
+    "display_name": "Horse Anxiety",
+    "short_description": "Learn about CBD research and horse anxiety",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "41cefe6d-e779-4119-b803-f73225e1f722",
+    "slug": "horse-cushings",
+    "name": "Horse Cushings",
+    "display_name": "Horse Cushing's Disease (PPID)",
+    "short_description": "Learn about CBD research and horse cushing's disease (ppid)",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "bc928208-c232-48d2-b7f3-5de5ccdd8d45",
+    "slug": "horse-laminitis",
+    "name": "Horse Laminitis",
+    "display_name": "Horse Laminitis",
+    "short_description": "Learn about CBD research and horse laminitis",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "40243fd0-da93-4720-9c19-17204aa0b7ba",
+    "slug": "horse-navicular",
+    "name": "Horse Navicular",
+    "display_name": "Horse Navicular Syndrome",
+    "short_description": "Learn about CBD research and horse navicular syndrome",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "9c301e07-3111-4070-9bcf-a4e6d60aa458",
+    "slug": "horse-performance",
+    "name": "Horse Performance",
+    "display_name": "Horse Performance & Recovery",
+    "short_description": "Learn about CBD research and horse performance & recovery",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "125f7bf2-1614-4939-bc35-61981f2538b0",
+    "slug": "horse-ulcers",
+    "name": "Horse Ulcers",
+    "display_name": "Horse Gastric Ulcers",
+    "short_description": "Learn about CBD research and horse gastric ulcers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "b587669b-b452-4437-be13-e423422ada8c",
+    "slug": "hot-flashes",
+    "name": "Hot Flashes",
+    "display_name": "Hot Flashes",
+    "short_description": "Learn about CBD research and hot flashes",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "d90ff8f0-3c9f-4844-b163-d6814fa87250",
+    "slug": "hot-tub",
+    "name": "Hot Tub",
+    "display_name": "CBD & Hot Tub Recovery",
+    "short_description": "Learn about CBD research and cbd & hot tub recovery",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "5a5a4834-ce44-4779-b787-0f7d8a59ddc2",
+    "slug": "ibs",
+    "name": "IBS",
+    "display_name": "Irritable Bowel Syndrome",
+    "short_description": "Research on CBD for irritable bowel syndrome.",
+    "meta_title_template": "CBD for IBS: Irritable Bowel Syndrome Research",
+    "meta_description_template": "Can CBD help IBS? Studies on cannabidiol for irritable bowel syndrome, gut health, and digestive comfort.",
+    "category": "gastrointestinal"
+  },
+  {
+    "id": "a3273e0e-d830-422d-9c72-93ff17b6e347",
+    "slug": "immune-health",
+    "name": "Immune Health",
+    "display_name": "Immune System Support",
+    "short_description": "Learn about CBD research and immune system support",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "cc205de6-6365-402d-a1d1-b734f05f65ed",
+    "slug": "inflammation",
+    "name": "Inflammation",
+    "display_name": "Inflammation & Inflammatory Conditions",
+    "short_description": "Research on CBD's anti-inflammatory properties.",
+    "meta_title_template": "CBD for Inflammation: Anti-Inflammatory Research ({year})",
+    "meta_description_template": "Research on CBD's anti-inflammatory effects. Studies on cannabidiol for cytokines, inflammatory pathways, and chronic inflammation.",
+    "category": "pain"
+  },
+  {
+    "id": "4d799092-fe43-45fc-b184-0f58512b9826",
+    "slug": "insulin-resistance",
+    "name": "Insulin Resistance",
+    "display_name": "Insulin Resistance",
+    "short_description": "Learn about CBD research and insulin resistance",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "metabolic"
+  },
+  {
+    "id": "a4a3f6be-3f88-4928-8c51-b3daefcf3cbb",
+    "slug": "intermittent-fasting",
+    "name": "Intermittent Fasting",
+    "display_name": "CBD & Intermittent Fasting",
+    "short_description": "Learn about CBD research and cbd & intermittent fasting",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "51950630-2b82-4c77-9ab5-69a56573e478",
+    "slug": "interview-anxiety",
+    "name": "Interview Anxiety",
+    "display_name": "Job Interview Anxiety",
+    "short_description": "Learn about CBD research and job interview anxiety",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "9d7365bb-a21a-41d2-adca-d478baeb9657",
+    "slug": "introverts",
+    "name": "Introverts",
+    "display_name": "CBD for Introverts",
+    "short_description": "Learn about CBD research and cbd for introverts",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "371bdc74-de9f-4925-b2d0-6c7ea438784c",
+    "slug": "jaw-pain",
+    "name": "Jaw Pain",
+    "display_name": "Jaw Pain",
+    "short_description": "Learn about CBD research and jaw pain",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "6f3afcc6-20c4-43c1-943d-635bf68d9208",
+    "slug": "joint-health",
+    "name": "Joint Health",
+    "display_name": "Joint Health & Mobility",
+    "short_description": "Learn about CBD research and joint health & mobility",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "6bd96619-0530-4b94-904a-a28ed23f31e4",
+    "slug": "keto",
+    "name": "Keto Diet",
+    "display_name": "CBD & Keto Diet",
+    "short_description": "Learn about CBD research and cbd & keto diet",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "64e3f12d-d6c4-49e2-ab8d-f1350f6e82ae",
+    "slug": "knee-pain",
+    "name": "Knee Pain",
+    "display_name": "Knee Pain",
+    "short_description": "Learn about CBD research and knee pain",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "c475dcba-c3aa-4ce7-ad77-948b6092c6ed",
+    "slug": "lawyers",
+    "name": "Lawyers",
+    "display_name": "CBD for Lawyers",
+    "short_description": "Learn about CBD research and cbd for lawyers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "6b66d8e8-c51e-452f-ba0a-047cee7c62ed",
+    "slug": "leaky-gut",
+    "name": "Leaky Gut",
+    "display_name": "Intestinal Permeability",
+    "short_description": "Learn about CBD research and intestinal permeability",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "gastrointestinal"
+  },
+  {
+    "id": "eebf698f-5698-433c-b54d-8e9fc8690f39",
+    "slug": "liver-health",
+    "name": "Liver Health",
+    "display_name": "Liver Health",
+    "short_description": "Learn about CBD research and liver health",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "187d5b12-c4ac-41f1-a781-49370762e50b",
+    "slug": "long-covid",
+    "name": "Long COVID",
+    "display_name": "Long COVID Syndrome",
+    "short_description": "Learn about CBD research and long covid syndrome",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "d2a241de-08f4-4c63-852e-f3265d25d266",
+    "slug": "lupus",
+    "name": "Lupus",
+    "display_name": "Lupus",
+    "short_description": "Learn about CBD research and lupus",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "dafda15b-37ef-441e-87f3-587e42eab498",
+    "slug": "martial-arts",
+    "name": "Martial Arts",
+    "display_name": "CBD for Martial Arts",
+    "short_description": "Learn about CBD research and cbd for martial arts",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "d6eff275-4ced-445f-bce5-91bebd1e73b1",
+    "slug": "meditation",
+    "name": "Meditation",
+    "display_name": "CBD & Meditation",
+    "short_description": "Learn about CBD research and cbd & meditation",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "1ce2db64-a32f-4cef-92d7-811b18b987e4",
+    "slug": "men",
+    "name": "Men",
+    "display_name": "Men's Health & CBD",
+    "short_description": "Learn about CBD research and men's health & cbd",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "a4a461f4-6b4e-4dc9-9c0f-44f825ec7fa4",
+    "slug": "menopause",
+    "name": "Menopause",
+    "display_name": "Menopause",
+    "short_description": "Learn about CBD research and menopause",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "e5985ab6-ce28-4847-a42c-4ff843c8b05a",
+    "slug": "menstrual-cramps",
+    "name": "Menstrual Cramps",
+    "display_name": "Menstrual Cramps & Period Pain",
+    "short_description": "Learn about CBD research and menstrual cramps & period pain",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "dbb8070a-c7a6-4ed4-a569-68151ee03a9e",
+    "slug": "menstrual-pain",
+    "name": "Menstrual Pain",
+    "display_name": "Period Pain",
+    "short_description": "Learn about CBD research and period pain",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "c5e09ab3-0912-4bb8-8fa5-1e932d1baff4",
+    "slug": "metabolic-syndrome",
+    "name": "Metabolic Syndrome",
+    "display_name": "Metabolic Syndrome",
+    "short_description": "Learn about CBD research and metabolic syndrome",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "metabolic"
+  },
+  {
+    "id": "6c95e82f-1dad-4bd8-af2a-19cde6a29c04",
+    "slug": "migraines",
+    "name": "Migraines",
+    "display_name": "Migraines & Headaches",
+    "short_description": "Research on CBD for migraines and headache disorders.",
+    "meta_title_template": "CBD for Migraines: Headache Research & Evidence",
+    "meta_description_template": "Can CBD help migraines? Studies on cannabidiol for migraine prevention, headaches, and relief.",
+    "category": "pain"
+  },
+  {
+    "id": "6ccdb229-e52f-455d-90f8-6743c004850f",
+    "slug": "mma",
+    "name": "MMA",
+    "display_name": "CBD for MMA & Combat Sports",
+    "short_description": "Learn about CBD research and cbd for mma & combat sports",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "707df9b0-0a8d-48cb-9441-602bc3d4386f",
+    "slug": "mood",
+    "name": "Mood",
+    "display_name": "Mood Regulation",
+    "short_description": "Learn about CBD research and mood regulation",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "e4610dce-b856-4425-89c5-1bb3dade2e0d",
+    "slug": "mouth-ulcers",
+    "name": "Mouth Ulcers",
+    "display_name": "Mouth Ulcers & Canker Sores",
+    "short_description": "Learn about CBD research and mouth ulcers & canker sores",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "ca427096-d5a4-46ea-8196-4c51f4700a0b",
+    "slug": "moving-stress",
+    "name": "Moving Stress",
+    "display_name": "CBD for Moving House Stress",
+    "short_description": "Learn about CBD research and cbd for moving house stress",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "4eb3f60e-a2c9-45e4-93e9-9fb1438ce0ac",
+    "slug": "ms",
+    "name": "Multiple Sclerosis",
+    "display_name": "Multiple Sclerosis (MS)",
+    "short_description": "Research on CBD and cannabis medicines for multiple sclerosis.",
+    "meta_title_template": "CBD for Multiple Sclerosis: Sativex & Spasticity Research",
+    "meta_description_template": "Research on CBD and cannabis for MS. Studies on Sativex (nabiximols) for spasticity and multiple sclerosis symptoms.",
+    "category": "neurological"
+  },
+  {
+    "id": "c1189452-70c0-4a13-8f94-ac3abea3a775",
+    "slug": "muscle-recovery",
+    "name": "Muscle Recovery",
+    "display_name": "Muscle Recovery",
+    "short_description": "Learn about CBD research and muscle recovery",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "166f1c05-a39d-441a-8bc0-f9bbf2005f7d",
+    "slug": "muscle-tension",
+    "name": "Muscle Tension",
+    "display_name": "Muscle Tension & Spasms",
+    "short_description": "Learn about CBD research and muscle tension & spasms",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "da018432-6ba3-4a80-bcba-7d98ec1c613a",
+    "slug": "musicians",
+    "name": "Musicians",
+    "display_name": "CBD for Musicians",
+    "short_description": "Learn about CBD research and cbd for musicians",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "a7fd38a5-cda0-4d14-b20c-b101e6b7fedb",
+    "slug": "nail-health",
+    "name": "Nail Health",
+    "display_name": "Nail Health",
+    "short_description": "Learn about CBD research and nail health",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "skin"
+  },
+  {
+    "id": "5bea82c1-f3a5-400f-8dfa-3e88bac4e5fa",
+    "slug": "nausea",
+    "name": "Nausea",
+    "display_name": "Nausea & Vomiting",
+    "short_description": "Research on CBD for nausea and antiemetic effects.",
+    "meta_title_template": "CBD for Nausea: Antiemetic Research & Evidence",
+    "meta_description_template": "Research on CBD for nausea and vomiting. Studies on cannabidiol's antiemetic effects and chemotherapy-induced nausea.",
+    "category": "gastrointestinal"
+  },
+  {
+    "id": "545780cc-2d01-4aaf-976d-20213413b538",
+    "slug": "neck-pain",
+    "name": "Neck Pain",
+    "display_name": "Neck Pain & Stiffness",
+    "short_description": "Learn about CBD research and neck pain & stiffness",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "2a693cb5-0710-4ac1-9083-e0c8fc3dccbf",
+    "slug": "nerve-pain",
+    "name": "Nerve Pain",
+    "display_name": "Nerve Pain & Neuralgia",
+    "short_description": "Learn about CBD research and nerve pain & neuralgia",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "18f708f2-6010-4e29-be10-fbb9ca835530",
+    "slug": "nervous-system",
+    "name": "Nervous System",
+    "display_name": "CBD & Nervous System",
+    "short_description": "Learn about CBD research and cbd & nervous system",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "neurological"
+  },
+  {
+    "id": "50f15cb5-839d-447a-9849-379ba625bf99",
+    "slug": "neurological",
+    "name": "Neurological",
+    "display_name": "Other Neurological Conditions",
+    "short_description": "Research on CBD for neuroprotection and neurological disorders.",
+    "meta_title_template": "CBD for Neurological Conditions: Neuroprotection Research",
+    "meta_description_template": "Studies on CBD's neuroprotective effects. Research on cannabidiol for ALS, Huntington's, and neurodegeneration.",
+    "category": "neurological"
+  },
+  {
+    "id": "9d8f9b89-829b-4242-8b9a-c7428d3843b3",
+    "slug": "neuropathic_pain",
+    "name": "Neuropathic Pain",
+    "display_name": "Neuropathic Pain & Nerve Damage",
+    "short_description": "Research on CBD for neuropathic pain and nerve damage.",
+    "meta_title_template": "CBD for Neuropathic Pain: Nerve Pain Research",
+    "meta_description_template": "Studies on CBD for neuropathic pain. Research on cannabidiol for peripheral neuropathy and nerve damage.",
+    "category": "pain"
+  },
+  {
+    "id": "4722bf84-1a23-4e54-a4f2-4ebc201dd3d2",
+    "slug": "new-mothers",
+    "name": "New Mothers",
+    "display_name": "CBD for New Mothers",
+    "short_description": "Learn about CBD research and cbd for new mothers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "7e777f32-2ffe-44aa-b9f4-028feead9b64",
+    "slug": "night-owls",
+    "name": "Night Owls",
+    "display_name": "CBD for Night Owls",
+    "short_description": "Learn about CBD research and cbd for night owls",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "2eb5bceb-4687-4ac2-8077-4d5a997c38af",
+    "slug": "obesity",
+    "name": "Obesity",
+    "display_name": "Obesity & Weight Management",
+    "short_description": "Research on CBD for weight management and metabolism.",
+    "meta_title_template": "CBD for Weight: Obesity & Metabolism Research",
+    "meta_description_template": "Can CBD help with weight? Studies on cannabidiol for obesity, metabolism, and appetite regulation.",
+    "category": "metabolic"
+  },
+  {
+    "id": "ff95666f-73b7-49f9-9db9-9c5afb86b9bf",
+    "slug": "occipital-neuralgia",
+    "name": "Occipital Neuralgia",
+    "display_name": "Occipital Neuralgia",
+    "short_description": "Learn about CBD research and occipital neuralgia",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "neurological"
+  },
+  {
+    "id": "bc87a8d9-d7cf-4353-ba4a-ee763e696275",
+    "slug": "ocd",
+    "name": "OCD",
+    "display_name": "Obsessive-Compulsive Disorder (OCD)",
+    "short_description": "Learn about CBD research and obsessive-compulsive disorder (ocd)",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "238e87ee-1c1f-457f-a6b1-0cb4b9bfaa1c",
+    "slug": "oily-skin",
+    "name": "Oily Skin",
+    "display_name": "Oily Skin",
+    "short_description": "Learn about CBD research and oily skin",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "skin"
+  },
+  {
+    "id": "e6196da9-d401-4d48-a83a-f9ce092b9a79",
+    "slug": "opioid-tapering",
+    "name": "Opioid Tapering",
+    "display_name": "Opioid Tapering & Withdrawal",
+    "short_description": "Learn about CBD research and opioid tapering & withdrawal",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "91a1e69e-7772-466b-b636-7d1a2f698d9c",
+    "slug": "over-60",
+    "name": "Over 60",
+    "display_name": "CBD for Over 60",
+    "short_description": "Learn about CBD research and cbd for over 60",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "7e5c6d0c-dabd-4635-b069-69d34fb07422",
+    "slug": "overuse-injuries",
+    "name": "Overuse Injuries",
+    "display_name": "Repetitive Strain Injuries",
+    "short_description": "Learn about CBD research and repetitive strain injuries",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "6d91487c-3a6c-43ee-bdaf-47c53815f3ec",
+    "slug": "pain",
+    "name": "Pain",
+    "display_name": "Pain Management",
+    "short_description": "CBD research on pain management and relief",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "2b5944c7-8e38-4560-ada9-270b51946064",
+    "slug": "panic-attacks",
+    "name": "Panic Attacks",
+    "display_name": "Panic Attacks & Panic Disorder",
+    "short_description": "Learn about CBD research and panic attacks & panic disorder",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "d81e6d19-a0b9-4bad-a838-06b201d3ac2c",
+    "slug": "parents",
+    "name": "Parents",
+    "display_name": "CBD for Parents",
+    "short_description": "Learn about CBD research and cbd for parents",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "177203c0-02b9-4519-8201-3cdde4260525",
+    "slug": "parkinsons",
+    "name": "Parkinson's",
+    "display_name": "Parkinson's Disease",
+    "short_description": "Research on CBD for Parkinson's disease symptoms.",
+    "meta_title_template": "CBD for Parkinson's Disease: Research & Evidence",
+    "meta_description_template": "Studies on CBD for Parkinson's disease. Research on cannabidiol for tremors, dyskinesia, and neuroprotection.",
+    "category": "neurological"
+  },
+  {
+    "id": "141f56a4-b50c-4d3a-9aef-1c53e01269a8",
+    "slug": "parrots",
+    "name": "Parrots",
+    "display_name": "Parrot Care & CBD",
+    "short_description": "Learn about CBD research and parrot care & cbd",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "30a43bc2-e39b-4046-b862-b2effe3b58bb",
+    "slug": "pelvic-pain",
+    "name": "Pelvic Pain",
+    "display_name": "Pelvic Pain",
+    "short_description": "Learn about CBD research and pelvic pain",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "cbfd10e9-25b6-4969-98ac-d59d1b31140e",
+    "slug": "perfectionists",
+    "name": "Perfectionists",
+    "display_name": "CBD for Perfectionists",
+    "short_description": "Learn about CBD research and cbd for perfectionists",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "a49c8991-55fd-444c-9dcc-8942aeab04c3",
+    "slug": "performance-anxiety",
+    "name": "Performance Anxiety",
+    "display_name": "Performance Anxiety",
+    "short_description": "Learn about CBD research and performance anxiety",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "49a76bac-cfbf-418b-ab71-2b94df3c0c05",
+    "slug": "peripheral-neuropathy",
+    "name": "Peripheral Neuropathy",
+    "display_name": "Peripheral Neuropathy",
+    "short_description": "Learn about CBD research and peripheral neuropathy",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "neurological"
+  },
+  {
+    "id": "46042d89-8a38-4e2e-8a20-d06d8634bb8c",
+    "slug": "pet-fireworks",
+    "name": "Pet Fireworks Anxiety",
+    "display_name": "Pet Fireworks & Noise Fear",
+    "short_description": "Learn about CBD research and pet fireworks & noise fear",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "4bc81ed8-36e2-4ebf-9b44-217e2f26426f",
+    "slug": "pet-travel",
+    "name": "Pet Travel Anxiety",
+    "display_name": "Pet Travel & Motion Sickness",
+    "short_description": "Learn about CBD research and pet travel & motion sickness",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "5322dc83-31ef-4f9b-9a60-6c5231e9029c",
+    "slug": "veterinary",
+    "name": "Pets",
+    "display_name": "CBD for Pets & Animals",
+    "short_description": "Research on CBD for pets and veterinary applications.",
+    "meta_title_template": "CBD for Pets: Dog & Cat Research ({year})",
+    "meta_description_template": "Studies on CBD for dogs, cats, and pets. Research on cannabidiol for animal anxiety, arthritis, and seizures.",
+    "category": "pets"
+  },
+  {
+    "id": "6b390a92-5e55-41c5-9930-1b69d90085b1",
+    "slug": "phantom-pain",
+    "name": "Phantom Pain",
+    "display_name": "Phantom Limb Pain",
+    "short_description": "Learn about CBD research and phantom limb pain",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "75e7bd03-66d5-4ea5-a7f9-5f8c29feac4e",
+    "slug": "phone-anxiety",
+    "name": "Phone Anxiety",
+    "display_name": "Phone & Communication Anxiety",
+    "short_description": "Learn about CBD research and phone & communication anxiety",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "c8025988-5f2d-412d-9324-10475e9ff9c5",
+    "slug": "photographers",
+    "name": "Photographers",
+    "display_name": "CBD for Photographers",
+    "short_description": "Learn about CBD research and cbd for photographers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "1e174eb9-c122-44ef-8056-77c69f5ea4f0",
+    "slug": "physical-therapy",
+    "name": "Physical Therapy",
+    "display_name": "CBD & Physical Therapy",
+    "short_description": "Learn about CBD research and cbd & physical therapy",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "2b3d32cc-7e1d-44d9-b1aa-1608914dc81c",
+    "slug": "plantar-fasciitis",
+    "name": "Plantar Fasciitis",
+    "display_name": "Plantar Fasciitis",
+    "short_description": "Learn about CBD research and plantar fasciitis",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "e6a9048a-c03b-4785-b86a-2a00facc9296",
+    "slug": "pms",
+    "name": "PMS",
+    "display_name": "Premenstrual Syndrome (PMS)",
+    "short_description": "Learn about CBD research and premenstrual syndrome (pms)",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "87cdc23d-71b1-4c3a-be59-a59d559e657b",
+    "slug": "podcasters",
+    "name": "Podcasters",
+    "display_name": "CBD for Podcasters",
+    "short_description": "Learn about CBD research and cbd for podcasters",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "154b81a3-45f2-424e-8d65-7f4dda501dfb",
+    "slug": "poison-ivy",
+    "name": "Poison Ivy",
+    "display_name": "Poison Ivy & Plant Rashes",
+    "short_description": "Learn about CBD research and poison ivy & plant rashes",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "skin"
+  },
+  {
+    "id": "12100a50-020b-4f48-b50c-db8be0b0530e",
+    "slug": "post-surgical-pain",
+    "name": "Post-Surgical Pain",
+    "display_name": "Post-Operative Pain",
+    "short_description": "Learn about CBD research and post-operative pain",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "e92635c7-b1e7-4aca-baa8-280211ccd6f0",
+    "slug": "pregnancy",
+    "name": "Pregnancy",
+    "display_name": "Pregnancy & CBD Safety",
+    "short_description": "Learn about CBD research and pregnancy & cbd safety",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "a7692cc1-be01-450e-a8d7-7c59637efdea",
+    "slug": "prescription-meds",
+    "name": "Prescription Medications",
+    "display_name": "CBD & Prescription Drugs",
+    "short_description": "Learn about CBD research and cbd & prescription drugs",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "cda6f857-51c6-4b2e-8783-88ca4fff21e6",
+    "slug": "programmers",
+    "name": "Programmers",
+    "display_name": "CBD for Programmers",
+    "short_description": "Learn about CBD research and cbd for programmers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "7f4014d5-8015-4c50-86dc-e5a6fbf69d4e",
+    "slug": "psoriasis",
+    "name": "Psoriasis",
+    "display_name": "Psoriasis & Autoimmune Skin Conditions",
+    "short_description": "Research on CBD for psoriasis and skin inflammation.",
+    "meta_title_template": "CBD for Psoriasis: Skin Condition Research",
+    "meta_description_template": "Studies on CBD for psoriasis. Research on cannabidiol for skin inflammation, plaques, and autoimmune skin conditions.",
+    "category": "skin"
+  },
+  {
+    "id": "1f61f7a2-f7a7-42d6-b6da-6363191dc38f",
+    "slug": "ptsd",
+    "name": "PTSD",
+    "display_name": "Post-Traumatic Stress Disorder",
+    "short_description": "Research on CBD for PTSD and trauma-related conditions.",
+    "meta_title_template": "CBD for PTSD: Research on Cannabidiol & Trauma ({year})",
+    "meta_description_template": "Review of {research_count} studies on CBD for PTSD. Research on cannabidiol for post-traumatic stress disorder, including veteran studies.",
+    "category": "mental_health"
+  },
+  {
+    "id": "f6dce4d8-0bf1-4ad9-97d5-85f210f55beb",
+    "slug": "public-speakers",
+    "name": "Public Speakers",
+    "display_name": "CBD for Public Speakers",
+    "short_description": "Learn about CBD research and cbd for public speakers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "275a13b1-101a-464e-814f-c5aae46ebec0",
+    "slug": "public-speaking",
+    "name": "Public Speaking Anxiety",
+    "display_name": "Public Speaking & Stage Fright",
+    "short_description": "Learn about CBD research and public speaking & stage fright",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "852d3b87-1be2-4ac5-a0f6-860f1fa2606d",
+    "slug": "puppies",
+    "name": "Puppies",
+    "display_name": "Puppy Care & CBD",
+    "short_description": "Learn about CBD research and puppy care & cbd",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "644ff8ac-4def-4232-ba17-fdc702d460cb",
+    "slug": "rabbits",
+    "name": "Rabbits",
+    "display_name": "Rabbit Care & CBD",
+    "short_description": "Learn about CBD research and rabbit care & cbd",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "c56e1f53-9976-4155-8dd6-0386f544bbc0",
+    "slug": "radiation-therapy",
+    "name": "Radiation Therapy",
+    "display_name": "Radiation Therapy Side Effects",
+    "short_description": "Learn about CBD research and radiation therapy side effects",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "cancer"
+  },
+  {
+    "id": "a6463897-8d05-4130-b289-7eeecf6e317a",
+    "slug": "raynauds",
+    "name": "Raynauds",
+    "display_name": "Raynaud's Phenomenon",
+    "short_description": "Learn about CBD research and raynaud's phenomenon",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "cardiovascular"
+  },
+  {
+    "id": "15b74dea-2cc4-4d78-82a9-dd2530c90b6a",
+    "slug": "real-estate",
+    "name": "Real Estate Agents",
+    "display_name": "CBD for Real Estate Agents",
+    "short_description": "Learn about CBD research and cbd for real estate agents",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "c92ba72d-47f7-45c7-a1ad-0946172ed419",
+    "slug": "remote-workers",
+    "name": "Remote Workers",
+    "display_name": "CBD for Remote Workers",
+    "short_description": "Learn about CBD research and cbd for remote workers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "397d0677-8eba-498c-8798-a2e0df752cc5",
+    "slug": "reptiles",
+    "name": "Reptiles",
+    "display_name": "Reptile Care & CBD",
+    "short_description": "Learn about CBD research and reptile care & cbd",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "136df1b8-1100-4452-b5cb-0cc5abe76b71",
+    "slug": "restless-leg",
+    "name": "Restless Leg Syndrome",
+    "display_name": "Restless Leg Syndrome",
+    "short_description": "Learn about CBD research and restless leg syndrome",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "neurological"
+  },
+  {
+    "id": "16d5c365-0628-41a4-a50a-009a4365a1c6",
+    "slug": "retail-workers",
+    "name": "Retail Workers",
+    "display_name": "CBD for Retail Workers",
+    "short_description": "Learn about CBD research and cbd for retail workers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "a9c617f2-8f40-4ce4-a2b0-bbfa8e4794cb",
+    "slug": "rib-pain",
+    "name": "Rib Pain",
+    "display_name": "Rib Pain & Costochondritis",
+    "short_description": "Learn about CBD research and rib pain & costochondritis",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "b43c20b4-4af6-46bb-aa13-8fa5399c7320",
+    "slug": "rock-climbing",
+    "name": "Rock Climbing",
+    "display_name": "CBD for Rock Climbing",
+    "short_description": "Learn about CBD research and cbd for rock climbing",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "26bffbd5-e3b1-4257-ac74-1f0519c1aefb",
+    "slug": "rosacea",
+    "name": "Rosacea",
+    "display_name": "Rosacea",
+    "short_description": "Learn about CBD research and rosacea",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "skin"
+  },
+  {
+    "id": "ec571210-3d2e-4d76-a01e-6b6639d304b2",
+    "slug": "runners",
+    "name": "Runners",
+    "display_name": "CBD for Runners",
+    "short_description": "Learn about CBD research and cbd for runners",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "1e56eb2d-c6a6-4837-a5a2-685cb4af49cd",
+    "slug": "sales",
+    "name": "Sales Professionals",
+    "display_name": "CBD for Sales Professionals",
+    "short_description": "Learn about CBD research and cbd for sales professionals",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "61e538d7-23e8-4128-8cb7-67f20492d576",
+    "slug": "sauna",
+    "name": "Sauna",
+    "display_name": "CBD & Sauna",
+    "short_description": "Learn about CBD research and cbd & sauna",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "4aeb2f1b-f8ae-4d03-a267-d549dd835d81",
+    "slug": "scalp-health",
+    "name": "Scalp Health",
+    "display_name": "Scalp Conditions",
+    "short_description": "Learn about CBD research and scalp conditions",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "skin"
+  },
+  {
+    "id": "99774e40-ff92-4af0-be4a-84bf75f86624",
+    "slug": "scar-tissue-pain",
+    "name": "Scar Tissue Pain",
+    "display_name": "Scar Tissue & Adhesion Pain",
+    "short_description": "Learn about CBD research and scar tissue & adhesion pain",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "f72be86d-c5ee-4dbf-bedb-3171e88d2c11",
+    "slug": "schizophrenia",
+    "name": "Schizophrenia",
+    "display_name": "Schizophrenia & Psychosis",
+    "short_description": "Research on CBD for schizophrenia and psychotic disorders.",
+    "meta_title_template": "CBD for Schizophrenia: Antipsychotic Research ({year})",
+    "meta_description_template": "Research on CBD for schizophrenia and psychosis. Studies on cannabidiol's potential antipsychotic properties.",
+    "category": "mental_health"
+  },
+  {
+    "id": "4b603546-fdff-43ca-bdc2-00022d07bd5a",
+    "slug": "sciatica",
+    "name": "Sciatica",
+    "display_name": "Sciatica",
+    "short_description": "Learn about CBD research and sciatica",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "79307579-59d0-4057-adf9-05362dc8282b",
+    "slug": "seasonal-allergies",
+    "name": "Seasonal Allergies",
+    "display_name": "Seasonal Allergies & Hay Fever",
+    "short_description": "Learn about CBD research and seasonal allergies & hay fever",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "skin"
+  },
+  {
+    "id": "f2441484-7dc3-46db-ac2c-b1d2c551838d",
+    "slug": "seasonal-depression",
+    "name": "Seasonal Depression",
+    "display_name": "Seasonal Affective Disorder (SAD)",
+    "short_description": "Learn about CBD research and seasonal affective disorder (sad)",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "3cf6c2ee-6a55-4b44-8278-a8ca4d56df0d",
+    "slug": "senior-cats",
+    "name": "Senior Cats",
+    "display_name": "Senior Cat Care",
+    "short_description": "Learn about CBD research and senior cat care",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "c6c272d0-8b82-4f9c-a856-890d5f7eb710",
+    "slug": "senior-dogs",
+    "name": "Senior Dogs",
+    "display_name": "Senior Dog Care",
+    "short_description": "Learn about CBD research and senior dog care",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "f14a84c3-33fe-4669-b7dd-6dbb5350c38e",
+    "slug": "senior-pets",
+    "name": "Senior Pets",
+    "display_name": "Senior Pet Care",
+    "short_description": "Learn about CBD research and senior pet care",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "115ee12c-ceed-446d-b603-9edf8a01307c",
+    "slug": "seniors",
+    "name": "Seniors",
+    "display_name": "CBD for Seniors (50+)",
+    "short_description": "Learn about CBD research and cbd for seniors (50+)",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "6d9e8e4e-d98c-47a8-a0de-17b33f9732e6",
+    "slug": "sensitive-skin",
+    "name": "Sensitive Skin",
+    "display_name": "Sensitive Skin",
+    "short_description": "Learn about CBD research and sensitive skin",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "skin"
+  },
+  {
+    "id": "16815d3f-4806-4253-8789-1574fe0ecc7d",
+    "slug": "serotonin",
+    "name": "Serotonin",
+    "display_name": "CBD & Serotonin",
+    "short_description": "Learn about CBD research and cbd & serotonin",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "neurological"
+  },
+  {
+    "id": "0462dea5-308e-4fc2-b84f-58703f00068b",
+    "slug": "shift-workers",
+    "name": "Shift Workers",
+    "display_name": "CBD for Shift Workers",
+    "short_description": "Learn about CBD research and cbd for shift workers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "24330b00-97c5-4cdb-a2f5-acb1af77f271",
+    "slug": "shingles",
+    "name": "Shingles",
+    "display_name": "Shingles & Postherpetic Neuralgia",
+    "short_description": "Learn about CBD research and shingles & postherpetic neuralgia",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "253167bf-8f57-4184-9351-22e5c27abd99",
+    "slug": "shoulder-pain",
+    "name": "Shoulder Pain",
+    "display_name": "Shoulder Pain",
+    "short_description": "Learn about CBD research and shoulder pain",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "dd34ad84-ab33-4de8-aaca-d0510880b99b",
+    "slug": "sinusitis",
+    "name": "Sinusitis",
+    "display_name": "Sinus Issues",
+    "short_description": "Learn about CBD research and sinus issues",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "1cb97fc4-e492-4d0d-b9be-953eec55f979",
+    "slug": "skeptics",
+    "name": "Skeptics",
+    "display_name": "CBD for Skeptics",
+    "short_description": "Learn about CBD research and cbd for skeptics",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "abf1eacf-3bfc-4d1d-b22a-c45acb2360d8",
+    "slug": "skiing",
+    "name": "Skiing",
+    "display_name": "CBD for Skiing & Snowboarding",
+    "short_description": "Learn about CBD research and cbd for skiing & snowboarding",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "55936ca4-aac0-44b0-97cd-23f04b654daa",
+    "slug": "skin-health",
+    "name": "Skin Health",
+    "display_name": "Skin Health & Dermatology",
+    "short_description": "Learn about CBD research and skin health & dermatology",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "skin"
+  },
+  {
+    "id": "8d27579e-b5f3-48a6-aaa6-f156f2baaef7",
+    "slug": "sleep",
+    "name": "Sleep",
+    "display_name": "Sleep Disorders & Insomnia",
+    "short_description": "Research on CBD for sleep disorders including insomnia.",
+    "meta_title_template": "CBD for Sleep: {research_count} Studies on Insomnia & Sleep Quality",
+    "meta_description_template": "Can CBD help with sleep? Review {research_count} studies on cannabidiol for insomnia, sleep quality, and sleep disorders.",
+    "category": "mental_health"
+  },
+  {
+    "id": "f2014186-7d65-4a77-8603-55afb56f5193",
+    "slug": "sleep-apnea",
+    "name": "Sleep Apnea",
+    "display_name": "Sleep Apnea",
+    "short_description": "Learn about CBD research and sleep apnea",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "94a157d5-a0eb-412b-9d08-879505c7f3af",
+    "slug": "small-pets",
+    "name": "Small Pets",
+    "display_name": "Small Pet Care",
+    "short_description": "Learn about CBD research and small pet care",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pets"
+  },
+  {
+    "id": "e5190443-7c9d-41eb-b5ed-46a89b9bf818",
+    "slug": "smoking-cessation",
+    "name": "Smoking Cessation",
+    "display_name": "Smoking Cessation",
+    "short_description": "Learn about CBD research and smoking cessation",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "c0009358-bd1a-4fe8-ba24-c1751614e452",
+    "slug": "snoring",
+    "name": "Snoring",
+    "display_name": "Snoring",
+    "short_description": "Learn about CBD research and snoring",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "4721fd52-9ad4-4b34-af20-ecd020a12ca9",
+    "slug": "social-anxiety",
+    "name": "Social Anxiety",
+    "display_name": "Social Anxiety Disorder",
+    "short_description": "Learn about CBD research and social anxiety disorder",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "ff7cc8af-a74e-4c84-a680-821b9379c79f",
+    "slug": "social-events",
+    "name": "Social Events",
+    "display_name": "Social Event Anxiety",
+    "short_description": "Learn about CBD research and social event anxiety",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "c7d04876-a318-4c99-bcff-ef51abe4e2b9",
+    "slug": "sports-injuries",
+    "name": "Sports Injuries",
+    "display_name": "Sports Injuries",
+    "short_description": "Learn about CBD research and sports injuries",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "9821d2c3-05a6-4c06-a7b0-6a8c1f52c94f",
+    "slug": "streamers",
+    "name": "Streamers",
+    "display_name": "CBD for Content Creators",
+    "short_description": "Learn about CBD research and cbd for content creators",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "107cf0d9-9e4f-4f54-b988-9a74b2325bbc",
+    "slug": "stress",
+    "name": "Stress",
+    "display_name": "Chronic Stress",
+    "short_description": "Research on CBD for stress management and cortisol regulation.",
+    "meta_title_template": "CBD for Stress: Research on Stress Relief ({year})",
+    "meta_description_template": "What does research say about CBD for stress? Studies on cannabidiol's effects on cortisol and the stress response.",
+    "category": "mental_health"
+  },
+  {
+    "id": "a6bff020-17b1-44b6-8c75-2c0aed61ab79",
+    "slug": "students",
+    "name": "Students",
+    "display_name": "CBD for Students",
+    "short_description": "Learn about CBD research and cbd for students",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "98bf6767-15fd-41e2-bfbc-b201f0f4dbdc",
+    "slug": "sunburn",
+    "name": "Sunburn",
+    "display_name": "Sunburn",
+    "short_description": "Learn about CBD research and sunburn",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "skin"
+  },
+  {
+    "id": "603560cb-c36b-4663-b672-a9be288dda70",
+    "slug": "surfing",
+    "name": "Surfing",
+    "display_name": "CBD for Surfers",
+    "short_description": "Learn about CBD research and cbd for surfers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "32b5c7e2-19bb-4c66-a5b6-d44217ec9485",
+    "slug": "surgery-recovery",
+    "name": "Surgery Recovery",
+    "display_name": "Surgery Recovery",
+    "short_description": "Learn about CBD research and surgery recovery",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "c8dd27fa-5485-41bb-8c26-674dc27a4280",
+    "slug": "swimmers",
+    "name": "Swimmers",
+    "display_name": "CBD for Swimmers",
+    "short_description": "Learn about CBD research and cbd for swimmers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "d44de867-0efc-400f-9506-5b58bd0893aa",
+    "slug": "teachers",
+    "name": "Teachers",
+    "display_name": "CBD for Teachers",
+    "short_description": "Learn about CBD research and cbd for teachers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "607955c5-feb2-4fe1-923c-ea7dbbcde0ba",
+    "slug": "teenagers",
+    "name": "Teenagers",
+    "display_name": "CBD for Teenagers",
+    "short_description": "Learn about CBD research and cbd for teenagers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "f7c4f75d-98d2-4d1b-9854-e3e4755e379a",
+    "slug": "tendonitis",
+    "name": "Tendonitis",
+    "display_name": "Tendonitis",
+    "short_description": "Learn about CBD research and tendonitis",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "cb61d882-059f-4419-af43-2d79db894c3d",
+    "slug": "tennis",
+    "name": "Tennis",
+    "display_name": "CBD for Tennis",
+    "short_description": "Learn about CBD research and cbd for tennis",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "51639260-4523-40c7-8996-ad51830e8403",
+    "slug": "tension-headaches",
+    "name": "Tension Headaches",
+    "display_name": "Tension Headaches",
+    "short_description": "Learn about CBD research and tension headaches",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "097b0e05-ccee-44f1-a854-89a98c0d94da",
+    "slug": "thc-sensitive",
+    "name": "THC Sensitive",
+    "display_name": "CBD for THC-Sensitive People",
+    "short_description": "Learn about CBD research and cbd for thc-sensitive people",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "7d6a5209-7e7b-4d0c-b744-8164036e4e27",
+    "slug": "therapists",
+    "name": "Therapists",
+    "display_name": "CBD for Therapists",
+    "short_description": "Learn about CBD research and cbd for therapists",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "37e5a54e-3edc-44e6-b63c-6867fc85fbc2",
+    "slug": "thyroid",
+    "name": "Thyroid",
+    "display_name": "Thyroid Health",
+    "short_description": "Learn about CBD research and thyroid health",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "metabolic"
+  },
+  {
+    "id": "c4797888-bc4f-416e-8339-abfc4327cb00",
+    "slug": "tinnitus",
+    "name": "Tinnitus",
+    "display_name": "Tinnitus",
+    "short_description": "Learn about CBD research and tinnitus",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "neurological"
+  },
+  {
+    "id": "f37225a7-0687-476a-9b3e-0a5197bcb706",
+    "slug": "tmj",
+    "name": "TMJ",
+    "display_name": "TMJ Disorder",
+    "short_description": "Learn about CBD research and tmj disorder",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "8217ee35-1c39-4cc1-abc1-c2e83717aabb",
+    "slug": "tooth-pain",
+    "name": "Tooth Pain",
+    "display_name": "Tooth & Dental Pain",
+    "short_description": "Learn about CBD research and tooth & dental pain",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "72cede09-aaa6-4163-a922-9f1a24d759b8",
+    "slug": "tourettes",
+    "name": "Tourette's",
+    "display_name": "Tourette Syndrome",
+    "short_description": "Research on CBD for Tourette syndrome and tic disorders.",
+    "meta_title_template": "CBD for Tourette's: Research on Tic Disorders",
+    "meta_description_template": "Studies on CBD for Tourette syndrome. Research on cannabinoids for tic reduction and management.",
+    "category": "neurological"
+  },
+  {
+    "id": "03fabfaa-daee-4cfe-afbf-74adc307e247",
+    "slug": "travel-anxiety",
+    "name": "Travel Anxiety",
+    "display_name": "Travel & Flying Anxiety",
+    "short_description": "Learn about CBD research and travel & flying anxiety",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "38dfdd97-41d9-4595-9d29-7f045803c45e",
+    "slug": "travelers",
+    "name": "Travelers",
+    "display_name": "CBD for Travelers",
+    "short_description": "Learn about CBD research and cbd for travelers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "98649e44-c1fa-4dd6-a04c-62caf33665b7",
+    "slug": "trigeminal-neuralgia",
+    "name": "Trigeminal Neuralgia",
+    "display_name": "Trigeminal Neuralgia",
+    "short_description": "Learn about CBD research and trigeminal neuralgia",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "neurological"
+  },
+  {
+    "id": "433cef63-78d9-4c0a-acfa-9dd4acb13158",
+    "slug": "truck-drivers",
+    "name": "Truck Drivers",
+    "display_name": "CBD for Truckers",
+    "short_description": "Learn about CBD research and cbd for truckers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "7a71b514-d8e0-4f27-8cec-92a8e77ee3bb",
+    "slug": "type-a",
+    "name": "Type A Personalities",
+    "display_name": "CBD for Type A Personalities",
+    "short_description": "Learn about CBD research and cbd for type a personalities",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "27f8168f-dbac-4c94-b945-93e6d56691bc",
+    "slug": "ulcerative-colitis",
+    "name": "Ulcerative Colitis",
+    "display_name": "Ulcerative Colitis",
+    "short_description": "Learn about CBD research and ulcerative colitis",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "gastrointestinal"
+  },
+  {
+    "id": "ce48288e-3bdf-4e8e-8b73-146337659417",
+    "slug": "varicose-veins",
+    "name": "Varicose Veins",
+    "display_name": "Varicose Veins",
+    "short_description": "Learn about CBD research and varicose veins",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "cardiovascular"
+  },
+  {
+    "id": "5be7b7fb-2bac-4c08-921c-1b2823baf8d6",
+    "slug": "vegans",
+    "name": "Vegans",
+    "display_name": "CBD for Vegans",
+    "short_description": "Learn about CBD research and cbd for vegans",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "194bbc84-2a4a-4f8d-812e-5d0c44f63263",
+    "slug": "vertigo",
+    "name": "Vertigo",
+    "display_name": "Vertigo & Dizziness",
+    "short_description": "Learn about CBD research and vertigo & dizziness",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "neurological"
+  },
+  {
+    "id": "e240b5c2-2b2f-4c1d-a6fa-8b34f8403167",
+    "slug": "veterans",
+    "name": "Veterans",
+    "display_name": "CBD for Veterans",
+    "short_description": "Learn about CBD research and cbd for veterans",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "e4201d3a-25c4-423b-98f1-ba0f2764483f",
+    "slug": "wedding-anxiety",
+    "name": "Wedding Anxiety",
+    "display_name": "Wedding Day Nerves",
+    "short_description": "Learn about CBD research and wedding day nerves",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "mental_health"
+  },
+  {
+    "id": "6744c7b5-5f07-4e5b-a847-c919ca08ca12",
+    "slug": "weight-management",
+    "name": "Weight Management",
+    "display_name": "CBD & Weight Management",
+    "short_description": "Learn about CBD research and cbd & weight management",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "metabolic"
+  },
+  {
+    "id": "5c09ca70-3084-41ca-9ce6-0001a4997bab",
+    "slug": "weightlifters",
+    "name": "Weightlifters",
+    "display_name": "CBD for Weightlifters",
+    "short_description": "Learn about CBD research and cbd for weightlifters",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "1d7d7b45-556f-416b-a09b-0fbeeea52816",
+    "slug": "womens",
+    "name": "Women's Health",
+    "display_name": "Women's Health & Hormones",
+    "short_description": "Research on CBD for women's health conditions.",
+    "meta_title_template": "CBD for Women: Menstrual & Menopause Research",
+    "meta_description_template": "Studies on CBD for women's health. Research on cannabidiol for menstrual pain, menopause, and hormonal symptoms.",
+    "category": "other"
+  },
+  {
+    "id": "c37460ee-c386-45dc-bba3-5827ee404ab4",
+    "slug": "workout-recovery",
+    "name": "Workout Recovery",
+    "display_name": "Post-Workout Recovery",
+    "short_description": "Learn about CBD research and post-workout recovery",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "74c126d0-083e-42ed-846b-5b8fb920e807",
+    "slug": "wound-healing",
+    "name": "Wound Healing",
+    "display_name": "Wound Healing",
+    "short_description": "Learn about CBD research and wound healing",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "skin"
+  },
+  {
+    "id": "b67da4b2-823f-4dfa-9075-aaa908184ba5",
+    "slug": "wrist-pain",
+    "name": "Wrist Pain",
+    "display_name": "Wrist Pain",
+    "short_description": "Learn about CBD research and wrist pain",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "pain"
+  },
+  {
+    "id": "f915ff3b-a656-40fd-b06f-c8fb3d09fd2a",
+    "slug": "writers",
+    "name": "Writers",
+    "display_name": "CBD for Writers",
+    "short_description": "Learn about CBD research and cbd for writers",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  },
+  {
+    "id": "c982370f-0bd4-41c1-99d7-5868363d24d3",
+    "slug": "yoga",
+    "name": "Yoga",
+    "display_name": "CBD & Yoga",
+    "short_description": "Learn about CBD research and cbd & yoga",
+    "meta_title_template": null,
+    "meta_description_template": null,
+    "category": "other"
+  }
+]

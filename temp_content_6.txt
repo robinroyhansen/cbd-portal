@@ -1,0 +1,347 @@
+By Robin Roy Krigslund-Hansen | 12+ years in [CBD](/glossary/cannabidiol) industry
+Last updated: January 2026
+
+---
+
+---
+
+## Research Snapshot
+
+| Metric | Value |
+|--------|-------|
+| Studies reviewed | 100 |
+| Human clinical trials | 98 |
+| Systematic reviews | 1 |
+| Preclinical studies | 1 |
+| Total participants | 163+ |
+| Evidence strength | ●●●○○ Moderate |
+
+*Research on CBD and cannabinoids continues to evolve. [Browse all studies](/research)*
+
+## Quick Answer
+
+**Finding your CBD dosage requires starting low (10-20mg), taking consistently for 5-7 days, tracking your response, then adjusting incrementally until you find the minimum dose that produces your desired effects.** This self-titration process typically takes 2-6 weeks and is the most reliable way to find your personal optimal dose.
+
+---
+
+## Key Numbers: CBD Dosage Optimization
+
+| Metric | Value |
+|--------|-------|
+| Starting dose range | 10-20mg daily |
+| Time to find optimal dose | 2-6 weeks |
+| Initial assessment period | 5-7 days consistent dosing |
+| Dose adjustment increments | 5-10mg increases |
+| Research dose range | 10-1,500mg (wide variation) |
+
+These numbers reflect the systematic self-titration approach needed to find your personal optimal CBD dose, emphasizing the wide individual variation in effective dosing.
+
+## Key Takeaways
+
+- **Your optimal dose is unique** to your body and goals
+- **Self-titration** is the most reliable method
+- **Consistency matters** more than finding the "perfect" dose
+- **Track objectively** using ratings, not just feelings
+- **Minimum effective dose** is your target—not maximum
+- **Patience required**: 2-6 weeks for optimal dosing
+
+---
+
+## Why Doses Vary So Much
+
+### The Individual Variation Problem
+
+Research studies use doses from 10mg to 1,500mg. This huge range exists because:
+
+| Factor | Impact on Dosing |
+|--------|-----------------|
+| **Genetics** | [Endocannabinoid system](/articles/endocannabinoid-system) function differs |
+| **Body composition** | Fat-soluble CBD distributes differently |
+| **Metabolism** | Some process CBD faster than others |
+| **Existing [ECS](/glossary/endocannabinoid-system) tone** | Those with deficiency may respond more |
+| **Health status** | Severity of concern affects dose needs |
+
+**Bottom line:** No one can tell you exactly what dose you need. You must find it yourself through systematic testing.
+
+---
+
+## The Self-Titration Process
+
+### Phase 1: Establish Baseline (Pre-CBD)
+
+Before taking CBD:
+
+| Task | Purpose |
+|------|---------|
+| Rate your primary concern (1-10) | Know where you're starting |
+| Rate secondary factors (sleep, [mood](/conditions/mood), energy) | Catch additional benefits |
+| Document for 2-3 days | Establish consistent baseline |
+
+### Phase 2: Starting Dose (Week 1)
+
+| Step | Action |
+|------|--------|
+| **1** | Choose starting dose (typically 15-20mg for average adult) |
+| **2** | Take at the same time daily |
+| **3** | Take with food for better absorption |
+| **4** | Track daily using consistent metrics |
+| **5** | Don't adjust dose during this week |
+
+### Phase 3: Assessment (End of Week 1)
+
+| Question | If Yes | If No |
+|----------|--------|-------|
+| Any side effects? | Consider reducing or adjusting | Continue |
+| Any noticeable benefits? | Note them, continue dose | Normal—continue |
+| Want to continue? | Proceed to week 2 | Reassess approach |
+
+### Phase 4: Incremental Adjustment (Weeks 2-4)
+
+| Week | If No Benefit Yet | If Some Benefit |
+|------|-------------------|-----------------|
+| **Week 2** | Increase by 5-10mg | Maintain current dose |
+| **Week 3** | If needed, increase again | Continue or slight increase |
+| **Week 4** | Continue adjusting | Evaluate—found optimal? |
+
+---
+
+## Tracking Your Response
+
+### Essential Metrics to Track
+
+| Metric | How to Track | Why It Matters |
+|--------|--------------|----------------|
+| **Primary concern** | Daily rating 1-10 | Main goal measurement |
+| **[Sleep](/conditions/sleep) quality** | Rating 1-10 | Common early indicator |
+| **[Energy](/conditions/energy) level** | Rating 1-10 | Catches drowsiness or boost |
+| **Side effects** | Yes/no + description | Safety monitoring |
+| **Dose taken** | Exact mg | Know what you took |
+
+### Simple Daily Log
+
+```
+Date: ___
+Dose: ___mg at ___:___
+Primary concern before: _/10
+Primary concern evening: _/10
+Sleep last night: _/10
+Energy: _/10
+Side effects: ___
+Notes: ___
+```
+
+---
+
+## Finding Your "Sweet Spot"
+
+### Signs You've Found It
+
+| Indicator | What It Looks Like |
+|-----------|-------------------|
+| **Consistent benefit** | Improvement sustained day to day |
+| **No side effects** | Or only minor, acceptable ones |
+| **Feels "right"** | Comfortable with your routine |
+| **Minimum effective** | Increasing more doesn't add benefit |
+
+### The Minimum Effective Dose Concept
+
+**Goal:** Find the lowest dose that gives you the benefits you want.
+
+**Why not just take more?**
+- Higher doses aren't always more effective
+- Wastes product and money
+- Increases side effect risk
+- CBD may have a "[bell curve](/articles/what-is-cbd-isolate)" response for some
+
+### Testing If You're at Minimum Effective
+
+
+> For more information, see our guide on [CBD Dosage by Weight: Body Weight Dosing Guide](/articles/cbd-dosage-by-weight).
+Once you've found a dose that works:
+
+1. Try reducing by 5mg
+2. Continue for 5-7 days
+3. If benefits maintained → that's your new dose
+4. If benefits decrease → return to previous dose
+
+---
+
+## Adjustment Strategies
+
+### When to Increase
+
+| Situation | Action |
+|-----------|--------|
+| No noticeable effects after 1 week | Increase by 5-10mg |
+| Partial benefit, want more | Increase by 5mg |
+| Effects fade after initial improvement | Small increase |
+
+### When to Decrease
+
+| Situation | Action |
+|-----------|--------|
+| Drowsiness or fatigue | Reduce by 5-10mg or take at night |
+| Any unwanted side effects | Reduce dose |
+| Testing minimum effective | Reduce by 5mg, observe |
+
+### When to Reassess Approach
+
+| Situation | Consider |
+|-----------|----------|
+| No effects after 4 weeks at decent dose | Different product, spectrum, or method |
+| Effects only with very high doses | Product quality, [full spectrum](/glossary/full-spectrum) switch |
+| Unpredictable response | More consistency needed, external factors |
+
+---
+
+## Common Dosing Patterns
+
+### Pattern 1: Low Responder
+
+- Notices effects only at higher doses (50mg+)
+- May benefit from [full spectrum](/articles/what-is-full-spectrum-cbd)
+- Should verify product quality
+
+### Pattern 2: Sensitive Responder
+
+- Notices effects at low doses (5-15mg)
+- May experience side effects at typical doses
+- Start very low, increase cautiously
+
+### Pattern 3: Standard Responder
+
+- Comfortable in 20-50mg range
+- Clear dose-response relationship
+- Most common pattern
+
+### Pattern 4: Non-Responder
+
+- No effects regardless of dose
+- May have genetic variation in ECS
+- CBD may not be effective for this person
+
+---
+
+## Troubleshooting
+
+### "I Can't Tell If It's Working"
+
+| Solution | How to Implement |
+|----------|------------------|
+| **Objective tracking** | Use numbers (1-10) daily |
+| **Longer trial** | Extend to 6 weeks |
+| **Higher dose trial** | Increase incrementally |
+| **Ask others** | Do people notice you seem calmer/better? |
+| **Take a break** | Stop for 5-7 days, notice any difference |
+
+### "It Worked at First but Stopped"
+
+| Possibility | Solution |
+|-------------|----------|
+| **Tolerance** | Try a 3-5 day break, then resume |
+| **External factors** | Something else changed? |
+| **Dose creep needed** | Modest increase |
+| **Product batch variation** | Quality issue possible |
+
+### "Effects Are Inconsistent"
+
+| Cause | Solution |
+|-------|----------|
+| **Taking inconsistently** | Same time daily |
+| **Variable food intake** | Always take with food |
+| **External [stress](/conditions/stress) variation** | Track external factors |
+| **Product quality** | Try verified brand |
+
+---
+
+## Dose Journaling Template
+
+### Weekly Summary
+
+```
+Week: ___ Current dose: ___mg
+Average primary concern rating: _/10
+Change from last week: ↑↓→
+Sleep average: _/10
+Energy average: _/10
+Side effects: ___
+Assessment: [ ] Increase [ ] Maintain [ ] Decrease
+Next week's dose: ___mg
+```
+
+---
+
+
+## My Take
+
+After 12+ years in this industry, the biggest mistake I see people make is rushing the dosage process. They try CBD for three days, don't feel anything dramatic, then either give up or jump to massive doses. Here's what I wish everyone understood: CBD works subtly and cumulatively.
+
+In my experience testing hundreds of products, the people who succeed with CBD are those who treat it like a daily supplement, not a quick fix. I've seen individuals find relief at 15mg daily, while others need 80mg+. There's no magic formula—your endocannabinoid system is as unique as your fingerprint.
+
+The self-titration method I recommend isn't just theory; it's what actually works in practice. I've guided countless people through this process, and those who follow it methodically almost always find their sweet spot. Skip the shortcuts and trust the process.
+
+---
+
+## Related Studies
+
+Research related to this topic:
+
+- [Randomised Controlled Trial Evidence on Medicinal Cannabis for Treatment of Ment... (2025)](/research/study/randomised-controlled-trial-evidence-on-medicinal-cannabis-f-2025-e4728c) - Human Trial
+- [Cannabidiol in the cognitive neurology of [aging](/conditions/aging): current evidence, challenges an... (2024)](/research/study/cannabidiol-in-the-cognitive-neurology-of-aging-current-evid-2024-81bfff) - Human Trial
+- [Therapeutic potential of cannabidiol (CBD) in [anxiety](/conditions/anxiety) disorders: A systematic re... (2024)](/research/study/therapeutic-potential-of-cannabidiol-cbd-in-anxiety-disorder-2024-fbacc8) - Human Trial
+- [Cannabidiol inhibits human glioma by induction of lethal mitophagy through activ... (2021)](/research/study/cannabidiol-inhibits-human-glioma-by-induction-of-lethal-mit-2021-b24ecf) - Human Trial
+- [Cannabidiol for [Pain](/conditions/pain) Treatment: [Focus](/conditions/focus) on Pharmacology and Mechanism of Action (2020)](/research/study/cannabidiol-for-pain-treatment-focus-on-pharmacology-and-mec-2020-f51292) - Human Trial
+
+[Browse all CBD research →](/research)
+
+## Frequently Asked Questions
+
+### How long until I know my optimal dose?
+
+Most people find their optimal dose within 2-6 weeks of consistent use and adjustment. Some figure it out faster, others need longer. The key is patience and systematic adjustment.
+
+### What if I need different doses for different times?
+
+Some people take a lower dose in the morning (for daytime function) and a higher dose at night (for sleep). This is fine—track each separately.
+
+### Should I start over if I change products?
+
+When switching products, you may need to re-titrate, especially if changing:
+- Spectrum type (full to isolate or vice versa)
+- Delivery method (oil to gummies)
+- Brand (potency may differ)
+
+### Is my dose forever or does it change?
+
+Your optimal dose may shift over time based on:
+- Changes in your health status
+- Lifestyle changes
+- Body weight changes
+- Tolerance development
+- Product changes
+
+Re-evaluate periodically or if effects change.
+
+---
+
+## Your Personal Dosing Action Plan
+
+**Week 1:** Take ___mg daily (starting dose)
+- Track: ☐ Daily ratings ☐ Side effects ☐ Dose/time
+
+**Week 2:** If no benefit, increase to ___mg
+- If benefit, maintain at ___mg
+- If side effects, adjust to ___mg
+
+**Week 3-4:** Continue adjusting until you find:
+- ☐ Consistent benefit
+- ☐ No significant side effects
+- ☐ Minimum effective dose
+
+**Ongoing:** Monthly check-in
+- Is current dose still working?
+- Any need to adjust?
+
+---
+
+*Medical Disclaimer: This article is for informational purposes only and does not constitute medical advice. Consult a healthcare professional before using CBD, especially if you have health conditions or take medications.*

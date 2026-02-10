@@ -6,6 +6,9 @@ import { getLocaleSync, createTranslator } from '@/../locales';
 import type { LanguageCode } from '@/lib/translation-service';
 import { createLocalizedHref } from '@/lib/utils/locale-href';
 
+// Force dynamic rendering to support language switching via ?lang= parameter
+export const dynamic = 'force-dynamic';
+
 interface Props {
   searchParams: Promise<{ lang?: string }>;
 }

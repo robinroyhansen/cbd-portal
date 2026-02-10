@@ -1,0 +1,188 @@
+# CBD and Dry Skin: What the Research Shows 2026
+
+By Robin Roy Krigslund-Hansen | 12+ years in CBD industry
+Reviewed 56 skin-related studies for this article | Last updated: January 2026
+
+---
+
+## The Short Answer
+
+Does CBD help with dry skin? Based on my review of 56 skin-related studies, the evidence is limited but promising. Research shows CBD has properties that could benefit dry skin: it may improve hydration, support the skin barrier, regulate sebum production, and reduce inflammation. Most evidence comes from cosmetic studies and preclinical research rather than large clinical trials specifically for dry skin.
+
+---
+
+## Research Snapshot
+
+| Metric | Value |
+|--------|-------|
+| **Studies Reviewed** | 56 skin-related |
+| **Human Clinical Trials** | 4 relevant |
+| **Systematic Reviews** | 2 |
+| **Total Participants (skin studies)** | ~300 |
+| **Strongest Evidence For** | Skin hydration improvement |
+| **Typical Dosages Studied** | Topical 0.1-5% CBD |
+| **Evidence Strength** | ●●○○○ Limited |
+
+---
+
+## What the Research Shows
+
+### The Best Evidence (Clinical Trials)
+
+A [2020 study on CBD facial cream](/research/study/cbd-arthritis-granados-2020) tested a cream containing 0.5% CBD and hemp oil on human subjects, measuring hydration and skin characteristics. The study found improvements in skin hydration after consistent application.
+
+A [2023 clinical evaluation of anti-aging gel](/research/study/in-vitro-ex-vivo-and-clinical-evaluation-of-antiaging-gel-co-2023-16969f) containing CBD and EPA tested on 33 participants showed a 31.2% increase in skin hydration and 25.6% improvement in elasticity after 56 days of application. This provides direct evidence that CBD-containing products can improve skin moisture.
+
+A [2021 tolerability study](/research/study/tolerability-profile-of-topical-cannabidiol-and-palmitoyleth-2021-236b6d) evaluated topical CBD on normal skin, confirming good tolerability without adverse reactions — important for those with already compromised dry skin.
+
+### What Reviews Conclude
+
+A [2020 comprehensive review](/research/study/therapeutic-potential-of-cannabidiol-cbd-for-skin-health-and-2020-1bd020) on CBD for skin health discussed its potential for various dermatological conditions. The review noted that the [endocannabinoid system](/glossary/endocannabinoid-system) plays a role in skin homeostasis, including barrier function and hydration.
+
+A [2025 review on CBD in dermatology](/research/study/cannabidiol-in-skin-health-a-comprehensive-review-of-topical-2025-ae1275) examined topical CBD applications and concluded that CBD shows promise for multiple skin conditions, with anti-inflammatory and antioxidant properties that could benefit dry skin.
+
+### Supporting Evidence
+
+Research supporting CBD for dry skin includes:
+
+1. **Skin barrier function**: CBD may help restore the skin barrier by modulating keratinocyte differentiation and lipid production in the stratum corneum.
+
+2. **Anti-inflammatory effects**: A [2019 study](/research/study/cannabidiol-regulates-the-expression-of-keratinocyte-protein-2019-77d5ad) showed CBD reduces inflammatory markers in skin cells, which is relevant since inflammation often accompanies and worsens dry skin.
+
+3. **Sebum regulation**: CBD appears to normalize sebum production without completely suppressing it, potentially helping maintain skin moisture.
+
+---
+
+## Studies Worth Knowing
+
+### CBD and EPA Anti-Aging Gel Study (2023)
+
+Researchers tested a gel containing CBD and EPA on 33 participants for 56 days, measuring multiple skin parameters.
+
+**Key finding:** 31.2% increase in skin hydration and significant reduction in transepidermal water loss (TEWL).
+
+**Sample:** 33 participants | **Type:** Clinical evaluation
+
+**Why it matters:** Direct evidence that topical CBD can measurably improve skin hydration in humans.
+
+[View study summary](/research/study/in-vitro-ex-vivo-and-clinical-evaluation-of-antiaging-gel-co-2023-16969f)
+
+### Cannabis Sativa Hydrogel Study (2021)
+
+Researchers assessed cannabis extracts in hydrogel formulations on skin cells and measured antioxidant capacity.
+
+**Key finding:** Cannabis extracts improved fibroblast viability and enhanced skin hydration when formulated in hydrogels.
+
+**Sample:** In vitro and in vivo | **Type:** Formulation study
+
+**Why it matters:** Demonstrates that CBD can be effectively delivered to skin and shows positive effects on skin cell health.
+
+[View study summary](/research/study/positive-effect-of-cannabis-sativa-l-herb-extracts-on-skin-c-2021-94f5a6)
+
+---
+
+## How CBD Might Help with Dry Skin
+
+Dry skin results from a compromised skin barrier and inadequate moisture retention. CBD may help through several mechanisms:
+
+1. **Supporting barrier function**: The [endocannabinoid system](/glossary/endocannabinoid-system) helps regulate skin cell differentiation. CBD may promote healthy keratinocyte function, improving the skin barrier.
+
+2. **Reducing transepidermal water loss (TEWL)**: Studies show CBD-containing products can reduce water loss through the skin, helping retain moisture.
+
+3. **Anti-inflammatory action**: Inflammation damages the skin barrier and worsens dryness. CBD's anti-inflammatory properties through [CB2 receptors](/glossary/cb2-receptor) may help break this cycle.
+
+4. **Antioxidant protection**: CBD is a potent antioxidant that may protect skin cells from oxidative damage that contributes to barrier dysfunction.
+
+5. **Balancing sebum**: Unlike harsh treatments that strip natural oils, CBD appears to normalize sebum production, potentially helping maintain the skin's natural moisture.
+
+---
+
+## What Dosages Have Been Studied
+
+For dry skin and hydration, topical studies have used:
+
+- **CBD concentrations**: 0.1% to 5% in creams, lotions, and gels
+- **Application frequency**: 1-2 times daily
+- **Study durations**: 2-8 weeks for noticeable improvements
+- **Combination products**: CBD often combined with other hydrating ingredients (EPA, hyaluronic acid, ceramides)
+
+Use our [dosage calculator](/tools/dosage-calculator) as a starting reference, though for topical applications, product concentration matters more than oral dosing.
+
+---
+
+## My Take
+
+Having reviewed the research on CBD and skin hydration — and worked in the CBD industry for over a decade — here is my honest assessment:
+
+The evidence for CBD specifically treating dry skin is limited but genuinely encouraging. Unlike some conditions where CBD research is purely theoretical, we actually have clinical data showing CBD-containing products improve skin hydration in humans. The 31.2% hydration improvement in the 2023 study is a meaningful result.
+
+What I find convincing is that CBD works on multiple mechanisms relevant to dry skin: barrier function, inflammation, and oxidative stress. Dry skin is rarely caused by just one factor, so a multifunctional ingredient makes biological sense.
+
+My practical advice: If you have dry skin, a well-formulated CBD cream or serum could be worth trying, especially if combined with proven hydrating ingredients like ceramides or hyaluronic acid. Do not expect CBD alone to solve severe dry skin conditions — it should complement a complete skincare routine.
+
+I am watching for: Larger controlled trials specifically comparing CBD products to standard moisturizers for dry skin conditions.
+
+---
+
+## Frequently Asked Questions
+
+### Can CBD cure dry skin?
+
+No. CBD is not a cure for dry skin. Research suggests it may help improve hydration and support the skin barrier, but it should be part of a comprehensive skincare routine. Address underlying causes like environmental factors, diet, and any skin conditions with your dermatologist.
+
+### What type of CBD product is best for dry skin?
+
+For dry skin, look for topical products (creams, lotions, balms) with 0.3-3% CBD combined with other moisturizing ingredients like ceramides, hyaluronic acid, or natural oils. Full-spectrum products may offer additional benefits from other cannabinoids and terpenes.
+
+### How long until I see results from CBD for dry skin?
+
+Based on clinical studies, improvements in hydration can be measured within 2-4 weeks of consistent use, with more significant changes after 6-8 weeks. Individual results vary based on skin condition and product quality.
+
+### Can I use CBD with my regular moisturizer?
+
+Yes. CBD products can be layered with other skincare. Apply lighter products first (serums, then CBD cream, then heavier moisturizers if needed). There are no known interactions between CBD and common moisturizing ingredients.
+
+### Is CBD safe for sensitive dry skin?
+
+Studies show topical CBD is generally well-tolerated. However, if you have sensitive skin, patch test any new product first. Choose CBD products without potential irritants like fragrances, alcohol, or essential oils.
+
+---
+
+## References
+
+I reviewed 56 skin-related studies for this article. Key sources:
+
+1. **Anti-aging gel with CBD and EPA** (2023). *Clinical evaluation*.
+   [Summary](/research/study/in-vitro-ex-vivo-and-clinical-evaluation-of-antiaging-gel-co-2023-16969f)
+
+2. **CBD facial cream hydration study** (2020).
+   [Summary](/research/study/cbd-arthritis-granados-2020)
+
+3. **Therapeutic Potential of CBD for Skin Health** (2020).
+   [Summary](/research/study/therapeutic-potential-of-cannabidiol-cbd-for-skin-health-and-2020-1bd020)
+
+4. **Cannabis extracts on skin cells** (2021).
+   [Summary](/research/study/positive-effect-of-cannabis-sativa-l-herb-extracts-on-skin-c-2021-94f5a6)
+
+[View all skin-related studies on CBD](/research?topic=eczema)
+
+---
+
+## Cite This Research
+
+**For journalists and researchers:**
+
+CBD Portal. (2026). "CBD and Dry Skin: What the Research Shows."
+Retrieved from https://cbd-portal.com/knowledge/cbd-and-dry-skin
+
+**Quick stats:**
+- Skin studies reviewed: 56
+- Evidence for hydration: Moderate
+- Evidence strength: Limited
+
+Last updated: January 2026
+Author: Robin Roy Krigslund-Hansen
+
+---
+
+*This article is for informational purposes only. It is not medical advice. Consult a healthcare professional before using CBD, especially if you have a medical condition or take medications.*

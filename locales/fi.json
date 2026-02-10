@@ -570,8 +570,8 @@
     "safetyVerification": "Turvallisuuden varmennus",
     "potencyValidation": "Tehon validointi",
     "contaminantChecking": "Epäpuhtauksien tarkistus",
-    "metaTitle": "CBD Tools & Calculators | Dosage, Interactions, Cost",
-    "metaDescription": "Evidence-based CBD tools including dosage calculator, drug interaction checker, cost calculator, and strength converter.",
+    "metaTitle": "CBD-työkalut ja -laskurit | Annostus, yhteisvaikutukset, kustannukset",
+    "metaDescription": "Näyttöön perustuvat CBD-työkalut, mukaan lukien annostuslaskuri, lääkeyhteisvaikutusten tarkistaja, kustannuslaskuri ja vahvuusmuunnin.",
     "featuresLabel": "Features"
   },
   "researchPage": {
@@ -1233,7 +1233,7 @@
     "dosing": "Dosing",
     "dosing_desc": "Dosage guidelines and administration",
     "plant": "Plant",
-    "plant_desc": "Cannabis plant, strains and cultivation"
+    "plant_desc": "Kannasbiskasvi, lajikkeet ja viljely"
   },
   "researchFilters": {
     "condition": "Condition",
@@ -1582,7 +1582,7 @@
     "writersText": "All content on CBD Portal is written by verified industry experts with real-world experience in CBD product development, research, or healthcare. Our authors have:",
     "writersItem1": "Demonstrated expertise in the CBD or cannabis industry",
     "writersItem2": "Verifiable professional backgrounds",
-    "writersItem3": "Commitment to evidence-based reporting",
+    "writersItem3": "Sitoutuminen näyttöön perustuvaan raportointiin",
     "methodologyTitle": "Research Methodology",
     "methodologyText": "Our research process includes:",
     "sourceTitle": "1. Primary Source Review",
@@ -1753,7 +1753,7 @@
     "articlesConditions": "{{articles}} articles • {{conditions}} conditions",
     "description": "From puppies to senior dogs, find research-backed information on CBD dosing, safety, and effectiveness for canine companions.",
     "safetyNote": "Safety Note:",
-    "dogDosageCalculator": "Dog Dosage Calculator",
+    "dogDosageCalculator": "Koiran annostuslaskuri",
     "allPets": "All Pets",
     "dogHealthConditions": "Dog Health Conditions",
     "dogCBDArticles": "Dog CBD Articles",
@@ -1776,7 +1776,7 @@
     "articlesConditions": "{{articles}} articles • {{conditions}} conditions",
     "description": "Cats require special consideration when it comes to CBD - they metabolize compounds differently than dogs.",
     "important": "Important:",
-    "catDosageCalculator": "Cat Dosage Calculator",
+    "catDosageCalculator": "Kissan annostuslaskuri",
     "allPets": "All Pets",
     "catHealthConditions": "Cat Health Conditions",
     "catCBDArticles": "Cat CBD Articles",

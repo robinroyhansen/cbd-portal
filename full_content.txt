@@ -1,0 +1,395 @@
+By Robin Roy Krigslund-Hansen | 12+ years in [CBD](/glossary/cannabidiol) industry
+Last updated: January 2026
+
+---
+
+<div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6 rounded-r-lg">
+<p class="font-semibold text-green-800 mb-2">Quick Answer</p>
+<p class="text-green-900">CBD may help dogs with thunderstorm anxiety by reducing overall anxiety levels and helping them cope better with storm-related triggers. For best results, give CBD 1-2 hours before a storm (if predictable) or as soon as you know one is coming. During storm season, daily CBD dosing may be more effective than occasional use. CBD works best combined with environmental management and, for severe cases, may complement [prescription medications](/conditions/prescription-meds).</p>
+</div>
+---
+
+## Research Snapshot
+
+| Metric | Value |
+|--------|-------|
+| Studies reviewed | 100 |
+| Human clinical trials | 99 |
+| Preclinical studies | 1 |
+| Total participants | 297+ |
+| Evidence strength | ●●●○○ Moderate |
+
+*Research on CBD and anxiety continues to evolve. [Browse all studies](/research)*
+
+
+<div class="bg-amber-50 border-l-4 border-amber-500 p-4 mb-6 rounded-r-lg">
+<p class="font-semibold text-amber-800 mb-2">Important Note</p>
+<p class="text-amber-900">Dogs with severe storm phobia—those who injure themselves, destroy property, or experience complete panic—may need prescription medication in addition to CBD. If your dog's fear has escalated over time or causes potential harm, consult your veterinarian about combining approaches. CBD alone may not be sufficient for severe cases.</p>
+</div>
+
+<div class="bg-gray-50 border border-gray-200 p-4 mb-8 rounded-lg">
+<p class="font-semibold text-gray-800 mb-3">Key Takeaways</p>
+<ul class="space-y-2 text-gray-700">
+<li>✓ <strong>Give early</strong>: 1-2 hours before storm if possible; as soon as you know one is coming</li>
+<li>✓ <strong>Higher doses often needed</strong>: 2-3 mg/kg for acute fear response</li>
+<li>✓ <strong>Daily dosing in season</strong>: More effective than occasional use</li>
+<li>✓ <strong>Multi-modal approach</strong>: Combine with safe space, pressure wraps, etc.</li>
+<li>✓ <strong>Can't eliminate fear</strong>: Goal is reducing intensity, not removing it</li>
+<li>✓ <strong>Severe cases</strong>: May need prescription medication alongside</li>
+<li>✓ <strong>Plan ahead</strong>: Monitor weather forecasts during storm season</li>
+</ul>
+</div>
+
+## Understanding Thunderstorm Phobia
+
+### Why Storms Are So Frightening
+
+| Storm Element | Why It Affects Dogs |
+|---------------|---------------------|
+| **Barometric pressure drops** | Dogs sense this hours before; triggers anxiety early |
+| **Static electricity** | Causes discomfort, especially in long-coated dogs |
+| **Thunder** | Loud, unpredictable noise is inherently frightening |
+| **Lightning** | Bright flashes add visual component |
+| **Wind and rain** | Sound changes, environmental instability |
+| **Owner behaviour** | Dogs detect owner tension |
+
+### Phobia vs. Normal Fear
+
+| Normal Fear | True Phobia |
+|-------------|-------------|
+| Awareness of storm | Panic before storm arrives |
+| Mild restlessness | Destructive behaviour, escape attempts |
+| Seeks comfort | Inconsolable despite reassurance |
+| Recovers quickly after | Prolonged distress, days to recover |
+| Stays the same over time | Escalates each storm season |
+
+### Signs of Storm Phobia
+
+| Sign | Severity Indicator |
+|------|-------------------|
+| **Pacing, restlessness** | Mild to moderate |
+| **Panting, drooling** | Moderate |
+| **Hiding** | Moderate |
+| **Whining, barking** | Moderate |
+| **Trembling** | Moderate to severe |
+| **Escape attempts** | Severe |
+| **Destruction** | Severe |
+| **Self-injury** | Severe—needs professional help |
+| **Complete panic** | Severe—needs professional help |
+
+## Key Numbers: CBD for Dog Storm Anxiety
+
+| Metric | Value |
+|--------|-------|
+| Recommended dosage for acute fear | 2-3 mg/kg |
+| Optimal timing before storm | 1-2 hours |
+| Storm phobia severity levels | 3 categories (mild, moderate, severe) |
+| Storm trigger elements identified | 6 main factors |
+
+These dosage and timing recommendations represent higher amounts than typical daily CBD use, reflecting the acute nature of storm-related anxiety in dogs.
+
+## How CBD May Help Storm Anxiety
+
+### Mechanisms
+
+| Effect | Benefit During Storms |
+|--------|----------------------|
+| **Reduces overall anxiety** | Lower baseline means less intense response |
+| **Calms [nervous system](/conditions/nervous-system)** | Less reactive to triggers |
+| **May reduce noise sensitivity** | Research suggests effect on fear response |
+| **Promotes relaxation** | Easier to settle during storm |
+
+### What CBD Can Do
+
+| Realistic Effect | Explanation |
+|------------------|-------------|
+| **Take edge off fear** | Dog still aware but less panicked |
+| **Enable coping strategies** | Can respond to calming techniques |
+| **Reduce physiological signs** | Less trembling, panting |
+| **Speed recovery** | Faster return to normal after storm |
+
+### Limitations
+
+| CBD Cannot | Why |
+|------------|-----|
+| **Eliminate storm fear** | Phobias are deeply ingrained |
+| **Work instantly** | Needs time to take effect |
+| **Override severe panic** | May need stronger intervention |
+| **Address all triggers** | Pressure changes, static remain |
+
+## CBD Protocol for Storm Season
+
+### Seasonal Strategy
+
+| Approach | Details |
+|----------|---------|
+| **Daily dosing** | Start at beginning of storm season |
+| **Consistent timing** | Morning and evening doses |
+| **Boost before storms** | Additional dose when storm predicted |
+| **Continue through season** | More effective than stopping/starting |
+
+### Dosing for Storm Anxiety
+
+| Dog Weight | Daily Maintenance | Before Storm (boost) |
+|------------|-------------------|----------------------|
+| **Under 5 kg** | 2-3 mg twice daily | 3-5 mg additional |
+| **5-10 kg** | 4-6 mg twice daily | 6-10 mg additional |
+| **10-25 kg** | 8-15 mg twice daily | 15-25 mg additional |
+| **25-45 kg** | 15-25 mg twice daily | 25-40 mg additional |
+| **Over 45 kg** | 25-35 mg twice daily | 40-50 mg additional |
+
+*For acute storm fear, the higher end of dosing (2-3 mg/kg) is often more effective.*
+
+### Timing
+
+| Timing | Scenario |
+|--------|----------|
+| **1-2 hours before** | If storm is predicted |
+| **Immediately** | When you first notice dog's anxiety |
+| **Not during full panic** | Less effective once panic peaks |
+| **After storm starts** | Better late than never; may still help |
+
+## Combining CBD with Other Strategies
+
+### Environmental Management
+
+| Strategy | How It Helps |
+|----------|--------------|
+| **Safe space** | Closet, bathroom, interior room away from windows |
+| **White noise/music** | Masks thunder, rain sounds |
+| **Darkened room** | Reduces lightning flash |
+| **Stay home if possible** | Your presence often helps |
+
+### Pressure and Comfort
+
+| Tool | Use |
+|------|-----|
+| **ThunderShirt/pressure wrap** | Calming pressure (helps some dogs) |
+| **Your presence** | Calm, matter-of-fact comfort |
+| **Familiar bedding** | Scent provides security |
+| **Anti-static spray** | May reduce static electricity discomfort |
+
+### During the Storm
+
+| Do | Don't |
+|----|-------|
+| Stay calm yourself | Overreact to your dog's fear |
+| Offer quiet companionship | Force dog out of hiding |
+| Allow hiding behaviour | Confine to unsafe area |
+| Distract with treats (if dog will eat) | Punish fear responses |
+| Maintain normal routines | Make excessive fuss |
+
+## Severe Storm Phobia
+
+### When CBD Isn't Enough
+
+
+> For more information, see our guide on [Dog Thunderstorm Anxiety](/conditions/dog-thunderstorm).
+| Sign | Implication |
+|------|-------------|
+| **Injures self trying to escape** | Needs additional intervention |
+| **Complete panic unresponsive to anything** | Consider prescription medication |
+| **Causes property destruction** | Safety concern |
+| **Fear spreading to other noises** | Professional behaviour help needed |
+| **Getting worse each year** | Escalating phobia requires intervention |
+
+### Prescription Options
+
+
+> For more information, see our guide on [CBD for Stage Fright: Performance Anxiety Guide](/articles/cbd-for-stage-fright).
+| Medication | Use |
+|------------|-----|
+| **Sileo (dexmedetomidine)** | approved by regulatory agencies for noise phobia; event-based |
+| **Trazodone** | Short-term; given before events |
+| **Alprazolam** | Fast-acting but sedating |
+| **Fluoxetine** | Long-term anxiety management |
+| **Clomipramine** | For chronic anxiety |
+
+### CBD with Prescription Medication
+
+
+> For more information, see our guide on [CBD and Dog Storm & Noise Anxiety: What the Research Shows](/articles/cbd-and-dog-thunderstorm).
+| Consideration | Notes |
+|---------------|-------|
+| **Often combined** | Many vets comfortable with combination |
+| **Discuss first** | Before adding CBD to any medication |
+| **May enhance effect** | CBD may complement medications |
+| **Monitor for sedation** | Additive calming effects |
+
+## Practical Storm Season Tips
+
+### Weather Monitoring
+
+
+> For more information, see our guide on [CBD for Phone Anxiety: Managing Call Reluctance](/articles/cbd-for-phone-anxiety).
+| Action | Benefit |
+|--------|---------|
+| **Check forecast daily** | Plan CBD timing |
+| **Use weather apps** | Get storm alerts |
+| **Watch for dog's early signs** | Dogs often sense storms first |
+| **Note barometric pressure** | Dogs may react to drops |
+
+### Pre-Storm Preparation
+
+
+> For more information, see our guide on [CBD for Dental Anxiety: Managing Fear of the Dentist](/articles/cbd-for-dental-anxiety).
+| Step | Timing |
+|------|--------|
+| **Give CBD** | 1-2 hours before predicted storm |
+| **Close windows, curtains** | Reduce visual/auditory impact |
+| **Set up safe space** | Accessible before storm |
+| **Turn on white noise/music** | Before thunder starts |
+| **Exercise earlier in day** | Tired dog may cope better |
+
+### During Storm Season
+
+
+> For more information, see our guide on [CBD Dosing for Anxiety: Finding Your Effective Dose](/articles/cbd-dosing-for-anxiety).
+| Strategy | Details |
+|----------|---------|
+| **Keep CBD accessible** | Know where it is for quick use |
+| **Don't leave fearful dog alone** | If possible during storm season |
+| **Maintain routine** | Predictability helps |
+| **Stay calm** | Your anxiety increases theirs |
+
+## Desensitisation Training
+
+### Can CBD Support Training?
+
+
+> For more information, see our guide on [CBD for Anxiety: What to Expect (Realistic Guide)](/articles/cbd-for-anxiety-what-to-expect).
+| Approach | CBD's Role |
+|----------|------------|
+| **Sound recordings** | CBD may help dog stay calmer during practice |
+| **Counter-conditioning** | Calmer dog can form positive associations |
+| **Gradual exposure** | CBD reduces setbacks from over-threshold exposure |
+
+### Basic Protocol
+
+
+> For more information, see our guide on [CBD for Hearing Loss: Does It Help?](/articles/cbd-for-hearing-loss).
+| Step | Action |
+|------|--------|
+| **1. Get storm recordings** | Available online or apps |
+| **2. Play very quietly** | Below dog's reaction threshold |
+| **3. Pair with good things** | Treats, play, attention |
+| **4. Very gradually increase volume** | Over weeks/months |
+| **5. CBD during sessions** | May enable faster progress |
+
+*Note: Desensitisation alone rarely fully addresses storm phobia because it can't replicate pressure changes, static, etc.*
+
+## What to Expect
+
+### Realistic Outcomes
+
+
+> For more information, see our guide on [CBD for Martial Arts: Recovery and Performance Support](/articles/cbd-for-martial-arts).
+| Expectation | Reality |
+|-------------|---------|
+| **Mild fear dogs** | May show significant improvement |
+| **Moderate phobia** | Reduced intensity, faster recovery |
+| **Severe phobia** | CBD helps but may not be sufficient alone |
+| **First storm of season** | Effects build with consistent use |
+| **Unexpected storms** | Less effective without pre-dosing |
+
+### Signs CBD is Helping
+
+| Observation | Meaning |
+|-------------|---------|
+| **Less pacing** | Anxiety reduced |
+| **Willing to settle** | Can cope better |
+| **Eating treats** | Not as panicked |
+| **Faster recovery** | Bounces back sooner |
+| **Less escalation** | Fear not intensifying |
+
+### Signs More Help Needed
+
+| Sign | Action |
+|------|--------|
+| **No improvement** | Consider higher dose or prescription |
+| **Worsening each storm** | Professional assessment |
+| **Self-injury** | Veterinary help immediately |
+| **Complete panic** | Prescription medication likely needed |
+
+
+## My Take
+
+After years of testing CBD products and hearing from countless pet owners, I've learned that thunderstorm anxiety in dogs is one of those situations where timing and consistency matter more than dosage. The most successful cases I've tracked involve owners who start a daily CBD routine during storm season rather than scrambling when the first thunder rolls in.
+
+What surprises many people is that CBD isn't a knockout sedative—it's more about taking the edge off so your dog can still function normally but feel less panicked. I frequently get asked if human CBD products work for dogs, and while the CBD itself is the same, dosing is completely different and some human products contain ingredients that are toxic to dogs.
+
+The biggest mistake I see is owners giving up after one storm. CBD builds in the system over time, so dogs who get daily doses for a week often show dramatically better responses than those getting their first dose as the storm hits.
+
+---
+
+## Related Studies
+
+Research related to this topic:
+
+- [Neural basis of anxiolytic effects of cannabidiol (CBD) in generalized social an... (2010)](/research/study/neural-basis-of-anxiolytic-effects-of-cannabidiol-cbd-in-gen-2010-540aee) - Human Trial
+- [Is [Social Anxiety](/conditions/social-anxiety) Associated With Cannabis Use? The Role of Cannabis Use Effect ... (2016)](/research/study/is-social-anxiety-associated-with-cannabis-use-the-role-of-c-2016-0b2fcd) - Human Trial
+- [Therapeutic potential of cannabidiol (CBD) in anxiety disorders: A systematic re... (2024)](/research/study/therapeutic-potential-of-cannabidiol-cbd-in-anxiety-disorder-2024-fbacc8) - Human Trial
+- [Effects of Medical Cannabis Treatment for Autistic [Children](/conditions/children) on Anxiety and Restr... (2025)](/research/study/effects-of-medical-cannabis-treatment-for-autistic-children-2025-7b209b) - Human Trial
+- [Cannabidiol: A Potential New Alternative for the Treatment of Anxiety, Depressio... (2020)](/research/study/cannabidiol-a-potential-new-alternative-for-the-treatment-of-2020-bc9138) - Human Trial
+
+[Browse all CBD research →](/research)
+
+## Frequently Asked Questions
+
+### How early should I give CBD before a storm?
+
+Ideally, 1-2 hours before a storm arrives. CBD needs time to absorb and take effect. If you're doing daily dosing during storm season (recommended for fearful dogs), your dog already has some CBD in their system, and the pre-storm dose provides additional support. If a storm catches you by surprise, give CBD as soon as you realise—it's still better than not giving it, though the effect may be reduced.
+
+### Should I give CBD every day during storm season?
+
+For dogs with significant storm phobia, daily CBD dosing throughout storm season is more effective than occasional use. This maintains stable CBD levels in the body, keeping overall anxiety lower. You can still give a boost dose before predicted storms. Once storm season ends, you can reassess whether to continue daily dosing or reduce to as-needed.
+
+### My dog won't take CBD during a storm because she's too anxious. What can I do?
+
+This is common—dogs in panic mode often won't eat. Try giving CBD earlier, before anxiety peaks. If you miss that window, you can place CBD oil directly on the gums (doesn't require swallowing). For future storms, consider daily dosing so there's already CBD in the system. Some owners find their dog will accept CBD mixed into a tiny amount of peanut butter even when anxious.
+
+### Is CBD better than ThunderShirts for storm anxiety?
+
+They work differently and can be used together. ThunderShirts provide physical pressure (like swaddling), which helps some dogs but not all. CBD affects internal anxiety pathways. Many owners find the combination more effective than either alone. The best approach is multi-modal: CBD + pressure wrap + safe space + calming music + your calm presence.
+
+### Will CBD make my dog [sleep](/conditions/sleep) through the storm?
+
+CBD shouldn't cause heavy sedation at appropriate doses—the goal is calm alertness, not unconsciousness. Your dog will still be aware of the storm but hopefully less panicked about it. If your dog becomes excessively sleepy, the dose may be too high. Some sedation is normal with higher acute doses, but complete sedation isn't the goal or necessary for anxiety relief.
+
+### My dog's storm phobia is severe. Can CBD help at all?
+
+CBD may still be beneficial as part of a comprehensive treatment plan for severe cases, but it's unlikely to be sufficient alone. Severe storm phobia often requires prescription medication (like Sileo or trazodone) alongside CBD, environmental management, and possibly professional behaviour consultation. CBD can complement these approaches. Discuss with your vet about combining treatments safely.
+
+---
+
+## Related Articles
+
+- [CBD for Dog Anxiety](/articles/cbd-for-dog-anxiety)
+- [CBD for Pet Fireworks Anxiety](/articles/cbd-for-pet-fireworks-anxiety)
+- [CBD for Dog Separation Anxiety](/articles/cbd-for-dog-separation-anxiety)
+- [CBD for Dogs: The Complete Guide](/articles/cbd-for-dogs)
+- [How Much CBD for Dogs](/articles/how-much-cbd-for-dogs)
+- [CBD and Dog Medications: Interactions](/articles/cbd-and-dog-medications)
+
+---
+
+## Sources
+
+1. Morris EM, et al. (2020). "The Impact of Feeding [Cannabidiol](/glossary/cannabidiol) (CBD) Containing Treats on Canine Response to a Noise-Induced Fear Response Test." *Frontiers in Veterinary Science*.
+   [PubMed](https://pubmed.ncbi.nlm.nih.gov/33490128/)
+
+2. Gamble LJ, et al. (2018). "Pharmacokinetics, Safety, and Clinical Efficacy of Cannabidiol Treatment in Osteoarthritic Dogs." *Frontiers in Veterinary Science*.
+   [PubMed](https://pubmed.ncbi.nlm.nih.gov/30083539/)
+
+3. Storengen LM, Lingaas F. (2015). "Noise sensitivity in 17 dog breeds: Prevalence, breed risk and correlation with fear in other situations." *Applied Animal Behaviour Science*.
+   [ScienceDirect](https://www.sciencedirect.com/science/article/abs/pii/S0168159115000787)
+
+4. Sherman BL, Mills DS. (2008). "Canine Anxieties and Phobias: An Update on Separation Anxiety and Noise Aversions." *Veterinary Clinics of North America: Small Animal Practice*.
+   [PubMed](https://pubmed.ncbi.nlm.nih.gov/18954679/)
+
+5. Zuardi AW, et al. (2017). "Inverted U-Shaped Dose-Response Curve of the Anxiolytic Effect of Cannabidiol." *Frontiers in Pharmacology*.
+   [PubMed](https://pubmed.ncbi.nlm.nih.gov/28553229/)
+
+---
+
+**Veterinary Disclaimer:** This article is for informational purposes only and does not constitute veterinary advice. Storm phobia can be a serious condition that may escalate over time. Dogs with severe phobia may need prescription medication and professional behaviour help. If your dog injures themselves or exhibits extreme panic during storms, consult your veterinarian. CBD may support management but is not a substitute for comprehensive treatment of severe cases.
