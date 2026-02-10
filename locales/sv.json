@@ -217,7 +217,13 @@
     "title": "Bläddra efter tillstånd",
     "description": "Utforska evidensbaserad CBD-forskning inom {{count}} hälsotillstånd. Varje studie analyserad, bedömd och sammanfattad i klarspråk.",
     "browseAll": "Bläddra igenom alla {{count}} tillstånd",
-    "studiesCount": "{{count}} studier"
+    "studiesCount": "{{count}} studier",
+    "diveDeeper": "Fördjupa dig i forskningen",
+    "diveDescription": "Få tillgång till vår omfattande databas med {{count}}+ peer-reviewade studier, alla kvalitetsbedömda och sammanfattade i lättförståelig text.",
+    "browseResearch": "Utforska forskning",
+    "calculateDosage": "Beräkna dosering",
+    "medicalDisclaimer": "Medicinsk friskrivning",
+    "medicalDisclaimerText": "Informationen som tillhandahålls är endast för utbildningsändamål och är inte avsedd som medicinsk rådgivning. CBD-forskning pågår fortfarande och individuella resultat kan variera. Konsultera alltid en vårdprofessionell innan du börjar med ett nytt kosttillskott, särskilt om du har ett medicinskt tillstånd eller tar mediciner."
   },
   "research": {
     "title": "Senaste studier",

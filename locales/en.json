@@ -203,7 +203,13 @@
     "title": "Browse by Condition",
     "description": "Explore evidence-based CBD research across {{count}} health conditions. Every study analyzed, scored, and summarized in plain language.",
     "browseAll": "Browse All {{count}} Conditions",
-    "studiesCount": "{{count}} studies"
+    "studiesCount": "{{count}} studies",
+    "diveDeeper": "Dive Deeper into the Research",
+    "diveDescription": "Access our comprehensive database of {{count}}+ peer-reviewed studies, each quality-scored and summarized in plain language.",
+    "browseResearch": "Browse Research",
+    "calculateDosage": "Calculate Dosage",
+    "medicalDisclaimer": "Medical Disclaimer",
+    "medicalDisclaimerText": "The information provided is for educational purposes only and is not intended as medical advice. CBD research is ongoing, and individual results may vary. Always consult with a healthcare professional before starting any new supplement, especially if you have a medical condition or take medications."
   },
   "evidence": {
     "strong": "Strong",
